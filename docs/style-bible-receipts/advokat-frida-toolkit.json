@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "slug": "advokat-frida-toolkit",
+  "workingTitle": "The Advokat Frida Toolkit - private integration shell",
+  "family": "standalone-shell",
+  "readerJob": "Give privacy, legal, product, and engineering practitioners one stable place to choose and use the right Advokat Frida tool without hunting across separate URLs or relearning the interface each time.",
+  "contentScope": "new-body",
+  "styleBible": {
+    "inventorySource": "style-bible/src/lib/styleBible.js",
+    "inventorySha256": "1ceaf0628c42eb4bc163605903ebcd26079caa1c7f772ecc1422edb66b68f288",
+    "auditSource": "style-bible/AUDIT.md",
+    "auditSha256": "61dede66fc11a9215a5ef7a1f2ee64f6c7798c64696a8337885c027d5dce4b1b",
+    "readAt": "2026-08-27"
+  },
+  "patterns": [
+    {
+      "id": "semantic-card",
+      "useBecause": "The five tools are true sibling choices with parallel names, job descriptions, and direct entrances on the Home view.",
+      "avoidWhen": "Do not box ordinary orientation copy, navigation labels, or every setting into card soup."
+    },
+    {
+      "id": "zippy",
+      "useBecause": "The full Toolkit changelog remains available in one closed, full-width disclosure at the bottom without pushing the five tools below a permanent wall of history.",
+      "avoidWhen": "Do not hide the active tool, a required task step, or an action-local boundary."
+    },
+    {
+      "id": "cta-pair",
+      "useBecause": "A tool card may pair the primary Open tool action with a secondary Read the article link when a real explanatory article exists.",
+      "avoidWhen": "Do not add a third action, vague learn-more language, or an article link that is not canonical."
+    },
+    {
+      "id": "outcome-receipt",
+      "useBecause": "Each source tool keeps its own portable result, ruling, prompt, seed, redaction, or wizard output inside the shared shell.",
+      "avoidWhen": "Do not manufacture a Toolkit-wide receipt for navigation or imply that visiting multiple tools creates an audit record."
+    }
+  ],
+  "liveReferences": [
+    {
+      "url": "https://advokatfrida.com/safeseed/",
+      "observed": "SafeSeed establishes the practical action hierarchy, evidence-first explanation, and source-owned tool boundary that the consolidated shell must preserve.",
+      "boundary": "The Toolkit does not copy SafeSeed's data tables, CI workflow, or briefing layout into every tool."
+    },
+    {
+      "url": "https://advokatfrida.com/assets/prompt-builder.html",
+      "observed": "Build-A-Prompt proves structured composition, local state, exact copying, and a portable output that belongs in a focused workspace.",
+      "boundary": "Its dense historical workbench is evidence, not the shared navigation or Home-page anatomy."
+    },
+    {
+      "url": "https://advokatfrida.com/assets/wizards.html",
+      "observed": "Privacy Wizards Council proves direct task selection, source attachment, deep links, and a fileable answer.",
+      "boundary": "Its wizard roster and legal decision model remain tool-specific rather than becoming global Toolkit chrome."
+    }
+  ],
+  "email": {
+    "mode": "web-only",
+    "counterpartPlan": "Existing and future articles remain promotional or explanatory surfaces and link to the canonical Toolkit. Email and editorial pages must not duplicate the interactive multi-tool shell."
+  },
+  "responsive": {
+    "desktop": "At 1440x1000 and the reported 1439x726 working viewport, use a compact persistent square-shadow side rail that begins directly with Home, with no separate brand cap or empty header strip. Put one AF tile at the right of the Home header, show all five Home choices and their primary entrances without scrolling, use a 42px Anton Home title, keep each parent tool header at or below 100px, and expose the active tool's first useful control in the remaining stage. Use the compact role scale rather than browser zoom or CSS scaling.",
+    "mobile": "At 390x844 and 320x700, use a compact top brand bar plus a focus-managed tool chooser, hide the duplicate Home-header AF tile, use one content column, a 30px Anton Home title, fully visible primary actions, equal-width paired toggles, 16px editable controls to prevent focus zoom, no covered content, and no document-width overflow."
+  },
+  "accessibility": {
+    "keyboard": "Every Home card, persistent navigation item, tool action, changelog disclosure, and mobile chooser works by keyboard with visible focus. Switching tools moves focus to the active tool title, and closing the mobile chooser returns focus to its trigger.",
+    "semantics": "Use one H1 per active view, a skip link, native navigation and links, buttons only for state changes, aria-current for the active route, labelled controls, decorative non-focusable SVG beside every complete navigation label, native details and summary for the Changelog, and concise live status only where a source tool already earns it.",
+    "contrast": "Use canonical AF ink, paper, ground, forest, teal, indigo, amber, and red roles. Repeat active, selected, warning, and error meaning in text or shape; the 2px borders, 4px offset shadows, and focus indicators remain distinct at literal size."
+  },
+  "javascript": {
+    "decision": "earned",
+    "reason": "JavaScript earns its place through local route switching, history and deep-link restoration, focus management, mobile navigation, source-tool integration, and iframe or adapter sizing. Home orientation and tool descriptions remain readable without JavaScript."
+  },
+  "conflicts": [
+    "FAMILY-CHROME currently assigns 4px radii to rectangular surfaces. Ben selected a Toolkit-specific square-shadow variant on 2026-08-27: Toolkit cards, panels, navigation blocks, and primary buttons use 0px radius with a solid 4px by 4px ink offset shadow; tool-specific semantic chips may retain round geometry. Home launcher pills are removed. This is a scoped Toolkit extension, not an editorial-site redesign.",
+    "The standalone-shell family assumes one single-purpose workbench. The Toolkit is an explicitly approved application-shell variant: persistent shared navigation surrounds one active task stage, while each source tool keeps its own focused flow and portable exit.",
+    "Older voice guidance called for blanket legal and privacy disclaimer stacks. The current anti-theater rule wins: the Toolkit adds no global not-legal-advice, privacy, license, or accountability stack and shows only an action-local boundary when it changes the next action.",
+    "The workspace historically keeps one repository per tool. Consolidation changes the user-facing destination, not source ownership: the local Toolkit shell aggregates the five source tools while their repositories remain authoritative until Ben approves a different graduation plan."
+  ],
+  "decisions": [
+    "Name the product The Advokat Frida Toolkit and describe it as a privacy and AI Swiss army knife without using that metaphor as empty hero copy.",
+    "Ship one Home view plus SafeSeed, Redactorium, Privacy Wizards Council, Build-A-Prompt, and Objection Oracle routes inside one persistent shell.",
+    "Use a left side rail on desktop because it scales as the toolset grows; begin it directly with Home and keep branding in the Home header instead of a separate rail cap. Transform the rail into a compact top bar and focus-managed chooser on mobile, where the top bar supplies the only AF tile.",
+    "Keep the Home view useful: a short welcome, five direct tool entrances, and one closed full-width Changelog at the bottom. Do not add an announcement card, publication explainer, local-build status block, or other maintenance furniture. Tool-specific release detail stays with its source tool when it affects that tool's operation.",
+    "Keep existing website articles unchanged and use them only as secondary explanatory links. Every newly approved tool joins this Toolkit moving forward.",
+    "Use the exact Home orientation ADVOKAT FRIDA / THE TOOLKIT / The privacy practitioners swiss army knife. Ask What's on your desk today? without a category eyebrow.",
+    "Replace rail initials with locally vendored Lucide Static 1.31.0 icons that name each job without replacing its visible label: house, eraser, sprout, wand-sparkles, message-square-code, and circle-dot. Lucide has no native 8-ball or crystal-ball glyph, so use circle-dot as the closest ball silhouette for Objection Oracle.",
+    "Keep the closed full-width Changelog summary compact: one Changelog label plus its state cue, with no secondary maintenance tagline.",
+    "Use Space Grotesk for interface copy and headings, Archivo for labels, Anton for display type, canonical AF colors, 2px ink structural borders, square rectangular geometry, and solid 4px by 4px ink offset shadows.",
+    "Treat the Toolkit as the only application shell. In Toolkit mode, neutralize whole-tool standalone wrappers so SafeSeed, Build-A-Prompt, and Privacy Wizards Council use the full task canvas; preserve meaningful file, recipe, choice, question, source, result, and receipt cards inside each workflow.",
+    "Use one compact embedded-tool type hierarchy across the five tools: 22px Space Grotesk task headings, 18px section headings, 16px card titles, 15px core reading and desktop editable controls, 13px secondary explanation, 14px Archivo action text, 11px Archivo labels, 12px Archivo status pills, and 14px monospace only for generated data, code, hashes, and receipts. Small-screen editable controls return to 16px to prevent browser focus zoom.",
+    "Keep repeated control rows optically even. SafeSeed field names and field-type selects use the same Space Grotesk control face and 44px height at every size; the selected type may not visually outrank the editable field name.",
+    "Use the live site's font roles at a pocket-workbench scale: 42px Anton on desktop, 30px on mobile, with Home tool-card titles at 18px desktop and 16px mobile.",
+    "Treat density as product behavior: Anton is a compact nameplate rather than a page-filling poster, the desktop rail stays near 220px, Home uses a three-column five-card chooser at ordinary desktop widths, cards avoid fixed promotional height, and orientation never displaces the active task.",
+    "Give the Choose a file action and every equivalent primary action the same visible offset shadow as cards; use an active press state that collapses the shadow without changing layout.",
+    "Make paired mode toggles such as Single file and Batch equal-width regardless of label length.",
+    "Do not add Redactorium's Alfa Slab or DM Serif typography, yellow paper palette, global grain, or heavy multi-layer shadows.",
+    "Preserve each tool's behavior, local-processing boundary, tests, and source authority. Integration may adapt duplicate chrome and sizing but does not silently rewrite legal content or tool logic.",
+    "Build and verify a private source-control candidate only. No public release, website sync, Ghost change, deployment, publication, DNS, analytics, or announcement is included."
+  ],
+  "releaseBoundary": "private-source-control-only"
+}

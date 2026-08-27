@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "./static/css/main.baf69709.css",
+    "main.js": "./static/js/main.22a4ff04.js",
+    "static/js/283.80357413.chunk.js": "./static/js/283.80357413.chunk.js",
+    "static/js/239.5ce464f3.chunk.js": "./static/js/239.5ce464f3.chunk.js",
+    "static/js/977.c3d9b224.chunk.js": "./static/js/977.c3d9b224.chunk.js",
+    "static/js/732.1410e611.chunk.js": "./static/js/732.1410e611.chunk.js",
+    "static/media/archivo-400-latin.woff2": "./static/media/archivo-400-latin.577248e7dc1a9a584db2.woff2",
+    "static/media/archivo-700-latin.woff2": "./static/media/archivo-700-latin.577248e7dc1a9a584db2.woff2",
+    "static/media/spacegrotesk-400-latin.woff2": "./static/media/spacegrotesk-400-latin.689e6485b7e1094b1b7d.woff2",
+    "static/media/spacegrotesk-600-latin.woff2": "./static/media/spacegrotesk-600-latin.689e6485b7e1094b1b7d.woff2",
+    "static/media/spacegrotesk-700-latin.woff2": "./static/media/spacegrotesk-700-latin.689e6485b7e1094b1b7d.woff2",
+    "static/media/anton-400-latin.woff2": "./static/media/anton-400-latin.3d62441680a12bbe4cde.woff2",
+    "index.html": "./index.html",
+    "main.baf69709.css.map": "./static/css/main.baf69709.css.map",
+    "main.22a4ff04.js.map": "./static/js/main.22a4ff04.js.map",
+    "283.80357413.chunk.js.map": "./static/js/283.80357413.chunk.js.map",
+    "239.5ce464f3.chunk.js.map": "./static/js/239.5ce464f3.chunk.js.map",
+    "977.c3d9b224.chunk.js.map": "./static/js/977.c3d9b224.chunk.js.map",
+    "732.1410e611.chunk.js.map": "./static/js/732.1410e611.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.baf69709.css",
+    "static/js/main.22a4ff04.js"
+  ]
+}

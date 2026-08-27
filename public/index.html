@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#1f4e32" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; connect-src 'self'; frame-src 'self'; img-src 'self' data: blob:; font-src 'self'; style-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
+    />
+    <meta
+      name="description"
+      content="The Advokat Frida Toolkit: five practical privacy and AI tools in one browser workspace."
+    />
+    <link rel="stylesheet" href="/toolkit.css" />
+    <script src="/toolkit.js" defer></script>
+    <title>Home · The Advokat Frida Toolkit</title>
+  </head>
+  <body data-route="home">
+    <a class="skip-link" href="#main-content">Skip to the active tool</a>
+
+    <header class="mobile-bar">
+      <a class="mobile-brand" href="#home" aria-label="The Advokat Frida Toolkit home">
+        <span class="brand-mark" aria-hidden="true">AF</span>
+        <span><strong>Advokat Frida</strong><small>Toolkit</small></span>
+      </a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="toolkit-sidebar">
+        <span aria-hidden="true">☰</span><span>Tools</span>
+      </button>
+    </header>
+
+    <button class="nav-scrim" type="button" aria-label="Close tool navigation" hidden></button>
+
+    <div class="toolkit-shell">
+      <aside class="toolkit-sidebar" id="toolkit-sidebar" aria-label="Toolkit navigation">
+        <button class="nav-close" type="button" aria-label="Close tool navigation">×</button>
+
+        <nav class="tool-nav" aria-label="Tools">
+          <a href="#home" data-route-link="home">
+            <span class="nav-icon" aria-hidden="true">
+              <!-- @license lucide-static v1.31.0 - ISC -->
+              <svg class="lucide lucide-house" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+                <path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+              </svg>
+            </span>
+            <span>Home</span>
+          </a>
+          <a href="#redactorium" data-route-link="redactorium">
+            <span class="nav-icon" aria-hidden="true">
+              <!-- @license lucide-static v1.31.0 - ISC -->
+              <svg class="lucide lucide-eraser" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                <path d="M21 21H8a2 2 0 0 1-1.42-.587l-3.994-3.999a2 2 0 0 1 0-2.828l10-10a2 2 0 0 1 2.829 0l5.999 6a2 2 0 0 1 0 2.828L12.834 21" />
+                <path d="m5.082 11.09 8.828 8.828" />
+              </svg>
+            </span>
+            <span>Redactorium</span>
+          </a>
+          <a href="#safeseed" data-route-link="safeseed">
+            <span class="nav-icon" aria-hidden="true">
+              <!-- @license lucide-static v1.31.0 - ISC -->
+              <svg class="lucide lucide-sprout" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                <path d="M14 9.536V7a4 4 0 0 1 4-4h1.5a.5.5 0 0 1 .5.5V5a4 4 0 0 1-4 4 4 4 0 0 0-4 4c0 2 1 3 1 5a5 5 0 0 1-1 3" />
+                <path d="M4 9a5 5 0 0 1 8 4 5 5 0 0 1-8-4" />
+                <path d="M5 21h14" />
+              </svg>
+            </span>
+            <span>SafeSeed</span>
+          </a>
+          <a href="#privacy-wizards" data-route-link="privacy-wizards">
+            <span class="nav-icon" aria-hidden="true">
+              <!-- @license lucide-static v1.31.0 - ISC -->
+              <svg class="lucide lucide-wand-sparkles" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                <path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72" />
+                <path d="m14 7 3 3" />
+                <path d="M5 6v4" />
+                <path d="M19 14v4" />
+                <path d="M10 2v2" />
+                <path d="M7 8H3" />
+                <path d="M21 16h-4" />
+                <path d="M11 3H9" />
+              </svg>
+            </span>
+            <span>Privacy Wizards</span>
+          </a>
+          <a href="#build-a-prompt" data-route-link="build-a-prompt">
+            <span class="nav-icon" aria-hidden="true">
+              <!-- @license lucide-static v1.31.0 - ISC -->
+              <svg class="lucide lucide-message-square-code" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
+                <path d="m10 8-3 3 3 3" />
+                <path d="m14 14 3-3-3-3" />
+              </svg>
+            </span>
+            <span>Build-A-Prompt</span>
+          </a>
+          <a href="#objection-oracle" data-route-link="objection-oracle">
+            <span class="nav-icon" aria-hidden="true">
+              <!-- @license lucide-static v1.31.0 - ISC -->
+              <svg class="lucide lucide-circle-dot" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                <circle cx="12" cy="12" r="10" />
+                <circle cx="12" cy="12" r="1" />
+              </svg>
+            </span>
+            <span>Objection Oracle</span>
+          </a>
+        </nav>
+      </aside>
+
+      <main class="toolkit-main" id="main-content" tabindex="-1">
+        <section class="view home-view" data-view="home" aria-labelledby="home-title">
+          <div class="home-wrap">
+            <header class="home-hero">
+              <div>
+                <p class="eyebrow">ADVOKAT FRIDA</p>
+                <h1 id="home-title" tabindex="-1">THE TOOLKIT</h1>
+                <p class="home-lede">The privacy practitioners swiss army knife.</p>
+              </div>
+              <span class="brand-mark home-brand-mark" aria-hidden="true">AF</span>
+            </header>
+
+            <section class="tool-section" id="tool-grid" aria-labelledby="tools-title">
+              <div class="section-head">
+                <h2 id="tools-title">What's on your desk today?</h2>
+              </div>
+
+              <div class="tool-grid">
+                <article class="tool-card accent-red">
+                  <span class="tool-number">01</span>
+                  <h3>Redactorium</h3>
+                  <p>Anonymize, hash, generalize, redact, or transform personal information.</p>
+                  <div class="card-actions"><a class="button primary" href="#redactorium">Open tool</a><a href="https://github.com/tanjaminben/redactorium" target="_blank" rel="noreferrer">Source ↗</a></div>
+                </article>
+
+                <article class="tool-card accent-forest">
+                  <span class="tool-number">02</span>
+                  <h3>SafeSeed</h3>
+                  <p>Generate fake personal information and generate a tamper-evident receipt.</p>
+                  <div class="card-actions"><a class="button primary" href="#safeseed">Open tool</a><a href="https://advokatfrida.com/safeseed/" target="_blank" rel="noreferrer">Read the article ↗</a></div>
+                </article>
+
+                <article class="tool-card accent-indigo">
+                  <span class="tool-number">03</span>
+                  <h3>Privacy Wizards Council</h3>
+                  <p>Get quick and citable answers for commonly recurring privacy questions.</p>
+                  <div class="card-actions"><a class="button primary" href="#privacy-wizards">Open tool</a><a href="https://advokatfrida.com/wizards/" target="_blank" rel="noreferrer">Read the article ↗</a></div>
+                </article>
+
+                <article class="tool-card accent-teal">
+                  <span class="tool-number">04</span>
+                  <h3>Build-A-Prompt</h3>
+                  <p>Build detailed, reusable prompts for any privacy task.</p>
+                  <div class="card-actions"><a class="button primary" href="#build-a-prompt">Open tool</a><a href="https://advokatfrida.com/build-a-prompt/" target="_blank" rel="noreferrer">Read the article ↗</a></div>
+                </article>
+
+                <article class="tool-card accent-amber tool-card-wide">
+                  <span class="tool-number">05</span>
+                  <h3>Objection Oracle</h3>
+                  <p>Get pointers from a magic 8-ball on risk tolerance.</p>
+                  <div class="card-actions"><a class="button primary" href="#objection-oracle">Open tool</a><a href="https://advokatfrida.com/ship-it/" target="_blank" rel="noreferrer">Read the article ↗</a></div>
+                </article>
+              </div>
+            </section>
+
+            <section class="home-bottom" id="toolkit-changelog">
+              <details class="changelog-card">
+                <summary><span class="eyebrow">Changelog</span><span aria-hidden="true">+</span></summary>
+                <div class="changelog-body">
+                  <article><time datetime="2026-08-27">August 27, 2026 · 0.1.1 private candidate</time><h3>Home stripped back to the useful parts</h3><ul><li>Replaced rail initials with semantic Lucide icons.</li><li>Removed the announcement, card pills, status block, and publication explainer.</li><li>Made the full change history one bottom-of-page disclosure.</li></ul></article>
+                  <article><time datetime="2026-08-27">August 27, 2026 · 0.1.0 local</time><h3>One Home for five tools</h3><ul><li>Added persistent desktop and mobile tool navigation.</li><li>Established the square-card, 4px offset-shadow Toolkit extension.</li><li>Kept every tool’s source engine and in-progress browser state separate.</li></ul></article>
+                  <article><time datetime="2026-08-27">August 27, 2026 · source refresh</time><h3>Current tool artifacts synchronized</h3><ul><li>Removed duplicate website chrome inside the shared workspace.</li><li>Removed Redactorium’s external analytics, hosted fonts, and remote PDF worker.</li><li>Recorded source revisions and artifact hashes in the committed provenance manifest.</li></ul></article>
+                </div>
+              </details>
+            </section>
+          </div>
+        </section>
+
+        <section class="view tool-view" data-view="redactorium" aria-labelledby="redactorium-title" hidden>
+          <header class="tool-view-head accent-red">
+            <div><p class="eyebrow">File sanitation</p><h1 id="redactorium-title" tabindex="-1">Redactorium</h1><p>Find likely personal data, choose the treatment, and keep the clean file and transformation record together.</p></div>
+            <div class="tool-head-actions"><span class="local-chip">File + batch</span><a href="/tools/redactorium/index.html?embed=1#/verify-log" target="tool-redactorium">Verify a signed log</a></div>
+          </header>
+          <div class="frame-stage"><div class="frame-loading" aria-hidden="true">Preparing Redactorium…</div><iframe name="tool-redactorium" title="Redactorium" data-tool-frame="redactorium" data-src="/tools/redactorium/index.html?embed=1#/"></iframe></div>
+        </section>
+
+        <section class="view tool-view" data-view="safeseed" aria-labelledby="safeseed-title" hidden>
+          <header class="tool-view-head accent-forest"><div><p class="eyebrow">Synthetic test data</p><h1 id="safeseed-title" tabindex="-1">SafeSeed</h1><p>Generate deterministic data that was designed never to identify a real person, then keep the matching verification record.</p></div><div class="tool-head-actions"><span class="local-chip">Generate + verify</span><a href="https://advokatfrida.com/safeseed/" target="_blank" rel="noreferrer">Read the article ↗</a></div></header>
+          <div class="frame-stage"><div class="frame-loading" aria-hidden="true">Preparing SafeSeed…</div><iframe title="SafeSeed" data-tool-frame="safeseed" data-src="/tools/safeseed.html"></iframe></div>
+        </section>
+
+        <section class="view tool-view" data-view="privacy-wizards" aria-labelledby="privacy-wizards-title" hidden>
+          <header class="tool-view-head accent-indigo"><div><p class="eyebrow">Guided privacy decisions</p><h1 id="privacy-wizards-title" tabindex="-1">Privacy Wizards Council</h1><p>Choose the determination, supply the facts, and inspect the authority behind the answer.</p></div><div class="tool-head-actions"><span class="local-chip">16 determinations</span><a href="https://advokatfrida.com/wizards/" target="_blank" rel="noreferrer">Read the article ↗</a></div></header>
+          <div class="frame-stage"><div class="frame-loading" aria-hidden="true">Summoning the council…</div><iframe title="Privacy Wizards Council" data-tool-frame="privacy-wizards" data-src="/tools/privacy-wizards-council.html" allow="clipboard-write"></iframe></div>
+        </section>
+
+        <section class="view tool-view" data-view="build-a-prompt" aria-labelledby="build-a-prompt-title" hidden>
+          <header class="tool-view-head accent-teal"><div><p class="eyebrow">AI work requests</p><h1 id="build-a-prompt-title" tabindex="-1">Build-A-Prompt</h1><p>Start with the deliverable. Shape the context, evidence, guardrails, and format before you hand the request to an AI.</p></div><div class="tool-head-actions"><span class="local-chip">Structure first</span><a href="https://advokatfrida.com/build-a-prompt/" target="_blank" rel="noreferrer">Read the article ↗</a></div></header>
+          <div class="frame-stage"><div class="frame-loading" aria-hidden="true">Preparing Build-A-Prompt…</div><iframe title="Build-A-Prompt" data-tool-frame="build-a-prompt" data-src="/tools/build-a-prompt.html" allow="clipboard-write"></iframe></div>
+        </section>
+
+        <section class="view tool-view" data-view="objection-oracle" aria-labelledby="objection-oracle-title" hidden>
+          <header class="tool-view-head accent-amber"><div><p class="eyebrow">Review triage</p><h1 id="objection-oracle-title" tabindex="-1">Objection Oracle</h1><p>Five yes-or-no questions. One deterministic ruling. The ball is theatrical; the rubric is not.</p></div><div class="tool-head-actions"><span class="local-chip">Five questions</span><a href="https://advokatfrida.com/ship-it/" target="_blank" rel="noreferrer">Read the article ↗</a></div></header>
+          <div class="frame-stage"><div class="frame-loading" aria-hidden="true">Consulting the triangle…</div><iframe title="Objection Oracle" data-tool-frame="objection-oracle" data-src="/tools/objection-oracle.html" allow="clipboard-write"></iframe></div>
+        </section>
+      </main>
+    </div>
+
+    <noscript><p class="noscript-note">The Home view is readable without JavaScript. Enable it to switch tools inside this workspace.</p></noscript>
+  </body>
+</html>
