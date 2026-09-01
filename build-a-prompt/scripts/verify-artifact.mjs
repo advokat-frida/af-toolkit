@@ -17,14 +17,14 @@ if (/Product changelog|class=["']chevron["']|summary-date/.test(appSource)) fail
 if (!html.includes('Analytics by Plausible, cookieless and aggregate, no ad-tech.')) failures.push('missing canonical Advokat Frida footer');
 if (!html.includes('href="https://advokatfrida.com/#/portal/signup"')) failures.push('missing canonical Subscribe action');
 for (const [label, href] of [
-  ['Members Den', 'https://advokatfrida.com/members/'],
-  ['Shop', 'https://shop.advokatfrida.com/'],
+  ['The Mercantile', 'https://shop.advokatfrida.com'],
   ['Contact us', 'mailto:hello@advokatfrida.com'],
   ['Privacy', 'https://advokatfrida.com/privacy/'],
 ]) {
   if (!html.includes(`href="${href}">${label}</a>`)) failures.push(`missing canonical chrome link: ${label}`);
 }
 if (/>The Den<\/a>/.test(html)) failures.push('retired The Den navigation label remains');
+if (/>Members Den<\/a>/.test(html)) failures.push('retired Members Den navigation label remains');
 if (!/\.site-bar\s*\{[^}]*background:\s*transparent/i.test(html)) failures.push('masthead background is not transparent');
 if (/brand-mark|local-badge/i.test(html)) failures.push('legacy circular AF mark or local-status badge remains');
 for (const pattern of [
@@ -48,14 +48,10 @@ if (/https?:\/\//i.test(html.replace(/https?:\/\/[^\s'\"]+/g, (url) => {
 
 const compactCss = cssSource.replace(/\s+/g, ' ');
 const titleRule = compactCss.match(/h1\s*\{([^}]*)\}/)?.[1] || '';
-const promiseRule = compactCss.match(/\.promise\s*\{([^}]*)\}/)?.[1] || '';
 for (const declaration of ['font-size: clamp(48px, 7vw, 86px)']) {
   if (!titleRule.includes(declaration)) failures.push(`shared title scale drift: h1 lacks ${declaration}`);
 }
 if (!compactCss.includes('line-height: 1.08')) failures.push('shared title line-height drift');
-for (const declaration of ['max-width: 700px', 'font-size: 19px']) {
-  if (!promiseRule.includes(declaration)) failures.push(`shared lede scale drift: .promise lacks ${declaration}`);
-}
 if (!compactCss.includes('font-size: clamp(44px, 16vw, 64px)') || !compactCss.includes('font-size: 46px')) {
   failures.push('shared responsive title scale is incomplete');
 }

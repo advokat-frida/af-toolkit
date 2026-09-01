@@ -664,3 +664,123 @@
     gap: 18px;
 }
 .red-task-heading:focus { outline: none; }
+
+/* ===== Canonical Advokat Frida standalone chrome (matches the live site nav) ===== */
+
+.af-site-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px 20px;
+    flex-wrap: wrap;
+    min-height: 42px;
+    padding: 4px clamp(16px, 4vw, 56px);
+    background: transparent;
+    border-bottom: 1px solid hsl(var(--ink) / 0.17);
+    line-height: 1.5;
+}
+.af-wordmark {
+    order: 1;
+    flex: none;
+    color: hsl(var(--ink));
+    font-family: "Anton", Impact, sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.af-bar-nav { order: 2; min-width: 0; margin-left: auto; }
+.af-bar-nav ul {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    min-height: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.af-bar-nav a {
+    display: block;
+    color: hsl(var(--ink-muted));
+    font-family: "Archivo", system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.11em;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+.af-bar-nav a:hover { color: hsl(var(--brick)); }
+.af-subscribe {
+    order: 3;
+    padding: 8px 13px;
+    color: hsl(var(--paper));
+    background: hsl(var(--forest));
+    font-family: "Archivo", system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+.af-subscribe:hover { filter: brightness(0.94); }
+
+.af-colophon {
+    width: 100%;
+    margin: 48px 0 0;
+    background: hsl(var(--ink));
+    line-height: 1.5;
+}
+.af-colophon-inner {
+    width: min(1180px, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 34px;
+    padding: 24px clamp(16px, 4vw, 56px);
+}
+.af-colophon-name {
+    margin: 0 0 8px;
+    color: hsl(var(--paper));
+    font-family: "Anton", Impact, sans-serif;
+    font-size: 26px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    text-transform: uppercase;
+}
+.af-colophon-desc {
+    max-width: 520px;
+    margin: 0;
+    color: hsl(var(--paper) / 0.82);
+    font-size: 13px;
+    line-height: 1.55;
+}
+.af-colophon-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 7px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.af-colophon-nav a {
+    color: hsl(var(--paper) / 0.82);
+    font-family: "Archivo", system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.af-colophon-nav a:hover { color: hsl(var(--paper)); }
+
+@media (max-width: 760px) {
+    .af-colophon-inner { grid-template-columns: 1fr; gap: 18px; }
+    .af-colophon-nav { align-items: flex-start; }
+}

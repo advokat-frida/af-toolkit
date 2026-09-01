@@ -220,19 +220,7 @@ export default function Generator() {
         <main id="main-content" className="site-main gen-main" tabIndex={-1}>
         {!EMBED && (
           <div className="gen-intro">
-            <p className="eyebrow">{mode === "generate" ? "Generate" : "Verify"}</p>
-            <h1>SafeSeed: In-Browser App</h1>
-            {mode === "generate" ? (
-              <p className="gen-lede">
-                Build a test or demo CSV entirely from SafeSeed&rsquo;s catalog. Every column is generated here;
-                download the exact CSV and its matching receipt.
-              </p>
-            ) : (
-              <p className="gen-lede">
-                Check a SafeSeed CSV against its matching receipt. The browser requires an exact
-                whole-file match: bytes, headers, row shape, and catalog ranges.
-              </p>
-            )}
+            <h1>SafeSeed</h1>
             <details className="gen-changelog">
               <summary>Changelog (last updated: August 31, 2026)</summary>
               <div className="gen-changelog-body">

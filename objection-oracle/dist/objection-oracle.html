@@ -66,7 +66,7 @@
 
   /* ---- page intro ---- */
   .pageintro{padding:26px 0 6px}
-  .page-title{font-size:30px;font-weight:700;line-height:1.2;margin:0 0 6px}
+  .page-title{font-family:var(--font-display);font-size:clamp(48px,7vw,86px);font-weight:400;letter-spacing:-.02em;line-height:1.08;margin:0;text-transform:uppercase}
   .dek{font-size:16px;color:var(--ink-soft);font-style:italic;margin:0 0 12px}
   .lede{font-size:19px;color:var(--ink-soft);margin:0 0 var(--s4);max-width:none}
   .hidden{display:none}
@@ -93,6 +93,9 @@
     .site-colophon-inner{grid-template-columns:1fr;gap:16px;padding:1.4rem 18px}
     .site-colophon-nav{align-items:flex-start;flex-direction:row;flex-wrap:wrap;gap:10px 20px}
   }
+
+  .chip-subscribe{order:3;padding:8px 13px;color:#fff;background:var(--forest);font-family:var(--font-label);font-size:11px;font-weight:700;letter-spacing:.08em;text-decoration:none;text-transform:uppercase;white-space:nowrap}
+  .chip-subscribe:hover{color:#fff;text-decoration:none;filter:brightness(.94)}
 
   /* Objection Oracle stage — the-toolkit/docs/design/DESIGN-SYSTEM.md governs. */
   .oo-noscript{border-left:3px solid var(--amber);padding-left:12px;color:var(--ink-soft);font-size:13px;line-height:1.45;margin-top:16px}
@@ -212,11 +215,12 @@
   <!-- oo:standalone-start -->
   <header class="site-bar">
     <a class="bar-wordmark" href="https://advokatfrida.com/">Advokat Frida</a>
+    <a class="chip-subscribe" href="https://advokatfrida.com/#/portal/signup">Subscribe</a>
     <nav class="bar-nav" aria-label="Sections"><ul>
-      <li><a href="https://advokatfrida.com/tag/fridas-desk/">Frida&rsquo;s Desk</a></li>
-      <li><a href="https://advokatfrida.com/tag/field-guides/">Field Guides</a></li>
-      <li><a href="https://advokatfrida.com/tag/playbooks/">Playbooks</a></li>
       <li><a href="https://advokatfrida.com/tag/toolkit/">Toolkit</a></li>
+      <li><a href="https://advokatfrida.com/tag/field-guides/">Field Guides</a></li>
+      <li><a href="https://advokatfrida.com/tag/fridas-desk/">Frida&rsquo;s Desk</a></li>
+      <li><a href="https://shop.advokatfrida.com">The Mercantile</a></li>
       <li><a href="https://advokatfrida.com/about/">About</a></li>
     </ul></nav>
   </header>
@@ -225,9 +229,7 @@
   <main id="main">
     <!-- oo:standalone-start -->
     <div class="pageintro">
-      <p class="eyebrow">Toolkit</p>
       <h1 class="page-title">Objection Oracle</h1>
-      <p class="dek">Five yes/no questions. No &ldquo;it depends.&rdquo;</p>
     </div>
     <!-- oo:standalone-end -->
 
@@ -301,11 +303,12 @@
     <div class="site-colophon-inner">
       <div class="site-colophon-brand">
         <p class="site-colophon-name">Advokat Frida</p>
-        <p class="site-colophon-desc">Privacy and AI governance, by design and in practice.<br>Runs entirely in your browser, cookieless and local &mdash; nothing you type leaves the page.</p>
+        <p class="site-colophon-desc">Privacy and AI governance, by design and in practice.<br>Analytics by Plausible, cookieless and aggregate, no ad-tech.</p>
       </div>
       <nav aria-label="Footer"><ul class="site-colophon-nav">
         <li><a href="https://advokatfrida.com/about/">About</a></li>
-        <li><a href="https://advokatfrida.com/tag/toolkit/">Toolkit</a></li>
+        <li><a href="mailto:hello@advokatfrida.com">Contact us</a></li>
+        <li><a href="https://advokatfrida.com/privacy/">Privacy</a></li>
         <li><a href="https://advokatfrida.com/rss/">RSS</a></li>
       </ul></nav>
     </div>

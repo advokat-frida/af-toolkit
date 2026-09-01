@@ -449,11 +449,10 @@
     <a class="chip-subscribe" href="https://advokatfrida.com/#/portal/signup">Subscribe</a>
   <nav class="bar-nav" aria-label="Sections">
     <ul class="nav">
-      <li><a href="https://advokatfrida.com/tag/fridas-desk/">Frida’s Desk</a></li>
-      <li><a href="https://advokatfrida.com/tag/field-guides/">Field Guides</a></li>
       <li><a href="https://advokatfrida.com/tag/toolkit/">Toolkit</a></li>
-      <li><a href="https://advokatfrida.com/members/">Members Den</a></li>
-      <li><a href="https://shop.advokatfrida.com/">Shop</a></li>
+      <li><a href="https://advokatfrida.com/tag/field-guides/">Field Guides</a></li>
+      <li><a href="https://advokatfrida.com/tag/fridas-desk/">Frida’s Desk</a></li>
+      <li><a href="https://shop.advokatfrida.com">The Mercantile</a></li>
       <li><a href="https://advokatfrida.com/about/">About</a></li>
     </ul>
   </nav>
@@ -463,9 +462,7 @@
 <main class="compose" class:is-embed={EMBED}>
   {#if !EMBED}
   <section class="orientation" aria-labelledby="page-title">
-    <p class="eyebrow">A practical AI work tool</p>
     <h1 id="page-title">Build-A-Prompt</h1>
-    <p class="promise">Describe what the AI needs to produce. We’ll turn it into a prompt you can inspect.</p>
 
     <details class="changelog">
       <summary>Changelog (last updated: {formatChangelogDate(changelogDate)})</summary>
@@ -536,7 +533,7 @@
               >
                 <span class="part-number">0{index + 1}</span>
                 <span class="part-copy">
-                  <span class="part-title-line"><strong>{part.label}</strong>{#if state.suggested?.includes(part.id)}<span class="suggested">Suggested</span>{/if}</span>
+                  <span class="part-title-line"><strong>{part.label}</strong></span>
                   <small>{summaries[part.id]}</small>
                 </span>
                 <span class="part-state" aria-hidden="true">{openPart === part.id ? '' : '→'}</span>
@@ -763,7 +760,6 @@
           <h2 id="prompt-review-heading" tabindex="-1">Your governed prompt</h2>
           <button class="text-button mobile-back" type="button" on:click={returnToComposer}>← Back to composer</button>
         </div>
-        {#if state.suggested?.length && state.subject.trim()}<p class="suggestion-note"><span>Suggested setup</span> Review the labelled parts before using this for important work.</p>{/if}
         <label class="sr-only" for="prompt-preview">Generated prompt</label>
         <textarea
           id="prompt-preview"

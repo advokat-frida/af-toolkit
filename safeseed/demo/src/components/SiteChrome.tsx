@@ -5,11 +5,10 @@ export function SiteHeader() {
       <a className="chip-subscribe" href="https://advokatfrida.com/#/portal/signup">Subscribe</a>
       <nav className="bar-nav" aria-label="Sections">
         <ul>
-          <li><a href="https://advokatfrida.com/tag/fridas-desk/">Frida&rsquo;s Desk</a></li>
-          <li><a href="https://advokatfrida.com/tag/field-guides/">Field Guides</a></li>
           <li><a href="https://advokatfrida.com/tag/toolkit/">Toolkit</a></li>
-          <li><a href="https://advokatfrida.com/members/">Members Den</a></li>
-          <li><a href="https://shop.advokatfrida.com/">Shop</a></li>
+          <li><a href="https://advokatfrida.com/tag/field-guides/">Field Guides</a></li>
+          <li><a href="https://advokatfrida.com/tag/fridas-desk/">Frida&rsquo;s Desk</a></li>
+          <li><a href="https://shop.advokatfrida.com">The Mercantile</a></li>
           <li><a href="https://advokatfrida.com/about/">About</a></li>
         </ul>
       </nav>

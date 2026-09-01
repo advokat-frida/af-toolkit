@@ -8,10 +8,8 @@ const required = [
   'https://advokatfrida.com/#/portal/signup',
   'https://advokatfrida.com/tag/field-guides/',
   'https://advokatfrida.com/tag/toolkit/',
-  'https://advokatfrida.com/members/',
-  'Members Den',
-  'https://shop.advokatfrida.com/',
-  'Shop',
+  'https://shop.advokatfrida.com',
+  'The Mercantile',
   'mailto:hello@advokatfrida.com',
   'Contact us',
   'https://advokatfrida.com/privacy/',
@@ -31,6 +29,8 @@ const banned = [
   /html\[data-standalone[^}]+--font(?:-display|-label|-chrome)?:\s*(?:Impact|system-ui)/i,
   /class=["'][^"']*(?:brand-mark|local-badge)/i,
   />The Den<\/a>/i,
+  />Members Den<\/a>/i,
+  />Playbooks<\/a>/i,
 ];
 
 const problems = [];
@@ -39,7 +39,6 @@ const demoCss = readFileSync(resolve('src/demo-skin.css'), 'utf8').replace(/\s+/
 const generatorSource = readFileSync(resolve('src/generator/Generator.tsx'), 'utf8');
 const generatorCss = readFileSync(resolve('src/generator/generator.css'), 'utf8').replace(/\s+/g, ' ');
 const generatorTitleRule = generatorCss.match(/\.gen-intro h1\s*\{([^}]*)\}/)?.[1] || '';
-const generatorLedeRule = generatorCss.match(/\.gen-lede\s*\{([^}]*)\}/)?.[1] || '';
 const generatorChangelogRules = [...generatorCss.matchAll(/\.gen-changelog\s*\{([^}]*)\}/g)].map((match) => match[1]);
 const generatorChangelogSummaryRule = generatorCss.match(/\.gen-changelog summary,\s*\.tier-disclosure summary\s*\{([^}]*)\}/)?.[1] || '';
 const demoTitleRule = demoCss.match(/\.hero-headline\s*\{([^}]*)\}/)?.[1] || '';
@@ -58,9 +57,6 @@ if (!demoCss.includes('font-size: clamp(44px, 16vw, 64px)') ||
 }
 for (const declaration of ['font-size: clamp(48px, 7vw, 86px)', 'line-height: 1.08']) {
   if (!generatorTitleRule.includes(declaration)) problems.push(`generator title scale drift: missing ${declaration}`);
-}
-for (const declaration of ['max-width: 700px', 'font-size: 19px', 'line-height: 1.5']) {
-  if (!generatorLedeRule.includes(declaration)) problems.push(`generator lede scale drift: missing ${declaration}`);
 }
 if (!generatorCss.includes('font-size: clamp(44px, 16vw, 64px)') ||
     !generatorCss.includes('font-size: 46px') ||

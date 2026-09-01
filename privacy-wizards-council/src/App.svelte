@@ -329,11 +329,10 @@
     <a class="chip-subscribe" href="https://advokatfrida.com/#/portal/signup">Subscribe</a>
   <nav class="bar-nav" aria-label="Sections">
     <ul class="nav">
-      <li><a href="https://advokatfrida.com/tag/fridas-desk/">Frida’s Desk</a></li>
-      <li><a href="https://advokatfrida.com/tag/field-guides/">Field Guides</a></li>
       <li><a href="https://advokatfrida.com/tag/toolkit/">Toolkit</a></li>
-      <li><a href="https://advokatfrida.com/members/">Members Den</a></li>
-      <li><a href="https://shop.advokatfrida.com/">Shop</a></li>
+      <li><a href="https://advokatfrida.com/tag/field-guides/">Field Guides</a></li>
+      <li><a href="https://advokatfrida.com/tag/fridas-desk/">Frida’s Desk</a></li>
+      <li><a href="https://shop.advokatfrida.com">The Mercantile</a></li>
       <li><a href="https://advokatfrida.com/about/">About</a></li>
     </ul>
   </nav>
@@ -343,9 +342,7 @@
 <main class:is-embed={EMBED}>
   {#if !EMBED}
   <section class="orientation" aria-labelledby="page-title">
-    <p class="eyebrow">Guided privacy decisions</p>
     <h1 id="page-title">Privacy Wizards Council</h1>
-    <p class="promise">Choose the decision you’re making. The wizard will ask for the facts and show the authority behind the result.</p>
     <details class="changelog">
       <summary>Changelog (last updated: {formatChangelogDate(changelogDate)})</summary>
       <div class="changelog-body">

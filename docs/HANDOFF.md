@@ -1,5 +1,30 @@
 # HANDOFF
 
+## 2026-08-31 - Consistency pass after Ben's review (follow-up to the consolidation)
+
+Ben flagged three real defects in the pushed build: reintroduced standalone-page fluff ("SafeSeed:
+In-Browser App" + explanatory ledes), inconsistent and outdated per-tool chrome (mixed
+headers/footers; Members Den and Playbooks no longer exist; Shop is now The Mercantile), and
+Build-A-Prompt's redundant Suggested chips, none of which are in the design canvas.
+
+Fixed at the source, all five tools:
+
+- One canonical standalone chrome everywhere, matching the live advokatfrida.com nav: Toolkit ·
+  Field Guides · Frida's Desk · The Mercantile · About + Subscribe chip; the canonical colophon.
+  Redactorium's bespoke masthead/footer replaced with the same bar; Oracle gained the chip and the
+  Anton nameplate; the SafeSeed Vite entry skeleton (the pre-hydration fallback that showed the old
+  chrome) was updated too.
+- Every standalone intro stripped to nameplate + changelog: no eyebrows, no promise/lede lines, no
+  dek. "SafeSeed: In-Browser App" is now just "SafeSeed" (title tag included).
+- Build-A-Prompt: Suggested chips and the suggested-setup note removed; part rows are plain, as
+  drawn.
+- Chrome contracts updated to the current truth (safeseed verify-chrome, bap + pwc verify-artifact:
+  Members Den/Playbooks banned, The Mercantile required, lede checks retired).
+
+Verified: all five standalone pages screenshotted at 1440 with the identical bar/colophon and no
+stale labels; toolkit tabs re-shot chrome-free; full repo gate green (design gate, static 123/123,
+rendered at four viewports); tool gates green (safeseed chrome contract, bap 19, pwc 17, oracle 33).
+
 ## 2026-08-31 - Consolidation + the approved redesign
 
 Ben's call: one repository. The five tool sources moved in as top-level folders (safeseed,
