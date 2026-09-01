@@ -1,0 +1,107 @@
+<a class="skiplink" href="#main">Skip to the oracle</a>
+<div class="wrap">
+  <noscript><p class="offline-note oo-noscript">This tool needs JavaScript to run. Everything is inline, and nothing is fetched or saved.</p></noscript>
+
+  <!-- oo:standalone-start -->
+  <header class="site-bar">
+    <a class="bar-wordmark" href="https://advokatfrida.com/">Advokat Frida</a>
+    <nav class="bar-nav" aria-label="Sections"><ul>
+      <li><a href="https://advokatfrida.com/tag/fridas-desk/">Frida&rsquo;s Desk</a></li>
+      <li><a href="https://advokatfrida.com/tag/field-guides/">Field Guides</a></li>
+      <li><a href="https://advokatfrida.com/tag/playbooks/">Playbooks</a></li>
+      <li><a href="https://advokatfrida.com/tag/toolkit/">Toolkit</a></li>
+      <li><a href="https://advokatfrida.com/about/">About</a></li>
+    </ul></nav>
+  </header>
+  <!-- oo:standalone-end -->
+
+  <main id="main">
+    <!-- oo:standalone-start -->
+    <div class="pageintro">
+      <p class="eyebrow">Toolkit</p>
+      <h1 class="page-title">Objection Oracle</h1>
+      <p class="dek">Five yes/no questions. No &ldquo;it depends.&rdquo;</p>
+    </div>
+    <!-- oo:standalone-end -->
+
+    <!-- oo:stage-start -->
+    <section class="oo-stage" id="oracle" data-phase="welcome" aria-label="Objection Oracle decision tool">
+      <div class="oo-visual">
+        <div class="oo-ball" id="oracle-ball" aria-hidden="true">
+          <div class="oo-eight" id="ball-eight"><span>8</span></div>
+          <div class="oo-window" id="ball-window">
+            <div class="oo-window-inner">
+              <span class="oo-window-label" id="ball-label">RULING</span>
+              <span class="oo-window-quip" id="ball-quip">The oracle is considering your concern.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="oo-panel" aria-labelledby="tool-title">
+        <h2 class="sr-only" id="tool-title">Review objection triage</h2>
+
+        <div class="oo-view" id="view-welcome">
+          <h2 class="oo-view-title">Is this a blocker, or has review become a group hobby?</h2>
+          <p class="oo-sub">Answer five deliberately blunt questions. You will get one ruling, one reason, and one next action.</p>
+          <button class="btn primary oo-main-action" id="start-button" type="button">Ask the oracle</button>
+        </div>
+
+        <div class="oo-view hidden" id="view-questions">
+          <ol class="oo-question-list" id="question-list" aria-label="The five questions"></ol>
+          <div class="oo-ask-row">
+            <button class="btn primary" id="ask-button" type="button" aria-disabled="true">Ask the oracle</button>
+            <span class="oo-count" id="answer-count">0 of 5 answered</span>
+          </div>
+        </div>
+
+        <div class="oo-view hidden oo-consulting" id="view-shaking" aria-busy="true">
+          <h2 class="oo-view-title" id="shaking-title">The triangle has requested a moment.</h2>
+          <p class="oo-sub">Your five answers are already enough. This pause is strictly ceremonial.</p>
+          <span class="oo-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        </div>
+
+        <div class="oo-view hidden oo-result" id="view-result">
+          <div class="oo-verdict" id="verdict-block">
+            <strong class="oo-result-title" id="result-title" tabindex="-1">SHIP IT</strong>
+            <span class="oo-result-reason" id="result-reason"></span>
+          </div>
+          <dl class="oo-rationale">
+            <div><dt>Next action</dt><dd id="result-action"></dd></div>
+          </dl>
+          <div class="oo-result-actions">
+            <button class="btn primary" id="copy-button" type="button">Copy ruling</button>
+            <button class="oo-text-action" id="restart-button" type="button">Ask again</button>
+          </div>
+          <details class="oo-receipt-card">
+            <summary>See the full ruling</summary>
+            <pre id="ruling-receipt" tabindex="0"></pre>
+          </details>
+        </div>
+
+        <p class="sr-only" id="oracle-status" role="status" aria-live="polite"></p>
+      </section>
+    </section>
+    <!-- oo:stage-end -->
+
+    <!-- oo:standalone-start -->
+    <p class="finelegal"><strong>This is a release-triage aid, not legal advice.</strong> It cannot decide whether your facts are true or your requirements apply. That remains delightfully human work.</p>
+    <!-- oo:standalone-end -->
+  </main>
+
+  <!-- oo:standalone-start -->
+  <footer class="site-colophon">
+    <div class="site-colophon-inner">
+      <div class="site-colophon-brand">
+        <p class="site-colophon-name">Advokat Frida</p>
+        <p class="site-colophon-desc">Privacy and AI governance, by design and in practice.<br>Runs entirely in your browser, cookieless and local &mdash; nothing you type leaves the page.</p>
+      </div>
+      <nav aria-label="Footer"><ul class="site-colophon-nav">
+        <li><a href="https://advokatfrida.com/about/">About</a></li>
+        <li><a href="https://advokatfrida.com/tag/toolkit/">Toolkit</a></li>
+        <li><a href="https://advokatfrida.com/rss/">RSS</a></li>
+      </ul></nav>
+    </div>
+  </footer>
+  <!-- oo:standalone-end -->
+</div>

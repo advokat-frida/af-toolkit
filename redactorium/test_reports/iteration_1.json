@@ -1,0 +1,23 @@
+{
+  "summary": "First-finish frontend smoke test of Redactorium (client-side PII redaction). All 10 requested checks passed end-to-end. Landing page loads with masthead/dropzone/field guide; sample-data flow parses 11 columns with confidence scores >= 56% (email=99%, phone=99%, ssn=99%, card=99%); detection table renders detector badges + confidence pills + transform selects; transform dropdown change persists; salt+seed inputs accept text; Apply produces preview table + two 64-hex SHA-256 hashes (input/output) + success toast; all three download buttons trigger real browser download events (sample-contacts.redacted.csv, redactorium-log.json, redactorium-record.pdf); reset returns to dropzone; manual CSV upload with email/phone/ssn columns detected each with 99% confidence. Zero console errors captured.",
+  "tested_scope": ["frontend"],
+  "passed": [
+    "Landing page loads with site-header, masthead, dropzone, field guide sidebar",
+    "use-sample-btn loads sample and shows detection-table with 11 rows",
+    "detector badges + confidence pills render for each row (90-99% for strong detectors)",
+    "transform-select-0 changes from synthetic to hash and persists",
+    "salt-input and seed-input accept and retain text",
+    "apply-transformations-btn triggers preview-table + green toast + input/output SHA-256 (64-hex each)",
+    "download-clean-btn downloads sample-contacts.redacted.csv",
+    "download-json-log-btn downloads redactorium-log.json",
+    "download-pdf-log-btn downloads redactorium-record.pdf",
+    "reset-btn returns to dropzone view",
+    "CSV upload via file-input parses and detects email/phone/ssn with >=99% confidence",
+    "No console errors during full flow"
+  ],
+  "failed": [],
+  "action_items": [],
+  "success_rate": {"backend": "n/a (no backend)", "frontend": "100%"},
+  "retest_needed": false,
+  "full_testing_deferred": true
+}

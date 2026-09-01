@@ -1,0 +1,36 @@
+{
+  "name": "safeseed-demo",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build:core": "npm run build --prefix ..",
+    "build": "npm run build:core && npm run build:hosted:compiled",
+    "build:hosted:compiled": "tsc --noEmit && vite build",
+    "build:standalone": "npm run build:core && npm run build:standalone:compiled",
+    "build:standalone:compiled": "tsc --noEmit && vite build --mode standalone",
+    "build:standalone:generator": "npm run build:core && npm run build:standalone:generator:compiled",
+    "build:standalone:generator:compiled": "tsc --noEmit && vite build --mode standalone-generator",
+    "build:standalone:proof": "npm run build:core && npm run build:standalone:proof:compiled",
+    "build:standalone:proof:compiled": "tsc --noEmit && vite build --mode standalone-proof && node -e \"const fs=require('fs');fs.copyFileSync('standalone-proof/proof.html','safeseed-proof.html');console.log('updated safeseed-proof.html')\"",
+    "build:standalone:embed": "npm run build:core && npm run build:standalone:embed:compiled",
+    "build:standalone:embed:compiled": "tsc --noEmit && vite build --mode standalone-embed && node -e \"const fs=require('fs');fs.copyFileSync('standalone-embed/safeseed-proof.js','safeseed-proof.js');console.log('updated safeseed-proof.js')\"",
+    "build:standalone:all": "npm run build:core && npm run build:standalone:compiled && npm run build:standalone:generator:compiled && npm run build:standalone:proof:compiled && npm run build:standalone:embed:compiled && node -e \"const fs=require('fs');fs.copyFileSync('standalone/index.html','safeseed-demo.html');fs.copyFileSync('standalone-generator/generator.html','safeseed-generator.html');console.log('updated committed single-files: safeseed-demo.html, safeseed-generator.html, safeseed-proof.html, safeseed-proof.js')\" && npm run verify:chrome",
+    "verify:chrome": "node scripts/verify-chrome.mjs",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "lucide-react": "^1.21.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.2",
+    "typescript": "^5.7.3",
+    "vite": "^8.1.0",
+    "vite-plugin-singlefile": "^2.3.3"
+  }
+}

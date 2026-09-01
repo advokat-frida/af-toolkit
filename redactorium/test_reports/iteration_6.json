@@ -1,0 +1,31 @@
+{
+  "summary": "Frontend-only E2E testing of new SafeSeed tool at /safeseed plus Redactorium regression at /. Verified routing, ToolkitNav, 10 presets, schema editor (add/remove/rename/type change with tier pill update), enum/randomInt option inputs, generate/preview grid (12 of 25 rows), randomize seed, format selector including SQL table input, downloads (CSV/JSON/SQL/XLSX output, record.json with all required keys, record.pdf, ZIP bundle with README+3 files), catalog inspector toggle, and Redactorium regression. All wiring works end-to-end with zero console/page errors. ONE CRITICAL DETERMINISM BUG FOUND: same seed produces different output between runs due to Date.now() usage in temporal generators.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {
+        "component": "safeCatalog.js temporal generators (timestamp, dateOnly)",
+        "issue": "Uses Date.now() as reference base making output NON-deterministic across runs even with same seed. Two consecutive generates with seed=42 on payments-log preset produced identical values for all 7 non-temporal columns but the 'timestamp' column differed (R1 2026-06-12T07:25:13.114Z vs R2 2026-06-12T07:25:44.657Z). This violates the 'Deterministic across runs' guarantee shown in the UI subhead and will also cause the Output SHA-256 to change on every regeneration.",
+        "selector": "safeCatalog.js lines 299 (timestamp) and 304 (dateOnly)",
+        "priority": "CRITICAL"
+      }
+    ],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Fix determinism: in /app/frontend/src/lib/safeCatalog.js, replace Date.now() in 'timestamp' and 'dateOnly' generators with a deterministic anchor (e.g., a fixed epoch constant, or an epoch derived from the seed) so output is reproducible for the same seed. Example: `const EPOCH = Date.UTC(2026,0,1); gen: (rng)=> new Date(EPOCH - Math.floor(rng()*90*86400_000)).toISOString();`. Confirm afterwards that Output SHA-256 also matches across two consecutive generations with the same seed."
+  ],
+  "critical_code_review_comments": [
+    "Determinism bug in safeCatalog.js temporal fields (Date.now()) — undermines the tool's core value proposition and downloadable SHA-256 provenance.",
+    "Everything else validated: schema-row tier pill correctly updates (creditCard → designated-test-only ochre, uuid → structurally-fake plum, ssn → authority-reserved brick, email → protocol-reserved forest visually confirmed), enum & randomInt option inputs appear on demand, SQL export writes INSERT INTO \"orders\", record.json contains {tool,version,seed,row_count,format,output.sha256,schema[{column,type,tier,citation,claim,options}],tier_summary,disclaimers}, ZIP bundle contains output+record.json+record.pdf+README.txt, catalog-panel toggles, ToolkitNav routing works both ways, no console errors."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (frontend-only)", "frontend": "92% (12/13 test areas fully pass; determinism fails)"},
+  "seed_data_creation": "None (fully client-side)",
+  "retest_needed": true,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "SafeSeed at /safeseed works end-to-end. Only outstanding issue is determinism regression caused by Date.now() in temporal generators (timestamp, dateOnly) in safeCatalog.js. After main agent's fix, retest: click preset-payments-log → set rows=25, seed=42 → click generate-btn twice → capture preview-grid first tbody row and Output SHA-256 both times; both must match exactly. Also verify a preset that uses 'dateOnly' produces stable dates.",
+  "rca of the issue": "Root cause: /app/frontend/src/lib/safeCatalog.js lines 297-304 — the 'timestamp' and 'dateOnly' field generators compute their output as `new Date(Date.now() - Math.floor(rng()*N*86400_000))`. Because Date.now() is wall-clock time, each generation call anchors to a new instant, so even a seeded rng cannot yield identical timestamps between runs. Reproduction: on /safeseed → click preset-payments-log → seed=42, rows=25 → click GENERATE → note first row timestamp and Output SHA-256 → click GENERATE again → timestamp and SHA differ while all other cells stay identical. Mitigation: use a fixed epoch constant (or `seed`-derived epoch) as the anchor instead of Date.now()."
+}

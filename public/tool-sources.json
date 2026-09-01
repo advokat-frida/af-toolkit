@@ -1,118 +1,85 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "product": "The Advokat Frida Toolkit",
-  "generatedAt": "2026-08-27T23:05:27.500Z",
+  "generatedAt": "2026-09-01T02:43:26.267Z",
   "releaseBoundary": "private-source-control-only",
+  "layout": "one repository; each tool is a top-level source folder and its committed build artifact is staged here",
   "tools": [
     {
       "id": "redactorium",
-      "repository": "redactorium",
-      "revision": "bd3718f72f64f45dad6380bf083ccf94fdee514c",
-      "workingTree": "clean",
-      "sourceArtifact": "frontend/build/",
-      "sourceSha256": "19511d72f5304383b2cd84a83614a0bc9c87a7efab3b5b1e16108d3539a2108b",
+      "sourceFolder": "redactorium",
+      "sourceArtifact": "redactorium/frontend/build",
+      "sourceSha256": "057d1e600be23a4d26237a1d1be8750ba8b47a757127d8d9066fe27fb5a31774",
       "toolkitArtifact": "tools/redactorium/",
-      "toolkitSha256": "ae616e50584d4e3ecd28845c1c0ca8dcc9bae65cb857c595a9a486d3a863f7f4",
+      "toolkitSha256": "bcb62098a493a9113f8680c27cc828315b86e5a0ddda43199cb99cf35b147568",
       "license": null,
       "licenseFile": null,
-      "note": "No license file exists in the source repository; no license is asserted by the Toolkit."
+      "note": "No license file exists in the tool source; no license is asserted by the Toolkit."
     },
     {
       "id": "safeseed",
-      "repository": "safeseed",
-      "revision": "b257f2f2ae6586a625fdbd37d28186238e58212f",
-      "workingTree": "committed-head",
-      "sourceArtifact": "demo/safeseed-generator.html",
-      "sourceSha256": "9249f6b46fcef2f36ad4a75483336622d0082b8e3b43f77a7c54d527c48f20b6",
+      "sourceFolder": "safeseed",
+      "sourceArtifact": "safeseed/demo/safeseed-generator.html",
+      "sourceSha256": "8a57ad5d8f0aa09e94ec2b4918a6cbf8d791e68c4bdb67ad0d447968477e2d67",
       "toolkitArtifact": "tools/safeseed.html",
-      "toolkitSha256": "263386ae2fb054fd357089cd67ccbb22dfd158bebff8c48107836f892b4f26be",
+      "toolkitSha256": "db49f260facd19d0749e89d2f084d0d6643d7d7b69a6b2b37e895e0b035e988f",
       "license": "MIT",
       "licenseFile": "licenses/safeseed.txt"
     },
     {
+      "id": "objection-oracle",
+      "sourceFolder": "objection-oracle",
+      "sourceArtifact": "objection-oracle/dist/objection-oracle-embed.html",
+      "sourceSha256": "3d16e14ace63f0535ef5b307b2fe92f67e8f9aa14123802675f2efd186572f51",
+      "toolkitArtifact": "tools/objection-oracle.html",
+      "toolkitSha256": "3d16e14ace63f0535ef5b307b2fe92f67e8f9aa14123802675f2efd186572f51",
+      "license": "MIT",
+      "licenseFile": "licenses/objection-oracle.txt"
+    },
+    {
       "id": "privacy-wizards-council",
-      "repository": "privacy-wizards-council",
-      "revision": "3dd858b7c2410124dddfb89a87719b6f6184d441",
-      "workingTree": "committed-head",
-      "sourceArtifact": "dist/wizards.html",
-      "sourceSha256": "8191573efa0b464776570b8f05b66e3aa84b1e73279be55b731bbb6d38ff1dbe",
+      "sourceFolder": "privacy-wizards-council",
+      "sourceArtifact": "privacy-wizards-council/dist/wizards.html",
+      "sourceSha256": "db46d9c767b13351e3e1082fae396c0006ac623fcf59dd2603b129d28389fe19",
       "toolkitArtifact": "tools/privacy-wizards-council.html",
-      "toolkitSha256": "4ac6debaa00fadfa55d0025146aeec57ab7784b346ce98c55abac39c4883a006",
+      "toolkitSha256": "db46d9c767b13351e3e1082fae396c0006ac623fcf59dd2603b129d28389fe19",
       "license": "MIT",
       "licenseFile": "licenses/privacy-wizards-council.txt"
     },
     {
       "id": "build-a-prompt",
-      "repository": "build-a-prompt",
-      "revision": "3c041c7e2fd3c8b71a72a7c346d84c2a1495da23",
-      "workingTree": "committed-head",
-      "sourceArtifact": "dist/prompt-builder.html",
-      "sourceSha256": "994e4bf37c023aa453e497f2534d09fc0be8cc5b13fd589a1c146aaa5c4953f4",
+      "sourceFolder": "build-a-prompt",
+      "sourceArtifact": "build-a-prompt/dist/prompt-builder.html",
+      "sourceSha256": "daff50fa836c41f64b2ec478aac535c8a36c8294e615e0b3d46c2e09276c01f0",
       "toolkitArtifact": "tools/build-a-prompt.html",
-      "toolkitSha256": "fbc74bf4ea75209573ae3dab0f8b5511302a6ab16c84b246fedadb84dbfae084",
+      "toolkitSha256": "daff50fa836c41f64b2ec478aac535c8a36c8294e615e0b3d46c2e09276c01f0",
       "license": "MIT",
       "licenseFile": "licenses/build-a-prompt.txt"
-    },
-    {
-      "id": "objection-oracle",
-      "repository": "objection-oracle",
-      "revision": "061d81b54d135f681959f807af63b4706a22618e",
-      "workingTree": "committed-ref",
-      "sourceArtifact": "origin/main:dist/objection-oracle-embed.html",
-      "sourceSha256": "e98719a84e5c1e7d3d58b442ba38fda0b9184564268d439aa7501aab1af668b8",
-      "toolkitArtifact": "tools/objection-oracle.html",
-      "toolkitSha256": "94561b3b15098c7dab08e37cf8a0a5304adefad89fe99187396ab00877556d93",
-      "license": "MIT",
-      "licenseFile": "licenses/objection-oracle.txt"
     }
   ],
   "fonts": [
     {
       "file": "anton-400-latin.woff2",
-      "repository": "website",
-      "revision": "3c775650d9513dc4beed68416d7a3d519605674d",
-      "workingTree": "committed-head",
-      "sourceArtifact": "style-bible/src/assets/fonts/anton-400-latin.woff2",
       "sha256": "d0fa07ff63dd60cbc0e2f58e29c802dca2a5ae0276c999f59c6111ab7bbaec3b"
     },
     {
       "file": "archivo-400-latin.woff2",
-      "repository": "website",
-      "revision": "3c775650d9513dc4beed68416d7a3d519605674d",
-      "workingTree": "committed-head",
-      "sourceArtifact": "style-bible/src/assets/fonts/archivo-400-latin.woff2",
       "sha256": "8f704806dbedeaaeca334b11ec348bc3ac3a439d6431544b3afb54f534ee4967"
     },
     {
       "file": "archivo-700-latin.woff2",
-      "repository": "website",
-      "revision": "3c775650d9513dc4beed68416d7a3d519605674d",
-      "workingTree": "committed-head",
-      "sourceArtifact": "style-bible/src/assets/fonts/archivo-700-latin.woff2",
       "sha256": "8f704806dbedeaaeca334b11ec348bc3ac3a439d6431544b3afb54f534ee4967"
     },
     {
       "file": "spacegrotesk-400-latin.woff2",
-      "repository": "website",
-      "revision": "3c775650d9513dc4beed68416d7a3d519605674d",
-      "workingTree": "committed-head",
-      "sourceArtifact": "style-bible/src/assets/fonts/spacegrotesk-400-latin.woff2",
       "sha256": "0640890476fc1198ab4de571fb658de443c4d85b66466ec09534a8737ab1ce9d"
     },
     {
       "file": "spacegrotesk-600-latin.woff2",
-      "repository": "website",
-      "revision": "3c775650d9513dc4beed68416d7a3d519605674d",
-      "workingTree": "committed-head",
-      "sourceArtifact": "style-bible/src/assets/fonts/spacegrotesk-600-latin.woff2",
       "sha256": "0640890476fc1198ab4de571fb658de443c4d85b66466ec09534a8737ab1ce9d"
     },
     {
       "file": "spacegrotesk-700-latin.woff2",
-      "repository": "website",
-      "revision": "3c775650d9513dc4beed68416d7a3d519605674d",
-      "workingTree": "committed-head",
-      "sourceArtifact": "style-bible/src/assets/fonts/spacegrotesk-700-latin.woff2",
       "sha256": "0640890476fc1198ab4de571fb658de443c4d85b66466ec09534a8737ab1ce9d"
     }
   ]

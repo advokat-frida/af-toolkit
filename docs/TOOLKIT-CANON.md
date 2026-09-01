@@ -1,4 +1,10 @@
-# Advokat Frida Toolkit visual canon
+# Advokat Frida Toolkit visual canon (historical)
+
+> **Superseded 2026-08-31.** The approved *Toolkit — Redesign* design package replaced this file as
+> the visual authority: see `docs/design/DESIGN-SYSTEM.md` (principles) and
+> `docs/design/REVIEW-GATE.md` (the gate). Where this file and the design package disagree — the
+> sidebar brand cap, the 56px breadcrumb tool header, intrinsic-width mode toggles, dotted status
+> labels, retired accent hues and pills — the design package wins. Kept for the decision history.
 
 This is a scoped application-shell extension of the Advokat Frida canon. It governs the Toolkit
 shell, Home view, navigation, cards, panels, paired toggles, and primary actions. It does not redesign

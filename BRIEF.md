@@ -3,16 +3,14 @@
 Build a polished local application shell that brings Redactorium, SafeSeed, Privacy Wizards
 Council, Build-A-Prompt, and Objection Oracle into one navigable workspace.
 
-The approved product and visual decisions live in:
+The approved product and design decisions live in:
 
 - `docs/TOOLKIT-BRIEF.md`
-- `docs/TOOLKIT-CANON.md`
-- the validated style-bible receipt captured at
-  `docs/style-bible-receipts/advokat-frida-toolkit.json`
+- `docs/design/DESIGN-SYSTEM.md` and `docs/design/REVIEW-GATE.md` (the design package)
 
-This candidate preserves one source repository per tool. Its sync step copies source-owned build
-artifacts, records provenance and hashes, and applies only the chrome and square-shadow adapter
-needed for the common shell.
+Since 2026-08-31 this is the single repository for the Toolkit: every tool's source lives here as
+its own top-level folder, each tool keeps its own gate, and `scripts/build-tools.mjs` stages the
+built artifacts with recorded provenance and hashes.
 
 Release boundary: private source control only. This repository may be committed and pushed to the
 private `advokat-frida/the-toolkit` repository. No public release, website sync, Ghost change,

@@ -1,0 +1,15 @@
+import { defineConfig } from 'vite';
+import { svelte } from '@sveltejs/vite-plugin-svelte';
+import { viteSingleFile } from 'vite-plugin-singlefile';
+
+export default defineConfig({
+  base: './',
+  plugins: [svelte(), viteSingleFile()],
+  build: {
+    outDir: 'dist',
+    emptyOutDir: true,
+    cssCodeSplit: false,
+    target: 'es2020',
+    rollupOptions: { output: { inlineDynamicImports: true } }
+  }
+});

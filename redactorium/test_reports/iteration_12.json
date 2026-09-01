@@ -1,0 +1,34 @@
+{
+  "summary": "Iteration 12 (frontend-only) polish features fully verified. Preset combobox filter/keyboard/escape/click-outside all functional. Schema export produces round-trip-compatible JSON (9 rows for HR Employees). Redactorium PDF includes 'HOW TO VERIFY THIS SIGNATURE' + verify-log URL + HMAC-SHA-256 ONLY when signed; unsigned PDF omits it. All PDFs (Redactorium signed/unsigned + SafeSeed provenance) are A4 (595 x 842 pt). Mobile combobox fits within 390px viewport. /verify-log route loads. No console errors on any tested page.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": ["/tmp/pdftest/signed.pdf", "/tmp/pdftest/unsigned.pdf", "/tmp/pdftest/safeseed.pdf"],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "exporters.js line 160 has typo comment 'Aa4-appropriate margins' — cosmetic only",
+    "SearchableCombobox: keyboard nav only sets 'active' index but doesn't scroll the option into view when list overflows — minor UX polish"
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A", "frontend": "100%"},
+  "seed_data_creation": "None",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "PDF text extraction works via `strings` (pdftotext not installed). Verified PDFs saved under /tmp/pdftest/. Combobox test-ids: preset-select, preset-select-panel, preset-select-search, preset-select-option-<id>. Export button: export-schema-btn.",
+  "verified_features": [
+    "Combobox filter: 'hr'->1, 'payments'->1, 'nothing-matches' shows empty-state text 'No preset matches...'",
+    "HR Employees preset -> 9 schema rows",
+    "Keyboard: open + ArrowDown x2 + Enter selects third option (Hashed Audience)",
+    "Escape key closes panel; outside-click closes panel",
+    "export-schema-btn downloads safeseed-hr-employees.schema.json (9 items, {name,type,options?})",
+    "Round-trip import via Import JSON… re-populates 9 rows",
+    "Redactorium signed PDF contains /verify-log URL, 'HMAC-SHA-256', 'HOW TO VERIFY THIS SIGNATURE', 'SIGNATURE' sections",
+    "Redactorium unsigned PDF omits HOW TO VERIFY section",
+    "All PDFs: MediaBox 595.28 x 841.89 pt (A4 confirmed); multi-page (2+ MediaBox entries)",
+    "Mobile 390px: panel width 351px, x=33 — fits within viewport",
+    "/verify-log route loads Verify a signed log panel"
+  ]
+}

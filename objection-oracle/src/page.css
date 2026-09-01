@@ -1,0 +1,106 @@
+  /* Objection Oracle stage — the-toolkit/docs/design/DESIGN-SYSTEM.md governs. */
+  .oo-noscript{border-left:3px solid var(--amber);padding-left:12px;color:var(--ink-soft);font-size:13px;line-height:1.45;margin-top:16px}
+
+  /* Stage grid changes with the phase: the ball frames the invitation and the
+     ruling; the five questions get the full width. */
+  .oo-stage{display:grid;grid-template-columns:330px minmax(0,1fr);gap:44px;align-items:center;margin-top:var(--s5)}
+  .oo-stage[data-phase="questions"]{grid-template-columns:minmax(0,1fr);align-items:start}
+  .oo-stage[data-phase="questions"] .oo-visual{display:none}
+  .oo-stage[data-phase="result"]{grid-template-columns:250px minmax(0,1fr);gap:40px}
+
+  .oo-visual{display:grid;justify-items:center}
+  .oo-ball{width:250px;aspect-ratio:1;border-radius:50%;position:relative;overflow:hidden;background:radial-gradient(circle at 34% 28%, #4a4a4a 0%, #1c1c1c 42%, #050505 100%);transform-origin:50% 54%}
+  .oo-stage[data-phase="result"] .oo-ball{width:220px}
+  .oo-eight{position:absolute;width:38.4%;aspect-ratio:1;left:30.8%;top:30.8%;border-radius:50%;background:var(--paper);display:grid;place-items:center;transition:opacity 120ms linear,transform 120ms linear}
+  .oo-eight span{font-family:var(--font-display);font-size:56px;font-weight:400;line-height:1;color:var(--ink);transform:translateY(2px)}
+  .oo-window{position:absolute;width:69%;height:58%;left:15.5%;top:20%;background:var(--paper);clip-path:polygon(50% 2%,98% 93%,2% 93%);opacity:0;transform:scale(.82);transition:opacity 160ms linear,transform 180ms ease-out}
+  .oo-window-inner{position:absolute;inset:7px 9px 11px;background:var(--forest);clip-path:polygon(50% 2%,98% 93%,2% 93%);color:var(--paper);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 12px}
+  .oo-ball[data-outcome="NEXT_VERSION"] .oo-window-inner{background:var(--indigo)}
+  .oo-ball[data-outcome="FIX_THEN_SHIP"] .oo-window-inner{background:var(--amber)}
+  .oo-ball[data-outcome="HARD_STOP"] .oo-window-inner{background:var(--red)}
+  .oo-window-label{display:none}
+  .oo-window-quip{font-size:10px;font-weight:700;line-height:1.25;width:104px;position:relative;top:16px;text-wrap:balance}
+  .oo-ball.show-result .oo-eight{opacity:0;transform:scale(.78)}
+  .oo-ball.show-result .oo-window{opacity:1;transform:scale(1)}
+  .oo-ball.is-shaking{animation:oracle-shake 1050ms cubic-bezier(.36,.07,.19,.97) both}
+  @keyframes oracle-shake{
+    0%{transform:translate(0,0) rotate(0)}
+    18%{transform:translate(-17px,5px) rotate(-9deg)}
+    36%{transform:translate(14px,-7px) rotate(8deg)}
+    54%{transform:translate(-11px,4px) rotate(-6deg)}
+    72%{transform:translate(8px,-3px) rotate(5deg)}
+    100%{transform:translate(0,0) rotate(360deg)}
+  }
+
+  .oo-panel{width:100%}
+  .oo-view-title{font-size:22px;font-weight:700;line-height:1.25;margin:0;text-wrap:pretty}
+  .oo-sub{font-size:15px;line-height:1.55;color:var(--ink-soft);margin:10px 0 0}
+  .oo-view-title:focus,.oo-result-title:focus{outline:none}
+  .oo-view-title:focus-visible,.oo-result-title:focus-visible{outline:2px solid var(--forest);outline-offset:4px}
+  .oo-main-action{width:100%;min-height:48px;margin-top:24px}
+
+  .btn{font-family:var(--font-label);font-size:14px;font-weight:700;line-height:1.2;padding:9px 18px;min-height:44px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:0}
+  .btn.primary{background:var(--forest);color:#fff;border:2px solid var(--line);box-shadow:4px 4px 0 var(--line);letter-spacing:.045em;text-transform:uppercase}
+  .btn.primary:active{box-shadow:none;transform:translate(4px,4px)}
+  .btn.secondary{background:var(--paper);color:var(--ink);border:1px solid var(--line)}
+  .btn[aria-disabled="true"]{background:var(--ground);color:var(--ink-soft);border-color:var(--ink-soft);box-shadow:none;cursor:not-allowed}
+  .oo-text-action{font-family:var(--font-label);font-size:13px;font-weight:700;color:var(--ink);border:0;background:transparent;min-height:44px;padding:6px 8px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+  .oo-text-action:hover{color:var(--red)}
+
+  /* The five questions, one list. */
+  .oo-question-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--hair)}
+  .oo-question-row{display:grid;grid-template-columns:minmax(0,1fr) 170px;align-items:center;gap:20px;padding:15px 2px;border-bottom:1px solid var(--hair)}
+  .oo-question-row p{font-size:16px;line-height:1.4;margin:0}
+  .oo-pair{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .oo-pair button{display:flex;align-items:center;justify-content:center;min-height:40px;border:1px solid var(--line);background:var(--paper);color:var(--ink);font-family:var(--font-label);font-size:13px;font-weight:700;cursor:pointer;border-radius:0;padding:4px 8px}
+  .oo-pair button[aria-pressed="true"]{border:2px solid var(--forest)}
+  .oo-ask-row{display:flex;align-items:center;gap:16px;margin-top:24px}
+  .oo-ask-row .btn{width:auto}
+  .oo-count{color:var(--ink-soft);font-size:14px;white-space:nowrap}
+
+  .oo-consulting{text-align:center}
+  .oo-dots{display:flex;justify-content:center;gap:8px;margin-top:28px}
+  .oo-dots i{width:10px;height:10px;background:var(--forest);animation:oracle-dot 600ms ease-in-out infinite alternate}
+  .oo-dots i:nth-child(2){animation-delay:120ms}
+  .oo-dots i:nth-child(3){animation-delay:240ms}
+  @keyframes oracle-dot{from{transform:translateY(0);opacity:.4}to{transform:translateY(-8px);opacity:1}}
+
+  /* The ruling. */
+  .oo-verdict{padding:20px 22px;border:2px solid var(--forest);background:var(--paper)}
+  .oo-result[data-outcome="NEXT_VERSION"] .oo-verdict{border-color:var(--indigo)}
+  .oo-result[data-outcome="FIX_THEN_SHIP"] .oo-verdict{border-color:var(--amber)}
+  .oo-result[data-outcome="HARD_STOP"] .oo-verdict{border-color:var(--red)}
+  .oo-result-title{display:block;font-family:var(--font-display);font-size:32px;font-weight:400;letter-spacing:.01em;line-height:1.1;text-transform:uppercase}
+  .oo-result-reason{display:block;margin-top:6px;color:var(--ink-soft);font-size:15px;line-height:1.5}
+  .oo-rationale{display:grid;gap:12px 20px;margin:20px 0 0}
+  .oo-rationale div{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px}
+  .oo-rationale dt{color:var(--ink-soft);font-size:15px;font-weight:400}
+  .oo-rationale dd{font-size:15px;line-height:1.45;margin:0;color:var(--ink)}
+  .oo-result-actions{display:flex;align-items:center;gap:12px;margin-top:24px}
+  .oo-result-actions .btn{width:auto}
+  .oo-receipt-card{margin-top:14px;border-top:1px solid var(--hair);padding-top:10px}
+  .oo-receipt-card summary{font-family:var(--font-label);font-size:13px;font-weight:700;color:var(--ink);cursor:pointer;min-height:44px;display:flex;align-items:center;text-decoration:underline;text-underline-offset:3px}
+  .oo-receipt-card summary:hover{color:var(--red)}
+  .oo-receipt-card pre{font-family:var(--mono);font-size:12px;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere;background:var(--ground);border:1px solid var(--hair);padding:12px;margin:0 0 10px;max-height:240px;overflow:auto}
+  .oo-receipt-card summary:focus-visible,.oo-text-action:focus-visible{outline:2px solid var(--forest);outline-offset:2px}
+
+  @media(max-width:860px){
+    .oo-stage,.oo-stage[data-phase="result"]{grid-template-columns:minmax(0,1fr);gap:24px;align-items:start}
+    .oo-visual{justify-items:center}
+    .oo-ball,.oo-stage[data-phase="result"] .oo-ball{width:min(48vw,200px)}
+    .oo-question-row{grid-template-columns:minmax(0,1fr);gap:10px;padding:12px 2px}
+    .oo-pair{max-width:220px}
+    .oo-ask-row{flex-wrap:wrap;gap:12px}
+    .oo-ask-row .btn{width:100%}
+    .oo-rationale div{grid-template-columns:minmax(0,1fr);gap:2px}
+    .oo-result-actions{flex-wrap:wrap}
+  }
+
+  @keyframes oracle-fade{from{opacity:.55}to{opacity:1}}
+  @media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{scroll-behavior:auto!important}
+    .oo-ball,.oo-eight,.oo-window,.oo-dots i{animation-duration:1ms!important;animation-iteration-count:1!important;transition-duration:1ms!important}
+    .oo-ball.is-shaking{animation:oracle-fade 100ms linear both!important}
+  }
+
+  .hidden{display:none}

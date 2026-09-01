@@ -2,9 +2,9 @@ const routeMeta = {
   home: { title: "Home" },
   redactorium: { title: "Redactorium" },
   safeseed: { title: "SafeSeed" },
+  "objection-oracle": { title: "Objection Oracle" },
   "privacy-wizards": { title: "Privacy Wizards Council" },
-  "build-a-prompt": { title: "Build-A-Prompt" },
-  "objection-oracle": { title: "Objection Oracle" }
+  "build-a-prompt": { title: "Build-A-Prompt" }
 };
 
 const homeAnchors = new Set(["tool-grid", "toolkit-changelog"]);
@@ -68,6 +68,23 @@ function showRoute({ focus = true } = {}) {
     if (focus) views.get(route)?.querySelector("h1")?.focus({ preventScroll: true });
   });
 }
+
+// A tool may name its active task in the shared breadcrumb (Privacy Wizards posts
+// its open determination). Same-origin frames only; the default name is restored
+// when the tool clears it or its frame reloads.
+window.addEventListener("message", (event) => {
+  if (event.origin !== window.location.origin) return;
+  const data = event.data;
+  if (!data || data.toolkit !== "context") return;
+  for (const [route, frame] of frames) {
+    if (frame.contentWindow !== event.source) continue;
+    const heading = views.get(route)?.querySelector("[data-context-title]");
+    if (!heading) return;
+    const title = typeof data.title === "string" ? data.title.trim() : "";
+    heading.textContent = title || heading.dataset.contextTitle;
+    return;
+  }
+});
 
 function openMenu() {
   if (window.matchMedia("(min-width: 821px)").matches) return;

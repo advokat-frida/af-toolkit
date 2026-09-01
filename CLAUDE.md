@@ -1,32 +1,42 @@
 # Advokat Frida Toolkit repository
 
-This repository is one integration-shell application. It does not replace or absorb the source
-repositories for Redactorium, SafeSeed, Privacy Wizards Council, Build-A-Prompt, or Objection Oracle.
+This is the **one repository** for the Advokat Frida Toolkit: the shell application and every
+tool's source, consolidated 2026-08-31. The former standalone repos (safeseed,
+privacy-wizards-council, build-a-prompt, objection-oracle, redactorium) are superseded — each tool
+now lives here as its own top-level folder and is developed here.
 
-## Ownership
+## Layout
 
-- `public/index.html`, `public/toolkit.css`, `public/toolkit.js`, `server.mjs`, integration adapters,
-  and Toolkit-specific tests are owned here.
-- `public/tools/`, `public/fonts/`, `public/licenses/`, and `public/tool-sources.json` are generated,
-  tracked distribution artifacts. Never hand-edit them.
-- Functional changes to a tool happen in its authoritative repository, pass that repository's gate,
-  and then enter the Toolkit through `npm run sync` with reviewed hashes and provenance.
-- Do not add source trees, Git histories, or submodules for the integrated tools.
+- `public/` — the shell (index.html, toolkit.css, toolkit.js) plus **staged, generated** artifacts:
+  `public/tools/`, `public/licenses/`, `public/tool-sources.json`. Never hand-edit the generated
+  paths. `public/fonts/` and `public/assets/` are committed shell assets.
+- `safeseed/`, `redactorium/`, `privacy-wizards-council/`, `build-a-prompt/`, `objection-oracle/`
+  — one folder per tool: its full source, tests, docs, and build. Each folder keeps its own gate
+  (`check`/`qa`/harness) and its own CLAUDE/AGENTS notes where it has them.
+- `scripts/` — shell QA + the staging pipeline. `scripts/build-tools.mjs` stages each tool's built
+  artifact into `public/tools/` and writes the provenance manifest (`--build` runs each tool's
+  build first).
+- `docs/design/` — **the design package**: `DESIGN-SYSTEM.md` (standing principles) and
+  `REVIEW-GATE.md` (the review gate). These govern every surface; `docs/TOOLKIT-CANON.md` is
+  historical and points here.
 
-## Canon
+## Working rules
 
-Load the parent Advokat Frida `advokat` skill before AF work. The product decisions are in
-`docs/TOOLKIT-BRIEF.md`; the visual system is in `docs/TOOLKIT-CANON.md`; the canonical style-bible
-receipt captured for this release is in `docs/style-bible-receipts/advokat-frida-toolkit.json`.
+- Load the parent Advokat Frida `advokat` skill before AF work. Product decisions:
+  `docs/TOOLKIT-BRIEF.md`. Design: `docs/design/DESIGN-SYSTEM.md`.
+- Change a tool in its folder, run that folder's own gate, then `npm run build:tools` (or
+  `build:tools:full`) to restage, then the repo gate below. Staging is deliberate — editing a tool
+  folder never silently changes `public/tools/`.
+- A new tool enters only through `docs/design/REVIEW-GATE.md` §Adding a new tool.
 
 ## Gate
 
-Before commit or push, run `npm run typecheck`, `npm test`, `npm run build:web`, and
-`npm run qa:visual`. Inspect the exact generated screenshots at literal size. A failed source hash,
-test, rendered check, security check, or manual visual state blocks the release.
+Before commit or push: `npm run gate` (design-gate → typecheck → tests → static QA → rendered QA),
+then inspect the regenerated `proofs/` screenshots at literal size. A failed hash, test, gate rule,
+or manual visual state blocks the release.
 
 ## Release boundary
 
-The current repository is private source control only. A commit or push here does not authorize a
-public repository, website or Ghost change, theme deployment, publication, DNS, analytics,
-announcement, package release, or change to an upstream tool repository.
+Private source control only. A commit or push here does not authorize a public repository, website
+or Ghost change, theme deployment, publication, DNS, analytics, announcement, or package release.
+Archiving the superseded GitHub repos is Ben's call, made separately.

@@ -1,6 +1,6 @@
 # The Advokat Frida Toolkit
 
-Status: reviewed private-repository candidate.
+Status: consolidated single-repository build (2026-08-31), redesigned to the approved design package.
 
 ## Product decision
 
@@ -35,18 +35,18 @@ task, and leave with the output that tool already promises.
 
 ## Integration contract
 
-- Redactorium uses its source-owned browser bundle; SafeSeed, Build-A-Prompt, Privacy Wizards
-  Council, and Objection Oracle use their source-owned portable artifacts. All mount as same-origin,
-  chrome-free task stages behind stable Toolkit routes.
-- The shell removes duplicate site header/footer chrome, neutralizes whole-application card wrappers,
-  applies the shared Toolkit type hierarchy, and manages frame height. It may not
-  rewrite source-tool logic, legal sources, result language, storage behavior, or export semantics.
+- Every tool's source lives in this repository as its own top-level folder and adopts the design
+  system at the source (`docs/design/DESIGN-SYSTEM.md`). Each tool ships a portable artifact that
+  mounts as a same-origin, chrome-free task stage behind a stable Toolkit route, hiding its
+  standalone chrome in embed mode.
+- The shell owns navigation, the 56px breadcrumb header, and frame management. It may not rewrite a
+  tool's logic, legal sources, result language, storage behavior, or export semantics.
 - One Toolkit shell surrounds one open canvas. Meaningful task cards remain inside the canvas, but a
-  source tool may not wrap its entire workflow in a second bordered and shadowed application card.
-- A generated provenance manifest records the source repository, revision, artifact path, SHA-256,
-  and sync time for every framed tool.
-- Tool source repositories remain authoritative. Updating a source tool does not silently update the
-  Toolkit; the artifact sync and its verification must be deliberate.
+  tool may not wrap its entire workflow in a second bordered application card.
+- `scripts/build-tools.mjs` stages each tool's built artifact and records provenance — source
+  folder, artifact path, SHA-256 — in `public/tool-sources.json`. Editing a tool folder never
+  silently changes `public/tools/`; restaging is deliberate and verified.
+- New tools enter only through `docs/design/REVIEW-GATE.md`.
 
 ## Required views
 

@@ -1,0 +1,20 @@
+name: "SafeSeed Verify"
+description: "Fail CI unless the entire CSV still matches its SafeSeed run record and every declared value remains in range."
+author: "SafeSeed"
+branding:
+  icon: "shield"
+  color: "green"
+
+inputs:
+  data:
+    description: "Path to the CSV file to verify."
+    required: true
+  record:
+    description: "Path to the SafeSeed run record JSON for that file."
+    required: true
+
+runs:
+  # The tagged Action executes the committed CLI build. It does not download a
+  # mutable npm dist-tag, invoke a shell, or require the caller to install Node.
+  using: "node24"
+  main: "action/index.mjs"

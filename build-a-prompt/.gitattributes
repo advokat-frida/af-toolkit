@@ -1,0 +1,2 @@
+# Portable output contains minified runtime template literals with significant line-end whitespace.
+dist/*.html binary

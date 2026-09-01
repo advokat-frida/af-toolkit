@@ -8,9 +8,9 @@ authentication system, or telemetry service.
 
 ## Integration trust boundary
 
-The five source-owned tools run as reviewed, same-origin frames so their local storage, downloads,
+The five tools run as reviewed, same-origin frames so their local storage, downloads,
 and browser APIs continue to work. Those frames are application composition, not security
-isolation: a synchronized tool is trusted code inside the Toolkit origin. Only the three tools that
+isolation: a staged tool is trusted code inside the Toolkit origin. Only the three tools that
 actually copy output receive `clipboard-write` permission.
 
 Before any hosted or public release, review this boundary again. Unreviewed or independently
@@ -26,6 +26,6 @@ problem.
 
 ## Release checks
 
-Every integrated artifact is pinned by hash and provenance. The release gate scans for secrets,
+Every staged artifact is hashed and recorded in `public/tool-sources.json`. The release gate scans for secrets,
 requires local-only runtime behavior with no unexpected external requests, and verifies the exact
 rendered application before push. Public release or deployment requires a separate review.

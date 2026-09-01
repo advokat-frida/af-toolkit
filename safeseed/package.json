@@ -1,0 +1,64 @@
+{
+  "name": "safeseed",
+  "version": "0.4.0",
+  "description": "Generate, record, verify, and scan low-fidelity test data from a versioned catalog of reserved, test-designated, and deliberately fake values. No production dataset required, zero runtime dependencies, MIT.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/advokat-frida/safeseed.git"
+  },
+  "homepage": "https://github.com/advokat-frida/safeseed#readme",
+  "bugs": {
+    "url": "https://github.com/advokat-frida/safeseed/issues"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "safeseed": "dist/cli.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "check:release": "node scripts/check-release.mjs",
+    "test:cli": "node scripts/test-cli.mjs",
+    "test:action": "node scripts/test-action.mjs",
+    "release:check": "npm audit --audit-level=moderate && npm run typecheck && npm test && npm run build && npm run test:cli && npm run test:action && npm run check:release",
+    "prepublishOnly": "npm run release:check",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "synthetic-data",
+    "test-data",
+    "pii",
+    "privacy",
+    "gdpr",
+    "data-minimization",
+    "fixtures",
+    "ci",
+    "non-production"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.0",
+    "typescript": "^5.7.3",
+    "vitest": "^4.1.9"
+  },
+  "allowScripts": {
+    "esbuild@0.21.5": true
+  }
+}
