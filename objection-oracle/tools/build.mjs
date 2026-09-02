@@ -18,7 +18,7 @@ const embedBody = body.replace(/[ \t]*<!-- oo:standalone-start -->[\s\S]*?<!-- o
 const embedCss = `
   /* Toolkit embed: the shell provides the frame; this page is only the stage. */
   html,body{height:100%}
-  .wrap{max-width:none;min-height:100%;display:flex;flex-direction:column;padding:0 30px}
+  .wrap{width:100%;max-width:1130px;margin:0 auto;min-height:100%;display:flex;flex-direction:column;padding:0 32px}
   .wrap>main{flex:1 1 auto;display:flex;flex-direction:column}
   .oo-stage{flex:1 1 auto;margin:26px 0 30px}
   .oo-stage[data-phase="questions"]{align-items:start}

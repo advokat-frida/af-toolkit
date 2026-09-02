@@ -18,7 +18,6 @@ import { SiteFooter, SiteHeader } from "../components/SiteChrome";
 
 const MAX_ROWS = 10000;
 const MAX_SEED = 0xffffffff;
-const PREVIEW_ROWS = 12;
 
 // Inside the Toolkit shell the surrounding chrome (name, article link, page
 // intro) belongs to the shell; ?embed=1 renders only the working stage.
@@ -156,7 +155,7 @@ export default function Generator() {
       setRecordState(null);
       return;
     }
-    void makeRunRecord(dataset, csv)
+    void makeRunRecord(dataset, csv, { generatedAt: new Date().toISOString() })
       .then((record) => {
         if (!cancelled) setRecordState({ csv, record });
       })
@@ -198,7 +197,10 @@ export default function Generator() {
     requestAnimationFrame(() => columnsHeadingRef.current?.focus());
   };
   const showResult = () => {
-    if (!configValid) return;
+    if (!configValid) {
+      document.querySelector<HTMLElement>('.field-name[aria-invalid="true"], .gen-param input[aria-invalid="true"]')?.focus();
+      return;
+    }
     setStage("result");
     requestAnimationFrame(() => resultHeadingRef.current?.focus());
   };
@@ -207,7 +209,20 @@ export default function Generator() {
     requestAnimationFrame(() => columnsHeadingRef.current?.focus());
   };
 
-  const previewRows = dataset?.rows.slice(0, PREVIEW_ROWS) ?? [];
+  // The Toolkit shell posts a reset when its rail item for this tool is chosen again.
+  useEffect(() => {
+    const onMessage = (event: MessageEvent) => {
+      if (event.origin !== window.location.origin) return;
+      if (event.data && event.data.toolkit === "reset") {
+        setMode("generate");
+        setStage("edit");
+      }
+    };
+    window.addEventListener("message", onMessage);
+    return () => window.removeEventListener("message", onMessage);
+  }, []);
+
+  const previewRows = dataset?.rows ?? [];
   const hasDerivedFields = fields.some((field) => getEntry(field.type).derivation !== undefined);
   const currentRecord = recordState?.csv === csv ? recordState.record : null;
   const canDownload = configValid && dataset !== null && csv !== "" && currentRecord !== null;
@@ -235,10 +250,12 @@ export default function Generator() {
           </div>
         )}
 
-        <div className="gen-modes" role="group" aria-label="Mode">
-          <button type="button" aria-pressed={mode === "generate"} className="gen-mode" onClick={() => { setMode("generate"); setStage("edit"); }}>Generate</button>
-          <button type="button" aria-pressed={mode === "verify"} className="gen-mode" onClick={() => setMode("verify")}>Verify a file</button>
-        </div>
+        {!(mode === "generate" && stage === "result") && (
+          <div className="gen-modes" role="group" aria-label="Mode">
+            <button type="button" aria-pressed={mode === "generate"} className="gen-mode" onClick={() => { setMode("generate"); setStage("edit"); }}>Generate</button>
+            <button type="button" aria-pressed={mode === "verify"} className="gen-mode" onClick={() => setMode("verify")}>Verify a file</button>
+          </div>
+        )}
 
         {mode === "generate" && stage === "edit" && (
           <section className="gen-panel" aria-labelledby="columns-heading">
@@ -316,36 +333,6 @@ export default function Generator() {
               </p>
             )}
 
-            <div className="gen-nums">
-              <label className="num-ctl">
-                <span className="field-label">Rows</span>
-                <input
-                  type="number"
-                  min={1}
-                  max={MAX_ROWS}
-                  step={1}
-                  value={Number.isNaN(rowCount) ? "" : rowCount}
-                  aria-invalid={!rowsValid}
-                  aria-describedby={!rowsValid ? "generator-errors" : undefined}
-                  onChange={(event) => setRowCount(Number(event.target.value))}
-                />
-              </label>
-              <label className="num-ctl">
-                <span className="field-label">Seed</span>
-                <input
-                  type="number"
-                  min={0}
-                  max={MAX_SEED}
-                  step={1}
-                  value={Number.isNaN(seed) ? "" : seed}
-                  aria-invalid={!seedValid}
-                  aria-describedby={!seedValid ? "generator-errors" : undefined}
-                  onChange={(event) => setSeed(Number(event.target.value))}
-                />
-              </label>
-              <span className="gen-hint">Same seed + columns = identical data, every time.</span>
-            </div>
-
             {!configValid && (
               <p id="generator-errors" className="gen-error" role="alert">
                 {emptyName && "Every column needs a name. "}
@@ -358,26 +345,54 @@ export default function Generator() {
 
             <div className="gen-actions">
               <button type="button" className="text-action" onClick={addField}>+ Add generated column</button>
-              <button
-                type="button"
-                className="btn btn-primary"
-                data-testid="generate"
-                disabled={!configValid}
-                onClick={showResult}
-              >
-                Generate
-              </button>
+              <div className="gen-actions-end">
+                <label className="gen-param">
+                  <span className="field-label">Rows</span>
+                  <input
+                    type="number"
+                    min={1}
+                    max={MAX_ROWS}
+                    step={1}
+                    value={Number.isNaN(rowCount) ? "" : rowCount}
+                    aria-invalid={!rowsValid}
+                    aria-describedby={!rowsValid ? "generator-errors" : undefined}
+                    onChange={(event) => setRowCount(Number(event.target.value))}
+                  />
+                </label>
+                <label className="gen-param">
+                  <span className="field-label">Seed</span>
+                  <input
+                    type="number"
+                    min={0}
+                    max={MAX_SEED}
+                    step={1}
+                    value={Number.isNaN(seed) ? "" : seed}
+                    aria-invalid={!seedValid}
+                    aria-describedby={!seedValid ? "generator-errors" : undefined}
+                    onChange={(event) => setSeed(Number(event.target.value))}
+                  />
+                </label>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  data-testid="generate"
+                  aria-disabled={!configValid}
+                  onClick={showResult}
+                >
+                  Generate
+                </button>
+              </div>
             </div>
 
-            <details className="tier-disclosure">
-              <summary>How SafeSeed labels generated fields</summary>
-              <ul className="tier-key" aria-label="What the assurance tiers mean">
+            <section className="tier-legend" aria-labelledby="tier-legend-heading">
+              <p className="field-label" id="tier-legend-heading">SafeSeed fields</p>
+              <ul className="tier-key">
                 <li><span className="tier-dot tier-provable" aria-hidden="true" /><span><strong>Protocol reserved</strong> — a published standard reserves the namespace for documentation or testing.</span></li>
                 <li><span className="tier-dot tier-reserved" aria-hidden="true" /><span><strong>Authority reserved</strong> — the cited authority currently marks the range fictitious or invalid.</span></li>
                 <li><span className="tier-dot tier-designated" aria-hidden="true" /><span><strong>Designated for testing</strong> — valid-looking and published for processor or sandbox test mode.</span></li>
                 <li><span className="tier-dot tier-fake" aria-hidden="true" /><span><strong>Structurally fake</strong> — no standard reserves it, so it is built to be obviously fake.</span></li>
               </ul>
-            </details>
+            </section>
           </section>
         )}
 
@@ -396,10 +411,7 @@ export default function Generator() {
                   <thead>
                     <tr>
                       {fields.map((field) => (
-                        <th key={field.id}>
-                          <span className={`tier-dot ${TIER_CLASS[getEntry(field.type).tier]}`} aria-hidden="true" />
-                          {field.name.trim()}
-                        </th>
+                        <th key={field.id}>{field.name.trim()}</th>
                       ))}
                     </tr>
                   </thead>
@@ -413,21 +425,9 @@ export default function Generator() {
                 </table>
               </div>
             )}
-            {dataset && dataset.rows.length > PREVIEW_ROWS && (
-              <p className="gen-hint">First {PREVIEW_ROWS} of {dataset.rows.length.toLocaleString()} rows.</p>
-            )}
-
             <p className="gen-aside">
-              Every value comes from SafeSeed&rsquo;s catalog of reserved, fictitious, or structurally fake
-              ranges. These values cannot reach a real person.
+              Every value comes from reserved, fictitious, or structurally fake ranges. These values cannot reach a real person.
             </p>
-
-            <div className="stat-band">
-              <span><span className="field-label">Rows</span><strong>{rowCount.toLocaleString()}</strong></span>
-              <span><span className="field-label">Seed</span><strong>{seed}</strong></span>
-              <span><span className="field-label">Columns</span><strong>{fields.length}</strong></span>
-              <span><span className="field-label">Signed</span><strong>SHA-256</strong></span>
-            </div>
 
             <div className="gen-actions">
               <div className="download-row">
@@ -455,7 +455,6 @@ export default function Generator() {
                 </button>
               </div>
             </div>
-            <p className="gen-hint">Keep the CSV and its receipt together; verification needs the exact pair.</p>
             {recordError && <p className="gen-error" role="alert">{recordError}</p>}
           </section>
         )}

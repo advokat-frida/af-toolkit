@@ -92,7 +92,7 @@ export default function CustomRulesPanel({ onRulesChange }) {
                   <input
                     data-testid="rule-name"
                     className="w-full px-3 py-2 border border-[hsl(var(--ink))] bg-[hsl(var(--paper))] text-sm mt-1"
-                    placeholder="Norwegian fødselsnummer"
+                    placeholder="Employee ID"
                     value={draft.name}
                     onChange={(e) => setDraft(d => ({ ...d, name: e.target.value }))}
                   />
@@ -102,7 +102,7 @@ export default function CustomRulesPanel({ onRulesChange }) {
                   <input
                     data-testid="rule-category"
                     className="w-full px-3 py-2 border border-[hsl(var(--ink))] bg-[hsl(var(--paper))] text-sm mt-1"
-                    placeholder="government-id"
+                    placeholder="employee-id"
                     value={draft.category}
                     onChange={(e) => setDraft(d => ({ ...d, category: e.target.value }))}
                   />
@@ -112,7 +112,7 @@ export default function CustomRulesPanel({ onRulesChange }) {
                   <input
                     data-testid="rule-pattern"
                     className="w-full px-3 py-2 border border-[hsl(var(--ink))] bg-[hsl(var(--paper))] text-sm mono mt-1"
-                    placeholder="^\\d{6}\\s?\\d{5}$"
+                    placeholder="^EMP-\\d{6}$"
                     value={draft.pattern}
                     onChange={(e) => setDraft(d => ({ ...d, pattern: e.target.value }))}
                   />
@@ -132,7 +132,7 @@ export default function CustomRulesPanel({ onRulesChange }) {
                   <input
                     data-testid="rule-hint"
                     className="w-full px-3 py-2 border border-[hsl(var(--ink))] bg-[hsl(var(--paper))] text-sm mono mt-1"
-                    placeholder="(fnr|personnummer)"
+                    placeholder="(employee|emp)[ _-]?id"
                     value={draft.columnHint}
                     onChange={(e) => setDraft(d => ({ ...d, columnHint: e.target.value }))}
                   />

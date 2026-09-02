@@ -13,6 +13,10 @@
   var resultTitle=document.getElementById('result-title');
   var resultReason=document.getElementById('result-reason');
   var resultAction=document.getElementById('result-action');
+  var resultOwner=document.getElementById('result-owner');
+  var resultMeaning=document.getElementById('result-meaning');
+  var resultCloseout=document.getElementById('result-closeout');
+  var resultAnswers=document.getElementById('result-answers');
   var resultView=document.getElementById('view-result');
   var receipt=document.getElementById('ruling-receipt');
   var status=document.getElementById('oracle-status');
@@ -26,13 +30,11 @@
     stage.setAttribute('data-phase',phaseByView[name]);
   }
   function clearBall(){
-    ball.classList.remove('is-shaking','show-result');
+    ball.classList.remove('is-shaking');
     ball.style.animationDelay='';
     ball.style.animationPlayState='';
     ball.style.animationDuration='';
     ball.removeAttribute('data-outcome');
-    document.getElementById('ball-label').textContent='RULING';
-    document.getElementById('ball-quip').textContent='The oracle is considering your concern.';
   }
 
   function answeredCount(){
@@ -94,26 +96,39 @@
     resultTitle.textContent=result.label;
     resultReason.textContent=result.reason;
     resultAction.textContent=result.action;
+    resultOwner.textContent=result.owner;
+    resultMeaning.textContent=result.meaning;
+    resultCloseout.textContent=result.closeout;
+    resultAnswers.textContent='';
+    QUESTIONS.forEach(function(question,index){
+      var row=document.createElement('li');
+      var prompt=document.createElement('span');
+      prompt.textContent=question.prompt;
+      var flag=document.createElement('span');
+      flag.className='oo-answer-flag';
+      flag.textContent=state.answers[index]?'Yes':'No';
+      row.appendChild(prompt);
+      row.appendChild(flag);
+      resultAnswers.appendChild(row);
+    });
     receipt.textContent=formatReceipt(state.answers,result,state.quip);
-    document.getElementById('ball-label').textContent=result.label;
-    document.getElementById('ball-quip').textContent=state.quip;
     ball.classList.remove('is-shaking');
     ball.style.animationDelay='';
     ball.style.animationPlayState='';
     ball.style.animationDuration='';
-    ball.classList.add('show-result');
     resultTitle.focus();
     announce('Ruling: '+result.label+'. '+state.quip);
   }
   function ask(){
     if(askButton.getAttribute('aria-disabled')==='true'){
+      var pending=questionList.querySelector('.oo-pair:not(:has([aria-pressed="true"])) button');
+      if(pending)pending.focus();
       announce('Answer all five questions first.');
       return;
     }
     state.result=evaluateAnswers(state.answers);
     state.quip=pickQuip(state.result.code,Math.random,state.quip);
     showView('shaking');
-    ball.classList.remove('show-result');
     void ball.offsetWidth;
     ball.classList.add('is-shaking');
     announce('Consulting the oracle.');
@@ -137,9 +152,18 @@
       announce('Ruling copied.');
       window.setTimeout(function(){copyButton.textContent='Copy ruling';},1200);
     }).catch(function(){
-      document.querySelector('.oo-receipt-card').open=true;
-      selectReceipt();
-      announce('The ruling is selected. Copy it from the full ruling box.');
+      var scratch=document.createElement('textarea');
+      scratch.value=text;
+      scratch.setAttribute('readonly','');
+      scratch.style.position='fixed';
+      scratch.style.opacity='0';
+      document.body.appendChild(scratch);
+      scratch.select();
+      var worked=false;
+      try{worked=document.execCommand('copy');}catch(error){worked=false;}
+      scratch.remove();
+      if(worked){copyButton.textContent='Copied';announce('Ruling copied.');window.setTimeout(function(){copyButton.textContent='Copy ruling';},1200);}
+      else{selectReceipt();announce('Copying was blocked by the browser. The ruling text is selected.');}
     });
   }
 
@@ -147,6 +171,18 @@
   askButton.addEventListener('click',ask);
   copyButton.addEventListener('click',copyRuling);
   document.getElementById('restart-button').addEventListener('click',start);
+  function resetToWelcome(){
+    if(state.timer)window.clearTimeout(state.timer);
+    state={phase:'welcome',answers:[],result:null,quip:null,timer:null};
+    clearBall();
+    showView('welcome');
+    document.getElementById('start-button').focus();
+  }
+  // The Toolkit shell posts a reset when its rail item for this tool is chosen again.
+  window.addEventListener('message',function(event){
+    if(event.origin!==window.location.origin)return;
+    if(event.data&&event.data.toolkit==='reset')resetToWelcome();
+  });
 
   window.__oracleQA={
     getState:function(){return {phase:state.phase,answers:state.answers.slice(),code:state.result&&state.result.code,quip:state.quip};},
@@ -172,7 +208,7 @@
       state.result=OUTCOMES.HARD_STOP;
       state.quip=RESPONSE_BANKS.HARD_STOP[0];
       showView('shaking');
-      ball.classList.remove('show-result','is-shaking');
+      ball.classList.remove('is-shaking');
       ball.style.animationDuration='1000ms';
       ball.style.animationDelay=(-Math.max(0,Math.min(1,progressValue))*1000)+'ms';
       ball.style.animationPlayState='paused';

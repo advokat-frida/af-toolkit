@@ -82,7 +82,11 @@ only sanctioned circles are the Oracle ball and the fox mark.
 
 **Primary button.** `2px solid var(--ink)` border, `--forest` fill, white Archivo 14/700 uppercase
 `0.045em`, padding `9px 18px`, `min-height: 44px`, shadow `4px 4px 0 var(--ink)`. Pressed:
-translate `4px,4px`, shadow removed. One primary per decision zone.
+translate `4px,4px`, shadow removed. One primary per decision zone, always at its intrinsic width
+— a primary never stretches to fill its column, whatever the artboard drew (Ben, 2026-09-01, the
+Oracle's `Ask the oracle`). A primary never greys out either: when its action is not yet possible
+it keeps its look, carries `aria-disabled`, and pressing it moves focus to what is missing (the
+Oracle's unanswered question, SafeSeed's empty zone, Redactorium's first treatment).
 
 **Secondary button.** `1px solid var(--ink)`, `--paper` fill, ink Archivo 14/700 (no uppercase),
 same padding and height floor, no shadow.
@@ -108,7 +112,11 @@ height, 18px Lucide icon, Archivo 13/700, a 3px left border — transparent at r
 **Tool header.** One 56px bar: `--paper`, hairline bottom border. Left: group eyebrow (Archivo
 11/700 caps `--soft`) + `/` in `--faint` + tool name (Anton 21). Right: at most one text action.
 The shell owns this bar; a tool never repeats its own name, tagline, or nameplate inside the
-workspace.
+workspace. Two same-origin messages connect the shell and a tool: a tool may post
+`{toolkit: "context", title}` to name its active task in the breadcrumb (Privacy Wizards names
+the open determination), and the shell posts `{toolkit: "reset"}` to the tool on screen when its
+rail item is chosen again — every tool answers by returning to its first state. Standalone pages
+keep their own way back; the embedded view carries no `Start over` / `Change determination` line.
 
 **Table.** Column headers Archivo 11/700 caps `--soft` over a `1px solid var(--ink)` rule; body
 rows separated by `--hairline`; identifiers in mono 14; empty cells show `—` in `--soft`. Status
@@ -127,22 +135,46 @@ qualifier line. The same block shape in every tool that rules on something.
 **Wizard step.** Progress: Archivo 11 caps label (`Question 2 of 5`) + a 2px `--hairline` track
 with `--forest` fill. Question at 24/700. Options: full-width rows, `min-height: 52px`, padding
 `12px 18px`, 16px text on `--paper`; default `1px solid var(--ink)`, selected `2px solid
-var(--forest)` + 700 weight. One question per screen.
+var(--forest)` + 700 weight. One question per screen. Selection is explicit: choosing an option
+highlights it; `Next` (primary, bottom-left) commits it and `Back` beside it is a text action.
+The progress label counts the longest run of questions still ahead, so it can only shrink.
 
 **Chooser row** (Privacy Wizards pattern). Grid: 20px Lucide icon in `--forest` / content / `→`
 in `--soft`. Title 16/700; one sub-line 14px `--soft` — `question · jurisdictions`. Rows separated
 by `--hairline`; hover fills `--paper`.
 
 **Drop zone.** `1px dashed var(--hairline-strong)` on `--paper`, centered stack: 22/700 title,
-14px `--soft` accepted formats, then the primary + secondary pair.
+14px `--soft` accepted formats, then the primary + secondary pair. Where two zones sit side by
+side (SafeSeed's CSV and receipt), each opens with a 24px Lucide glyph in `--forest` that names
+its file.
+
+**Step-flow.** The kit's numbered steps as one band: `1px solid var(--ink)` on `--paper`, equal
+columns separated by `--hairline`; each cell is an Archivo 11 caps number in `--forest`, a 16/700
+title, and one 14px `--soft` line. Redactorium's `How it works` is the instance.
+
+**Findings table** (Redactorium). Exactly five columns — `Column` (mono), `Detected`,
+`Confidence` (mono, two decimals), `Citation` (`--soft`), `Treatment` (a 200px, 44px select) —
+in 62px rows. Confidence and citation are the evidence; nothing else lives in the row.
+
+**Record block.** The shape every tool that produces a receipt or record ends on: the output's
+name as the task heading (19/700), a stat band only when it carries numbers the surface does not
+already state (SafeSeed's heading already says rows and seed, so its receipt has no band — Ben,
+2026-09-01), one mono line `hash · timestamp` (a hash shows
+its first 12 and last 6 hex characters with the full value on hover; timestamps read
+`YYYY-MM-DDTHH:MMZ`), then one actions row — primary download, secondary record download, one
+text action. Nothing renders below it. A generated preview above a receipt shows **every** row in
+a bounded scroll region (440px, sticky header) — never a truncated sample; the heading states the
+count.
 
 **Icons.** Locally vendored Lucide Static 1.31.0 only. Nav 18px at stroke 2; card plates 22px at
 stroke 1.75; chooser rows 20px at stroke 2. Icons are decorative beside complete visible labels.
 
 ## 4. Layout
 
-- Desktop shell: `230px` rail + one task stage on `--ground`. The stage's working column pads
-  `22–30px`; Home's content column caps at 1000px.
+- Desktop shell: `230px` rail + one task stage on `--ground`. Inside the shell every tool's
+  working column is the canvas pane: `max-width: 1130px` (1066px of content plus 32px sides),
+  centered when the stage is wider. The artboards are the wide-screen composition, not a minimum;
+  a stage that stretches to fill 1,700px is a defect. Home's content column caps at 1000px.
 - The tool header stays 56px. The first useful control is visible when a tool opens.
 - Repeated control rows share one optical size; interactive targets never drop below 44px
   (52px for wizard options).
@@ -170,6 +202,9 @@ review enforces the spirit.
   name in the workspace.
 - One earned personality beat per tool at most (the Oracle's ball, its blunt questions). Jokes
   point outward; the interface never praises itself.
+- **The drawn state is the law.** On any state the canvas draws, everything visible must be in
+  the artboard. A feature the canvas does not draw is either cut or lives behind the tool's
+  existing disclosure (`Advanced…`, `How it works`); it never joins the drawn area.
 
 ## 6. What stays out
 
@@ -185,6 +220,15 @@ Retired or banned, with the deciding turn of the design package in parentheses:
 - Alfa Slab, DM Serif, Inter, or any non-canonical face; any CDN font, script, or icon runtime.
 - Head blurbs and taglines inside tool headers (Turn 1 — "145px of chrome down to 48px").
 - Analytics, external requests, tracking of any kind.
+- Per-row extras in the findings table — example popovers, reviewer notes, weaker-match lines
+  (Turn 4 — "confidence and citation kept; those are the evidence").
+- Second and third record formats (PDF, evidence ZIP) beside the record; one record (Turn 4).
+- The Oracle's answer window inside the ball — the ball stays the 8 and the ruling is the verdict
+  block (Turn 4).
+- A selected-facts summary and a sources panel on the question view; `Copy outcome` and
+  `Run again` beside a determination (Turn 4).
+- Preview hints ("First 12 of 100 rows", "keep the CSV and its receipt together") and rows/seed
+  explainers (Turn 3).
 
 ## 7. Change control
 

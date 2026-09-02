@@ -784,3 +784,131 @@
     .af-colophon-inner { grid-template-columns: 1fr; gap: 18px; }
     .af-colophon-nav { align-items: flex-start; }
 }
+
+/* ===== Canvas fidelity (Toolkit - Redesign 3A, 4A, 4B) ===== */
+
+.red-drop-card,
+[data-toolkit-embedded="true"] .red-drop-card { padding: 56px 30px; gap: 14px; }
+.red-under-zone {
+    display: flex;
+    justify-content: flex-end;
+    gap: 22px;
+    margin-top: 26px;
+    padding-top: 6px;
+    border-top: 1px solid hsl(var(--ink) / 0.17);
+}
+.red-under-panel { padding: 4px 0 8px; }
+.red-under-panel[hidden] { display: none; }
+[data-toolkit-embedded="true"] .red-field-guide-list { margin-top: 4px; font-size: 14px; }
+
+.editorial-table th, .editorial-table td { padding: 9px 12px; font-size: 16px; }
+.editorial-table thead th { padding: 10px 12px; }
+.editorial-table td.mono, .editorial-table td .mono { font-size: 14px; }
+.red-muted { color: hsl(var(--ink-muted)); }
+.red-treatment { position: relative; width: 200px; }
+.red-treatment select {
+    width: 100%;
+    min-height: 44px;
+    padding: 0 34px 0 12px;
+    border: 1px solid hsl(var(--ink));
+    background: hsl(var(--paper));
+    font-size: 15px;
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 0;
+}
+.red-treatment-chevron {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    width: 14px;
+    height: 14px;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+.red-treatment-note { margin-top: 4px; color: hsl(var(--brick)); font-size: 12px; }
+.red-finding-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 0;
+    border-bottom: 1px solid hsl(var(--ink) / 0.17);
+}
+.red-finding-card-head { display: flex; justify-content: space-between; gap: 12px; }
+.red-finding-card-line { margin: 0; color: hsl(var(--ink-muted)); font-size: 14px; }
+
+.red-apply-row { margin-top: 20px; }
+.red-advanced { margin-top: 22px; padding-top: 4px; border-top: 1px solid hsl(var(--ink) / 0.17); }
+.red-advanced summary { justify-content: flex-end; }
+.red-presets { margin-top: 8px; padding: 12px 0 4px; border-top: 1px solid hsl(var(--ink) / 0.17); }
+.red-presets-row { display: flex; align-items: center; gap: 12px; margin-top: 8px; }
+.red-presets-row input { width: 260px; }
+.red-preset-list { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 6px; }
+.red-preset-chip { display: inline-flex; align-items: center; gap: 4px; }
+.red-preset-delete {
+    min-height: 44px;
+    padding: 0 6px;
+    border: 0;
+    background: transparent;
+    color: hsl(var(--ink-muted));
+    font-size: 16px;
+    cursor: pointer;
+}
+.red-preset-delete:hover { color: hsl(var(--brick)); }
+
+.red-hash-line { margin-top: 14px; }
+.red-record-actions { gap: 12px; }
+.red-record-actions .text-action { margin-left: 8px; }
+
+/* Inside the shell the working column is the canvas pane: 1066px of content, 32px sides, centered. */
+[data-toolkit-embedded="true"] .max-w-6xl,
+[data-toolkit-embedded="true"] .red-upload-stage {
+    max-width: 1130px;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+/* How it works: the kit's numbered step-flow, one band on paper. */
+.red-steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    margin: 4px 0 0;
+    padding: 0;
+    list-style: none;
+    border: 1px solid hsl(var(--ink));
+    background: hsl(var(--paper));
+}
+.red-steps li {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 16px 18px 18px;
+    border-left: 1px solid hsl(var(--ink) / 0.17);
+}
+.red-steps li:first-child { border-left: 0; }
+.red-step-num {
+    color: hsl(var(--forest));
+    font-family: "Archivo", system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+}
+.red-steps strong { font-size: 16px; font-weight: 700; line-height: 1.25; }
+.red-steps li > span:last-child { color: hsl(var(--ink-muted)); font-size: 14px; line-height: 1.5; }
+.red-field-sources { margin-top: 10px; }
+@media (max-width: 760px) {
+    .red-steps { grid-template-columns: minmax(0, 1fr); }
+    .red-steps li { border-left: 0; border-top: 1px solid hsl(var(--ink) / 0.17); }
+    .red-steps li:first-child { border-top: 0; }
+}
+
+/* Batch: the workbench is a section, not a card. */
+[data-toolkit-embedded="true"] .paper-card {
+    border: 0;
+    box-shadow: none;
+    background: transparent;
+    padding: 0;
+}
+
+.btn-forest[aria-disabled="true"] { cursor: not-allowed; }

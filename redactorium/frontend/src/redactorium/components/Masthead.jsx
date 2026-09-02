@@ -30,9 +30,6 @@ export default function Masthead() {
         >
           Redactorium
         </h1>
-        <p className="mt-3">
-          <a href="#/verify-log" className="text-action">Verify a signed log</a>
-        </p>
       </div>
     </header>
   );

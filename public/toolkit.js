@@ -3,8 +3,7 @@ const routeMeta = {
   redactorium: { title: "Redactorium" },
   safeseed: { title: "SafeSeed" },
   "objection-oracle": { title: "Objection Oracle" },
-  "privacy-wizards": { title: "Privacy Wizards Council" },
-  "build-a-prompt": { title: "Build-A-Prompt" }
+  "privacy-wizards": { title: "Privacy Wizards Council" }
 };
 
 const homeAnchors = new Set(["tool-grid", "toolkit-changelog"]);
@@ -128,8 +127,22 @@ closeButton?.addEventListener("click", () => closeMenu());
 scrim?.addEventListener("click", () => closeMenu());
 document.addEventListener("keydown", trapMenuFocus);
 
+// Choosing the rail item of the tool already on screen returns that tool to its
+// first state (the shell posts a reset; same-origin frames only) and restores
+// the default breadcrumb name.
+function resetActiveTool(route) {
+  const frame = frames.get(route);
+  if (!frame?.contentWindow) return;
+  frame.contentWindow.postMessage({ toolkit: "reset" }, window.location.origin);
+  const heading = views.get(route)?.querySelector("[data-context-title]");
+  if (heading) heading.textContent = heading.dataset.contextTitle;
+}
+
 for (const link of navLinks) {
-  link.addEventListener("click", () => closeMenu({ restoreFocus: false }));
+  link.addEventListener("click", () => {
+    if (link.dataset.routeLink === activeRoute() && link.dataset.routeLink !== "home") resetActiveTool(link.dataset.routeLink);
+    closeMenu({ restoreFocus: false });
+  });
 }
 
 window.addEventListener("hashchange", () => showRoute());

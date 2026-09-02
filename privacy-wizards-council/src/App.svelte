@@ -53,6 +53,7 @@
   let runMessage = '';
   let copyMessage = '';
   let fallback = null;
+  let pendingIndex = null;
 
   const graph = validateGraph();
 
@@ -66,11 +67,49 @@
   $: usedSources = usedSourceIds.map((id) => ({ id, source: SOURCES[id], manifest: SOURCE_MANIFEST[id] })).filter((item) => item.source);
   $: calendarState = selectedWizardId && outcomeId ? calendarEligibility({ wizardId: selectedWizardId, outcomeId }) : null;
   $: filteredWizardIds = filterWizardIds(search, activeCategory, showAll);
+  $: questionsAhead = wizard && currentNodeId ? longestQuestionRun(wizard, currentNodeId) : 0;
+  $: questionTotal = history.length + questionsAhead;
 
   onMount(() => {
     handleHash(location.hash || '');
     window.addEventListener('hashchange', () => handleHash(location.hash || ''));
+    // The Toolkit shell posts a reset when its rail item for this tool is chosen again.
+    window.addEventListener('message', (event) => {
+      if (event.origin !== window.location.origin) return;
+      if (event.data && event.data.toolkit === 'reset') changeDetermination();
+    });
   });
+
+  // Longest run of questions still ahead on any eligible branch; the count can
+  // only shrink as answers rule branches out.
+  function longestQuestionRun(currentWizard, nodeId, seen = new Set()) {
+    const node = currentWizard.nodes[nodeId];
+    if (!node || node.type !== 'question' || seen.has(nodeId)) return 0;
+    const visited = new Set(seen).add(nodeId);
+    let deepest = 0;
+    for (const option of node.opts || []) deepest = Math.max(deepest, longestQuestionRun(currentWizard, option.goto, visited));
+    return 1 + deepest;
+  }
+
+  function selectAnswer(index) {
+    pendingIndex = index;
+  }
+
+  function commitAnswer() {
+    if (pendingIndex === null) {
+      runMessage = 'Choose an answer first.';
+      return;
+    }
+    const index = pendingIndex;
+    pendingIndex = null;
+    chooseAnswer(index);
+  }
+
+  function stepBack() {
+    pendingIndex = null;
+    if (history.length) goBack();
+    else changeDetermination();
+  }
 
   function filterWizardIds(currentSearch, currentCategory, currentShowAll) {
     const term = currentSearch.trim().toLowerCase();
@@ -133,6 +172,7 @@
     runMessage = '';
     copyMessage = '';
     fallback = null;
+    pendingIndex = null;
     if (updateHash) setWizardHash(id);
     postShellContext(next.title);
     focusTask();
@@ -140,6 +180,7 @@
 
   function changeDetermination() {
     postShellContext('');
+    pendingIndex = null;
     selectedWizardId = null;
     currentNodeId = null;
     outcomeId = null;
@@ -167,6 +208,7 @@
     decisionExpanded = false;
     history = [];
     sourceLayerOpen = false;
+    pendingIndex = null;
     runMessage = 'Current answers cleared. The determination link still contains only the wizard ID.';
     focusTask();
   }
@@ -178,6 +220,7 @@
       return;
     }
     history = result.history;
+    pendingIndex = null;
     currentNodeId = result.currentNodeId;
     outcomeId = result.outcomeId;
     if (outcomeId) {
@@ -193,6 +236,7 @@
     if (!history.length) return;
     const entry = history[history.length - 1];
     history = history.slice(0, -1);
+    pendingIndex = null;
     currentNodeId = entry.nodeId;
     outcomeId = null;
     outcomeSection = 'decision';
@@ -206,6 +250,7 @@
     const result = editAnswer(wizard, history, index);
     if (!result.ok) return;
     history = result.history;
+    pendingIndex = null;
     currentNodeId = result.currentNodeId;
     outcomeId = null;
     outcomeSection = 'decision';
@@ -245,11 +290,6 @@
     if (value.length <= 340) return value;
     const boundary = value.match(/[.!?](?=\s+[A-Z])/);
     return boundary?.index !== undefined ? value.slice(0, boundary.index + 1) : `${value.slice(0, 337).trimEnd()}…`;
-  }
-
-  function copyOutcomeText() {
-    const text = `${outcome.title}\n\n${outcome.summary}\n\nWhat to do next\n${(outcome.actions || []).map((item) => `- ${item}`).join('\n')}`;
-    copyText(text, 'Outcome');
   }
 
   function fallbackCopy(text, label) {
@@ -391,10 +431,12 @@
     </section>
   {:else}
     <section class="determination-shell">
+      {#if !EMBED}
       <div class="determination-topline">
         <button type="button" class="text-button" on:click={changeDetermination}>← Change determination</button>
         <button type="button" class="text-button" on:click={copyWizardLink}>Copy wizard link</button>
       </div>
+      {/if}
       {#if EMBED}
         <h2 id="determination-heading" class="sr-only" tabindex="-1">{wizard.title}</h2>
       {:else}
@@ -419,51 +461,48 @@
         <div class="run-grid">
           <section class="decision-stage">
 
-            {#if history.length}
-              <details class="selected-facts">
-                <summary>Selected facts ({history.length})</summary>
-                <ol>
-                  {#each history as entry, index}
-                    <li><div><small>{entry.question}</small><strong>{entry.answer}</strong></div><button type="button" class="text-button" on:click={() => editSelectedFact(index)}>Edit from here</button></li>
-                  {/each}
-                </ol>
-              </details>
-            {/if}
-
             {#if currentNode}
               <article class="question-card" aria-labelledby="question-heading">
-                <p class="question-count">Question {history.length + 1}</p>
+                <div class="question-progress">
+                  <p class="question-count">Question {history.length + 1} of {questionTotal}</p>
+                  <span class="progress-track" aria-hidden="true"><span class="progress-fill" style={`width:${Math.round(((history.length + 1) / Math.max(questionTotal, 1)) * 100)}%`}></span></span>
+                </div>
                 <h3 id="question-heading" tabindex="-1">{currentNode.q}</h3>
-                <div class="answer-list" role="list">
+                <div class="answer-list" role="radiogroup" aria-labelledby="question-heading">
                   {#each currentOptions as option, index}
-                    <button type="button" class="answer-card" on:click={() => chooseAnswer(index)}>
-                      <span><strong>{option.label}</strong>{#if option.desc}<small>{option.desc}</small>{/if}</span>
+                    <button type="button" class="answer-card" class:selected={pendingIndex === index} role="radio" aria-checked={pendingIndex === index} on:click={() => selectAnswer(index)}>
+                      <span><strong>{option.label}</strong></span>
                     </button>
                   {/each}
                 </div>
                 {#if currentNode.help}<p class="question-aside">{decisionLead(currentNode.help)}</p>{/if}
-                <div class="question-tools">
-                  {#if currentNode.help && decisionLead(currentNode.help) !== currentNode.help}<details class="why-disclosure"><summary>Why this question?</summary><p>{currentNode.help}</p></details>{/if}
-                  <button bind:this={sourceTrigger} type="button" class="text-button" on:click={openSources}>Sources used so far ({usedSourceIds.length})</button>
+                <div class="question-actions">
+                  <button type="button" class="button primary" on:click={commitAnswer}>Next</button>
+                  <button type="button" class="text-button" on:click={stepBack}>Back</button>
                 </div>
               </article>
             {:else if outcome}
               <article class={`outcome-card tier-${outcome.tier}`} aria-labelledby="outcome-heading">
                 <div class="verdict-block">
                   <strong class="verdict-title" id="outcome-heading" tabindex="-1">{outcome.title}</strong>
-                  {#if outcome.clock}<span class="verdict-sub">{outcome.clock}</span>{/if}
+                  <span class="verdict-sub">{outcome.clock || decisionLead(outcome.summary)}</span>
                 </div>
 
-                <p class="outcome-summary">{decisionExpanded ? outcome.summary : decisionLead(outcome.summary)}</p>
-                {#if decisionLead(outcome.summary) !== outcome.summary}<button type="button" class="text-button reasoning-toggle" aria-expanded={decisionExpanded} on:click={() => (decisionExpanded = !decisionExpanded)}>{decisionExpanded ? 'Show concise decision' : 'Read complete authored reasoning'}</button>{/if}
-
                 <div class="outcome-grid">
+                  <div class="outcome-main">
                   {#if outcome.actions?.length}
                     <section class="next-actions" aria-labelledby="actions-heading">
                       <p class="field-label" id="actions-heading">What you must do</p>
                       <ol>{#each outcome.actions as action}<li>{action}</li>{/each}</ol>
                     </section>
                   {/if}
+                <p class="outcome-aside">{reviewState.practitionerReviewed ? `Legal sources reviewed through ${reviewState.reviewedThrough}. Verify the cited official text before filing.` : 'Automated source check. Verify the cited official text before filing.'}</p>
+                {#if reviewState.available}
+                  <div class="exit-actions"><button type="button" class="button primary" on:click={downloadRecord}>Download determination</button><button type="button" class="text-button" on:click={goBack}>Change an answer</button></div>
+                {:else}
+                  <div class="blocked-exits"><p><strong>Exports locked.</strong> This path contains a draft, missing, or superseded source record.</p></div>
+                {/if}
+                  </div>
                   {#if usedSources.length}
                     <section class="authority-list" aria-labelledby="authority-heading">
                       <p class="field-label" id="authority-heading">Authority</p>
@@ -472,19 +511,11 @@
                           <li>{#if item.source.provenance}<a href={item.source.provenance} target="_blank" rel="noopener noreferrer">{item.source.label} ↗</a>{:else}<span>{item.source.label}</span>{/if}</li>
                         {/each}
                       </ul>
-                      <button bind:this={sourceTrigger} type="button" class="text-button" on:click={openSources}>Review sources on this path ({usedSourceIds.length})</button>
                     </section>
                   {/if}
                 </div>
 
-                <p class="outcome-aside">{reviewState.practitionerReviewed ? `Legal sources reviewed through ${reviewState.reviewedThrough}. Verify the cited official text before filing.` : 'Automated source check. Verify the cited official text and review the determination before filing it.'}</p>
 
-                {#if reviewState.available}
-                  <div class="exit-actions"><button type="button" class="button primary" on:click={downloadRecord}>Download determination</button><button type="button" class="button secondary" on:click={copyOutcomeText}>Copy outcome</button><button type="button" class="text-button" on:click={goBack}>Change an answer</button></div>
-                {:else}
-                  <div class="blocked-exits"><p><strong>Exports locked.</strong> This path contains a draft, missing, or superseded source record.</p></div>
-                {/if}
-                <div class="outcome-tools"><button type="button" class="text-button" on:click={startOver}>Run this path again</button><button type="button" class="text-button" on:click={changeDetermination}>Run another determination</button></div>
               </article>
             {/if}
 
@@ -492,7 +523,6 @@
               <div class="fallback-panel"><label for="copy-fallback">Select and copy {fallback.label.toLowerCase()}</label><textarea id="copy-fallback" readonly rows="10" value={fallback.text}></textarea></div>
             {/if}
 
-            {#if currentNode}<nav class="run-nav" aria-label="Determination controls"><button type="button" class="button secondary" disabled={!history.length} on:click={goBack}>← Back</button><button type="button" class="text-button danger-text" on:click={startOver}>Start over</button></nav>{/if}
           </section>
 
           <aside class:open={sourceLayerOpen} class="source-layer" aria-labelledby="sources-heading">

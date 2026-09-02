@@ -102,25 +102,16 @@
 
   /* Stage grid changes with the phase: the ball frames the invitation and the
      ruling; the five questions get the full width. */
-  .oo-stage{display:grid;grid-template-columns:330px minmax(0,1fr);gap:44px;align-items:center;margin-top:var(--s5)}
-  .oo-stage[data-phase="questions"]{grid-template-columns:minmax(0,1fr);align-items:start}
+  .oo-stage{display:grid;grid-template-columns:250px minmax(0,1fr);gap:84px;align-items:center;margin-top:var(--s5);padding-left:40px}
+  .oo-stage[data-phase="questions"]{grid-template-columns:minmax(0,1fr);align-items:start;padding-left:0}
   .oo-stage[data-phase="questions"] .oo-visual{display:none}
-  .oo-stage[data-phase="result"]{grid-template-columns:250px minmax(0,1fr);gap:40px}
+  .oo-stage[data-phase="result"]{grid-template-columns:220px minmax(0,1fr);gap:70px;padding-left:0}
 
   .oo-visual{display:grid;justify-items:center}
   .oo-ball{width:250px;aspect-ratio:1;border-radius:50%;position:relative;overflow:hidden;background:radial-gradient(circle at 34% 28%, #4a4a4a 0%, #1c1c1c 42%, #050505 100%);transform-origin:50% 54%}
   .oo-stage[data-phase="result"] .oo-ball{width:220px}
   .oo-eight{position:absolute;width:38.4%;aspect-ratio:1;left:30.8%;top:30.8%;border-radius:50%;background:var(--paper);display:grid;place-items:center;transition:opacity 120ms linear,transform 120ms linear}
   .oo-eight span{font-family:var(--font-display);font-size:56px;font-weight:400;line-height:1;color:var(--ink);transform:translateY(2px)}
-  .oo-window{position:absolute;width:69%;height:58%;left:15.5%;top:20%;background:var(--paper);clip-path:polygon(50% 2%,98% 93%,2% 93%);opacity:0;transform:scale(.82);transition:opacity 160ms linear,transform 180ms ease-out}
-  .oo-window-inner{position:absolute;inset:7px 9px 11px;background:var(--forest);clip-path:polygon(50% 2%,98% 93%,2% 93%);color:var(--paper);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 12px}
-  .oo-ball[data-outcome="NEXT_VERSION"] .oo-window-inner{background:var(--indigo)}
-  .oo-ball[data-outcome="FIX_THEN_SHIP"] .oo-window-inner{background:var(--amber)}
-  .oo-ball[data-outcome="HARD_STOP"] .oo-window-inner{background:var(--red)}
-  .oo-window-label{display:none}
-  .oo-window-quip{font-size:10px;font-weight:700;line-height:1.25;width:104px;position:relative;top:16px;text-wrap:balance}
-  .oo-ball.show-result .oo-eight{opacity:0;transform:scale(.78)}
-  .oo-ball.show-result .oo-window{opacity:1;transform:scale(1)}
   .oo-ball.is-shaking{animation:oracle-shake 1050ms cubic-bezier(.36,.07,.19,.97) both}
   @keyframes oracle-shake{
     0%{transform:translate(0,0) rotate(0)}
@@ -136,15 +127,16 @@
   .oo-sub{font-size:15px;line-height:1.55;color:var(--ink-soft);margin:10px 0 0}
   .oo-view-title:focus,.oo-result-title:focus{outline:none}
   .oo-view-title:focus-visible,.oo-result-title:focus-visible{outline:2px solid var(--forest);outline-offset:4px}
-  .oo-main-action{width:100%;min-height:48px;margin-top:24px}
+  .oo-panel .oo-main-action{width:auto;min-height:44px;margin-top:24px}
 
   .btn{font-family:var(--font-label);font-size:14px;font-weight:700;line-height:1.2;padding:9px 18px;min-height:44px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:0}
   .btn.primary{background:var(--forest);color:#fff;border:2px solid var(--line);box-shadow:4px 4px 0 var(--line);letter-spacing:.045em;text-transform:uppercase}
   .btn.primary:active{box-shadow:none;transform:translate(4px,4px)}
   .btn.secondary{background:var(--paper);color:var(--ink);border:1px solid var(--line)}
-  .btn[aria-disabled="true"]{background:var(--ground);color:var(--ink-soft);border-color:var(--ink-soft);box-shadow:none;cursor:not-allowed}
+  .btn[aria-disabled="true"]:not(.primary){background:var(--ground);color:var(--ink-soft);border-color:var(--ink-soft);box-shadow:none;cursor:not-allowed}
   .oo-text-action{font-family:var(--font-label);font-size:13px;font-weight:700;color:var(--ink);border:0;background:transparent;min-height:44px;padding:6px 8px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
   .oo-text-action:hover{color:var(--red)}
+  .oo-text-action:focus-visible{outline:2px solid var(--forest);outline-offset:2px}
 
   /* The five questions, one list. */
   .oo-question-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--hair)}
@@ -157,8 +149,8 @@
   .oo-ask-row .btn{width:auto}
   .oo-count{color:var(--ink-soft);font-size:14px;white-space:nowrap}
 
-  .oo-consulting{text-align:center}
-  .oo-dots{display:flex;justify-content:center;gap:8px;margin-top:28px}
+  .oo-consulting{text-align:left}
+  .oo-dots{display:flex;justify-content:flex-start;gap:8px;margin-top:22px}
   .oo-dots i{width:10px;height:10px;background:var(--forest);animation:oracle-dot 600ms ease-in-out infinite alternate}
   .oo-dots i:nth-child(2){animation-delay:120ms}
   .oo-dots i:nth-child(3){animation-delay:240ms}
@@ -171,17 +163,18 @@
   .oo-result[data-outcome="HARD_STOP"] .oo-verdict{border-color:var(--red)}
   .oo-result-title{display:block;font-family:var(--font-display);font-size:32px;font-weight:400;letter-spacing:.01em;line-height:1.1;text-transform:uppercase}
   .oo-result-reason{display:block;margin-top:6px;color:var(--ink-soft);font-size:15px;line-height:1.5}
-  .oo-rationale{display:grid;gap:12px 20px;margin:20px 0 0}
-  .oo-rationale div{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px}
-  .oo-rationale dt{color:var(--ink-soft);font-size:15px;font-weight:400}
-  .oo-rationale dd{font-size:15px;line-height:1.45;margin:0;color:var(--ink)}
+  .oo-meaning{font-size:16px;line-height:1.5;margin:18px 0 0;color:var(--ink)}
+  .oo-rationale{display:grid;gap:0;margin:18px 0 0;border-top:1px solid var(--hair)}
+  .oo-rationale div{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;padding:12px 0;border-bottom:1px solid var(--hair)}
+  .oo-rationale dt{color:var(--ink-soft);font-family:var(--font-label);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding-top:4px}
+  .oo-rationale dd{font-size:16px;line-height:1.45;margin:0;color:var(--ink)}
+  .oo-answers{margin-top:22px}
+  .oo-eyebrow{margin:0;color:var(--ink-soft);font-family:var(--font-label);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+  .oo-answer-list{list-style:none;margin:6px 0 0;padding:0;border-top:1px solid var(--hair)}
+  .oo-answer-list li{display:grid;grid-template-columns:minmax(0,1fr) 48px;gap:16px;padding:8px 0;border-bottom:1px solid var(--hair);font-size:14px;line-height:1.4;color:var(--ink)}
+  .oo-answer-flag{font-family:var(--font-label);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);text-align:right;padding-top:3px}
   .oo-result-actions{display:flex;align-items:center;gap:12px;margin-top:24px}
   .oo-result-actions .btn{width:auto}
-  .oo-receipt-card{margin-top:14px;border-top:1px solid var(--hair);padding-top:10px}
-  .oo-receipt-card summary{font-family:var(--font-label);font-size:13px;font-weight:700;color:var(--ink);cursor:pointer;min-height:44px;display:flex;align-items:center;text-decoration:underline;text-underline-offset:3px}
-  .oo-receipt-card summary:hover{color:var(--red)}
-  .oo-receipt-card pre{font-family:var(--mono);font-size:12px;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere;background:var(--ground);border:1px solid var(--hair);padding:12px;margin:0 0 10px;max-height:240px;overflow:auto}
-  .oo-receipt-card summary:focus-visible,.oo-text-action:focus-visible{outline:2px solid var(--forest);outline-offset:2px}
 
   @media(max-width:860px){
     .oo-stage,.oo-stage[data-phase="result"]{grid-template-columns:minmax(0,1fr);gap:24px;align-items:start}
@@ -198,7 +191,6 @@
   @keyframes oracle-fade{from{opacity:.55}to{opacity:1}}
   @media(prefers-reduced-motion:reduce){
     *,*::before,*::after{scroll-behavior:auto!important}
-    .oo-ball,.oo-eight,.oo-window,.oo-dots i{animation-duration:1ms!important;animation-iteration-count:1!important;transition-duration:1ms!important}
     .oo-ball.is-shaking{animation:oracle-fade 100ms linear both!important}
   }
 
@@ -207,7 +199,7 @@
 
   /* Toolkit embed: the shell provides the frame; this page is only the stage. */
   html,body{height:100%}
-  .wrap{max-width:none;min-height:100%;display:flex;flex-direction:column;padding:0 30px}
+  .wrap{width:100%;max-width:1130px;margin:0 auto;min-height:100%;display:flex;flex-direction:column;padding:0 32px}
   .wrap>main{flex:1 1 auto;display:flex;flex-direction:column}
   .oo-stage{flex:1 1 auto;margin:26px 0 30px}
   .oo-stage[data-phase="questions"]{align-items:start}
@@ -228,12 +220,6 @@
       <div class="oo-visual">
         <div class="oo-ball" id="oracle-ball" aria-hidden="true">
           <div class="oo-eight" id="ball-eight"><span>8</span></div>
-          <div class="oo-window" id="ball-window">
-            <div class="oo-window-inner">
-              <span class="oo-window-label" id="ball-label">RULING</span>
-              <span class="oo-window-quip" id="ball-quip">The oracle is considering your concern.</span>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -255,8 +241,7 @@
         </div>
 
         <div class="oo-view hidden oo-consulting" id="view-shaking" aria-busy="true">
-          <h2 class="oo-view-title" id="shaking-title">The triangle has requested a moment.</h2>
-          <p class="oo-sub">Your five answers are already enough. This pause is strictly ceremonial.</p>
+          <h2 class="oo-view-title" id="shaking-title">The oracle is deliberating.</h2>
           <span class="oo-dots" aria-hidden="true"><i></i><i></i><i></i></span>
         </div>
 
@@ -265,17 +250,21 @@
             <strong class="oo-result-title" id="result-title" tabindex="-1">SHIP IT</strong>
             <span class="oo-result-reason" id="result-reason"></span>
           </div>
+          <p class="oo-meaning" id="result-meaning"></p>
           <dl class="oo-rationale">
             <div><dt>Next action</dt><dd id="result-action"></dd></div>
+            <div><dt>Owner</dt><dd id="result-owner"></dd></div>
+            <div><dt>Close it out</dt><dd id="result-closeout"></dd></div>
           </dl>
+          <section class="oo-answers" aria-labelledby="answers-heading">
+            <p class="oo-eyebrow" id="answers-heading">Based on your answers</p>
+            <ol class="oo-answer-list" id="result-answers"></ol>
+          </section>
           <div class="oo-result-actions">
             <button class="btn primary" id="copy-button" type="button">Copy ruling</button>
             <button class="oo-text-action" id="restart-button" type="button">Ask again</button>
           </div>
-          <details class="oo-receipt-card">
-            <summary>See the full ruling</summary>
-            <pre id="ruling-receipt" tabindex="0"></pre>
-          </details>
+          <pre id="ruling-receipt" class="sr-only" aria-label="Full ruling text"></pre>
         </div>
 
         <p class="sr-only" id="oracle-status" role="status" aria-live="polite"></p>
@@ -342,6 +331,9 @@ const OUTCOMES = Object.freeze({
     label: 'SHIP IT',
     reason: 'The objection is not specific, supported, and decision-relevant.',
     action: 'Proceed. Backlog any optional polish without reopening the release.',
+    owner: 'The release owner.',
+    meaning: 'Nobody could point to the exact sentence, name the requirement or the harm, or show that leaving it would change what a user does. That is a preference, and preferences do not hold releases.',
+    closeout: 'Reply to the objection with this ruling and the backlog item, then ship.',
     accent: 'forest',
   }),
   NEXT_VERSION: Object.freeze({
@@ -349,6 +341,9 @@ const OUTCOMES = Object.freeze({
     label: 'NEXT VERSION',
     reason: 'The concern is legitimate, but it does not change an obligation, factual accuracy, safety, or the user’s next action, and the likely harm is reversible.',
     action: 'Record it as a nonblocking improvement for the next version.',
+    owner: 'Whoever raised the objection.',
+    meaning: 'The objection is real and specific, but nothing a user does would change if this shipped as-is, and any harm could be undone. It earns a ticket, not a delay.',
+    closeout: 'File the improvement in the objector’s own words, link it from the release notes, then ship.',
     accent: 'indigo',
   }),
   FIX_THEN_SHIP: Object.freeze({
@@ -356,6 +351,9 @@ const OUTCOMES = Object.freeze({
     label: 'FIX IT, THEN SHIP',
     reason: 'A real release issue exists. Correct it before release; the likely harm is either controllable or reversible.',
     action: 'Make the smallest effective correction, confirm the issue is controlled, and ship without reopening unrelated work.',
+    owner: 'Whoever raised the objection.',
+    meaning: 'The objection names a specific, supported problem that would change what a user does, and a targeted correction can resolve it before release. Fix that one thing; do not reopen the rest.',
+    closeout: 'Have the objector confirm the correction against their original wording, then ship.',
     accent: 'amber',
   }),
   HARD_STOP: Object.freeze({
@@ -363,6 +361,9 @@ const OUTCOMES = Object.freeze({
     label: 'HARD STOP',
     reason: 'The issue is specific and decision-relevant, cannot be narrowly controlled, and could cause harm that is difficult to undo.',
     action: 'Stop the release for substantive correction and review.',
+    owner: 'The release owner.',
+    meaning: 'This is the rare case: a supported objection, no narrow fix, and harm that would not reverse. The release waits for a substantive correction and a second review.',
+    closeout: 'Record the stop, the correction plan, and who reviews the fix before the release is rescheduled.',
     accent: 'red',
   }),
 });
@@ -459,7 +460,10 @@ function formatReceipt(
     '',
     `RULING: ${result.label}`,
     `WHY: ${result.reason}`,
-    `NEXT: ${result.action}${quipLine}`,
+    `WHAT IT MEANS: ${result.meaning}`,
+    `NEXT: ${result.action}`,
+    `OWNER: ${result.owner}`,
+    `CLOSE IT OUT: ${result.closeout}${quipLine}`,
   ].join('\n');
 }
 
@@ -478,6 +482,10 @@ function formatReceipt(
   var resultTitle=document.getElementById('result-title');
   var resultReason=document.getElementById('result-reason');
   var resultAction=document.getElementById('result-action');
+  var resultOwner=document.getElementById('result-owner');
+  var resultMeaning=document.getElementById('result-meaning');
+  var resultCloseout=document.getElementById('result-closeout');
+  var resultAnswers=document.getElementById('result-answers');
   var resultView=document.getElementById('view-result');
   var receipt=document.getElementById('ruling-receipt');
   var status=document.getElementById('oracle-status');
@@ -491,13 +499,11 @@ function formatReceipt(
     stage.setAttribute('data-phase',phaseByView[name]);
   }
   function clearBall(){
-    ball.classList.remove('is-shaking','show-result');
+    ball.classList.remove('is-shaking');
     ball.style.animationDelay='';
     ball.style.animationPlayState='';
     ball.style.animationDuration='';
     ball.removeAttribute('data-outcome');
-    document.getElementById('ball-label').textContent='RULING';
-    document.getElementById('ball-quip').textContent='The oracle is considering your concern.';
   }
 
   function answeredCount(){
@@ -559,26 +565,39 @@ function formatReceipt(
     resultTitle.textContent=result.label;
     resultReason.textContent=result.reason;
     resultAction.textContent=result.action;
+    resultOwner.textContent=result.owner;
+    resultMeaning.textContent=result.meaning;
+    resultCloseout.textContent=result.closeout;
+    resultAnswers.textContent='';
+    QUESTIONS.forEach(function(question,index){
+      var row=document.createElement('li');
+      var prompt=document.createElement('span');
+      prompt.textContent=question.prompt;
+      var flag=document.createElement('span');
+      flag.className='oo-answer-flag';
+      flag.textContent=state.answers[index]?'Yes':'No';
+      row.appendChild(prompt);
+      row.appendChild(flag);
+      resultAnswers.appendChild(row);
+    });
     receipt.textContent=formatReceipt(state.answers,result,state.quip);
-    document.getElementById('ball-label').textContent=result.label;
-    document.getElementById('ball-quip').textContent=state.quip;
     ball.classList.remove('is-shaking');
     ball.style.animationDelay='';
     ball.style.animationPlayState='';
     ball.style.animationDuration='';
-    ball.classList.add('show-result');
     resultTitle.focus();
     announce('Ruling: '+result.label+'. '+state.quip);
   }
   function ask(){
     if(askButton.getAttribute('aria-disabled')==='true'){
+      var pending=questionList.querySelector('.oo-pair:not(:has([aria-pressed="true"])) button');
+      if(pending)pending.focus();
       announce('Answer all five questions first.');
       return;
     }
     state.result=evaluateAnswers(state.answers);
     state.quip=pickQuip(state.result.code,Math.random,state.quip);
     showView('shaking');
-    ball.classList.remove('show-result');
     void ball.offsetWidth;
     ball.classList.add('is-shaking');
     announce('Consulting the oracle.');
@@ -602,9 +621,18 @@ function formatReceipt(
       announce('Ruling copied.');
       window.setTimeout(function(){copyButton.textContent='Copy ruling';},1200);
     }).catch(function(){
-      document.querySelector('.oo-receipt-card').open=true;
-      selectReceipt();
-      announce('The ruling is selected. Copy it from the full ruling box.');
+      var scratch=document.createElement('textarea');
+      scratch.value=text;
+      scratch.setAttribute('readonly','');
+      scratch.style.position='fixed';
+      scratch.style.opacity='0';
+      document.body.appendChild(scratch);
+      scratch.select();
+      var worked=false;
+      try{worked=document.execCommand('copy');}catch(error){worked=false;}
+      scratch.remove();
+      if(worked){copyButton.textContent='Copied';announce('Ruling copied.');window.setTimeout(function(){copyButton.textContent='Copy ruling';},1200);}
+      else{selectReceipt();announce('Copying was blocked by the browser. The ruling text is selected.');}
     });
   }
 
@@ -612,6 +640,18 @@ function formatReceipt(
   askButton.addEventListener('click',ask);
   copyButton.addEventListener('click',copyRuling);
   document.getElementById('restart-button').addEventListener('click',start);
+  function resetToWelcome(){
+    if(state.timer)window.clearTimeout(state.timer);
+    state={phase:'welcome',answers:[],result:null,quip:null,timer:null};
+    clearBall();
+    showView('welcome');
+    document.getElementById('start-button').focus();
+  }
+  // The Toolkit shell posts a reset when its rail item for this tool is chosen again.
+  window.addEventListener('message',function(event){
+    if(event.origin!==window.location.origin)return;
+    if(event.data&&event.data.toolkit==='reset')resetToWelcome();
+  });
 
   window.__oracleQA={
     getState:function(){return {phase:state.phase,answers:state.answers.slice(),code:state.result&&state.result.code,quip:state.quip};},
@@ -637,7 +677,7 @@ function formatReceipt(
       state.result=OUTCOMES.HARD_STOP;
       state.quip=RESPONSE_BANKS.HARD_STOP[0];
       showView('shaking');
-      ball.classList.remove('show-result','is-shaking');
+      ball.classList.remove('is-shaking');
       ball.style.animationDuration='1000ms';
       ball.style.animationDelay=(-Math.max(0,Math.min(1,progressValue))*1000)+'ms';
       ball.style.animationPlayState='paused';

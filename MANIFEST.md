@@ -17,7 +17,7 @@ Status: consolidated single-repository build, redesigned to the approved design 
 ## Tool sources
 
 One top-level folder per tool: `redactorium/`, `safeseed/`, `privacy-wizards-council/`,
-`build-a-prompt/`, `objection-oracle/`. Each carries its own build and gate.
+`objection-oracle/`. Each carries its own build and gate.
 
 ## Generated files
 
@@ -38,12 +38,11 @@ Regenerate with `npm.cmd run build:tools` (or `build:tools:full`). Do not hand-e
   Home, 230px rail, 56px tool headers, first useful control visible on open, no document or
   embedded horizontal scroll, skip-link first, focus lands on the active tool heading, mobile
   chooser traps focus and closes on Escape. Fresh screenshots in `proofs/`.
-- Tool gates: safeseed lib tests 127/127 + demo chrome verification; build-a-prompt tests 19/19 +
-  style audit + artifact verification; privacy-wizards-council tests 17/17 + style audit + artifact
+- Tool gates: safeseed lib tests 127/127 + demo chrome verification; privacy-wizards-council tests 17/17 + style audit + artifact
   verification; objection-oracle tests 33/33 + full browser harness (desktop, mobile,
   reduced-motion) including the network kill-switch.
 - Manual visual review: the redesign states (Home, five tool landings, SafeSeed edit/result/verify,
-  Build-A-Prompt composer, Privacy Wizards finder/question/determination, Oracle
+  Privacy Wizards finder/question/determination, Oracle
   landing/questions/ruling, Redactorium drop/findings/record) were each screenshotted at literal
   size and compared against the approved design canvas.
 

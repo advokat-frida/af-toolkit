@@ -39,15 +39,15 @@ export async function runStaticChecks() {
   const manifest = JSON.parse(await readFile(join(publicRoot, "tool-sources.json"), "utf8"));
 
   // Shell structure: one view + one nav entry per route.
-  const routes = ["home", "redactorium", "safeseed", "objection-oracle", "privacy-wizards", "build-a-prompt"];
+  const routes = ["home", "redactorium", "safeseed", "objection-oracle", "privacy-wizards"];
   for (const route of routes) {
     results.push(check(index.includes(`data-view="${route}"`), `view exists: ${route}`));
     results.push(check(index.includes(`data-route-link="${route}"`), `navigation exists: ${route}`));
   }
-  results.push(check((index.match(/<h1\b/g) || []).length === 6, "one H1 per view", `found ${(index.match(/<h1\b/g) || []).length}`));
-  results.push(check((index.match(/<iframe\b/g) || []).length === 5, "five tool frames", `found ${(index.match(/<iframe\b/g) || []).length}`));
-  results.push(check((index.match(/title="[^"]+" data-tool-frame=/g) || []).length === 5, "every frame has a title"));
-  results.push(check((index.match(/allow="clipboard-write"/g) || []).length === 3, "clipboard permission is limited to the three tools that copy output"));
+  results.push(check((index.match(/<h1\b/g) || []).length === 5, "one H1 per view", `found ${(index.match(/<h1\b/g) || []).length}`));
+  results.push(check((index.match(/<iframe\b/g) || []).length === 4, "four tool frames", `found ${(index.match(/<iframe\b/g) || []).length}`));
+  results.push(check((index.match(/title="[^"]+" data-tool-frame=/g) || []).length === 4, "every frame has a title"));
+  results.push(check((index.match(/allow="clipboard-write"/g) || []).length === 2, "clipboard permission is limited to the tools that copy output"));
   results.push(check(index.includes("aria-current") === false, "aria-current is runtime-owned"));
   results.push(check(js.includes('setAttribute("aria-current", "page")'), "active navigation announces current page"));
   results.push(check(js.includes("trapMenuFocus") && js.includes('event.key === "Escape"'), "mobile navigation traps and returns focus"));
@@ -56,21 +56,20 @@ export async function runStaticChecks() {
 
   // The approved redesign: brand cap, grouped navigation, breadcrumb tool headers.
   results.push(check(index.includes('class="brand-cap"') && index.includes("frida-fox-forest.png"), "sidebar brand cap carries the fox mark"));
-  for (const group of ["Manage data", "Decide", "Work with AI"]) {
+  for (const group of ["Manage data", "Decide"]) {
     results.push(check(index.includes(`>${group}</p>`), `navigation group exists: ${group}`));
     results.push(check(index.includes(`<span class="crumb-group">${group}</span>`), `breadcrumb group exists: ${group}`));
   }
-  results.push(check((index.match(/class="tool-head"/g) || []).length === 5, "five breadcrumb tool headers"));
+  results.push(check((index.match(/class="tool-head"/g) || []).length === 4, "four breadcrumb tool headers"));
   results.push(check(index.includes('<h1 id="home-title" tabindex="-1">The Toolkit</h1>'), "Home nameplate is the approved The Toolkit"));
   results.push(check(index.includes('<p class="home-lede">The privacy practitioners swiss army knife.</p>'), "Home lede uses the approved practitioner promise"));
-  results.push(check((index.match(/class="tool-card"/g) || []).length === 5, "five Home tool cards"));
+  results.push(check((index.match(/class="tool-card"/g) || []).length === 4, "four Home tool cards"));
   results.push(check(index.includes('data-context-title="Privacy Wizards Council"'), "Privacy Wizards breadcrumb accepts tool context"));
 
   for (const copy of [
     "Anonymize, hash, generalize, redact, or transform personal information.",
     "Generate fake personal information and generate a tamper-evident receipt.",
     "Get quick and citable answers for commonly recurring privacy questions.",
-    "Build detailed, reusable prompts for any privacy task.",
     "Get pointers from a magic 8-ball on risk tolerance."
   ]) {
     results.push(check(index.includes(copy), `approved Home tool description exists: ${copy.slice(0, 40)}…`));
@@ -98,7 +97,7 @@ export async function runStaticChecks() {
 
   // Provenance manifest: in-repo schema.
   results.push(check(manifest.schemaVersion === 3, "provenance manifest uses the in-repo schema", `found ${manifest.schemaVersion}`));
-  results.push(check(manifest.tools?.length === 5, "provenance manifest has five tools", `found ${manifest.tools?.length}`));
+  results.push(check(manifest.tools?.length === 4, "provenance manifest has four tools", `found ${manifest.tools?.length}`));
   results.push(check(manifest.releaseBoundary === "private-source-control-only", "manifest preserves the private repository boundary"));
   results.push(check(manifest.tools?.every((tool) => tool.sourceFolder && existsSync(join(candidateRoot, tool.sourceFolder))), "every tool's source folder exists in this repository"));
   results.push(check(manifest.tools?.find((tool) => tool.id === "redactorium")?.license === null, "Redactorium is not given a false license"));
@@ -117,7 +116,7 @@ export async function runStaticChecks() {
   }
 
   // Embed contract: the shell frames each embed-mode tool with its flag.
-  for (const framed of ["/tools/redactorium/index.html?embed=1", "/tools/safeseed.html?embed=1", "/tools/privacy-wizards-council.html?embed=1", "/tools/build-a-prompt.html?embed=1", "/tools/objection-oracle.html"]) {
+  for (const framed of ["/tools/redactorium/index.html?embed=1", "/tools/safeseed.html?embed=1", "/tools/privacy-wizards-council.html?embed=1", "/tools/objection-oracle.html"]) {
     results.push(check(index.includes(`data-src="${framed}`), `frame source wired: ${framed}`));
   }
 
@@ -160,7 +159,7 @@ export async function runStaticChecks() {
   const safeseed = await readFile(join(publicRoot, "tools", "safeseed.html"), "utf8");
   results.push(check(!safeseed.includes("url(/assets/fonts/"), "SafeSeed fonts resolve through the Toolkit font path"));
   results.push(check(!safeseed.includes("spacegrotesk-500-latin.woff2"), "SafeSeed does not request an unavailable 500 font file"));
-  for (const id of ["safeseed", "privacy-wizards-council", "build-a-prompt"]) {
+  for (const id of ["safeseed", "privacy-wizards-council"]) {
     const html = await readFile(join(publicRoot, "tools", `${id}.html`), "utf8");
     results.push(check(/has\((?:"embed"|'embed'|`embed`)\)/.test(html), `${id} carries its native embed mode`));
   }

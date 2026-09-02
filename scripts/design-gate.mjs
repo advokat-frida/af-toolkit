@@ -72,7 +72,7 @@ const BANNED_PHRASES = [
 // Compiled bundles (Redactorium) carry framework utility classes; their rendered
 // radii are a REVIEW-GATE visual item instead.
 const SHELL_RADIUS_SCOPE = ["toolkit.css", "index.html"];
-const ARTIFACT_RADIUS_SCOPE = ["tools/safeseed.html", "tools/objection-oracle.html", "tools/privacy-wizards-council.html", "tools/build-a-prompt.html"];
+const ARTIFACT_RADIUS_SCOPE = ["tools/safeseed.html", "tools/objection-oracle.html", "tools/privacy-wizards-council.html"];
 const SHELL_RADIUS_ALLOWED = /border-radius\s*:\s*(0|50%)(\s|;|!|$)/;
 const ARTIFACT_RADIUS_ALLOWED = /border-radius\s*:\s*(0|4px|50%|999px|9999px|calc\(infinity \* 1px\))(\s|;|!|$)/;
 

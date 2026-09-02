@@ -1,7 +1,7 @@
 # The Advokat Frida Toolkit
 
 Build a polished local application shell that brings Redactorium, SafeSeed, Privacy Wizards
-Council, Build-A-Prompt, and Objection Oracle into one navigable workspace.
+Council, and Objection Oracle into one navigable workspace.
 
 The approved product and design decisions live in:
 

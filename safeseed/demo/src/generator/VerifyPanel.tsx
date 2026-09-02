@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, type ReactElement, type RefObject } from "react";
 import {
   verify,
   validateRunRecord,
@@ -7,20 +7,43 @@ import {
   type VerifyFailure,
 } from "safeseed";
 
+// lucide-static v1.31.0 - ISC (byte-exact paths)
+const SPREADSHEET_ICON = (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+    <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+    <path d="M8 13h2" />
+    <path d="M14 13h2" />
+    <path d="M8 17h2" />
+    <path d="M14 17h2" />
+  </svg>
+);
+const RECEIPT_ICON = (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M12 17V7" />
+    <path d="M16 8h-6a2 2 0 0 0 0 4h4a2 2 0 0 1 0 4H8" />
+    <path d="M4 3a1 1 0 0 1 1-1 1.3 1.3 0 0 1 .7.2l.933.6a1.3 1.3 0 0 0 1.4 0l.934-.6a1.3 1.3 0 0 1 1.4 0l.933.6a1.3 1.3 0 0 0 1.4 0l.933-.6a1.3 1.3 0 0 1 1.4 0l.934.6a1.3 1.3 0 0 0 1.4 0l.933-.6A1.3 1.3 0 0 1 19 2a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1 1.3 1.3 0 0 1-.7-.2l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.934.6a1.3 1.3 0 0 1-1.4 0l-.933-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-1.4 0l-.934-.6a1.3 1.3 0 0 0-1.4 0l-.933.6a1.3 1.3 0 0 1-.7.2 1 1 0 0 1-1-1z" />
+  </svg>
+);
+
 function FileDrop({
+  icon,
   label,
   hint,
   accept,
   fileName,
   error,
   onFile,
+  zoneRef,
 }: {
+  icon: ReactElement;
   label: string;
   hint: string;
   accept: string;
   fileName: string;
   error?: string;
   onFile: (file: File) => void;
+  zoneRef?: RefObject<HTMLDivElement | null>;
 }) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [over, setOver] = useState(false);
@@ -30,6 +53,7 @@ function FileDrop({
 
   return (
     <div
+      ref={zoneRef}
       className={`file-drop${over ? " is-over" : ""}${error ? " is-error" : fileName ? " is-set" : ""}`}
       role="button"
       tabIndex={0}
@@ -53,6 +77,7 @@ function FileDrop({
       }}
     >
       <input ref={inputRef} type="file" accept={accept} hidden onChange={(event) => take(event.target.files)} />
+      <span className="file-drop-icon">{icon}</span>
       <span className="file-drop-label">{label}</span>
       <span className="file-drop-name">{fileName || hint}</span>
       {error && <span className="file-drop-error">{error}</span>}
@@ -84,6 +109,15 @@ function plainFailure(failure: VerifyFailure): string {
   }
 }
 
+function shortHash(value: string): string {
+  return value.length > 24 ? `${value.slice(0, 12)}…${value.slice(-6)}` : value;
+}
+
+function stamp(iso: string | undefined): string {
+  if (!iso) return "—";
+  return iso.replace(/:\d{2}(?:\.\d+)?Z$/, "Z");
+}
+
 async function sha256Hex(text: string): Promise<string> {
   const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
   return Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, "0")).join("");
@@ -94,6 +128,8 @@ export function VerifyPanel() {
   const recordReadRef = useRef(0);
   const pairRevisionRef = useRef(0);
   const verdictRef = useRef<HTMLDivElement>(null);
+  const csvZoneRef = useRef<HTMLDivElement>(null);
+  const recordZoneRef = useRef<HTMLDivElement>(null);
   const [csvText, setCsvText] = useState<string | null>(null);
   const [csvName, setCsvName] = useState("");
   const [csvError, setCsvError] = useState("");
@@ -164,7 +200,15 @@ export function VerifyPanel() {
   }
 
   async function run() {
-    if (csvText === null || !record) return;
+    if (busy) return;
+    if (csvText === null) {
+      csvZoneRef.current?.focus();
+      return;
+    }
+    if (!record) {
+      recordZoneRef.current?.focus();
+      return;
+    }
     const revision = pairRevisionRef.current;
     const selectedCsv = csvText;
     const selectedRecord = record;
@@ -200,13 +244,12 @@ export function VerifyPanel() {
       {!result && (
         <>
           <div className="verify-drops">
-            <FileDrop label="SafeSeed CSV" hint="Click or drop the data file." accept=".csv,text/csv" fileName={csvName} error={csvError} onFile={onCsv} />
-            <FileDrop label="Receipt" hint="Click or drop the .json downloaded with it." accept=".json,application/json" fileName={recordName} error={pairError} onFile={onRecord} />
+            <FileDrop icon={SPREADSHEET_ICON} label="SafeSeed CSV" hint="Click or drop the data file." accept=".csv,text/csv" fileName={csvName} error={csvError} onFile={onCsv} zoneRef={csvZoneRef} />
+            <FileDrop icon={RECEIPT_ICON} label="Receipt" hint="Click or drop the .json downloaded with it." accept=".json,application/json" fileName={recordName} error={pairError} onFile={onRecord} zoneRef={recordZoneRef} />
           </div>
-          <p className="gen-hint">The check is strict: an added, removed, reordered, or edited column fails.</p>
           <div className="gen-actions">
-            <button type="button" className="btn btn-primary verify-go" disabled={csvText === null || !record || busy} onClick={run}>
-              {busy ? "Checking…" : "Verify the pair"}
+            <button type="button" className="btn btn-primary verify-go" aria-disabled={csvText === null || !record || busy} onClick={run}>
+              {busy ? "Checking…" : "Verify"}
             </button>
           </div>
         </>
@@ -216,14 +259,14 @@ export function VerifyPanel() {
         <div className="verify-result" role="status" aria-live="polite">
           <div className={`verdict-block ${result.ok ? "is-pass" : "is-fail"}`} ref={verdictRef} tabIndex={-1}>
             <strong className="verdict-title">{result.ok ? "Receipt matches" : "Receipt does not match"}</strong>
-            <span className="verdict-sub">{csvName} · checked against {recordName}</span>
+            <span className="verdict-sub">{csvName} · {result.ok ? "verified against" : "checked against"} {recordName}</span>
           </div>
 
           <div className="verify-rows">
-            <span className="verify-key">File hash</span><span className="verify-value">{csvHash || "—"}</span>
-            <span className="verify-key">Receipt hash</span><span className="verify-value">{record?.contentSha256 ?? "—"}</span>
+            <span className="verify-key">File hash</span><span className="verify-value" title={csvHash || undefined}>{csvHash ? shortHash(csvHash) : "—"}</span>
+            <span className="verify-key">Receipt hash</span><span className="verify-value" title={record?.contentSha256}>{record?.contentSha256 ? shortHash(record.contentSha256) : "—"}</span>
             <span className="verify-key">Seed</span><span className="verify-value">{record?.seed ?? "—"}</span>
-            <span className="verify-key">Rows checked</span><span className="verify-value">{result.checked.rows.toLocaleString()} rows · {result.checked.fields} columns</span>
+            <span className="verify-key">Generated</span><span className="verify-value">{stamp(record?.generatedAt)}</span>
           </div>
 
           {result.failures.length > 0 && (

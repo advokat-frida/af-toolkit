@@ -18,6 +18,9 @@ which runs, in order:
 3. `test` — shell unit tests.
 4. `build:web` (`static-qa`) — structural checks over `public/`.
 5. `qa:visual` — rendered screenshots at 1440×1000, 1034×917, 390×844, 320×700.
+6. `qa:states` (`scripts/state-proofs.mjs`) — drives the staged Toolkit through every state the
+   canvas draws (artboards 2A–4I) at the artboard geometry and writes `proofs/states/`. A state
+   that cannot be reached fails the run.
 
 A tool's own repository-folder gate (its `check`/`qa` script) runs before its artifact is staged.
 
@@ -25,6 +28,10 @@ A tool's own repository-folder gate (its `check`/`qa` script) runs before its ar
 
 Review the actual rendered screens at literal size, every state, before signing off:
 
+- [ ] State fidelity: each `proofs/states/*.png` matches its canvas artboard (render the import
+      in `.local-working/design-import/` with real fonts and put them side by side) — same
+      elements, same order, nothing extra in the drawn area. A visible difference on a drawn
+      state is a defect, not a variation.
 - [ ] Tokens: no color outside `DESIGN-SYSTEM.md` §1; status hues used semantically only.
 - [ ] Type: every text node maps to a §2 role. No new sizes, no synthesized weights, Anton only
       on nameplates, mono only on generated data.
@@ -63,8 +70,7 @@ Review the actual rendered screens at literal size, every state, before signing 
    gate verifies.
 3. `scripts/build-tools.mjs` gains its stage entry (artifact path, license, embed adapter if it
    needs chrome hidden); `public/index.html` gains its route, nav entry, and Home card — inside
-   the group where it belongs (`Manage data` / `Decide` / `Work with AI`, or a new group that
-   earns its name).
+   the group where it belongs (`Manage data` / `Decide`, or a new group that earns its name).
 4. The full gate above runs; the reviewer walks the judgment checklists against the rendered
    screens.
 5. `public/tool-sources.json` records the artifact hash and provenance; the changelog gains one

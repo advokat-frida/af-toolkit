@@ -64,8 +64,7 @@ const TOOL_ANCHORS = {
   redactorium: "[data-testid='dropzone'], [data-testid='mode-single-btn']",
   safeseed: ".gen-modes",
   "objection-oracle": "#start-button",
-  "privacy-wizards": "#finder",
-  "build-a-prompt": "#outcome-request"
+  "privacy-wizards": "#finder"
 };
 
 const failures = [];
@@ -101,8 +100,8 @@ async function main() {
 
       await openRoute(page, base, "home");
       await noHorizontalScroll(page, `${viewport.name} home`);
-      assert((await page.locator(".tool-card").count()) === 5, `${viewport.name} home: five tool cards`);
-      assert((await page.locator(".group-label").count()) === 3, `${viewport.name} home: three group labels`);
+      assert((await page.locator(".tool-card").count()) === 4, `${viewport.name} home: four tool cards`);
+      assert((await page.locator(".group-label").count()) === 2, `${viewport.name} home: two group labels`);
       if (desktop) {
         assert(await page.locator(".brand-cap").isVisible(), `${viewport.name} home: sidebar brand cap visible`);
         const rail = await page.locator(".toolkit-sidebar").boundingBox();

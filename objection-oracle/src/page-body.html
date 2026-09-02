@@ -28,12 +28,6 @@
       <div class="oo-visual">
         <div class="oo-ball" id="oracle-ball" aria-hidden="true">
           <div class="oo-eight" id="ball-eight"><span>8</span></div>
-          <div class="oo-window" id="ball-window">
-            <div class="oo-window-inner">
-              <span class="oo-window-label" id="ball-label">RULING</span>
-              <span class="oo-window-quip" id="ball-quip">The oracle is considering your concern.</span>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -55,8 +49,7 @@
         </div>
 
         <div class="oo-view hidden oo-consulting" id="view-shaking" aria-busy="true">
-          <h2 class="oo-view-title" id="shaking-title">The triangle has requested a moment.</h2>
-          <p class="oo-sub">Your five answers are already enough. This pause is strictly ceremonial.</p>
+          <h2 class="oo-view-title" id="shaking-title">The oracle is deliberating.</h2>
           <span class="oo-dots" aria-hidden="true"><i></i><i></i><i></i></span>
         </div>
 
@@ -65,17 +58,21 @@
             <strong class="oo-result-title" id="result-title" tabindex="-1">SHIP IT</strong>
             <span class="oo-result-reason" id="result-reason"></span>
           </div>
+          <p class="oo-meaning" id="result-meaning"></p>
           <dl class="oo-rationale">
             <div><dt>Next action</dt><dd id="result-action"></dd></div>
+            <div><dt>Owner</dt><dd id="result-owner"></dd></div>
+            <div><dt>Close it out</dt><dd id="result-closeout"></dd></div>
           </dl>
+          <section class="oo-answers" aria-labelledby="answers-heading">
+            <p class="oo-eyebrow" id="answers-heading">Based on your answers</p>
+            <ol class="oo-answer-list" id="result-answers"></ol>
+          </section>
           <div class="oo-result-actions">
             <button class="btn primary" id="copy-button" type="button">Copy ruling</button>
             <button class="oo-text-action" id="restart-button" type="button">Ask again</button>
           </div>
-          <details class="oo-receipt-card">
-            <summary>See the full ruling</summary>
-            <pre id="ruling-receipt" tabindex="0"></pre>
-          </details>
+          <pre id="ruling-receipt" class="sr-only" aria-label="Full ruling text"></pre>
         </div>
 
         <p class="sr-only" id="oracle-status" role="status" aria-live="polite"></p>

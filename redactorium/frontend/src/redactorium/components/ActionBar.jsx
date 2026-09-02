@@ -1,12 +1,28 @@
 import { TID } from "@/redactorium/constants/testIds";
 
-export default function ActionBar({ onApply, onReset, canApply, applying, salt, setSalt, seed, setSeed, sigKey, setSigKey, columnPlan = [] }) {
+export default function ActionBar({ onApply, canApply, applying, salt, setSalt, seed, setSeed, columnPlan = [], children }) {
   const transformed = columnPlan.filter((c) => c.transform !== "keep").length;
   const kept = columnPlan.length - transformed;
   return (
     <section className="max-w-6xl mx-auto px-4 md:px-6 mt-6">
+      <div className="red-apply-row">
+        <button
+          data-testid={TID.applyBtn}
+          onClick={() => {
+            if (applying) return;
+            if (!canApply) { document.querySelector('[data-testid^="transform-select-"]')?.focus(); return; }
+            onApply();
+          }}
+          aria-disabled={!canApply || applying}
+          className="btn-forest"
+        >
+          {applying ? "Applying…" : "Apply treatments"}
+        </button>
+        <span className="red-apply-count">{transformed} column{transformed === 1 ? "" : "s"} transformed · {kept} kept</span>
+      </div>
+
       <details className="red-advanced">
-        <summary>Advanced: salt, seed, signing</summary>
+        <summary>Advanced: salt, seed, presets</summary>
         <div className="red-advanced-grid">
           <div className="flex flex-col">
             <label className="field-label mb-1" htmlFor="red-salt">Hash salt (optional)</label>
@@ -30,48 +46,16 @@ export default function ActionBar({ onApply, onReset, canApply, applying, salt, 
               placeholder="redactorium-run"
               className="red-adv-input"
             />
-            <span className="red-adv-help">Deterministic — same seed reproduces the same synthetic values.</span>
-          </div>
-          <div className="flex flex-col">
-            <label className="field-label mb-1" htmlFor="red-sig">Signing key (optional)</label>
-            <input
-              id="red-sig"
-              data-testid="sig-key-input"
-              value={sigKey || ""}
-              onChange={(e) => setSigKey(e.target.value)}
-              type="password"
-              placeholder="e.g. legal-team-key-2026"
-              className="red-adv-input"
-            />
-            <span className="red-adv-help">HMAC-SHA-256 seals the log so tampering is detectable.</span>
+            <span className="red-adv-help">Same seed, same synthetic values.</span>
           </div>
         </div>
+        {children}
       </details>
-
-      <div className="red-apply-row">
-        <button
-          data-testid={TID.applyBtn}
-          onClick={onApply}
-          disabled={!canApply || applying}
-          className="btn-forest disabled:opacity-40 disabled:cursor-not-allowed"
-        >
-          {applying ? "Applying…" : "Apply treatments"}
-        </button>
-        <span className="red-apply-count">{transformed} column{transformed === 1 ? "" : "s"} transformed · {kept} kept</span>
-        <button
-          data-testid={TID.resetBtn}
-          onClick={onReset}
-          className="text-action red-apply-reset"
-          disabled={applying}
-        >
-          Start over
-        </button>
-      </div>
     </section>
   );
 }
 
-export function DownloadPanel({ onDownloadClean, onDownloadJson, onDownloadPdf, onDownloadZip }) {
+export function DownloadPanel({ onDownloadClean, onDownloadJson, onStartAnother }) {
   return (
     <div className="red-record-actions">
       <button data-testid={TID.downloadCleanBtn} onClick={onDownloadClean} className="btn-forest">
@@ -80,11 +64,8 @@ export function DownloadPanel({ onDownloadClean, onDownloadJson, onDownloadPdf, 
       <button data-testid={TID.downloadJsonLogBtn} onClick={onDownloadJson} className="btn-ghost-ink">
         Download record
       </button>
-      <button data-testid={TID.downloadPdfLogBtn} onClick={onDownloadPdf} className="text-action">
-        Record as PDF
-      </button>
-      <button data-testid={TID.downloadZipBtn} onClick={onDownloadZip} className="text-action">
-        Evidence bundle (.zip)
+      <button data-testid={TID.resetBtn} onClick={onStartAnother} className="text-action">
+        Start another file
       </button>
     </div>
   );

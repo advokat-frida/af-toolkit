@@ -140,7 +140,9 @@ a:hover {
 
 .page-shell.is-embed .site {
   width: 100%;
-  padding: 0 30px;
+  max-width: 1130px;
+  margin: 0 auto;
+  padding: 0 32px;
 }
 
 .skiplink {
@@ -360,8 +362,7 @@ a:hover {
   margin-top: var(--s3);
   line-height: 1.5;
 }
-.gen-changelog summary,
-.tier-disclosure summary {
+.gen-changelog summary {
   line-height: 1.5;
 }
 .gen-changelog summary {
@@ -437,7 +438,6 @@ a:hover {
   color: var(--ink-soft);
   font-size: 13px;
   line-height: 1.45;
-  max-width: 70ch;
 }
 
 .gen-error {
@@ -582,15 +582,15 @@ a:hover {
 }
 .field-row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 220px 200px 28px;
+  grid-template-columns: minmax(0, 1fr) 236px 210px 28px;
   align-items: center;
   gap: 16px;
-  padding: 8px 4px;
+  padding: 6px 4px;
   border-bottom: 1px solid var(--hair);
 }
 .field-name {
-  min-height: 44px;
-  padding: 6px 8px;
+  min-height: 32px;
+  padding: 4px 8px;
   border: 1px solid transparent;
   background: transparent;
   color: var(--ink);
@@ -607,14 +607,23 @@ a:hover {
   background: var(--paper);
 }
 .field-type {
-  min-height: 44px;
-  padding: 6px 11px;
-  border: 1px solid var(--ink);
-  background: var(--paper);
-  color: var(--ink);
+  min-height: 32px;
+  padding: 4px 8px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--ink-soft);
   font-family: var(--font);
   font-size: 15px;
   border-radius: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+.field-type:hover,
+.field-type:focus {
+  border-color: var(--ink);
+  background: var(--paper);
+  color: var(--ink);
 }
 .tier-mark {
   display: flex;
@@ -651,7 +660,7 @@ a:hover {
   display: grid;
   place-items: center;
   width: 28px;
-  min-height: 44px;
+  min-height: 32px;
   border: 0;
   background: transparent;
   color: var(--ink-soft);
@@ -667,22 +676,21 @@ a:hover {
   cursor: not-allowed;
 }
 
-.gen-nums {
+.gen-actions-end {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 16px;
-  margin-top: 18px;
+  gap: 18px;
 }
-.num-ctl {
+.gen-param {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  align-items: center;
+  gap: 8px;
 }
-.num-ctl input {
-  width: 120px;
+.gen-param input {
+  width: 88px;
   min-height: 44px;
-  padding: 6px 11px;
+  padding: 6px 10px;
   border: 1px solid var(--ink);
   background: var(--paper);
   color: var(--ink);
@@ -690,11 +698,8 @@ a:hover {
   font-size: 15px;
   border-radius: 0;
 }
-.num-ctl input[aria-invalid="true"] {
+.gen-param input[aria-invalid="true"] {
   border-color: var(--red);
-}
-.gen-nums .gen-hint {
-  margin: 0 0 12px;
 }
 
 .gen-actions {
@@ -715,25 +720,13 @@ a:hover {
   gap: 12px;
 }
 
-.tier-disclosure {
+.tier-legend {
   margin-top: var(--s5);
+  padding-top: 18px;
   border-top: 1px solid var(--hair);
-  padding-top: 10px;
 }
-.tier-disclosure summary {
-  min-height: 44px;
-  display: flex;
-  align-items: center;
-  color: var(--ink);
-  font-family: var(--font-label);
-  font-size: 13px;
-  font-weight: 700;
-  cursor: pointer;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-.tier-disclosure summary:hover {
-  color: var(--red);
+.tier-legend .field-label {
+  margin: 0 0 12px;
 }
 .tier-key {
   display: flex;
@@ -769,24 +762,28 @@ a:hover {
 
 .gen-table-wrap {
   margin-top: 18px;
-  overflow-x: auto;
+  max-height: 440px;
+  overflow: auto;
+  border-bottom: 1px solid var(--hair);
 }
 .gen-table {
   width: 100%;
   border-collapse: collapse;
 }
 .gen-table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
   padding: 0 14px 8px 0;
-  border-bottom: 1px solid var(--ink);
+  background: var(--ground);
+  border-bottom: 0;
+  box-shadow: inset 0 -1px 0 var(--ink);
   color: var(--ink-soft);
   font-family: var(--mono);
   font-size: 12px;
   font-weight: 400;
   text-align: left;
   white-space: nowrap;
-}
-.gen-table th .tier-dot {
-  margin-right: 7px;
 }
 .gen-table td {
   padding: 10px 14px 10px 0;
@@ -977,7 +974,7 @@ a:hover {
   .field-del {
     grid-area: del;
   }
-  .num-ctl input {
+  .gen-param input {
     font-size: 16px;
   }
   .stat-band {
@@ -1023,4 +1020,18 @@ a:hover {
     transition-duration: 1ms !important;
     animation-duration: 1ms !important;
   }
+}
+
+/* Zones name their file with a glyph; a primary never greys out (pressing it early points at what is missing). */
+.file-drop-icon {
+  display: inline-flex;
+  margin-bottom: 4px;
+  color: var(--forest);
+}
+.file-drop-icon svg {
+  width: 24px;
+  height: 24px;
+}
+.btn-primary[aria-disabled="true"] {
+  cursor: not-allowed;
 }

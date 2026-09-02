@@ -1,20 +1,20 @@
 // Generated source manifest. Enabled means published aid, not practitioner-reviewed.
 
 export const MANIFEST_VERSION = 'af-pwc-vnext-2026-08-21';
-export const MANIFEST_SHA256 = '3406a968315647dd1826f33d7b3408dbb41dcfd3081741ad8d74a7ba1192a746';
+export const MANIFEST_SHA256 = 'f985a66d4a9f1bdf2b7d8ebaed9f974a2023e98afb47b1b6528c67bdb20571d9';
 export const SOURCE_MANIFEST = {
   "gdpr-art-4": {
     "id": "gdpr-art-4",
     "jurisdiction": "EU",
     "sourceType": "statute",
-    "officialUrl": null,
+    "officialUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504#art_4",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "071bb05d37bcb31210bb8e43fa601068867633a11a04dcb1ca25a4ade1f81d73",
+    "contentSha256": "a8cafe23421dffe91c0f776ef4bf48c323f1aa51e58e674ae2d7ba0fecfe2610",
     "affectedWizards": [
       "breach",
       "dpia",
@@ -28,14 +28,14 @@ export const SOURCE_MANIFEST = {
     "id": "gdpr-art-6",
     "jurisdiction": "EU",
     "sourceType": "statute",
-    "officialUrl": null,
+    "officialUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504#art_6",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "7009171cd03308e0da2ee22aa23c3eaf46a59895ee4c07888ebaaf8fc6895b0d",
+    "contentSha256": "f5a783f044825dc0a0a0c2d9bc282a4b065c1e729a44df0decd3f8237dba55c1",
     "affectedWizards": [
       "legal-basis",
       "special-category",
@@ -48,14 +48,14 @@ export const SOURCE_MANIFEST = {
     "id": "gdpr-art-9",
     "jurisdiction": "EU",
     "sourceType": "statute",
-    "officialUrl": null,
+    "officialUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504#art_9",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "2775ed281d4aaf163dc8f830b17ef7666f62f8dada7a61324a141f8d63292941",
+    "contentSha256": "e8c74def8d6e08f797de8c6efae93cbb17f183f1198ef4f1948646ad0c9cb5d4",
     "affectedWizards": [
       "legal-basis",
       "special-category",
@@ -69,14 +69,14 @@ export const SOURCE_MANIFEST = {
     "id": "gdpr-art-8",
     "jurisdiction": "EU",
     "sourceType": "statute",
-    "officialUrl": null,
+    "officialUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504#art_8",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "5523eb90971f2b7baf4bbbb2c98091ac88a3f30215c22120923b1eded98eb76a",
+    "contentSha256": "b8e8174dc2c915e7c39cc6ad12dcde84e4ace39e0c1af871abd34a7e3ead2cf6",
     "affectedWizards": [
       "legal-basis",
       "children"
@@ -86,14 +86,14 @@ export const SOURCE_MANIFEST = {
     "id": "gdpr-art-15",
     "jurisdiction": "EU",
     "sourceType": "statute",
-    "officialUrl": null,
+    "officialUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504#art_15",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "789fafce0eafa80b04c98172be3f880d00e72012e68de7f53a4cc32187c9be95",
+    "contentSha256": "080d2025a2dfbeb6c46fc72baab4e90cf5e18e03d08dac8d5e7aa0b1b0dc5d85",
     "affectedWizards": [
       "dsar"
     ]
@@ -102,14 +102,14 @@ export const SOURCE_MANIFEST = {
     "id": "gdpr-art-17",
     "jurisdiction": "EU",
     "sourceType": "statute",
-    "officialUrl": null,
+    "officialUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504#art_17",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "f5df34956001a0d12c8ba6f357238d563639742cd2b42889470a65ab92cdc361",
+    "contentSha256": "ca8f365c2042551e72178e055edbe078eb35d2e2dc983c72818cae94edbea29d",
     "affectedWizards": [
       "legal-basis",
       "dsar"
@@ -119,14 +119,14 @@ export const SOURCE_MANIFEST = {
     "id": "gdpr-art-22",
     "jurisdiction": "EU",
     "sourceType": "statute",
-    "officialUrl": null,
+    "officialUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504#art_22",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "93bc8d209b0e69bdefb5f0f97a9cf6d4b420668bc33860135b089939fefb25c1",
+    "contentSha256": "a980fdff0ea9ef7a4d51ec4926784348706e850ea98a6ea68738558a02cd98ae",
     "affectedWizards": [
       "dsar",
       "adm"
@@ -153,14 +153,14 @@ export const SOURCE_MANIFEST = {
     "id": "gdpr-art-30",
     "jurisdiction": "EU",
     "sourceType": "statute",
-    "officialUrl": null,
+    "officialUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504#art_30",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "705501a8f888fdd90aaa0e788a2d511174c824a1510e05bea8cb017eb53d2666",
+    "contentSha256": "036915b92e05d0729fca7565924e972cc0f00277c56664035e89aaf967fb74f1",
     "affectedWizards": [
       "role",
       "ropa"
@@ -170,14 +170,14 @@ export const SOURCE_MANIFEST = {
     "id": "gdpr-art-32",
     "jurisdiction": "EU",
     "sourceType": "statute",
-    "officialUrl": null,
+    "officialUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504#art_32",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "22d134279fa9f4b2fe5539e4a125a3c25db545d640ff23875d1e580b455bc7f9",
+    "contentSha256": "db686b945cee1946d9c5e1211efd20a5d0fa3b79e6125ce29b68e38d75fb05b8",
     "affectedWizards": [
       "breach",
       "severity"
@@ -276,14 +276,14 @@ export const SOURCE_MANIFEST = {
     "id": "gdpr-art-44",
     "jurisdiction": "EU",
     "sourceType": "statute",
-    "officialUrl": null,
+    "officialUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504#art_44",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "d08e5859acd21269164cb5cbac9e79b47500bff02daec1be8302a07f82f87692",
+    "contentSha256": "2f7e482bfabb1b58963955965407828dbe66f773da4bfe86a29cc614f59b62ae",
     "affectedWizards": [
       "transfer"
     ]
@@ -292,14 +292,14 @@ export const SOURCE_MANIFEST = {
     "id": "gdpr-art-45",
     "jurisdiction": "EU",
     "sourceType": "statute",
-    "officialUrl": null,
+    "officialUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504#art_45",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "ea1495737870b2c4ecf28953f8ed020c12998dc001a410167fc31c2b4eebeee2",
+    "contentSha256": "e4b3539891c81cee4b5356bb7d3dbdab537da6b4201edc2f1b5c75153cdd3c1a",
     "affectedWizards": [
       "transfer"
     ]
@@ -308,14 +308,14 @@ export const SOURCE_MANIFEST = {
     "id": "gdpr-art-46",
     "jurisdiction": "EU",
     "sourceType": "statute",
-    "officialUrl": null,
+    "officialUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504#art_46",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "06d8ed3639789dc739f39283a33f823940b6b2ec483c00ac75b71292e1bc863d",
+    "contentSha256": "11a4b1e12b018f3fd6223fcf9be51eab7a0335c084458bb30f6a9b2c60b81197",
     "affectedWizards": [
       "transfer"
     ]
@@ -324,14 +324,14 @@ export const SOURCE_MANIFEST = {
     "id": "gdpr-art-49",
     "jurisdiction": "EU",
     "sourceType": "statute",
-    "officialUrl": null,
+    "officialUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504#art_49",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "6a6916637741467d65645d2d08c59803ba401d1e1c002f1460e18c638d3c222c",
+    "contentSha256": "0c5f474ec5044ab0678540a3d973d91f7f04ba61f7fdb021a233d0cb83303a12",
     "affectedWizards": [
       "transfer"
     ]
@@ -340,14 +340,14 @@ export const SOURCE_MANIFEST = {
     "id": "ccpa-1798-140",
     "jurisdiction": "US-CA",
     "sourceType": "statute",
-    "officialUrl": null,
+    "officialUrl": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.140.",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "c7a086194f87f52ce05d10585a561208590e522126f91f98f553f1d1da521783",
+    "contentSha256": "81a6cbcd1201c7bff4a6d8ace199ee360bfc0127404347f3e784c24fed6a9b2f",
     "affectedWizards": [
       "sale-share",
       "dsar",
@@ -358,14 +358,14 @@ export const SOURCE_MANIFEST = {
     "id": "ccpa-1798-120",
     "jurisdiction": "US-CA",
     "sourceType": "statute",
-    "officialUrl": null,
+    "officialUrl": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.120.",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "65cc471944bb836b4a8c8ca7d9db22cdd8b34cc92384e0058bff6869fceef63a",
+    "contentSha256": "f2833175af24dc61004208cb08ba2d35048ba984377de8d65bb3b0334f84a4f5",
     "affectedWizards": [
       "sale-share",
       "dsar",
@@ -376,14 +376,14 @@ export const SOURCE_MANIFEST = {
     "id": "ccpa-1798-135",
     "jurisdiction": "US-CA",
     "sourceType": "statute",
-    "officialUrl": null,
+    "officialUrl": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.135.",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "8f813150cdb871f8c98736292377f0ad3c8f75c09a84b744bbf08ab41cfc575a",
+    "contentSha256": "40b2a0f403a10d2c0e05ba73d83630b5f0f94493600e80f309f8fefd961cdaa1",
     "affectedWizards": [
       "sale-share",
       "dsar",
@@ -394,14 +394,14 @@ export const SOURCE_MANIFEST = {
     "id": "ccpa-1798-105",
     "jurisdiction": "US-CA",
     "sourceType": "statute",
-    "officialUrl": null,
+    "officialUrl": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.105.",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "8f1bdb24a629e910865d1633ff96e32f0469a7273081764aefa66100c46c0ccf",
+    "contentSha256": "313d58fb7662b4be82bbe281e6613c4b31cb236daa42b319797de1deab117daa",
     "affectedWizards": [
       "dsar"
     ]
@@ -410,14 +410,14 @@ export const SOURCE_MANIFEST = {
     "id": "ccpa-1798-150",
     "jurisdiction": "US-CA",
     "sourceType": "statute",
-    "officialUrl": null,
+    "officialUrl": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.150.",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "57b8bed0edd1185af17276fc184d224d71334ce7483ef9c929197af9a832a44f",
+    "contentSha256": "e2fbd5d93a25ca1a232cb584439232a6f724c6fa00346b0fb9a0638d79236440",
     "affectedWizards": [
       "breach"
     ]
@@ -442,14 +442,14 @@ export const SOURCE_MANIFEST = {
     "id": "ny-shield-bb",
     "jurisdiction": "US-NY",
     "sourceType": "statute",
-    "officialUrl": null,
+    "officialUrl": "https://www.nysenate.gov/legislation/laws/GBS/899-BB",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "710bd4e6e7e357511707c7a1e47777a0715c0ade526d63c9a7315dba1d5b39a2",
+    "contentSha256": "33f42518f98dc0d7de009a487851b2933db12eb4153f5590ae80da553b9101ab",
     "affectedWizards": [
       "breach"
     ]
@@ -458,14 +458,14 @@ export const SOURCE_MANIFEST = {
     "id": "il-pipa-10",
     "jurisdiction": "US-IL",
     "sourceType": "statute",
-    "officialUrl": null,
+    "officialUrl": "https://www.ilga.gov/Legislation/ILCS/Articles?ActID=2702&ChapterID=67",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "f57c7321b1ad654a6ea69f24244c694daa0c24ae57ebd8ac1d6c70f8cd9441c0",
+    "contentSha256": "c8678444a78f2b68df0d3a5acb744d9f8922c30b9592b271f93625e58621fc19",
     "affectedWizards": [
       "breach"
     ]
@@ -474,14 +474,14 @@ export const SOURCE_MANIFEST = {
     "id": "il-bipa-15",
     "jurisdiction": "US-IL",
     "sourceType": "statute",
-    "officialUrl": null,
+    "officialUrl": "https://www.ilga.gov/Legislation/ILCS/Articles?ActID=3004&ChapterID=57",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "f8cb6299b2ab8262fa8769587472a9a46666b3c92beb83be9feb55b3bfc42d42",
+    "contentSha256": "f4bd8fd86ae4b84fe4461dad4e71dd24cac46a734c8727d1b84d88351eed2c76",
     "affectedWizards": [
       "breach"
     ]
@@ -490,14 +490,14 @@ export const SOURCE_MANIFEST = {
     "id": "coppa-6502",
     "jurisdiction": "US (federal)",
     "sourceType": "statute",
-    "officialUrl": null,
+    "officialUrl": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title15-section6502&num=0&edition=prelim",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "992c3e020b0f90948db7cff489ef004b364b973c4c4071f42ddc7fe038ea8498",
+    "contentSha256": "a7ba4cfba606eda1f7058ad5b89e2fdebd48568613fd501885714ca538f53663",
     "affectedWizards": [
       "children"
     ]
@@ -506,14 +506,14 @@ export const SOURCE_MANIFEST = {
     "id": "eprivacy-art-5",
     "jurisdiction": "EU",
     "sourceType": "statute",
-    "officialUrl": null,
+    "officialUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02002L0058-20091219#art_5",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "b3a968824ecbd6b252ed954ed213c66a6747c71a4fac0ffcfb3995676c41fa45",
+    "contentSha256": "e25fd1a64f4964b1b7d679a07c6e0a22a8367920c0b1afdd7a36df2e61a94026",
     "affectedWizards": [
       "cookies"
     ]
@@ -522,14 +522,14 @@ export const SOURCE_MANIFEST = {
     "id": "case-schrems-i",
     "jurisdiction": "EU",
     "sourceType": "case",
-    "officialUrl": null,
+    "officialUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:62014CJ0362",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "a2f58d4fadb5c0123168c08cee6e17924ddd4d4f748e539fa2e71e3cad047f3c",
+    "contentSha256": "703168e4b75999ab6f4afe251fa5fed44052aef37ea6110dc0bd4ff065f214b4",
     "affectedWizards": [
       "transfer"
     ]
@@ -538,14 +538,14 @@ export const SOURCE_MANIFEST = {
     "id": "case-schrems-ii",
     "jurisdiction": "EU",
     "sourceType": "case",
-    "officialUrl": null,
+    "officialUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:62018CJ0311",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "b08bc959f144cc56bc9d490b16178eeb82c8777f3d8e2224838ef1b53d89a2b5",
+    "contentSha256": "9ba2c65e92518325f20ab54fb208957b3f85fc91d78a222d1f824c7b57d5ceb4",
     "affectedWizards": [
       "transfer"
     ]
@@ -554,14 +554,14 @@ export const SOURCE_MANIFEST = {
     "id": "case-planet49",
     "jurisdiction": "EU",
     "sourceType": "case",
-    "officialUrl": null,
+    "officialUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:62017CJ0673",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "4bbef47bb8af25da4002af31d5dff4d2333bc33181e66cdcd8c2be92ef4573de",
+    "contentSha256": "9a6476b1ca536c0b746a2fb02c03c76a860af0060459782496057bb2ea40bc79",
     "affectedWizards": [
       "legal-basis",
       "cookies"
@@ -571,14 +571,14 @@ export const SOURCE_MANIFEST = {
     "id": "case-breyer",
     "jurisdiction": "EU",
     "sourceType": "case",
-    "officialUrl": null,
+    "officialUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:62014CJ0582",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "e8e8ff5e991c631e92ee9c3a6f2770db22911519f701c5444253a1e65690d4db",
+    "contentSha256": "107fc1e9bf766f1546f472b89c053112fd3c148b1bae2ebe93012b6af8938145",
     "affectedWizards": [
       "cookies"
     ]
@@ -587,14 +587,14 @@ export const SOURCE_MANIFEST = {
     "id": "case-meta-bka",
     "jurisdiction": "EU",
     "sourceType": "case",
-    "officialUrl": null,
+    "officialUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:62021CJ0252",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "a771f0571c23b2677c3c8f3c377a7e595f4be303ef4a0f9a2a4e13c592d71c27",
+    "contentSha256": "50248965a1032b3cd8195e24162ccf7e68b27d22dea901b9b746e80d300ebd41",
     "affectedWizards": [
       "legal-basis",
       "special-category",
@@ -606,14 +606,14 @@ export const SOURCE_MANIFEST = {
     "id": "case-fashion-id",
     "jurisdiction": "EU",
     "sourceType": "case",
-    "officialUrl": null,
+    "officialUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:62017CJ0040",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "d801f50c9269d432a5a2ee8ccdca0f095d1bbf61713f23e956eb1111d3042cc0",
+    "contentSha256": "cf1b258328b247ce094f4121e52351233cb2090deb03620a8545f7cb2164c417",
     "affectedWizards": [
       "legal-basis",
       "role"
@@ -623,14 +623,14 @@ export const SOURCE_MANIFEST = {
     "id": "case-iab-tcf",
     "jurisdiction": "EU",
     "sourceType": "case",
-    "officialUrl": null,
+    "officialUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:62022CJ0604",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "8984a2c21549dc158a2f78da127d9bca915c6855b315e58e5f90e12c57e34397",
+    "contentSha256": "0bb6f0a6c67301e6e9ecb17bca2d73c6e23c690542a1d3710612a1045ea245ea",
     "affectedWizards": [
       "role",
       "cookies"
@@ -640,14 +640,14 @@ export const SOURCE_MANIFEST = {
     "id": "case-vb-nap",
     "jurisdiction": "EU",
     "sourceType": "case",
-    "officialUrl": null,
+    "officialUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:62021CJ0340",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "204d06e9d43ef65f9fbea78c56c60c6d5d578e6f40eb41b4ce7eaaeefc5a1e95",
+    "contentSha256": "0633120c60dbaca8270e8abaab4434a68fd7784659d2e9a2699d105dbbc0abef",
     "affectedWizards": [
       "breach"
     ]
@@ -656,14 +656,14 @@ export const SOURCE_MANIFEST = {
     "id": "case-x-fab",
     "jurisdiction": "EU",
     "sourceType": "case",
-    "officialUrl": null,
+    "officialUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:62021CJ0453",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "fce1596db932d6a13b67f9a562c080799d21fc6698e9a9430fba944e1f2a93f9",
+    "contentSha256": "68961c2e8403b9d4bbc572871abc21147f74b4a4f125522e254b7791dfc74bae",
     "affectedWizards": [
       "dpo"
     ]
@@ -672,14 +672,14 @@ export const SOURCE_MANIFEST = {
     "id": "case-google-spain",
     "jurisdiction": "EU",
     "sourceType": "case",
-    "officialUrl": null,
+    "officialUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:62012CJ0131",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "3aff6c5fb3d3a82e96354fa3c29ff766b626037067a51e11aafc0783dc154bfb",
+    "contentSha256": "8517093eb18d0a3ffa59286f2daa8185e69cb144dc95eb3d28a6597d7f5e6312",
     "affectedWizards": [
       "dsar"
     ]
@@ -705,14 +705,14 @@ export const SOURCE_MANIFEST = {
     "id": "case-patel-facebook",
     "jurisdiction": "US-IL",
     "sourceType": "case",
-    "officialUrl": null,
+    "officialUrl": "https://cdn.ca9.uscourts.gov/datastore/opinions/2019/08/08/18-15982.pdf",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "c6dc80475b4ba7216d479d7ba4e22d968a92fada31c03a6a65f28452a0965d61",
+    "contentSha256": "c5d2fb8e651c451fe48b6d273877cf261a758a08c9401ac1ce7c80ba7d3d3f3f",
     "affectedWizards": [
       "breach"
     ]
@@ -721,14 +721,14 @@ export const SOURCE_MANIFEST = {
     "id": "case-transunion-ramirez",
     "jurisdiction": "US (federal)",
     "sourceType": "case",
-    "officialUrl": null,
+    "officialUrl": "https://www.law.cornell.edu/supremecourt/text/20-297",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "d2d3bea93209849734f0a0e214f7c70417cc3bb78b82b79e0dda1e033c49f05a",
+    "contentSha256": "5c4b805deedb58859c48e2090193adfbc91820a9f0c4836342b54a1bc8ec5dc5",
     "affectedWizards": [
       "breach"
     ]
@@ -737,14 +737,14 @@ export const SOURCE_MANIFEST = {
     "id": "guide-edpb-9-2022-breach",
     "jurisdiction": "EU",
     "sourceType": "guidance",
-    "officialUrl": null,
+    "officialUrl": "https://www.edpb.europa.eu/system/files/2023-04/edpb_guidelines_202209_personal_data_breach_notification_v2.0_en.pdf",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "0d428b4eb762488e389506b1972e9b412e3defbe3bec219b1e1056ea76083d6b",
+    "contentSha256": "92dce0ed17b1fac7cdd6461c49dc868bd27691f5e28dcd1f0f7f8beaa131cd88",
     "affectedWizards": [
       "breach",
       "severity"
@@ -770,14 +770,14 @@ export const SOURCE_MANIFEST = {
     "id": "guide-edpb-rec-01-2020",
     "jurisdiction": "EU",
     "sourceType": "guidance",
-    "officialUrl": null,
+    "officialUrl": "https://www.edpb.europa.eu/system/files/2021-06/edpb_recommendations_202001vo.2.0_supplementarymeasurestransferstools_en.pdf",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "91ef1dfc88d65ceaf1a161731df6fcbc3ed2edd0026f3f9b54888ef5128f21cc",
+    "contentSha256": "b4c01add2a872b2c2230c5a4478c84e9863cfd8dcc5939ba662551073047f74b",
     "affectedWizards": [
       "transfer"
     ]
@@ -786,14 +786,14 @@ export const SOURCE_MANIFEST = {
     "id": "guide-edpb-2-2023-eprivacy",
     "jurisdiction": "EU",
     "sourceType": "guidance",
-    "officialUrl": null,
+    "officialUrl": "https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-22023-technical-scope-art-53-eprivacy-directive_en",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "cde8dc9ba1de73b3c6d448c2f0d861482992718302282fa13a1287f6d89b50b8",
+    "contentSha256": "ce87e330f31ff76e48407f8e38c78e97c621bb4e6174447309f303d75e509e19",
     "affectedWizards": [
       "cookies"
     ]
@@ -802,14 +802,14 @@ export const SOURCE_MANIFEST = {
     "id": "guide-edpb-01-2022-access",
     "jurisdiction": "EU",
     "sourceType": "guidance",
-    "officialUrl": null,
+    "officialUrl": "https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-012022-data-subject-rights-right-access_en",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "f8669a364d2d2d1bdf325ea35dc77f6309f416b70308ad4f0c417e380f88cb9d",
+    "contentSha256": "13948c75de633bcc85cee5ee5838c3852b78ad0d9c43249ab7680e6bb7155a03",
     "affectedWizards": [
       "dsar"
     ]
@@ -818,14 +818,14 @@ export const SOURCE_MANIFEST = {
     "id": "guide-edpb-3-2019-video",
     "jurisdiction": "EU",
     "sourceType": "guidance",
-    "officialUrl": null,
+    "officialUrl": "https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-32019-processing-personal-data-through-video_en",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "e44f5abfab2597bcf4d4adb769a0c40d63e8fb0104cae50b8cde64502fb6b66d",
+    "contentSha256": "4c9feff63ccbf6926ad3723c05ffdd6a487c7ecf26c11ccbd34990825fef8018",
     "affectedWizards": [
       "special-category"
     ]
@@ -834,14 +834,14 @@ export const SOURCE_MANIFEST = {
     "id": "guide-edpb-2-2019-art-6-1-b",
     "jurisdiction": "EU",
     "sourceType": "guidance",
-    "officialUrl": null,
+    "officialUrl": "https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-22019-processing-personal-data-under-article-61b_en",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "80a6fae0f4075e3458f54e34dd6fe95090106e75220fe6b66c2922e31246df12",
+    "contentSha256": "3b8539d2ae8e1dadddea720fd7e8200ab5a90581ce360587a10d7d1d4c7d7a25",
     "affectedWizards": [
       "legal-basis"
     ]
@@ -850,14 +850,14 @@ export const SOURCE_MANIFEST = {
     "id": "guide-wp29-wp243-dpo",
     "jurisdiction": "EU",
     "sourceType": "guidance",
-    "officialUrl": null,
+    "officialUrl": "https://ec.europa.eu/newsroom/article29/items/612048",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "01e47c0f4fd2707ece6e726ba08f00fdfc2fa54c7ae373d068c80a685588c8d9",
+    "contentSha256": "6180cc23790904d3ee8b72a36b7ec20539fca70ec7bc63e52533422ea0e02318",
     "affectedWizards": [
       "dpo"
     ]
@@ -866,14 +866,14 @@ export const SOURCE_MANIFEST = {
     "id": "guide-wp29-wp248-dpia",
     "jurisdiction": "EU",
     "sourceType": "guidance",
-    "officialUrl": null,
+    "officialUrl": "https://ec.europa.eu/newsroom/article29/items/611236",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "ecd7296f2dcfc4b3fe747860d8938304b8e21ffb40aa2360a32b94e2a5c4309c",
+    "contentSha256": "9696c15b5d34d46e4ab216dc5ca6e88dde96ee327d9fc1a3151dd3159a648f95",
     "affectedWizards": [
       "dpia"
     ]
@@ -882,14 +882,14 @@ export const SOURCE_MANIFEST = {
     "id": "guide-wp29-wp251-adm",
     "jurisdiction": "EU",
     "sourceType": "guidance",
-    "officialUrl": null,
+    "officialUrl": "https://ec.europa.eu/newsroom/article29/items/612053",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "b1589d5b33aa023f921f96e04f80803b61ff7a3416280f3e8a91c9fef11660a5",
+    "contentSha256": "20916b1c55a4494334b0ea59a01ee8c07157897994e9701e14304101a56f9dbd",
     "affectedWizards": [
       "adm"
     ]

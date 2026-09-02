@@ -40,7 +40,7 @@ const generatorSource = readFileSync(resolve('src/generator/Generator.tsx'), 'ut
 const generatorCss = readFileSync(resolve('src/generator/generator.css'), 'utf8').replace(/\s+/g, ' ');
 const generatorTitleRule = generatorCss.match(/\.gen-intro h1\s*\{([^}]*)\}/)?.[1] || '';
 const generatorChangelogRules = [...generatorCss.matchAll(/\.gen-changelog\s*\{([^}]*)\}/g)].map((match) => match[1]);
-const generatorChangelogSummaryRule = generatorCss.match(/\.gen-changelog summary,\s*\.tier-disclosure summary\s*\{([^}]*)\}/)?.[1] || '';
+const generatorChangelogSummaryRule = generatorCss.match(/\.gen-changelog summary\s*\{([^}]*)\}/)?.[1] || '';
 const demoTitleRule = demoCss.match(/\.hero-headline\s*\{([^}]*)\}/)?.[1] || '';
 const demoLedeRule = demoCss.match(/\.hero-sub\s*\{([^}]*)\}/)?.[1] || '';
 for (const declaration of ['font-size: clamp(48px, 7vw, 86px)', 'line-height: 1.02']) {

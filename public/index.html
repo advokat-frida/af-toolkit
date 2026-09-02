@@ -103,18 +103,6 @@
             <span>Privacy Wizards</span>
           </a>
 
-          <p class="nav-group" id="nav-group-work-with-ai">Work with AI</p>
-          <a href="#build-a-prompt" data-route-link="build-a-prompt">
-            <span class="nav-icon" aria-hidden="true">
-              <!-- @license lucide-static v1.31.0 - ISC -->
-              <svg class="lucide lucide-message-square-code" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
-                <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
-                <path d="m10 8-3 3 3 3" />
-                <path d="m14 14 3-3-3-3" />
-              </svg>
-            </span>
-            <span>Build-A-Prompt</span>
-          </a>
         </nav>
       </aside>
 
@@ -190,29 +178,13 @@
                 </div>
               </section>
 
-              <section class="tool-group" aria-labelledby="group-work-with-ai">
-                <p class="group-label" id="group-work-with-ai">Work with AI</p>
-                <div class="tool-grid">
-                  <a class="tool-card" href="#build-a-prompt">
-                    <span class="card-icon" aria-hidden="true">
-                      <!-- @license lucide-static v1.31.0 - ISC -->
-                      <svg class="lucide lucide-message-square-code" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" focusable="false">
-                        <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" />
-                        <path d="m10 8-3 3 3 3" />
-                        <path d="m14 14 3-3-3-3" />
-                      </svg>
-                    </span>
-                    <strong>Build-A-Prompt</strong>
-                    <span class="card-desc">Build detailed, reusable prompts for any privacy task.</span>
-                  </a>
-                </div>
-              </section>
             </div>
 
             <section class="home-bottom" id="toolkit-changelog">
               <details class="changelog-card">
-                <summary><span class="changelog-label">Changelog</span><span class="changelog-date">Updated August 31, 2026</span></summary>
+                <summary><span class="changelog-label">Changelog</span><span class="changelog-date">Updated September 1, 2026</span></summary>
                 <div class="changelog-body">
+                  <article><time datetime="2026-09-01">September 1, 2026 · 0.2.1 canvas fidelity</time><h3>Every drawn state matches the design</h3><ul><li>Redactorium findings cut to the five evidence columns; the record block is the shared shape.</li><li>SafeSeed columns read as data rows; every generated row scrolls above the receipt.</li><li>Privacy Wizards asks one question at a time with Next and Back and a progress line.</li><li>Build-A-Prompt retired from the Toolkit.</li><li>Redactorium: signing and the verify page retired; the record is the SHA-256 content hash.</li><li>Privacy Wizards: every authority links to its official text.</li><li>The Oracle keeps its 8 and names the owner of the next action.</li></ul></article>
                   <article><time datetime="2026-08-31">August 31, 2026 · 0.2.0 consolidated</time><h3>One repo, one design system</h3><ul><li>Moved every tool's source into this repository — one folder per tool, no more standalone repos.</li><li>Rebuilt the shell to the approved redesign: grouped navigation, breadcrumb tool headers, calmer Home.</li><li>Restyled the five tools to the shared design system at the source.</li><li>Published the design package as standing principles with a mechanical review gate.</li></ul></article>
                   <article><time datetime="2026-08-27">August 27, 2026 · 0.1.1 private candidate</time><h3>Home stripped back to the useful parts</h3><ul><li>Replaced rail initials with semantic Lucide icons.</li><li>Removed the announcement, card pills, status block, and publication explainer.</li><li>Made the full change history one bottom-of-page disclosure.</li></ul></article>
                   <article><time datetime="2026-08-27">August 27, 2026 · 0.1.0 local</time><h3>One Home for five tools</h3><ul><li>Added persistent desktop and mobile tool navigation.</li><li>Established the square-card, 4px offset-shadow Toolkit extension.</li><li>Kept every tool's source engine and in-progress browser state separate.</li></ul></article>
@@ -225,7 +197,6 @@
         <section class="view tool-view" data-view="redactorium" aria-labelledby="redactorium-title" hidden>
           <header class="tool-head">
             <span class="crumb"><span class="crumb-group">Manage data</span><span class="crumb-sep" aria-hidden="true">/</span><h1 class="crumb-tool" id="redactorium-title" tabindex="-1">Redactorium</h1></span>
-            <a class="head-action" href="/tools/redactorium/index.html?embed=1#/verify-log" target="tool-redactorium">Verify a signed log</a>
           </header>
           <div class="frame-stage"><div class="frame-loading" aria-hidden="true">Preparing Redactorium…</div><iframe name="tool-redactorium" title="Redactorium" data-tool-frame="redactorium" data-src="/tools/redactorium/index.html?embed=1#/"></iframe></div>
         </section>
@@ -254,13 +225,6 @@
           <div class="frame-stage"><div class="frame-loading" aria-hidden="true">Summoning the council…</div><iframe title="Privacy Wizards Council" data-tool-frame="privacy-wizards" data-src="/tools/privacy-wizards-council.html?embed=1" allow="clipboard-write"></iframe></div>
         </section>
 
-        <section class="view tool-view" data-view="build-a-prompt" aria-labelledby="build-a-prompt-title" hidden>
-          <header class="tool-head">
-            <span class="crumb"><span class="crumb-group">Work with AI</span><span class="crumb-sep" aria-hidden="true">/</span><h1 class="crumb-tool" id="build-a-prompt-title" tabindex="-1">Build-A-Prompt</h1></span>
-            <a class="head-action" href="https://advokatfrida.com/build-a-prompt/" target="_blank" rel="noreferrer">Read the article ↗</a>
-          </header>
-          <div class="frame-stage"><div class="frame-loading" aria-hidden="true">Preparing Build-A-Prompt…</div><iframe title="Build-A-Prompt" data-tool-frame="build-a-prompt" data-src="/tools/build-a-prompt.html?embed=1" allow="clipboard-write"></iframe></div>
-        </section>
       </main>
     </div>
 

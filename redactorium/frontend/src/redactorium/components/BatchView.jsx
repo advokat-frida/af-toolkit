@@ -4,17 +4,15 @@ import { UploadCloud, Trash2, FolderTree, Package } from "lucide-react";
 import { parseFile } from "@/redactorium/lib/parsers";
 import { detectColumns } from "@/redactorium/lib/detector";
 import { applyTransformations } from "@/redactorium/lib/transformers";
-import { buildOutput, buildLogJSON, buildLogPDF, bytesSha256, saveBlob } from "@/redactorium/lib/exporters";
-import { signLog } from "@/redactorium/lib/signing";
+import {buildOutput, buildLogJSON, bytesSha256, saveBlob} from "@/redactorium/lib/exporters";
 import { CATEGORY_COLORS } from "@/redactorium/lib/piiPatterns";
-import { getVerifyLogUrl } from "@/redactorium/lib/urls";
 import JSZip from "jszip";
 
 const ACCEPT = ".csv,.xlsx,.xls,.pdf,.docx,.txt,.md,.log";
 
 function shortName(n, len = 32) { return n.length > len ? n.slice(0, len - 1) + "…" : n; }
 
-export default function BatchView({ compiledCustom, salt, seed, sigKey, setSigKey }) {
+export default function BatchView({ compiledCustom, salt, seed }) {
   const [items, setItems] = useState([]); // {id, file, parsed, detection, plan, error, appliedResult}
   const [busy, setBusy] = useState(false);
   const [busyMsg, setBusyMsg] = useState("");
@@ -106,7 +104,6 @@ export default function BatchView({ compiledCustom, salt, seed, sigKey, setSigKe
           detectionResults: detection, inputHash, outputHash,
           salt, seed, startedAt, finishedAt,
         });
-        if (sigKey) log.signature = await signLog(log, sigKey);
 
         const base = file.name.replace(/\.[^.]+$/, "");
         let folder = base;
@@ -116,7 +113,6 @@ export default function BatchView({ compiledCustom, salt, seed, sigKey, setSigKe
 
         zip.folder(folder).file(`${base}.redacted.${outputArtifact.ext}`, outputArtifact.blob);
         zip.folder(folder).file("redactorium-log.json", JSON.stringify(log, null, 2));
-        zip.folder(folder).file("redactorium-record.pdf", buildLogPDF(log, { verifyUrl: getVerifyLogUrl() }));
 
         manifest.push({
           file: file.name,
@@ -127,7 +123,6 @@ export default function BatchView({ compiledCustom, salt, seed, sigKey, setSigKe
           transformed_cells: stats.reduce((s, c) => s + c.changed, 0),
           input_sha256: inputHash,
           output_sha256: outputHash,
-          signed: !!sigKey,
         });
       }
 
@@ -135,7 +130,6 @@ export default function BatchView({ compiledCustom, salt, seed, sigKey, setSigKe
         tool: "Redactorium", version: "0.3.0", mode: "batch",
         generated_at: new Date().toISOString(),
         files_processed: manifest.length,
-        signed: !!sigKey,
         manifest,
       }, null, 2));
 
@@ -143,13 +137,11 @@ export default function BatchView({ compiledCustom, salt, seed, sigKey, setSigKe
 `Redactorium — batch evidence archive
 ====================================
 Files processed: ${manifest.length}
-Signed: ${sigKey ? "yes (HMAC-SHA-256)" : "no"}
 Generated: ${new Date().toISOString()}
 
 Each file has its own subfolder containing:
   · <name>.redacted.<ext>         — cleaned file
   · redactorium-log.json          — machine-readable log
-  · redactorium-record.pdf        — human-readable record
 
 MANIFEST.json lists every input/output hash for verification.
 `);
@@ -168,12 +160,7 @@ MANIFEST.json lists every input/output hash for verification.
       <div className="paper-card p-4 md:p-6" data-testid="batch-view">
         <div className="flex items-start justify-between flex-wrap gap-4">
           <div>
-            <p className="eyebrow tag-toolkit">Batch mode · one archive out</p>
-            <h2 className="text-3xl mt-1">Drop many, review at a glance</h2>
-            <p className="text-sm text-[hsl(var(--ink-muted))] mt-1">
-              Every file is parsed and detected client-side. Configure per-file plans, then export
-              one archive containing a cleaned file, log, and record for each.
-            </p>
+            <h2 className="red-task-heading">Drop many, review at a glance</h2>
           </div>
           <div className="flex flex-wrap gap-2">
             <input ref={fileRef} type="file" multiple hidden accept={ACCEPT}
@@ -205,22 +192,6 @@ MANIFEST.json lists every input/output hash for verification.
             <span className="pill">{totals.rows} rows</span>
             <span className="pill">{totals.cols} columns</span>
             <span className="pill pill-brick">{totals.piiCols} PII columns</span>
-            {sigKey && <span className="pill pill-forest">HMAC-SHA-256 signing enabled</span>}
-          </div>
-        )}
-
-        {setSigKey && (
-          <div className="mt-4 flex items-center gap-3 flex-wrap">
-            <label className="eyebrow tag-desk">HMAC signing key (optional)</label>
-            <input
-              data-testid="batch-sig-key-input"
-              type="password"
-              value={sigKey || ""}
-              onChange={(e) => setSigKey(e.target.value)}
-              placeholder="legal-team-key-2026"
-              className="px-3 py-1.5 border border-[hsl(var(--ink))] bg-[hsl(var(--paper))] font-mono text-sm w-64"
-            />
-            <span className="text-[11px] text-[hsl(var(--ink-muted))]">Signs every per-file log with HMAC-SHA-256.</span>
           </div>
         )}
 

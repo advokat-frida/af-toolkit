@@ -54,10 +54,8 @@ describe('built standalone page', () => {
     expect(html).toContain('AF-OO-2026-08-24.1');
   });
 
-  test('oracle.hasEightFaceTriangleAndReducedMotionMode', () => {
+  test('oracle.hasEightFaceAndReducedMotionMode', () => {
     expect(html).toContain('id="ball-eight"');
-    expect(html).toContain('id="ball-window"');
-    expect(html).toContain('clip-path:polygon(');
     expect(html).toContain('@media(prefers-reduced-motion:reduce)');
   });
 

@@ -13,11 +13,6 @@ const audits = {
     ".legal-gate p", ".library-heading h3", ".wizard-card", ".wizard-copy strong",
     ".wizard-copy small", ".review-badge"
   ],
-  "build-a-prompt": [
-    "html", "body", "main", ".orientation", ".start-stage", ".field-heading h2", ".field-help",
-    ".start-stage > textarea", ".button.primary", ".recipe-panel", ".recipe-panel h3",
-    ".recipe-row strong", ".recipe-row small", ".workspace", ".composer", ".review"
-  ],
   "objection-oracle": [
     "html", "body", "#main", ".oo-stage", ".oo-visual", ".oo-panel", ".oo-view-title",
     ".oo-view > .eyebrow", ".oo-view > p:not(.eyebrow)", ".oo-main-action", ".oo-key"

@@ -41,6 +41,9 @@ export const OUTCOMES = Object.freeze({
     label: 'SHIP IT',
     reason: 'The objection is not specific, supported, and decision-relevant.',
     action: 'Proceed. Backlog any optional polish without reopening the release.',
+    owner: 'The release owner.',
+    meaning: 'Nobody could point to the exact sentence, name the requirement or the harm, or show that leaving it would change what a user does. That is a preference, and preferences do not hold releases.',
+    closeout: 'Reply to the objection with this ruling and the backlog item, then ship.',
     accent: 'forest',
   }),
   NEXT_VERSION: Object.freeze({
@@ -48,6 +51,9 @@ export const OUTCOMES = Object.freeze({
     label: 'NEXT VERSION',
     reason: 'The concern is legitimate, but it does not change an obligation, factual accuracy, safety, or the user’s next action, and the likely harm is reversible.',
     action: 'Record it as a nonblocking improvement for the next version.',
+    owner: 'Whoever raised the objection.',
+    meaning: 'The objection is real and specific, but nothing a user does would change if this shipped as-is, and any harm could be undone. It earns a ticket, not a delay.',
+    closeout: 'File the improvement in the objector’s own words, link it from the release notes, then ship.',
     accent: 'indigo',
   }),
   FIX_THEN_SHIP: Object.freeze({
@@ -55,6 +61,9 @@ export const OUTCOMES = Object.freeze({
     label: 'FIX IT, THEN SHIP',
     reason: 'A real release issue exists. Correct it before release; the likely harm is either controllable or reversible.',
     action: 'Make the smallest effective correction, confirm the issue is controlled, and ship without reopening unrelated work.',
+    owner: 'Whoever raised the objection.',
+    meaning: 'The objection names a specific, supported problem that would change what a user does, and a targeted correction can resolve it before release. Fix that one thing; do not reopen the rest.',
+    closeout: 'Have the objector confirm the correction against their original wording, then ship.',
     accent: 'amber',
   }),
   HARD_STOP: Object.freeze({
@@ -62,6 +71,9 @@ export const OUTCOMES = Object.freeze({
     label: 'HARD STOP',
     reason: 'The issue is specific and decision-relevant, cannot be narrowly controlled, and could cause harm that is difficult to undo.',
     action: 'Stop the release for substantive correction and review.',
+    owner: 'The release owner.',
+    meaning: 'This is the rare case: a supported objection, no narrow fix, and harm that would not reverse. The release waits for a substantive correction and a second review.',
+    closeout: 'Record the stop, the correction plan, and who reviews the fix before the release is rescheduled.',
     accent: 'red',
   }),
 });
@@ -158,6 +170,9 @@ export function formatReceipt(
     '',
     `RULING: ${result.label}`,
     `WHY: ${result.reason}`,
-    `NEXT: ${result.action}${quipLine}`,
+    `WHAT IT MEANS: ${result.meaning}`,
+    `NEXT: ${result.action}`,
+    `OWNER: ${result.owner}`,
+    `CLOSE IT OUT: ${result.closeout}${quipLine}`,
   ].join('\n');
 }

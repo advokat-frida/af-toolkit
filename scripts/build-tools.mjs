@@ -60,15 +60,6 @@ const TOOLS = [
     output: "privacy-wizards-council.html",
     build: "npm run build",
     license: "LICENSE"
-  },
-  {
-    id: "build-a-prompt",
-    folder: "build-a-prompt",
-    artifact: "dist/prompt-builder.html",
-    kind: "file",
-    output: "build-a-prompt.html",
-    build: "npm run build",
-    license: "LICENSE"
   }
 ];
 

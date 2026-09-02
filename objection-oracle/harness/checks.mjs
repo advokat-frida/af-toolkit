@@ -60,7 +60,7 @@ async function askAndRead(page) {
   await page.waitForSelector('#view-result:not(.hidden)', { timeout: 2500 });
   return {
     code: await page.evaluate(() => window.__oracleQA.getState().code),
-    quip: await page.locator('#ball-quip').innerText(),
+    quip: ((await page.locator('#ruling-receipt').textContent()).match(/^ORACLE: (.+)$/m) || [])[1] || '',
     label: await page.locator('#result-title').innerText(),
     reason: await page.locator('#result-reason').innerText(),
     action: await page.locator('#result-action').innerText(),
@@ -95,8 +95,6 @@ for (const [viewportName, viewport] of [
 
   await page.goto(`${BASE}/objection-oracle.html`, { waitUntil: 'networkidle' });
   check(`${viewportName}: white 8 face is visible at rest`, await page.locator('#ball-eight').isVisible());
-  check(`${viewportName}: answer window is concealed at rest`,
-    Number(await page.locator('#ball-window').evaluate((element) => getComputedStyle(element).opacity)) === 0);
   check(`${viewportName}: no ambiguous answer labels`,
     !/\b(maybe|other|skip)\b/i.test(await page.locator('#oracle').innerText()));
   check(`${viewportName}: current family body scale is 16px`,
