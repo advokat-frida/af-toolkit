@@ -175,6 +175,8 @@ async function main() {
   const base = `http://127.0.0.1:${port}`;
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 1360, height: 800 }, acceptDownloads: true });
+  // Timestamped states (records, receipts) must screenshot the same bytes on every run.
+  await page.clock.setFixedTime(new Date("2026-09-01T12:00:00Z"));
   const failures = [];
   page.on("pageerror", (error) => failures.push(`page error: ${error.message}`));
 

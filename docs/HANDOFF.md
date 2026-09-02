@@ -103,6 +103,10 @@ they are. The CNIL source now links to the page he chose (the 1 September 2025 d
 for Gmail ads and account-creation cookies); the entry's label and text still describe the 2022
 EUR 150M cookie-banner decision, flagged for his call.
 
+The state-proof driver freezes the page clock (Playwright `page.clock.setFixedTime`), so the
+timestamped record and verify-result proofs are byte-identical across runs and a gate run no longer
+leaves the tree dirty.
+
 Verified: every tool's own gate (safeseed chrome contract, redactorium CI build, wizards 17 tests
 + style audit + artifact contract, build-a-prompt full check, oracle 33 tests + browser harness);
 full repo gate green; every drawn state screenshotted at 1360x800 and compared against the
