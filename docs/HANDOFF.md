@@ -98,6 +98,11 @@ Ben's second look (his pane, annotated screenshots) drove one more round, all at
 - Design system: a primary never greys out (aria-disabled + focus what is missing); paired drop
   zones carry a naming glyph; the step-flow band is a component.
 
+Ben closed two loops after the tuck: the standalone Build-A-Prompt repo and its live page stay as
+they are. The CNIL source now links to the page he chose (the 1 September 2025 decision, EUR 325M
+for Gmail ads and account-creation cookies); the entry's label and text still describe the 2022
+EUR 150M cookie-banner decision, flagged for his call.
+
 Verified: every tool's own gate (safeseed chrome contract, redactorium CI build, wizards 17 tests
 + style audit + artifact contract, build-a-prompt full check, oracle 33 tests + browser harness);
 full repo gate green; every drawn state screenshotted at 1360x800 and compared against the

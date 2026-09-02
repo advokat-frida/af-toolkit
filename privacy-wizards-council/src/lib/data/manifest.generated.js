@@ -1,7 +1,7 @@
 // Generated source manifest. Enabled means published aid, not practitioner-reviewed.
 
 export const MANIFEST_VERSION = 'af-pwc-vnext-2026-08-21';
-export const MANIFEST_SHA256 = 'f985a66d4a9f1bdf2b7d8ebaed9f974a2023e98afb47b1b6528c67bdb20571d9';
+export const MANIFEST_SHA256 = '6395831fdfa064749eefacd7d347ed06a0ea471ba3264000116baa08b1e91fe5';
 export const SOURCE_MANIFEST = {
   "gdpr-art-4": {
     "id": "gdpr-art-4",
@@ -688,14 +688,14 @@ export const SOURCE_MANIFEST = {
     "id": "case-cnil-google-cookies",
     "jurisdiction": "EU",
     "sourceType": "case",
-    "officialUrl": null,
+    "officialUrl": "https://www.cnil.fr/en/cookies-and-advertisements-inserted-between-emails-google-fined-325-million-euros-cnil",
     "effectiveOrPublicationDate": null,
     "retrievedDate": null,
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "0d4809fefe476df2b01ecbbab8d984f2db4b61fb54be172c3e526049b824a2f9",
+    "contentSha256": "07284f03dcc7cd3ee6bf3956e9f0bab6a0b83b1e150c37c034a741291dc1e9a9",
     "affectedWizards": [
       "legal-basis",
       "cookies"
