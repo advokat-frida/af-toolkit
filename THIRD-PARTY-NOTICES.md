@@ -2,7 +2,7 @@
 
 This private integration repository has no blanket license.
 
-- SafeSeed, Privacy Wizards Council, and Objection Oracle retain the MIT licenses
+- SafeSeed, SafeList, Privacy Wizards Council, and Objection Oracle retain the MIT licenses
   in their source folders, copied into `public/licenses/`.
 - Redactorium currently has no license file in its source folder. The Toolkit records that fact
   and makes no public redistribution grant for the bundled private artifact.

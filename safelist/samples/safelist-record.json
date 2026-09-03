@@ -1,0 +1,133 @@
+{
+  "tool": "SafeList",
+  "version": "0.1.0",
+  "generatedAt": "2026-09-02T10:15:00.000Z",
+  "sendList": {
+    "name": "cadence-audience.csv",
+    "rows": 40,
+    "columns": [
+      "First Name",
+      "Last Name",
+      "Title",
+      "Company",
+      "Email",
+      "Lead Source",
+      "Cadence",
+      "Owner"
+    ],
+    "sha256": "b08d513b80ea3846466f3d462740c755fbbdad0a69f7430f01e62f943100d8c2"
+  },
+  "suppressionList": {
+    "name": "suppression-list.csv",
+    "exportedAt": "2026-09-02T08:10:00.000Z",
+    "ageHours": 2.08,
+    "addresses": 62,
+    "domainRules": 1,
+    "sha256": "777170fce406d80639695d7bc90f9855fb0991f9d697ff1ee4e43e7196f57675"
+  },
+  "matchedOn": [
+    "Email"
+  ],
+  "rules": {
+    "plusTags": true,
+    "gmailDots": true,
+    "domainRules": true,
+    "dedupe": true
+  },
+  "origin": {
+    "key": "crm",
+    "label": "Our CRM"
+  },
+  "counts": {
+    "input": 40,
+    "output": 31,
+    "matched": 9,
+    "removed": 8,
+    "keptOnList": 1,
+    "duplicates": 1,
+    "duplicatesRemoved": 1
+  },
+  "decisions": [
+    {
+      "row": 1,
+      "kind": "match",
+      "reason": "address",
+      "decision": "remove",
+      "emailSha256": "6724aac9ba177aa0aaf1104fcfb847bfd06b139644002ded74e752d19eb34ef0"
+    },
+    {
+      "row": 2,
+      "kind": "match",
+      "reason": "address",
+      "decision": "remove",
+      "emailSha256": "7c558c84dc190c5649677f93df6a8ad52a20828fa74836c83e1aaf0be7763a73"
+    },
+    {
+      "row": 3,
+      "kind": "match",
+      "reason": "address",
+      "decision": "remove",
+      "emailSha256": "3e3262e11047184e96c540008645f73ee6462f2bcedf141635b805a76939d46a"
+    },
+    {
+      "row": 4,
+      "kind": "match",
+      "reason": "address",
+      "decision": "keep",
+      "emailSha256": "342a37fbabb510f26fbe778f69d1e439fd262f9b93fe728b41283f47a68541bd",
+      "email": "priya.natarajan@ardent.example.net",
+      "keepReason": "Active customer, open support thread with our team"
+    },
+    {
+      "row": 5,
+      "kind": "match",
+      "reason": "address",
+      "decision": "remove",
+      "emailSha256": "33b883913e32ba6314547c76ecc5eb43cd36f219b352dac7a4500ed2d481ccaf"
+    },
+    {
+      "row": 6,
+      "kind": "match",
+      "reason": "domain",
+      "decision": "remove",
+      "emailSha256": "537167b08f2947e6b779a028bb162a07ad51b28a2d03eb2ea4bf96f5c114472f",
+      "domain": "quietharbor.example.net"
+    },
+    {
+      "row": 7,
+      "kind": "match",
+      "reason": "domain",
+      "decision": "remove",
+      "emailSha256": "c4d513272aa1c78517409391052ed4e890757d391244e5095662b1d260e1568b",
+      "domain": "quietharbor.example.net"
+    },
+    {
+      "row": 8,
+      "kind": "match",
+      "reason": "address",
+      "decision": "remove",
+      "emailSha256": "bb972cea9c7c6c23a1c350b2085fe13c15b5f20ece91051843c00fddf0132b9e"
+    },
+    {
+      "row": 9,
+      "kind": "match",
+      "reason": "address",
+      "decision": "remove",
+      "emailSha256": "dea960054c9c2ebaf65330c848db187feebbd8caacb7c6015e61caa02e512fab"
+    },
+    {
+      "row": 11,
+      "kind": "duplicate",
+      "reason": "duplicate",
+      "decision": "remove",
+      "emailSha256": "fc3a1f83e5c64b3d5ce6d9d2d5b55a2daadb3c82a0628ebabcb40f80c0a20471",
+      "duplicateOfRow": 10
+    }
+  ],
+  "output": {
+    "name": "cadence-audience.checked.csv",
+    "rows": 31,
+    "sha256": "58436b28fd3c8d1386720a6c2ec93525867d0d099cc8b443fd23c656ba1e08b4"
+  },
+  "recordSha256": "7e2a623f5b908f8d738f39373d7db365bbd5138adb3c60d89fabfac615c9a716"
+}

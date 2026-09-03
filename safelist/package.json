@@ -1,0 +1,17 @@
+{
+  "name": "@advokat-frida/safelist",
+  "version": "0.1.0",
+  "description": "SafeList: your send list, minus everyone who said no.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "build": "node tools/build.mjs",
+    "sample": "node tools/run-sample.mjs",
+    "shots": "node harness/shots.mjs",
+    "check": "npm test && npm run build && npm run sample"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

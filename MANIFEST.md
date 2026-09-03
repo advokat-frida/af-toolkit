@@ -16,7 +16,7 @@ Status: consolidated single-repository build, redesigned to the approved design 
 
 ## Tool sources
 
-One top-level folder per tool: `redactorium/`, `safeseed/`, `privacy-wizards-council/`,
+One top-level folder per tool: `safeseed/`, `safelist/`, `redactorium/`, `privacy-wizards-council/`,
 `objection-oracle/`. Each carries its own build and gate.
 
 ## Generated files
@@ -31,20 +31,25 @@ Regenerate with `npm.cmd run build:tools` (or `build:tools:full`). Do not hand-e
 ## Verification (this build)
 
 - Design gate: palette, font, copy, radius, and external-request scans pass over `public/`.
-- Static QA: 123/123 checks pass — shell structure, redesign contract (brand cap, groups,
-  breadcrumbs, retired chrome), provenance hashes, embed wiring, font presence, Redactorium bundle
-  hygiene.
-- Rendered QA: passes at 1440×1000, 1034×917, 390×844, and 320×700 — five cards and three groups on
+- Static QA: 125/125 checks pass — shell structure, redesign contract (brand cap, groups,
+  breadcrumbs, retired chrome), the Manage data working order (SafeSeed, SafeList, Redactorium),
+  provenance hashes, embed wiring, font presence, Redactorium bundle hygiene, SafeList's chrome-free
+  embed and kill-switch.
+- Rendered QA: passes at 1440×1000, 1034×917, 390×844, and 320×700 — five cards in two groups on
   Home, 230px rail, 56px tool headers, first useful control visible on open, no document or
   embedded horizontal scroll, skip-link first, focus lands on the active tool heading, mobile
   chooser traps focus and closes on Escape. Fresh screenshots in `proofs/`.
-- Tool gates: safeseed lib tests 127/127 + demo chrome verification; privacy-wizards-council tests 17/17 + style audit + artifact
-  verification; objection-oracle tests 33/33 + full browser harness (desktop, mobile,
-  reduced-motion) including the network kill-switch.
+- State proofs: every canvas state (2A–4I) plus SafeList's four states (5A–5D) reached at 1360×800
+  under a fixed clock; screenshots in `proofs/states/`.
+- Tool gates: safeseed lib tests 127/127 + demo chrome verification; safelist engine tests 17/17 +
+  build + sample run + Playwright walk of every state (0 network violations); privacy-wizards-council
+  tests 17/17 + style audit + artifact verification; objection-oracle tests 33/33 + full browser
+  harness (desktop, mobile, reduced-motion) including the network kill-switch.
 - Manual visual review: the redesign states (Home, five tool landings, SafeSeed edit/result/verify,
-  Privacy Wizards finder/question/determination, Oracle
+  SafeList landing/loaded/review/record, Privacy Wizards finder/question/determination, Oracle
   landing/questions/ruling, Redactorium drop/findings/record) were each screenshotted at literal
-  size and compared against the approved design canvas.
+  size and compared against the approved design canvas, or against `DESIGN-SYSTEM.md` where no
+  artboard exists (SafeList).
 
 ## External-state boundary
 

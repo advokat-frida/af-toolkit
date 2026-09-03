@@ -2,6 +2,7 @@ const routeMeta = {
   home: { title: "Home" },
   redactorium: { title: "Redactorium" },
   safeseed: { title: "SafeSeed" },
+  safelist: { title: "SafeList" },
   "objection-oracle": { title: "Objection Oracle" },
   "privacy-wizards": { title: "Privacy Wizards Council" }
 };

@@ -63,6 +63,7 @@ const VIEWPORTS = [
 const TOOL_ANCHORS = {
   redactorium: "[data-testid='dropzone'], [data-testid='mode-single-btn']",
   safeseed: ".gen-modes",
+  safelist: "[data-pick='send']",
   "objection-oracle": "#start-button",
   "privacy-wizards": "#finder"
 };
@@ -100,7 +101,7 @@ async function main() {
 
       await openRoute(page, base, "home");
       await noHorizontalScroll(page, `${viewport.name} home`);
-      assert((await page.locator(".tool-card").count()) === 4, `${viewport.name} home: four tool cards`);
+      assert((await page.locator(".tool-card").count()) === 5, `${viewport.name} home: five tool cards`);
       assert((await page.locator(".group-label").count()) === 2, `${viewport.name} home: two group labels`);
       if (desktop) {
         assert(await page.locator(".brand-cap").isVisible(), `${viewport.name} home: sidebar brand cap visible`);

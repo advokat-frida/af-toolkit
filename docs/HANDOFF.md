@@ -1,5 +1,58 @@
 # HANDOFF
 
+## 2026-09-02 - SafeList: the fifth tool, built and wired into the shell
+
+Ben picked the next flagship: a send list checked against the marketing suppression list, for
+sales and marketing people who today do it with a VLOOKUP. Proposal: the Google Doc "Toolkit
+proposal: SafeList" in Ben's Drive. Named SafeList by Ben (Strikethrough, List Scrubber 2000 and
+List-erine retired); "safe" is defined once and never rendered as a status.
+
+Built today in `safelist/` (its own folder, Oracle-shaped: `src/core.js` engine + `src/app.js`
+page + `chrome/` byte-exact family chrome + `tools/build.mjs` → `dist/safelist.html` and
+`dist/safelist-embed.html`):
+
+- Two drop zones (send list, suppression list; file or paste), email column found by content and
+  confirmed in one line, list-origin dropdown, matching rules behind a disclosure, `Check one
+  address`, a three-step band.
+- Freshness gate: a suppression file older than 24 hours by its file date blocks the check, no
+  override. Ben's call (2026-09-02): the seal concept from the proposal is dropped; lists are
+  one-offs obtained through marketing's request process, and the tool refuses yesterday's export.
+- Review table: one row per match (address, domain rule, or duplicate) with `Keep contact` /
+  `Remove contact`; Keep asks for a reason; `Remove the rest`; Finish stays aria-disabled and
+  focuses the first undecided row.
+- Done: every kept row in a 440px preview, then the record block (checked against, matched on,
+  rules, origin, file fingerprints, kept contacts with reasons, removed count) with the
+  `hash · timestamp` line and Download checked list / Download record / Start another list.
+- Record: kept contacts named, removed contacts as SHA-256 fingerprints only, so the record is
+  never a second copy of the suppression list.
+- Samples: `samples/cadence-audience.csv` (40 rows, Sales Engagement shape),
+  `samples/suppression-list.csv` (62 addresses + 1 domain rule, Marketing Cloud shape), and the
+  generated `cadence-audience.checked.csv` (31 rows) + `safelist-record.json` / `.txt`. The nine
+  matches cover exact, case, whitespace, plus-tag, display-name, and domain-rule variants, plus
+  one duplicate row.
+- Verified: 17/17 engine tests (`node --test`), build, `tools/run-sample.mjs`, and
+  `harness/shots.mjs` (Playwright walk of every state → `shots/`, 0 network violations).
+
+Wired in after Ben walked the mock ("this looks good"): stage entry in `scripts/build-tools.mjs`
+(`safelist/dist/safelist-embed.html` → `public/tools/safelist.html`, MIT copied), route in
+`toolkit.js`, nav item and Home card with the Lucide `mail-x` glyph, a `Manage data / SafeList`
+breadcrumb view, state proofs 5A–5D, static checks at 125, `qa:visual` anchors, the artifact radius
+scope, the embedded-layout audit selectors, version 0.3.0 and a changelog entry. Ben's ordering
+rule (2026-09-02): the rail and Home are in working order, not alphabetical — Manage data reads
+SafeSeed, SafeList, Redactorium — and `checks.mjs` now enforces that order. The boundary sentence
+beside the button reads "This check removes…" rather than naming the tool, since the shell owns
+names; its final wording stays Ben's call. Full gate green: design gate 16 files, 125/125 static,
+rendered at four viewports, every state including 5A–5D.
+
+Ben's first look inside the shell (2026-09-02): the checked-list preview's `FIRST NAME` header
+wrapped to two lines, and he asked why the email column wore a different face from the rest and
+from SafeSeed's table. Answer recorded in DESIGN-SYSTEM.md's record-block rule: a **file preview
+is rendered as data** (mono throughout, header row included, nothing wraps) because the header row
+is part of the file, with SafeSeed's generated preview as the reference; an **interface table**
+(Redactorium's findings, SafeList's review) keeps Archivo caps headers, body text, and mono on the
+identifier column only. SafeList's preview now follows SafeSeed's grammar exactly; the review table
+is unchanged. Gate re-run green.
+
 ## 2026-09-01 - Canvas fidelity pass (every artboard, every state)
 
 Ben's mid-tuck review said the first push diverged from the design canvas in more places than the

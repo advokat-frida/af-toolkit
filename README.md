@@ -1,7 +1,7 @@
 # Advokat Frida Toolkit
 
 One repository, one workbench: the Toolkit shell plus the full source of every tool in it.
-Redactorium, SafeSeed, Privacy Wizards Council, and Objection Oracle live here as
+SafeSeed, SafeList, Redactorium, Privacy Wizards Council, and Objection Oracle live here as
 top-level source folders and render inside one navigable shell without throwing away in-progress
 work when the user switches tools.
 
@@ -14,6 +14,7 @@ work when the user switches tools.
 | `public/` | The shell — Home, grouped navigation, breadcrumb tool headers — plus staged tool artifacts |
 | `redactorium/` | Tool source: file sanitation (React frontend + reference backend) |
 | `safeseed/` | Tool source: deterministic synthetic data library, CLI, action, and browser generator |
+| `safelist/` | Tool source: send list checked against the opt-outs, Keep/Remove per match, with a record (vanilla, single-file build) |
 | `privacy-wizards-council/` | Tool source: guided privacy determinations (Svelte) |
 | `objection-oracle/` | Tool source: release-triage 8-ball (vanilla, single-file build) |
 | `scripts/` | Shell QA and the staging pipeline |
@@ -58,7 +59,7 @@ tools enter only through that gate.
 
 ## Licensing
 
-There is intentionally no blanket license. SafeSeed, Privacy Wizards Council, and
+There is intentionally no blanket license. SafeSeed, SafeList, Privacy Wizards Council, and
 Objection Oracle carry MIT in their folders (copied to `public/licenses/`). Redactorium declares no
 license, and this private repository makes no redistribution grant for it. See
 [`THIRD-PARTY-NOTICES.md`](THIRD-PARTY-NOTICES.md).

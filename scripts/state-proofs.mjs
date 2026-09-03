@@ -2,6 +2,7 @@
 // (Toolkit - Redesign, artboards 2A–4I; Build-A-Prompt's 3D/4G retired with the tool) at the artboard geometry (1360×800) and writes one
 // screenshot per state to proofs/states/. The judgment half of the review gate compares
 // these against the canvas renders; a state that cannot be reached fails the run.
+// SafeList (5A–5D) has no canvas artboard; its proofs are reviewed against DESIGN-SYSTEM.md.
 //
 //   node scripts/state-proofs.mjs            all states
 //   node scripts/state-proofs.mjs 4f-pwc-determination
@@ -126,6 +127,31 @@ function states(page, base) {
     "4d-safeseed-verify-empty": async () => {
       const frame = await open("safeseed");
       await frame.getByRole("button", { name: "Verify a file" }).click();
+    },
+    "5a-safelist-landing": async () => { await open("safelist"); },
+    "5b-safelist-loaded": async () => {
+      const frame = await open("safelist");
+      await frame.getByRole("button", { name: "Load the sample lists" }).click();
+      await frame.locator("#setup:not(.hidden)").waitFor({ timeout: 20000 });
+    },
+    "5c-safelist-review": async () => {
+      const frame = await open("safelist");
+      await frame.getByRole("button", { name: "Load the sample lists" }).click();
+      await frame.getByRole("button", { name: "Check the list" }).click();
+      await frame.locator("#view-review:not(.hidden)").waitFor({ timeout: 20000 });
+    },
+    "5d-safelist-record": async () => {
+      const frame = await open("safelist");
+      await frame.getByRole("button", { name: "Load the sample lists" }).click();
+      await frame.getByRole("button", { name: "Check the list" }).click();
+      await frame.locator("#view-review:not(.hidden)").waitFor({ timeout: 20000 });
+      const kept = frame.locator("tr.sl-review-row", { hasText: "priya.natarajan" });
+      await kept.getByRole("button", { name: "Keep contact" }).click();
+      await kept.locator("input.sl-reason").fill("Active customer, open support thread");
+      await frame.getByRole("button", { name: "Remove the rest" }).click();
+      await frame.getByRole("button", { name: "Finish and download" }).click();
+      await frame.locator("#view-done:not(.hidden)").waitFor({ timeout: 20000 });
+      await page.waitForTimeout(400);
     },
     "3c-wizards-finder": async () => { await open("privacy-wizards"); },
     "4e-wizards-question": async () => {

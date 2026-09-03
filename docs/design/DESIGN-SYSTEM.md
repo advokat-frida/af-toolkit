@@ -164,7 +164,11 @@ its first 12 and last 6 hex characters with the full value on hover; timestamps 
 `YYYY-MM-DDTHH:MMZ`), then one actions row — primary download, secondary record download, one
 text action. Nothing renders below it. A generated preview above a receipt shows **every** row in
 a bounded scroll region (440px, sticky header) — never a truncated sample; the heading states the
-count.
+count. **A file preview is rendered as data**: header row and cells alike in mono (header 12px
+`--soft` over an inset ink rule, cells 13px, nothing wraps), because the header row is part of the
+file — SafeSeed's generated preview (4C) is the reference and SafeList's checked list follows it.
+That is distinct from the **Table** above, which is interface: Archivo caps headers, body text,
+and mono only on the identifier column (Redactorium's findings, SafeList's review).
 
 **Icons.** Locally vendored Lucide Static 1.31.0 only. Nav 18px at stroke 2; card plates 22px at
 stroke 1.75; chooser rows 20px at stroke 2. Icons are decorative beside complete visible labels.

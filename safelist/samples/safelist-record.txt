@@ -1,0 +1,9 @@
+SAFELIST RECORD 7e2a623f5b90…c9a716 · 2026-09-02T10:15Z
+SEND LIST: cadence-audience.csv (40 rows) b08d513b80ea…00d8c2
+CHECKED AGAINST: suppression-list.csv (62 addresses, 1 domain rule, exported 2026-09-02T08:10Z) 777170fce406…f57675
+MATCHED ON: Email
+RULES: plus-tags folded, gmail dots folded, domain rules on, duplicates flagged
+LIST CAME FROM: Our CRM
+RESULT: 31 of 40 rows kept · 9 on the suppression list (8 removed, 1 kept) · 1 of 1 duplicates removed
+OUTPUT: cadence-audience.checked.csv (31 rows) 58436b28fd3c…1e08b4
+KEPT: row 4 priya.natarajan@ardent.example.net — Active customer, open support thread with our team

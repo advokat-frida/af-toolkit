@@ -1,7 +1,7 @@
 {
   "name": "@advokat-frida/the-toolkit",
-  "version": "0.2.1",
-  "description": "The Advokat Frida Toolkit: four privacy tools, one repository, one design system.",
+  "version": "0.3.0",
+  "description": "The Advokat Frida Toolkit: five privacy tools, one repository, one design system.",
   "private": true,
   "type": "module",
   "scripts": {

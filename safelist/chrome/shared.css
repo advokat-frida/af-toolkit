@@ -1,0 +1,77 @@
+  /* ===== SHARED ASSET TEMPLATE — current Build-A-Prompt family chrome =====
+     Selectors used by Objection Oracle are copied from the shipped flagship.
+     Product-specific components live in src/page.css. */
+  :root{
+    --ink:#16140f; --ink-soft:#4a463d; --paper:#fffdf8; --ground:#f6f4ef; --forest:#1f4e32;
+    --teal:#12666a; --indigo:#3a3a8c; --amber:#9e5415; --red:#c83232; --terracotta:#c83232; --line:#16140f; --amber-wash:#fbf4ea;
+    --hair:rgba(31,29,24,.16);
+    --container:clamp(1040px,88vw,1380px);
+    --font:"Space Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+    --font-display:"Anton",Impact,system-ui,sans-serif;
+    --font-label:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+    --mono:"SFMono-Regular",Menlo,Consolas,"Liberation Mono",monospace;
+    --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px;
+  }
+  *{box-sizing:border-box}
+  html{font-size:16px}
+  body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--forest)}
+  h1,h2,h3{line-height:1.15;margin:0;font-weight:700}
+  .eyebrow{font-family:var(--font-label);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);font-weight:700;margin:0 0 6px}
+  .skiplink{position:absolute;left:-9999px;top:0}
+  .skiplink:focus{position:fixed;left:12px;top:12px;z-index:100;background:var(--forest);color:#fff;font-weight:700;padding:10px 16px;border-radius:4px;outline:2px solid var(--ink);outline-offset:2px}
+  .panel-title{font-family:var(--font);font-size:18px;font-weight:700;letter-spacing:normal;text-transform:none;color:var(--ink)}
+  .btn{font:inherit;font-size:18px;font-weight:700;padding:9px 16px;border:2px solid var(--forest);border-radius:4px;cursor:pointer;width:100%;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+  .btn.primary{background:var(--forest);color:#fff} .btn.secondary{background:var(--paper);color:var(--forest)}
+  .btn[aria-disabled="true"]{background:var(--ground);color:var(--ink-soft);border-color:var(--ink-soft);cursor:not-allowed}
+  .panel{border:2px solid var(--line);border-radius:4px;background:var(--paper);padding:20px 22px}
+  a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,
+  .chip:focus-visible,.recipe:focus-visible,pre:focus-visible,.info:focus-visible{outline:3px solid var(--forest);outline-offset:2px}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+  .ic{display:inline-flex;align-items:center;justify-content:center}
+  .ic svg{width:1em;height:1em;display:block}
+  /* ===== END SHARED ASSET TEMPLATE ===== */
+
+  .wrap{width:100%;max-width:var(--container);margin:0 auto;padding:0 clamp(24px,3vw,56px)}
+
+  /* ---- top bar ---- */
+  .site-bar{display:flex;align-items:center;gap:.5rem 1.25rem;flex-wrap:wrap;min-height:42px;margin:0 calc(clamp(24px,3vw,56px) * -1);padding:.35rem clamp(24px,3vw,56px);background:var(--paper);border-bottom:1px solid var(--hair)}
+  .bar-wordmark{flex:none;font-family:var(--font-display);font-weight:400;font-size:22px;line-height:1;letter-spacing:.02em;text-transform:uppercase;color:var(--ink);text-decoration:none}
+  .bar-wordmark:hover{text-decoration:none}
+  .bar-nav{margin-left:auto;min-width:0}
+  .bar-nav ul{display:flex;align-items:center;flex-wrap:wrap;gap:1.25rem;list-style:none;margin:0;padding:0}
+  .bar-nav a{font-family:var(--font-label);font-weight:700;font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-soft);text-decoration:none;white-space:nowrap;display:block}
+  .bar-nav a:hover{color:var(--red)}
+
+  /* ---- page intro ---- */
+  .pageintro{padding:26px 0 6px}
+  .page-title{font-family:var(--font-display);font-size:clamp(48px,7vw,86px);font-weight:400;letter-spacing:-.02em;line-height:1.08;margin:0;text-transform:uppercase}
+  .dek{font-size:16px;color:var(--ink-soft);font-style:italic;margin:0 0 12px}
+  .lede{font-size:19px;color:var(--ink-soft);margin:0 0 var(--s4);max-width:none}
+  .hidden{display:none}
+
+  /* ---- fine print + colophon ---- */
+  .offline-note{font-size:13.5px;color:var(--ink-soft);margin:12px 0 0}
+  .finelegal{margin-top:var(--s6);font-size:15px;color:var(--ink-soft);border-left:4px solid var(--ink-soft);padding:10px 14px;background:var(--paper);border-radius:4px}
+  .site-colophon{background:var(--ink);margin:3rem calc(clamp(24px,3vw,56px) * -1) 0}
+  .site-colophon-inner{padding:1.6rem clamp(24px,3vw,56px);display:grid;grid-template-columns:1fr auto;gap:34px;align-items:center}
+  .site-colophon-brand{min-width:0}
+  .site-colophon-name{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.02em;color:#fff;margin:0 0 8px;font-size:1.6rem;font-weight:400;line-height:1}
+  .site-colophon-desc{font-family:var(--font);color:rgba(255,255,255,.82);max-width:34rem;margin:0;font-size:.82rem;line-height:1.55}
+  .site-colophon-nav{flex-direction:column;align-items:flex-end;gap:7px;margin:0;padding:0;list-style:none;display:flex}
+  .site-colophon-nav a{font-family:var(--font-label);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.82);font-size:11px;font-weight:400;text-decoration:none;white-space:nowrap}
+  .site-colophon-nav a:hover{color:#fff}
+
+  @media(max-width:600px){
+    .wrap{padding-left:18px;padding-right:18px}
+    .site-bar,.site-colophon{margin-left:-18px;margin-right:-18px}
+    .bar-nav{width:100%;margin-left:0;overflow-x:auto;scrollbar-width:none}
+    .bar-nav::-webkit-scrollbar{display:none}
+    .bar-nav ul{flex-wrap:nowrap;gap:1rem}
+    .bar-nav a{font-size:10px;letter-spacing:.04em}
+    .site-colophon-inner{grid-template-columns:1fr;gap:16px;padding:1.4rem 18px}
+    .site-colophon-nav{align-items:flex-start;flex-direction:row;flex-wrap:wrap;gap:10px 20px}
+  }
+
+  .chip-subscribe{order:3;padding:8px 13px;color:#fff;background:var(--forest);font-family:var(--font-label);font-size:11px;font-weight:700;letter-spacing:.08em;text-decoration:none;text-transform:uppercase;white-space:nowrap}
+  .chip-subscribe:hover{color:#fff;text-decoration:none;filter:brightness(.94)}

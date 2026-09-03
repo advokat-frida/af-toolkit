@@ -1,0 +1,187 @@
+<a class="skiplink" href="#main">Skip to the lists</a>
+<div class="wrap">
+  <noscript><p class="offline-note sl-noscript">This tool needs JavaScript to run. Everything is inline, and nothing is fetched or saved.</p></noscript>
+
+  <!-- sl:standalone-start -->
+  <header class="site-bar">
+    <a class="bar-wordmark" href="https://advokatfrida.com/">Advokat Frida</a>
+    <a class="chip-subscribe" href="https://advokatfrida.com/#/portal/signup">Subscribe</a>
+    <nav class="bar-nav" aria-label="Sections"><ul>
+      <li><a href="https://advokatfrida.com/tag/toolkit/">Toolkit</a></li>
+      <li><a href="https://advokatfrida.com/tag/field-guides/">Field Guides</a></li>
+      <li><a href="https://advokatfrida.com/tag/fridas-desk/">Frida&rsquo;s Desk</a></li>
+      <li><a href="https://shop.advokatfrida.com">The Mercantile</a></li>
+      <li><a href="https://advokatfrida.com/about/">About</a></li>
+    </ul></nav>
+  </header>
+  <!-- sl:standalone-end -->
+
+  <main id="main">
+    <!-- sl:standalone-start -->
+    <div class="pageintro">
+      <h1 class="page-title">SafeList</h1>
+      <p class="lede">Your send list, minus everyone who said no.</p>
+    </div>
+    <!-- sl:standalone-end -->
+
+    <section class="sl-stage" id="safelist" data-phase="load" aria-label="SafeList">
+
+      <div class="sl-view" id="view-load">
+        <div class="sl-zones">
+          <section class="sl-zone" id="zone-send" data-loaded="false" aria-labelledby="zone-send-title">
+            <span class="sl-glyph" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" /><path d="M14 2v5a1 1 0 0 0 1 1h5" /><path d="M8 13h2" /><path d="M14 13h2" /><path d="M8 17h2" /><path d="M14 17h2" /></svg></span>
+            <h2 class="sl-zone-title" id="zone-send-title">Send list</h2>
+            <p class="sl-zone-hint">The cadence export as CSV, or paste the email column.</p>
+            <div class="sl-zone-actions sl-empty-only">
+              <button class="btn primary" type="button" data-pick="send">Choose file</button>
+              <button class="btn secondary" type="button" data-paste="send">Paste addresses</button>
+            </div>
+            <input type="file" accept=".csv,.txt,text/csv,text/plain" hidden data-file="send" aria-label="Choose the send list file">
+            <div class="sl-paste hidden" data-paste-box="send">
+              <label class="sr-only" for="paste-send">Paste the send list</label>
+              <textarea id="paste-send" rows="6" spellcheck="false" placeholder="One address per line, or the whole CSV"></textarea>
+              <div class="sl-zone-actions">
+                <button class="btn primary" type="button" data-paste-load="send">Use pasted list</button>
+                <button class="sl-text-action" type="button" data-paste-cancel="send">Cancel</button>
+              </div>
+            </div>
+            <div class="sl-loaded hidden" data-loaded-box="send">
+              <p class="sl-file-name" data-name="send"></p>
+              <p class="sl-file-meta" data-meta="send"></p>
+              <button class="sl-text-action" type="button" data-change="send">Change file</button>
+            </div>
+          </section>
+
+          <section class="sl-zone" id="zone-supp" data-loaded="false" aria-labelledby="zone-supp-title">
+            <span class="sl-glyph" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 13V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h9" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /><path d="m17 17 4 4" /><path d="m21 17-4 4" /></svg></span>
+            <h2 class="sl-zone-title" id="zone-supp-title">Suppression list</h2>
+            <p class="sl-zone-hint">Today's export of the opt-outs. CSV, or paste one address per line.</p>
+            <div class="sl-zone-actions sl-empty-only">
+              <button class="btn primary" type="button" data-pick="supp">Choose file</button>
+              <button class="btn secondary" type="button" data-paste="supp">Paste addresses</button>
+            </div>
+            <input type="file" accept=".csv,.txt,text/csv,text/plain" hidden data-file="supp" aria-label="Choose the suppression list file">
+            <div class="sl-paste hidden" data-paste-box="supp">
+              <label class="sr-only" for="paste-supp">Paste the suppression list</label>
+              <textarea id="paste-supp" rows="6" spellcheck="false" placeholder="One address per line. @domain.com suppresses a whole company."></textarea>
+              <div class="sl-zone-actions">
+                <button class="btn primary" type="button" data-paste-load="supp">Use pasted list</button>
+                <button class="sl-text-action" type="button" data-paste-cancel="supp">Cancel</button>
+              </div>
+            </div>
+            <div class="sl-loaded hidden" data-loaded-box="supp">
+              <p class="sl-file-name" data-name="supp"></p>
+              <p class="sl-file-meta" data-meta="supp"></p>
+              <p class="sl-aside hidden" data-stale="supp"></p>
+              <button class="sl-text-action" type="button" data-change="supp">Change file</button>
+            </div>
+          </section>
+        </div>
+
+        <p class="sl-sample-row"><button class="sl-text-action" type="button" id="load-samples">Load the sample lists</button></p>
+
+        <div class="sl-setup hidden" id="setup">
+          <div class="sl-row">
+            <label class="sl-eyebrow" for="match-column">Matching on</label>
+            <select id="match-column" class="sl-select"></select>
+            <span class="sl-row-note" id="match-note"></span>
+          </div>
+          <div class="sl-row">
+            <label class="sl-eyebrow" for="origin">This list came from</label>
+            <select id="origin" class="sl-select">
+              <option value="crm">Our CRM</option>
+              <option value="event">An event</option>
+              <option value="partner">A partner</option>
+              <option value="purchased">Purchased</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <p class="sl-aside hidden" id="origin-aside">This check removes the people on the suppression list you loaded. It cannot make a purchased or scraped list lawful to email.</p>
+          <details class="sl-rules">
+            <summary>Matching rules</summary>
+            <div class="sl-rules-grid">
+              <label><input type="checkbox" data-rule="plusTags" checked> Fold plus-tags <span>jane+news@ counts as jane@</span></label>
+              <label><input type="checkbox" data-rule="gmailDots" checked> Fold gmail dots <span>j.doe@gmail.com counts as jdoe@gmail.com</span></label>
+              <label><input type="checkbox" data-rule="domainRules" checked> Domain rules <span>@company.com in the suppression list suppresses the whole domain</span></label>
+              <label><input type="checkbox" data-rule="dedupe" checked> Flag duplicates <span>the same address twice in the send list</span></label>
+            </div>
+          </details>
+        </div>
+
+        <div class="sl-check-one hidden" id="check-one">
+          <label class="sl-eyebrow" for="one-address">Check one address</label>
+          <div class="sl-check-one-row">
+            <input id="one-address" class="sl-input" type="text" inputmode="email" autocomplete="off" spellcheck="false" placeholder="name@company.com">
+            <button class="btn secondary" type="button" id="one-check">Check</button>
+            <span class="sl-status" id="one-result" role="status" aria-live="polite"></span>
+          </div>
+        </div>
+
+        <div class="sl-actions">
+          <button class="btn primary" type="button" id="check-button" aria-disabled="true">Check the list</button>
+          <span class="sl-actions-note" id="check-note">Load both lists to start.</span>
+        </div>
+
+        <section class="sl-steps" aria-label="How it works">
+          <div><span class="sl-step-n">1</span><strong>Load both lists</strong><span>The send list and today's suppression export. Nothing leaves this page.</span></div>
+          <div><span class="sl-step-n">2</span><strong>Decide each match</strong><span>Every contact found on the suppression list gets a Keep or a Remove from you.</span></div>
+          <div><span class="sl-step-n">3</span><strong>Download the checked list</strong><span>Same columns you loaded, with a record of what was checked and who decided what.</span></div>
+        </section>
+      </div>
+
+      <div class="sl-view hidden" id="view-review">
+        <h2 class="sl-task" id="review-title" tabindex="-1"></h2>
+        <p class="sl-sub" id="review-sub"></p>
+        <div class="sl-table-wrap">
+          <table class="sl-table" id="review-table">
+            <thead><tr><th scope="col">Contact</th><th scope="col">Email</th><th scope="col">Why</th><th scope="col">Decision</th></tr></thead>
+            <tbody id="review-body"></tbody>
+          </table>
+        </div>
+        <div class="sl-actions">
+          <button class="btn primary" type="button" id="finish-button" aria-disabled="true">Finish and download</button>
+          <button class="sl-text-action" type="button" id="remove-rest">Remove the rest</button>
+          <button class="sl-text-action" type="button" id="back-button">Back to the lists</button>
+          <span class="sl-actions-note" id="finish-note"></span>
+        </div>
+      </div>
+
+      <div class="sl-view hidden" id="view-done">
+        <h2 class="sl-task" id="preview-title" tabindex="-1"></h2>
+        <div class="sl-preview">
+          <table class="sl-table sl-preview-table" id="preview-table"></table>
+        </div>
+        <section class="sl-record" aria-labelledby="done-title">
+          <h2 class="sl-task" id="done-title"></h2>
+          <p class="sl-sub" id="done-sub"></p>
+          <dl class="sl-receipt" id="receipt"></dl>
+          <p class="sl-hashline"><span class="sl-mono" id="record-hash"></span><span class="sl-sep" aria-hidden="true">·</span><span class="sl-mono" id="record-stamp"></span></p>
+          <div class="sl-actions">
+            <button class="btn primary" type="button" id="download-list">Download checked list</button>
+            <button class="btn secondary" type="button" id="download-record">Download record</button>
+            <button class="sl-text-action" type="button" id="restart-button">Start another list</button>
+          </div>
+        </section>
+      </div>
+
+      <p class="sr-only" id="sl-status" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <!-- sl:standalone-start -->
+  <footer class="site-colophon">
+    <div class="site-colophon-inner">
+      <div class="site-colophon-brand">
+        <p class="site-colophon-name">Advokat Frida</p>
+        <p class="site-colophon-desc">Privacy and AI governance, by design and in practice.<br>Analytics by Plausible, cookieless and aggregate, no ad-tech.</p>
+      </div>
+      <nav aria-label="Footer"><ul class="site-colophon-nav">
+        <li><a href="https://advokatfrida.com/about/">About</a></li>
+        <li><a href="mailto:hello@advokatfrida.com">Contact us</a></li>
+        <li><a href="https://advokatfrida.com/privacy/">Privacy</a></li>
+        <li><a href="https://advokatfrida.com/rss/">RSS</a></li>
+      </ul></nav>
+    </div>
+  </footer>
+  <!-- sl:standalone-end -->
+</div>

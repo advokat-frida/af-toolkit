@@ -44,6 +44,15 @@ const TOOLS = [
       .replaceAll("url(/assets/fonts/", "url(/fonts/")
   },
   {
+    id: "safelist",
+    folder: "safelist",
+    artifact: "dist/safelist-embed.html",
+    kind: "file",
+    output: "safelist.html",
+    build: "node tools/build.mjs",
+    license: "LICENSE"
+  },
+  {
     id: "objection-oracle",
     folder: "objection-oracle",
     artifact: "dist/objection-oracle-embed.html",

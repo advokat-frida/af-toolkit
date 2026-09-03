@@ -10,7 +10,7 @@ now lives here as its own top-level folder and is developed here.
 - `public/` — the shell (index.html, toolkit.css, toolkit.js) plus **staged, generated** artifacts:
   `public/tools/`, `public/licenses/`, `public/tool-sources.json`. Never hand-edit the generated
   paths. `public/fonts/` and `public/assets/` are committed shell assets.
-- `safeseed/`, `redactorium/`, `privacy-wizards-council/`, `objection-oracle/`
+- `safeseed/`, `safelist/`, `redactorium/`, `privacy-wizards-council/`, `objection-oracle/`
   — one folder per tool: its full source, tests, docs, and build. Each folder keeps its own gate
   (`check`/`qa`/harness) and its own CLAUDE/AGENTS notes where it has them.
 - `scripts/` — shell QA + the staging pipeline. `scripts/build-tools.mjs` stages each tool's built
