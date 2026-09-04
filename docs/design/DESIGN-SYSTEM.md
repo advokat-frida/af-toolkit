@@ -130,7 +130,7 @@ no status pills, no card buttons.
 `ADVOKAT FRIDA` (Anton 16) over `TOOLKIT` (Archivo 11/700 caps `--soft`). Nav items: 40px min
 height, 18px Lucide icon, Archivo 13/700, a 3px left border — transparent at rest, `--forest` +
 `--forest-wash` background when current. Groups labeled with 10px caps eyebrows. The rail ends with one
-way back to the publication (Ben, 2026-09-04): `Back to Advokat Frida`, Lucide `arrow-left`, Archivo
+way back to the publication (Ben, 2026-09-04): `Back to The Dispatch`, Lucide `arrow-left`, Archivo
 13/700 in `--soft`, pinned to the bottom of the rail above a hairline. It is the only link in the
 rail that leaves the Toolkit, and it never carries a tool's styling when current.
 

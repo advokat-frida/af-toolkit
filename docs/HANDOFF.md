@@ -16,7 +16,7 @@ its npm package and the `advokat-frida/safeseed@v0.4.0` Action reference resolve
 repo tags a release (the ADVO-162 remainder). SafeSeed's own metadata (package, README badge,
 issues, advisories) already points here.
 
-**The rail's exit (Ben).** `Back to Advokat Frida`, Lucide `arrow-left`, pinned to the bottom of
+**The rail's exit (Ben).** `Back to The Dispatch`, Lucide `arrow-left`, pinned to the bottom of
 the rail above a hairline; DESIGN-SYSTEM §3 Sidebar records it. The Home line gained its
 apostrophe in `public/index.html` and in the check that pins it.
 
