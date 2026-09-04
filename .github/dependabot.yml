@@ -1,0 +1,23 @@
+# npm audit was removed from CI: it calls a retired registry endpoint, took over a
+# minute, and once timed out the whole job. Dependabot reads GitHub's advisory
+# database instead, so vulnerability watch does not depend on a flaky network call
+# during a build. The stronger invariant is enforced offline by the gate: this
+# application ships zero runtime dependencies.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: deps
+
+  # Actions are pinned to commit SHAs, which is the right call and also means they
+  # never update themselves. This is what tells us a pin has gone stale.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: ci

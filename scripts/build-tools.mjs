@@ -28,12 +28,12 @@ const TOOLS = [
     output: "redactorium",
     build: "npm run build --prefix frontend",
     buildEnv: { CI: "false" },
-    license: null,
+    license: "LICENSE",
     // frontend/build is the CRA output and is gitignored, so it does not exist in a
     // fresh checkout. The staged tree in public/tools/redactorium is the artifact of
     // record and its hash is verified; the tracked source is frontend/src.
     sourceArtifactGenerated: true,
-    note: "No license file exists in the tool source; no license is asserted by the Toolkit."
+    note: "Redactorium was unlicensed until 2026-09-03; it is MIT with the rest of the Toolkit."
   },
   {
     id: "safeseed",

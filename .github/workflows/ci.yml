@@ -10,17 +10,47 @@ permissions:
 
 jobs:
   verify:
+    name: Gate
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: 22
           cache: npm
+
       - run: npm ci
-      - run: npm run design-gate
-      - run: npm run typecheck
-      - run: npm test
-      - run: npm run build:web
-      - run: npm audit --audit-level=high
+
+      # The static half of the gate. Fast, offline, and the same commands anyone
+      # can run locally.
+      - name: Design gate
+        run: npm run design-gate
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Structural and provenance checks
+        run: npm test
+      - name: Static QA
+        run: npm run build:web
+
+      # The rendered half. Chromium only; the other engines add minutes and catch
+      # nothing this app can hit.
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Rendered QA at four viewports
+        run: npm run qa:visual
+      - name: State proofs
+        run: npm run qa:states
+
+      # The proofs are committed and the clock is fixed, so a rerun must reproduce
+      # them byte for byte. A diff here means a screenshot drifted without anyone
+      # looking at it.
+      - name: Proofs are reproducible
+        run: git diff --exit-code -- proofs/
+
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: proofs
+          path: proofs/
+          retention-days: 14

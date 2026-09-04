@@ -1,0 +1,43 @@
+name: Something is broken
+description: A tool did the wrong thing, or the Toolkit will not load.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before you type anything: **do not paste real personal data.** Every tool here
+        runs in your browser precisely so your file never leaves it, and an issue
+        tracker is the opposite of that. Reproduce with the sample data each tool
+        ships, or with values from the reserved ranges (`example.com`, `555` numbers).
+        A report we have to delete is a report we cannot act on.
+  - type: dropdown
+    id: tool
+    attributes:
+      label: Which tool
+      options: [SafeSeed, SafeList, Redactorium, Privacy Wizards Council, Objection Oracle, The shell itself, Not sure]
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, what you got instead.
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: Where
+      description: The hosted Toolkit, a local copy, or a fork.
+      placeholder: toolkit.advokatfrida.com
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and version
+      placeholder: Firefox 141 on Windows 11
+  - type: textarea
+    id: console
+    attributes:
+      label: Anything in the browser console
+      description: Optional, but it usually saves a round trip.
+      render: text

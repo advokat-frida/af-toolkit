@@ -106,7 +106,11 @@ export async function runStaticChecks() {
   results.push(check(manifest.tools?.length === 5, "provenance manifest has five tools", `found ${manifest.tools?.length}`));
   results.push(check(manifest.releaseBoundary === "private-source-control-only", "manifest preserves the private repository boundary"));
   results.push(check(manifest.tools?.every((tool) => tool.sourceFolder && existsSync(join(candidateRoot, tool.sourceFolder))), "every tool's source folder exists in this repository"));
-  results.push(check(manifest.tools?.find((tool) => tool.id === "redactorium")?.license === null, "Redactorium is not given a false license"));
+  results.push(check(manifest.tools?.every((tool) => tool.license === "MIT"), "every tool records its MIT license"));
+  // The one security invariant worth asserting offline: nothing third-party runs in
+  // the browser. npm audit cannot tell you this; the absence of the field can.
+  const rootPkg = JSON.parse(await readFile(join(candidateRoot, "package.json"), "utf8"));
+  results.push(check(Object.keys(rootPkg.dependencies ?? {}).length === 0, "the application ships zero runtime dependencies"));
 
   for (const tool of manifest.tools ?? []) {
     const target = join(publicRoot, tool.toolkitArtifact.replace(/\/$/, ""));
