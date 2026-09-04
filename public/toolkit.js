@@ -55,7 +55,7 @@ function showRoute({ focus = true } = {}) {
   }
 
   document.body.dataset.route = route;
-  document.title = `${routeMeta[route].title} · The Advokat Frida Toolkit`;
+  document.title = `${routeMeta[route].title} · AF Toolkit`;
   ensureFrame(route);
   closeMenu({ restoreFocus: false });
 
