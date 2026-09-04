@@ -6,6 +6,7 @@
 -->
 <html lang="en">
 <head>
+<script>if(/[?&]host=article(?:&|$)/.test(location.search))document.documentElement.setAttribute("data-host","article");</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'none'; img-src data:; font-src data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
@@ -320,8 +321,9 @@
   "use strict";
   if(window.parent===window)return;
   var last=0;
-  function report(){var h=Math.ceil(document.documentElement.getBoundingClientRect().height);if(h&&h!==last){last=h;try{window.parent.postMessage({type:'af-objection-oracle-resize',height:h},'*');}catch(error){}}}
-  if(typeof ResizeObserver==='function'){new ResizeObserver(report).observe(document.documentElement);}
+  var article=document.documentElement.getAttribute('data-host')==='article';
+  function report(){var h=Math.ceil(article?document.documentElement.scrollHeight:document.documentElement.getBoundingClientRect().height);if(h&&h!==last){last=h;try{window.parent.postMessage({type:'af-objection-oracle-resize',height:h},'*');}catch(error){}}}
+  if(typeof ResizeObserver==='function'){new ResizeObserver(report).observe(article?document.body:document.documentElement);}
   window.addEventListener('load',report);
   document.addEventListener('DOMContentLoaded',report);
   setTimeout(report,300);})();

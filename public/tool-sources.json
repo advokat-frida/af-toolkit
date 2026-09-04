@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "product": "The Advokat Frida Toolkit",
-  "generatedAt": "2026-09-04T21:09:31.145Z",
+  "generatedAt": "2026-09-04T23:28:38.454Z",
   "releaseBoundary": "private-source-control-only",
   "layout": "one repository; each tool is a top-level source folder and its committed build artifact is staged here",
   "tools": [
@@ -41,9 +41,9 @@
       "id": "objection-oracle",
       "sourceFolder": "objection-oracle",
       "sourceArtifact": "objection-oracle/dist/objection-oracle-embed.html",
-      "sourceSha256": "5d1a650084e91cac72f38027f0369a6036646d2730fc818cd1b74444f1781289",
+      "sourceSha256": "1247ef7a9623b2013fb88e8851bc8e66f5b0270d8131ce8118f103ef4d838d8c",
       "toolkitArtifact": "tools/objection-oracle.html",
-      "toolkitSha256": "5d1a650084e91cac72f38027f0369a6036646d2730fc818cd1b74444f1781289",
+      "toolkitSha256": "1247ef7a9623b2013fb88e8851bc8e66f5b0270d8131ce8118f103ef4d838d8c",
       "license": "MIT",
       "licenseFile": "licenses/objection-oracle.txt"
     },

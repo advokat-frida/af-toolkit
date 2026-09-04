@@ -24,6 +24,19 @@ const embedCss = `
   .oo-stage[data-phase="questions"]{align-items:start}
   @media(max-width:640px){.wrap{padding:0 10px}.oo-stage{margin:12px 0 18px}}
 
+  /* Article host (?host=article): the Ship It essay on advokatfrida.com frames this file and
+     sizes the frame from the height message, so here the page sizes to its content and never
+     to the frame. The ball sits beside the panel whenever the column is wide enough. */
+  html[data-host="article"],html[data-host="article"] body{height:auto}
+  html[data-host="article"] .wrap{min-height:0;padding:0 8px}
+  html[data-host="article"] .wrap>main{flex:none}
+  html[data-host="article"] .oo-stage{flex:none;margin:8px 0 12px}
+  @media(min-width:700px){
+    html[data-host="article"] .oo-stage,html[data-host="article"] .oo-stage[data-phase="result"]{grid-template-columns:220px minmax(0,1fr);gap:40px;align-items:center;padding-left:0}
+    html[data-host="article"] .oo-stage[data-phase="questions"]{grid-template-columns:minmax(0,1fr);align-items:start}
+    html[data-host="article"] .oo-ball,html[data-host="article"] .oo-stage[data-phase="result"] .oo-ball{width:220px}
+  }
+
   /* Large-display scale (Ben, 2026-09-04): on a desktop monitor, scale the whole
      composition rather than stretch it. Breakpoints are the width of THIS FRAME,
      not the window - embedded, the frame is the window minus the Toolkit rail,
@@ -51,8 +64,9 @@ const heightPost = `(function(){
   "use strict";
   if(window.parent===window)return;
   var last=0;
-  function report(){var h=Math.ceil(document.documentElement.getBoundingClientRect().height);if(h&&h!==last){last=h;try{window.parent.postMessage({type:'af-objection-oracle-resize',height:h},'*');}catch(error){}}}
-  if(typeof ResizeObserver==='function'){new ResizeObserver(report).observe(document.documentElement);}
+  var article=document.documentElement.getAttribute('data-host')==='article';
+  function report(){var h=Math.ceil(article?document.documentElement.scrollHeight:document.documentElement.getBoundingClientRect().height);if(h&&h!==last){last=h;try{window.parent.postMessage({type:'af-objection-oracle-resize',height:h},'*');}catch(error){}}}
+  if(typeof ResizeObserver==='function'){new ResizeObserver(report).observe(article?document.body:document.documentElement);}
   window.addEventListener('load',report);
   document.addEventListener('DOMContentLoaded',report);
   setTimeout(report,300);})();`;
@@ -66,6 +80,7 @@ function page({ bodyHtml, extraCss = '' }) {
 -->
 <html lang="en">
 <head>
+<script>if(/[?&]host=article(?:&|$)/.test(location.search))document.documentElement.setAttribute("data-host","article");</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'none'; img-src data:; font-src data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
