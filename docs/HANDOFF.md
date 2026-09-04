@@ -1,5 +1,54 @@
 # HANDOFF
 
+## 2026-09-03 (night) - renamed to af-toolkit, CI made green, documentation pass
+
+**Renamed.** `advokat-frida/the-toolkit` is now `advokat-frida/af-toolkit` (Ben's call; the old
+name redirects on GitHub). Local folder, git remote, safe.directory exception, workspace CLAUDE.md
+and README, hygiene.mjs's recognised list, launch.json, the /advokat skill, and the vault canon all
+repointed. The Cloudflare **Worker** keeps the name `the-toolkit` on purpose: renaming it would
+rebind the custom domain and the git connection for a string no visitor sees. `wrangler.jsonc`
+says so where someone would otherwise "fix" it.
+
+**CI had never once passed.** Every push since the repository was created was red and nobody was
+watching. Three separate causes, all now fixed:
+
+1. *Line endings.* `.gitattributes` stores LF; the Windows working copy staged CRLF, so
+   `tool-sources.json` recorded hashes that matched on exactly one machine. `objection-oracle.html`
+   hashed `b7ad144f` locally and `29bf0c96` in git and at the edge. `build-tools.mjs` now
+   normalizes text to LF before writing or hashing, in both the single-file and tree paths, and
+   `checks.mjs` asserts no staged text file carries a CR.
+2. *A gitignored source artifact.* The manifest pointed at `redactorium/frontend/build`, which
+   never exists in a fresh checkout, so "source artifact exists" could not pass. It is now declared
+   a generated intermediate; the staged tree stays hash-verified.
+3. *npm audit.* Called a retired registry endpoint, returned 400 "Invalid package tree" (the
+   lockfile still said `the-toolkit` 0.1.1 against package.json's `af-toolkit` 0.3.0), then timed
+   the job out on the retry. Lockfile regenerated; audit replaced by Dependabot plus an offline
+   assertion that the shell ships zero runtime dependencies.
+
+**Licensing.** MIT at the root and in `redactorium/` (the one tool shipping unlicensed).
+`TRADEMARKS.md` draws the line MIT cannot. `checks.mjs` asserts every tool records MIT.
+
+**GitHub scaffolding.** Dependabot for npm and the SHA-pinned actions (it opened four PRs within
+minutes), a pull request template pointing at the review gate, issue templates for bugs and tool
+ideas. CI now runs the rendered half too: Chromium, four viewports, every drawn state, images
+uploaded as an artifact.
+
+**Documentation.** Every folder has a README. New: `CONTRIBUTING.md`, `docs/ARCHITECTURE.md`,
+`docs/VERIFYING.md`. Redactorium's README replaced a 30-byte file reading "Here are your
+Instructions".
+
+**Two claims corrected rather than polished.** "No runtime dependencies at all" was false - the
+shell ships zero but Redactorium bundles React and the Wizards bundle Svelte; the honest claim is
+that nothing is fetched from anyone else's domain at runtime. And the CI step that byte-compared
+committed proofs was removed: Chromium hints text differently on Linux than on Windows, so they
+cannot match across platforms and the check failed the build while proving nothing. Every document
+that repeated either claim was corrected.
+
+**Open, filed as ADVO-175:** `redactorium/backend/` is a dead FastAPI + MongoDB template, plus
+`memory/`, `test_reports/` and `test_result.md` from the prototype generator. In a product whose
+pitch is "there is no backend", that is the worst thing a sceptic could find. Not deleted, because
+deleting tracked source is Ben's call; named plainly in the Redactorium README meanwhile.
+
 ## CURRENT BATON — Toolkit rollout (spec'd 2026-09-03, green light pending)
 
 The rollout is spec'd in Linear as the ADVO project **Toolkit rollout: toolkit.advokatfrida.com**
