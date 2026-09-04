@@ -4,7 +4,7 @@ SafeSeed is a free, MIT-licensed open-source project. Support is public and best
 
 ## Questions and bugs
 
-Search [existing issues](https://github.com/advokat-frida/safeseed/issues) first. If the problem is
+Search [existing issues](https://github.com/advokat-frida/af-toolkit/issues) first. If the problem is
 new, open an issue with:
 
 - the SafeSeed version, or the full GitHub Action commit SHA;
@@ -18,7 +18,7 @@ test tokens or SafeSeed-generated values before sharing a reproducer.
 
 ## What belongs elsewhere
 
-- Suspected vulnerabilities: use [private vulnerability reporting](https://github.com/advokat-frida/safeseed/security/advisories/new), not a public issue.
+- Suspected vulnerabilities: use [private vulnerability reporting](https://github.com/advokat-frida/af-toolkit/security/advisories/new), not a public issue.
 - Legal or compliance conclusions: SafeSeed is a technical control and teaching tool, not legal advice or a substitute for your own assessment.
 - General product background and the interactive demo: [advokatfrida.com/safeseed](https://advokatfrida.com/safeseed/).
 

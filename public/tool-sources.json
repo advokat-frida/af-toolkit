@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "product": "The Advokat Frida Toolkit",
-  "generatedAt": "2026-09-04T17:16:01.738Z",
+  "generatedAt": "2026-09-04T21:09:31.145Z",
   "releaseBoundary": "private-source-control-only",
   "layout": "one repository; each tool is a top-level source folder and its committed build artifact is staged here",
   "tools": [
@@ -41,9 +41,9 @@
       "id": "objection-oracle",
       "sourceFolder": "objection-oracle",
       "sourceArtifact": "objection-oracle/dist/objection-oracle-embed.html",
-      "sourceSha256": "dea1b3233b9709aeba6a14d8861f2f36cd2e51c25838545235f8eeea1a4246d7",
+      "sourceSha256": "5d1a650084e91cac72f38027f0369a6036646d2730fc818cd1b74444f1781289",
       "toolkitArtifact": "tools/objection-oracle.html",
-      "toolkitSha256": "dea1b3233b9709aeba6a14d8861f2f36cd2e51c25838545235f8eeea1a4246d7",
+      "toolkitSha256": "5d1a650084e91cac72f38027f0369a6036646d2730fc818cd1b74444f1781289",
       "license": "MIT",
       "licenseFile": "licenses/objection-oracle.txt"
     },
@@ -51,9 +51,9 @@
       "id": "privacy-wizards-council",
       "sourceFolder": "privacy-wizards-council",
       "sourceArtifact": "privacy-wizards-council/dist/wizards.html",
-      "sourceSha256": "3d8ba89f270f421869904eeacbdf3a8f05e6f35401ea661d0ba1457c3803e52f",
+      "sourceSha256": "066c53129df350430a72e1d945ed5dfa7c53ced332899522673e1f2ccf1a8cd2",
       "toolkitArtifact": "tools/privacy-wizards-council.html",
-      "toolkitSha256": "3d8ba89f270f421869904eeacbdf3a8f05e6f35401ea661d0ba1457c3803e52f",
+      "toolkitSha256": "066c53129df350430a72e1d945ed5dfa7c53ced332899522673e1f2ccf1a8cd2",
       "license": "MIT",
       "licenseFile": "licenses/privacy-wizards-council.txt"
     }

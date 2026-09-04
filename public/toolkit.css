@@ -537,6 +537,27 @@ a:hover { color: var(--red); }
   .tool-card:hover { transform: none; }
 }
 
+/* The way back to the publication (Ben, 2026-09-04). A nav item in every respect, pinned
+   to the bottom of the rail by the rail's own flex column, with a hairline above it so it
+   reads as the exit rather than a sixth tool. Same element in the mobile chooser. */
+.nav-return {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 10px 20px 14px;
+  border-top: 1px solid var(--hairline);
+  font-family: var(--font-label);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: var(--lh-label);
+  color: var(--soft);
+  text-decoration: none;
+}
+.nav-return:hover { color: var(--forest); background: var(--forest-wash); text-decoration: none; }
+.nav-return .nav-icon { color: currentColor; }
+
 /* ---- Large-display scale (Ben, 2026-09-04) -------------------------------
    At 2560px the Toolkit used 44% of the width and the type read small. The fix
    is to scale the composition, not stretch it: `zoom` steps the whole surface

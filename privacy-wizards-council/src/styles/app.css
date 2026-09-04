@@ -1804,7 +1804,11 @@ main.is-embed {
 
 .wizard-row {
   display: grid;
-  grid-template-columns: 24px minmax(0, 1fr) auto;
+  /* The arrow follows the copy instead of sitting at the far edge of a 1,100px row
+     (Ben, 2026-09-04: too much white space between the text and the arrow). The row is
+     still the whole button; hover fills all of it. */
+  grid-template-columns: 24px auto auto;
+  justify-content: start;
   align-items: center;
   gap: 16px;
   padding: 14px 6px;

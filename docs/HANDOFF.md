@@ -1,5 +1,41 @@
 # HANDOFF
 
+## 2026-09-04 (evening) - public flip, archives, the rail's exit, the essay embed contract
+
+**Public.** Ben flipped `advokat-frida/af-toolkit` public. Frida then set the description and
+homepage (the old description called the repo private), turned on secret scanning with push
+protection, Dependabot alerts and security fixes, private vulnerability reporting, and a ruleset
+on `main` that blocks force-pushes and deletion without requiring pull requests (the tuck flow
+pushes to `main` directly). `SECURITY.md` and `CLAUDE.md` describe the public, hosted state.
+
+**Archives.** `privacy-wizards-council`, `objection-oracle`, `build-a-prompt` archived, their
+frozen workspace folders removed after each remote was verified archived. Ben deleted
+`tanjaminben/redactorium` himself; the workspace clone `advokat-frida/redactorium` is the only
+copy of its 15-commit history and stays until he says otherwise. `advokat-frida/safeseed` waits:
+its npm package and the `advokat-frida/safeseed@v0.4.0` Action reference resolve there until this
+repo tags a release (the ADVO-162 remainder). SafeSeed's own metadata (package, README badge,
+issues, advisories) already points here.
+
+**The rail's exit (Ben).** `Back to Advokat Frida`, Lucide `arrow-left`, pinned to the bottom of
+the rail above a hairline; DESIGN-SYSTEM §3 Sidebar records it. The Home line gained its
+apostrophe in `public/index.html` and in the check that pins it.
+
+**Article embed contract.** The Ship It essay on advokatfrida.com embeds
+`/tools/objection-oracle.html` in an iframe and sizes it from a
+`{type:'af-objection-oracle-resize', height}` message, exactly as it sized the old inline copy.
+The Oracle's embed build now posts that message when framed (ResizeObserver on the document);
+the Toolkit shell ignores it. Only the Oracle speaks it, being the only tool an article embeds.
+
+**Wizards.** The chooser row's arrow now follows the copy instead of sitting at the far edge of
+the row (Ben: too much white space between).
+
+**Site pass (website repo, ADVO-166/167/168).** Front-page Toolkit hero, rail removed; SafeSeed
+and Wizards posts repointed at the Toolkit with two buttons each; forwarders at the old asset
+URLs; the SafeSeed demo synced from `safeseed/demo` here. Details in the website repo's HANDOFF.
+
+**Next.** ADVO-177 intro strip on every tool (copy needs Ben's sign-off), ADVO-178 Wizards
+category hues (Ben's yes needed), ADVO-162 workflows + first tagged release, ADVO-169 nav (Ben).
+
 ## 2026-09-04 - desktop scale, the rendered-style census, one type rhythm (0.3.1)
 
 **Ben's three asks, in order.** The Toolkit read small with dead space on a desktop monitor; then a

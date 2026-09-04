@@ -44,6 +44,19 @@ const netKill = `(function(){
   try{window.EventSource=function(){bump();throw new Error('blocked');};}catch(error){}
   window.__oracleNetViolations=function(){return netCount;};`;
 
+// Article embed contract. The Ship It essay on advokatfrida.com embeds this file in an
+// iframe and sizes it from this message, exactly as it sized the old inline copy. Only
+// speaks when framed; the Toolkit shell ignores it because its stage fills the frame.
+const heightPost = `(function(){
+  "use strict";
+  if(window.parent===window)return;
+  var last=0;
+  function report(){var h=Math.ceil(document.documentElement.getBoundingClientRect().height);if(h&&h!==last){last=h;try{window.parent.postMessage({type:'af-objection-oracle-resize',height:h},'*');}catch(error){}}}
+  if(typeof ResizeObserver==='function'){new ResizeObserver(report).observe(document.documentElement);}
+  window.addEventListener('load',report);
+  document.addEventListener('DOMContentLoaded',report);
+  setTimeout(report,300);})();`;
+
 function page({ bodyHtml, extraCss = '' }) {
   return `<!DOCTYPE html>
 <!--
@@ -68,6 +81,7 @@ ${extraCss}
 ${bodyHtml}
 <script>
 ${netKill}
+${heightPost}
 
 ${core}
 ${app}

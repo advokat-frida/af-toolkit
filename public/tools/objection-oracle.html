@@ -295,6 +295,15 @@
   try{window.WebSocket=function(){bump();throw new Error('blocked');};}catch(error){}
   try{window.EventSource=function(){bump();throw new Error('blocked');};}catch(error){}
   window.__oracleNetViolations=function(){return netCount;};
+(function(){
+  "use strict";
+  if(window.parent===window)return;
+  var last=0;
+  function report(){var h=Math.ceil(document.documentElement.getBoundingClientRect().height);if(h&&h!==last){last=h;try{window.parent.postMessage({type:'af-objection-oracle-resize',height:h},'*');}catch(error){}}}
+  if(typeof ResizeObserver==='function'){new ResizeObserver(report).observe(document.documentElement);}
+  window.addEventListener('load',report);
+  document.addEventListener('DOMContentLoaded',report);
+  setTimeout(report,300);})();
 
 const QUESTIONS = Object.freeze([
   Object.freeze({

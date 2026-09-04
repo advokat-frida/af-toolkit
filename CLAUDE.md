@@ -35,12 +35,14 @@ is a separate archive decision.
 ## Gate
 
 Before commit or push: `npm run gate` (design-gate → typecheck → tests → static QA → rendered QA →
-state proofs), then inspect the regenerated `proofs/` screenshots at literal size and compare
+state proofs → style census against `docs/design/style-baseline.json`), then inspect the regenerated `proofs/` screenshots at literal size and compare
 `proofs/states/` against the canvas artboards. A failed hash, test, gate rule,
 or manual visual state blocks the release.
 
 ## Release boundary
 
-Private source control only. A commit or push here does not authorize a public repository, website
-or Ghost change, theme deployment, publication, DNS, analytics, announcement, or package release.
-Archiving the superseded GitHub repos is Ben's call, made separately.
+Source control only; the repository is public since 2026-09-04. A commit or push here does not
+authorize a website or Ghost change, theme deployment, publication, DNS, analytics, announcement, or
+package release.
+The superseded one-tool repos were archived on 2026-09-04 (SafeSeed's archive follows the first
+tagged release here, which takes over its npm package and GitHub Action).

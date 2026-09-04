@@ -129,7 +129,10 @@ no status pills, no card buttons.
 **Sidebar.** 230px, `--paper`, `2px solid var(--ink)` right edge. Brand cap: 40px fox mark +
 `ADVOKAT FRIDA` (Anton 16) over `TOOLKIT` (Archivo 11/700 caps `--soft`). Nav items: 40px min
 height, 18px Lucide icon, Archivo 13/700, a 3px left border — transparent at rest, `--forest` +
-`--forest-wash` background when current. Groups labeled with 10px caps eyebrows.
+`--forest-wash` background when current. Groups labeled with 10px caps eyebrows. The rail ends with one
+way back to the publication (Ben, 2026-09-04): `Back to Advokat Frida`, Lucide `arrow-left`, Archivo
+13/700 in `--soft`, pinned to the bottom of the rail above a hairline. It is the only link in the
+rail that leaves the Toolkit, and it never carries a tool's styling when current.
 
 **Tool header.** One 56px bar: `--paper`, hairline bottom border. Left: group eyebrow (Archivo
 11/700 caps `--soft`) + `/` in `--faint` + tool name (Anton 21). Right: at most one text action.

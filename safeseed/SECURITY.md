@@ -3,14 +3,14 @@
 ## Supported version
 
 Security fixes target the latest published SafeSeed release. Check the
-[GitHub Releases](https://github.com/advokat-frida/safeseed/releases) page or
+[GitHub Releases](https://github.com/advokat-frida/af-toolkit/releases) page or
 the [`safeseed` npm package](https://www.npmjs.com/package/safeseed) for the current version.
 Older releases may receive a fix when the risk is severe and the repair is practical, but that is
 best effort rather than a support promise.
 
 ## Report a vulnerability privately
 
-Use [GitHub private vulnerability reporting](https://github.com/advokat-frida/safeseed/security/advisories/new).
+Use [GitHub private vulnerability reporting](https://github.com/advokat-frida/af-toolkit/security/advisories/new).
 Do not open a public issue for a suspected vulnerability.
 
 Please include:

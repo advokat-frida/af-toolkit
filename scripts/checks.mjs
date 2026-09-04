@@ -67,7 +67,7 @@ export async function runStaticChecks() {
   const cardOrder = ["safeseed", "safelist", "redactorium"].map((route) => index.indexOf(`<a class="tool-card" href="#${route}">`));
   results.push(check(cardOrder.every((position, i) => position > 0 && (i === 0 || position > cardOrder[i - 1])), "Manage data Home cards follow the same order"));
   results.push(check(index.includes('<h1 id="home-title" tabindex="-1">The Toolkit</h1>'), "Home nameplate is the approved The Toolkit"));
-  results.push(check(index.includes('<p class="home-lede">The privacy practitioners swiss army knife.</p>'), "Home lede uses the approved practitioner promise"));
+  results.push(check(index.includes(`<p class="home-lede">The privacy practitioner's Swiss Army knife.</p>`), "Home lede uses the approved practitioner promise (apostrophe fixed 2026-09-04)"));
   results.push(check((index.match(/class="tool-card"/g) || []).length === 5, "five Home tool cards"));
   results.push(check(index.includes('data-context-title="Privacy Wizards Council"'), "Privacy Wizards breadcrumb accepts tool context"));
 

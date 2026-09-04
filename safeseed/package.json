@@ -5,11 +5,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/advokat-frida/safeseed.git"
+    "url": "git+https://github.com/advokat-frida/af-toolkit.git",
+    "directory": "safeseed"
   },
-  "homepage": "https://github.com/advokat-frida/safeseed#readme",
+  "homepage": "https://github.com/advokat-frida/af-toolkit/tree/main/safeseed#readme",
   "bugs": {
-    "url": "https://github.com/advokat-frida/safeseed/issues"
+    "url": "https://github.com/advokat-frida/af-toolkit/issues"
   },
   "type": "module",
   "main": "./dist/index.js",

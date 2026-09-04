@@ -1,6 +1,6 @@
 # SafeSeed
 
-[![CI](https://github.com/advokat-frida/safeseed/actions/workflows/ci.yml/badge.svg)](https://github.com/advokat-frida/safeseed/actions/workflows/ci.yml) [![npm version](https://img.shields.io/npm/v/safeseed)](https://www.npmjs.com/package/safeseed) [![license: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![CI](https://github.com/advokat-frida/af-toolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/advokat-frida/af-toolkit/actions/workflows/ci.yml) [![npm version](https://img.shields.io/npm/v/safeseed)](https://www.npmjs.com/package/safeseed) [![license: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 **Auditable, low-fidelity test data by construction.** Generate stand-in data for test, CI, and demo environments without using production records as source material for SafeSeed-generated fields. Every declared PII-shaped field comes from a cited protocol-reserved, authority-reserved, test-designated, deliberately fake, or explicitly catalog-derived constraint and carries its actual assurance boundary. Bind an unsigned integrity record to the output, compare current bytes with an independently protected copy of that record, and scan existing data for values outside configured catalog ranges.
 
@@ -233,7 +233,7 @@ The current browser-facing outputs owned by this repository are the committed, o
 
 ## Support
 
-Questions and reproducible bugs belong in [GitHub Issues](https://github.com/advokat-frida/safeseed/issues). Please read [SUPPORT.md](SUPPORT.md) before posting, and report suspected vulnerabilities privately through [GitHub's security form](https://github.com/advokat-frida/safeseed/security/advisories/new) instead of a public issue.
+Questions and reproducible bugs belong in [GitHub Issues](https://github.com/advokat-frida/af-toolkit/issues). Please read [SUPPORT.md](SUPPORT.md) before posting, and report suspected vulnerabilities privately through [GitHub's security form](https://github.com/advokat-frida/safeseed/security/advisories/new) instead of a public issue.
 
 ## License
 
