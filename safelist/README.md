@@ -13,11 +13,8 @@ never shows the word as a status; results say what was checked, against which fi
 
 ## Status
 
-Version 0.1.0 is the working build Ben asked for on 2026-09-02: the full flow with sample lists,
-the Keep/Remove approval table, the record, and the checked-list download. Wired into the Toolkit
-shell the same day (stage entry, route, nav and Home card in the Manage data group, state proofs
-5A–5D) and through the repository gate. Proposal: the Google Doc "Toolkit proposal: SafeList"
-(Ben's Drive).
+Version 0.1.0. The full flow works and is in the Toolkit: two lists in, a decision per match, the
+checked list and a record out. What is deliberately not built yet is listed under "Later" below.
 
 ## What it does
 

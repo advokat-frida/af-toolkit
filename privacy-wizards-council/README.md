@@ -10,7 +10,7 @@ No backend, no accounts, and no telemetry. The authored vNext uses Svelte and Vi
 **one portable HTML file** containing every wizard and citation. Nothing is sent by the tool at
 runtime. MIT licensed.
 
-**▶ Current live tool: [advokatfrida.com/wizards](https://advokatfrida.com/wizards/)**
+**▶ In the Toolkit: [toolkit.advokatfrida.com](https://toolkit.advokatfrida.com/#privacy-wizards)** &nbsp;·&nbsp; the write-up lives at [advokatfrida.com/wizards](https://advokatfrida.com/wizards/)
 
 Version 2 keeps the exact published source and decision registries while replacing the crowded
 three-zone workbench with one finder, one question at a time, and layered outcomes and sources.
