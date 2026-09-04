@@ -1,7 +1,7 @@
 import { createHash } from "node:crypto";
 import { existsSync } from "node:fs";
 import { readFile, readdir } from "node:fs/promises";
-import { dirname, join, relative, resolve } from "node:path";
+import { dirname, extname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const scriptDir = dirname(fileURLToPath(import.meta.url));
@@ -112,7 +112,14 @@ export async function runStaticChecks() {
     const target = join(publicRoot, tool.toolkitArtifact.replace(/\/$/, ""));
     results.push(check(existsSync(target), `artifact exists: ${tool.id}`));
     const sourcePath = join(candidateRoot, tool.sourceArtifact);
-    results.push(check(existsSync(sourcePath), `source artifact exists: ${tool.id}`));
+    // A generated intermediate (Redactorium's CRA output) is gitignored and absent
+    // from a fresh checkout. Its staged tree is still hash-verified below, and its
+    // tracked source folder is checked above.
+    if (tool.sourceArtifactGenerated) {
+      results.push(check(true, `source artifact is a declared build output: ${tool.id}`));
+    } else {
+      results.push(check(existsSync(sourcePath), `source artifact exists: ${tool.id}`));
+    }
     if (tool.toolkitArtifact.endsWith(".html")) {
       results.push(check(sha256(await readFile(target)) === tool.toolkitSha256, `artifact hash matches manifest: ${tool.id}`));
     } else if (existsSync(target)) {
@@ -177,5 +184,29 @@ export async function runStaticChecks() {
   results.push(check(safelist.includes("__safelistNetViolations"), "SafeList network kill-switch is present"));
   results.push(check(!/safe to send/i.test(safelist.replace(/<script[\s\S]*?<\/script>/gi, " ")), "SafeList never renders safe as a status"));
 
+  // Provenance depends on the staged bytes being identical on every machine, so no
+  // staged text artifact may carry a carriage return.
+  for (const tool of manifest.tools ?? []) {
+    const target = join(publicRoot, tool.toolkitArtifact.replace(/\/$/, ""));
+    if (!existsSync(target)) continue;
+    const files = tool.toolkitArtifact.endsWith(".html") ? [target] : await walkTextFiles(target);
+    let offenders = 0;
+    for (const file of files) {
+      if ((await readFile(file, "utf8")).includes("\r")) offenders += 1;
+    }
+    results.push(check(offenders === 0, `staged text is LF-only: ${tool.id}`, offenders ? `${offenders} file(s) contain CR` : ""));
+  }
+
   return results;
+}
+
+const TEXT_EXTENSIONS = new Set([".css", ".html", ".js", ".json", ".mjs", ".txt", ".map", ".svg"]);
+
+async function walkTextFiles(root, current = root, out = []) {
+  for (const entry of await readdir(current, { withFileTypes: true })) {
+    const path = join(current, entry.name);
+    if (entry.isDirectory()) await walkTextFiles(root, path, out);
+    else if (TEXT_EXTENSIONS.has(extname(path).toLowerCase())) out.push(path);
+  }
+  return out;
 }

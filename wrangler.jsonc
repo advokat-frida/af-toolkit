@@ -8,6 +8,10 @@
   // directory and an EMPTY build command; otherwise it auto-detects one of the
   // tool folders (it picked privacy-wizards-council on 2026-09-03) and serves
   // unbuilt source.
+  // The Worker resource keeps its original name. Renaming it would mean creating a
+  // new Worker and rebinding the custom domain and the git connection, for a value
+  // no visitor ever sees: the public address is toolkit.advokatfrida.com. The
+  // repository is advokat-frida/af-toolkit.
   "name": "the-toolkit",
   "compatibility_date": "2026-09-03",
   "assets": {

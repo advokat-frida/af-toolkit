@@ -53,5 +53,5 @@ Regenerate with `npm.cmd run build:tools` (or `build:tools:full`). Do not hand-e
 
 ## External-state boundary
 
-Authorized target: the private `advokat-frida/the-toolkit` repository. No public release, website
+Authorized target: the private `advokat-frida/af-toolkit` repository. No public release, website
 sync, Ghost change, theme deployment, publication, DNS, analytics, or announcement is included.

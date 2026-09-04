@@ -96,5 +96,5 @@ task, and leave with the output that tool already promises.
 ## Release boundary
 
 Private source control only. This shell may be committed and pushed to the private
-`advokat-frida/the-toolkit` repository. No public release, website sync, Ghost change, deployment,
+`advokat-frida/af-toolkit` repository. No public release, website sync, Ghost change, deployment,
 publication, DNS, analytics, or announcement is included.

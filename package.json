@@ -1,5 +1,5 @@
 {
-  "name": "@advokat-frida/the-toolkit",
+  "name": "@advokat-frida/af-toolkit",
   "version": "0.3.0",
   "description": "The Advokat Frida Toolkit: five privacy tools, one repository, one design system.",
   "private": true,

@@ -17,20 +17,26 @@ ADVO-172 (SafeList 0.4), ADVO-173 (SafeSeed 0.4.0 from the monorepo), ADVO-174 (
 Standing: every change passes the gate and the review gate; commit and push only on Ben's tuck
 word; the public flip, DNS, Pages project, publishing and sending are Ben's separate authorizations.
 
-**Live as of 2026-09-03, fixed.** Ben created a Worker named `the-toolkit` (not a Pages project),
+**Live as of 2026-09-03, fixed.** Ben created a Worker named `af-toolkit` (not a Pages project),
 onboarded `toolkit.advokatfrida.com`, and manually deployed three times; one upload took
 `privacy-wizards-council/` as the asset directory, so the subdomain served that folder's unbuilt
 Vite source. Corrected diagnosis: the Worker is NOT git-connected (Settings > Build shows
 `Git repository: [Connect]`), so there was never a Workers Builds root directory to blame.
 
-Fixed by adding `wrangler.jsonc` at the repo root (static-assets-only Worker, `name: the-toolkit`,
+Fixed by adding `wrangler.jsonc` at the repo root (static-assets-only Worker; the Worker resource keeps the name
+`the-toolkit` because renaming it would rebind the domain and the git link for no visible gain,
 `assets.directory: ./public/`, `not_found_handling: "none"`) plus `public/_headers`, then running
 `npx wrangler deploy` from the repo root. Version `ebeffbfb`. Verified against the live domain by
 content: old PWC source 404s; `toolkit.css`, `toolkit.js`, `tool-sources.json`, the fox mark and
 every `tools/*.html` byte-identical to the repo; font magic bytes `774f4632`; `_headers` applied;
 Home, SafeSeed, Redactorium and Privacy Wizards all render in Chrome at the live URL.
 
-BOTH FILES ARE UNCOMMITTED - the live state depends on local disk until they ride a tuck.
+Committed as `a171e44` (tuck, 2026-09-03). Ben connected the repo (Settings > Build: root `/`,
+build command cleared by Frida in his browser, deploy `npx wrangler deploy`, branch `main`, previews
+on). The push produced version `8d0ee754` 29 seconds later with no human step; live bytes equal the
+git blobs. ADVO-164 Done. New defect on ADVO-162: the provenance manifest hashes are computed on
+CRLF working-copy bytes and will not match a Linux checkout or the edge (fix: normalize to LF in
+`build-tools.mjs`, restage).
 
 Open, in ADVO-164's comments: the Worker is still direct-upload, so pushes to main do NOT redeploy
 (Ben must hit Connect in Settings > Build; a Worker can be attached to a repo after the fact, unlike
@@ -268,7 +274,7 @@ repos still exist until Ben archives them.
 
 ## 2026-08-27 - Private repository graduation
 
-The reviewed Toolkit candidate graduated from `studio/active` into the dedicated `the-toolkit`
+The reviewed Toolkit candidate graduated from `studio/active` into the dedicated `af-toolkit`
 integration-shell repository. The shell owns Home, navigation, visual adapters, local serving,
 provenance, and QA. The five integrated tools remain source-owned in their individual repositories.
 

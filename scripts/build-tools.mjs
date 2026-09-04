@@ -29,6 +29,10 @@ const TOOLS = [
     build: "npm run build --prefix frontend",
     buildEnv: { CI: "false" },
     license: null,
+    // frontend/build is the CRA output and is gitignored, so it does not exist in a
+    // fresh checkout. The staged tree in public/tools/redactorium is the artifact of
+    // record and its hash is verified; the tracked source is frontend/src.
+    sourceArtifactGenerated: true,
     note: "No license file exists in the tool source; no license is asserted by the Toolkit."
   },
   {
@@ -91,14 +95,32 @@ async function treeHash(root) {
   for (const file of await walkFiles(root)) {
     hash.update(relative(root, file).replaceAll("\\", "/"));
     hash.update("\0");
-    hash.update(await readFile(file));
+    hash.update(await canonicalBytes(file));
     hash.update("\0");
   }
   return hash.digest("hex");
 }
 
+// Text artifacts are normalized to LF before they are written or hashed.
+// .gitattributes stores this repository as LF, so a Windows working copy that staged
+// CRLF produced manifest hashes that matched locally and nowhere else: not in CI, not
+// on the edge. Provenance is the whole product, so the bytes have to be identical
+// everywhere.
+const TEXT_EXTENSIONS = new Set([".css", ".html", ".js", ".json", ".mjs", ".txt", ".map", ".svg"]);
+
+function isTextFile(path) {
+  return TEXT_EXTENSIONS.has(extname(path).toLowerCase());
+}
+
+// The bytes every other machine sees: LF for text, untouched for binary.
+async function canonicalBytes(path) {
+  const raw = await readFile(path);
+  if (!isTextFile(path)) return raw;
+  return Buffer.from(normalizeText(raw.toString("utf8")), "utf8");
+}
+
 function normalizeText(value) {
-  return value.replace(/[ \t]+$/gm, "").replace(/\n+$/, "\n");
+  return value.replace(/\r\n/g, "\n").replace(/[ \t]+$/gm, "").replace(/\n+$/, "\n");
 }
 
 async function pruneSourceMaps(root) {
@@ -117,9 +139,8 @@ async function pruneSourceMaps(root) {
 }
 
 async function normalizeTextFiles(root) {
-  const textExtensions = new Set([".css", ".html", ".js", ".json", ".mjs", ".txt"]);
   for (const file of await walkFiles(root)) {
-    if (!textExtensions.has(extname(file).toLowerCase())) continue;
+    if (!isTextFile(file)) continue;
     const original = await readFile(file, "utf8");
     const cleaned = normalizeText(original);
     if (cleaned !== original) await writeFile(file, cleaned);
@@ -156,7 +177,7 @@ async function main() {
       await normalizeTextFiles(output);
       stagedSha256 = await treeHash(output);
     } else {
-      const source = await readFile(artifactPath);
+      const source = await canonicalBytes(artifactPath);
       sourceSha256 = sha256(source);
       let html = source.toString("utf8");
       if (tool.transform) html = tool.transform(html);
@@ -177,6 +198,7 @@ async function main() {
       toolkitArtifact: `tools/${tool.output}${tool.kind === "tree" ? "/" : ""}`,
       toolkitSha256: stagedSha256,
       license: tool.license ? "MIT" : null,
+      ...(tool.sourceArtifactGenerated ? { sourceArtifactGenerated: true } : {}),
       licenseFile: tool.license ? `licenses/${tool.id}.txt` : null,
       ...(tool.note ? { note: tool.note } : {})
     });

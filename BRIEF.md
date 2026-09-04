@@ -13,5 +13,5 @@ its own top-level folder, each tool keeps its own gate, and `scripts/build-tools
 built artifacts with recorded provenance and hashes.
 
 Release boundary: private source control only. This repository may be committed and pushed to the
-private `advokat-frida/the-toolkit` repository. No public release, website sync, Ghost change,
+private `advokat-frida/af-toolkit` repository. No public release, website sync, Ghost change,
 deployment, publication, DNS, analytics, or announcement is included.
