@@ -58,20 +58,15 @@ record is the staged copy in `public/tools/redactorium/`, whose hash is in
 
 ## Known warts
 
-This tool came from a vibecoded prototype and was hardened afterwards, and some of the scaffolding
-is still in the tree:
+This tool came from a vibecoded prototype and was hardened afterwards. The generator's scaffolding
+is gone as of 2026-09-04 (the FastAPI and MongoDB template, the pod cron config, the PRD, the
+iteration logs, a stray committed `.gitconfig`), so what is left is the tool. One thing remains
+worth knowing:
 
-- **`backend/`** is a FastAPI and MongoDB template that came with the generator. It is 88 lines,
-  it is not referenced by the front end, and Redactorium does not call any server. It should be
-  deleted. It has not been, only because deleting tracked source is not a decision to make
-  quietly. Do not read it as evidence of a hosted component, because there isn't one.
-- **`memory/`** and **`test_reports/`** are generator artifacts (a PRD and a series of iteration
-  logs) rather than anything the tool uses.
 - Redactorium's bundle is a compiled React app, so unlike the single-file tools it is a directory
   of chunks rather than one readable file. It still makes no network requests; the design gate
-  scans it for external hosts on every run.
-
-Being straight about this is cheaper than having someone find it and wonder what else we glossed.
+  scans it for external hosts on every run, and the network panel is the check you can run in
+  thirty seconds.
 
 ## Licence
 

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "product": "The Advokat Frida Toolkit",
-  "generatedAt": "2026-09-04T05:46:11.871Z",
+  "generatedAt": "2026-09-04T14:54:45.922Z",
   "releaseBoundary": "private-source-control-only",
   "layout": "one repository; each tool is a top-level source folder and its committed build artifact is staged here",
   "tools": [
@@ -9,9 +9,9 @@
       "id": "redactorium",
       "sourceFolder": "redactorium",
       "sourceArtifact": "redactorium/frontend/build",
-      "sourceSha256": "096cd713a325dcab1d900344e23a0716810e61a5d2aa5454a1f50fb9ab34029c",
+      "sourceSha256": "018c03cd44b398d92a6d25c4fdaa3efa28b9693538ab5606c0eeacc1abbd9c2a",
       "toolkitArtifact": "tools/redactorium/",
-      "toolkitSha256": "1fae77feae5db25380dd1bf696dbd2a1aca6a987515bfe5bdbd19d349fc80cde",
+      "toolkitSha256": "597e571cc1b5ad3eafa1842744f45ab97a22d1fb3bc57f3147a3382cedfb478b",
       "license": "MIT",
       "sourceArtifactGenerated": true,
       "licenseFile": "licenses/redactorium.txt",

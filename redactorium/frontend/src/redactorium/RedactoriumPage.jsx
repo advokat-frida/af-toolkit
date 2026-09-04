@@ -20,11 +20,11 @@ const shortHash = (value) => (value && value.length > 24 ? `${value.slice(0, 12)
 const stamp = (iso) => (iso ? iso.replace(/:\d{2}(?:\.\d+)?Z$/, "Z") : "—");
 
 const SAMPLE_CSV = `full_name,email,phone,dob,ssn,card_number,street_address,zip,ip,company,job_title
-Ada Lovelace,ada.lovelace@analyticalengine.co,+1 415 555 0134,1985-12-10,123-45-6789,4111111111111111,10 Downing Street,94107,192.168.1.10,Analytical Engine Inc,Chief Mathematician
-Grace Hopper,grace.hopper@navy.mil,(202) 555-0119,1980-01-15,987-65-4321,5555555555554444,1600 Pennsylvania Ave,20500,10.0.0.4,USN Ltd,Rear Admiral
+Ada Lovelace,ada.lovelace@analyticalengine.example,+1 415 555 0134,1985-12-10,123-45-6789,4111111111111111,10 Downing Street,94107,192.168.1.10,Analytical Engine Inc,Chief Mathematician
+Grace Hopper,grace.hopper@fleetworks.example,(202) 555-0119,1980-01-15,987-65-4321,5555555555554444,1600 Pennsylvania Ave,20500,10.0.0.4,USN Ltd,Rear Admiral
 Alan Turing,alan.t@bletchley.example,+44 7700 900123,1978-06-23,111-22-3333,378282246310005,1 Enigma Lane,SW1A 1AA,203.0.113.7,Bletchley Park Co.,Cryptographer
 Marie Curie,curie@radium.example,+33 1 2345 6789,1990-11-07,222-33-4444,6011111111111117,5 Rue de la Science,75005,198.51.100.42,Radium GmbH,Physicist
-Katherine Johnson,katherine.j@nasa.gov,+1 212 555 0100,1975-08-26,333-44-5555,4242424242424242,300 E Street SW,20024,172.16.0.5,NASA LLC,Aerospace Engineer`;
+Katherine Johnson,katherine.j@orbital.example,+1 212 555 0100,1975-08-26,333-44-5555,4242424242424242,300 E Street SW,20024,172.16.0.5,NASA LLC,Aerospace Engineer`;
 
 export default function Redactorium({ embedded = false }) {
   const [file, setFile] = useState(null);
