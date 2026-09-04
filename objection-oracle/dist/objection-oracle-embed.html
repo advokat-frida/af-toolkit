@@ -314,7 +314,7 @@
   if(window.parent===window)return;
   var last=0;
   var article=document.documentElement.getAttribute('data-host')==='article';
-  function report(){var h=Math.ceil(article?document.documentElement.scrollHeight:document.documentElement.getBoundingClientRect().height);if(h&&h!==last){last=h;try{window.parent.postMessage({type:'af-objection-oracle-resize',height:h},'*');}catch(error){}}}
+  function report(){var h=Math.ceil(article?document.body.getBoundingClientRect().height:document.documentElement.getBoundingClientRect().height);if(h&&h!==last){last=h;try{window.parent.postMessage({type:'af-objection-oracle-resize',height:h},'*');}catch(error){}}}
   if(typeof ResizeObserver==='function'){new ResizeObserver(report).observe(article?document.body:document.documentElement);}
   window.addEventListener('load',report);
   document.addEventListener('DOMContentLoaded',report);
