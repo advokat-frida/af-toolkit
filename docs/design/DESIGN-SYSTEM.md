@@ -74,6 +74,20 @@ Roles (desktop; small screens raise editable controls to 16px to prevent focus z
 | Button | Archivo 14px/700 |
 | Data | Mono 12–14px |
 
+**Rhythm.** Six line-heights, and every role uses one of them; a seventh is a defect. Each tool
+declares the same tokens at its source (`--lh-*`) and its role rules reference them, so the shell
+and five tools cannot drift apart one decimal at a time, which is how 77 rendered type styles grew
+out of about thirty named roles before 2026-09-04.
+
+| Token | Value | Roles |
+|---|---|---|
+| `--lh-display` | 1.1 | Anton: breadcrumb name, verdict headline (the Home nameplate and the Oracle's 8 stay at 1) |
+| `--lh-heading` | 1.2 | Space Grotesk 700 at 16–24px: wizard question, panel and drop titles, task heading, card and row titles, stat values |
+| `--lh-body` | 1.55 | Body 15px |
+| `--lh-row` | 1.5 | Row and option copy 16px, table cells, all mono data |
+| `--lh-helper` | 1.45 | Secondary 14px, helper and aside 13px |
+| `--lh-label` | 1.4 | Archivo: eyebrows, column headers, nav, text actions, buttons |
+
 ## 3. Components
 
 Square corners everywhere a surface is rectangular. `border-radius` is allowed only where the shape
@@ -91,8 +105,16 @@ Oracle's unanswered question, SafeSeed's empty zone, Redactorium's first treatme
 **Secondary button.** `1px solid var(--ink)`, `--paper` fill, ink Archivo 14/700 (no uppercase),
 same padding and height floor, no shadow.
 
-**Text action.** Bare Archivo 13/700 ink link, 44px target. Utility links in headers, "Change
-file", "Browse all 16".
+**Text action.** Bare Archivo 13/700 ink link, padding `6px 8px`, 44px target. Utility links in
+headers, "Change file", "Browse all 16".
+
+**Row control.** A control that lives inside a repeated row (SafeList's decisions, the Oracle's
+yes and no, SafeSeed's column editor): the secondary button's look at `min-height: 40px`, padding
+`4px 8px`, Archivo 13/700; inputs and selects in a row take the same 40px. The only sanctioned
+height under 44, and it exists so a table row is not 60px tall.
+
+**Input and select.** `1px solid var(--ink)`, `--paper`, Space Grotesk 15px, padding `8px 12px`,
+`min-height: 44px`. Redactorium's treatment select keeps its 34px right padding for the chevron.
 
 **Mode toggle.** One `inline-flex` box, `1px solid var(--ink)`, `--paper`. Segments Archivo
 13/700, padding `9px 18px`; active segment `--ink` fill + `--paper` text; inactive `--soft` text.
@@ -163,8 +185,9 @@ already state (SafeSeed's heading already says rows and seed, so its receipt has
 its first 12 and last 6 hex characters with the full value on hover; timestamps read
 `YYYY-MM-DDTHH:MMZ`), then one actions row — primary download, secondary record download, one
 text action. Nothing renders below it. A generated preview above a receipt shows **every** row in
-a bounded scroll region (440px, sticky header) — never a truncated sample; the heading states the
-count. **A file preview is rendered as data**: header row and cells alike in mono (header 12px
+a bounded scroll region (sticky header) — never a truncated sample; the heading states the
+count. The bound grows with the viewport, floored at 440px: a fixed height strands the bottom half
+of a desktop monitor, which is the same defect as a fixed-width column stranding the sides. **A file preview is rendered as data**: header row and cells alike in mono (header 12px
 `--soft` over an inset ink rule, cells 13px, nothing wraps), because the header row is part of the
 file — SafeSeed's generated preview (4C) is the reference and SafeList's checked list follows it.
 That is distinct from the **Table** above, which is interface: Archivo caps headers, body text,
@@ -181,7 +204,7 @@ stroke 1.75; chooser rows 20px at stroke 2. Icons are decorative beside complete
   a stage that stretches to fill 1,700px is a defect. Home's content column caps at 1000px.
 - The tool header stays 56px. The first useful control is visible when a tool opens.
 - Repeated control rows share one optical size; interactive targets never drop below 44px
-  (52px for wizard options).
+  (52px for wizard options; 40px for a row control, §3).
 - Mobile: compact top brand bar + focus-managed chooser; one-column task flow; the 44px floor
   holds; editable controls at 16px.
 - No document-width horizontal scroll at 1440, 1034, 390, or 320 CSS pixels wide.
@@ -240,4 +263,8 @@ Retired or banned, with the deciding turn of the design package in parentheses:
   Ben's explicit call). Code never drifts ahead of it.
 - New tools adopt the system **at the source** — the shell's embed adapter may hide standalone
   chrome and align fonts, but it is not a paint-over for a tool that ignores the system.
+- `docs/design/style-baseline.json` is the rendered form of §1–§3: every type role, control
+  variant, color, radius, and shadow the Toolkit paints, as `scripts/style-census.mjs` measured
+  it. The gate fails on any rendered tuple outside it. It is regenerated (`--update`) only in the
+  same reviewed change that adds the role to this file; the two move together or not at all.
 - Every landing change passes [REVIEW-GATE.md](./REVIEW-GATE.md).

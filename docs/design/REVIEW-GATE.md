@@ -21,6 +21,11 @@ which runs, in order:
 6. `qa:states` (`scripts/state-proofs.mjs`) — drives the staged Toolkit through every state the
    canvas draws (artboards 2A–4I) at the artboard geometry and writes `proofs/states/`. A state
    that cannot be reached fails the run.
+7. `qa:census` (`scripts/style-census.mjs --check`) — drives the same states and compares every
+   rendered type role, control variant, color, radius, and shadow against
+   `docs/design/style-baseline.json`. A tuple the baseline does not contain fails the run. The
+   baseline changes only in a reviewed change (`--update`), so a new size, weight, color, or
+   button shape cannot enter quietly.
 
 A tool's own repository-folder gate (its `check`/`qa` script) runs before its artifact is staged.
 
@@ -34,7 +39,8 @@ Review the actual rendered screens at literal size, every state, before signing 
       state is a defect, not a variation.
 - [ ] Tokens: no color outside `DESIGN-SYSTEM.md` §1; status hues used semantically only.
 - [ ] Type: every text node maps to a §2 role. No new sizes, no synthesized weights, Anton only
-      on nameplates, mono only on generated data.
+      on nameplates, mono only on generated data. Read `npm run qa:census:report`: every line
+      marked ONE-OFF is either a role the system names, or a defect.
 - [ ] Components: buttons, toggles, tables, stat bands, verdict blocks, asides, wizard steps,
       chooser rows match §3 exactly — including paired-button sizing and the 44px floor.
 - [ ] Shell contract: the tool renders chrome-free inside the shell; the 56px breadcrumb header

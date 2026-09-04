@@ -1,5 +1,5 @@
   /* Objection Oracle stage — the-toolkit/docs/design/DESIGN-SYSTEM.md governs. */
-  .oo-noscript{border-left:3px solid var(--amber);padding-left:12px;color:var(--ink-soft);font-size:13px;line-height:1.45;margin-top:16px}
+  .oo-noscript{border-left:3px solid var(--amber);padding-left:12px;color:var(--ink-soft);font-size:13px;line-height:var(--lh-helper);margin-top:16px}
 
   /* Stage grid changes with the phase: the ball frames the invitation and the
      ruling; the five questions get the full width. */
@@ -24,27 +24,27 @@
   }
 
   .oo-panel{width:100%}
-  .oo-view-title{font-size:22px;font-weight:700;line-height:1.25;margin:0;text-wrap:pretty}
-  .oo-sub{font-size:15px;line-height:1.55;color:var(--ink-soft);margin:10px 0 0}
+  .oo-view-title{font-size:22px;font-weight:700;line-height:var(--lh-heading);margin:0;text-wrap:pretty}
+  .oo-sub{font-size:15px;line-height:var(--lh-body);color:var(--ink-soft);margin:10px 0 0}
   .oo-view-title:focus,.oo-result-title:focus{outline:none}
   .oo-view-title:focus-visible,.oo-result-title:focus-visible{outline:2px solid var(--forest);outline-offset:4px}
   .oo-panel .oo-main-action{width:auto;min-height:44px;margin-top:24px}
 
-  .btn{font-family:var(--font-label);font-size:14px;font-weight:700;line-height:1.2;padding:9px 18px;min-height:44px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:0}
+  .btn{font-family:var(--font-label);font-size:14px;font-weight:700;line-height:var(--lh-label);padding:9px 18px;min-height:44px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:0}
   .btn.primary{background:var(--forest);color:#fff;border:2px solid var(--line);box-shadow:4px 4px 0 var(--line);letter-spacing:.045em;text-transform:uppercase}
   .btn.primary:active{box-shadow:none;transform:translate(4px,4px)}
   .btn.secondary{background:var(--paper);color:var(--ink);border:1px solid var(--line)}
   .btn[aria-disabled="true"]:not(.primary){background:var(--ground);color:var(--ink-soft);border-color:var(--ink-soft);box-shadow:none;cursor:not-allowed}
-  .oo-text-action{font-family:var(--font-label);font-size:13px;font-weight:700;color:var(--ink);border:0;background:transparent;min-height:44px;padding:6px 8px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+  .oo-text-action{line-height:var(--lh-label);font-family:var(--font-label);font-size:13px;font-weight:700;color:var(--ink);border:0;background:transparent;min-height:44px;padding:6px 8px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
   .oo-text-action:hover{color:var(--red)}
   .oo-text-action:focus-visible{outline:2px solid var(--forest);outline-offset:2px}
 
   /* The five questions, one list. */
   .oo-question-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--hair)}
   .oo-question-row{display:grid;grid-template-columns:minmax(0,1fr) 170px;align-items:center;gap:20px;padding:15px 2px;border-bottom:1px solid var(--hair)}
-  .oo-question-row p{font-size:16px;line-height:1.4;margin:0}
+  .oo-question-row p{font-size:16px;line-height:var(--lh-row);margin:0}
   .oo-pair{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-  .oo-pair button{display:flex;align-items:center;justify-content:center;min-height:40px;border:1px solid var(--line);background:var(--paper);color:var(--ink);font-family:var(--font-label);font-size:13px;font-weight:700;cursor:pointer;border-radius:0;padding:4px 8px}
+  .oo-pair button{line-height:var(--lh-label);display:flex;align-items:center;justify-content:center;min-height:40px;border:1px solid var(--line);background:var(--paper);color:var(--ink);font-family:var(--font-label);font-size:13px;font-weight:700;cursor:pointer;border-radius:0;padding:4px 8px}
   .oo-pair button[aria-pressed="true"]{border:2px solid var(--forest)}
   .oo-ask-row{display:flex;align-items:center;gap:16px;margin-top:24px}
   .oo-ask-row .btn{width:auto}
@@ -62,18 +62,18 @@
   .oo-result[data-outcome="NEXT_VERSION"] .oo-verdict{border-color:var(--indigo)}
   .oo-result[data-outcome="FIX_THEN_SHIP"] .oo-verdict{border-color:var(--amber)}
   .oo-result[data-outcome="HARD_STOP"] .oo-verdict{border-color:var(--red)}
-  .oo-result-title{display:block;font-family:var(--font-display);font-size:32px;font-weight:400;letter-spacing:.01em;line-height:1.1;text-transform:uppercase}
-  .oo-result-reason{display:block;margin-top:6px;color:var(--ink-soft);font-size:15px;line-height:1.5}
-  .oo-meaning{font-size:16px;line-height:1.5;margin:18px 0 0;color:var(--ink)}
+  .oo-result-title{display:block;font-family:var(--font-display);font-size:32px;font-weight:400;letter-spacing:.01em;line-height:var(--lh-display);text-transform:uppercase}
+  .oo-result-reason{display:block;margin-top:6px;color:var(--ink-soft);font-size:15px;line-height:var(--lh-body)}
+  .oo-meaning{font-size:16px;line-height:var(--lh-row);margin:18px 0 0;color:var(--ink)}
   .oo-rationale{display:grid;gap:0;margin:18px 0 0;border-top:1px solid var(--hair)}
   .oo-rationale div{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;padding:12px 0;border-bottom:1px solid var(--hair)}
-  .oo-rationale dt{color:var(--ink-soft);font-family:var(--font-label);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding-top:4px}
-  .oo-rationale dd{font-size:16px;line-height:1.45;margin:0;color:var(--ink)}
+  .oo-rationale dt{line-height:var(--lh-label);color:var(--ink-soft);font-family:var(--font-label);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding-top:4px}
+  .oo-rationale dd{font-size:16px;line-height:var(--lh-row);margin:0;color:var(--ink)}
   .oo-answers{margin-top:22px}
-  .oo-eyebrow{margin:0;color:var(--ink-soft);font-family:var(--font-label);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+  .oo-eyebrow{line-height:var(--lh-label);margin:0;color:var(--ink-soft);font-family:var(--font-label);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
   .oo-answer-list{list-style:none;margin:6px 0 0;padding:0;border-top:1px solid var(--hair)}
-  .oo-answer-list li{display:grid;grid-template-columns:minmax(0,1fr) 48px;gap:16px;padding:8px 0;border-bottom:1px solid var(--hair);font-size:14px;line-height:1.4;color:var(--ink)}
-  .oo-answer-flag{font-family:var(--font-label);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);text-align:right;padding-top:3px}
+  .oo-answer-list li{display:grid;grid-template-columns:minmax(0,1fr) 48px;gap:16px;padding:8px 0;border-bottom:1px solid var(--hair);font-size:14px;line-height:var(--lh-helper);color:var(--ink)}
+  .oo-answer-flag{line-height:var(--lh-label);font-family:var(--font-label);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);text-align:right;padding-top:3px}
   .oo-result-actions{display:flex;align-items:center;gap:12px;margin-top:24px}
   .oo-result-actions .btn{width:auto}
 

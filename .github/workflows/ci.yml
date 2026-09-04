@@ -41,6 +41,8 @@ jobs:
         run: npm run qa:visual
       - name: State proofs
         run: npm run qa:states
+      - name: Style census against the baseline
+        run: npm run qa:census
 
       # No byte-comparison against the committed proofs. Chromium hints and
       # antialiases text differently on Linux than on the Windows machine those

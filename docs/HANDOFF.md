@@ -1,5 +1,48 @@
 # HANDOFF
 
+## 2026-09-04 - desktop scale, the rendered-style census, one type rhythm (0.3.1)
+
+**Ben's three asks, in order.** The Toolkit read small with dead space on a desktop monitor; then a
+thorough UI/UX consistency review of the flagship, set as a regression baseline so every new tool
+gets the same scrutiny; then "standardize the principles" (fonts, sizes, line-height) while layouts
+may differ. All three shipped in this commit. Linear: ADVO-176.
+
+**Desktop scale.** Type roles are fixed px by design, so a larger root font moved nothing. The
+composition scales instead: `zoom` 1.08 / 1.18 / 1.30 on the shell chrome and each tool's embedded
+root, keyed to the *frame* width inside the tools (1252 / 1528 / 1900) so they land on the same
+windows as the shell's 1500 / 1800 / 2200. The rail widens a few px *before* each zoom step, or the
+frame would narrow at the exact width the tool's own breakpoint fires and the two could never agree.
+Bounded previews grow with the window (`max(440px, 100dvh - 320px)`). Verified at 13 widths, zero
+shell/tool mismatch. Nothing changes below 1500px.
+
+**The census.** `scripts/style-census.mjs` drives the 19 canvas states (exported from
+`state-proofs.mjs`, one list) and records what the browser painted: every text run's type tuple,
+every control's shape, every color, radius and shadow, for the shell and the tool frame. It found
+what the static gate cannot: SafeSeed's remove button in Arial, a hairline mixed from a different
+ink on 333 borders in three tools, a synthesized 800 weight, two whites on primaries, two mono
+stacks (macOS would have shown different fonts per tool), and a 16px paper strip under
+Redactorium's header from a collapsed margin (`display: flow-root` fixed it). All fixed at the
+source. `npm run qa:census` now ends the gate and CI; it fails on any tuple outside
+`docs/design/style-baseline.json`, which changes only via `--update` in a reviewed change.
+`design-gate.mjs` also locks `rgb()/rgba()` to the token bases now. State proofs park the pointer
+before each shot so hover never poses as a drawn state. Review record:
+`docs/design/reviews/2026-09-04-consistency.md`.
+
+**One rhythm.** Six line-height tokens (`--lh-display 1.1 / heading 1.2 / body 1.55 / row 1.5 /
+helper 1.45 / label 1.4`) declared at each tool's source and referenced by every role rule;
+DESIGN-SYSTEM §2 carries the table. Controls consolidated to §3: one text-action padding, one
+input and select shape, the named 40px **row control** (the only sanctioned height under 44), the
+mode toggle at 13, Redactorium's task heading at 19 (its embedded `h2` rule had outranked the
+class). Rendered type roles 77 → 48; control variants 35 → 32; families 6 → 4; non-token colors
+1 → 0.
+
+**Open.** E from the review: SafeList's checked-list preview needs a sideways-scroll cue. Skip
+links still come in three styles (keyboard-only; consolidate with the next control pass). The
+Redactorium toast title is a synthesized 500 from the toaster's own CSS.
+
+**Deploy.** A push to `main` deploys via Workers Builds; live check reads the new artifact hashes
+from `tool-sources.json` at the edge.
+
 ## 2026-09-03 (night) - renamed to af-toolkit, CI made green, documentation pass
 
 **Renamed.** `advokat-frida/the-toolkit` is now `advokat-frida/af-toolkit` (Ben's call; the old

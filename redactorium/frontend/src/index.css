@@ -51,6 +51,13 @@
 
 @layer base {
     :root {
+  /* Type rhythm (DESIGN-SYSTEM §2): six line-heights, one per kind of text. */
+  --lh-display: 1.1;
+  --lh-heading: 1.2;
+  --lh-body: 1.55;
+  --lh-row: 1.5;
+  --lh-helper: 1.45;
+  --lh-label: 1.4;
         /* Advokat Frida palette */
         --paper: 42.86 100% 98.63%;   /* #fffdf8 */
         --paper-2: 42.86 28% 95.10%;  /* #f6f4ef */
@@ -103,7 +110,7 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
-    code, pre, .mono { font-family: "SFMono-Regular", Menlo, Consolas, monospace; }
+    code, pre, .mono {line-height:var(--lh-row); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
     #root { position: relative; z-index: 1; }
 
     h1, h2, h3 {
@@ -148,7 +155,7 @@
 /* Buttons with editorial character */
 .btn-forest {
     background: hsl(var(--forest));
-    color: hsl(var(--paper));
+    color: #fff;
     padding: 0.75rem 1.25rem;
     font-weight: 700;
     letter-spacing: 0.02em;
@@ -246,6 +253,16 @@
 [data-toolkit-embedded="true"] {
     background: hsl(var(--ground, var(--paper-2)));
     font-size: 15px;
+    line-height: var(--lh-body);
+    /* flow-root stops the first section's top margin collapsing through #root, which
+       pushed the whole app 16px down and showed the body's paper as a strip under
+       the shell header. Every other tool starts on ground; so does this one now. */
+    display: flow-root;
+}
+/* Belt and braces: while embedded, nothing behind the app is paper. */
+html:has([data-toolkit-embedded="true"]),
+html:has([data-toolkit-embedded="true"]) body {
+    background: hsl(var(--ground, var(--paper-2)));
 }
 
 /* The Toolkit is a compact workbench: preserve hierarchy without campaign-page scale. */
@@ -260,21 +277,21 @@
 [data-toolkit-embedded="true"] .tool-mode-switch > button {
     min-height: 44px;
     font-family: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
-    font-size: 0.875rem;
+    font-size: 13px;
     font-weight: 700;
-    line-height: 1.2;
+    line-height: var(--lh-label);
 }
 [data-toolkit-embedded="true"] h2 {
     font-family: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
     font-size: 1.375rem;
     font-weight: 700;
-    line-height: 1.15;
+    line-height: var(--lh-heading);
 }
 [data-toolkit-embedded="true"] h3 {
     font-family: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
     font-size: 1.125rem;
     font-weight: 700;
-    line-height: 1.2;
+    line-height: var(--lh-heading);
 }
 [data-toolkit-embedded="true"] .eyebrow {
     font-size: 0.6875rem;
@@ -299,7 +316,7 @@
     font-family: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
     font-size: 1.375rem;
     font-weight: 700;
-    line-height: 1.15;
+    line-height: var(--lh-heading);
 }
 [data-toolkit-embedded="true"] .red-format-list,
 [data-toolkit-embedded="true"] .red-upload-actions {
@@ -321,7 +338,7 @@
 [data-toolkit-embedded="true"] .red-field-sources {
     margin-top: 0.75rem;
     font-size: 0.8125rem;
-    line-height: 1.45;
+    line-height: var(--lh-helper);
 }
 [data-toolkit-embedded="true"] .red-drop-formats {
     font-size: 0.9375rem;
@@ -379,7 +396,7 @@
     display: inline-flex;
     align-items: center;
     min-height: 44px;
-    padding: 4px 2px;
+    padding: 6px 8px;
     border: 0;
     background: transparent;
     color: hsl(var(--ink));
@@ -390,6 +407,7 @@
     text-decoration: underline;
     text-underline-offset: 3px;
     white-space: nowrap;
+  line-height: var(--lh-label);
 }
 .text-action:hover { color: hsl(var(--brick)); }
 
@@ -401,6 +419,7 @@
     font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
+  line-height: var(--lh-label);
 }
 
 .btn-ghost-ink {
@@ -413,6 +432,7 @@
     text-transform: none;
     min-height: 44px;
     padding: 9px 18px;
+  line-height: var(--lh-label);
 }
 .btn-ghost-ink:hover { background: hsl(var(--paper)); color: hsl(var(--ink)); }
 
@@ -422,6 +442,7 @@
     font-family: "Archivo", system-ui, sans-serif;
     font-size: 14px;
     letter-spacing: 0.045em;
+  line-height: var(--lh-label);
 }
 
 .tool-mode-switch {
@@ -461,7 +482,7 @@
 .red-drop-title {
     font-size: 22px;
     font-weight: 700;
-    line-height: 1.2;
+    line-height: var(--lh-heading);
     letter-spacing: normal;
 }
 .red-drop-formats {
@@ -499,6 +520,7 @@
     text-decoration: underline;
     text-underline-offset: 3px;
     list-style: none;
+  line-height: var(--lh-label);
 }
 .red-howitworks summary::-webkit-details-marker { display: none; }
 .red-howitworks summary:hover { color: hsl(var(--brick)); }
@@ -510,13 +532,13 @@
     gap: 8px;
     color: hsl(var(--ink-muted));
     font-size: 14px;
-    line-height: 1.5;
+    line-height: var(--lh-helper);
 }
 .red-field-sources {
     margin-top: 12px;
     color: hsl(var(--ink-muted));
     font-size: 12px;
-    line-height: 1.5;
+    line-height: var(--lh-helper);
 }
 
 .red-findings-head {
@@ -528,10 +550,12 @@
 .red-task-heading {
     font-size: 19px;
     font-weight: 700;
-    line-height: 1.25;
+    line-height: var(--lh-heading);
     letter-spacing: normal;
     overflow-wrap: anywhere;
 }
+/* Task heading is 19px (§2). Without this the embedded h2 rule above outranks the class and paints 22px. */
+[data-toolkit-embedded="true"] .red-task-heading { font-size: 19px; }
 
 .red-disclosure summary {
     display: flex;
@@ -545,6 +569,7 @@
     text-decoration: underline;
     text-underline-offset: 3px;
     list-style: none;
+  line-height: var(--lh-label);
 }
 .red-disclosure summary::-webkit-details-marker { display: none; }
 .red-disclosure summary:hover { color: hsl(var(--brick)); }
@@ -561,6 +586,7 @@
     text-decoration: underline;
     text-underline-offset: 3px;
     list-style: none;
+  line-height: var(--lh-label);
 }
 .red-advanced summary::-webkit-details-marker { display: none; }
 .red-advanced summary:hover { color: hsl(var(--brick)); }
@@ -575,14 +601,14 @@
     padding: 6px 11px;
     border: 1px solid hsl(var(--ink));
     background: hsl(var(--paper));
-    font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
     font-size: 14px;
 }
 .red-adv-help {
     margin-top: 4px;
     color: hsl(var(--ink-muted));
     font-size: 12px;
-    line-height: 1.4;
+    line-height: var(--lh-helper);
 }
 
 .red-apply-row {
@@ -611,15 +637,16 @@
     margin-top: 2px;
     font-size: 19px;
     font-weight: 700;
-    line-height: 1.25;
+    line-height: var(--lh-heading);
 }
 
 .red-hash-line {
     margin: 14px 0 0;
     color: hsl(var(--ink-muted));
-    font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
     font-size: 13px;
     word-break: break-all;
+  line-height: var(--lh-row);
 }
 .red-hash-line + .red-hash-line { margin-top: 4px; }
 
@@ -639,8 +666,9 @@
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 0.1em;
+  line-height: var(--lh-label);
 }
-.editorial-table tbody tr { border-bottom: 1px solid hsl(var(--ink) / 0.17); }
+.editorial-table tbody tr { border-bottom: 1px solid hsl(var(--ink) / 0.17); line-height: var(--lh-row); }
 .editorial-table tbody tr:hover { background: hsl(var(--paper)); }
 
 .tag-toolkit, .tag-guides, .tag-desk { color: hsl(var(--ink-muted)); }
@@ -711,6 +739,7 @@
     text-decoration: none;
     text-transform: uppercase;
     white-space: nowrap;
+  line-height: var(--lh-label);
 }
 .af-bar-nav a:hover { color: hsl(var(--brick)); }
 .af-subscribe {
@@ -725,6 +754,7 @@
     text-decoration: none;
     text-transform: uppercase;
     white-space: nowrap;
+  line-height: var(--lh-label);
 }
 .af-subscribe:hover { filter: brightness(0.94); }
 
@@ -777,6 +807,7 @@
     letter-spacing: 0.1em;
     text-decoration: none;
     text-transform: uppercase;
+  line-height: var(--lh-label);
 }
 .af-colophon-nav a:hover { color: hsl(var(--paper)); }
 
@@ -867,6 +898,12 @@
     padding-left: 32px;
     padding-right: 32px;
 }
+/* Column cap steps with the scale above; see the note at the end of this file.
+   Breakpoints are the frame width, not the window. */
+@media (min-width: 1252px) { [data-toolkit-embedded="true"] .max-w-6xl, [data-toolkit-embedded="true"] .red-upload-stage { max-width: 1240px; } }
+@media (min-width: 1528px) { [data-toolkit-embedded="true"] .max-w-6xl, [data-toolkit-embedded="true"] .red-upload-stage { max-width: 1320px; } }
+@media (min-width: 1900px) { [data-toolkit-embedded="true"] .max-w-6xl, [data-toolkit-embedded="true"] .red-upload-stage { max-width: 1400px; } }
+
 
 /* How it works: the kit's numbered step-flow, one band on paper. */
 .red-steps {
@@ -893,9 +930,10 @@
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 0.14em;
+  line-height: var(--lh-label);
 }
-.red-steps strong { font-size: 16px; font-weight: 700; line-height: 1.25; }
-.red-steps li > span:last-child { color: hsl(var(--ink-muted)); font-size: 14px; line-height: 1.5; }
+.red-steps strong { font-size: 16px; font-weight: 700; line-height: var(--lh-heading); }
+.red-steps li > span:last-child { color: hsl(var(--ink-muted)); font-size: 14px; line-height: var(--lh-helper); }
 .red-field-sources { margin-top: 10px; }
 @media (max-width: 760px) {
     .red-steps { grid-template-columns: minmax(0, 1fr); }
@@ -912,3 +950,19 @@
 }
 
 .btn-forest[aria-disabled="true"] { cursor: not-allowed; }
+
+/* ---- Large-display scale (Ben, 2026-09-04) -------------------------------
+   At 2560px this surface used 44% of the width and the type read small. The fix
+   is to scale the composition, not stretch it: `zoom` steps the whole surface at
+   once - type, spacing, rules - so every proportion the design system defines
+   survives, and the column cap steps with it so prose keeps a sane measure.
+
+   These breakpoints are the width of THIS FRAME, not the window. Embedded, the
+   frame is the window minus the Toolkit rail, so 1252/1528/1900 here land on the
+   same windows as 1500/1800/2200 in the shell's public/toolkit.css. Below that
+   nothing changes, which is the laptop view already signed off.
+
+   The embed flag lives on the App div, not on body - target it directly. */
+@media (min-width: 1252px) { [data-toolkit-embedded="true"] { zoom: 1.08; } }
+@media (min-width: 1528px) { [data-toolkit-embedded="true"] { zoom: 1.18; } }
+@media (min-width: 1900px) { [data-toolkit-embedded="true"] { zoom: 1.30; } }

@@ -6,6 +6,9 @@
 //
 //   node scripts/state-proofs.mjs            all states
 //   node scripts/state-proofs.mjs 4f-pwc-determination
+//
+// `states` and `startServer` are exported so scripts/style-census.mjs drives the
+// same states; there is one list of what the canvas draws.
 import { createServer } from "node:http";
 import { createReadStream, existsSync, statSync } from "node:fs";
 import { mkdir } from "node:fs/promises";
@@ -30,7 +33,7 @@ const types = new Map([
   [".woff2", "font/woff2"]
 ]);
 
-function startServer() {
+export function startServer() {
   const server = createServer((request, response) => {
     let pathname;
     try {
@@ -59,7 +62,7 @@ function startServer() {
 }
 
 // Each state names the canvas artboard it proves.
-function states(page, base) {
+export function states(page, base) {
   async function open(route) {
     await page.goto(`${base}/?s=${Date.now()}#${route}`, { waitUntil: "networkidle" });
     await page.waitForTimeout(400);
@@ -211,6 +214,8 @@ async function main() {
       if (only && name !== only) continue;
       try {
         await run();
+        // Park the pointer on empty rail: a proof shows the drawn state, not the hover of the last click.
+        await page.mouse.move(12, 780);
         await page.waitForTimeout(500);
         await page.screenshot({ path: join(proofsRoot, `${name}.png`) });
         process.stdout.write(`PASS  ${name}\n`);
@@ -232,4 +237,5 @@ async function main() {
   process.stdout.write("\nEvery canvas state reached. Compare proofs/states/ against the canvas renders before sign-off.\n");
 }
 
-await main();
+// Run only when invoked directly; scripts/style-census.mjs imports the driver above.
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) await main();

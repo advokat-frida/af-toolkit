@@ -105,6 +105,15 @@ function visibleText(html) {
     .replace(/&[a-z#0-9]+;/gi, " ");
 }
 
+// rgb()/rgba() forms of the tokens above. A translucent hairline is a token too:
+// the rendered census found rgba(31,29,24,.16) in three tools, a hairline mixed
+// from an ink that is not ours, which no hex scan could see.
+const CANONICAL_RGB = new Set(
+  [...CANONICAL_HEX]
+    .map((hex) => (hex.length === 4 ? "#" + [...hex.slice(1)].map((c) => c + c).join("") : hex))
+    .map((hex) => [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16)).join(","))
+);
+
 function auditHexes(rel, content) {
   const extras = HEX_EXCEPTIONS[rel] ?? new Set();
   for (const match of content.matchAll(/#[0-9a-fA-F]{3,8}\b/g)) {
@@ -112,6 +121,11 @@ function auditHexes(rel, content) {
     if (/^#[0-9a-f]{3}$|^#[0-9a-f]{6}$/.test(hex) && !CANONICAL_HEX.has(hex) && !extras.has(hex)) {
       fail(rel, "palette", `non-canonical color ${hex}`);
     }
+  }
+  for (const match of content.matchAll(/rgba?\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*(?:,\s*[\d.]+\s*)?\)/g)) {
+    const base = `${match[1]},${match[2]},${match[3]}`;
+    if (base === "0,0,0" || base === "255,255,255") continue; // transparent black, pure white
+    if (!CANONICAL_RGB.has(base)) fail(rel, "palette", `non-canonical color ${match[0]} (rgb base ${base} is not a token)`);
   }
 }
 

@@ -8,6 +8,13 @@
 @font-face { font-family: "Anton"; src: url("/fonts/anton-400-latin.woff2") format("woff2"); font-weight: 400; font-display: swap; }
 
 :root {
+  /* Type rhythm (DESIGN-SYSTEM §2): six line-heights, one per kind of text. */
+  --lh-display: 1.1;
+  --lh-heading: 1.2;
+  --lh-body: 1.55;
+  --lh-row: 1.5;
+  --lh-helper: 1.45;
+  --lh-label: 1.4;
   --ink: #16140f;
   --soft: #4a463d;
   --paper: #fffdf8;
@@ -42,7 +49,7 @@ body {
   color: var(--ink);
   font-family: var(--font-reading);
   font-size: 15px;
-  line-height: 1.55;
+  line-height: var(--lh-body);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -65,6 +72,7 @@ a:hover { color: var(--red); }
   font-family: var(--font-label);
   font-size: 13px;
   font-weight: 700;
+  line-height: var(--lh-label);
 }
 .skip-link:focus { left: 8px; top: 8px; }
 
@@ -126,7 +134,7 @@ a:hover { color: var(--red); }
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.12em;
-  line-height: 1.2;
+  line-height: var(--lh-label);
   text-transform: uppercase;
 }
 
@@ -146,6 +154,7 @@ a:hover { color: var(--red); }
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+  line-height: var(--lh-label);
 }
 
 .tool-nav a {
@@ -162,6 +171,7 @@ a:hover { color: var(--red); }
   font-weight: 700;
   letter-spacing: 0.02em;
   text-decoration: none;
+  line-height: var(--lh-label);
 }
 .tool-nav a:hover { background: var(--ground); color: var(--ink); }
 .tool-nav a[aria-current="page"] {
@@ -179,6 +189,11 @@ a:hover { color: var(--red); }
   width: min(100%, 1000px);
   padding: 44px 40px 40px;
 }
+/* Column cap steps with the scale defined at the end of this file. */
+@media (min-width: 1500px) { .home-wrap { width: min(100%, 1240px); } }
+@media (min-width: 1800px) { .home-wrap { width: min(100%, 1460px); } }
+@media (min-width: 2200px) { .home-wrap { width: min(100%, 1700px); } }
+
 
 .home-hero {
   padding-bottom: 22px;
@@ -211,6 +226,7 @@ a:hover { color: var(--red); }
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+  line-height: var(--lh-label);
 }
 
 .tool-grid {
@@ -246,8 +262,8 @@ a:hover { color: var(--red); }
   color: var(--forest);
 }
 .card-icon svg { display: block; }
-.tool-card strong { font-size: 17px; font-weight: 700; line-height: 1.2; }
-.card-desc { color: var(--soft); font-size: 14px; line-height: 1.4; }
+.tool-card strong { font-size: 17px; font-weight: 700; line-height: var(--lh-heading); }
+.card-desc { color: var(--soft); font-size: 14px; line-height: var(--lh-helper); }
 
 .home-bottom { margin-top: 34px; }
 
@@ -285,6 +301,7 @@ a:hover { color: var(--red); }
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  line-height: var(--lh-label);
 }
 .changelog-body h3 { margin: 4px 0 6px; font-size: 16px; font-weight: 700; }
 .changelog-body ul { margin: 0; padding-left: 18px; }
@@ -319,6 +336,7 @@ a:hover { color: var(--red); }
   letter-spacing: 0.14em;
   text-transform: uppercase;
   white-space: nowrap;
+  line-height: var(--lh-label);
 }
 .crumb-sep { color: var(--faint); }
 .crumb-tool {
@@ -327,7 +345,7 @@ a:hover { color: var(--red); }
   font-size: 21px;
   font-weight: 400;
   letter-spacing: 0.01em;
-  line-height: 1.1;
+  line-height: var(--lh-display);
   text-transform: uppercase;
   white-space: nowrap;
   overflow: hidden;
@@ -346,6 +364,7 @@ a:hover { color: var(--red); }
   text-decoration: underline;
   text-underline-offset: 3px;
   white-space: nowrap;
+  line-height: var(--lh-label);
 }
 .head-action:hover { color: var(--red); }
 
@@ -372,6 +391,7 @@ a:hover { color: var(--red); }
   font-weight: 700;
   letter-spacing: 0.09em;
   text-transform: uppercase;
+  line-height: var(--lh-label);
 }
 .frame-stage.is-loaded .frame-loading { display: none; }
 
@@ -424,7 +444,7 @@ a:hover { color: var(--red); }
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 0.12em;
-    line-height: 1.2;
+    line-height: var(--lh-label);
     text-transform: uppercase;
   }
   .menu-button {
@@ -440,7 +460,8 @@ a:hover { color: var(--red); }
     font-size: 13px;
     font-weight: 700;
     cursor: pointer;
-  }
+  line-height: var(--lh-label);
+}
 
   .toolkit-sidebar {
     position: fixed;
@@ -515,3 +536,23 @@ a:hover { color: var(--red); }
   .toolkit-sidebar { transition: none; }
   .tool-card:hover { transform: none; }
 }
+
+/* ---- Large-display scale (Ben, 2026-09-04) -------------------------------
+   At 2560px the Toolkit used 44% of the width and the type read small. The fix
+   is to scale the composition, not stretch it: `zoom` steps the whole surface
+   at once - type, spacing, rules - so every proportion the design system defines
+   survives, and the home column cap steps with it so prose keeps a sane measure.
+   The rail widens in step, or its nav labels wrap. Each tool carries the same
+   steps keyed to its own frame width. Nothing changes below 1500px, which is the
+   laptop view already signed off. */
+/* The rail widens a few px BEFORE each zoom step (1482/1776/2172, not
+   1500/1800/2200). Otherwise the tool frame gets narrower at the exact window
+   where the tool's own breakpoint must fire, and the two can never agree. With
+   the early step the frame is 1252/1528/1900 at 1500/1800/2200, which is what
+   every tool keys on. */
+@media (min-width: 1482px) { .toolkit-shell { grid-template-columns: 248px minmax(0, 1fr); } }
+@media (min-width: 1500px) { .toolkit-sidebar, .tool-head, .home-wrap { zoom: 1.08; } }
+@media (min-width: 1776px) { .toolkit-shell { grid-template-columns: 272px minmax(0, 1fr); } }
+@media (min-width: 1800px) { .toolkit-sidebar, .tool-head, .home-wrap { zoom: 1.18; } }
+@media (min-width: 2172px) { .toolkit-shell { grid-template-columns: 300px minmax(0, 1fr); } }
+@media (min-width: 2200px) { .toolkit-sidebar, .tool-head, .home-wrap { zoom: 1.30; } }

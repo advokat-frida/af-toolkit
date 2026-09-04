@@ -23,6 +23,14 @@ const embedCss = `
   .oo-stage{flex:1 1 auto;margin:26px 0 30px}
   .oo-stage[data-phase="questions"]{align-items:start}
   @media(max-width:640px){.wrap{padding:0 10px}.oo-stage{margin:12px 0 18px}}
+
+  /* Large-display scale (Ben, 2026-09-04): on a desktop monitor, scale the whole
+     composition rather than stretch it. Breakpoints are the width of THIS FRAME,
+     not the window - embedded, the frame is the window minus the Toolkit rail,
+     so these land on the same windows as 1500/1800/2200 in public/toolkit.css. */
+  @media(min-width:1252px){.wrap{max-width:1240px}body{zoom:1.08}}
+  @media(min-width:1528px){.wrap{max-width:1320px}body{zoom:1.18}}
+  @media(min-width:1900px){.wrap{max-width:1400px}body{zoom:1.30}}
 `;
 
 const netKill = `(function(){

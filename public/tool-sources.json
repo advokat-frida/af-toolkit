@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "product": "The Advokat Frida Toolkit",
-  "generatedAt": "2026-09-04T14:54:45.922Z",
+  "generatedAt": "2026-09-04T17:16:01.738Z",
   "releaseBoundary": "private-source-control-only",
   "layout": "one repository; each tool is a top-level source folder and its committed build artifact is staged here",
   "tools": [
@@ -9,9 +9,9 @@
       "id": "redactorium",
       "sourceFolder": "redactorium",
       "sourceArtifact": "redactorium/frontend/build",
-      "sourceSha256": "018c03cd44b398d92a6d25c4fdaa3efa28b9693538ab5606c0eeacc1abbd9c2a",
+      "sourceSha256": "6031b07ae886385ff57e0cd91cf9398760d85bc734161ac31d65e397efd3c842",
       "toolkitArtifact": "tools/redactorium/",
-      "toolkitSha256": "597e571cc1b5ad3eafa1842744f45ab97a22d1fb3bc57f3147a3382cedfb478b",
+      "toolkitSha256": "e1a04927d8479b0bcd332f0a4253a6aec2321a9f06b8314490d376065ffb61ef",
       "license": "MIT",
       "sourceArtifactGenerated": true,
       "licenseFile": "licenses/redactorium.txt",
@@ -21,9 +21,9 @@
       "id": "safeseed",
       "sourceFolder": "safeseed",
       "sourceArtifact": "safeseed/demo/safeseed-generator.html",
-      "sourceSha256": "f589b104b461668868c9f4c7672ab6dd5aed16110c3090719a5767f2451608e3",
+      "sourceSha256": "4e9d81074d6d374166a073ec9ca165b3edc5e9cd342a6685ad6e53fe3a40ab6e",
       "toolkitArtifact": "tools/safeseed.html",
-      "toolkitSha256": "c6a77cff14889663c95423543efd8b9740de80cc48baa31d520d9ce75925f03b",
+      "toolkitSha256": "7b849b452edb49b10860a4cc65dd29801b636e205a05599812a5411b3b70ac9f",
       "license": "MIT",
       "licenseFile": "licenses/safeseed.txt"
     },
@@ -31,9 +31,9 @@
       "id": "safelist",
       "sourceFolder": "safelist",
       "sourceArtifact": "safelist/dist/safelist-embed.html",
-      "sourceSha256": "2cf793d5629b4da931d48aa7f1d7f26d45071c879f23ff3690657bab34353f6d",
+      "sourceSha256": "61e5c8c0bdd05c203a5fdfb5bc0c0586b763c142162d8657e5a4166cc11eb64f",
       "toolkitArtifact": "tools/safelist.html",
-      "toolkitSha256": "2cf793d5629b4da931d48aa7f1d7f26d45071c879f23ff3690657bab34353f6d",
+      "toolkitSha256": "61e5c8c0bdd05c203a5fdfb5bc0c0586b763c142162d8657e5a4166cc11eb64f",
       "license": "MIT",
       "licenseFile": "licenses/safelist.txt"
     },
@@ -41,9 +41,9 @@
       "id": "objection-oracle",
       "sourceFolder": "objection-oracle",
       "sourceArtifact": "objection-oracle/dist/objection-oracle-embed.html",
-      "sourceSha256": "29bf0c96310a34dd9b75c4484aac997216272e0a5feeb6e30a3ddb5e3282f5dd",
+      "sourceSha256": "dea1b3233b9709aeba6a14d8861f2f36cd2e51c25838545235f8eeea1a4246d7",
       "toolkitArtifact": "tools/objection-oracle.html",
-      "toolkitSha256": "29bf0c96310a34dd9b75c4484aac997216272e0a5feeb6e30a3ddb5e3282f5dd",
+      "toolkitSha256": "dea1b3233b9709aeba6a14d8861f2f36cd2e51c25838545235f8eeea1a4246d7",
       "license": "MIT",
       "licenseFile": "licenses/objection-oracle.txt"
     },
@@ -51,9 +51,9 @@
       "id": "privacy-wizards-council",
       "sourceFolder": "privacy-wizards-council",
       "sourceArtifact": "privacy-wizards-council/dist/wizards.html",
-      "sourceSha256": "8e97b36c71a4070629ea7b3319ed18211b2d8e938264538d8d162e30f4288fc5",
+      "sourceSha256": "3d8ba89f270f421869904eeacbdf3a8f05e6f35401ea661d0ba1457c3803e52f",
       "toolkitArtifact": "tools/privacy-wizards-council.html",
-      "toolkitSha256": "8e97b36c71a4070629ea7b3319ed18211b2d8e938264538d8d162e30f4288fc5",
+      "toolkitSha256": "3d8ba89f270f421869904eeacbdf3a8f05e6f35401ea661d0ba1457c3803e52f",
       "license": "MIT",
       "licenseFile": "licenses/privacy-wizards-council.txt"
     }

@@ -10,7 +10,7 @@
   --amber: #9e5415;
   --red: #c83232;
   --line: #16140f;
-  --line-soft: rgba(31, 29, 24, 0.16);
+  --line-soft: rgba(22, 20, 15, 0.17);
   --mint: color-mix(in srgb, var(--forest) 14%, var(--paper));
   --forest-wash: color-mix(in srgb, var(--forest) 8%, var(--paper));
   --indigo-soft: color-mix(in srgb, var(--indigo) 8%, var(--paper));
@@ -36,7 +36,14 @@
   color: var(--ink);
   font-family: var(--font);
   font-size: 16px;
-  line-height: 1.5;
+  line-height: var(--lh-row);
+  /* Type rhythm (DESIGN-SYSTEM §2): six line-heights, one per kind of text. */
+  --lh-display: 1.1;
+  --lh-heading: 1.2;
+  --lh-body: 1.55;
+  --lh-row: 1.5;
+  --lh-helper: 1.45;
+  --lh-label: 1.4;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
 }
@@ -167,6 +174,7 @@ ol {
   text-decoration: none;
   text-transform: uppercase;
   white-space: nowrap;
+  line-height: var(--lh-label);
 }
 
 .bar-nav a {
@@ -204,6 +212,7 @@ ol {
   font-weight: 760;
   letter-spacing: 0.075em;
   text-transform: uppercase;
+  line-height: var(--lh-label);
 }
 
 main {
@@ -282,6 +291,7 @@ h4 {
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  line-height: var(--lh-label);
 }
 
 .changelog-body {
@@ -436,6 +446,7 @@ h4 {
   font-family: var(--font-label);
   font-size: 13px;
   font-weight: 760;
+  line-height: var(--lh-label);
 }
 
 .category-row button:hover,
@@ -486,6 +497,7 @@ h4 {
   font-family: var(--font-label);
   font-size: 14px;
   font-weight: 750;
+  line-height: var(--lh-label);
 }
 
 .review-mode-disclosure > div {
@@ -668,7 +680,7 @@ h4 {
 .answer-arrow {
   color: var(--indigo);
   font-size: 20px;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .empty-state {
@@ -694,7 +706,7 @@ h4 {
 }
 
 .button.primary {
-  color: var(--paper);
+  color: #fff;
   background: var(--forest);
   box-shadow: 4px 4px 0 var(--ink-soft);
 }
@@ -715,7 +727,7 @@ h4 {
 .text-button,
 .icon-button {
   min-height: 44px;
-  padding: 6px 4px;
+  padding: 6px 8px;
   color: var(--forest-2);
   background: transparent;
   border: 0;
@@ -724,6 +736,7 @@ h4 {
   font-weight: 760;
   text-decoration: underline;
   text-underline-offset: 3px;
+  line-height: var(--lh-label);
 }
 
 .icon-button {
@@ -800,6 +813,7 @@ h4 {
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  line-height: var(--lh-label);
 }
 
 .legal-status small {
@@ -889,6 +903,7 @@ h4 {
   font-family: var(--font-label);
   font-size: 14px;
   font-weight: 760;
+  line-height: var(--lh-label);
 }
 
 .selected-facts ol {
@@ -977,6 +992,7 @@ h4 {
   font-family: var(--font-label);
   font-size: 12px;
   font-weight: 800;
+  line-height: var(--lh-label);
 }
 
 .answer-card strong,
@@ -1015,6 +1031,7 @@ h4 {
   font-weight: 760;
   text-decoration: underline;
   text-underline-offset: 3px;
+  line-height: var(--lh-label);
 }
 
 .why-disclosure p {
@@ -1098,6 +1115,7 @@ h4 {
   font-family: var(--font-label);
   font-size: 13px;
   font-weight: 760;
+  line-height: var(--lh-label);
 }
 
 .outcome-tabs button:hover,
@@ -1120,6 +1138,7 @@ h4 {
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  line-height: var(--lh-label);
 }
 
 .reasoning-toggle {
@@ -1276,6 +1295,7 @@ h4 {
   font-family: var(--font-label);
   font-size: 13px;
   font-weight: 760;
+  line-height: var(--lh-label);
 }
 
 .source-text {
@@ -1289,7 +1309,7 @@ h4 {
   background: var(--quiet-fill);
   border-left: 3px solid var(--indigo);
   font-size: 13px;
-  line-height: 1.55;
+  line-height: var(--lh-body);
 }
 
 .source-body p:last-child,
@@ -1322,6 +1342,7 @@ h4 {
   font-family: var(--font-label);
   font-size: 14px;
   font-weight: 760;
+  line-height: var(--lh-label);
 }
 
 .fallback-panel textarea {
@@ -1392,6 +1413,7 @@ h4 {
   text-decoration: none;
   text-transform: uppercase;
   white-space: nowrap;
+  line-height: var(--lh-label);
 }
 
 .colophon-nav a:hover,
@@ -1669,6 +1691,12 @@ main.is-embed {
   margin: 0 auto;
   padding: 26px 32px 30px;
 }
+/* Column cap steps with the scale above; see the note at the end of this file.
+   Breakpoints are the frame width, not the window. */
+@media (min-width: 1252px) { main.is-embed { max-width: 1240px; } }
+@media (min-width: 1528px) { main.is-embed { max-width: 1320px; } }
+@media (min-width: 1900px) { main.is-embed { max-width: 1400px; } }
+
 
 .finder-stage,
 .determination-shell {
@@ -1687,13 +1715,13 @@ main.is-embed {
   font-family: var(--font-label);
   font-size: 14px;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: var(--lh-label);
 }
 
 .button.primary {
   border: 2px solid var(--line);
   background: var(--forest);
-  color: var(--paper);
+  color: #fff;
   letter-spacing: 0.045em;
   text-transform: uppercase;
   box-shadow: 4px 4px 0 var(--line);
@@ -1813,7 +1841,7 @@ main.is-embed {
   display: block;
   font-size: 16px;
   font-weight: 700;
-  line-height: 1.25;
+  line-height: var(--lh-heading);
 }
 
 .wizard-row .wizard-copy small {
@@ -1821,7 +1849,7 @@ main.is-embed {
   margin-top: 2px;
   color: var(--ink-soft);
   font-size: 14px;
-  line-height: 1.4;
+  line-height: var(--lh-helper);
 }
 
 .card-arrow {
@@ -1850,13 +1878,14 @@ main.is-embed {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+  line-height: var(--lh-label);
 }
 
 .question-card h3 {
   margin: 22px 0 0;
   font-size: 24px;
   font-weight: 700;
-  line-height: 1.3;
+  line-height: var(--lh-heading);
   text-wrap: pretty;
 }
 
@@ -1898,7 +1927,7 @@ main.is-embed {
   margin-top: 2px;
   color: var(--ink-soft);
   font-size: 13px;
-  line-height: 1.4;
+  line-height: var(--lh-helper);
 }
 
 .question-aside,
@@ -1908,7 +1937,7 @@ main.is-embed {
   border-left: 3px solid var(--amber);
   color: var(--ink-soft);
   font-size: 13px;
-  line-height: 1.45;
+  line-height: var(--lh-helper);
   max-width: 70ch;
 }
 
@@ -1942,7 +1971,7 @@ main.is-embed {
   font-size: 28px;
   font-weight: 400;
   letter-spacing: 0.01em;
-  line-height: 1.15;
+  line-height: var(--lh-display);
   text-transform: uppercase;
 }
 
@@ -1955,13 +1984,13 @@ main.is-embed {
   margin-top: 6px;
   color: var(--ink-soft);
   font-size: 15px;
-  line-height: 1.5;
+  line-height: var(--lh-body);
 }
 
 .outcome-summary {
   margin: 18px 0 0;
   font-size: 15px;
-  line-height: 1.55;
+  line-height: var(--lh-body);
   max-width: 78ch;
 }
 
@@ -1980,6 +2009,7 @@ main.is-embed {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+  line-height: var(--lh-label);
 }
 
 .next-actions ol {
@@ -1992,7 +2022,7 @@ main.is-embed {
   padding: 10px 0;
   border-bottom: 1px solid var(--line-soft);
   font-size: 15px;
-  line-height: 1.5;
+  line-height: var(--lh-body);
 }
 
 .authority-list ul {
@@ -2039,7 +2069,7 @@ main.is-embed {
   background: transparent;
   color: var(--ink-soft);
   font-size: 13px;
-  line-height: 1.45;
+  line-height: var(--lh-helper);
 }
 
 .outcome-tools {
@@ -2149,19 +2179,20 @@ textarea {
   text-decoration: underline;
   text-underline-offset: 3px;
   cursor: pointer;
+  line-height: var(--lh-label);
 }
 
 /* ===== Canvas fidelity (Toolkit - Redesign 3C, 4E, 4F) ===== */
 
 .search-wrap {
-  min-height: 48px;
+  min-height: 44px;
   padding: 0 14px;
   border: 1px solid var(--line);
   border-radius: 0;
   box-shadow: none;
 }
 .search-wrap > span { display: inline-flex; color: var(--ink-soft); font-size: 18px; }
-.search-wrap input { min-height: 46px; padding: 8px 0; font-size: 16px; }
+.search-wrap input { min-height: 44px; padding: 8px 0; font-size: 16px; }
 
 .question-progress { display: flex; align-items: center; gap: 14px; }
 .question-progress .question-count { margin: 0; white-space: nowrap; }
@@ -2190,3 +2221,17 @@ textarea {
 .exit-actions { align-items: center; gap: 18px; }
 
 .outcome-main { min-width: 0; }
+
+/* ---- Large-display scale (Ben, 2026-09-04) -------------------------------
+   At 2560px this surface used 44% of the width and the type read small. The fix
+   is to scale the composition, not stretch it: `zoom` steps the whole surface at
+   once - type, spacing, rules - so every proportion the design system defines
+   survives, and the column cap steps with it so prose keeps a sane measure.
+
+   These breakpoints are the width of THIS FRAME, not the window. Embedded, the
+   frame is the window minus the Toolkit rail, so 1252/1528/1900 here land on the
+   same windows as 1500/1800/2200 in the shell's public/toolkit.css. Below that
+   nothing changes, which is the laptop view already signed off. */
+@media (min-width: 1252px) { main.is-embed { zoom: 1.08; } }
+@media (min-width: 1528px) { main.is-embed { zoom: 1.18; } }
+@media (min-width: 1900px) { main.is-embed { zoom: 1.30; } }

@@ -1,6 +1,6 @@
 {
   "name": "@advokat-frida/af-toolkit",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "The Advokat Frida Toolkit: five privacy tools, one repository, one design system.",
   "private": true,
   "type": "module",
@@ -15,9 +15,11 @@
     "design-gate": "node scripts/design-gate.mjs",
     "qa:static": "node scripts/static-qa.mjs",
     "qa:visual": "node scripts/visual-qa.mjs",
-    "gate": "npm run design-gate && npm run typecheck && npm test && npm run build:web && npm run qa:visual && npm run qa:states",
+    "gate": "npm run design-gate && npm run typecheck && npm test && npm run build:web && npm run qa:visual && npm run qa:states && npm run qa:census",
     "qa": "npm run gate",
-    "qa:states": "node scripts/state-proofs.mjs"
+    "qa:states": "node scripts/state-proofs.mjs",
+    "qa:census": "node scripts/style-census.mjs --check",
+    "qa:census:report": "node scripts/style-census.mjs"
   },
   "engines": {
     "node": ">=22"
