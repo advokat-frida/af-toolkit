@@ -1,0 +1,15 @@
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+  Cross-Origin-Opener-Policy: same-origin
+
+# Staged artifacts and the provenance manifest change with every release; never
+# let an intermediary hold a stale copy.
+/tools/*
+  Cache-Control: no-store
+/tool-sources.json
+  Cache-Control: no-store
+
+# Fonts are content-addressed by filename and never change in place.
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable

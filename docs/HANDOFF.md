@@ -1,5 +1,44 @@
 # HANDOFF
 
+## CURRENT BATON — Toolkit rollout (spec'd 2026-09-03, green light pending)
+
+The rollout is spec'd in Linear as the ADVO project **Toolkit rollout: toolkit.advokatfrida.com**
+(https://linear.app/ducket/project/toolkit-rollout-toolkitadvokatfridacom-4c49feb0c8fa). Fifteen
+issues in four milestones; each names its lane (Opus / Fable / Ben), files, and acceptance.
+
+**Next session (Opus) starts here, in order, on Ben's green light:** ADVO-160 (MIT license + brand
+notice) → ADVO-161 (full-history secret scan) → ADVO-162 (root CI with the rendered gate, per-tool
+workflows) → ADVO-163 (unlist SafeList for 0.3) → ADVO-164 (Pages, Route A git-connected: Ben connects the repo in the
+Cloudflare dashboard and adds the custom domain; Opus adds `_headers` and verifies) → ADVO-165 (public flip, Ben's word). Then Phase 1 on the website repo: ADVO-166
+(front-page hero, **Fable**), ADVO-167 (repoint the tool posts), ADVO-168 (forwarding stubs),
+ADVO-169 (nav, Ben). Phase 2: ADVO-170 (launch article, **Fable**), ADVO-171 (canon). Phase 3:
+ADVO-172 (SafeList 0.4), ADVO-173 (SafeSeed 0.4.0 from the monorepo), ADVO-174 (Esri fork after Pete).
+
+Standing: every change passes the gate and the review gate; commit and push only on Ben's tuck
+word; the public flip, DNS, Pages project, publishing and sending are Ben's separate authorizations.
+
+**Live as of 2026-09-03, fixed.** Ben created a Worker named `the-toolkit` (not a Pages project),
+onboarded `toolkit.advokatfrida.com`, and manually deployed three times; one upload took
+`privacy-wizards-council/` as the asset directory, so the subdomain served that folder's unbuilt
+Vite source. Corrected diagnosis: the Worker is NOT git-connected (Settings > Build shows
+`Git repository: [Connect]`), so there was never a Workers Builds root directory to blame.
+
+Fixed by adding `wrangler.jsonc` at the repo root (static-assets-only Worker, `name: the-toolkit`,
+`assets.directory: ./public/`, `not_found_handling: "none"`) plus `public/_headers`, then running
+`npx wrangler deploy` from the repo root. Version `ebeffbfb`. Verified against the live domain by
+content: old PWC source 404s; `toolkit.css`, `toolkit.js`, `tool-sources.json`, the fox mark and
+every `tools/*.html` byte-identical to the repo; font magic bytes `774f4632`; `_headers` applied;
+Home, SafeSeed, Redactorium and Privacy Wizards all render in Chrome at the live URL.
+
+BOTH FILES ARE UNCOMMITTED - the live state depends on local disk until they ride a tuck.
+
+Open, in ADVO-164's comments: the Worker is still direct-upload, so pushes to main do NOT redeploy
+(Ben must hit Connect in Settings > Build; a Worker can be attached to a repo after the fact, unlike
+Pages); Cloudflare injects a hidden `cdn-cgi/content` anchor into every HTML response, which is
+inert but modifies pages the Toolkit claims ship as built and breaks byte-equality checks; and the
+deploy published SafeList, since main still carries five tools (ADVO-163 unlists it).
+
+
 ## 2026-09-02 - SafeList: the fifth tool, built and wired into the shell
 
 Ben picked the next flagship: a send list checked against the marketing suppression list, for
@@ -52,6 +91,9 @@ is part of the file, with SafeSeed's generated preview as the reference; an **in
 (Redactorium's findings, SafeList's review) keeps Archivo caps headers, body text, and mono on the
 identifier column only. SafeList's preview now follows SafeSeed's grammar exactly; the review table
 is unchanged. Gate re-run green.
+
+Shipped: `39398ad` on `origin/main` (tuck, 2026-09-02). Review: Ben walked the mock and the wired
+version in this session; Frida's review is the gate plus the judgment checklist against the proofs.
 
 ## 2026-09-01 - Canvas fidelity pass (every artboard, every state)
 

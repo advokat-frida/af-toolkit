@@ -1,0 +1,21 @@
+{
+  // The Toolkit is served as a static-assets-only Worker: no server code, no
+  // build step. `public/` is the committed, staged snapshot that
+  // `scripts/build-tools.mjs` produces, so Cloudflare uploads exactly the bytes
+  // the gate proved.
+  //
+  // Workers Builds must be configured with the repository root as its root
+  // directory and an EMPTY build command; otherwise it auto-detects one of the
+  // tool folders (it picked privacy-wizards-council on 2026-09-03) and serves
+  // unbuilt source.
+  "name": "the-toolkit",
+  "compatibility_date": "2026-09-03",
+  "assets": {
+    "directory": "./public/",
+    // Every route in the shell is a hash route, so every path that reaches the
+    // edge is a real file. A missing file must 404 rather than silently serving
+    // the shell: an HTML 200 fallback gets edge-cached under the asset's key and
+    // hides a broken deploy.
+    "not_found_handling": "none"
+  }
+}
