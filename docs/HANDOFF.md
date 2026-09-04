@@ -17,8 +17,9 @@ repo tags a release (the ADVO-162 remainder). SafeSeed's own metadata (package, 
 issues, advisories) already points here.
 
 **The rail's exit (Ben).** `Back to The Dispatch`, Lucide `arrow-left`, pinned to the bottom of
-the rail above a hairline; DESIGN-SYSTEM §3 Sidebar records it. The Home line gained its
-apostrophe in `public/index.html` and in the check that pins it.
+the rail above a hairline; DESIGN-SYSTEM §3 Sidebar records it. The Home nameplate is
+`AF Toolkit` over `The privacy practitioner's Swiss Army knife.`, and the tab reads `Home · AF Toolkit`
+(Ben settled on it after two other names the same evening; `scripts/checks.mjs` pins both lines).
 
 **Article embed contract.** The Ship It essay on advokatfrida.com embeds
 `/tools/objection-oracle.html` in an iframe and sizes it from a
