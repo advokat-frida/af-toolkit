@@ -81,6 +81,14 @@ function lfOnlyOnBuild() {
     name: "lf-only-on-build",
     apply: "build" as const,
     enforce: "post" as const,
+    // The template first: a CRLF checkout leaves a stray line break where singlefile strips
+    // the module script tag, so the input is LF before any HTML transform sees it.
+    transformIndexHtml: {
+      order: "pre" as const,
+      handler(html: string) {
+        return html.replace(/\r\n?/g, "\n");
+      },
+    },
     generateBundle(_options: unknown, bundle: Record<string, { type: string; fileName: string; source?: unknown }>) {
       for (const item of Object.values(bundle)) {
         if (item.type === "asset" && item.fileName.endsWith(".html") && typeof item.source === "string") {
