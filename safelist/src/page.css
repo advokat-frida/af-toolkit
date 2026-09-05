@@ -70,10 +70,10 @@
   .sl-actions-note{font-size:14px;color:var(--ink-soft)}
 
   /* Step-flow band. */
-  .sl-steps{display:grid;grid-template-columns:1fr 1fr 1fr;border:1px solid var(--line);background:var(--paper);margin-top:34px}
+  .sl-steps{display:grid;grid-template-columns:1fr 1fr 1fr;border:1px solid var(--line);background:var(--paper);margin:0 0 22px}
   .sl-steps>div{padding:16px 18px;border-left:1px solid var(--hair);display:flex;flex-direction:column;gap:4px}
   .sl-steps>div:first-child{border-left:0}
-  .sl-step-n{line-height:var(--lh-label);font-family:var(--font-label);font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--forest)}
+  .sl-step-n{line-height:1;font-size:22px;font-weight:700;color:var(--forest)}
   .sl-steps strong{font-size:16px;font-weight:700;line-height:var(--lh-heading)}
   .sl-steps span:last-child{font-size:14px;line-height:var(--lh-helper);color:var(--ink-soft)}
 

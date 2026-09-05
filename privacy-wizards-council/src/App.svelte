@@ -408,6 +408,11 @@
     {#if libraryMessage}<div class="notice" role="status"><p>{libraryMessage}</p><button type="button" class="text-button" on:click={() => (libraryMessage = '')}>Dismiss</button></div>{/if}
     <section class="finder-stage" aria-labelledby="finder-heading">
       <h2 id="finder-heading" class="sr-only">Find a determination</h2>
+      <section class="intro-steps" aria-label="How it works">
+        <div><span class="intro-step-n">01</span><strong>Find your question</strong><span>Grouped by what you are deciding.</span></div>
+        <div><span class="intro-step-n">02</span><strong>Answer one question at a time</strong><span>Each step names the article it turns on.</span></div>
+        <div><span class="intro-step-n">03</span><strong>Read the determination</strong><span>Cited outcome, next actions, a record you can export.</span></div>
+      </section>
       <label class="sr-only" for="finder">What are you trying to decide?</label>
       <div class="search-wrap"><span class="search-glyph" aria-hidden="true">{@html searchIcon}</span><input id="finder" type="search" bind:value={search} on:input={() => { activeCategory = null; showAll = true; }} placeholder="Try breach, DPIA, cookies, AI risk…" /></div>
       {#if search}<p class:empty={filteredWizardIds.length === 0} class="search-feedback" role="status">{filteredWizardIds.length ? `${filteredWizardIds.length} matching ${filteredWizardIds.length === 1 ? 'determination' : 'determinations'}.` : 'No matching determination. Try a shorter term or reset the finder.'}</p>{/if}
@@ -420,7 +425,7 @@
         {#each filteredWizardIds as id}
           {@const item = WIZARDS[id]}
           <button type="button" class="wizard-row" on:click={() => openWizard(id)}>
-            <span class="wizard-glyph" aria-hidden="true">{@html wizardIcon(id)}</span>
+            <span class={`wizard-glyph icon-${wizardIconColor(id)}`} aria-hidden="true">{@html wizardIcon(id)}</span>
             <span class="wizard-copy"><strong>{item.title}</strong><small>{item.q || item.tag} · {(item.jurisdictions || []).join(' / ')}</small></span>
             <span class="card-arrow" aria-hidden="true">→</span>
           </button>

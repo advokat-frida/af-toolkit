@@ -258,6 +258,14 @@ export default function Generator() {
         )}
 
         {mode === "generate" && stage === "edit" && (
+          <section className="gen-steps" aria-label="How it works">
+            <div><span className="gen-step-n">01</span><strong>Choose the columns</strong><span>Name the fields your test set needs.</span></div>
+            <div><span className="gen-step-n">02</span><strong>Generate the rows</strong><span>Values are invented on the spot; nothing is real.</span></div>
+            <div><span className="gen-step-n">03</span><strong>Download with the receipt</strong><span>The CSV and a record of how it was made.</span></div>
+          </section>
+        )}
+
+        {mode === "generate" && stage === "edit" && (
           <section className="gen-panel" aria-labelledby="columns-heading">
             <h2 id="columns-heading" className="task-heading" ref={columnsHeadingRef} tabIndex={-1}>Columns</h2>
 

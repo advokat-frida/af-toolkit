@@ -169,10 +169,10 @@
   .sl-actions-note{font-size:14px;color:var(--ink-soft)}
 
   /* Step-flow band. */
-  .sl-steps{display:grid;grid-template-columns:1fr 1fr 1fr;border:1px solid var(--line);background:var(--paper);margin-top:34px}
+  .sl-steps{display:grid;grid-template-columns:1fr 1fr 1fr;border:1px solid var(--line);background:var(--paper);margin:0 0 22px}
   .sl-steps>div{padding:16px 18px;border-left:1px solid var(--hair);display:flex;flex-direction:column;gap:4px}
   .sl-steps>div:first-child{border-left:0}
-  .sl-step-n{line-height:var(--lh-label);font-family:var(--font-label);font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--forest)}
+  .sl-step-n{line-height:1;font-size:22px;font-weight:700;color:var(--forest)}
   .sl-steps strong{font-size:16px;font-weight:700;line-height:var(--lh-heading)}
   .sl-steps span:last-child{font-size:14px;line-height:var(--lh-helper);color:var(--ink-soft)}
 
@@ -264,6 +264,11 @@
     <section class="sl-stage" id="safelist" data-phase="load" aria-label="SafeList">
 
       <div class="sl-view" id="view-load">
+        <section class="sl-steps" aria-label="How it works">
+          <div><span class="sl-step-n">01</span><strong>Load both lists</strong><span>The send list and the opt-outs.</span></div>
+          <div><span class="sl-step-n">02</span><strong>Decide each match</strong><span>Keep or Remove, with the reason.</span></div>
+          <div><span class="sl-step-n">03</span><strong>Download the checked list</strong><span>The list and the record of the check.</span></div>
+        </section>
         <div class="sl-zones">
           <section class="sl-zone" id="zone-send" data-loaded="false" aria-labelledby="zone-send-title">
             <span class="sl-glyph" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" /><path d="M14 2v5a1 1 0 0 0 1 1h5" /><path d="M8 13h2" /><path d="M14 13h2" /><path d="M8 17h2" /><path d="M14 17h2" /></svg></span>
@@ -358,12 +363,6 @@
           <button class="btn primary" type="button" id="check-button" aria-disabled="true">Check the list</button>
           <span class="sl-actions-note" id="check-note">Load both lists to start.</span>
         </div>
-
-        <section class="sl-steps" aria-label="How it works">
-          <div><span class="sl-step-n">1</span><strong>Load both lists</strong><span>The send list and today's suppression export. Nothing leaves this page.</span></div>
-          <div><span class="sl-step-n">2</span><strong>Decide each match</strong><span>Every contact found on the suppression list gets a Keep or a Remove from you.</span></div>
-          <div><span class="sl-step-n">3</span><strong>Download the checked list</strong><span>Same columns you loaded, with a record of what was checked and who decided what.</span></div>
-        </section>
       </div>
 
       <div class="sl-view hidden" id="view-review">

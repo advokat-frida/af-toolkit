@@ -36,8 +36,11 @@ other hex on a Toolkit surface.
 | `--forest-press` | `#183e29` | Primary-button hover shade only |
 | `--amber-wash` | `#fbf4ea` | Washed amber ground (standalone-page notes) |
 
-Red, teal, indigo, and amber are **semantic status hues only**. They never decorate cards, headers,
-numbers, or chrome. (The old per-tool accent bars are retired.)
+Red, teal, indigo, amber, and forest each carry **one meaning: a status, a tier, or a category**,
+never identity or chrome. They never decorate cards, headers, numbers, or the rail. (The old
+per-tool accent bars are retired.) The one category use: the Wizards chooser colours each glyph by
+its group — Incidents red, Data use amber, Governance indigo, Rights and people teal, AI systems
+forest — so sixteen rows scan by kind (Ben, 2026-09-04); the titles stay ink.
 
 ## 2. Type
 
@@ -176,9 +179,12 @@ by `--hairline`; hover fills `--paper`.
 side (SafeSeed's CSV and receipt), each opens with a 24px Lucide glyph in `--forest` that names
 its file.
 
-**Step-flow.** The kit's numbered steps as one band: `1px solid var(--ink)` on `--paper`, equal
-columns separated by `--hairline`; each cell is an Archivo 11 caps number in `--forest`, a 16/700
-title, and one 14px `--soft` line. Redactorium's `How it works` is the instance.
+**Step-flow, the intro strip.** The kit's numbered steps as one band: `1px solid var(--ink)` on
+`--paper`, equal columns separated by `--hairline`; each cell is a 22px/700 number (`01`, `02`,
+`03`) in `--forest` in the body face, a 16/700 title, and one 14px `--soft` line. Since 2026-09-04
+(Ben) it is the first thing in every tool's first state, one row of about 110px, so the first
+control stays visible at 1440×1000. The copy says what the tool is for and what happens, never the
+interface; three steps, no icons, no fourth step.
 
 **Findings table** (Redactorium). Exactly five columns — `Column` (mono), `Detected`,
 `Confidence` (mono, two decimals), `Citation` (`--soft`), `Treatment` (a 200px, 44px select) —

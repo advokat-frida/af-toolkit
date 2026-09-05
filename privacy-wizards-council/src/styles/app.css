@@ -1,6 +1,7 @@
 :root {
   --ink: #16140f;
   --ink-soft: #4a463d;
+  --on-forest: #fff;
   --paper: #fffdf8;
   --ground: #f6f4ef;
   --forest: #1f4e32;
@@ -706,7 +707,7 @@ h4 {
 }
 
 .button.primary {
-  color: #fff;
+  color: var(--on-forest);
   background: var(--forest);
   box-shadow: 4px 4px 0 var(--ink-soft);
 }
@@ -1721,7 +1722,7 @@ main.is-embed {
 .button.primary {
   border: 2px solid var(--line);
   background: var(--forest);
-  color: #fff;
+  color: var(--on-forest);
   letter-spacing: 0.045em;
   text-transform: uppercase;
   box-shadow: 4px 4px 0 var(--line);
@@ -1828,7 +1829,6 @@ main.is-embed {
 .wizard-glyph {
   display: grid;
   place-items: center;
-  color: var(--forest);
 }
 
 .wizard-glyph svg {
@@ -2239,3 +2239,16 @@ textarea {
 @media (min-width: 1252px) { main.is-embed { zoom: 1.08; } }
 @media (min-width: 1528px) { main.is-embed { zoom: 1.18; } }
 @media (min-width: 1900px) { main.is-embed { zoom: 1.30; } }
+
+/* Intro strip (DESIGN-SYSTEM §3 Step-flow): the three steps, first thing in the finder. */
+.intro-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--line); background: var(--paper); margin: 0 0 20px; }
+.intro-steps > div { display: flex; flex-direction: column; gap: 4px; padding: 16px 18px; border-left: 1px solid var(--line-soft); }
+.intro-steps > div:first-child { border-left: 0; }
+.intro-step-n { font-size: 22px; font-weight: 700; line-height: 1; color: var(--forest); }
+.intro-steps strong { font-size: 16px; font-weight: 700; line-height: var(--lh-heading); }
+.intro-steps > div > span:last-child { font-size: 14px; line-height: var(--lh-helper); color: var(--ink-soft); }
+@media (max-width: 760px) {
+  .intro-steps { grid-template-columns: minmax(0, 1fr); }
+  .intro-steps > div { border-left: 0; border-top: 1px solid var(--line-soft); }
+  .intro-steps > div:first-child { border-top: 0; }
+}

@@ -1,5 +1,32 @@
 # HANDOFF
 
+## 2026-09-04 (late) - the intro strip and the category hues (ADVO-177, ADVO-178)
+
+**The strip.** The step-flow band from DESIGN-SYSTEM §3 is the first thing in every tool's first
+state: SafeSeed (under the mode switch, generate/edit only), SafeList (its band moved from the foot
+of the landing to the top), Redactorium (the `How it works` disclosure and its citations line are
+gone; the band sits above the Single file / Batch switch, Ben's call; `Custom rules` keeps its toggle), Privacy Wizards (above
+the finder). Numbers are `01 02 03` at 22px/700 in `--forest` in the body face; one 16/700 title
+and one 14px `--soft` line per step; one row, about 110px. Copy approved by Ben on 2026-09-04
+(the Wizards' first line lost its "Sixteen determinations"; Redactorium's first line was corrected
+from a wrong formats list to what the step does).
+
+**The hues.** `wizardIconColor` now answers by category (Incidents red, Data use amber, Governance
+indigo, Rights and people teal, AI systems forest) and the chooser glyph carries it; the
+determination header's large icon follows. DESIGN-SYSTEM §1 says colour means one thing: status,
+tier, or category; never identity or chrome. Version 0.4.1.
+
+**Also in this pass.** The Wizards style audit (its own gate, not the Toolkit one) had been red since the
+0.3.1 button work on a raw `#fff`; `--on-forest` is the token now. SafeSeed's three dormant workflows
+are lifted to the repository root as `safeseed-ci.yml` (path-filtered, the Action contract runs from
+`./safeseed`), `safeseed-release.yml` (stable Releases tagged `safeseed-vX.Y.Z`, both hosted gates
+required, OIDC trusted publishing from the protected `npm` environment) and a repository-wide
+`codeql.yml`; SafeList, Redactorium and the Wizards get path-filtered CI of their own; the root README
+says what runs when. On GitHub: the `npm` environment (Ben as required reviewer, tags `safeseed-v*`
+only) and a tag ruleset for `safeseed-v*` exist since tonight. Ben's side before the release: enable
+immutable releases on af-toolkit and point npm's trusted publisher for `safeseed` at
+`advokat-frida/af-toolkit` + `safeseed-release.yml` + environment `npm` (ADVO-173).
+
 ## 2026-09-04 (night) - the Objection Oracle retires
 
 **Retired (Ben).** The Objection Oracle leaves the Toolkit: `objection-oracle/` (source, tests,

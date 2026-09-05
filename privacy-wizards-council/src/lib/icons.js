@@ -1,4 +1,5 @@
 // Byte-exact Lucide SVG markup carried forward from the shipped PWC family source (ISC).
+import { categoryForWizard } from './data/categories.js';
 const ICONS = Object.freeze({
   siren: '<svg viewBox="0 0 24 24"><path d="M7 18v-6a5 5 0 1 1 10 0v6"/><path d="M5 21a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2z"/><path d="M21 12h1"/><path d="M18.5 4.5 18 5"/><path d="M2 12h1"/><path d="M12 2v1"/><path d="m4.929 4.929.707.707"/><path d="M12 12v6"/></svg>',
   clipboard: '<svg viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg>',
@@ -37,23 +38,14 @@ const WIZARD_ICON_NAMES = Object.freeze({
   severity: 'gauge'
 });
 
-const WIZARD_ICON_COLORS = Object.freeze({
-  breach: 'red',
-  severity: 'amber',
-  dpia: 'indigo',
-  'legal-basis': 'forest',
-  'special-category': 'red',
-  transfer: 'teal',
-  role: 'indigo',
-  dpo: 'forest',
-  ropa: 'amber',
-  dsar: 'teal',
-  children: 'red',
-  cookies: 'amber',
-  adm: 'indigo',
-  'sale-share': 'forest',
-  'ai-role': 'teal',
-  'ai-risk': 'indigo'
+// Colour means one thing (DESIGN-SYSTEM §1, Ben 2026-09-04): a glyph carries its category's
+// hue, so the chooser scans by group. Five categories, five hues; the rail stays ink.
+const CATEGORY_COLORS = Object.freeze({
+  incidents: 'red',
+  'data-use': 'amber',
+  governance: 'indigo',
+  'rights-people': 'teal',
+  'ai-systems': 'forest'
 });
 
 export function wizardIcon(id) {
@@ -61,5 +53,5 @@ export function wizardIcon(id) {
 }
 
 export function wizardIconColor(id) {
-  return WIZARD_ICON_COLORS[id] || 'forest';
+  return CATEGORY_COLORS[categoryForWizard(id)?.id] || 'forest';
 }

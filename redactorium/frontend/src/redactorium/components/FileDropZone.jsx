@@ -52,30 +52,16 @@ export default function FileDropZone({ onFile, onSample, customRulesPanel = null
         />
       </div>
 
-      <div className="red-under-zone">
-        {customRulesPanel && (
+      {customRulesPanel && (
+        <div className="red-under-zone">
           <button type="button" className="text-action" aria-expanded={panel === "rules"} aria-controls="red-custom-rules" onClick={() => toggle("rules")}>
             Custom rules
           </button>
-        )}
-        <button type="button" className="text-action" aria-expanded={panel === "how"} aria-controls="red-how-it-works" onClick={() => toggle("how")}>
-          How it works
-        </button>
-      </div>
+        </div>
+      )}
       {customRulesPanel && (
         <div id="red-custom-rules" className="red-under-panel" hidden={panel !== "rules"}>{customRulesPanel}</div>
       )}
-      <div id="red-how-it-works" className="red-under-panel" hidden={panel !== "how"}>
-        <ol className="red-steps">
-          <li><span className="red-step-num">01</span><strong>Detect</strong><span>Twenty-plus detectors scan every column; each finding carries a citation and a confidence score.</span></li>
-          <li><span className="red-step-num">02</span><strong>Treat</strong><span>Pick a treatment per column: hash, redact, generalize, synthetic-swap, or keep.</span></li>
-          <li><span className="red-step-num">03</span><strong>Download</strong><span>Take the clean file and its record.</span></li>
-        </ol>
-        <p className="red-field-sources">
-          Detector citations: RFC 5322, RFC 5737, RFC 3849, ISO/IEC 7812 (Luhn),
-          ISO 13616 (IBAN mod-97), SSA randomization rules, NANPA fictitious range, ICAO Doc 9303.
-        </p>
-      </div>
     </section>
   );
 }

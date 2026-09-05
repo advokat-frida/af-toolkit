@@ -910,31 +910,30 @@ html:has([data-toolkit-embedded="true"]) body {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0;
-    margin: 4px 0 0;
+    margin: 0 0 20px;
     padding: 0;
     list-style: none;
+    border: 1px solid hsl(var(--ink));
+    background: hsl(var(--paper));
     border: 1px solid hsl(var(--ink));
     background: hsl(var(--paper));
 }
 .red-steps li {
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    padding: 16px 18px 18px;
+    gap: 4px;
+    padding: 16px 18px;
     border-left: 1px solid hsl(var(--ink) / 0.17);
 }
 .red-steps li:first-child { border-left: 0; }
 .red-step-num {
     color: hsl(var(--forest));
-    font-family: "Archivo", system-ui, sans-serif;
-    font-size: 11px;
+    font-size: 22px;
     font-weight: 700;
-    letter-spacing: 0.14em;
-  line-height: var(--lh-label);
+    line-height: 1;
 }
 .red-steps strong { font-size: 16px; font-weight: 700; line-height: var(--lh-heading); }
 .red-steps li > span:last-child { color: hsl(var(--ink-muted)); font-size: 14px; line-height: var(--lh-helper); }
-.red-field-sources { margin-top: 10px; }
 @media (max-width: 760px) {
     .red-steps { grid-template-columns: minmax(0, 1fr); }
     .red-steps li { border-left: 0; border-top: 1px solid hsl(var(--ink) / 0.17); }

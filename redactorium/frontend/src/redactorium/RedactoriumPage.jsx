@@ -147,9 +147,14 @@ export default function Redactorium({ embedded = false }) {
     <div className={embedded ? "min-h-0 pb-10" : "min-h-screen"}>
       {!embedded && <Masthead />}
 
-      {/* Mode toggle: only while choosing what to work on */}
+      {/* The intro strip first, then the mode toggle: both only while choosing what to work on */}
       {!(mode === "single" && parsed) && (
       <section className="max-w-6xl mx-auto px-4 md:px-6 mt-4">
+        <ol className="red-steps" aria-label="How it works">
+          <li><span className="red-step-num">01</span><strong>Drop a file</strong><span>Every column is scanned; each finding carries a citation and a confidence.</span></li>
+          <li><span className="red-step-num">02</span><strong>Pick a treatment per column</strong><span>Anonymize, hash, generalize, redact or transform.</span></li>
+          <li><span className="red-step-num">03</span><strong>Download the result</strong><span>The file and a record with its SHA-256.</span></li>
+        </ol>
         <div className="tool-mode-switch" role="tablist">
           <button
             data-testid="mode-single-btn"
