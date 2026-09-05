@@ -16,7 +16,7 @@ import { isSafeColumnName } from "./generate.js";
 // records carried overbroad claims and weaker shapes (including optional column
 // hashes), so current verification fails them closed and asks for regeneration
 // instead of silently trusting metadata it cannot authenticate.
-export const SAFESEED_VERSION = "0.4.0";
+export const SAFESEED_VERSION = "0.4.1";
 export const ATTESTATION = [
     "This unsigned run record records the caller's declaration that the declared",
     "SafeSeed fields came from the versioned catalog path, which accepts no production",

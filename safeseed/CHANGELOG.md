@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.4.1 — 2026-09-05
+
+### Release pipeline
+
+- First release from the Toolkit repository (`advokat-frida/af-toolkit`, folder `safeseed/`).
+  The GitHub Action is referenced as `advokat-frida/af-toolkit/safeseed@safeseed-v0.4.1`; the
+  archived one-tool repository keeps its earlier tags resolving.
+- The publish job passed npm a relative tarball path without a leading `./`, which npm read as
+  a GitHub `owner/repo` shorthand, so the immutable `safeseed-v0.4.0` Release verified but never
+  published. The path is explicit now. No library, CLI, catalog, or record change since 0.4.0.
+
 ## 0.4.0 — 2026-08-20
 
 ### Practical sales and marketing fixtures

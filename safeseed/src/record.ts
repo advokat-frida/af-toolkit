@@ -18,7 +18,7 @@ import type { FieldType, Tier } from "./types.js";
 // records carried overbroad claims and weaker shapes (including optional column
 // hashes), so current verification fails them closed and asks for regeneration
 // instead of silently trusting metadata it cannot authenticate.
-export const SAFESEED_VERSION = "0.4.0";
+export const SAFESEED_VERSION = "0.4.1";
 
 export interface FieldRecord {
   name: string;

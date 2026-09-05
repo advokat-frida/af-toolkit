@@ -221,4 +221,5 @@ jobs:
       - name: Publish to npm
         env:
           PACKAGE_FILENAME: ${{ needs.verify-release.outputs.package-filename }}
-        run: npm publish "release-package/$PACKAGE_FILENAME" --access public --ignore-scripts
+        # The leading ./ matters: without it npm reads owner/name.tgz as a GitHub shorthand.
+        run: npm publish "./release-package/$PACKAGE_FILENAME" --access public --ignore-scripts

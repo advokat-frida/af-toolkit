@@ -1,6 +1,6 @@
 # SPEC — SafeSeed
 
-*Frida's Toolkit, v1 flagship. Status: built; practical `0.4.0` field-and-preset candidate remains local. Companion essay: [docs/safe-test-data-by-construction.md](docs/safe-test-data-by-construction.md).*
+*Frida's Toolkit, v1 flagship. Status: built; released as `0.4.1` from `advokat-frida/af-toolkit` (2026-09-05). Companion essay: [docs/safe-test-data-by-construction.md](docs/safe-test-data-by-construction.md).*
 
 > Name: **SafeSeed** (locked). Deliberately **not** "Cleanroom" — "data clean room" is an established privacy term for privacy-preserving data collaboration, a different thing; reusing it would read as not knowing the field.
 

@@ -1,6 +1,6 @@
 import { type GeneratedDataset } from "./generate.js";
 import type { FieldType, Tier } from "./types.js";
-export declare const SAFESEED_VERSION = "0.4.0";
+export declare const SAFESEED_VERSION = "0.4.1";
 export interface FieldRecord {
     name: string;
     type: FieldType;
