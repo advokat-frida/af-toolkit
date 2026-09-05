@@ -58,15 +58,17 @@ if (!demoCss.includes('font-size: clamp(44px, 16vw, 64px)') ||
 for (const declaration of ['font-size: clamp(48px, 7vw, 86px)', 'line-height: 1.08']) {
   if (!generatorTitleRule.includes(declaration)) problems.push(`generator title scale drift: missing ${declaration}`);
 }
+// The generator follows the Toolkit's line-height tokens since 0.3.1 (DESIGN-SYSTEM §2):
+// the mobile lede and the changelog read var(--lh-body), not the showcase page's literals.
 if (!generatorCss.includes('font-size: clamp(44px, 16vw, 64px)') ||
     !generatorCss.includes('font-size: 46px') ||
     !generatorCss.includes('font-size: 16px') ||
-    !generatorCss.includes('line-height: 1.38')) {
+    !generatorCss.includes('line-height: var(--lh-body)')) {
   problems.push('generator responsive title/lede scale is incomplete');
 }
-if (!generatorChangelogRules.some((rule) => rule.includes('line-height: 1.5')) ||
-    !generatorChangelogSummaryRule.includes('line-height: 1.5')) {
-  problems.push('generator changelog line-height has drifted from the shared tool changelog');
+if (!generatorChangelogRules.some((rule) => rule.includes('line-height: var(--lh-body)')) ||
+    !generatorChangelogSummaryRule.includes('line-height: var(--lh-body)')) {
+  problems.push('generator changelog line-height has drifted from the shared tool line-height tokens');
 }
 const changelogIndex = generatorSource.indexOf('className="gen-changelog"');
 const modeIndex = generatorSource.indexOf('className="gen-modes"');

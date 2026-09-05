@@ -31,8 +31,10 @@ jobs:
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: 22
-      # The frontend has no lockfile (CRA scaffold), so install rather than ci.
-      - run: npm install --no-audit --no-fund
+      # The frontend has no lockfile (CRA scaffold), so install rather than ci. The scaffold
+      # pins date-fns 4 beside react-day-picker 8, which peers on date-fns 2/3; the build has
+      # always been installed with legacy peer resolution.
+      - run: npm install --no-audit --no-fund --legacy-peer-deps
       - name: Build
         run: npm run build
         env:
