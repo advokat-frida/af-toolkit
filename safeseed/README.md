@@ -103,7 +103,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - uses: advokat-frida/safeseed@v0.4.0
+      - uses: advokat-frida/af-toolkit/safeseed@safeseed-v0.4.0
         with:
           data: fixtures/seed.csv
           record: fixtures/seed.record.json

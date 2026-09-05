@@ -3,16 +3,17 @@
 SafeSeed uses one exact semantic version for the npm package, Git tag, and stable GitHub Release.
 Those are related surfaces, but they are not the same state. Verify each one separately.
 
-## Current release boundary (2026-08-20)
+## Current release boundary (2026-09-04)
 
 - npm currently serves `safeseed@0.2.1`.
-- Git contains `v0.2.0` and `v0.2.1` tags but no GitHub Releases.
-- The `0.4.0` candidate exists only in the local working tree. It supersedes the unpublished
-  `0.3.0` candidate and has not been committed, pushed,
-  exercised by hosted CI, tagged, released, or published to npm.
-- Publishing a stable GitHub Release triggers `.github/workflows/release.yml` and can publish to
-  npm after the protected-environment approval. Publishing that Release is therefore a release
-  action, not harmless bookkeeping.
+- SafeSeed lives in `advokat-frida/af-toolkit` under `safeseed/` (public since 2026-09-04). The
+  archived `advokat-frida/safeseed` repository keeps the `v0.2.0` and `v0.2.1` tags and the
+  `advokat-frida/safeseed@v0.4.0` Action reference resolving for existing workflows.
+- The `0.4.0` candidate is committed on `main` here. It is released by publishing a stable GitHub
+  Release on this repository tagged `safeseed-v0.4.0`.
+- Publishing that Release triggers `.github/workflows/safeseed-release.yml` (repository root) and
+  can publish to npm after the protected-environment approval. Publishing the Release is
+  therefore a release action, not harmless bookkeeping.
 
 Committing, pushing, tagging, publishing a GitHub Release, approving the npm environment, and
 publishing to npm all require Ben's explicit approval.
@@ -21,18 +22,17 @@ publishing to npm all require Ben's explicit approval.
 
 Do this only after the candidate workflow is reviewed and present on the default branch.
 
-1. Enable **immutable releases** for `advokat-frida/safeseed`. The release workflow checks the
+1. Enable **immutable releases** for `advokat-frida/af-toolkit`. The release workflow checks the
    published Release's immutable flag and refuses publication if that specific Release is mutable.
-2. Create a GitHub environment named **`npm`**:
-   - require at least one reviewer;
-   - disallow administrator bypass;
-   - allow deployment only from selected tags matching `v*`; and
-   - do not store a registry token in the environment.
+2. A GitHub environment named **`npm`** exists on `advokat-frida/af-toolkit` (created 2026-09-04):
+   - one required reviewer (Ben);
+   - deployment allowed only from tags matching `safeseed-v*`; and
+   - no registry token stored in the environment.
 3. In the existing [`safeseed` package settings](https://www.npmjs.com/package/safeseed/access),
    configure one GitHub Actions trusted publisher with:
    - organization or user: `advokat-frida`;
-   - repository: `safeseed`;
-   - workflow filename: `release.yml`;
+   - repository: `af-toolkit`;
+   - workflow filename: `safeseed-release.yml`;
    - environment: `npm`; and
    - allowed action: `npm publish`.
 4. Keep npm two-factor authentication enabled. After trusted publishing is proven, set package

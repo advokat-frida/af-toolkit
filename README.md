@@ -72,6 +72,18 @@ node -e "console.log(require('./public/tool-sources.json').tools.find(t=>t.id===
 Those two should match. If they ever do not, something between us and you changed the file, and
 we would like to know. [How verification works, in detail](docs/VERIFYING.md).
 
+## What runs when
+
+Every push and pull request runs the Toolkit gate (`ci.yml`): design gate, typecheck, structural and
+provenance checks, static QA, rendered QA at four viewports, state proofs, and the style census, with
+the proofs uploaded as an artifact. A change under `safeseed/` also runs SafeSeed's own gate
+(`safeseed-ci.yml`): its release-aligned checks, the dogfooded CLI fixtures, the demo rebuild with
+byte-fresh single files, and the Action contract on Linux, Windows and macOS. `codeql.yml` analyses
+the whole repository on push, pull request and a weekly schedule. Publishing a stable GitHub Release
+tagged `safeseed-vX.Y.Z` runs `safeseed-release.yml`, which verifies the tagged source against both
+gates and, after approval in the protected `npm` environment, publishes the package to npm with
+provenance; no token is stored anywhere.
+
 ## Contributing
 
 Read [`CONTRIBUTING.md`](CONTRIBUTING.md). The short version: the design system is not a

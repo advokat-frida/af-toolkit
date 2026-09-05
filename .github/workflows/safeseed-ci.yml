@@ -1,17 +1,33 @@
-name: CI
+name: SafeSeed CI
+
+# SafeSeed's own gate, lifted from safeseed/.github/workflows/ on 2026-09-04: GitHub only
+# runs workflows from the repository root, so the nested copy had been dormant since the
+# consolidation. The Toolkit gate (ci.yml) runs on every push; this one runs when SafeSeed
+# changes, and the release workflow requires a green run of both for the release commit.
 
 on:
   push:
     branches: [main]
+    paths:
+      - "safeseed/**"
+      - ".github/workflows/safeseed-ci.yml"
   pull_request:
     branches: [main]
+    paths:
+      - "safeseed/**"
+      - ".github/workflows/safeseed-ci.yml"
 
 permissions:
   contents: read
 
+defaults:
+  run:
+    working-directory: safeseed
+
 jobs:
   build-and-prove:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
@@ -19,6 +35,7 @@ jobs:
         with:
           node-version: 22
           cache: npm
+          cache-dependency-path: safeseed/package-lock.json
 
       - run: npm ci
 
@@ -81,16 +98,11 @@ jobs:
             echo "column-scoped verify correctly caught the in-range edit"
           fi
 
-      # The browser demo consumes the built core (dist/) — typecheck + build it too.
-      # `build` is the hosted multi-page build (typechecks both pages); `build:standalone:all`
-      # rebuilds ALL committed single-file paths. The generator and JS embed are current; the
-      # showcase and standalone proof HTML remain legacy compatibility outputs pending retirement.
-      # Then assert the committed single-files are
-      # byte-fresh: if Generator.tsx (or anything they inline) changed without re-running the
-      # build, the diff fails CI rather than silently shipping a stale safeseed-demo.html /
-      # safeseed-generator.html / safeseed-proof.html / safeseed-proof.js.
+      # The browser demo consumes the built core (dist/): typecheck + build it too, then assert
+      # the committed single-files are byte-fresh, so a Generator.tsx change without a rebuild
+      # fails here instead of shipping a stale safeseed-generator.html.
       - name: Build the browser demo + verify committed single-files are fresh
-        working-directory: demo
+        working-directory: safeseed/demo
         run: |
           npm ci
           npm audit --audit-level=moderate
@@ -98,7 +110,7 @@ jobs:
           npm run build:standalone:all
           cd ..
           if ! git diff --quiet -- demo/safeseed-demo.html demo/safeseed-generator.html demo/safeseed-proof.html demo/safeseed-proof.js; then
-            echo "::error::Committed demo single-files are stale. Run 'npm run build:standalone:all' in demo/ and commit the result."
+            echo "::error::Committed demo single-files are stale. Run 'npm run build:standalone:all' in safeseed/demo/ and commit the result."
             git --no-pager diff --stat -- demo/safeseed-demo.html demo/safeseed-generator.html demo/safeseed-proof.html demo/safeseed-proof.js
             exit 1
           fi
@@ -112,22 +124,24 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
+      # The Action lives in the safeseed folder; input paths are relative to the workspace root.
       - name: Bundled Action accepts a clean fixture
-        uses: ./
+        uses: ./safeseed
         with:
-          data: examples/customers.csv
-          record: examples/customers.record.json
+          data: safeseed/examples/customers.csv
+          record: safeseed/examples/customers.record.json
 
       - name: Bundled Action rejects strict column drift
         id: strict_drift
         continue-on-error: true
-        uses: ./
+        uses: ./safeseed
         with:
-          data: examples/customers-extended.csv
-          record: examples/customers.record.json
+          data: safeseed/examples/customers-extended.csv
+          record: safeseed/examples/customers.record.json
 
       - name: Assert strict drift was rejected
         if: steps.strict_drift.outcome != 'failure'
@@ -139,10 +153,10 @@ jobs:
       - name: Legacy relaxed input cannot bypass the strict Action
         id: legacy_relaxed
         continue-on-error: true
-        uses: ./
+        uses: ./safeseed
         with:
-          data: examples/customers-extended.csv
-          record: examples/customers.record.json
+          data: safeseed/examples/customers-extended.csv
+          record: safeseed/examples/customers.record.json
           allow-added-columns: "true"
 
       - name: Assert the legacy relaxed input was rejected
@@ -167,10 +181,10 @@ jobs:
       - name: Bundled Action quarantines verifier output
         id: workflow_command
         continue-on-error: true
-        uses: ./
+        uses: ./safeseed
         with:
-          data: workflow-command.csv
-          record: examples/customers.record.json
+          data: safeseed/workflow-command.csv
+          record: safeseed/examples/customers.record.json
 
       - name: Assert the hostile CSV was rejected
         if: steps.workflow_command.outcome != 'failure'

@@ -1,7 +1,7 @@
 # Manifest
 
 Status: consolidated single-repository build, redesigned to the approved design package
-(2026-08-31). Private source control only.
+(2026-08-31). Public since 2026-09-04; every push to main deploys to toolkit.advokatfrida.com.
 
 ## Product files
 

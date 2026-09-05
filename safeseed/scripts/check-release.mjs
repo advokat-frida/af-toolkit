@@ -27,9 +27,11 @@ const changelog = read("CHANGELOG.md");
 const publishChecklist = read("PUBLISH-CHECKLIST.md");
 const readinessReceipt = read("docs/release-readiness-v0.4.0.md");
 const gitAttributes = read(".gitattributes");
-const ciWorkflow = read(".github/workflows/ci.yml");
-const codeqlWorkflow = read(".github/workflows/codeql.yml");
-const releaseWorkflow = read(".github/workflows/release.yml");
+// The workflows live at the repository root since 2026-09-04 (GitHub only runs root
+// workflows); SafeSeed's are the safeseed-* files, CodeQL covers the whole repository.
+const ciWorkflow = read("../.github/workflows/safeseed-ci.yml");
+const codeqlWorkflow = read("../.github/workflows/codeql.yml");
+const releaseWorkflow = read("../.github/workflows/safeseed-release.yml");
 const publishJob = releaseWorkflow.slice(releaseWorkflow.indexOf("\n  publish:\n"));
 const sourceVersion = read("src/record.ts").match(/SAFESEED_VERSION\s*=\s*"([^"]+)"/)?.[1];
 const firstChangelogVersion = changelog.match(/^##\s+([^\s]+)\s+/m)?.[1];
@@ -66,7 +68,7 @@ assert(pkg.version === lock.packages?.[""]?.version, "root lockfile package vers
 assert(pkg.version === sourceVersion, "package.json and SAFESEED_VERSION differ");
 assert(pkg.version === record.safeseedVersion, "example run record has a stale SafeSeed version");
 assert(pkg.version === firstChangelogVersion, "the newest changelog entry is not this package version");
-assert(readme.includes(`advokat-frida/safeseed@v${pkg.version}`), "README Action example has a stale release tag");
+assert(readme.includes(`advokat-frida/af-toolkit/safeseed@safeseed-v${pkg.version}`), "README Action example has a stale release tag");
 assert(action.includes('using: "node24"'), "Action is not pinned to GitHub's Node 24 runtime");
 assert(action.includes('main: "action/index.mjs"'), "Action entry point is not the committed wrapper");
 assert(!/\bnpx\b/.test(action), "Action metadata still invokes npx");
@@ -111,7 +113,7 @@ assert(/node-version:\s*24\b/.test(releaseWorkflow), "release workflow does not 
 assert(releaseWorkflow.includes("package-manager-cache: false"), "release workflow does not disable dependency caching");
 assert(releaseWorkflow.includes("merge-base --is-ancestor"), "release workflow does not require the release commit to be on main");
 assert(releaseWorkflow.includes("github.event.release.immutable"), "release workflow does not require an immutable GitHub Release");
-assert(releaseWorkflow.includes("actions/workflows/ci.yml/runs"), "release workflow does not require successful hosted CI for the exact commit");
+assert(releaseWorkflow.includes("actions/workflows/") && releaseWorkflow.includes("ci.yml safeseed-ci.yml"), "release workflow does not require successful hosted CI (both gates) for the exact commit");
 assert(releaseWorkflow.includes("actions/upload-artifact@"), "release workflow does not preserve the verified package as a workflow artifact");
 assert(releaseWorkflow.includes("actions/download-artifact@"), "release workflow does not hand the verified package to the protected job");
 assert(releaseWorkflow.includes("package-sha256"), "release workflow does not bind the downloaded tarball to its verified SHA-256");

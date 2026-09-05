@@ -1,5 +1,9 @@
 name: CodeQL
 
+# Repository-wide static analysis for every JavaScript and TypeScript folder. Lifted from
+# safeseed/.github/workflows/codeql.yml on 2026-09-04 and widened to the whole repository,
+# since one analysis covers the shell and every tool at once.
+
 on:
   push:
     branches: [main]
@@ -18,7 +22,7 @@ jobs:
   analyze:
     name: Analyze JavaScript and TypeScript
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
