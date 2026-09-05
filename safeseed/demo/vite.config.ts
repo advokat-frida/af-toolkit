@@ -73,6 +73,24 @@ function markStandaloneOnBuild() {
   };
 }
 
+// Whatever the checkout's line endings, the emitted single-file HTML is LF-only, so a
+// Windows build and a Linux runner produce the same bytes and CI's freshness check holds.
+// Runs after vite-plugin-singlefile (both enforce post; this one is registered later).
+function lfOnlyOnBuild() {
+  return {
+    name: "lf-only-on-build",
+    apply: "build" as const,
+    enforce: "post" as const,
+    generateBundle(_options: unknown, bundle: Record<string, { type: string; fileName: string; source?: unknown }>) {
+      for (const item of Object.values(bundle)) {
+        if (item.type === "asset" && item.fileName.endsWith(".html") && typeof item.source === "string") {
+          item.source = item.source.replace(/\r\n?/g, "\n");
+        }
+      }
+    },
+  };
+}
+
 // Two pages now: the showcase (index.html) and the self-serve generator
 // (generator.html). The hosted build emits both as a normal multi-page site. Each
 // standalone single-file build targets ONE page, because vite-plugin-singlefile
@@ -125,6 +143,7 @@ export default defineConfig(({ mode }) => {
       strictCspOnBuild(standalone ? STANDALONE_CSP : HOSTED_CSP),
       ...(standalone ? [markStandaloneOnBuild()] : []),
       ...(standalone ? [viteSingleFile()] : []),
+      lfOnlyOnBuild(),
     ],
     resolve: {
       alias: { safeseed: safeseedEntry },
