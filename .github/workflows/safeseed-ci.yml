@@ -112,6 +112,8 @@ jobs:
           if ! git diff --quiet -- demo/safeseed-demo.html demo/safeseed-generator.html demo/safeseed-proof.html demo/safeseed-proof.js; then
             echo "::error::Committed demo single-files are stale. Run 'npm run build:standalone:all' in safeseed/demo/ and commit the result."
             git --no-pager diff --stat -- demo/safeseed-demo.html demo/safeseed-generator.html demo/safeseed-proof.html demo/safeseed-proof.js
+            # The differing lines themselves (trimmed): a stat alone cannot say what drifted.
+            git --no-pager diff --no-color -- demo/safeseed-demo.html demo/safeseed-generator.html demo/safeseed-proof.html demo/safeseed-proof.js | grep '^[-+]' | grep -v '^[-+][-+]' | cut -c1-400 | head -20
             exit 1
           fi
           echo "committed single-files are fresh"

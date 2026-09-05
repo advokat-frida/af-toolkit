@@ -12,7 +12,8 @@ const safeseedEntry = fileURLToPath(new URL("../dist/index.js", import.meta.url)
 // href="/fox.svg"> stays an external request, which the single-file artifact opened
 // from disk (file://) can't resolve and the strict `img-src data:` CSP blocks — a
 // blocked request in the network tab would obscure the no-data-upload boundary.
-const faviconSvg = readFileSync(fileURLToPath(new URL("./public/fox.svg", import.meta.url)), "utf8");
+// Normalised to LF so a Windows checkout (CRLF) and a Linux runner inline the same bytes.
+const faviconSvg = readFileSync(fileURLToPath(new URL("./public/fox.svg", import.meta.url)), "utf8").replace(/\r\n/g, "\n");
 const faviconDataUri = `data:image/svg+xml,${encodeURIComponent(faviconSvg)}`;
 
 function inlineFaviconOnBuild() {
