@@ -7,7 +7,7 @@ in this picture, and that is the entire design.
 ## The shape
 
 ```
-safeseed/  safelist/  redactorium/  privacy-wizards-council/  objection-oracle/
+safeseed/  safelist/  redactorium/  privacy-wizards-council/
     │          │            │                  │                      │
     └──────────┴────────────┴──────────────────┴──────────────────────┘
                                   │

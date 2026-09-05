@@ -1,5 +1,5 @@
 // State proofs — drives the staged Toolkit through every state the design canvas draws
-// (Toolkit - Redesign, artboards 2A–4I; Build-A-Prompt's 3D/4G retired with the tool) at the artboard geometry (1360×800) and writes one
+// (Toolkit - Redesign, artboards 2A–4I; Build-A-Prompt's 3D/4G and the Oracle's 3E/4H/4I retired with their tools) at the artboard geometry (1360×800) and writes one
 // screenshot per state to proofs/states/. The judgment half of the review gate compares
 // these against the canvas renders; a state that cannot be reached fails the run.
 // SafeList (5A–5D) has no canvas artboard; its proofs are reviewed against DESIGN-SYSTEM.md.
@@ -72,10 +72,6 @@ export function states(page, base) {
     }
     return page.frameLocator(`[data-view="${route}"] iframe`);
   }
-  const answerRows = async (frame, count) => {
-    const rows = frame.locator(".oo-question-row");
-    for (let index = 0; index < count; index += 1) await rows.nth(index).locator("button").first().click();
-  };
   const generateSeed = async (frame) => {
     await frame.getByRole("button", { name: "Generate", exact: true }).last().click();
     await frame.getByRole("button", { name: "Download CSV" }).waitFor({ timeout: 20000 });
@@ -179,22 +175,6 @@ export function states(page, base) {
       }
       await frame.locator(".verdict-block").waitFor({ timeout: 20000 });
     },
-    "3e-oracle-landing": async () => { await open("objection-oracle"); },
-    "4h-oracle-questions": async () => {
-      const frame = await open("objection-oracle");
-      await frame.locator("#start-button").click();
-      await frame.locator(".oo-question-row").first().waitFor({ timeout: 20000 });
-      await answerRows(frame, 3);
-    },
-    "4i-oracle-ruling": async () => {
-      const frame = await open("objection-oracle");
-      await frame.locator("#start-button").click();
-      await frame.locator(".oo-question-row").first().waitFor({ timeout: 20000 });
-      await answerRows(frame, await frame.locator(".oo-question-row").count());
-      await frame.locator("#ask-button").click();
-      await frame.locator("#view-result:not(.hidden)").waitFor({ timeout: 30000 });
-      await page.waitForTimeout(600);
-    }
   };
 }
 

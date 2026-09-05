@@ -25,7 +25,6 @@ and it is gone.
 | **SafeList** | Checks a send list against your opt-outs, one decision per match, with a record | Whoever is about to email a few thousand people on Thursday |
 | **Redactorium** | Finds personal data in a file and lets you hash, redact, generalize or swap it | Anyone sharing a spreadsheet, a log, or a PDF outside the team |
 | **Privacy Wizards Council** | Sixteen guided determinations that cite their sources at every step | The person who has to answer "does this need a DPIA?" today |
-| **Objection Oracle** | Five blunt questions that sort a real blocker from review theatre | Anyone watching a release get held up by a maybe |
 
 Each one is documented in its own folder. Start there if you want the detail.
 
@@ -54,7 +53,6 @@ point: if a tool needs a server, it can also phone home.
 | [`safelist/`](safelist/) | Tool source: send list checked against the opt-outs |
 | [`redactorium/`](redactorium/) | Tool source: file sanitation, React front end |
 | [`privacy-wizards-council/`](privacy-wizards-council/) | Tool source: guided determinations, Svelte |
-| [`objection-oracle/`](objection-oracle/) | Tool source: release triage, vanilla JS single file |
 | [`scripts/`](scripts/) | The gate, and the staging pipeline that puts tools into `public/` |
 | [`docs/`](docs/) | How it is built and why: architecture, the design system, the review gate |
 | [`proofs/`](proofs/) | Committed screenshots of every screen at every size, reviewed by eye on every change |

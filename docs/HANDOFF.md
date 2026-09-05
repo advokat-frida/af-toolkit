@@ -1,5 +1,31 @@
 # HANDOFF
 
+## 2026-09-04 (night) - the Objection Oracle retires
+
+**Retired (Ben).** The Objection Oracle leaves the Toolkit: `objection-oracle/` (source, tests,
+build), the staged `public/tools/objection-oracle.html` and its licence, the rail item, Home card,
+route and view, its three canvas states (3E/4H/4I) and its four viewport proofs. Every count that
+said five says four; `scripts/checks.mjs` no longer asserts the Oracle artifact; the design gate
+loses its one hex exception (the ball's shading) and the ball was the only sanctioned circle besides
+the fox mark. The style baseline was regenerated without the Oracle's tuples. Version 0.4.0.
+
+**The rail (Ben, same evening).** The sidebar and mobile nameplates read `ADVOKAT FRIDA` alone
+(Anton 21 / 16; the `TOOLKIT` sub-line is gone) and link out to The Dispatch; the first rail item
+is `AF Toolkit` behind Lucide `wrench` (was `Home` behind `house`). `Back to The Dispatch` stays
+at the foot of the rail as the visible fallback, since a hovered link's status URL can cover it.
+Ben pasted this ask into a second Claude session first; that session drafted the edits in this
+checkout, then backed them out, and this session made them and committed them with the
+retirement, gate green on the combined tree.
+`scripts/checks.mjs` pins all three.
+
+**Site side.** Ben removes the Ship It post and deletes the `objection-oracle` repo himself. The
+website's tooling dropped its ship-it entries (tool layout, GitHub CTA, repoint ops, taxonomy,
+preflight S12) in the same pass. The article embed contract in the previous entry is history: no
+tool speaks `af-objection-oracle-resize` any more, and no article embeds a tool.
+
+**Decide.** The group holds one tool, the Privacy Wizards Council. What fills the second slot is an
+open product question (Linear).
+
 ## 2026-09-04 (evening) - public flip, archives, the rail's exit, the essay embed contract
 
 **Public.** Ben flipped `advokat-frida/af-toolkit` public. Frida then set the description and

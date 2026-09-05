@@ -7,7 +7,7 @@ What MIT does not cover, because a copyright licence never does, is identity. Th
 licensed to you:
 
 - The names **Advokat Frida**, **The Toolkit**, and the tool names **SafeSeed**, **SafeList**,
-  **Redactorium**, **Privacy Wizards Council**, and **Objection Oracle**.
+  **Redactorium**, and **Privacy Wizards Council**.
 - The fox mark, in every form, including `assets/frida-fox-forest.png` and every copy of it
   under `public/`.
 - The visual identity as a whole: the wordmark, the engraving illustrations, and the specific

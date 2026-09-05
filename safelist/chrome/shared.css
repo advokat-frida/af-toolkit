@@ -1,5 +1,5 @@
   /* ===== SHARED ASSET TEMPLATE — current Build-A-Prompt family chrome =====
-     Selectors used by Objection Oracle are copied from the shipped flagship.
+     Selectors used by SafeList are copied from the shipped flagship.
      Product-specific components live in src/page.css. */
   :root{
     --ink:#16140f; --ink-soft:#4a463d; --paper:#fffdf8; --ground:#f6f4ef; --forest:#1f4e32;

@@ -57,7 +57,7 @@ Roles (desktop; small screens raise editable controls to 16px to prevent focus z
 | Home nameplate | Anton 32px, `-0.02em`, lh 1, uppercase |
 | Breadcrumb tool name | Anton 21px, `0.01em`, uppercase |
 | Verdict headline | Anton 28–32px, `0.01em`, uppercase |
-| Sidebar brand | Anton 16px + Archivo 11px/700 caps sub-line |
+| Sidebar brand | Anton 21px, uppercase, no sub-line; links out to The Dispatch |
 | Wizard question | Space Grotesk 24px/700 |
 | Panel question / drop title | Space Grotesk 22px/700 |
 | Task heading | Space Grotesk 19px/700 |
@@ -81,7 +81,7 @@ out of about thirty named roles before 2026-09-04.
 
 | Token | Value | Roles |
 |---|---|---|
-| `--lh-display` | 1.1 | Anton: breadcrumb name, verdict headline (the Home nameplate and the Oracle's 8 stay at 1) |
+| `--lh-display` | 1.1 | Anton: breadcrumb name, verdict headline (the Home nameplate stays at 1) |
 | `--lh-heading` | 1.2 | Space Grotesk 700 at 16–24px: wizard question, panel and drop titles, task heading, card and row titles, stat values |
 | `--lh-body` | 1.55 | Body 15px |
 | `--lh-row` | 1.5 | Row and option copy 16px, table cells, all mono data |
@@ -91,16 +91,16 @@ out of about thirty named roles before 2026-09-04.
 ## 3. Components
 
 Square corners everywhere a surface is rectangular. `border-radius` is allowed only where the shape
-is the meaning: the 8-ball, status dots stay square, progress tracks stay square — in practice the
-only sanctioned circles are the Oracle ball and the fox mark.
+is the meaning: status dots stay square, progress tracks stay square — in practice the only
+sanctioned circle is the fox mark.
 
 **Primary button.** `2px solid var(--ink)` border, `--forest` fill, white Archivo 14/700 uppercase
 `0.045em`, padding `9px 18px`, `min-height: 44px`, shadow `4px 4px 0 var(--ink)`. Pressed:
 translate `4px,4px`, shadow removed. One primary per decision zone, always at its intrinsic width
-— a primary never stretches to fill its column, whatever the artboard drew (Ben, 2026-09-01, the
-Oracle's `Ask the oracle`). A primary never greys out either: when its action is not yet possible
-it keeps its look, carries `aria-disabled`, and pressing it moves focus to what is missing (the
-Oracle's unanswered question, SafeSeed's empty zone, Redactorium's first treatment).
+— a primary never stretches to fill its column, whatever the artboard drew (Ben, 2026-09-01). A
+primary never greys out either: when its action is not yet possible it keeps its look, carries
+`aria-disabled`, and pressing it moves focus to what is missing (SafeSeed's empty zone,
+Redactorium's first treatment).
 
 **Secondary button.** `1px solid var(--ink)`, `--paper` fill, ink Archivo 14/700 (no uppercase),
 same padding and height floor, no shadow.
@@ -108,8 +108,8 @@ same padding and height floor, no shadow.
 **Text action.** Bare Archivo 13/700 ink link, padding `6px 8px`, 44px target. Utility links in
 headers, "Change file", "Browse all 16".
 
-**Row control.** A control that lives inside a repeated row (SafeList's decisions, the Oracle's
-yes and no, SafeSeed's column editor): the secondary button's look at `min-height: 40px`, padding
+**Row control.** A control that lives inside a repeated row (SafeList's decisions, SafeSeed's
+column editor): the secondary button's look at `min-height: 40px`, padding
 `4px 8px`, Archivo 13/700; inputs and selects in a row take the same 40px. The only sanctioned
 height under 44, and it exists so a table row is not 60px tall.
 
@@ -127,12 +127,15 @@ turns `--ink`, shadow `4px 4px 0 var(--ink)`, translate `-1px,-1px`. No numbers,
 no status pills, no card buttons.
 
 **Sidebar.** 230px, `--paper`, `2px solid var(--ink)` right edge. Brand cap: 40px fox mark +
-`ADVOKAT FRIDA` (Anton 16) over `TOOLKIT` (Archivo 11/700 caps `--soft`). Nav items: 40px min
+`ADVOKAT FRIDA` (Anton 21) on its own — the `TOOLKIT` sub-line went on 2026-09-04, the rail already
+names the place — and the whole cap links out to The Dispatch. The first nav item is `AF Toolkit`
+behind Lucide `wrench` (the shell's Home). Nav items: 40px min
 height, 18px Lucide icon, Archivo 13/700, a 3px left border — transparent at rest, `--forest` +
-`--forest-wash` background when current. Groups labeled with 10px caps eyebrows. The rail ends with one
-way back to the publication (Ben, 2026-09-04): `Back to The Dispatch`, Lucide `arrow-left`, Archivo
-13/700 in `--soft`, pinned to the bottom of the rail above a hairline. It is the only link in the
-rail that leaves the Toolkit, and it never carries a tool's styling when current.
+`--forest-wash` background when current. Groups labeled with 10px caps eyebrows. The rail ends with a
+second way back to the publication (Ben, 2026-09-04): `Back to The Dispatch`, Lucide `arrow-left`,
+Archivo 13/700 in `--soft`, pinned to the bottom of the rail above a hairline. It backs up the
+nameplate link, which a hovered link's status URL can cover, and it never carries a tool's styling
+when current.
 
 **Tool header.** One 56px bar: `--paper`, hairline bottom border. Left: group eyebrow (Archivo
 11/700 caps `--soft`) + `/` in `--faint` + tool name (Anton 21). Right: at most one text action.
@@ -226,11 +229,11 @@ review enforces the spirit.
 - **No trust theater.** Generic privacy/compliance/accountability reassurance stacks are
   prohibited. A boundary statement must be concrete and action-local ("example.com and the 555
   range are reserved for documentation. These values cannot reach a real person.").
-- **Buttons say the verb.** `Generate`, `Copy prompt`, `Download CSV`, `Ask the oracle`. Never
+- **Buttons say the verb.** `Generate`, `Copy prompt`, `Download CSV`, `Check the list`. Never
   `Open tool`, `Click here`, `Learn more`, `Submit`.
 - **The shell owns names.** A tool never introduces itself, welcomes anyone, or repeats its own
   name in the workspace.
-- One earned personality beat per tool at most (the Oracle's ball, its blunt questions). Jokes
+- One earned personality beat per tool at most. Jokes
   point outward; the interface never praises itself.
 - **The drawn state is the law.** On any state the canvas draws, everything visible must be in
   the artboard. A feature the canvas does not draw is either cut or lives behind the tool's
@@ -253,8 +256,6 @@ Retired or banned, with the deciding turn of the design package in parentheses:
 - Per-row extras in the findings table — example popovers, reviewer notes, weaker-match lines
   (Turn 4 — "confidence and citation kept; those are the evidence").
 - Second and third record formats (PDF, evidence ZIP) beside the record; one record (Turn 4).
-- The Oracle's answer window inside the ball — the ball stays the 8 and the ruling is the verdict
-  block (Turn 4).
 - A selected-facts summary and a sources panel on the question view; `Copy outcome` and
   `Run again` beside a determination (Turn 4).
 - Preview hints ("First 12 of 100 rows", "keep the CSV and its receipt together") and rows/seed

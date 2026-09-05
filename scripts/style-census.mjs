@@ -62,7 +62,6 @@ function routeOf(stateName) {
   if (/safeseed/.test(stateName)) return "safeseed";
   if (/safelist/.test(stateName)) return "safelist";
   if (/wizards/.test(stateName)) return "privacy-wizards";
-  if (/oracle/.test(stateName)) return "objection-oracle";
   return null;
 }
 

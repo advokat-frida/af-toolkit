@@ -57,15 +57,6 @@ const TOOLS = [
     license: "LICENSE"
   },
   {
-    id: "objection-oracle",
-    folder: "objection-oracle",
-    artifact: "dist/objection-oracle-embed.html",
-    kind: "file",
-    output: "objection-oracle.html",
-    build: "node tools/build.mjs",
-    license: "LICENSE"
-  },
-  {
     id: "privacy-wizards-council",
     folder: "privacy-wizards-council",
     artifact: "dist/wizards.html",

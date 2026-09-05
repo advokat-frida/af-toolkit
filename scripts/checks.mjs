@@ -39,15 +39,15 @@ export async function runStaticChecks() {
   const manifest = JSON.parse(await readFile(join(publicRoot, "tool-sources.json"), "utf8"));
 
   // Shell structure: one view + one nav entry per route.
-  const routes = ["home", "redactorium", "safeseed", "safelist", "objection-oracle", "privacy-wizards"];
+  const routes = ["home", "redactorium", "safeseed", "safelist", "privacy-wizards"];
   for (const route of routes) {
     results.push(check(index.includes(`data-view="${route}"`), `view exists: ${route}`));
     results.push(check(index.includes(`data-route-link="${route}"`), `navigation exists: ${route}`));
   }
-  results.push(check((index.match(/<h1\b/g) || []).length === 6, "one H1 per view", `found ${(index.match(/<h1\b/g) || []).length}`));
-  results.push(check((index.match(/<iframe\b/g) || []).length === 5, "five tool frames", `found ${(index.match(/<iframe\b/g) || []).length}`));
-  results.push(check((index.match(/title="[^"]+" data-tool-frame=/g) || []).length === 5, "every frame has a title"));
-  results.push(check((index.match(/allow="clipboard-write"/g) || []).length === 2, "clipboard permission is limited to the tools that copy output"));
+  results.push(check((index.match(/<h1\b/g) || []).length === 5, "one H1 per view", `found ${(index.match(/<h1\b/g) || []).length}`));
+  results.push(check((index.match(/<iframe\b/g) || []).length === 4, "four tool frames", `found ${(index.match(/<iframe\b/g) || []).length}`));
+  results.push(check((index.match(/title="[^"]+" data-tool-frame=/g) || []).length === 4, "every frame has a title"));
+  results.push(check((index.match(/allow="clipboard-write"/g) || []).length === 1, "clipboard permission is limited to the tools that copy output"));
   results.push(check(index.includes("aria-current") === false, "aria-current is runtime-owned"));
   results.push(check(js.includes('setAttribute("aria-current", "page")'), "active navigation announces current page"));
   results.push(check(js.includes("trapMenuFocus") && js.includes('event.key === "Escape"'), "mobile navigation traps and returns focus"));
@@ -56,11 +56,14 @@ export async function runStaticChecks() {
 
   // The approved redesign: brand cap, grouped navigation, breadcrumb tool headers.
   results.push(check(index.includes('class="brand-cap"') && index.includes("frida-fox-forest.png"), "sidebar brand cap carries the fox mark"));
+  results.push(check(index.includes('class="brand-cap" href="https://advokatfrida.com/"') && index.includes('class="mobile-brand" href="https://advokatfrida.com/"') && !index.includes("<small>Toolkit</small>"), "nameplate links out to The Dispatch with no sub-line (Ben, 2026-09-04)"));
+  results.push(check(/data-route-link="home">[\s\S]*?<span>AF Toolkit<\/span>/.test(index) && index.includes('class="lucide lucide-wrench"'), "first rail item is AF Toolkit behind the wrench (Ben, 2026-09-04)"));
+  results.push(check(index.includes('class="nav-return" href="https://advokatfrida.com/"'), "Back to The Dispatch stays as the rail's visible fallback"));
   for (const group of ["Manage data", "Decide"]) {
     results.push(check(index.includes(`>${group}</p>`), `navigation group exists: ${group}`));
     results.push(check(index.includes(`<span class="crumb-group">${group}</span>`), `breadcrumb group exists: ${group}`));
   }
-  results.push(check((index.match(/class="tool-head"/g) || []).length === 5, "five breadcrumb tool headers"));
+  results.push(check((index.match(/class="tool-head"/g) || []).length === 4, "four breadcrumb tool headers"));
   // Manage data reads in working order, not alphabetical (Ben, 2026-09-02).
   const navOrder = ["safeseed", "safelist", "redactorium"].map((route) => index.indexOf(`data-route-link="${route}"`));
   results.push(check(navOrder.every((position, i) => position > 0 && (i === 0 || position > navOrder[i - 1])), "Manage data navigation reads SafeSeed, SafeList, Redactorium"));
@@ -68,15 +71,14 @@ export async function runStaticChecks() {
   results.push(check(cardOrder.every((position, i) => position > 0 && (i === 0 || position > cardOrder[i - 1])), "Manage data Home cards follow the same order"));
   results.push(check(index.includes('<h1 id="home-title" tabindex="-1">AF Toolkit</h1>'), "Home nameplate is the approved AF Toolkit (Ben, 2026-09-04)"));
   results.push(check(index.includes(`<p class="home-lede">The privacy practitioner's Swiss Army knife.</p>`), "Home lede uses the approved practitioner promise (Ben, 2026-09-04)"));
-  results.push(check((index.match(/class="tool-card"/g) || []).length === 5, "five Home tool cards"));
+  results.push(check((index.match(/class="tool-card"/g) || []).length === 4, "four Home tool cards"));
   results.push(check(index.includes('data-context-title="Privacy Wizards Council"'), "Privacy Wizards breadcrumb accepts tool context"));
 
   for (const copy of [
     "Anonymize, hash, generalize, redact, or transform personal information.",
     "Generate fake personal information and generate a tamper-evident receipt.",
     "Remove opted-out contacts from a send list and keep a record of the check.",
-    "Get quick and citable answers for commonly recurring privacy questions.",
-    "Get pointers from a magic 8-ball on risk tolerance."
+    "Get quick and citable answers for commonly recurring privacy questions."
   ]) {
     results.push(check(index.includes(copy), `approved Home tool description exists: ${copy.slice(0, 40)}…`));
   }
@@ -103,7 +105,7 @@ export async function runStaticChecks() {
 
   // Provenance manifest: in-repo schema.
   results.push(check(manifest.schemaVersion === 3, "provenance manifest uses the in-repo schema", `found ${manifest.schemaVersion}`));
-  results.push(check(manifest.tools?.length === 5, "provenance manifest has five tools", `found ${manifest.tools?.length}`));
+  results.push(check(manifest.tools?.length === 4, "provenance manifest has four tools", `found ${manifest.tools?.length}`));
   results.push(check(manifest.releaseBoundary === "private-source-control-only", "manifest preserves the private repository boundary"));
   results.push(check(manifest.tools?.every((tool) => tool.sourceFolder && existsSync(join(candidateRoot, tool.sourceFolder))), "every tool's source folder exists in this repository"));
   results.push(check(manifest.tools?.every((tool) => tool.license === "MIT"), "every tool records its MIT license"));
@@ -133,7 +135,7 @@ export async function runStaticChecks() {
   }
 
   // Embed contract: the shell frames each embed-mode tool with its flag.
-  for (const framed of ["/tools/redactorium/index.html?embed=1", "/tools/safeseed.html?embed=1", "/tools/safelist.html", "/tools/privacy-wizards-council.html?embed=1", "/tools/objection-oracle.html"]) {
+  for (const framed of ["/tools/redactorium/index.html?embed=1", "/tools/safeseed.html?embed=1", "/tools/safelist.html", "/tools/privacy-wizards-council.html?embed=1"]) {
     results.push(check(index.includes(`data-src="${framed}`), `frame source wired: ${framed}`));
   }
 
@@ -180,9 +182,6 @@ export async function runStaticChecks() {
     const html = await readFile(join(publicRoot, "tools", `${id}.html`), "utf8");
     results.push(check(/has\((?:"embed"|'embed'|`embed`)\)/.test(html), `${id} carries its native embed mode`));
   }
-  const oracle = await readFile(join(publicRoot, "tools", "objection-oracle.html"), "utf8");
-  results.push(check(!oracle.includes('class="site-bar"') && !oracle.includes('class="site-colophon"'), "Oracle embed artifact carries no standalone chrome"));
-  results.push(check(oracle.includes("__oracleNetViolations"), "Oracle network kill-switch is present"));
   const safelist = await readFile(join(publicRoot, "tools", "safelist.html"), "utf8");
   results.push(check(!safelist.includes('class="site-bar"') && !safelist.includes('class="site-colophon"') && !safelist.includes('class="pageintro"'), "SafeList embed artifact carries no standalone chrome"));
   results.push(check(safelist.includes("__safelistNetViolations"), "SafeList network kill-switch is present"));

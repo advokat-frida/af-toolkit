@@ -20,9 +20,9 @@
     <a class="skip-link" href="#main-content">Skip to the active tool</a>
 
     <header class="mobile-bar">
-      <a class="mobile-brand" href="#home" aria-label="The Advokat Frida Toolkit home">
+      <a class="mobile-brand" href="https://advokatfrida.com/" aria-label="Advokat Frida: back to The Dispatch">
         <img class="brand-fox" src="/assets/frida-fox-forest.png" alt="" width="32" height="32" />
-        <span><strong>Advokat Frida</strong><small>Toolkit</small></span>
+        <span><strong>Advokat Frida</strong></span>
       </a>
       <button class="menu-button" type="button" aria-expanded="false" aria-controls="toolkit-sidebar">
         <span aria-hidden="true">☰</span><span>Tools</span>
@@ -35,21 +35,20 @@
       <aside class="toolkit-sidebar" id="toolkit-sidebar" aria-label="Toolkit navigation">
         <button class="nav-close" type="button" aria-label="Close tool navigation">×</button>
 
-        <a class="brand-cap" href="#home">
+        <a class="brand-cap" href="https://advokatfrida.com/" aria-label="Advokat Frida: back to The Dispatch">
           <img class="brand-fox" src="/assets/frida-fox-forest.png" alt="" width="40" height="40" />
-          <span><strong>Advokat Frida</strong><small>Toolkit</small></span>
+          <span><strong>Advokat Frida</strong></span>
         </a>
 
         <nav class="tool-nav" aria-label="Tools">
           <a href="#home" data-route-link="home">
             <span class="nav-icon" aria-hidden="true">
               <!-- @license lucide-static v1.31.0 - ISC -->
-              <svg class="lucide lucide-house" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
-                <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
-                <path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+              <svg class="lucide lucide-wrench" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
               </svg>
             </span>
-            <span>Home</span>
+            <span>AF Toolkit</span>
           </a>
 
           <p class="nav-group" id="nav-group-manage-data">Manage data</p>
@@ -88,16 +87,6 @@
           </a>
 
           <p class="nav-group" id="nav-group-decide">Decide</p>
-          <a href="#objection-oracle" data-route-link="objection-oracle">
-            <span class="nav-icon" aria-hidden="true">
-              <!-- @license lucide-static v1.31.0 - ISC -->
-              <svg class="lucide lucide-circle-dot" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
-                <circle cx="12" cy="12" r="10" />
-                <circle cx="12" cy="12" r="1" />
-              </svg>
-            </span>
-            <span>Objection Oracle</span>
-          </a>
           <a href="#privacy-wizards" data-route-link="privacy-wizards">
             <span class="nav-icon" aria-hidden="true">
               <!-- @license lucide-static v1.31.0 - ISC -->
@@ -183,17 +172,6 @@
               <section class="tool-group" aria-labelledby="group-decide">
                 <p class="group-label" id="group-decide">Decide</p>
                 <div class="tool-grid">
-                  <a class="tool-card" href="#objection-oracle">
-                    <span class="card-icon" aria-hidden="true">
-                      <!-- @license lucide-static v1.31.0 - ISC -->
-                      <svg class="lucide lucide-circle-dot" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" focusable="false">
-                        <circle cx="12" cy="12" r="10" />
-                        <circle cx="12" cy="12" r="1" />
-                      </svg>
-                    </span>
-                    <strong>Objection Oracle</strong>
-                    <span class="card-desc">Get pointers from a magic 8-ball on risk tolerance.</span>
-                  </a>
                   <a class="tool-card" href="#privacy-wizards">
                     <span class="card-icon" aria-hidden="true">
                       <!-- @license lucide-static v1.31.0 - ISC -->
@@ -220,6 +198,7 @@
               <details class="changelog-card">
                 <summary><span class="changelog-label">Changelog</span><span class="changelog-date">Updated September 4, 2026</span></summary>
                 <div class="changelog-body">
+                  <article><time datetime="2026-09-04">September 4, 2026 · 0.4.0 four tools</time><h3>The Objection Oracle retires</h3><ul><li>Objection Oracle removed: its rail item, Home card, route and source are gone. Decide holds the Privacy Wizards Council.</li><li>The nameplate reads Advokat Frida alone and opens The Dispatch; the first rail item is AF Toolkit, behind a wrench. Back to The Dispatch stays at the foot of the rail.</li></ul></article>
                   <article><time datetime="2026-09-04">September 4, 2026 · 0.3.1 one rhythm</time><h3>The same rules in every tool</h3><ul><li>Six line-heights, one per kind of text, declared at each tool's source; buttons, text actions, inputs and row controls now share one spec each.</li><li>The Toolkit scales up on a desktop monitor: type, spacing and the working column step together above 1500px, and bounded previews grow with the window.</li><li>A rendered-style census runs in the gate and fails on any type style, color, or control shape outside the committed baseline.</li><li>Fixed: a hairline mixed from the wrong ink in three tools, a button that fell back to Arial, two mono font stacks, and a strip of the wrong color under Redactorium's header.</li></ul></article>
                   <article><time datetime="2026-09-02">September 2, 2026 · 0.3.0 SafeList</time><h3>A fifth tool, for the people who send the email</h3><ul><li>SafeList: check a send list against the opt-outs, decide each match with Keep or Remove, and download the checked list with a record.</li><li>A suppression list older than a day is refused. The record names kept contacts with their reason and fingerprints the removed ones.</li><li>Manage data now reads in working order: SafeSeed, SafeList, Redactorium.</li></ul></article>
                   <article><time datetime="2026-09-01">September 1, 2026 · 0.2.1 canvas fidelity</time><h3>Every drawn state matches the design</h3><ul><li>Redactorium findings cut to the five evidence columns; the record block is the shared shape.</li><li>SafeSeed columns read as data rows; every generated row scrolls above the receipt.</li><li>Privacy Wizards asks one question at a time with Next and Back and a progress line.</li><li>Build-A-Prompt retired from the Toolkit.</li><li>Redactorium: signing and the verify page retired; the record is the SHA-256 content hash.</li><li>Privacy Wizards: every authority links to its official text.</li><li>The Oracle keeps its 8 and names the owner of the next action.</li></ul></article>
@@ -252,14 +231,6 @@
             <span class="crumb"><span class="crumb-group">Manage data</span><span class="crumb-sep" aria-hidden="true">/</span><h1 class="crumb-tool" id="safelist-title" tabindex="-1">SafeList</h1></span>
           </header>
           <div class="frame-stage"><div class="frame-loading" aria-hidden="true">Preparing SafeList…</div><iframe title="SafeList" data-tool-frame="safelist" data-src="/tools/safelist.html"></iframe></div>
-        </section>
-
-        <section class="view tool-view" data-view="objection-oracle" aria-labelledby="objection-oracle-title" hidden>
-          <header class="tool-head">
-            <span class="crumb"><span class="crumb-group">Decide</span><span class="crumb-sep" aria-hidden="true">/</span><h1 class="crumb-tool" id="objection-oracle-title" tabindex="-1">Objection Oracle</h1></span>
-            <a class="head-action" href="https://advokatfrida.com/ship-it/" target="_blank" rel="noreferrer">Read the article ↗</a>
-          </header>
-          <div class="frame-stage"><div class="frame-loading" aria-hidden="true">Consulting the triangle…</div><iframe title="Objection Oracle" data-tool-frame="objection-oracle" data-src="/tools/objection-oracle.html" allow="clipboard-write"></iframe></div>
         </section>
 
         <section class="view tool-view" data-view="privacy-wizards" aria-labelledby="privacy-wizards-title" hidden>

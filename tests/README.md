@@ -12,8 +12,8 @@ npm test
 ```
 
 Each tool folder keeps its own tests next to its own source, which is where the interesting ones
-are: SafeSeed's catalogue invariants, SafeList's matching engine, the Wizards' determinations, the
-Oracle's decision table. This directory is only for the shell and the provenance chain.
+are: SafeSeed's catalogue invariants, SafeList's matching engine, the Wizards' determinations.
+This directory is only for the shell and the provenance chain.
 
 ## What the checks cover
 

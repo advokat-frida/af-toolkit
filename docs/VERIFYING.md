@@ -35,7 +35,7 @@ curl -sL https://toolkit.advokatfrida.com/tools/safeseed.html | sha256sum
 node -e "console.log(require('./public/tool-sources.json').tools.find(t=>t.id==='safeseed').toolkitSha256)"
 ```
 
-Same for `safelist`, `objection-oracle` and `privacy-wizards-council`. Redactorium is a directory
+Same for `safelist` and `privacy-wizards-council`. Redactorium is a directory
 rather than a single file, so its entry records a hash over the whole tree; `scripts/checks.mjs`
 recomputes it the same way.
 
@@ -62,7 +62,8 @@ browser, without trusting any link in it.
 ## 5. Read the thing
 
 They are small on purpose. `safelist/src/core.js` is a few hundred lines of pure functions with no
-DOM and no network. `objection-oracle/src/core.js` is the entire decision logic. If you want to
+DOM and no network. `privacy-wizards-council/src/lib/engine/council.js` is the entire decision
+engine. If you want to
 know whether a tool phones home, the fastest answer is often to search it for `fetch`.
 
 Each single-file build also wraps itself in a kill switch that replaces `fetch`, `XMLHttpRequest`,

@@ -16,8 +16,8 @@ Status: consolidated single-repository build, redesigned to the approved design 
 
 ## Tool sources
 
-One top-level folder per tool: `safeseed/`, `safelist/`, `redactorium/`, `privacy-wizards-council/`,
-`objection-oracle/`. Each carries its own build and gate.
+One top-level folder per tool: `safeseed/`, `safelist/`, `redactorium/`, `privacy-wizards-council/`.
+Each carries its own build and gate.
 
 ## Generated files
 
@@ -43,11 +43,10 @@ Regenerate with `npm.cmd run build:tools` (or `build:tools:full`). Do not hand-e
   under a fixed clock; screenshots in `proofs/states/`.
 - Tool gates: safeseed lib tests 127/127 + demo chrome verification; safelist engine tests 17/17 +
   build + sample run + Playwright walk of every state (0 network violations); privacy-wizards-council
-  tests 17/17 + style audit + artifact verification; objection-oracle tests 33/33 + full browser
-  harness (desktop, mobile, reduced-motion) including the network kill-switch.
-- Manual visual review: the redesign states (Home, five tool landings, SafeSeed edit/result/verify,
-  SafeList landing/loaded/review/record, Privacy Wizards finder/question/determination, Oracle
-  landing/questions/ruling, Redactorium drop/findings/record) were each screenshotted at literal
+  tests 17/17 + style audit + artifact verification.
+- Manual visual review: the redesign states (Home, four tool landings, SafeSeed edit/result/verify,
+  SafeList landing/loaded/review/record, Privacy Wizards finder/question/determination,
+  Redactorium drop/findings/record) were each screenshotted at literal
   size and compared against the approved design canvas, or against `DESIGN-SYSTEM.md` where no
   artboard exists (SafeList).
 

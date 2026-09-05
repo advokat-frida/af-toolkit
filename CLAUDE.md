@@ -2,7 +2,7 @@
 
 This is the **one repository** for the Advokat Frida Toolkit: the shell application and every
 tool's source, consolidated 2026-08-31. The former standalone repos (safeseed,
-privacy-wizards-council, objection-oracle, redactorium) are superseded — each tool
+privacy-wizards-council, redactorium) are superseded — each tool
 now lives here as its own top-level folder and is developed here.
 
 ## Layout
@@ -10,7 +10,7 @@ now lives here as its own top-level folder and is developed here.
 - `public/` — the shell (index.html, toolkit.css, toolkit.js) plus **staged, generated** artifacts:
   `public/tools/`, `public/licenses/`, `public/tool-sources.json`. Never hand-edit the generated
   paths. `public/fonts/` and `public/assets/` are committed shell assets.
-- `safeseed/`, `safelist/`, `redactorium/`, `privacy-wizards-council/`, `objection-oracle/`
+- `safeseed/`, `safelist/`, `redactorium/`, `privacy-wizards-council/`
   — one folder per tool: its full source, tests, docs, and build. Each folder keeps its own gate
   (`check`/`qa`/harness) and its own CLAUDE/AGENTS notes where it has them.
 - `scripts/` — shell QA + the staging pipeline. `scripts/build-tools.mjs` stages each tool's built
@@ -20,8 +20,8 @@ now lives here as its own top-level folder and is developed here.
   `REVIEW-GATE.md` (the review gate). These govern every surface; `docs/TOOLKIT-CANON.md` is
   historical and points here.
 
-Build-A-Prompt was dropped from the Toolkit on 2026-09-01 (Ben: not useful); its standalone repo
-is a separate archive decision.
+Build-A-Prompt was dropped from the Toolkit on 2026-09-01 (Ben: not useful) and the Objection
+Oracle on 2026-09-04 (Ben's call; its Ship It essay and its repo went with it).
 
 ## Working rules
 

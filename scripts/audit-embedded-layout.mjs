@@ -13,10 +13,6 @@ const audits = {
     ".legal-gate p", ".library-heading h3", ".wizard-card", ".wizard-copy strong",
     ".wizard-copy small", ".review-badge"
   ],
-  "objection-oracle": [
-    "html", "body", "#main", ".oo-stage", ".oo-visual", ".oo-panel", ".oo-view-title",
-    ".oo-view > .eyebrow", ".oo-view > p:not(.eyebrow)", ".oo-main-action", ".oo-key"
-  ],
   safelist: [
     "html", "body", "#main", ".sl-stage", ".sl-zones", ".sl-zone", ".sl-zone-title", ".sl-zone-hint",
     ".sl-zone .btn.primary", ".sl-zone .btn.secondary", "#check-button", ".sl-steps", ".sl-steps strong"

@@ -53,7 +53,7 @@ npm run gate           # all of it, in order
 npm run design-gate    # just the static scans, ~1s
 npm test               # just the structural and provenance checks
 npm run qa:visual      # just the rendered checks
-npm run qa:states -- 4i-oracle-ruling    # a single state, while iterating
+npm run qa:states -- 5c-safelist-review  # a single state, while iterating
 npm run qa:census                        # the rendered census against the baseline
 npm run qa:census:report                 # the full census, counted, for a consistency review
 ```

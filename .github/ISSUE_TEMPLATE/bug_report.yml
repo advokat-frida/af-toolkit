@@ -14,7 +14,7 @@ body:
     id: tool
     attributes:
       label: Which tool
-      options: [SafeSeed, SafeList, Redactorium, Privacy Wizards Council, Objection Oracle, The shell itself, Not sure]
+      options: [SafeSeed, SafeList, Redactorium, Privacy Wizards Council, The shell itself, Not sure]
     validations:
       required: true
   - type: textarea

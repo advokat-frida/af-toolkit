@@ -29,11 +29,9 @@ const CANONICAL_HEX = new Set([
   "#ffffff"
 ]);
 
-// Documented exceptions: file → extra hexes with a reason.
-const HEX_EXCEPTIONS = {
-  // The Oracle ball's sphere shading — the one sanctioned illustrative gradient.
-  "tools/objection-oracle.html": new Set(["#4a4a4a", "#1c1c1c", "#050505", "#000", "#000000"])
-};
+// Documented exceptions: file → extra hexes with a reason. Empty since the Objection Oracle
+// retired on 2026-09-04 and took the one sanctioned illustrative gradient (its ball) with it.
+const HEX_EXCEPTIONS = {};
 
 const CANONICAL_FAMILIES = /^(anton|space grotesk|archivo|ui-monospace|sfmono-regular|menlo|consolas|liberation mono|monospace|system-ui|-apple-system|segoe ui|sans-serif|impact)$/i;
 
@@ -72,7 +70,7 @@ const BANNED_PHRASES = [
 // Compiled bundles (Redactorium) carry framework utility classes; their rendered
 // radii are a REVIEW-GATE visual item instead.
 const SHELL_RADIUS_SCOPE = ["toolkit.css", "index.html"];
-const ARTIFACT_RADIUS_SCOPE = ["tools/safeseed.html", "tools/safelist.html", "tools/objection-oracle.html", "tools/privacy-wizards-council.html"];
+const ARTIFACT_RADIUS_SCOPE = ["tools/safeseed.html", "tools/safelist.html", "tools/privacy-wizards-council.html"];
 const SHELL_RADIUS_ALLOWED = /border-radius\s*:\s*(0|50%)(\s|;|!|$)/;
 const ARTIFACT_RADIUS_ALLOWED = /border-radius\s*:\s*(0|4px|50%|999px|9999px|calc\(infinity \* 1px\))(\s|;|!|$)/;
 
