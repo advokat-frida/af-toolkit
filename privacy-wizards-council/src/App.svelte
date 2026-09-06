@@ -411,7 +411,7 @@
       <section class="intro-steps" aria-label="How it works">
         <div><span class="intro-step-n">01</span><strong>Find your question</strong><span>Grouped by what you are deciding.</span></div>
         <div><span class="intro-step-n">02</span><strong>Answer one question at a time</strong><span>Each step names the article it turns on.</span></div>
-        <div><span class="intro-step-n">03</span><strong>Read the determination</strong><span>Cited outcome, next actions, a record you can export.</span></div>
+        <div><span class="intro-step-n">03</span><strong>Read the determination</strong><span>Cited outcome and next steps.</span></div>
       </section>
       <label class="sr-only" for="finder">What are you trying to decide?</label>
       <div class="search-wrap"><span class="search-glyph" aria-hidden="true">{@html searchIcon}</span><input id="finder" type="search" bind:value={search} on:input={() => { activeCategory = null; showAll = true; }} placeholder="Try breach, DPIA, cookies, AI risk…" /></div>
