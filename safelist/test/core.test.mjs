@@ -4,7 +4,7 @@ import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import {
   DEFAULT_RULES, STALE_AFTER_HOURS, applyDecisions, buildRecord, checkOne, detectEmailColumns, detectHeader,
-  findDuplicates, findMatches, loadList, normalizeEmail, parseCSV, parseSuppression, recordText, reviewItems,
+  findDuplicates, findMatches, loadList, nameColumns, normalizeEmail, parseCSV, parseSuppression, recordText, reviewItems,
   shortHash, staleness, stamp, toCSV
 } from "../src/core.js";
 
@@ -196,4 +196,76 @@ test("buildRecord fingerprints removed contacts and names only the kept ones", a
   const text = recordText(record);
   assert.match(text, /^SAFELIST RECORD [0-9a-f]{12}…[0-9a-f]{6} · 2026-09-02T10:15Z/);
   assert.match(text, /KEPT: row 4 priya\.natarajan@ardent\.example\.net — Active customer/);
+});
+
+/* ---------- the header shapes real exports use (ADVO-172) ---------- */
+
+const engagementExport = [
+  "First Name,Last Name,Email Address,Personal Email,Title,Account Name,Phone,Mobile Phone,Cadence,Owner,Do Not Contact",
+  "Dana,Whitfield,dana.whitfield@halvorsen.example.com,,VP Data,Halvorsen,+1 555 0100,,Q3 outreach,Ari,FALSE",
+  "Noor,Haddad,noor.haddad@meridian.example.org,noor.h@gmail.com,Privacy Lead,Meridian,,+1 555 0101,Q3 outreach,Ari,FALSE",
+  "Sam,Okafor,sam.okafor@ardent.example.net,sam.okafor@outlook.com,CISO,Ardent,+1 555 0102,,Q3 outreach,Bea,TRUE"
+].join("\n");
+
+const unsubscribeExport = [
+  "Id,First Name,Last Name,Email Address,Company Name,Unsubscribed,Unsubscribed Reason,Email Invalid,Marketing Suspended,Black Listed,Updated At",
+  "1041,Dana,Whitfield,Dana.Whitfield@Halvorsen.example.com,Halvorsen,TRUE,Customer request,FALSE,FALSE,FALSE,2026-08-30 09:12",
+  "1042,Noor,Haddad,noor.h@gmail.com,Meridian,TRUE,Unsubscribe link,FALSE,FALSE,FALSE,2026-08-31 14:03",
+  "1043,Lee,Park,lee.park@copperline.example.com,Copperline,FALSE,,TRUE,FALSE,FALSE,2026-09-01 08:45"
+].join("\r\n");
+
+const crmReport = '"First Name","Last Name","Title","Account Name","Email","Phone","Lead Status","Email Opt Out","Do Not Call"\r\n'
+  + '"Dana","Whitfield","VP Data","Halvorsen","dana.whitfield@halvorsen.example.com","(555) 010-0100","Working","1","0"\r\n'
+  + '"Priya","Natarajan","Counsel","Ardent","priya.natarajan@ardent.example.net","","Open","0","1"\r\n';
+
+const apiExport = "FirstName,LastName,Email,Company,HasOptedOutOfEmail,DoNotCall\nDana,Whitfield,dana.whitfield@halvorsen.example.com,Halvorsen,true,false\n";
+
+test("a sales engagement people export: both email columns found, work address first, names and account named", () => {
+  const list = loadList(engagementExport);
+  assert.equal(list.hasHeader, true);
+  assert.deepEqual(list.emailColumns.map((column) => column.name), ["Email Address", "Personal Email"]);
+  assert.equal(list.emailColumns[1].ratio, 1, "a half-empty personal column still counts by its filled cells");
+  const names = nameColumns(list.header);
+  assert.deepEqual([names.first, names.last, names.full, names.company], [0, 1, -1, 5]);
+});
+
+test("a suppressed personal address is caught when every email column is matched", () => {
+  const send = loadList(engagementExport);
+  const suppression = parseSuppression(loadList("Email Address\nnoor.h@gmail.com\n"));
+  assert.equal(findMatches(send, [2], suppression).length, 0, "the work column alone misses it");
+  const matches = findMatches(send, send.emailColumns.map((column) => column.index), suppression);
+  assert.equal(matches.length, 1);
+  assert.equal(matches[0].normalized, "noorh@gmail.com", "gmail dots fold on both sides");
+});
+
+test("a marketing automation unsubscribe export: flag columns never read as addresses, every row suppresses", () => {
+  const list = loadList(unsubscribeExport);
+  assert.deepEqual(list.emailColumns.map((column) => column.name), ["Email Address"]);
+  const suppression = parseSuppression(list);
+  assert.equal(suppression.emails.size, 3);
+  assert.equal(suppression.domains.size, 0);
+  assert.deepEqual(suppression.invalid, []);
+  assert.ok(suppression.emails.has("dana.whitfield@halvorsen.example.com"), "mixed case folds");
+  assert.equal(nameColumns(list.header).company, 4, "Company Name");
+});
+
+test("a CRM report export with quoted cells and opt-out flags: one email column, account named", () => {
+  const list = loadList(crmReport);
+  assert.equal(list.rows.length, 2);
+  assert.deepEqual(list.emailColumns.map((column) => column.name), ["Email"]);
+  const names = nameColumns(list.header);
+  assert.deepEqual([names.first, names.last, names.company], [0, 1, 3]);
+});
+
+test("an API-style header without spaces still names first, last and company", () => {
+  const list = loadList(apiExport);
+  assert.deepEqual(list.emailColumns.map((column) => column.name), ["Email"]);
+  assert.deepEqual(nameColumns(list.header), { first: 0, last: 1, full: -1, company: 3 });
+});
+
+test("nameColumns prefers the exact column over a looser match", () => {
+  assert.equal(nameColumns(["Account Owner", "Account Name", "Email"]).company, 1);
+  assert.equal(nameColumns(["Contact Name", "Email"]).full, 0);
+  assert.equal(nameColumns(["Surname", "Given"]).last, 0);
+  assert.deepEqual(nameColumns(["Email"]), { first: -1, last: -1, full: -1, company: -1 });
 });

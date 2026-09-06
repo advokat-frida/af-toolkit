@@ -120,6 +120,26 @@ export function loadList(text) {
   return { header, rows, hasHeader, emailColumns: detectEmailColumns(header, rows) };
 }
 
+// Name and company columns for the review table: header-driven, because content cannot tell
+// a first name from a last name. The patterns cover the shapes real exports use (First Name /
+// FirstName / Full Name / Contact Name; Company / Company Name / Account Name / Organisation /
+// Employer), exact names winning over looser matches so "Account Owner" never beats "Account Name".
+export function nameColumns(header) {
+  const find = (patterns) => {
+    for (const pattern of patterns) {
+      const index = header.findIndex((name) => pattern.test(name));
+      if (index >= 0) return index;
+    }
+    return -1;
+  };
+  return {
+    first: find([/^first ?name$/i, /first ?name/i]),
+    last: find([/^last ?name$/i, /last ?name|surname/i]),
+    full: find([/^(full |contact |person )?name$/i]),
+    company: find([/^(company|account|organi[sz]ation|employer)( name)?$/i, /company|account|organi[sz]ation|employer/i])
+  };
+}
+
 export function parseSuppression(list, rules = DEFAULT_RULES) {
   const emails = new Set();
   const domains = new Set();

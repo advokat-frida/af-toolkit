@@ -270,15 +270,6 @@
     $("review-title").focus();
   }
 
-  function headerIndex(patterns) {
-    const header = state.send.list.header;
-    for (const pattern of patterns) {
-      const index = header.findIndex((name) => pattern.test(name));
-      if (index >= 0) return index;
-    }
-    return -1;
-  }
-
   function renderReview() {
     const rows = state.send.list.rows;
     const items = state.items;
@@ -292,10 +283,7 @@
     const body = $("review-body");
     body.textContent = "";
     $("review-table").classList.toggle("hidden", !items.length);
-    const first = headerIndex([/^first ?name$/i, /first ?name/i]);
-    const last = headerIndex([/^last ?name$/i, /last ?name|surname/i]);
-    const full = headerIndex([/^(full |contact )?name$/i]);
-    const company = headerIndex([/company|account|organi[sz]ation|employer/i]);
+    const { first, last, full, company } = nameColumns(state.send.list.header);
 
     items.forEach((item) => {
       const cells = rows[item.row];

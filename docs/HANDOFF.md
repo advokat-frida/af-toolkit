@@ -1,5 +1,15 @@
 # HANDOFF
 
+## 2026-09-06 - SafeList: the header shapes real exports use (ADVO-172, step 1)
+
+Column detection had only ever met the two sample files. `core.js` gains `nameColumns(header)`
+(first, last, full, company; exact names win over looser matches) and `app.js` uses it instead of its
+own patterns, so the header logic is unit-tested. `test/core.test.mjs` covers a sales-engagement
+people export with two email columns (the personal address is matched too), a marketing-automation
+unsubscribe export whose flag columns never read as addresses, a quoted CRM report with opt-out flags,
+and an API-style header without spaces. 23 tests green, folder check and repo gate green. Ben's real
+header rows, when he has them, get added the same way.
+
 ## 2026-09-06 - the fox in the tab (0.4.2)
 
 The shell declared no icon, so Chrome showed its globe. `public/favicon-32.png`, `favicon-64.png` and
