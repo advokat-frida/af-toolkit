@@ -1,5 +1,12 @@
 # HANDOFF
 
+## 2026-09-06 - the fox in the tab (0.4.2)
+
+The shell declared no icon, so Chrome showed its globe. `public/favicon-32.png`, `favicon-64.png` and
+`apple-touch-icon.png` are rendered from the site's own fox badge (the 1024px Ghost original, stepwise
+canvas downscale in Chromium via `.local-working/make-favicons.mjs`) and the head declares them. Same
+mark as advokatfrida.com's tab (Ben, 2026-09-06).
+
 ## 2026-09-04 (late) - the intro strip and the category hues (ADVO-177, ADVO-178)
 
 **The strip.** The step-flow band from DESIGN-SYSTEM §3 is the first thing in every tool's first
