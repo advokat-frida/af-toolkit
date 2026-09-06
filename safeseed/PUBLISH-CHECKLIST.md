@@ -36,6 +36,9 @@ Do this only after the candidate workflow is reviewed and present on the default
    - workflow filename: `safeseed-release.yml`;
    - environment: `npm`; and
    - allowed action: `npm publish`.
+   Saving asks for the account's second factor again; the row is not stored until that prompt is
+   completed (one attempt was lost to exactly this on 2026-09-05). Configured that day as
+   `advokat-frida/af-toolkit` · `safeseed-release.yml` · `npm` · npm publish allowed.
 4. Keep npm two-factor authentication enabled. After trusted publishing is proven, set package
    publishing access to **Require two-factor authentication and disallow tokens**, then revoke any
    obsolete automation publish token. The workflow must not use `NPM_TOKEN` or `NODE_AUTH_TOKEN`.
