@@ -19,14 +19,12 @@ and it is gone.
 
 ## The tools
 
-| | What it does | Who asks for it |
-|---|---|---|
-| **SafeSeed** | Generates fake personal data that is fake by construction, with a receipt proving it | Anyone who needs a realistic test dataset and should not be using production |
-| **SafeList** | Checks a send list against your opt-outs, one decision per match, with a record | Whoever is about to email a few thousand people on Thursday |
-| **Redactorium** | Finds personal data in a file and lets you hash, redact, generalize or swap it | Anyone sharing a spreadsheet, a log, or a PDF outside the team |
-| **Privacy Wizards Council** | Sixteen guided determinations that cite their sources at every step | The person who has to answer "does this need a DPIA?" today |
-
-Each one is documented in its own folder. Start there if you want the detail.
+| | What it does | Who asks for it | Preview |
+|---|---|---|---|
+| **SafeSeed** | Generates fake personal data that is fake by construction, with a receipt proving it | Anyone who needs a realistic test dataset and should not be using production | ![SafeSeed](proofs/desktop-1440-safeseed.png) |
+| **SafeList** | Checks a send list against your opt-outs, one decision per match, with a record | Whoever is about to email a few thousand people on Thursday | ![SafeList](proofs/desktop-1440-safelist.png) |
+| **Redactorium** | Finds personal data in a file and lets you hash, redact, generalize or swap it | Anyone sharing a spreadsheet, a log, or a PDF outside the team | ![Redactorium](proofs/desktop-1440-redactorium.png) |
+| **Privacy Wizards Council** | Sixteen guided determinations that cite their sources at every step | The person who has to answer "does this need a DPIA?" today | ![Privacy Wizards Council](proofs/desktop-1440-privacy-wizards.png) |
 
 ## Run it yourself
 
@@ -95,12 +93,3 @@ rather than merely being a good idea.
 MIT, in [`LICENSE`](./LICENSE), for all of it. The Advokat Frida name, the fox, and the visual
 identity are not covered, for the reasons in [`TRADEMARKS.md`](./TRADEMARKS.md). Third-party
 notices are in [`THIRD-PARTY-NOTICES.md`](./THIRD-PARTY-NOTICES.md).
-
-## Who makes this
-
-[Advokat Frida](https://advokatfrida.com) is a privacy and AI governance publication written by
-Ben, a working privacy professional, and Frida, who is an AI and does not pretend otherwise.
-The Toolkit is the part where we stop writing about the problem and hand you the thing.
-
-None of this is legal advice. It is a set of tools built by people who got tired of saying
-"I don't know" when someone asked how.
