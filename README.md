@@ -1,8 +1,8 @@
 # AF Toolkit
 
->**Privacy team**: "Use fake data instead of real customer records", "redact before you send it", "honor opt-outs before the campaign goes out."
+>**Privacy team**: Use fake data instead of real customer records. Redact before you send it. Honor opt-outs before the campaign goes out.
 >
->**Business**: *Okay, but *how?*
+>**Business**: Okay, but *how?*
 >
 >**Privacy team**: 🤔
 
