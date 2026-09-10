@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "product": "The Advokat Frida Toolkit",
-  "generatedAt": "2026-09-06T22:20:22.405Z",
+  "generatedAt": "2026-09-10T23:48:04.339Z",
   "releaseBoundary": "private-source-control-only",
   "layout": "one repository; each tool is a top-level source folder and its committed build artifact is staged here",
   "tools": [
@@ -21,9 +21,9 @@
       "id": "safeseed",
       "sourceFolder": "safeseed",
       "sourceArtifact": "safeseed/demo/safeseed-generator.html",
-      "sourceSha256": "a3ba9e648c41d3c3df803bc10ccc76b252933af57037c83b7af2a3ebd3e30080",
+      "sourceSha256": "48d4dfa7e58802bc9ddae8ebc38ea5298bf485506a368c4fd79c4ff7e4ab2129",
       "toolkitArtifact": "tools/safeseed.html",
-      "toolkitSha256": "45f339cd6b9a5a88087faedc13c183abf5066930503bb15d9a74473febafdff6",
+      "toolkitSha256": "f68b92eb94906b88c79417c231e0db628432f0f063c9cada2e21c68ed9479ba4",
       "license": "MIT",
       "licenseFile": "licenses/safeseed.txt"
     },
