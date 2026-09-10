@@ -1,19 +1,16 @@
-# The Advokat Frida Toolkit
+# AF Toolkit
 
-**[toolkit.advokatfrida.com](https://toolkit.advokatfrida.com)**
+>**Privacy team**: "Use fake data instead of real customer records", "redact before you send it", "honor opt-outs before the campaign goes out."
+>
+>**Business**: *Okay, but *how?*
+>
+>**Privacy team**: 🤔
 
-Five privacy tools that answer the question privacy people get asked all day and rarely have a
-good answer to: *okay, but how?*
+---
 
-Use fake data instead of real customer records. Redact that before you send it. Honour the
-opt-outs before the campaign goes out. Everyone knows the advice. Almost nobody has been handed
-the thing that does it. So the advice gets nodded at and then ignored, and the spreadsheet goes
-out anyway.
+Familiar? We know the pain all too well. 
 
-Every tool here runs entirely in your browser. Your file is never uploaded, because there is
-nowhere to upload it to. No account, no server, no analytics. Nothing is fetched from anyone
-else's domain while you work: the fonts, the icons and the data are inside the file. Close the tab
-and it is gone.
+Everyone knows the requirements; almost nobody has been handed the thing to do it. We do the ritual where everyone meets, agrees that privacy is important, and make a decent attempt to resolve it on a Friday afternoon before it comes one with the carpet.
 
 ![The Toolkit](proofs/desktop-1440-home.png)
 
@@ -21,7 +18,7 @@ and it is gone.
 
 | | What it does | Who asks for it | Preview |
 |---|---|---|---|
-| **SafeSeed** | Generates fake personal data that is fake by construction, with a receipt proving it | Anyone who needs a realistic test dataset and should not be using production | ![SafeSeed](proofs/desktop-1440-safeseed.png) |
+| **SafeSeed** | Generates fake personal data that is fake by construction, with a receipt proving it | Anyone who needs a realistic test dataset | ![SafeSeed](proofs/desktop-1440-safeseed.png) |
 | **SafeList** | Checks a send list against your opt-outs, one decision per match, with a record | Whoever is about to email a few thousand people on Thursday | ![SafeList](proofs/desktop-1440-safelist.png) |
 | **Redactorium** | Finds personal data in a file and lets you hash, redact, generalize or swap it | Anyone sharing a spreadsheet, a log, or a PDF outside the team | ![Redactorium](proofs/desktop-1440-redactorium.png) |
 | **Privacy Wizards Council** | Sixteen guided determinations that cite their sources at every step | The person who has to answer "does this need a DPIA?" today | ![Privacy Wizards Council](proofs/desktop-1440-privacy-wizards.png) |
@@ -35,12 +32,9 @@ npm ci
 npm start
 ```
 
-Then open `http://127.0.0.1:4177/`. That serves the committed snapshot in `public/`; it never
-builds anything or touches a tracked file.
+Open `http://127.0.0.1:4177/` which serves the committed snapshot in `public/`.
 
-You can also just open a tool's built HTML file directly from disk. They are single files by
-design, and they work from `file://` with no server at all. That is not a party trick, it is the
-point: if a tool needs a server, it can also phone home.
+You can also just open a tool's built HTML file directly from disk. They are single files by design, and they work from `file://` with no server at all.
 
 ## What is in here
 
@@ -55,41 +49,14 @@ point: if a tool needs a server, it can also phone home.
 | [`docs/`](docs/) | How it is built and why: architecture, the design system, the review gate |
 | [`proofs/`](proofs/) | Committed screenshots of every screen at every size, reviewed by eye on every change |
 
-## Verify what you were served
-
-The Toolkit's whole claim is that nothing leaves your browser, so you should not have to take our
-word for what the browser is running. Every staged artifact is hashed into
-[`public/tool-sources.json`](public/tool-sources.json), and the hashes are canonical: the same on
-Windows, on Linux, in CI, and at the edge.
-
-```bash
-curl -sL https://toolkit.advokatfrida.com/tools/safeseed.html | sha256sum
-node -e "console.log(require('./public/tool-sources.json').tools.find(t=>t.id==='safeseed').toolkitSha256)"
-```
-
-Those two should match. If they ever do not, something between us and you changed the file, and
-we would like to know. [How verification works, in detail](docs/VERIFYING.md).
-
 ## What runs when
 
-Every push and pull request runs the Toolkit gate (`ci.yml`): design gate, typecheck, structural and
-provenance checks, static QA, rendered QA at four viewports, state proofs, and the style census, with
-the proofs uploaded as an artifact. A change under `safeseed/` also runs SafeSeed's own gate
-(`safeseed-ci.yml`): its release-aligned checks, the dogfooded CLI fixtures, the demo rebuild with
-byte-fresh single files, and the Action contract on Linux, Windows and macOS. `codeql.yml` analyses
-the whole repository on push, pull request and a weekly schedule. Publishing a stable GitHub Release
-tagged `safeseed-vX.Y.Z` runs `safeseed-release.yml`, which verifies the tagged source against both
-gates and, after approval in the protected `npm` environment, publishes the package to npm with
-provenance; no token is stored anywhere.
+Every push and pull request runs the Toolkit gate (`ci.yml`): design gate, typecheck, structural and provenance checks, static QA, rendered QA at four viewports, state proofs, and the style census, with the proofs uploaded as an artifact. A change under `safeseed/` also runs SafeSeed's own gate (`safeseed-ci.yml`): its release-aligned checks, the dogfooded CLI fixtures, the demo rebuild with byte-fresh single files, and the Action contract on Linux, Windows and macOS. `codeql.yml` analyses the whole repository on push, pull request and a weekly schedule. Publishing a stable GitHub Release tagged `safeseed-vX.Y.Z` runs `safeseed-release.yml`, which verifies the tagged source against both gates and, after approval in the protected `npm` environment, publishes the package to npm with provenance; no token is stored anywhere.
 
 ## Contributing
 
-Read [`CONTRIBUTING.md`](CONTRIBUTING.md). The short version: the design system is not a
-suggestion, the gate has to be green, and a new tool has to answer a real "how do I do that?"
-rather than merely being a good idea.
+Read [`CONTRIBUTING.md`](CONTRIBUTING.md). The short version: the design system is not a suggestion, the gate has to be green, and a new tool has to answer a real "how do I do that?" rather than merely being a good idea.
 
 ## Licence
 
-MIT, in [`LICENSE`](./LICENSE), for all of it. The Advokat Frida name, the fox, and the visual
-identity are not covered, for the reasons in [`TRADEMARKS.md`](./TRADEMARKS.md). Third-party
-notices are in [`THIRD-PARTY-NOTICES.md`](./THIRD-PARTY-NOTICES.md).
+MIT, in [`LICENSE`](./LICENSE), for all of it. The Advokat Frida name, the fox, and the visual identity are not covered, for the reasons in [`TRADEMARKS.md`](./TRADEMARKS.md). Third-party notices are in [`THIRD-PARTY-NOTICES.md`](./THIRD-PARTY-NOTICES.md).
