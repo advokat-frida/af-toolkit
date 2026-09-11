@@ -162,12 +162,29 @@ export async function runStaticChecks() {
   // Redactorium bundle hygiene.
   const redactoriumRoot = join(publicRoot, "tools", "redactorium");
   results.push(check(existsSync(join(redactoriumRoot, "pdf.worker.min.mjs")), "Redactorium PDF worker is local"));
-  const redFiles = await readdir(join(redactoriumRoot, "static", "js"));
-  const redCssFiles = await readdir(join(redactoriumRoot, "static", "css"));
-  results.push(check(!redFiles.some((name) => name.endsWith(".map")) && !redCssFiles.some((name) => name.endsWith(".map")), "Redactorium source maps are omitted"));
+  // Walk the staged tree rather than assuming a bundler's layout: Create React App put the
+  // bundles under static/js and static/css, Vite (since 2026-09-11) puts them under assets/.
+  // Scope is unchanged -- index.html plus every script and stylesheet in the bundle folders.
+  // fonts/ and verify-log/ are static copies, and the vendored PDF worker at the root is
+  // checked for presence above rather than scanned as a bundle.
+  const walkStaged = async (dir) => {
+    const found = [];
+    for (const entry of await readdir(dir, { withFileTypes: true })) {
+      const path = join(dir, entry.name);
+      if (entry.isDirectory()) found.push(...(await walkStaged(path)));
+      else found.push(path);
+    }
+    return found;
+  };
+  const redPaths = await walkStaged(redactoriumRoot);
+  results.push(check(!redPaths.some((path) => path.endsWith(".map")), "Redactorium source maps are omitted"));
+  const redBundleFiles = redPaths.filter((path) => {
+    const rel = relative(redactoriumRoot, path).replaceAll("\\", "/");
+    return rel.includes("/") && !rel.startsWith("fonts/") && !rel.startsWith("verify-log/") && /\.(js|mjs|css)$/.test(rel);
+  });
+  results.push(check(redBundleFiles.length > 0, "Redactorium staged a script or stylesheet bundle"));
   const redText = [await readFile(join(redactoriumRoot, "index.html"), "utf8")];
-  for (const file of redFiles.filter((name) => name.endsWith(".js"))) redText.push(await readFile(join(redactoriumRoot, "static", "js", file), "utf8"));
-  for (const file of redCssFiles.filter((name) => name.endsWith(".css"))) redText.push(await readFile(join(redactoriumRoot, "static", "css", file), "utf8"));
+  for (const path of redBundleFiles) redText.push(await readFile(path, "utf8"));
   const redBundle = redText.join("\n");
   results.push(check(!redBundle.includes("sourceMappingURL="), "Redactorium bundles do not reference omitted source maps"));
   for (const banned of ["fonts.googleapis.com", "fonts.gstatic.com", "assets.emergent.sh", "ap.emergent.sh", "posthog.init", "unpkg.com/pdfjs-dist"]) {

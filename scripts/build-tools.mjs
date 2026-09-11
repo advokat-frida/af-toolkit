@@ -27,10 +27,10 @@ const TOOLS = [
     kind: "tree",
     output: "redactorium",
     build: "npm run build --prefix frontend",
-    buildEnv: { CI: "false" },
     license: "LICENSE",
-    // frontend/build is the CRA output and is gitignored, so it does not exist in a
-    // fresh checkout. The staged tree in public/tools/redactorium is the artifact of
+    // frontend/build is the Vite output (Vite replaced Create React App on 2026-09-11;
+    // the CI=false that kept CRA from failing on lint warnings went with it) and is
+    // gitignored, so it does not exist in a fresh checkout. The staged tree in public/tools/redactorium is the artifact of
     // record and its hash is verified; the tracked source is frontend/src.
     sourceArtifactGenerated: true,
     note: "Redactorium was unlicensed until 2026-09-03; it is MIT with the rest of the Toolkit."

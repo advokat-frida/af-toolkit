@@ -1,7 +1,7 @@
 name: Redactorium CI
 
-# Redactorium's build, run when its folder changes. CI=false keeps CRA from turning
-# warnings into a failed build; the Toolkit gate (ci.yml) covers the staged artifact.
+# Redactorium's lint and build, run when its folder changes. Vite since 2026-09-11 (it
+# replaced Create React App); the Toolkit gate (ci.yml) covers the staged artifact.
 
 on:
   push:
@@ -33,11 +33,11 @@ jobs:
           node-version: 22
           cache: npm
           cache-dependency-path: redactorium/frontend/package-lock.json
-      # The scaffold pins date-fns 4 beside react-day-picker 8, which peers on date-fns 2/3;
-      # the tree has always been installed with legacy peer resolution, and the committed
-      # lockfile (with ajv 8 at the top level for webpack's schema tooling) reproduces it.
-      - run: npm ci --no-audit --no-fund --legacy-peer-deps
+      # The scaffold pins date-fns 4 beside react-day-picker 8, which peers on date-fns 2/3,
+      # so the tree only resolves with legacy peer resolution. That lives in frontend/.npmrc,
+      # where Dependabot and a human install read it too.
+      - run: npm ci --no-audit --no-fund
+      - name: Lint (the React hooks rules the CRA build used to enforce)
+        run: npm run lint
       - name: Build
         run: npm run build
-        env:
-          CI: "false"
