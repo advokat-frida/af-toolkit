@@ -161,7 +161,12 @@ function auditExternal(rel, content) {
     /<link[^>]+href\s*=\s*["']https?:\/\/[^"']+["'][^>]*rel\s*=\s*["'](?:stylesheet|preload|modulepreload|icon|manifest)["']/gi,
     /<img[^>]+src\s*=\s*["']https?:\/\/[^"']+/gi,
     /<iframe[^>]+src\s*=\s*["']https?:\/\/[^"']+/gi,
-    /url\(\s*["']?https?:\/\/[^)"']+/gi,
+    // CSS resource loads. Case-sensitive on purpose (2026-09-11): the case-insensitive form
+    // read JavaScript's `new URL("http://localhost")` as a stylesheet load. react-router 7.18
+    // keeps exactly that object as the dummy base for its same-origin and open-redirect checks
+    // -- the security patch itself -- and never loads a byte from it. Stylesheets, and every
+    // tool that writes them, emit lowercase url(), so nothing real is lost.
+    /url\(\s*["']?https?:\/\/[^)"']+/g,
     /\bfetch\(\s*["']https?:\/\/[^"']+/gi,
     /new\s+WebSocket\(\s*["']wss?:\/\/[^"']+/gi,
     /navigator\.sendBeacon\(\s*["']https?:\/\/[^"']+/gi

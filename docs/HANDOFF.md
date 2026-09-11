@@ -1,5 +1,31 @@
 # HANDOFF
 
+## 2026-09-11 - Redactorium: Vite replaces Create React App
+
+The last tool on react-scripts 5 (behind craco) moved to Vite 7, which the rest of the Toolkit
+already used. Ben's call after the CI review: CRA has no maintained release and most of the
+tree's advisories lived inside it. Source changes are small -- `index.html` to the package root,
+`App.js`/`index.js` to `.jsx`, a 30-line `vite.config.mjs` (base `./`, the `@/` alias, outDir
+`build`, module-preload polyfill off for the CSP), and `eslint.config.mjs` keeping the React hooks
+rules CRA used to enforce as `npm run lint`. craco, its plugin folder, the emergent.sh tarball and
+the Yarn-only `resolutions` block (inert under npm; two pins named vulnerable versions) are gone.
+react-router-dom 7.15.0 -> 7.18.3 and the js-yaml lockfile fix landed with it. Audit 26 moderate+
+-> 1 (xlsx 0.18.5, which SheetJS no longer patches on npm); lockfile 1589 -> 557 packages.
+
+Two gate checks had hard-coded the CRA layout rather than the contract: `checks.mjs` read
+`static/js` and `static/css` by name (now walks the staged tree, same scope) and `design-gate.mjs`
+ran its CSS `url(https://…)` scan case-insensitively over JavaScript, so react-router 7.18's
+`new URL("http://localhost")` -- the dummy base for its open-redirect fix -- read as a stylesheet
+load (now case-sensitive). Verification: the same Playwright flow against the old and new staged
+builds, on the tool page and in the shell iframe, identical (22 detections, same labels, the
+finished record, both downloads, no console/page/request errors); then the full gate green
+including the three Redactorium canvas proofs and the census. Shipped through a pull request so
+CI and the Cloudflare preview build ran before merge.
+
+Still open in that tree: the `src/assets/fonts` 600/700 files are byte copies of the 400 files
+(rendering unchanged, the bytes always were); xlsx stays on 0.18.5 until someone decides between
+the SheetJS CDN tarball and a different library.
+
 ## 2026-09-06 - SafeList: the header shapes real exports use (ADVO-172, step 1)
 
 Column detection had only ever met the two sample files. `core.js` gains `nameColumns(header)`
