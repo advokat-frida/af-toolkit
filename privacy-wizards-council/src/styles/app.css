@@ -2039,8 +2039,8 @@ main.is-embed {
   border-bottom: 1px solid var(--line-soft);
 }
 
-.authority-list li a,
-.authority-list li span {
+.authority-list li > a,
+.authority-list li > span {
   display: block;
   padding: 9px 0;
   color: var(--ink);
@@ -2048,7 +2048,7 @@ main.is-embed {
   text-decoration: none;
 }
 
-.authority-list li a:hover {
+.authority-list li > a:hover {
   color: var(--red);
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -2251,4 +2251,230 @@ textarea {
   .intro-steps { grid-template-columns: minmax(0, 1fr); }
   .intro-steps > div { border-left: 0; border-top: 1px solid var(--line-soft); }
   .intro-steps > div:first-child { border-top: 0; }
+}
+
+/* ===== The authored depth reaches the page (Ben, 2026-09-13) =====
+   Help, reasoning, pending-law notes and the included source text sit behind
+   disclosures (DESIGN-SYSTEM §3, Disclosure); every text run and control below
+   reuses a role the census baseline already holds. */
+
+/* Disclosure: the summary is the text action; the body is core reading. */
+.disclosure { margin: 12px 0 0; }
+.disclosure > summary {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  color: var(--ink);
+  font-family: var(--font-label);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: var(--lh-label);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.disclosure > summary::-webkit-details-marker { display: none; }
+.disclosure > summary:hover { color: var(--red); }
+.disclosure-body {
+  margin: 4px 0 0;
+  max-width: 78ch;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: var(--lh-body);
+  white-space: pre-line;
+}
+.disclosure-body.motion {
+  max-width: 70ch;
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: var(--lh-helper);
+}
+.disclosure-body + .disclosure-body { margin-top: 10px; }
+.question-aside + .disclosure { margin-top: 4px; }
+.outcome-main > .disclosure + .next-actions { margin-top: 18px; }
+
+/* Text-action links inside a disclosure body (the official text, the pending-law source). */
+.motion-source,
+.official-link {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  color: var(--ink);
+  font-family: var(--font-label);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: var(--lh-label);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.motion-source:hover,
+.official-link:hover { color: var(--red); }
+
+/* Finder groups: one eyebrow per category when browsing all. */
+.group-label {
+  margin: 0;
+  padding: 16px 6px 4px;
+  color: var(--ink-soft);
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: var(--lh-label);
+}
+
+/* Next determination: one eyebrow and the same chooser row as the finder. */
+.next-determination { margin-top: 26px; }
+.next-determination .field-label { margin-bottom: 0; }
+.next-determination .wizard-list { margin-top: 6px; }
+
+/* Authority rows: label over a dotted status label; open for citation, link, and text. */
+.authority-row > summary {
+  padding: 9px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  list-style: none;
+  cursor: pointer;
+}
+.authority-row > summary::-webkit-details-marker { display: none; }
+.authority-label {
+  color: var(--ink);
+  font-size: 14px;
+  line-height: var(--lh-row);
+}
+.authority-row > summary:hover .authority-label {
+  color: var(--red);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.status-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ink-soft);
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: var(--lh-helper);
+}
+.status-dot { width: 7px; height: 7px; flex: none; background: var(--amber); }
+.status-dot.dot-practitioner-reviewed { background: var(--forest); }
+.status-dot.dot-superseded,
+.status-dot.dot-draft { background: var(--red); }
+.authority-body { padding: 0 0 12px; }
+.authority-body .citation {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+.authority-body .source-body {
+  margin: 6px 0 0;
+  padding: 0;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  font-size: 14px;
+  line-height: var(--lh-row);
+  white-space: pre-line;
+}
+
+/* ===== Inline citations and the citation card (Ben, 2026-09-14) =====
+   Every article, section, guidance, case and defined-term mention in the authored text
+   is a citation that opens its source where it stands. The trigger inherits the run it
+   sits in; the card is its own small surface. */
+.mentions { display: block; position: relative; }
+.cite {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--forest);
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  text-align: inherit;
+  text-decoration: underline dotted;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.cite:hover,
+.cite.open { color: var(--red); }
+.cite-card {
+  position: absolute;
+  z-index: 6;
+  display: block;
+  padding: 14px 16px 12px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: 4px 4px 0 var(--line);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: var(--lh-body);
+  text-align: left;
+  text-transform: none;
+  white-space: normal;
+}
+.cite-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+.cite-card-label {
+  display: block;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: var(--lh-body);
+}
+.cite-close {
+  flex: none;
+  min-height: 40px;
+  margin: -8px -6px 0 0;
+  padding: 1px 6px;
+  border: 0;
+  background: transparent;
+  color: var(--ink-soft);
+  font-family: var(--font-label);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+  cursor: pointer;
+}
+.cite-close:hover { color: var(--red); }
+.cite-card-cite {
+  display: block;
+  margin-top: 2px;
+  color: var(--ink-soft);
+  font-size: 13px;
+  line-height: var(--lh-helper);
+}
+.cite-card .status-line { margin-top: 4px; }
+.cite-card-text {
+  display: block;
+  max-height: 260px;
+  margin-top: 10px;
+  overflow: auto;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: var(--lh-row);
+  white-space: pre-line;
+}
+.cite-card-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  margin-top: 4px;
+}
+.cite-card-actions .text-button { padding-left: 0; }
+@media print {
+  .cite-card { display: none !important; }
 }

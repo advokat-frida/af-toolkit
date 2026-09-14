@@ -158,7 +158,10 @@ Each cell: Archivo 11 caps `--soft` label over a 19px/700 value.
 
 **Verdict block.** `2px` border — `--forest` for a clear/positive determination, `--amber` for
 caution — on `--paper`, padding `20px 22px`: Anton 28–32 uppercase headline + one 15px `--soft`
-qualifier line. The same block shape in every tool that rules on something.
+qualifier line. The same block shape in every tool that rules on something. When the authored reasoning is
+longer than the qualifier line, the rest of it sits behind a `Read the rest of the reasoning`
+disclosure directly under the block; when a clock line takes the qualifier's place, the
+whole reasoning sits behind `Read the reasoning`.
 
 **Boundary aside.** `3px solid var(--amber)` left border, `padding-left: 12px`, 13px/1.45
 `--soft`. At most one per surface, and only where it changes the next action.
@@ -169,6 +172,46 @@ with `--forest` fill. Question at 24/700. Options: full-width rows, `min-height:
 var(--forest)` + 700 weight. One question per screen. Selection is explicit: choosing an option
 highlights it; `Next` (primary, bottom-left) commits it and `Back` beside it is a text action.
 The progress label counts the longest run of questions still ahead, so it can only shrink.
+An option carries one 13px `--soft` sub-line when the authored option has a note; the aside
+under the options is the help's first sentence, and the rest of the help sits behind a `Why
+this question?` disclosure, so no sentence appears twice (Ben, 2026-09-13: the authored depth
+reaches the page).
+
+**Disclosure.** A native `<details>` whose summary is the text action (Archivo 13/700 ink,
+underlined, 44px target, no marker) and whose body is core reading at 15px ink, or helper copy
+at 13px `--soft` when it annotates rather than explains. The Toolkit's way of keeping authored
+depth off the drawn area without deleting it: a wizard's full help, its full reasoning, the
+pending-law notes under `What may change`, and each authority's included text. A disclosure
+closes again whenever the question or outcome changes.
+
+**Authority row** (Privacy Wizards). One disclosure per cited authority in the determination's
+rail: the label (14px ink) over a dotted status label (7px square swatch + 13px `--soft`;
+amber = automated check only, forest = practitioner reviewed, red = superseded or draft).
+Open: the formal citation (13px `--soft`), `Open the official text ↗` as a text action, and
+the included text at 14px ink with its paragraph breaks.
+
+**Next determination.** A determination ends on one eyebrow, `Next determination`, and one
+chooser row (the finder's own row) naming the path most readers open next. Never more than
+two rows, never a card.
+
+**Inline citation** (Privacy Wizards, Ben 2026-09-14). Every article, section, guidance,
+case and defined-term mention in the authored text is a `<button class="cite">` that inherits
+the run it sits in (size, weight, line-height, letter-spacing) in `--forest` with a dotted
+underline; hover and the open state turn `--red`. Resolution is conservative: a mention that
+does not map to exactly one registry source stays plain text, so a wrong card never appears.
+A defined term (controller, processor, personal data breach, provider, deployer…) links once
+per block group, not on every occurrence. Options inside answer rows carry no citations,
+because a button cannot hold a button.
+
+**Citation card.** The small surface a citation opens, positioned under the mention (above it
+when the frame has no room below), `min(440px, block width)` wide: `--paper`, `1px solid
+var(--ink)`, the `4px 4px 0` ink shadow, padding `14px 16px 12px`. Inside: the source label
+(14/700), the × close (Archivo 16, `--soft`, 40px target), the formal citation (13px
+`--soft`), the dotted status label, then the cited paragraph at 14px ink when the mention
+names one, otherwise the whole text in a 260px scroll region; `Show the whole text` as a text
+action and `Open the official text ↗` as the same text-action link the authority row uses.
+Hover opens after 140ms and closes 220ms after the pointer leaves the mention or the card;
+click pins; focus opens; Escape, the ×, or a click elsewhere closes. One card open at a time.
 
 **Chooser row** (Privacy Wizards pattern). Grid: 20px Lucide icon in `--forest` / content / `→`
 in `--soft`. Title 16/700; one sub-line 14px `--soft` — `question · jurisdictions`. Rows separated
@@ -263,7 +306,9 @@ Retired or banned, with the deciding turn of the design package in parentheses:
   (Turn 4 — "confidence and citation kept; those are the evidence").
 - Second and third record formats (PDF, evidence ZIP) beside the record; one record (Turn 4).
 - A selected-facts summary and a sources panel on the question view; `Copy outcome` and
-  `Run again` beside a determination (Turn 4).
+  `Run again` beside a determination (Turn 4). The question view still shows no sources;
+  since 2026-09-13 the determination's authority rows carry their included text behind a
+  disclosure (§3, Authority row), which is a different surface.
 - Preview hints ("First 12 of 100 rows", "keep the CSV and its receipt together") and rows/seed
   explainers (Turn 3).
 

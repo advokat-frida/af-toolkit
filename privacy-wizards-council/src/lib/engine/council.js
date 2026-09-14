@@ -6,8 +6,66 @@ import {
   MANIFEST_VERSION,
   SOURCE_MANIFEST
 } from '../data/manifest.generated.js';
+import { MOTION } from '../data/motion.js';
+import { RELATED } from '../data/related.js';
+import { SEARCH_ALIASES } from '../data/search.js';
 
 export const LEGAL_STATUSES = ['draft', 'automated-check-only', 'practitioner-reviewed', 'superseded'];
+
+// The ISO date at the front of a wizard's authored `verifiedAsOf` stamp, or null.
+export function verifiedDate(wizard) {
+  const match = String(wizard?.verifiedAsOf || '').match(/^\d{4}-\d{2}-\d{2}/);
+  return match ? match[0] : null;
+}
+
+// The first sentence(s) of a long text, for the one-line aside and the verdict qualifier.
+// Short text comes back whole; the full text always stays reachable behind a disclosure.
+export function decisionLead(text) {
+  const value = String(text || '').trim();
+  if (value.length <= 340) return value;
+  const boundary = value.match(/[.!?](?=\s+[A-Z])/);
+  return boundary?.index !== undefined ? value.slice(0, boundary.index + 1) : `${value.slice(0, 337).trimEnd()}…`;
+}
+
+// The included source text as plain paragraphs. Source bodies are authored with p, span,
+// blockquote, b and i only; anything else is stripped the same way.
+export function sourceTextPlain(html) {
+  return String(html || '')
+    .replace(/\r/g, '')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/(?:p|div|li|blockquote|h[1-6]|tr)>/gi, '\n\n')
+    .replace(/<li[^>]*>/gi, '• ')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;|&apos;/g, "'")
+    .replace(/[ \t]+\n/g, '\n')
+    .replace(/\n[ \t]+/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
+// The path most readers open after this one (data/related.js), only ids that exist.
+export function relatedWizardIds(id) {
+  return (RELATED[id] || []).filter((other) => other !== id && WIZARDS[other]);
+}
+
+// Everything the finder matches a query against, lower-cased: the id, the authored
+// title, question and tag, the category, the jurisdictions, and the synonyms.
+export function searchText(id, wizard, categoryLabel = '') {
+  return [id, wizard?.title, wizard?.q, wizard?.tag, categoryLabel, ...(wizard?.jurisdictions || []), ...(SEARCH_ALIASES[id] || [])]
+    .filter(Boolean)
+    .join(' ')
+    .toLowerCase();
+}
+
+// Pending-law notes that touch this outcome (data/motion.js). Annotations only.
+export function motionNotes(wizardId, outcomeId) {
+  return MOTION.filter((note) => note.wizardIds.includes(wizardId) && (!note.outcomeIds || note.outcomeIds.includes(outcomeId)));
+}
 
 export function wizardSourceIds(wizard) {
   const ids = new Set();
@@ -147,6 +205,7 @@ export function answerQuestion(wizard, nodeId, optionIndex, history = []) {
     question: node.q,
     optionIndex,
     answer: option.label,
+    answerNote: option.desc || '',
     optionCites: option.cites || [],
     goto: option.goto
   };
@@ -192,6 +251,7 @@ export function buildRecord({ wizardId, history, outcomeId, date = new Date(), m
     `Generated locally: ${localDate(date)}`,
     `Wizard ID: ${wizardId}`,
     statusLine,
+    `Sources checked: ${wizard.verifiedAsOf || 'not recorded'}`,
     `Source manifest: ${MANIFEST_VERSION}`,
     `Source manifest SHA-256: ${MANIFEST_SHA256}`,
     `Legacy registry SHA-256: ${LEGACY_REGISTRY_SHA256}`,
@@ -201,6 +261,7 @@ export function buildRecord({ wizardId, history, outcomeId, date = new Date(), m
   ];
   for (const entry of history) {
     lines.push(`- **${entry.question}**`, `  - ${entry.answer}`);
+    if (entry.answerNote) lines.push(`    ${entry.answerNote}`);
   }
   lines.push('', '## Outcome', '', `**${outcome.title}**`, '', outcome.summary, '');
   if (outcome.actions?.length) {
@@ -209,11 +270,23 @@ export function buildRecord({ wizardId, history, outcomeId, date = new Date(), m
     lines.push('');
   }
   if (outcome.clock) lines.push('## Authored clock note', '', outcome.clock, '', 'No calendar reminder is generated unless the clock rule receives separate practitioner review.', '');
+  const pending = motionNotes(wizardId, outcomeId);
+  if (pending.length) {
+    lines.push('## What may change', '');
+    for (const note of pending) lines.push(`- ${note.text}`, `  - Checked ${note.checked}. Source: ${note.source.label} — ${note.source.url}`);
+    lines.push('');
+  }
   lines.push('## Sources', '');
   for (const id of sourceIds) {
     const source = SOURCES[id];
     const manifestEntry = manifest[id];
     lines.push(`- **${source?.label || id}** — ${source?.citation || 'Citation unavailable'}`, `  - Status: ${manifestEntry?.status || 'draft'}`, `  - Official text: ${source?.provenance || source?.url || 'No official URL recorded'}`);
+    const text = sourceTextPlain(source?.body);
+    if (text) {
+      lines.push('  - Included text:', '');
+      for (const line of text.split('\n')) lines.push(line ? `    > ${line}` : '    >');
+      lines.push('');
+    }
   }
   return lines.join('\n');
 }

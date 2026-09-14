@@ -6,7 +6,9 @@ export const categories = [
   { id: 'ai-systems', label: 'AI systems', wizardIds: ['ai-role', 'ai-risk'] }
 ];
 
-export const commonWizardIds = ['breach', 'dpia', 'dsar', 'cookies', 'ai-risk'];
+// The five rows the finder shows before a search. Privacy first (Ben, 2026-09-14):
+// Cross-border transfer replaced AI Act risk tier.
+export const commonWizardIds = ['breach', 'dpia', 'dsar', 'cookies', 'transfer'];
 
 export function categoryForWizard(id) {
   return categories.find((category) => category.wizardIds.includes(id));

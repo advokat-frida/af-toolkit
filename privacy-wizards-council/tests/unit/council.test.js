@@ -9,14 +9,23 @@ import {
   answerQuestion,
   buildRecord,
   calendarEligibility,
+  decisionLead,
   editAnswer,
+  motionNotes,
   parseWizardHash,
+  relatedWizardIds,
   reviewedThrough,
+  searchText,
   sourceIdsForState,
+  sourceTextPlain,
   validateGraph,
+  verifiedDate,
   wizardReviewState,
   wizardSourceIds
 } from '../../src/lib/engine/council.js';
+import { MOTION } from '../../src/lib/data/motion.js';
+import { RELATED } from '../../src/lib/data/related.js';
+import { SEARCH_ALIASES } from '../../src/lib/data/search.js';
 
 function firstOutcomePath(wizard) {
   let current = wizard.start;
@@ -193,5 +202,97 @@ describe('records and calendar gate', () => {
       Object.entries(SOURCE_MANIFEST).map(([id, entry]) => [id, { ...entry, status: 'practitioner-reviewed', reviewDate: '2026-08-20' }])
     );
     expect(calendarEligibility({ wizardId: 'breach', outcomeId: unclocked, manifest: allReviewed, enabled: ['breach'] })).toEqual({ available: false, reason: 'no-clock' });
+  });
+});
+
+describe('the authored depth reaches the page', () => {
+  it('every_wizard_names_at_most_two_next_determinations_that_exist', () => {
+    for (const id of Object.keys(WIZARDS)) {
+      const related = relatedWizardIds(id);
+      expect(related.length, id).toBeGreaterThan(0);
+      expect(related.length, id).toBeLessThanOrEqual(2);
+      for (const other of related) {
+        expect(WIZARDS[other], `${id} -> ${other}`).toBeTruthy();
+        expect(other).not.toBe(id);
+      }
+    }
+    for (const id of Object.keys(RELATED)) expect(WIZARDS[id], id).toBeTruthy();
+  });
+
+  it('search_aliases_name_existing_wizards_and_resolve_common_terms', () => {
+    for (const id of Object.keys(SEARCH_ALIASES)) expect(WIZARDS[id], id).toBeTruthy();
+    expect(searchText('dsar', WIZARDS.dsar)).toContain('subject access');
+    expect(searchText('cookies', WIZARDS.cookies, 'Rights & people')).toContain('gpc');
+    expect(searchText('breach', WIZARDS.breach)).toContain('72 hours');
+    expect(searchText('breach', WIZARDS.breach)).toContain('us-ny');
+  });
+
+  it('verified_date_reads_the_iso_prefix_of_the_authored_stamp', () => {
+    expect(verifiedDate(WIZARDS.breach)).toBe('2026-07-02');
+    expect(verifiedDate(WIZARDS['ai-risk'])).toBe('2026-07-06');
+    expect(verifiedDate({ verifiedAsOf: 'soon' })).toBe(null);
+    expect(verifiedDate({})).toBe(null);
+  });
+
+  it('source_text_plain_strips_markup_and_keeps_paragraph_breaks', () => {
+    const text = sourceTextPlain(SOURCES['gdpr-art-4'].body);
+    expect(text).not.toMatch(/<[^>]+>/);
+    expect(text).toContain("'personal data' means any information");
+    expect(text).toContain('\n\n');
+    expect(sourceTextPlain('')).toBe('');
+    expect(sourceTextPlain('<p>a &amp; b</p><blockquote>c</blockquote>')).toBe('a & b\n\nc');
+  });
+
+  it('decision_lead_returns_short_text_whole_and_cuts_long_text_at_a_sentence', () => {
+    expect(decisionLead('Short.')).toBe('Short.');
+    const long = `${'First sentence about the rule that runs on. '.repeat(6)}Second sentence. ${'x'.repeat(200)}`;
+    const lead = decisionLead(long);
+    expect(lead.length).toBeLessThan(long.length);
+    expect(lead.endsWith('.')).toBe(true);
+    // The lead exists because most authored help and reasoning is longer than one line.
+    const longNodes = Object.values(WIZARDS).flatMap((wizard) => Object.values(wizard.nodes)).filter((node) => (node.help || node.summary || '').length > 340);
+    expect(longNodes.length).toBeGreaterThan(100);
+    for (const node of longNodes) expect(decisionLead(node.help || node.summary)).not.toBe(node.help || node.summary);
+  });
+
+  it('pending_law_notes_point_at_existing_outcomes_and_carry_a_dated_official_source', () => {
+    for (const note of MOTION) {
+      expect(note.checked).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      expect(note.source.url).toMatch(/^https:\/\//);
+      expect(note.text).toMatch(/proposal/i);
+      expect(note.text).toMatch(/not law/i);
+      for (const wizardId of note.wizardIds) {
+        expect(WIZARDS[wizardId], wizardId).toBeTruthy();
+        for (const outcomeId of note.outcomeIds || []) expect(WIZARDS[wizardId].nodes[outcomeId]?.type, `${wizardId}:${outcomeId}`).toBe('outcome');
+      }
+    }
+    expect(motionNotes('breach', 'o-eu-sa-only')).toHaveLength(1);
+    expect(motionNotes('breach', 'o-ny-notify')).toHaveLength(0);
+    expect(motionNotes('dpia', Object.keys(WIZARDS.dpia.nodes).find((id) => WIZARDS.dpia.nodes[id].type === 'outcome'))).toHaveLength(1);
+    expect(motionNotes('ai-risk', 'anything')).toHaveLength(0);
+  });
+
+  it('record_carries_the_check_date_answer_notes_pending_notes_and_included_source_text', () => {
+    const wizard = WIZARDS.breach;
+    let current = wizard.start;
+    let history = [];
+    let outcomeId = null;
+    for (let guard = 0; guard < 20 && !outcomeId; guard += 1) {
+      const node = wizard.nodes[current];
+      const index = Math.max(0, (node.opts || []).findIndex((option) => option.desc));
+      const result = answerQuestion(wizard, current, index, history);
+      expect(result.ok).toBe(true);
+      history = result.history;
+      outcomeId = result.outcomeId;
+      current = result.currentNodeId;
+    }
+    expect(history.some((entry) => entry.answerNote)).toBe(true);
+    const record = buildRecord({ wizardId: 'breach', history, outcomeId, date: new Date('2026-09-13T12:00:00') });
+    expect(record).toContain('Sources checked: 2026-07-02');
+    expect(record).toContain('  - Included text:');
+    expect(record).toMatch(/\n    > /);
+    const noted = history.find((entry) => entry.answerNote);
+    expect(record).toContain(`    ${noted.answerNote}`);
+    if (motionNotes('breach', outcomeId).length) expect(record).toContain('## What may change');
   });
 });
