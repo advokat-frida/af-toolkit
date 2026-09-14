@@ -1,0 +1,20 @@
+{
+  "kind": "case",
+  "juris": "US-IL",
+  "label": "US 9th Cir. — Patel v Facebook (BIPA standing)",
+  "citation": "932 F.3d 1264 (9th Cir. 2019)",
+  "provenance": "https://cdn.ca9.uscourts.gov/datastore/opinions/2019/08/08/18-15982.pdf",
+  "body": [
+    "<p><b>Holding:</b> Facebook's \"Tag Suggestions\" facial-recognition feature — scanning user-uploaded photos to extract face templates without prior written consent or a publicly available retention schedule — violated <b>BIPA Sec. 15(a) and 15(b)</b>. The Ninth Circuit held the violations created <b>concrete and particularised harm</b> sufficient for Article III standing — biometric privacy interests are <b>substantive</b>, not procedural.</p>",
+    "  <p><b>Outcome:</b> Class certified; settled for $650M in 2021 (originally $550M; raised on remand).</p>",
+    "  <p><b>Why it matters:</b> Established that BIPA's notice-and-consent provisions create concrete injury independent of pecuniary loss. Distinguishes BIPA-style biometric claims from the bare-procedural-violation analysis of Spokeo.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

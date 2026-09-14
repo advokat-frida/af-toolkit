@@ -1,0 +1,288 @@
+{
+  "title": "Sale / share determination (CCPA)",
+  "tag": "Decide whether a data flow is a 'sale' or a 'share' that triggers opt-out, contracts, and minor-consent rules.",
+  "q": "Is this data flow a 'sale' in California's eyes?",
+  "icon": "💰",
+  "jurisdictions": [
+    "US-CA"
+  ],
+  "start": "q-business",
+  "nodes": {
+    "q-business": {
+      "type": "question",
+      "q": "Does your organization qualify as a 'business' under CCPA § 1798.140(d)?",
+      "help": "A 'business' is a for-profit California-doing-business entity that determines the purposes and means of processing and meets ≥1 threshold: (A) annual gross revenue over the statutory $25M base as CPI-adjusted under §1798.185(a)(5) — the operative figure is $26,625,000 effective January 1, 2025, and it adjusts every odd-numbered year (next adjustment due January 2027; verify the current figure); (B) annually buys/sells/shares personal information (PI) of ≥100,000 consumers or households; (C) ≥50% revenue from selling/sharing PI. Thresholds (B) and (C) are not monetary and are not CPI-adjusted.",
+      "cites": [
+        "ccpa-1798-140",
+        "ccr-threshold-adj"
+      ],
+      "opts": [
+        {
+          "label": "Yes — meets a threshold and does business in CA",
+          "goto": "q-relationship"
+        },
+        {
+          "label": "No — under all thresholds",
+          "goto": "o-not-business"
+        },
+        {
+          "label": "Affiliate of a covered business with shared branding and PI sharing",
+          "desc": "§1798.140(d)(2) covers controlled affiliates that share common branding and PI",
+          "goto": "q-relationship"
+        },
+        {
+          "label": "Voluntary opt-in (§1798.140(d)(4))",
+          "goto": "q-relationship"
+        }
+      ]
+    },
+    "o-not-business": {
+      "type": "outcome",
+      "tier": "ok",
+      "title": "Not a 'business' under CCPA — § 1798.120 doesn't apply",
+      "summary": "Without §1798.140(d) coverage, the sale/share opt-out and § 1798.135 link/signal duties don't attach. But monitor the thresholds — they are measured annually.",
+      "actions": [
+        "Monitor revenue and consumer/household counts quarterly. The revenue threshold looks at the preceding calendar year, so coverage starts with the new calendar year once revenue passes the CPI-adjusted figure. The 100,000-consumer/household and 50%-revenue thresholds have no January-1 trigger — assume coverage starts as soon as the annual measure is met, unless regulatory guidance says otherwise",
+        "Even if you're not a 'business', obligations may still reach you downstream — via individual employees and the service-provider contracts you sign; confirm those contracts don't accidentally make you a 'business'"
+      ],
+      "cites": [
+        "ccpa-1798-140"
+      ]
+    },
+    "q-relationship": {
+      "type": "question",
+      "q": "What is the recipient's relationship to your business?",
+      "help": "The recipient's status drives whether a flow is a sale/share or an internal use. § 1798.140 distinguishes service providers (ag), contractors (j), and third parties (ai). Service providers and contractors operate under written contracts with strict use limitations.",
+      "cites": [
+        "ccpa-1798-140"
+      ],
+      "opts": [
+        {
+          "label": "Service provider — processes on behalf of business, written contract prohibits sale/share",
+          "desc": "§1798.140(ag)",
+          "goto": "q-sp-contract"
+        },
+        {
+          "label": "Contractor — written contract with same restrictions as service provider",
+          "desc": "§1798.140(j)",
+          "goto": "q-sp-contract"
+        },
+        {
+          "label": "Third party — independent recipient (not a service provider, not a contractor)",
+          "desc": "§1798.140(ai)",
+          "goto": "q-third-purpose"
+        },
+        {
+          "label": "Affiliate with common branding",
+          "goto": "o-affiliate"
+        }
+      ]
+    },
+    "q-sp-contract": {
+      "type": "question",
+      "q": "Does the written contract contain ALL the required service-provider/contractor restrictions?",
+      "help": "§1798.140(ag)(1): the contract must prohibit (A) selling/sharing the PI, (B) retaining/using/disclosing outside the contracted business purpose, (C) retaining/using outside the direct business relationship, (D) combining PI from this business with PI from another source (limited business-purpose exceptions).",
+      "cites": [
+        "ccpa-1798-140"
+      ],
+      "opts": [
+        {
+          "label": "Yes — all four prohibitions are in writing",
+          "goto": "o-not-sale-not-share"
+        },
+        {
+          "label": "No — contract is silent or incomplete on one or more",
+          "goto": "o-defective-sp"
+        },
+        {
+          "label": "There is no written contract",
+          "goto": "o-defective-sp"
+        }
+      ]
+    },
+    "o-not-sale-not-share": {
+      "type": "outcome",
+      "tier": "ok",
+      "title": "Not a sale and not a share — service provider / contractor exception applies",
+      "summary": "Disclosure of PI to a properly contracted service provider (SP)/contractor for a business purpose is not a 'sale' under §1798.140(ad) and not a 'share' under §1798.140(ah). Make sure the contract is robust, the limitations are observed in practice, and the SP/contractor is genuinely operating on your behalf — not for its own ends.",
+      "actions": [
+        "Confirm the SP/contractor agreement contains all four §1798.140(ag)(1)/(j)(1) prohibitions",
+        "Consider negotiating contract rights to monitor/audit SP/contractor compliance — § 1798.140(ag)(1) permits the contract, subject to agreement with the service provider, to allow monitoring including audits at least once every 12 months (this is permissive contract language, not a statutory duty)",
+        "Confirm sub-processors are flowed-through contractually (§1798.140(ag)(2)/(j)(2))",
+        "You do not need a 'Do Not Sell or Share My Personal Information' link if your only disclosures are to properly contracted service providers/contractors and there are no third-party flows",
+        "Maintain mapping of which vendors are SP/contractor vs third party"
+      ],
+      "cites": [
+        "ccpa-1798-140"
+      ]
+    },
+    "o-defective-sp": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Treat as a third-party disclosure — sale/share analysis required",
+      "summary": "Without a §1798.140(ag)/(j)-compliant written contract, the recipient is by default a 'third party' under §1798.140(ai), and the disclosure has to be evaluated as a sale or share.",
+      "actions": [
+        "Immediately upgrade the contract with the four required prohibitions, or treat the flow as a sale/share and implement the full opt-out obligations",
+        "Inventory all vendors and confirm contract terms",
+        "Update notice at collection and privacy policy to disclose third-party flows if you keep treating them as such"
+      ],
+      "cites": [
+        "ccpa-1798-140",
+        "ccpa-1798-120"
+      ]
+    },
+    "q-third-purpose": {
+      "type": "question",
+      "q": "What's the purpose of disclosing to this third party?",
+      "help": "§1798.140(ad)(1) — 'sale' requires monetary OR other valuable consideration. §1798.140(ah)(1) — 'share' requires use for cross-context behavioral advertising (CCBA), regardless of consideration. These categories overlap: a disclosure can be both.",
+      "cites": [
+        "ccpa-1798-140"
+      ],
+      "opts": [
+        {
+          "label": "For monetary consideration (you get paid)",
+          "goto": "o-sale"
+        },
+        {
+          "label": "For non-monetary 'valuable consideration' (e.g. enhanced services in exchange)",
+          "goto": "o-sale"
+        },
+        {
+          "label": "For cross-context behavioral advertising (CCBA) — targeting ads across distinct businesses",
+          "goto": "o-share"
+        },
+        {
+          "label": "The consumer directed us to disclose to / interact with the third party",
+          "goto": "o-consumer-directed"
+        },
+        {
+          "label": "Passing along an opt-out — sharing an identifier so the third party knows the consumer has opted out",
+          "goto": "o-optout-signal"
+        },
+        {
+          "label": "Transfer as part of M&A / bankruptcy",
+          "goto": "o-mna"
+        },
+        {
+          "label": "None of the above — internal-only use",
+          "goto": "o-internal"
+        }
+      ]
+    },
+    "o-sale": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "This is a 'sale' under § 1798.140(ad)",
+      "summary": "You must offer consumers the right to opt out of sale (§ 1798.120(a)) and operationalize it. Under the CPPA regulations, honoring opt-out preference signals (e.g. the Global Privacy Control (GPC)) is mandatory for every business that sells or shares PI (11 CCR § 7025(b)); the 'Do Not Sell or Share My Personal Information' link (§ 1798.135(a)) is additionally required unless you process the signal in a frictionless manner (11 CCR § 7025(f)–(g)).",
+      "actions": [
+        "Honor opt-out preference signals (e.g. GPC) — this is mandatory under 11 CCR § 7025(b) for any business that sells or shares PI; it is not an alternative you can decline by posting a link",
+        "Also add a clear and conspicuous 'Do Not Sell or Share My Personal Information' link on your homepage (§ 1798.135(a)) — the link may be omitted only if you process opt-out preference signals in a 'frictionless manner' under 11 CCR § 7025(f)–(g); a single combined link with 'Limit the Use of My Sensitive Personal Information' is permitted",
+        "Update privacy notice and notice at collection to disclose the sale and explain the opt-out right",
+        "If the consumer is known to be under 16: do not sell without affirmative opt-in (from the consumer if 13–15; from the parent if under 13) — § 1798.120(c)",
+        "Wait at least 12 months before reauthorization requests (§ 1798.135(c)(4))",
+        "Notify third parties to whom you sold/shared the PI of opt-out requests and direct them to comply (11 CCR § 7026(f)(2)); verifying downstream compliance is recommended practice — the statute itself imposes no audit duty",
+        "Conduct and document a CCPA risk assessment — the CPPA's 2025 risk-assessment regulations treat selling/sharing PI as a significant-risk activity (11 CCR § 7150 et seq.); verify the final section numbers and phased submission/retention deadlines against the current regulation text"
+      ],
+      "cites": [
+        "ccpa-1798-140",
+        "ccpa-1798-120",
+        "ccpa-1798-135",
+        "ccr-7025",
+        "ccr-7026",
+        "ccr-7150"
+      ]
+    },
+    "o-share": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "This is a 'share' under § 1798.140(ah) — CCBA-specific",
+      "summary": "Cross-context behavioral advertising is 'sharing' even with no money changing hands. The opt-out obligations are the same as for a sale: honoring opt-out preference signals is mandatory, and the homepage link is required unless you process the signal in a frictionless manner.",
+      "actions": [
+        "Honor opt-out preference signals (e.g. the Global Privacy Control (GPC)) — mandatory under 11 CCR § 7025(b) for any business sharing PI for CCBA; the 'Do Not Sell or Share' homepage link is additionally required unless you process the signal in a frictionless manner per 11 CCR § 7025(f)–(g)",
+        "Confirm whether any vendor classified as 'service provider' is actually performing CCBA — § 1798.140(e)(6) carves cross-context behavioral advertising out of the service-provider business purposes, so a vendor doing CCBA for you is by definition a third party",
+        "Minor consent (under 16) rule applies — § 1798.120(c)",
+        "12-month reauthorization wait — § 1798.135(c)(4)",
+        "Update notice at collection: must disclose categories of PI shared and the consumer's right to opt out",
+        "Conduct and document a CCPA risk assessment — the CPPA's 2025 risk-assessment regulations treat selling/sharing PI as a significant-risk activity (11 CCR § 7150 et seq.); verify the final section numbers and phased submission/retention deadlines against the current regulation text"
+      ],
+      "cites": [
+        "ccpa-1798-140",
+        "ccpa-1798-120",
+        "ccpa-1798-135",
+        "ccr-7025",
+        "ccr-7150"
+      ]
+    },
+    "o-consumer-directed": {
+      "type": "outcome",
+      "tier": "ok",
+      "title": "Not a sale or share — consumer-directed disclosure exception",
+      "summary": "§ 1798.140(ad)(2)(A) and (ah)(2)(A): a business does not sell or share when a consumer uses or directs the business to intentionally disclose PI or interact with one or more third parties.",
+      "actions": [
+        "Confirm the consumer's direction is intentional and documented (UI flow, click-through, etc.)",
+        "Do not extend the exception to incidental disclosures made alongside the consumer's directed action — only the directed disclosure is covered",
+        "Hovering, muting, pausing, or closing content is not 'intentional interaction' (§ 1798.140(s))",
+        "Avoid dark patterns — consent obtained through a dark pattern is invalid (§ 1798.140(h))"
+      ],
+      "cites": [
+        "ccpa-1798-140"
+      ]
+    },
+    "o-optout-signal": {
+      "type": "outcome",
+      "tier": "ok",
+      "title": "Not a sale or share — opt-out signal/identifier carve-out",
+      "summary": "§ 1798.140(ad)(2)(B) and (ah)(2)(B): disclosing or sharing an identifier solely to alert downstream parties that the consumer has opted out is not a sale or share. This is the foundation of opt-out propagation.",
+      "actions": [
+        "Use this carve-out only for opt-out propagation, not for any other purpose",
+        "Document the identifier-purpose narrowly in your vendor contracts"
+      ],
+      "cites": [
+        "ccpa-1798-140"
+      ]
+    },
+    "o-mna": {
+      "type": "outcome",
+      "tier": "warn",
+      "title": "Not a sale or share — M&A / asset transfer carve-out, but with conditions",
+      "summary": "§ 1798.140(ad)(2)(C) and (ah)(2)(C): transfer of PI as an asset in a merger, acquisition, bankruptcy, or other transaction in which the third party assumes control of the business is not a sale or share, provided the PI is used or shared consistently with the CCPA. If the buyer materially changes use, it must give prior notice and opportunity to exercise rights.",
+      "actions": [
+        "Include a representation in transaction docs that the buyer will honor existing privacy promises",
+        "If buyer plans to change use materially, build prior-notice obligation into the deal",
+        "Do not use this carve-out for ordinary marketing transfers — it applies only to M&A-type transactions",
+        "As a practical/diligence matter, have the buyer honor consumers' pre-transfer opt-out directions: the carve-out holds only if the transferred PI is used or shared consistently with the CCPA (§ 1798.140(ad)(2)(C)/(ah)(2)(C)), and materially inconsistent use requires prior notice — there is no separate statutory 'carry-over' rule"
+      ],
+      "cites": [
+        "ccpa-1798-140"
+      ]
+    },
+    "o-affiliate": {
+      "type": "outcome",
+      "tier": "info",
+      "title": "Affiliate disclosures — (d)(2) makes the affiliate a covered 'business'; sale/share treatment of inter-affiliate flows is unsettled",
+      "summary": "§ 1798.140(d)(2) makes a controlled affiliate that shares common branding with a covered business, and with whom the business shares consumers' PI, itself a covered 'business.' It does not clearly merge the affiliates into one business for CCPA purposes: an affiliate that is not the consumer-facing business and is not contracted as an SP/contractor is arguably a 'third party' under § 1798.140(ai), so a transfer for consideration or for CCBA could still be a sale/share.",
+      "actions": [
+        "Confirm all three (d)(2) elements: control (e.g. >50% voting ownership or controlling influence), common branding (shared name/servicemark/trademark recognizable to consumers), and that the business shares consumers' PI with the affiliate",
+        "Safest course: put a § 1798.140(ag)/(j)-compliant SP/contractor contract between the affiliates, or run the third-party sale/share analysis on the inter-affiliate flow rather than assuming it is intra-business",
+        "If common branding (or any other (d)(2) element) is missing, treat the affiliate as a third party and run the third-party flow analysis"
+      ],
+      "cites": [
+        "ccpa-1798-140"
+      ]
+    },
+    "o-internal": {
+      "type": "outcome",
+      "tier": "ok",
+      "title": "Not a sale or share — internal use only",
+      "summary": "Internal use of PI within a single business doesn't implicate § 1798.120. Confirm the use is consistent with the notice at collection and § 1798.100(c) data minimization / purpose limitation.",
+      "actions": [
+        "Confirm purpose compatibility with notice at collection",
+        "Watch for 'further processing' for new purposes — may need new disclosure or consent under § 1798.100(c)"
+      ],
+      "cites": [
+        "ccpa-1798-140"
+      ]
+    }
+  },
+  "verifiedAsOf": "2026-07-02 (automated cross-check against official source texts; not yet reviewed by counsel)"
+}

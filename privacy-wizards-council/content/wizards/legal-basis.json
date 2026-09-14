@@ -1,0 +1,226 @@
+{
+  "title": "Legal basis selection (Art. 6)",
+  "tag": "Pick the right GDPR Art. 6 lawful basis for your processing — and surface its constraints.",
+  "q": "Which lawful basis fits, and what does it lock you into?",
+  "icon": "⚖️",
+  "jurisdictions": [
+    "EU",
+    "UK"
+  ],
+  "start": "q-purpose",
+  "nodes": {
+    "q-purpose": {
+      "type": "question",
+      "q": "What's the primary driver of the processing?",
+      "help": "Each Art. 6(1) basis has its own conditions and downstream rights. Pick the most accurate basis, not the most convenient — the legal basis you declare drives transparency notices and downstream rights (e.g. erasure under Art. 17, portability under Art. 20).",
+      "cites": [
+        "gdpr-art-6"
+      ],
+      "opts": [
+        {
+          "label": "The data subject asked us to do this / it's needed for a contract with them",
+          "goto": "o-contract"
+        },
+        {
+          "label": "We're legally required to do this (statute, court order, regulator demand)",
+          "goto": "o-legal-obligation"
+        },
+        {
+          "label": "It's necessary to protect someone's life",
+          "goto": "o-vital"
+        },
+        {
+          "label": "Public-interest task or official authority",
+          "goto": "o-public-task"
+        },
+        {
+          "label": "Marketing/analytics/profiling/non-essential — we want to do it for our own reasons",
+          "goto": "q-li-or-consent"
+        },
+        {
+          "label": "Special category data (Art. 9) involved",
+          "goto": "o-art-9-route"
+        }
+      ]
+    },
+    "o-contract": {
+      "type": "outcome",
+      "tier": "ok",
+      "title": "Art. 6(1)(b) — Contract (or pre-contractual steps)",
+      "summary": "Processing necessary for the performance of a contract to which the data subject is a party, or to take pre-contractual steps at the data subject's request. 'Necessary' is strict: CJEU C-252/21 Meta Platforms v Bundeskartellamt requires the processing to be 'objectively indispensable for a purpose that is integral to the contractual obligation' — anything you could do without is not 'necessary'. Meta Platforms (C-252/21) is EU authority: decided after the Brexit transition period, it does not bind UK courts (persuasive at most) — but ICO lawful-basis guidance applies the same strict-necessity approach in the UK. EDPB Guidelines 2/2019 spell out the rule for online services: service improvement and online behavioral advertising are not covered, and fraud prevention typically is not (it usually needs Art. 6(1)(c) or (f) instead).",
+      "actions": [
+        "Document the link between each processing operation and a specific contractual term — apply the Meta Platforms (C-252/21) 'objectively indispensable' test",
+        "UK: treat Meta Platforms (C-252/21) — and other post-2020 CJEU rulings — as persuasive only; apply ICO lawful-basis guidance on contract necessity, which takes the same strict approach",
+        "Don't bundle marketing, analytics, or behavioral advertising into 'contract' — they need their own basis (usually consent under Planet49 (C-673/17) rules)",
+        "Subjects don't have a right to erasure under Art. 17(1)(b) (withdraw consent) for contract-basis processing — but Art. 17(1)(a) (no longer necessary) still applies once the contract ends",
+        "Art. 20 portability right applies to contract-basis processing",
+        "No Art. 21(1) general objection right for contract-basis processing (Art. 21(1) covers only the Art. 6(1)(e)/(f) bases) — but the Art. 21(2) direct-marketing objection applies regardless of basis"
+      ],
+      "cites": [
+        "gdpr-art-6",
+        "gdpr-art-17",
+        "gdpr-art-20",
+        "gdpr-art-21",
+        "case-meta-bka",
+        "guide-edpb-2-2019-art-6-1-b",
+        "guide-ico-lawful-basis"
+      ]
+    },
+    "o-legal-obligation": {
+      "type": "outcome",
+      "tier": "ok",
+      "title": "Art. 6(1)(c) — Legal obligation",
+      "summary": "Processing necessary for compliance with a legal obligation. Per Art. 6(3), the obligation must arise under Union or Member State law (EU GDPR) — in the UK, under domestic law (UK GDPR Art. 6(3), as amended by the DPPEC Regulations 2019): a UK statute or common-law rule qualifies, an EU Member State law does not. Foreign-law compulsion is not a valid basis in either regime.",
+      "actions": [
+        "Cite the specific statute, regulation, or binding instrument that compels the processing",
+        "Foreign legal obligations (e.g. US subpoenas) are not a valid Art. 6(1)(c) basis. EU: see Art. 48 and the EDPB–EDPS Joint Response on Art. 48. UK: the analysis runs through the UK GDPR's own transfer regime (UK GDPR Arts. 44–49, IDTA / UK adequacy regulations), not CJEU authority",
+        "Document data minimisation — only collect what the legal obligation actually requires",
+        "Art. 17(3)(b) overrides the erasure right where erasure would breach a legal obligation under Union/Member State law (EU) or domestic law (UK)",
+        "No portability right — Art. 20 only applies to consent or contract basis"
+      ],
+      "cites": [
+        "gdpr-art-6",
+        "gdpr-art-6-3",
+        "gdpr-art-17",
+        "gdpr-art-20",
+        "gdpr-art-48"
+      ]
+    },
+    "o-vital": {
+      "type": "outcome",
+      "tier": "ok",
+      "title": "Art. 6(1)(d) — Vital interests",
+      "summary": "Necessary to protect vital interests of the data subject or another natural person. Narrow — typically emergency medical situations where the subject cannot consent. Recital 46: where the vital interests protected are another person's, this basis should in principle be used only where the processing cannot manifestly be based on another legal basis.",
+      "actions": [
+        "Document the emergency context — this is not a routine basis",
+        "If special category data is also involved, Art. 9(2)(c) covers vital interests of the subject or of another person, where the subject is physically or legally incapable of giving consent",
+        "Switch to a more appropriate basis as soon as feasible"
+      ],
+      "cites": [
+        "gdpr-art-6",
+        "gdpr-art-9"
+      ]
+    },
+    "o-public-task": {
+      "type": "outcome",
+      "tier": "warn",
+      "title": "Art. 6(1)(e) — Public-interest task or official authority",
+      "summary": "Only available where the task or authority is laid down by Union or Member State law (EU GDPR Art. 6(3)) — in the UK, by domestic law (UK GDPR Art. 6(3)). Public bodies cannot rely on Art. 6(1)(f) legitimate interests for their public tasks (Art. 6(1) final subparagraph).",
+      "actions": [
+        "Identify the underlying law that establishes the public-interest task or official authority — Union/Member State law for the EU GDPR, domestic law for the UK GDPR",
+        "Data subjects have a right to object under Art. 21(1) — controller must demonstrate compelling legitimate grounds",
+        "Art. 35(10): you can skip a separate data protection impact assessment (DPIA) only if a DPIA was already done as part of a general impact assessment when the underlying legal basis was adopted, and that law regulates the specific processing operation — Member State law may still require one before processing"
+      ],
+      "cites": [
+        "gdpr-art-6",
+        "gdpr-art-6-3",
+        "gdpr-art-35"
+      ]
+    },
+    "q-li-or-consent": {
+      "type": "question",
+      "q": "Which route are you taking — legitimate interests (LI), backed by a legitimate interests assessment (LIA), or freely given consent?",
+      "help": "For processing you want to do for your own purposes, the choice is normally consent (Art. 6(1)(a)) or legitimate interests (Art. 6(1)(f)). LI needs a documented LIA: identify the legitimate interest, show the processing is necessary to pursue it, and balance it against the subjects' rights and freedoms. Consent must be specific, informed, freely given, unambiguous, and as easy to withdraw as to give (Art. 4(11), Art. 7). Consent tends to fit where subjects would expect a choice; LI tends to fit where consent is impractical and the impact on subjects is limited.",
+      "cites": [
+        "gdpr-art-6",
+        "gdpr-art-4",
+        "uk-duaa-2025",
+        "guide-edpb-1-2024",
+        "case-knltb"
+      ],
+      "opts": [
+        {
+          "label": "LIA done — LI is appropriate",
+          "goto": "o-li"
+        },
+        {
+          "label": "We'll obtain consent (with a valid mechanism)",
+          "goto": "o-consent"
+        },
+        {
+          "label": "Either could work — subjects would expect consent (e.g. direct marketing)",
+          "goto": "o-consent",
+          "desc": "In the EU, consent is usually the better fit here. In the UK, the Data (Use and Access) Act 2025 (DUAA 2025) acknowledges direct marketing as a purpose that may constitute a legitimate interest — but consent rules under the UK's Privacy and Electronic Communications Regulations (PECR) still govern the electronic channel (email/SMS)."
+        },
+        {
+          "label": "Either could work — consent is impractical (e.g. fraud prevention)",
+          "goto": "o-li"
+        }
+      ]
+    },
+    "o-li": {
+      "type": "outcome",
+      "tier": "warn",
+      "title": "Art. 6(1)(f) — Legitimate interests",
+      "summary": "Subjects have a right to object under Art. 21(1). You must stop processing unless you can demonstrate compelling legitimate grounds that override the subject's rights, or for legal claims. Direct-marketing objections under Art. 21(2) are absolute — no balancing. Meta Platforms (C-252/21) tightened the LI balancing for online platforms — for personalized advertising in a dominant-platform context, LI will rarely hold. CJEU C-40/17 Fashion ID requires each joint controller to independently pursue an LI. Both are EU authority — persuasive only in the UK post-Brexit. UK divergence: the Data (Use and Access) Act 2025 (DUAA 2025) adds 'recognised legitimate interests' (UK GDPR Art. 6(1)(ea) + Annex — e.g. national security, emergencies, crime, safeguarding), which need no balancing test. It also names direct marketing, intra-group administrative transmission, and network security as purposes that may constitute legitimate interests. Outside the recognized list the three-part LIA remains the UK default. Commencement is phased — verify in-force status and current ICO guidance.",
+      "actions": [
+        "Conduct and document a three-part LIA: (1) legitimate interest, (2) necessity, (3) balancing — for EU processing follow the EDPB Guidelines 1/2024 methodology (verify final adopted version); CJEU C-621/22 KNLTB confirms purely commercial interests can qualify",
+        "UK: check first whether the purpose is a DUAA 2025 'recognised legitimate interest' (UK GDPR Art. 6(1)(ea) + Annex) — if so, no balancing test is required; otherwise run the standard LIA",
+        "Disclose the LI in your privacy notice (Art. 13(1)(d) / 14(2)(b))",
+        "Direct marketing: subject's Art. 21(2) objection is absolute; stop immediately — this holds in both regimes, including where UK direct marketing rests on LI",
+        "Children's data — LI balancing tilts strongly against the controller (Art. 6(1)(f) flags 'in particular where the data subject is a child')",
+        "Public authorities cannot use Art. 6(1)(f) for their public-task processing — final subparagraph of Art. 6(1)",
+        "Art. 17(1)(c) erasure: required if no overriding legitimate grounds",
+        "For embedded plugins / joint controllership: each party must have its own LI (Fashion ID (C-40/17) — EU authority; ICO guidance takes a similar line)"
+      ],
+      "cites": [
+        "gdpr-art-6",
+        "gdpr-art-17",
+        "gdpr-art-21",
+        "case-meta-bka",
+        "case-fashion-id",
+        "uk-duaa-2025",
+        "guide-edpb-1-2024",
+        "case-knltb",
+        "guide-ico-lawful-basis"
+      ]
+    },
+    "o-consent": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Art. 6(1)(a) — Consent",
+      "summary": "Consent must be freely given, specific, informed, and unambiguous, by a clear affirmative action (Art. 4(11)). CJEU C-673/17 Planet49 confirmed: pre-ticked boxes are invalid, active behavior is required. Granular options for different purposes are required — that flows from the 'specific' element of Art. 4(11) (see Recitals 32 and 43); Art. 7(2) separately requires a consent request in a written declaration to be clearly distinguishable from other matters. Withdrawal must be as easy as giving (Art. 7(3)). For dominant platforms, dominance is a key factor in whether consent was freely given — Meta Platforms (C-252/21), an EU authority that is persuasive only in the UK.",
+      "actions": [
+        "UI: separate, granular, unticked checkboxes per purpose — no bundling (Planet49 (C-673/17); granularity derives from Art. 4(11) 'specific' and Recitals 32/43)",
+        "Document who consented, when, and what they were told (Art. 7(1))",
+        "Provide a withdrawal mechanism as easy as the consent mechanism — and surface it",
+        "Conditioning a contract on consent to processing that isn't necessary for that contract will normally make the consent not freely given (Art. 7(4); EDPB Guidelines 05/2020 treat it as a strong presumption of invalidity) — avoid it",
+        "Child consent age varies: EU default is 16, but Member States may set any age from 13 to 16 (Art. 8(1)) — check the age in each Member State where the service is offered (e.g. 13 in IE/SE/DK, 14 in ES/AT, 15 in FR); the UK is 13 (DPA 2018 s. 9). Below the applicable age, get parental authorization",
+        "Art. 17(1)(b): withdrawing consent triggers erasure if no other basis",
+        "Art. 20 portability applies",
+        "Special category data: also need Art. 9(2)(a) explicit consent",
+        "Cookie banners (EU/EEA): 'reject' must be as easy as 'accept' — CNIL (the French regulator) fined Google €150m in total over banner design, and the EDPB Cookie Banner Taskforce endorses the same standard",
+        "Cookie banners (UK): the rule is reg. 6 of the UK's Privacy and Electronic Communications Regulations (PECR), enforced by the ICO, which has taken a similar 'reject all' position. DUAA 2025 amends PECR to permit specified low-risk cookies without consent (e.g. first-party analytics and appearance/functionality cookies, subject to information and opt-out conditions) and raises PECR fines to UK GDPR levels (up to £17.5m/4%) — verify commencement status and current ICO guidance"
+      ],
+      "cites": [
+        "gdpr-art-6",
+        "gdpr-art-4",
+        "gdpr-art-8",
+        "gdpr-art-9",
+        "gdpr-art-17",
+        "gdpr-art-20",
+        "case-planet49",
+        "case-meta-bka",
+        "case-cnil-google-cookies",
+        "uk-dpa-2018-s9",
+        "uk-pecr-reg-6"
+      ]
+    },
+    "o-art-9-route": {
+      "type": "outcome",
+      "tier": "warn",
+      "title": "Special category data — pick both an Art. 6 basis and an Art. 9 condition",
+      "summary": "Art. 9 doesn't replace Art. 6; you need both an Art. 6 basis and an Art. 9(2) exception simultaneously. The default Art. 9(1) prohibition lifts only under one of the 9(2)(a)–(j) exceptions.",
+      "actions": [
+        "Run the Special Category Data wizard to identify an Art. 9(2) exception",
+        "Then come back here to lock in the parallel Art. 6 basis",
+        "Document both bases in the Art. 30 record of processing activities (ROPA) and the Art. 13/14 notice"
+      ],
+      "cites": [
+        "gdpr-art-6",
+        "gdpr-art-9"
+      ]
+    }
+  },
+  "verifiedAsOf": "2026-07-02 (automated cross-check against official source texts; not yet reviewed by counsel)"
+}

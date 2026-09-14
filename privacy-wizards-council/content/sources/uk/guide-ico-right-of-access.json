@@ -1,0 +1,18 @@
+{
+  "kind": "guidance",
+  "juris": "UK",
+  "label": "ICO — Right of Access guidance (UK SARs)",
+  "citation": "ICO Right of Access detailed guidance (verify current version — DUAA 2025 rewrites were in progress)",
+  "body": [
+    "ICO 'Right of access' detailed guidance (UK GDPR SARs), aimed at DPOs and larger organisations; the page states 'Latest updates - 08 December 2025 - the right of access guidance was updated', i.e. the current version post-dates and reflects the Data (Use and Access) Act 2025 amendments. The guidance uses the must/should/could convention (must = legislative requirement or binding case law). You must comply with a SAR without undue delay and at the latest within one month of receipt (or of receipt of requested ID confirmation or fee), extendable by a further two months if the request is complex or the person has made a number of requests, calculated as three months from the original start date. Reflecting the DUAA, the guidance states you must make a 'reasonable and proportionate search': reasonable efforts to find and retrieve the requested information, but you are not required to conduct searches that would be unreasonable or disproportionate to the importance of providing access. Also reflecting the DUAA stop-the-clock rule: if you ask for clarification (only where reasonably required), 'the time limit pauses on the day you request clarification and resumes on the day after you receive it', and the deadline extends by the number of days the clock was stopped; the clock stops only for clarification about the information requested, not other matters such as the format of the response. The guidance also covers recognising SARs, supplying information, exemptions, manifestly unfounded or excessive requests, third-party information, and special cases (health, education and social work information)."
+  ],
+  "provenance": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/individual-rights/right-of-access/",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

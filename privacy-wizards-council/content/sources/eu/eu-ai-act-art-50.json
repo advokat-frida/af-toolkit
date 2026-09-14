@@ -1,0 +1,28 @@
+{
+  "juris": "EU",
+  "label": "EU AI Act Art. 50 — Transparency obligations for certain AI systems",
+  "citation": "Regulation (EU) 2024/1689, Art. 50 (para 7 as amended by the Digital Omnibus on AI, 2026; Art. 111(4), inserted 2026, gives systems placed on the market before 2 Aug 2026 until 2 Dec 2026 to meet para 2)",
+  "body": [
+    "1. Providers shall ensure that AI systems intended to interact directly with natural persons are designed and developed in such a way that the natural persons concerned are informed that they are interacting with an AI system, unless this is obvious from the point of view of a natural person who is reasonably well-informed, observant and circumspect [law-enforcement exception].",
+    "",
+    "2. Providers of AI systems, including general-purpose AI systems, generating synthetic audio, image, video or text content, shall ensure that the outputs of the AI system are marked in a machine-readable format and detectable as artificially generated or manipulated. [...] This obligation shall not apply to the extent the AI systems perform an assistive function for standard editing or do not substantially alter the input data provided by the deployer or the semantics thereof, or where authorised by law to detect, prevent, investigate or prosecute criminal offences.",
+    "",
+    "3. Deployers of an emotion recognition system or a biometric categorisation system shall inform the natural persons exposed thereto of the operation of the system [and process personal data under GDPR/LED rules; law-enforcement exception].",
+    "",
+    "4. Deployers of an AI system that generates or manipulates image, audio or video content constituting a deep fake, shall disclose that the content has been artificially generated or manipulated [artistic/creative/satirical works: limited to a non-hampering disclosure]. Deployers of an AI system that generates or manipulates text which is published with the purpose of informing the public on matters of public interest shall disclose that the text has been artificially generated or manipulated [exceptions: law-enforcement authorisation, or human review/editorial control with editorial responsibility].",
+    "",
+    "5. The information shall be provided in a clear and distinguishable manner at the latest at the time of the first interaction or exposure.",
+    "",
+    "7. (as amended 2026) The Commission shall encourage and facilitate codes of practice at Union level for the detection, marking and labelling of artificially generated or manipulated content, and shall assess their adequacy, with an implementing-act fallback specifying common rules if a code is inadequate."
+  ],
+  "kind": "statute",
+  "provenance": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R1689",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

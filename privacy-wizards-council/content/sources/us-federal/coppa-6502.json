@@ -1,0 +1,26 @@
+{
+  "juris": "US (federal)",
+  "label": "COPPA § 6502 — Restrictions on collection from children",
+  "citation": "15 U.S.C. § 6502",
+  "provenance": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title15-section6502&num=0&edition=prelim",
+  "body": [
+    "<p>It is unlawful for an operator of a website or online service <b>directed to children</b>, or any operator that has <b>actual knowledge</b> that it is collecting personal information from a child, to collect personal information from a child in a manner that violates the regulations …</p>",
+    "  <p>The Commission shall promulgate regulations that require the operator of any website or online service directed to children that collects personal information from children, or the operator that has actual knowledge that it is collecting personal information from a child:</p>",
+    "  <blockquote>(A) to provide notice on the website of what information is collected, how it is used, and disclosure practices;</blockquote>",
+    "  <blockquote>(B) to obtain <b>verifiable parental consent</b> for the collection, use, or disclosure of personal information from children;</blockquote>",
+    "  <blockquote>(C) to provide, upon request of a parent: a description of the specific types of personal information collected; the opportunity at any time to refuse further use; and a means to obtain any personal information collected from that child;</blockquote>",
+    "  <blockquote>(D) to prohibit conditioning a child's participation … on the child disclosing more personal information than is reasonably necessary;</blockquote>",
+    "  <blockquote>(E) to establish and maintain reasonable procedures to <b>protect the confidentiality, security, and integrity</b> of personal information collected from children.</blockquote>",
+    "  <p>Verifiable parental consent is <b>not required</b> for: one-time direct responses, parent-contact-info-only purposes, multi-response with parental notice, child-safety contexts with parental notice, or operator-internal security/legal/safety responses.</p>",
+    "  <p>Under COPPA Rule (16 CFR § 312.2), \"child\" means <b>under 13 years of age</b>.</p>"
+  ],
+  "kind": "statute",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

@@ -1,0 +1,261 @@
+{
+  "title": "Cookies & tracking consent",
+  "tag": "ePrivacy Art. 5(3) (EU) / PECR reg 6 as amended by DUAA 2025 (UK) + GDPR — when do you need consent for cookies, pixels, SDKs?",
+  "q": "Which cookies, pixels, and SDKs need consent first?",
+  "icon": "🍪",
+  "jurisdictions": [
+    "EU",
+    "UK"
+  ],
+  "start": "q-storage",
+  "nodes": {
+    "q-storage": {
+      "type": "question",
+      "q": "Do you store information on the user's device, or read information already stored there ('terminal equipment' — browser, app, device)?",
+      "help": "ePrivacy Art. 5(3) is technology-neutral — it covers cookies, localStorage, sessionStorage, IndexedDB, pixels with reading capability, SDK fingerprinting, and any 'access' to device storage. CJEU Planet49 (C-673/17) confirms broad scope. EDPB Guidelines 2/2023 (EU) list URL/pixel tracking, connected devices that report back periodically or via a hub or companion app (what the EDPB calls intermittent and mediated IoT reporting), and unique-identifier injection as caught; IP-only tracking and purely local processing are caught only where the server instructs the terminal equipment to send or produce identifying data. UK: the operative rule is reg 6 of the Privacy and Electronic Communications Regulations 2003 (PECR), as amended by the Data (Use and Access) Act 2025 — the same storage/access gateway, but EDPB guidance is persuasive only there.",
+      "cites": [
+        "eprivacy-art-5",
+        "uk-pecr-reg-6",
+        "case-planet49",
+        "guide-edpb-2-2023-eprivacy"
+      ],
+      "opts": [
+        {
+          "label": "Yes — cookies, localStorage, SDK, fingerprinting, etc.",
+          "goto": "q-strictly-nec"
+        },
+        {
+          "label": "No — no storage/access on device (e.g. pure server-side analytics with no client-side identifiers)",
+          "goto": "o-no-eprivacy"
+        }
+      ]
+    },
+    "o-no-eprivacy": {
+      "type": "outcome",
+      "tier": "info",
+      "title": "ePrivacy Art. 5(3) not engaged — but GDPR may still apply",
+      "summary": "If you're not touching the terminal equipment, Art. 5(3) doesn't trigger. But if you're still processing personal data — IP addresses are typically personal data under the means-reasonably-likely test in Breyer (C-582/14) — the GDPR Art. 6 lawful basis analysis applies independently. EDPB Guidelines 2/2023 caution that IP-only tracking can still engage Art. 5(3) where the server instructs the terminal to send identifying data.",
+      "actions": [
+        "Confirm no client-side storage or read access exists — EDPB 2/2023 reads 'access' broadly",
+        "Run Art. 6 basis analysis for any personal data processing — treat IP addresses as personal data unless identification is genuinely not reasonably possible (Breyer)",
+        "Consider an Art. 30 record of processing activities (ROPA) entry"
+      ],
+      "cites": [
+        "eprivacy-art-5",
+        "gdpr-art-6",
+        "case-breyer",
+        "guide-edpb-2-2023-eprivacy"
+      ]
+    },
+    "q-strictly-nec": {
+      "type": "question",
+      "q": "Is the storage/access strictly necessary for providing the service the user explicitly requested?",
+      "help": "Art. 5(3) has two exemptions: (1) transmission-only purpose (e.g. routing); (2) strictly necessary to provide an information society service explicitly requested by the user. The classic strictly-necessary examples — authentication, shopping cart, load balancing, security tokens, user-input persistence in the same session — come from Article 29 WP Opinion 04/2012 (WP194) on the cookie consent exemption. EDPB Guidelines 2/2023 confirm the exemption's narrow two-limb framing. 'Strictly necessary' is interpreted narrowly — vendor preference doesn't qualify.",
+      "cites": [
+        "eprivacy-art-5",
+        "wp29-wp194",
+        "guide-edpb-2-2023-eprivacy"
+      ],
+      "opts": [
+        {
+          "label": "Yes — strictly necessary (auth, cart, security, load-balancing, user-choice persistence)",
+          "goto": "o-strictly-nec"
+        },
+        {
+          "label": "Yes — but only as a vendor/business preference, not user-requested",
+          "goto": "q-purpose"
+        },
+        {
+          "label": "No — analytics, advertising, A/B testing, recommendations, etc.",
+          "goto": "q-purpose"
+        }
+      ]
+    },
+    "o-strictly-nec": {
+      "type": "outcome",
+      "tier": "ok",
+      "title": "Strictly-necessary exemption — no consent required",
+      "summary": "No consent needed under ePrivacy Art. 5(3). But a GDPR Art. 6 basis (usually Art. 6(1)(b) contract or Art. 6(1)(f) legitimate interests (LI)) and Art. 13 transparency still apply.",
+      "actions": [
+        "Document the strictly-necessary purpose narrowly — don't bundle non-essential in",
+        "Provide notice of the cookie in privacy notice / cookie policy",
+        "Set the cookie's expiry to the minimum necessary",
+        "Third-party cookies rarely satisfy strict necessity — scrutinize any claimed third-party 'essential' cookie"
+      ],
+      "cites": [
+        "eprivacy-art-5",
+        "gdpr-art-6"
+      ]
+    },
+    "q-purpose": {
+      "type": "question",
+      "q": "What's the purpose?",
+      "help": "For non-strictly-necessary tracking, you need consent under Art. 5(3) (post-2009 amendment) + Art. 6(1)(a) for any personal data processing. Legitimate interests (LI) cannot substitute: Art. 5(3) specifies consent as the sole gateway for non-exempt storage/access, and the EDPB and supervisory authorities (SAs) have consistently rejected LI for non-essential tracking cookies. UK divergence: the DUAA 2025 amendments to PECR reg 6 create statutory exceptions for certain statistical and appearance/functionality purposes — see the UK branches.",
+      "cites": [
+        "eprivacy-art-5",
+        "gdpr-art-6",
+        "uk-pecr-reg-6"
+      ],
+      "opts": [
+        {
+          "label": "Analytics (first-party, aggregated, low identifiability)",
+          "goto": "q-analytics-juris"
+        },
+        {
+          "label": "Advertising / cross-context behavioral",
+          "goto": "o-advertising"
+        },
+        {
+          "label": "Functionality / personalization beyond strictly-necessary",
+          "goto": "q-functionality-juris"
+        },
+        {
+          "label": "A/B testing, experimentation",
+          "goto": "o-functionality"
+        }
+      ]
+    },
+    "q-analytics-juris": {
+      "type": "question",
+      "q": "Which regime applies to this analytics deployment?",
+      "help": "The EU and UK diverged in 2025. EU: analytics cookies still default to consent under ePrivacy Art. 5(3), subject to narrow national guidance-based frameworks (CNIL's exempted audience measurement is the most explicit). UK: the Data (Use and Access) Act 2025 amends PECR reg 6 to add a statutory exception for statistical/audience-measurement cookies on a notice-plus-opt-out basis — in force since 5 February 2026; the ICO's final storage and access guidance (29 April 2026) is the operative reference.",
+      "cites": [
+        "eprivacy-art-5",
+        "uk-pecr-reg-6"
+      ],
+      "opts": [
+        {
+          "label": "EU / EEA users",
+          "goto": "o-analytics",
+          "desc": "If you serve both regimes, apply each branch to its users — or run the stricter EU standard across the board."
+        },
+        {
+          "label": "UK users",
+          "goto": "o-analytics-uk"
+        }
+      ]
+    },
+    "o-analytics": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "EU: consent required — narrow national audience-measurement exemptions only",
+      "summary": "Default EU position: analytics cookies require consent. Some supervisory authorities (SAs) — CNIL most explicitly ('cookies de mesure d'audience exemptés') — allow first-party, anonymised audience measurement under a narrow guidance-based exemption with strict conditions: first-party only, no cross-site tracking, limited retention. The ICO never recognized such an exemption — it only signaled low enforcement priority for first-party analytics; the UK's exemption now comes from statute (see the UK branch). Planet49 (C-673/17) rejects implicit consent. CNIL's Google decision (SAN-2021-023, €150M) confirms refusing must be as easy as accepting.",
+      "actions": [
+        "Default to consent — opt-in, prior, freely given, granular (Planet49)",
+        "Block analytics scripts before consent",
+        "If relying on the narrow analytics exemption: confirm the specific SA's current position (CNIL's framework is the most explicit)",
+        "Maintain a consent log with timestamp, version of notice, scope",
+        "Refusing must be as easy as accepting — provide a first-layer 'reject' option requiring no more steps than 'accept' (CNIL Google SAN-2021-023)",
+        "Provide cookie duration and third-party access info as required by Planet49 holding 3",
+        "Check where the Digital Omnibus stands before relying on the EU consent default — the Commission's proposal (19 Nov 2025) would relocate the Art. 5(3) rule into the GDPR and exempt audience-measurement cookies from consent, but it remains a proposal, not law, at last verification"
+      ],
+      "cites": [
+        "eprivacy-art-5",
+        "gdpr-art-6",
+        "case-planet49",
+        "case-cnil-google-cookies",
+        "guide-edpb-2-2023-eprivacy"
+      ]
+    },
+    "o-analytics-uk": {
+      "type": "outcome",
+      "tier": "warn",
+      "title": "UK: statutory statistical-cookies exception under DUAA-amended PECR reg 6 — in force since 5 February 2026",
+      "summary": "The Data (Use and Access) Act 2025 (royal assent 19 June 2025) amends PECR reg 6 to create statutory exceptions to the cookie consent rule, including storage/access for statistical purposes (audience measurement) used to improve the service — on a notice-plus-opt-out basis rather than prior consent. The reg 6 cookie exceptions have been in force since 5 February 2026, and the ICO published its final storage and access guidance on 29 April 2026. This is a statutory exception, not supervisory-authority forbearance. Conditions: the purpose stays within statistical/service-improvement use, the user gets clear information, and there is a simple way to object. Analytics used for advertising or cross-site tracking stays outside the exception and needs consent.",
+      "actions": [
+        "Design the notice and opt-out against the ICO's final storage and access guidance (29 April 2026)",
+        "Confirm the deployment fits the exception's conditions: statistical/service-improvement purpose, clear information, simple opt-out",
+        "Keep advertising and cross-context analytics on prior consent — the DUAA exceptions do not cover them",
+        "Note the enforcement uplift: DUAA raises PECR penalties from the old £500k cap to UK GDPR-level fines",
+        "If you also serve EU users, apply the EU consent-default branch to them"
+      ],
+      "cites": [
+        "uk-pecr-reg-6",
+        "guide-ico-cookies"
+      ]
+    },
+    "o-advertising": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Consent required — opt-in, granular, withdrawable (EU and UK)",
+      "summary": "Advertising and behavioral cookies always require consent under Art. 5(3) and Art. 6(1)(a) — and the UK's DUAA 2025 exceptions do not cover advertising, so consent remains the UK rule too (PECR reg 6). Planet49 (C-673/17): prior, freely given, specific, informed, unambiguous, by clear affirmative action — pre-ticked boxes invalid. CNIL fined Google €150M (€90M LLC + €60M Ireland, SAN-2021-023) for making 'reject' harder than 'accept' — refusing must be as easy as accepting. IAB Europe (C-604/22) held IAB Europe was a joint controller for the TC String — the consent-signal string generated under IAB's Transparency and Consent Framework (TCF). Meta Platforms v Bundeskartellamt (C-252/21): tracking data from visits to sites/apps revealing Art. 9 categories, when linked to a user account, is special-category processing. UK note: the post-2020 CJEU authorities (IAB Europe and Meta v Bundeskartellamt) and the EDPB taskforce positions are persuasive only in the UK, where the authority for reject-as-easy-as-accept banner design is ICO guidance and its November 2023 cookie-banner enforcement initiative.",
+      "actions": [
+        "Block all advertising tags until consent is captured (Planet49, C-673/17)",
+        "Granular per-purpose consent: advertising, profile-building, measurement",
+        "Refusing must be as easy as accepting — a first-layer reject option requiring no more steps than accept (CNIL Google SAN-2021-023; EDPB Cookie Banner Taskforce report Jan 2023 — EU authorities; ICO cookie-banner initiative Nov 2023 — UK authority)",
+        "Easy withdrawal: typically a persistent settings link with same access as the banner",
+        "If using the IAB TCF: confirm TCF v2.2 compliance; IAB Europe is a joint controller per the IAB Europe judgment (C-604/22) (EU authority, persuasive only in the UK) — your contracts and notices should reflect that",
+        "Maintain consent record per Art. 7(1)",
+        "Tracking data from sites/apps that reveal Art. 9 categories, once linked to a user account, is special-category processing and needs an Art. 9(2) condition plus an Art. 6 basis (Meta v Bundeskartellamt (C-252/21) — EU authority; in the UK, argue the same result under UK GDPR Art. 9, where the case is persuasive only)",
+        "Other jurisdictions: for US (CCPA) flows this is also a 'share' for cross-context behavioral advertising, with parallel opt-out obligations (Cal. Civ. Code §1798.140)"
+      ],
+      "cites": [
+        "eprivacy-art-5",
+        "uk-pecr-reg-6",
+        "gdpr-art-6",
+        "gdpr-art-9",
+        "case-planet49",
+        "case-cnil-google-cookies",
+        "case-iab-tcf",
+        "case-meta-bka",
+        "guide-edpb-2-2023-eprivacy",
+        "guide-ico-cookies",
+        "ccpa-1798-140"
+      ]
+    },
+    "q-functionality-juris": {
+      "type": "question",
+      "q": "Which regime applies to this functionality/personalization deployment?",
+      "help": "The EU and UK diverged in 2025. EU: functionality and personalization beyond strictly-necessary require consent under Art. 5(3). UK: the DUAA 2025 amendments to PECR reg 6 include an exception for storage/access whose sole purpose is adapting the appearance or functionality of the service to the user's preferences — a notice-plus-opt-out basis, in force since 5 February 2026. A/B testing and experimentation likely fall outside the UK exception.",
+      "cites": [
+        "eprivacy-art-5",
+        "uk-pecr-reg-6"
+      ],
+      "opts": [
+        {
+          "label": "EU / EEA users",
+          "goto": "o-functionality",
+          "desc": "If you serve both regimes, apply each branch to its users — or run the stricter EU standard across the board."
+        },
+        {
+          "label": "UK users",
+          "goto": "o-functionality-uk"
+        }
+      ]
+    },
+    "o-functionality": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "EU: consent required — even for first-party experimentation",
+      "summary": "A/B testing, recommendation algorithms, personalization beyond what's strictly necessary all need consent in the EU. Don't pre-set the cookie before consent is captured. UK note for A/B testing and experimentation: these likely fall outside the DUAA appearance/functionality exception (they adapt the service for the operator's benefit, not to the user's preferences) — treat consent as the UK default for experimentation too; genuine user-preference personalization for UK users may fit the UK branch instead.",
+      "actions": [
+        "Block scripts before consent",
+        "Granular per-purpose option",
+        "Document the purpose narrowly",
+        "Withdrawal mechanism — typically a persistent settings link"
+      ],
+      "cites": [
+        "eprivacy-art-5",
+        "gdpr-art-6",
+        "uk-pecr-reg-6"
+      ]
+    },
+    "o-functionality-uk": {
+      "type": "outcome",
+      "tier": "warn",
+      "title": "UK: appearance/functionality exception under DUAA-amended PECR reg 6",
+      "summary": "The DUAA 2025 amendments to PECR reg 6 include an exception for storage/access whose sole purpose is adapting the appearance or functionality of the service to the user's preferences — on a notice-plus-opt-out basis rather than prior consent. The reg 6 cookie exceptions have been in force since 5 February 2026; the ICO's final storage and access guidance (29 April 2026) is the operative reference. A/B testing and experimentation likely fall outside the exception (they are not user-preference adaptation).",
+      "actions": [
+        "Confirm the sole purpose is adapting appearance/functionality to the user's preferences — nothing broader",
+        "Provide clear information and a simple means to object/opt out, following the ICO's final storage and access guidance (29 April 2026)",
+        "Keep A/B testing and experimentation on prior consent — likely outside the exception",
+        "If you also serve EU users, apply the EU consent-required branch to them"
+      ],
+      "cites": [
+        "uk-pecr-reg-6",
+        "guide-ico-cookies"
+      ]
+    }
+  },
+  "verifiedAsOf": "2026-07-02 (automated cross-check against official source texts; not yet reviewed by counsel)"
+}

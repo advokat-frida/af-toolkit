@@ -1,0 +1,30 @@
+{
+  "juris": "EU",
+  "label": "Digital Omnibus on AI (2026) — the amending regulation",
+  "citation": "Regulation of the European Parliament and of the Council amending Regulations (EU) 2024/1689, (EU) 2018/1139 and (EU) 2023/1230 (Digital Omnibus on AI), PE-CONS 30/26 — Parliament position 16 June 2026; Council final adoption announced 29 June 2026 (Consilium press release); enters into force on the third day following its Official Journal publication (expected July 2026); OJ number pending at verification date",
+  "body": [
+    "The operative amendments to Regulation (EU) 2024/1689 relied on in these wizards, from the adopted joint text (PE-CONS 30/26):",
+    "",
+    "ARTICLE 113 (application dates) — point (a): Chapters I and II apply from 2 February 2025, with the exception of Article 5(1), first subparagraph, points (ba) and (bb), and Article 5(1a) and (1b), which apply from 2 December 2026. Point (c): Chapter III, Sections 1, 2, and 3, with the exception of Article 6(5), apply from (i) 2 December 2027 as regards AI systems classified as high-risk pursuant to Article 6(2) and Annex III; and (ii) 2 August 2028 as regards AI systems classified as high-risk pursuant to Article 6(1) and Annex I.",
+    "",
+    "ARTICLE 111(2) (replaced): operators of high-risk AI systems placed on the market or put into service before the date of application of Chapter III are covered only if, as from that date, those systems are subject to significant changes in their designs; providers and deployers of high-risk AI systems intended to be used by public authorities must comply by 2 August 2030. ARTICLE 111(4) (inserted): providers of AI systems generating synthetic content placed on the market before 2 August 2026 must comply with Article 50(2) by 2 December 2026.",
+    "",
+    "ARTICLE 5 — new prohibitions (ba) [AI-generated or manipulated sexual imagery of identifiable persons without explicit consent] and (bb) [CSAM-type material per Directive 2011/93/EU], with the Article 5(1a)/(1b) scoping conditions.",
+    "",
+    "ARTICLE 6 — paragraphs 1a-1c inserted (safety-component clarifications). ARTICLE 25(2) and (4) — initial-provider cooperation duties spelled out; written-agreement duty extended to AI-model suppliers; free and open-source carve-out (except general-purpose AI models). ARTICLE 99 — Article 25(2)/(4) breaches added to the 3%/EUR 15m fine tier; SMC fine caps.",
+    "",
+    "ARTICLE 43(3) (replaced): for high-risk AI systems covered by Section A legislation, the provider follows the sectoral conformity assessment procedure with the Chapter III Section 2 requirements folded in; manufacturers keeping a no-third-party option under their product law may use it (subject to harmonised standards covering the AI requirements); and where a high-risk AI system is BOTH covered by Section A legislation AND falls within an Annex III category, the provider follows the Section A sectoral conformity assessment procedure.",
+    "",
+    "ANNEX I — Section A point 1 (Machinery Directive 2006/42/EC) deleted; Machinery Regulation (EU) 2023/1230 added to Section B."
+  ],
+  "kind": "statute",
+  "provenance": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=consil:PE_30_2026_INIT",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "juris": "EU",
+  "label": "EU AI Act Art. 49 — Registration",
+  "citation": "Regulation (EU) 2024/1689, Art. 49",
+  "body": [
+    "1. Before placing on the market or putting into service a high-risk AI system listed in Annex III (except point 2 of Annex III [critical infrastructure]), the provider or, where applicable, the authorised representative shall register themselves and their system in the EU database referred to in Article 71.",
+    "",
+    "2. Before placing on the market or putting into service an AI system for which the provider has concluded that it is not high-risk according to Article 6(3), that provider or, where applicable, the authorised representative shall register themselves and that system in the EU database.",
+    "",
+    "3. Before putting into service or using a high-risk AI system listed in Annex III (except point 2), deployers that are public authorities, Union institutions, bodies, offices or agencies, or persons acting on their behalf, shall register themselves, select the system and register its use in the EU database.",
+    "",
+    "4. For high-risk AI systems in the areas of law enforcement, migration, asylum and border control management (Annex III points 1, 6 and 7), registration shall be in a secure non-public section of the EU database.",
+    "",
+    "5. High-risk AI systems referred to in point 2 of Annex III [critical infrastructure] shall be registered at national level."
+  ],
+  "kind": "statute",
+  "provenance": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R1689",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

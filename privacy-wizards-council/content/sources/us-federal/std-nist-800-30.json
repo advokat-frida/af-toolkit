@@ -1,0 +1,18 @@
+{
+  "juris": "US (federal)",
+  "label": "NIST SP 800-30 Rev. 1 — Guide for Conducting Risk Assessments",
+  "citation": "NIST Special Publication 800-30 Revision 1 (September 2012), Appendix G (likelihood) and Appendix H (impact) assessment scales",
+  "body": [
+    "NIST SP 800-30 Rev. 1 provides the generic qualitative risk-assessment ladder used by this wizard for both scales: a five-step ordinal scale — Very Low, Low, Moderate, High, Very High — for assessing the likelihood of a threat event and the magnitude of its impact. The appendix tables define each step with representative descriptions, and the guide combines likelihood and impact to arrive at a level of risk. The five-step ladder is NIST's; ISO/IEC 27005 supports qualitative consequence/likelihood scales generally but leaves the number of levels to the organization."
+  ],
+  "kind": "guidance",
+  "provenance": "https://csrc.nist.gov/pubs/sp/800/30/r1/final",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

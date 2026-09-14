@@ -1,0 +1,24 @@
+{
+  "juris": "EU",
+  "label": "GDPR Art. 34 — Breach notification to data subjects",
+  "citation": "Regulation (EU) 2016/679, Art. 34",
+  "body": [
+    "<p><span class=\"num\">1.</span> When the personal data breach is likely to result in a <b>high risk</b> to the rights and freedoms of natural persons, the controller shall communicate the personal data breach to the data subject <b>without undue delay</b>.</p>",
+    "  <p><span class=\"num\">2.</span> The communication … shall describe in <b>clear and plain language</b> the nature of the personal data breach and contain at least the information and measures referred to in points (b), (c) and (d) of Article 33(3).</p>",
+    "  <p><span class=\"num\">3.</span> The communication … shall <b>not be required</b> if any of the following conditions are met:</p>",
+    "  <blockquote>(a) the controller has implemented appropriate technical and organisational protection measures, and those measures were applied to the personal data affected … <b>in particular those that render the personal data unintelligible to any person who is not authorised to access it, such as encryption</b>;</blockquote>",
+    "  <blockquote>(b) the controller has taken subsequent measures which ensure that the high risk … is no longer likely to materialise;</blockquote>",
+    "  <blockquote>(c) it would involve <b>disproportionate effort</b>. In such a case, there shall instead be a <b>public communication or similar measure</b> whereby the data subjects are informed in an equally effective manner.</blockquote>",
+    "  <p><span class=\"num\">4.</span> If the controller has not already communicated the personal data breach to the data subject, the supervisory authority, having considered the likelihood of the personal data breach resulting in a high risk, <b>may require it to do so</b> or may decide that any of the conditions referred to in paragraph 3 are met.</p>"
+  ],
+  "kind": "statute",
+  "provenance": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504#art_34",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

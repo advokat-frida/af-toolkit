@@ -1,0 +1,22 @@
+{
+  "kind": "case",
+  "juris": "EU",
+  "label": "CJEU C-131/12 — Google Spain (right to be forgotten)",
+  "citation": "CJEU (Grand Chamber), 13 May 2014, ECLI:EU:C:2014:317",
+  "provenance": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:62012CJ0131",
+  "body": [
+    "<p><b>Operative part (selected):</b></p>",
+    "  <p><span class=\"num\">1.</span> A search engine's indexing of personal data is \"processing\"; the search-engine operator is the <b>controller</b> for that processing.</p>",
+    "  <p><span class=\"num\">3.</span> The operator is obliged to remove, on request, links to pages containing personal data of the requester even where the underlying publication remains lawful — where, in light of time elapsed, the data are inadequate, irrelevant, or excessive.</p>",
+    "  <p><span class=\"num\">4.</span> The data subject's Charter Art. 7 + 8 rights generally <b>override</b> the operator's economic interest AND the public interest in finding the information — <b>unless</b> there is a preponderant public interest (e.g. the subject plays a role in public life).</p>",
+    "  <p><b>Why it matters:</b> Birth of the \"right to be forgotten\" — the precursor to GDPR Art. 17. Establishes the public-interest balancing for delisting.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

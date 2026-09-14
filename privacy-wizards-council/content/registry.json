@@ -1,0 +1,69 @@
+{
+  "manifestVersion": "af-pwc-vnext-2026-08-21",
+  "wizards": [
+    {
+      "id": "breach",
+      "published": true
+    },
+    {
+      "id": "sale-share",
+      "published": true
+    },
+    {
+      "id": "dpia",
+      "published": true
+    },
+    {
+      "id": "legal-basis",
+      "published": true
+    },
+    {
+      "id": "special-category",
+      "published": true
+    },
+    {
+      "id": "transfer",
+      "published": true
+    },
+    {
+      "id": "role",
+      "published": true
+    },
+    {
+      "id": "dpo",
+      "published": true
+    },
+    {
+      "id": "dsar",
+      "published": true
+    },
+    {
+      "id": "children",
+      "published": true
+    },
+    {
+      "id": "cookies",
+      "published": true
+    },
+    {
+      "id": "adm",
+      "published": true
+    },
+    {
+      "id": "ropa",
+      "published": true
+    },
+    {
+      "id": "ai-role",
+      "published": true
+    },
+    {
+      "id": "ai-risk",
+      "published": true
+    },
+    {
+      "id": "severity",
+      "published": true
+    }
+  ]
+}

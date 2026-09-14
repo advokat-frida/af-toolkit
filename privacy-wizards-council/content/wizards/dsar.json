@@ -1,0 +1,468 @@
+{
+  "title": "Rights request triage",
+  "tag": "A subject (or consumer) has sent a rights request. Pick the right response track.",
+  "q": "A request just landed. What must you do, and by when?",
+  "icon": "📨",
+  "jurisdictions": [
+    "EU",
+    "UK",
+    "US-CA"
+  ],
+  "start": "q-jurisdiction",
+  "nodes": {
+    "q-jurisdiction": {
+      "type": "question",
+      "q": "What's the requester's jurisdiction or the governing law?",
+      "help": "Pick the jurisdiction. If the requester could invoke multiple laws (EU+UK+CA resident), run the wizard separately for each — the timelines and exemptions differ.",
+      "opts": [
+        {
+          "label": "EU/EEA resident — GDPR rights apply",
+          "goto": "q-eu-right"
+        },
+        {
+          "label": "UK resident — UK GDPR rights apply",
+          "goto": "q-eu-right",
+          "desc": "The UK regime is diverging from the EU GDPR under the Data (Use and Access) Act 2025; commencement is phased by secondary legislation. UK-specific notes below are verified only through January 2026 — check the current commencement position and ICO guidance."
+        },
+        {
+          "label": "California resident — CCPA rights apply",
+          "goto": "q-ca-right"
+        }
+      ]
+    },
+    "q-eu-right": {
+      "type": "question",
+      "q": "Which right are they exercising?",
+      "help": "GDPR rights menu: access (Art. 15), rectification (Art. 16), erasure (Art. 17), restriction (Art. 18), portability (Art. 20), object (Art. 21), automated decision-making (Art. 22; UK: Arts. 22A–22D after DUAA 2025). All have the Art. 12 1-month clock (extendable by a further 2 months — 3 in total — for complex cases).",
+      "cites": [
+        "gdpr-art-15",
+        "gdpr-art-17",
+        "gdpr-art-22"
+      ],
+      "opts": [
+        {
+          "label": "Access (Art. 15) — 'give me my data'",
+          "goto": "o-eu-access"
+        },
+        {
+          "label": "Erasure (Art. 17) — 'delete my data'",
+          "goto": "o-eu-erase"
+        },
+        {
+          "label": "Portability (Art. 20) — 'send my data to another controller'",
+          "goto": "o-eu-port"
+        },
+        {
+          "label": "Object (Art. 21) — 'stop processing'",
+          "goto": "o-eu-object"
+        },
+        {
+          "label": "Rectification (Art. 16) — 'correct this data'",
+          "goto": "o-eu-rect"
+        },
+        {
+          "label": "Automated decision-making (Art. 22 / UK Arts. 22A–22D)",
+          "goto": "q-adm-regime"
+        }
+      ]
+    },
+    "o-eu-access": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Art. 15 — Provide copy + Art. 15(1) metadata within 1 month",
+      "summary": "Confirm whether you process the subject's data; if so, provide a copy + the purposes, categories, recipients, retention period or criteria, rights notice, source if not from subject, automated decision-making info, and third-country transfer safeguards. Subjects making electronic requests get the response in a commonly used electronic form (Art. 15(3)). EU: EDPB Guidelines 01/2022 treat access as a broad default — restrictions are exceptional and must be specifically justified. UK divergence: under the UK GDPR as amended by the Data (Use and Access) Act 2025, the controller need only conduct a reasonable and proportionate search, and the response clock pauses ('stop the clock') while you await identity verification or requested clarification — follow ICO Right of Access guidance rather than EDPB 01/2022.",
+      "actions": [
+        "Verify identity (Art. 12(6)) — proportionate to risk; don't over-collect (EDPB 01/2022; UK: ICO guidance)",
+        "Run a data-map search across systems (UK: a reasonable and proportionate search suffices — DUAA 2025)",
+        "UK only: the response period pauses while you await identity verification or requested clarification (DUAA 2025 stop-the-clock) — log the pause dates",
+        "Redact third-party personal data where the subject's right to a copy would adversely affect 'rights and freedoms of others' (Art. 15(4)) — but prefer redaction over wholesale refusal",
+        "Apply national-law exemptions (Member State law / UK DPA 2018 Schedule 2–4): legal privilege, ongoing investigations, etc.",
+        "Respond within 1 month (Art. 12(3)) — extendable by a further 2 months (3 in total) for complex cases; give reasons for the extension",
+        "If refusing, tell the subject why, and point to their right to complain to the supervisory authority and to seek a judicial remedy",
+        "Provide a copy = full and accurate reproduction — not a summary (EDPB 01/2022, EU branch)",
+        "UK: the DUAA 2025 SAR provisions commenced in tranches — check the current ICO Right of Access guidance"
+      ],
+      "cites": [
+        "gdpr-art-15",
+        "guide-edpb-01-2022-access",
+        "uk-duaa-2025-sar",
+        "guide-ico-right-of-access"
+      ],
+      "clock": "1 month (extendable +2 months; UK: clock pauses pending ID/clarification)",
+      "clockSpec": {
+        "anchorLabel": "When was the request received?",
+        "legs": [
+          {
+            "label": "Respond to the access request (Art. 12(3))",
+            "months": 1
+          }
+        ],
+        "note": "Extendable by two further months for complex or numerous requests — you must tell the requester within the first month, with reasons (Art. 12(3)). UK: the clock pauses while you await identity verification or clarification."
+      }
+    },
+    "o-eu-erase": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Art. 17 — Erase unless an Art. 17(3) exemption applies",
+      "summary": "Run the Art. 17(1) grounds analysis (no longer necessary; consent withdrawn; objection upheld; unlawful; legal-obligation erasure; child consent). Then check Art. 17(3) exceptions: freedom of expression, legal obligation, public-interest health, archiving/research, legal claims. Search-engine delisting requests follow the Google Spain (C-131/12) balancing test — fundamental rights generally override the public's interest in finding the information.",
+      "actions": [
+        "Confirm an Art. 17(1) ground is engaged",
+        "Check Art. 17(3) exceptions — most common are legal-obligation retention and legal-claims defense",
+        "If granted: erase from production systems and notify all recipients (Art. 19) — unless impossible or disproportionate effort",
+        "Art. 17(2): if you made the data public, take reasonable steps including technical measures to inform other controllers",
+        "Retain a hash/tombstone for compliance audit purposes — not the original data",
+        "Update backup-retention policy: define how long erasure propagates to backups",
+        "Search-engine context: weigh the Google Spain factors — role in public life, time elapsed, current relevance",
+        "Respond within 1 month"
+      ],
+      "cites": [
+        "gdpr-art-17",
+        "case-google-spain"
+      ],
+      "clock": "1 month (extendable +2 months)",
+      "clockSpec": {
+        "anchorLabel": "When was the request received?",
+        "legs": [
+          {
+            "label": "Respond to the erasure request (Art. 12(3))",
+            "months": 1
+          }
+        ],
+        "note": "Extendable by two further months for complex or numerous requests — inform the requester within the first month, with reasons (Art. 12(3))."
+      }
+    },
+    "o-eu-port": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Art. 20 — Portability (consent or contract basis only)",
+      "summary": "The right applies only to data the subject provided to the controller, processed on a consent (Art. 6(1)(a) / 9(2)(a)) or contract (Art. 6(1)(b)) basis, and by automated means. Excludes data inferred or derived by the controller (WP29 Guidelines on the right to data portability, WP242 rev.01, endorsed by the EDPB).",
+      "actions": [
+        "Verify the basis is consent or contract — if it's legitimate interests (LI) or legal obligation, refuse and explain (Art. 12(4))",
+        "Provide structured, commonly used, machine-readable format (JSON or CSV)",
+        "Where technically feasible, transmit directly to another controller (Art. 20(2))",
+        "Limit to data the subject 'provided' — observed data counts; inferred/derived does not (WP242 rev.01)",
+        "Don't include third-party data",
+        "Respond within 1 month"
+      ],
+      "cites": [
+        "gdpr-art-20"
+      ],
+      "clock": "1 month (extendable +2 months)",
+      "clockSpec": {
+        "anchorLabel": "When was the request received?",
+        "legs": [
+          {
+            "label": "Respond to the portability request (Art. 12(3))",
+            "months": 1
+          }
+        ],
+        "note": "Extendable by two further months for complex or numerous requests — inform the requester within the first month, with reasons (Art. 12(3))."
+      }
+    },
+    "o-eu-object": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Art. 21 — Stop unless compelling legitimate grounds (or it's direct marketing)",
+      "summary": "Direct-marketing objection (Art. 21(2)) is absolute — stop immediately, no balancing. For legitimate interests (LI)/public-task processing (Art. 21(1)), you must stop unless you demonstrate compelling legitimate grounds overriding the subject's rights, or grounds for legal claims.",
+      "actions": [
+        "Direct marketing: stop immediately — no balancing test applies. Confirm the stop in writing.",
+        "Other LI/public-task processing: run a balancing test — what's your compelling legitimate ground? Document it. Stop if you can't make the case.",
+        "Update suppression lists so the subject's data isn't processed again downstream (Art. 19 recipient notification applies only if the objection leads to erasure (Art. 17(1)(c)) or restriction (Art. 18) — not to the objection itself)",
+        "Respond within 1 month"
+      ],
+      "cites": [
+        "gdpr-art-21"
+      ],
+      "clock": "1 month (extendable +2 months)",
+      "clockSpec": {
+        "anchorLabel": "When was the request received?",
+        "legs": [
+          {
+            "label": "Respond to the objection (Art. 12(3))",
+            "months": 1
+          }
+        ],
+        "note": "Extendable by two further months for complex or numerous requests — inform the requester within the first month, with reasons (Art. 12(3)). Direct-marketing objections: stop processing for that purpose immediately — don't sit on the clock."
+      }
+    },
+    "o-eu-rect": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Art. 16 — Rectify within 1 month",
+      "summary": "Right to have inaccurate personal data corrected, and (taking account of purposes) to have incomplete data completed, including by means of providing a supplementary statement.",
+      "actions": [
+        "Verify the inaccuracy claim — if disputed, consider Art. 18(1)(a) restriction while you verify",
+        "Update across all systems holding the data",
+        "Notify recipients under Art. 19 unless impossible/disproportionate",
+        "Respond within 1 month"
+      ],
+      "cites": [
+        "gdpr-art-16"
+      ],
+      "clock": "1 month (extendable +2 months)",
+      "clockSpec": {
+        "anchorLabel": "When was the request received?",
+        "legs": [
+          {
+            "label": "Respond to the rectification request (Art. 12(3))",
+            "months": 1
+          }
+        ],
+        "note": "Extendable by two further months for complex or numerous requests — inform the requester within the first month, with reasons (Art. 12(3))."
+      }
+    },
+    "q-adm-regime": {
+      "type": "question",
+      "q": "Is the request governed by the EU GDPR or the UK GDPR?",
+      "help": "The regimes diverged on automated decision-making (ADM): the Data (Use and Access) Act 2025 (s. 80) replaced UK GDPR Art. 22 with new Arts. 22A–22D. Commencement of the UK ADM provisions is phased by secondary legislation; the UK outcome carries the commencement check.",
+      "cites": [
+        "gdpr-art-22",
+        "uk-gdpr-art-22a-d"
+      ],
+      "opts": [
+        {
+          "label": "EU GDPR — Art. 22 applies",
+          "goto": "o-eu-adm"
+        },
+        {
+          "label": "UK GDPR — Arts. 22A–22D apply (DUAA 2025)",
+          "goto": "o-uk-adm"
+        }
+      ]
+    },
+    "o-eu-adm": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Art. 22 — Prohibited unless an Art. 22(2) exception applies; safeguards where permitted",
+      "summary": "Art. 22(1) is a general prohibition, not a right the subject must invoke (SCHUFA Holding, C-634/21): a decision based solely on automated processing with legal or similarly significant effect is unlawful unless an Art. 22(2) exception applies — necessary for a contract (a), authorized by Union/Member State law that itself lays down safeguards (b), or explicit consent (c). If no exception applies, the remedy is to stop making the decision solely by automated means. Where the decision rests on 22(2)(a) or (c), Art. 22(3) requires human intervention, the right to express a view, and to contest; where it rests on 22(2)(b), the safeguards come from the authorizing law itself.",
+      "actions": [
+        "First test whether an Art. 22(2) exception covers the decision — if none applies, cease solely-automated decision-making for this decision type (SCHUFA: the prohibition operates without the subject invoking it)",
+        "Provide meaningful information about the logic involved (Art. 13(2)(f) / 14(2)(g) / 15(1)(h))",
+        "For 22(2)(a) contract or 22(2)(c) explicit-consent decisions: route to a human reviewer with authority to change the decision, and let the subject express their view and contest (Art. 22(3))",
+        "For 22(2)(b) decisions: apply the safeguards laid down in the authorizing Union/Member State law",
+        "Document the analysis, review, and outcome",
+        "If Art. 9 special category data was used in the decision, confirm an Art. 22(4) condition (9(2)(a) or 9(2)(g)) plus suitable measures is met"
+      ],
+      "cites": [
+        "gdpr-art-22",
+        "case-schufa"
+      ],
+      "clock": "1 month (extendable +2 months)",
+      "clockSpec": {
+        "anchorLabel": "When was the request received?",
+        "legs": [
+          {
+            "label": "Respond to the Art. 22 request (Art. 12(3))",
+            "months": 1
+          }
+        ],
+        "note": "Extendable by two further months for complex or numerous requests — inform the requester within the first month, with reasons (Art. 12(3))."
+      }
+    },
+    "o-uk-adm": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "UK GDPR Arts. 22A–22D — Safeguards for significant decisions; restriction only for special-category automated decision-making",
+      "summary": "The Data (Use and Access) Act 2025 (s. 80) replaced UK GDPR Art. 22 with Arts. 22A–22D. The prohibition-by-default survives only for significant decisions based on special category data (Art. 22B); other solely-automated significant decisions are permitted subject to the Art. 22C safeguards — information about the decision, the right to make representations, to obtain human intervention, and to contest.",
+      "actions": [
+        "Confirm the decision is a 'significant decision' taken solely by automated processing (Art. 22A)",
+        "If the decision is based on special category data: the restrictive Art. 22B regime applies — confirm a permitted basis before continuing the automated decision-making",
+        "Otherwise: implement the Art. 22C safeguards — inform the subject, enable representations, provide human intervention on request, and allow the decision to be contested",
+        "Verify the commencement status of the DUAA 2025 ADM provisions and the current ICO guidance — staging was in progress at last verification (January 2026)",
+        "Document the safeguards applied and any review outcome"
+      ],
+      "cites": [
+        "uk-gdpr-art-22a-d"
+      ],
+      "clock": "1 month (extendable +2 months; UK: clock pauses pending ID/clarification)",
+      "clockSpec": {
+        "anchorLabel": "When was the request received?",
+        "legs": [
+          {
+            "label": "Respond to the request (UK GDPR Art. 12(3))",
+            "months": 1
+          }
+        ],
+        "note": "Extendable by two further months for complex or numerous requests — inform the requester within the first month, with reasons. UK: the clock pauses while you await identity verification or clarification."
+      }
+    },
+    "q-ca-right": {
+      "type": "question",
+      "q": "Which CCPA right are they exercising?",
+      "help": "Applicability gate first: CCPA duties bind only a 'business' under § 1798.140(d) ($25M+ revenue, or 100,000+ consumers/households, or 50%+ revenue from selling/sharing personal information (PI)) — confirm the responding entity meets a threshold and is acting as the business, not as a service provider or contractor, before treating any outcome as required. Rights menu: know (§ 1798.110/115), delete (§ 1798.105), correct (§ 1798.106), opt out of sale/share (§ 1798.120), limit use of sensitive PI (§ 1798.121), no retaliation (§ 1798.125). 45-day timeline (extendable by a further 45 days) for most rights. The CPPA's ADMT regulations (adopted 2025, phased compliance dates running into 2027) add consumer rights to opt out of, and access information about, covered automated decisionmaking technology — this wizard has no ADMT track yet; check the current compliance dates if the request touches ADMT.",
+      "cites": [
+        "ccpa-1798-105",
+        "ccpa-1798-120",
+        "ccpa-1798-135",
+        "ccpa-1798-140"
+      ],
+      "opts": [
+        {
+          "label": "Right to know / access (§§ 1798.110, 1798.115)",
+          "goto": "o-ca-know"
+        },
+        {
+          "label": "Right to delete (§ 1798.105)",
+          "goto": "o-ca-delete"
+        },
+        {
+          "label": "Right to opt out of sale or sharing (§ 1798.120)",
+          "goto": "o-ca-optout"
+        },
+        {
+          "label": "Right to correct (§ 1798.106)",
+          "goto": "o-ca-correct"
+        },
+        {
+          "label": "Right to limit sensitive PI use (§ 1798.121)",
+          "goto": "o-ca-limit"
+        }
+      ]
+    },
+    "o-ca-know": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "§§ 1798.110/115 — Disclose within 45 days",
+      "summary": "Verify the request (§ 1798.140(ak) verifiable consumer request) and provide categories collected, sources, business/commercial purposes, categories of third parties to whom PI was disclosed/sold/shared, and the specific pieces of PI. Default look-back is 12 months; if the consumer asks, you must disclose beyond 12 months for PI collected on or after 1 January 2022, unless doing so proves impossible or would involve disproportionate effort (§ 1798.130(a)(2)(B)).",
+      "actions": [
+        "Verify identity via § 1798.140(ak)-compliant process",
+        "Search across systems and disclose categories + specific pieces",
+        "If the consumer requests data beyond the 12-month look-back: provide it for PI collected on/after 1 Jan 2022 unless impossible or disproportionate effort (§ 1798.130(a)(2)(B)) — document any such determination",
+        "Identify recipients by category — whether each disclosure was a sale or a share determines how you must present it",
+        "Provide in writing, by mail or electronically (consumer's choice if specified)",
+        "Respond within 45 days; extendable by another 45 days with notice",
+        "Respond free of charge; you are not obligated to respond to more than two requests to know per consumer in a 12-month period (§ 1798.130(b)) — a reasonable fee (or refusal) is available only for manifestly unfounded or excessive requests, and it is on the business to prove the request is one (§ 1798.145(h)(3))"
+      ],
+      "cites": [
+        "ccpa-1798-110",
+        "ccpa-1798-115",
+        "ccpa-1798-140",
+        "ccpa-1798-130",
+        "ccpa-1798-145"
+      ],
+      "clock": "45 days (extendable +45)",
+      "clockSpec": {
+        "anchorLabel": "When was the request received?",
+        "legs": [
+          {
+            "label": "Respond to the request to know (§ 1798.130(a)(2))",
+            "days": 45
+          }
+        ],
+        "note": "Extendable by a further 45 days when reasonably necessary — notify the consumer within the first 45-day period (§ 1798.130(a)(2)(A))."
+      }
+    },
+    "o-ca-delete": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "§ 1798.105 — Delete + flow-down + 8 exceptions",
+      "summary": "Delete the consumer's PI, notify service providers/contractors to delete, and notify all third parties to whom you sold/shared PI to delete — unless impossible or involves disproportionate effort. Eight exceptions in § 1798.105(d) (contract completion, security, debugging, free speech, ECPA, research, internal use, legal obligation).",
+      "actions": [
+        "Verify the request",
+        "Identify which (if any) § 1798.105(d) exception applies for any retained data — document narrowly",
+        "Delete from production and notify all service providers/contractors and third parties (sold/shared recipients)",
+        "Maintain a confidential record of deletion requests for compliance purposes (§ 1798.105(c)(2))",
+        "Respond within 45 days; extendable 45 days"
+      ],
+      "cites": [
+        "ccpa-1798-105"
+      ],
+      "clock": "45 days (extendable +45)",
+      "clockSpec": {
+        "anchorLabel": "When was the request received?",
+        "legs": [
+          {
+            "label": "Respond to the deletion request (§ 1798.105)",
+            "days": 45
+          }
+        ],
+        "note": "Extendable by a further 45 days when reasonably necessary — notify the consumer within the first 45-day period (§ 1798.130(a)(2)(A))."
+      }
+    },
+    "o-ca-optout": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "§ 1798.120 — Stop sale/share and propagate",
+      "summary": "On opt-out, stop selling/sharing PI. Any business that sells or shares PI must treat conforming opt-out preference signals (e.g. the Global Privacy Control (GPC) signal) as valid opt-out requests (11 CCR § 7025(b)) — the § 1798.135(a)/(b) election only determines whether the business may drop the 'Do Not Sell or Share' links, not whether signals must be honored (enforced in Sephora (AG, 2022) and CPPA actions). Notify third parties to whom you sold or shared the PI after the request was received and before you complied, and direct them not to further sell or share it (11 CCR § 7026(f)(2)).",
+      "actions": [
+        "Update suppression lists across systems within 15 business days (11 CCR § 7026)",
+        "Notify third parties to whom PI was sold/shared after receipt of the request and before compliance, and direct them not to further sell/share it (11 CCR § 7026(f)(2))",
+        "Wait at least 12 months before requesting reauthorization (§ 1798.135(c)(4))",
+        "Process conforming opt-out preference signals (GPC) as valid opt-out requests — mandatory under 11 CCR § 7025(b); the § 1798.135(b) route relieves only the link-posting obligation of § 1798.135(a)"
+      ],
+      "cites": [
+        "ccpa-1798-120",
+        "ccpa-1798-135",
+        "ccr-7025",
+        "ccr-7026"
+      ],
+      "clock": "15 business days (11 CCR § 7026)",
+      "clockSpec": {
+        "anchorLabel": "When was the request received?",
+        "legs": [
+          {
+            "label": "Complete the opt-out of sale/share (11 CCR § 7026)",
+            "businessDays": 15
+          }
+        ],
+        "note": "15 business days from receipt."
+      }
+    },
+    "o-ca-correct": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "§ 1798.106 — Correct using commercially reasonable efforts",
+      "summary": "Use commercially reasonable efforts to correct inaccurate PI. Consider the totality of the consumer's relationship, documentation provided, and the nature of the data (see also the correction regulations, 11 CCR § 7023).",
+      "actions": [
+        "Verify the inaccuracy claim and identity",
+        "Use commercially reasonable correction methods across all systems",
+        "Notify service providers/contractors to do the same",
+        "Respond within 45 days; extendable 45 days"
+      ],
+      "cites": [
+        "ccpa-1798-106",
+        "ccpa-1798-140"
+      ],
+      "clock": "45 days (extendable +45)",
+      "clockSpec": {
+        "anchorLabel": "When was the request received?",
+        "legs": [
+          {
+            "label": "Respond to the correction request (§ 1798.106)",
+            "days": 45
+          }
+        ],
+        "note": "Extendable by a further 45 days when reasonably necessary — notify the consumer within the first 45-day period (§ 1798.130(a)(2)(A))."
+      }
+    },
+    "o-ca-limit": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "§ 1798.121 — Restrict use of sensitive PI to permitted purposes",
+      "summary": "On request, limit use/disclosure of sensitive PI (defined in § 1798.140(ae)) to purposes necessary to perform services or provide goods, ensure security/integrity, fight fraud/illegal activity, ensure physical safety, debug, and other narrowly-allowed contexts.",
+      "actions": [
+        "Identify the sensitive PI categories you process for inferred-characteristics / unrelated purposes",
+        "Restrict to § 1798.121(a) permitted purposes",
+        "Update suppression flags downstream",
+        "12-month reauthorization wait before requesting expansion (§ 1798.135(c)(4))"
+      ],
+      "cites": [
+        "ccpa-1798-121",
+        "ccpa-1798-140",
+        "ccpa-1798-135"
+      ],
+      "clock": "15 business days (CCPA regs)",
+      "clockSpec": {
+        "anchorLabel": "When was the request received?",
+        "legs": [
+          {
+            "label": "Honor the limit-use request (CCPA regs)",
+            "businessDays": 15
+          }
+        ],
+        "note": "15 business days from receipt."
+      }
+    }
+  },
+  "verifiedAsOf": "2026-07-02 (automated cross-check against official source texts; not yet reviewed by counsel)"
+}

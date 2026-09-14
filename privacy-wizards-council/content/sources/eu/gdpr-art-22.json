@@ -1,0 +1,24 @@
+{
+  "juris": "EU",
+  "label": "GDPR Art. 22 — Automated decision-making, profiling",
+  "citation": "Regulation (EU) 2016/679, Art. 22",
+  "provenance": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504#art_22",
+  "body": [
+    "<p><span class=\"num\">1.</span> The data subject shall have the right not to be subject to a decision based <b>solely</b> on automated processing, including profiling, which produces <b>legal effects</b> concerning him or her or <b>similarly significantly affects</b> him or her.</p>",
+    "  <p><span class=\"num\">2.</span> Paragraph 1 shall not apply if the decision:</p>",
+    "  <blockquote>(a) is necessary for entering into, or performance of, a contract between the data subject and a data controller;</blockquote>",
+    "  <blockquote>(b) is authorised by Union or Member State law … which also lays down suitable measures to safeguard the data subject's rights and freedoms and legitimate interests; or</blockquote>",
+    "  <blockquote>(c) is based on the data subject's <b>explicit consent</b>.</blockquote>",
+    "  <p><span class=\"num\">3.</span> In the cases referred to in points (a) and (c) of paragraph 2, the data controller shall implement suitable measures to safeguard the data subject's rights … at least the right to <b>obtain human intervention</b> on the part of the controller, to <b>express his or her point of view</b> and to <b>contest the decision</b>.</p>",
+    "  <p><span class=\"num\">4.</span> Decisions referred to in paragraph 2 shall not be based on special categories of personal data referred to in Article 9, unless point (a) or (g) of Article 9 applies and suitable measures … are in place.</p>"
+  ],
+  "kind": "statute",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

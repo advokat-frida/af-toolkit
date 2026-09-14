@@ -1,0 +1,290 @@
+{
+  "title": "Automated decision-making",
+  "tag": "GDPR Art. 22: when can you make decisions about people purely automatically?",
+  "q": "Can a machine make this call alone?",
+  "icon": "🤖",
+  "jurisdictions": [
+    "EU",
+    "UK"
+  ],
+  "start": "q-solely",
+  "nodes": {
+    "q-solely": {
+      "type": "question",
+      "q": "Is the decision based solely on automated processing?",
+      "help": "Art. 22(1) — solely automated means no meaningful human intervention. Token human review (rubber-stamping) doesn't escape Art. 22 (WP251 rev.01). The human must have actual authority and competence to change the outcome, with access to all relevant information including additional data the subject submits. WP251 is EU guidance: for the UK, 'meaningful human involvement' becomes a statutory concept under DUAA-inserted Art. 22A (its meaning definable by Secretary of State regulations), and ICO ADM guidance is the operative interpretive source. EU: under SCHUFA Holding (C-634/21), the automated establishment of a probability value (e.g. a credit score) is itself an Art. 22(1) 'decision' where a third party draws strongly on it for a significant decision — a scoring vendor cannot escape Art. 22 just because the client's human decides.",
+      "cites": [
+        "gdpr-art-22",
+        "guide-wp29-wp251-adm",
+        "case-schufa",
+        "uk-gdpr-art-22a-d",
+        "guide-ico-adm"
+      ],
+      "opts": [
+        {
+          "label": "Yes — fully automated, no human in the loop",
+          "goto": "q-significant"
+        },
+        {
+          "label": "Yes — algorithmic recommendation with rubber-stamp human review",
+          "goto": "q-significant"
+        },
+        {
+          "label": "Indirectly — we produce a score or output that a third party draws strongly on for a significant decision",
+          "goto": "q-significant",
+          "desc": "SCHUFA (C-634/21): the score itself is an Art. 22(1) decision where the recipient draws strongly on it (EU authority; persuasive only in the UK)."
+        },
+        {
+          "label": "No — meaningful human review of every individual decision",
+          "goto": "o-not-art-22"
+        }
+      ]
+    },
+    "o-not-art-22": {
+      "type": "outcome",
+      "tier": "ok",
+      "title": "Art. 22 not engaged — but transparency duties still apply",
+      "summary": "Meaningful human review escapes Art. 22(1). Profiling is still likely happening: disclose it under Art. 13(1)(c)/14 (purposes of the processing) and the general fairness and transparency principles. Note the limit: the mandatory 'meaningful information about the logic' duty in Art. 13(2)(f) / 14(2)(g) / 15(1)(h) attaches only to automated decision-making referred to in Art. 22(1) and (4) — once meaningful human review takes you outside Art. 22(1), that specific duty does not apply. WP251 rev.01 recommends explaining the logic for non-Art. 22 profiling as good practice.",
+      "actions": [
+        "Confirm the human reviewer has authority and competence to change outcomes (not token oversight)",
+        "Document the human-review SOP",
+        "Disclose the profiling and its purposes under Art. 13(1)(c)/14; consider explaining the logic as good practice (WP251)",
+        "Consider the data protection impact assessment (DPIA) threshold under Art. 35(3)(a) — systematic and extensive evaluation with legal/similarly significant effect"
+      ],
+      "cites": [
+        "gdpr-art-22",
+        "gdpr-art-35",
+        "gdpr-art-13",
+        "guide-wp29-wp251-adm"
+      ]
+    },
+    "q-significant": {
+      "type": "question",
+      "q": "Does the decision produce legal effects or similarly significantly affect the subject?",
+      "help": "Legal effect = changes a person's legal status or rights (e.g. denying entry to a country, terminating a contract, awarding a benefit). 'Similarly significantly' includes outcomes affecting employment, financial standing, access to services, health, education (WP251). Personalized advertising of low-impact products typically is not 'similarly significant'.",
+      "cites": [
+        "gdpr-art-22"
+      ],
+      "opts": [
+        {
+          "label": "Yes — credit denied, job rejected, insurance priced, benefit declined, contract terminated",
+          "goto": "q-juris"
+        },
+        {
+          "label": "Borderline — adverse effect on access to essential service or significant financial impact",
+          "goto": "q-juris"
+        },
+        {
+          "label": "No — low-impact (e.g. content recommendation, ordinary product personalization)",
+          "goto": "o-not-significant"
+        }
+      ]
+    },
+    "o-not-significant": {
+      "type": "outcome",
+      "tier": "info",
+      "title": "Art. 22(1) ban doesn't engage — but profiling rules still apply",
+      "summary": "Below the 'legal/significant' threshold, the Art. 22(1) general prohibition doesn't apply. The processing will usually constitute profiling under Art. 4(4); where it does, Art. 6 basis, Art. 13/14 transparency about profiling, and (for ad-tech) Art. 21(2) absolute objection to direct marketing apply. WP251 rev.01 examples: ordinary content personalization sits below the threshold. Dynamic pricing that effectively excludes the subject from a service, and behavioral advertising that exploits vulnerabilities, are listed as 'similarly significant'. Profile-driven exclusion from offers or services may cross the threshold — assess case by case.",
+      "actions": [
+        "Disclose profiling under Art. 13/14",
+        "Provide an opt-out for marketing-related profiling (Art. 21(2) is absolute)",
+        "Document the analysis — borderline cases shift quickly as use evolves",
+        "Reassess if effect deepens (e.g. recommendation system gates access)"
+      ],
+      "cites": [
+        "gdpr-art-22",
+        "guide-wp29-wp251-adm"
+      ]
+    },
+    "q-juris": {
+      "type": "question",
+      "q": "Which regime governs the decision — EU GDPR or UK GDPR?",
+      "help": "The regimes have structurally diverged. EU GDPR Art. 22 remains a prohibition-with-exceptions. The UK Data (Use and Access) Act 2025 (royal assent 19 June 2025) replaces UK GDPR Art. 22 with new Articles 22A–22D: for decisions not based on special category data, solely-automated significant decisions are permitted on any Art. 6 lawful basis subject to Art. 22C safeguards; a stricter gate (Art. 22B) applies only to special-category-based decisions. Commencement of the DUAA automated decision-making (ADM) provisions is phased by secondary legislation; the UK outcomes carry the commencement check.",
+      "cites": [
+        "gdpr-art-22",
+        "uk-gdpr-art-22a-d"
+      ],
+      "opts": [
+        {
+          "label": "EU GDPR applies",
+          "goto": "q-22-2"
+        },
+        {
+          "label": "UK GDPR (as amended by DUAA 2025) applies",
+          "goto": "q-uk-scd"
+        },
+        {
+          "label": "Both — EU and UK operations",
+          "goto": "q-22-2",
+          "desc": "Complete the EU path first, then re-run this wizard for the UK branch."
+        }
+      ]
+    },
+    "q-uk-scd": {
+      "type": "question",
+      "q": "UK: Is the significant decision based (entirely or partly) on special category data?",
+      "help": "Under DUAA-inserted Arts 22A–22D of the UK GDPR, the analysis turns on special category data. Art. 22B applies a stricter gate to special-category-based decisions; all other solely-automated significant decisions proceed on an Art. 6 lawful basis with the Art. 22C safeguards. 'Meaningful human involvement' is the Art. 22A statutory concept (Secretary of State may specify its meaning by regulations) — use ICO ADM guidance, not WP251, as the operative UK source.",
+      "cites": [
+        "uk-gdpr-art-22a-d",
+        "guide-ico-adm"
+      ],
+      "opts": [
+        {
+          "label": "Yes — special category data is used in reaching the decision",
+          "goto": "o-uk-22b"
+        },
+        {
+          "label": "No — no special category data involved",
+          "goto": "o-uk-22c"
+        }
+      ]
+    },
+    "o-uk-22b": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "UK — special category data: Art. 22B restricted gate + Art. 22C safeguards",
+      "summary": "Under UK GDPR Arts 22A–22D (inserted by the Data (Use and Access) Act 2025), solely-automated significant decisions based on special category data remain restricted: broadly, they require either explicit consent, or a contract or legal-authorization route combined with the substantial-public-interest condition — and in every case the Art. 22C safeguards.",
+      "actions": [
+        "Identify the Art. 22B condition relied on (explicit consent, or the contract/legal-authorization route with the substantial-public-interest condition)",
+        "Implement the Art. 22C safeguards: information about the decision, the right to make representations, to obtain human intervention, and to contest",
+        "Confirm commencement of the DUAA ADM provisions and check the current ICO ADM guidance before finalizing the compliance design",
+        "If the new provisions are not yet in force: comply with UK GDPR Art. 22 and DPA 2018 s.14 (post-decision notification; one-month right to reconsideration or a fresh decision)",
+        "A data protection impact assessment (DPIA) is likely required under UK GDPR Art. 35",
+        "Document the analysis and the commencement check"
+      ],
+      "cites": [
+        "uk-gdpr-art-22a-d",
+        "uk-dpa-2018-s14",
+        "guide-ico-adm"
+      ]
+    },
+    "o-uk-22c": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "UK — no special category data: permitted with Art. 22C safeguards",
+      "summary": "Post-DUAA, the prohibition-with-exceptions model is abolished for UK decisions not based on special category data: solely-automated significant decisions are permitted on any Art. 6 lawful basis, subject to the Art. 22C safeguards — information about the decision, the right to make representations, to obtain human intervention, and to contest. This is a structural divergence from EU GDPR Art. 22.",
+      "actions": [
+        "Establish and document an Art. 6 lawful basis for the processing",
+        "Implement the Art. 22C safeguards: decision information, representations, human intervention, contest",
+        "Confirm commencement of the DUAA ADM provisions and check the current ICO ADM guidance",
+        "If the new provisions are not yet in force: comply with UK GDPR Art. 22 (prohibition-with-exceptions) and DPA 2018 s.14 duties",
+        "A data protection impact assessment (DPIA) is likely required under UK GDPR Art. 35",
+        "Document the analysis and the commencement check"
+      ],
+      "cites": [
+        "uk-gdpr-art-22a-d",
+        "uk-dpa-2018-s14",
+        "guide-ico-adm",
+        "gdpr-art-6"
+      ]
+    },
+    "q-22-2": {
+      "type": "question",
+      "q": "Which Art. 22(2) exception covers the decision? (EU path)",
+      "help": "EU GDPR Art. 22(2) allows solely-automated significant decisions only if: (a) necessary for entering into or performing a contract with the subject; (b) authorized by Union/MS law with safeguards; (c) based on the subject's explicit consent. (UK decisions follow the separate UK branch — the DUAA regime does not use this exception gate for non-special-category decisions.)",
+      "cites": [
+        "gdpr-art-22"
+      ],
+      "opts": [
+        {
+          "label": "(a) Necessary for contract — automated underwriting, recruitment screening",
+          "goto": "o-22-2-a"
+        },
+        {
+          "label": "(b) Union/MS law authorizes (e.g. tax fraud detection authority)",
+          "goto": "o-22-2-b"
+        },
+        {
+          "label": "(c) Explicit consent of the subject",
+          "goto": "o-22-2-c"
+        },
+        {
+          "label": "None — the decision is unlawful as designed",
+          "goto": "o-22-unlawful"
+        }
+      ]
+    },
+    "o-22-2-a": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Art. 22(2)(a) — Necessary for contract: implement Art. 22(3) safeguards",
+      "summary": "Art. 22(3) requires at least: the right to obtain human intervention on the part of the controller, the right to express the subject's point of view, and the right to contest the decision. WP251 rev.01: 'meaningful information about the logic' ≠ the algorithm — explain the kind of data used, why it's relevant, what the consequences are; Dun & Bradstreet Austria (C-203/22, 2025) sharpens this for Art. 15(1)(h). If special category data (Art. 9) is used in the model, Art. 22(4) requires two things: an Art. 9(2)(a) explicit-consent or 9(2)(g) substantial-public-interest condition, and suitable safeguard measures in place. Meta Platforms v Bundeskartellamt (C-252/21) (ruling on Art. 6(1)(b)) requires contract processing to be objectively indispensable — because the underlying lawful basis for an Art. 22(2)(a) decision is typically Art. 6(1)(b), apply the same strict-necessity standard.",
+      "actions": [
+        "Disclose meaningful information about the logic (Art. 13(2)(f) / 14(2)(g) / 15(1)(h)) — explain factors, relevance, consequences, not the algorithm",
+        "Document the necessity for the contract. Meta v Bundeskartellamt (C-252/21) (decided on Art. 6(1)(b)) requires the processing to be objectively indispensable — apply that strict standard, since the lawful basis underlying an Art. 22(2)(a) decision is typically Art. 6(1)(b); if a less-intrusive alternative exists, the contract-necessity basis fails",
+        "UK note: Meta v Bundeskartellamt (C-252/21) is EU authority, persuasive only in the UK — the ICO's strict reading of contract necessity is the operative UK reference",
+        "Implement a human-review route: clear button/flow to request human reconsideration",
+        "Reviewer must have authority, competence, and access to additional information the subject submits (WP251)",
+        "Allow the subject to express their point of view in writing or interview",
+        "Contest mechanism: appeal process with documented outcomes",
+        "If Art. 9 data is in the model: Art. 22(4) requires both Art. 9(2)(a) explicit consent or 9(2)(g) substantial public interest and suitable safeguard measures in place (note: Union/MS law may bar lifting the Art. 9 prohibition by consent)",
+        "EU: per Dun & Bradstreet Austria (C-203/22), the explanation must describe the procedure and principles actually applied, intelligibly enough for the subject to understand which of their data was used and how — disclosing a complex formula is neither required nor sufficient, and trade-secret objections are resolved via the supervisory authority or court, not by blanket refusal",
+        "A data protection impact assessment (DPIA) is almost certainly required under Art. 35(3)(a) — systematic and extensive evaluation with legal/similarly significant effect",
+        "EU: automated recruitment screening, creditworthiness/credit-scoring, and life/health-insurance risk-pricing are likely high-risk AI systems under EU AI Act Annex III (Reg. (EU) 2024/1689) — high-risk obligations apply from 2 Dec 2027, as deferred by the 2026 Digital Omnibus on AI; run the AI Act classification separately. UK: no equivalent statute (divergence)"
+      ],
+      "cites": [
+        "gdpr-art-22",
+        "gdpr-art-9",
+        "gdpr-art-35",
+        "gdpr-art-6",
+        "case-meta-bka",
+        "case-dun-bradstreet",
+        "eu-ai-act-annex-iii",
+        "guide-wp29-wp251-adm"
+      ]
+    },
+    "o-22-2-b": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Art. 22(2)(b) — Authorized by Union/MS law",
+      "summary": "The law itself must lay down 'suitable measures to safeguard the data subject's rights and freedoms and legitimate interests'. Common examples: tax fraud detection statutes; benefits-eligibility automated screening. UK divergence: the UK authorization route is 'domestic law', not Union/MS law. Pre-DUAA, DPA 2018 s.14 imposes concrete mandatory safeguards for qualifying law-authorized decisions — you must notify the subject as soon as reasonably practicable that the decision was taken solely by automated means, and the subject may within one month request reconsideration or a fresh decision not based solely on automated processing. Under the DUAA regime (Arts 22A–22D) this framework is restated — see the UK branch.",
+      "actions": [
+        "Identify the specific authorizing law and its safeguards",
+        "Even where the law authorizes, accountability under Art. 5(2) still requires you to document, audit, and provide subject-facing transparency",
+        "Disclose Art. 13/14 information",
+        "UK (pre-DUAA regime): comply with DPA 2018 s.14 — post-decision notification as soon as reasonably practicable; honor one-month requests for reconsideration or a fresh decision",
+        "A data protection impact assessment (DPIA) is likely required"
+      ],
+      "cites": [
+        "gdpr-art-22",
+        "uk-dpa-2018-s14",
+        "uk-gdpr-art-22a-d"
+      ]
+    },
+    "o-22-2-c": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Art. 22(2)(c) — Explicit consent + Art. 22(3) safeguards",
+      "summary": "Explicit consent is a higher bar than Art. 4(11) consent — requires an express opt-in statement specifically for the automated decision. Coupled with Art. 22(3) safeguards (human intervention, point of view, contest).",
+      "actions": [
+        "Use an unambiguous, separate, opt-in statement (e.g. 'I consent to having this decision made by automated means')",
+        "Provide the alternative — what happens if the subject doesn't consent? (Without a meaningful alternative, the consent may not be freely given.)",
+        "Implement Art. 22(3) safeguards: human intervention, point of view, contest",
+        "Easy withdrawal (Art. 7(3))",
+        "A data protection impact assessment (DPIA) is likely required"
+      ],
+      "cites": [
+        "gdpr-art-22",
+        "gdpr-art-6",
+        "gdpr-art-9"
+      ]
+    },
+    "o-22-unlawful": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "EU: Solely-automated significant decision without an Art. 22(2) exception — unlawful",
+      "summary": "Art. 22(1) is a prohibition. Without (a) contract necessity, (b) authorizing law, or (c) explicit consent, the design is unlawful under EU GDPR. Re-architect: introduce meaningful human review (escape from 'solely automated'), or invoke a valid Art. 22(2) exception. UK note: this prohibition analysis is EU-side only — the Data (Use and Access) Act 2025 replaces UK GDPR Art. 22 with Arts 22A–22D, under which decisions not based on special category data are permitted with Art. 22C safeguards rather than prohibited; follow the UK branch.",
+      "actions": [
+        "Option A: Introduce meaningful human review — not rubber-stamp, but reviewer with authority/competence",
+        "Option B: Build an Art. 22(2)(a)/(b)/(c) basis — most often explicit consent",
+        "Halt fully-automated significant decisions until rebuilt (EU; for UK-only processing, re-run the UK branch — the DUAA regime may permit the design with Art. 22C safeguards)",
+        "Disclose any past decisions on request"
+      ],
+      "cites": [
+        "gdpr-art-22",
+        "uk-gdpr-art-22a-d"
+      ]
+    }
+  },
+  "verifiedAsOf": "2026-07-02 (automated cross-check against official source texts; not yet reviewed by counsel)"
+}

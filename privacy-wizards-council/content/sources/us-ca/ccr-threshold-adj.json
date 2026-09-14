@@ -1,0 +1,36 @@
+{
+  "juris": "US-CA",
+  "label": "CPPA CPI adjustment of § 1798.140(d) monetary threshold — $26,625,000 effective Jan. 1, 2025 (per § 1798.185(a)(5))",
+  "citation": "Cal. Code Regs. tit. 11 (CPPA monetary-threshold CPI adjustment, eff. Jan. 1, 2025)",
+  "body": [
+    "Updated Monetary Thresholds in CCPA",
+    "",
+    "Effective 1/1/2025; posted 12/17/2024",
+    "",
+    "Every odd-numbered year, Civil Code § 1798.199.95(d) adjusts the following monetary thresholds in the CCPA to reflect increases in the Consumer Price Index. Effective January 1, 2025, the new amounts are as follows:",
+    "",
+    "[Table — columns: Civil Code § | Updated 2025 Amount | Previous Amount]",
+    "",
+    "[Row] Civil Code § 1798.140(d)(1)(A): Annual gross revenue amount within the definition of “business” — [Updated 2025 Amount] $26,625,000 — [Previous Amount] $25,000,000",
+    "",
+    "[Row] Civil Code § 1798.150(a)(1)(A): Monetary damages range per consumer per incident — [Updated 2025 Amount] Not less than $107 and not greater than $799 per consumer per incident or actual damages, whichever is greater. — [Previous Amount] Not less than $100 and not greater than $750 per consumer per incident or actual damages, whichever is greater.",
+    "",
+    "[Row] Civil Code § 1798.155(a): Administrative fine amounts — [Updated 2025 Amount] Not more than $2,663 for each violation or $7,988 for each intentional violation and violations involving the personal information of consumers whom the violator has actual knowledge are under 16 years of age. — [Previous Amount] Not more than $2,500 for each violation or $7,500 for each intentional violation and violations involving the personal information of consumers whom the violator has actual knowledge are under 16 years of age.",
+    "",
+    "[Row] Civil Code § 1978.199.90(a) [sic]: Civil penalty amounts — [Updated 2025 Amount] Not more than $2,663 for each violation or $7,988 for each intentional violation and violations involving the personal information of consumers whom the violator has actual knowledge are under 16 years of age. — [Previous Amount] Not more than $2,500 for each violation or $7,500 for each intentional violation and violations involving the personal information of consumers whom the violator has actual knowledge are under 16 years of age.",
+    "",
+    "[Row] Civil Code § 1798.199.25: Daily compensation rate for Board members — [Updated 2025 Amount] $107 — [Previous Amount] $100",
+    "",
+    "1 In accordance with the law, the Agency uses the Consumer Price Index (CPI)—California, All Items, All Urban Consumers percentage change from the previous two years' reports, published by the Department of Industrial Relations, Office of the Director–Research. The agency applies the percentage change in the CPI for the August-to-August point in time of the prior two years. The increase in the thresholds is rounded to the nearest whole dollar."
+  ],
+  "kind": "regulation",
+  "provenance": "https://cppa.ca.gov/regulations/cpi_adjustment.html",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

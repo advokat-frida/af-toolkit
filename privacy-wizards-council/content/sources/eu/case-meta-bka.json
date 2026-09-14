@@ -1,0 +1,24 @@
+{
+  "kind": "case",
+  "juris": "EU",
+  "label": "CJEU C-252/21 — Meta Platforms v Bundeskartellamt — post-Brexit, not binding in the UK",
+  "citation": "CJEU (Grand Chamber), 4 July 2023, ECLI:EU:C:2023:537",
+  "provenance": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:62021CJ0252",
+  "body": [
+    "<p><b>Operative part (selected):</b></p>",
+    "  <p><span class=\"num\">2.</span> Where a user visits sites/apps revealing Art. 9 categories and that data is linked to the user's social-network account, processing by the operator must be regarded as \"<b>processing of special categories of personal data</b>\" under Art. 9(1) — prohibited unless an Art. 9(2) exception applies.</p>",
+    "  <p><span class=\"num\">3.</span> A user does <b>not</b> \"manifestly make public\" (Art. 9(2)(e)) data collected via cookies from third-party site visits. They do manifestly make public information they explicitly choose to make publicly accessible to an unlimited number of persons.</p>",
+    "  <p><span class=\"num\">4.</span> Art. 6(1)(b) (contract) covers processing only where it is <b>objectively indispensable</b> for a purpose integral to the contractual obligation — the main subject matter cannot be achieved without it. A tight necessity test.</p>",
+    "  <p><span class=\"num\">5.</span> Art. 6(1)(f) (legitimate interests) requires: (i) the LI was disclosed to users, (ii) processing is strictly necessary for that LI, and (iii) balancing favours the controller. Personalised advertising will rarely satisfy this in a dominant-platform context.</p>",
+    "  <p><span class=\"num\">8.</span> Dominance does not, as such, preclude valid consent, but is a key factor in assessing whether consent was <b>freely given</b>.</p>",
+    "  <p><b>Why it matters:</b> Tightened Art. 6(1)(b)/(f) for ad-tech. Confirmed the conditioned Art. 9 inference rule. Linked competition + data-protection enforcement. Respondent is the Bundeskartellamt (federal competition authority). Decided post-IP-completion-day: persuasive only, not binding, in UK courts.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

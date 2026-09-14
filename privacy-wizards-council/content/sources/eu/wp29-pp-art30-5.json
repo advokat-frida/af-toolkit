@@ -1,0 +1,23 @@
+{
+  "juris": "EU",
+  "label": "WP29 Position Paper — Art. 30(5) derogations (19 April 2018)",
+  "citation": "Article 29 Working Party, Position Paper on the derogations from the obligation to maintain records of processing activities pursuant to Article 30(5) GDPR, 19 April 2018",
+  "body": [
+    "<p><b>Article 29 Working Party, Position Paper on the derogations from the obligation to maintain records of processing activities pursuant to Article 30(5) GDPR, 19 April 2018</b> (EDPB document register lists it under WP29 \"Other guidance\", dated 19 April 2018).</p>",
+    "  <p><b>Verbatim:</b> \"The derogation provided by Article 30(5) is not absolute. There are three types of processing to which it does not apply. These are: • Processing that is likely to result in a risk to the rights and freedoms of data subjects. • Processing that is not occasional. • Processing that includes special categories of data or personal data relating to criminal convictions and offences.\"</p>",
+    "  <p><b>Verbatim:</b> \"The WP29 underlines that the wording of Article 30(5) is clear in providing that the three types of processing to which the derogation does not apply are alternative (\"or\") and the occurrence of any one of them alone triggers the obligation to maintain the record of processing activities.\" Sub-250-employee organisations carrying out processing \"likely to result in a risk (not just a high risk)\" to data subjects' rights, or non-occasional processing, or processing of Art. 9(1)/Art. 10 data are therefore obliged to keep the record.</p>",
+    "  <p><b>Verbatim:</b> \"However, such organisations need only maintain records of processing activities for the types of processing mentioned by Article 30(5).\" Example given: a small organisation's regular processing of employee data \"cannot be considered \"occasional\"\" and must be recorded; genuinely occasional processing that is low-risk and involves no special-category/criminal data need not be.</p>",
+    "  <p><b>Footnote 1 (verbatim):</b> \"The WP29 considers that a processing activity can only be considered as \"occasional\" if it is not carried out regularly, and occurs outside the regular course of business or activity of the controller or processor. See WP29 Guidelines on Article 49 of Regulation 2016/679 (WP262).\"</p>",
+    "  <p>• The paper also frames the ROPA as a tool supporting the accountability principle and encourages supervisory authorities to provide simplified record models/tools for SMEs.</p>"
+  ],
+  "kind": "guidance",
+  "provenance": "https://ec.europa.eu/newsroom/article29/document.cfm?action=display&doc_id=51422",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

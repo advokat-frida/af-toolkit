@@ -1,0 +1,19 @@
+{
+  "kind": "guidance",
+  "juris": "UK",
+  "label": "ICO — Cookies and similar technologies guidance",
+  "citation": "ICO, Guidance on the use of cookies and similar technologies (verify current post-DUAA version)",
+  "body": [
+    "The ICO's current detailed guidance on cookies is now the 'Guidance on the use of storage and access technologies', finalized 29 April 2026 after two consultations: the December 2024 significant update of the previous detailed cookies guidance, and the July 2025 consultation on the changes to PECR following the Data (Use and Access) Act. DUAA 2025 changes are explicitly reflected: the 07 July 2025 update note says the draft was revised 'to reflect changes to PECR following the Data (Use and Access) Act', adding a 'What are the exceptions?' chapter on the exceptions to the prohibition on storing or accessing information on people's devices - alongside the communication and strictly-necessary exceptions, the new DUAA-derived exceptions for statistical purposes, appearance, and emergency assistance - plus new sub-chapters on what 'a simple means of objecting' means and on using the same technology for multiple purposes. The guidance covers cookies, tracking pixels, link decoration and navigational tracking, device fingerprinting, web storage and scripts/tags, the PECR-UK GDPR relationship, online advertising (including 'cookie walls' and 'consent or pay' models), and consequences of non-compliance. Its consent-mechanism expectations retain the reject-as-easy-as-accept position: 'Our consent mechanism makes it as easy to refuse consent as it is to accept', with equally prominent 'accept all'/'reject all' options, a positive opt-in action, no pre-enabling of non-exempt technologies, granular purpose choices, third-party transparency, and no repeated re-prompting after refusal. The older Guide to PECR page 'Cookies and similar technologies' remains live but states it is based on the previous version of the detailed cookies guidance and will be updated once the revised guidance is finalized; it restates the basic regulation 6 rules (tell people the cookies are there, explain what they do and why, and get consent; exemptions for communication and strictly-necessary cookies)."
+  ],
+  "note": "The UK peg for cookie-banner standards (including the reject-as-easy-as-accept position and the November 2023 cookie-banner enforcement initiative). Pre-DUAA, the ICO consistently stated analytics cookies require consent and are not strictly necessary — it signaled low enforcement priority for first-party analytics but never recognized an exemption. Fetch the current version from ico.org.uk; verify it reflects the DUAA reg 6 amendments.",
+  "provenance": "https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/guidance-on-the-use-of-storage-and-access-technologies/",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

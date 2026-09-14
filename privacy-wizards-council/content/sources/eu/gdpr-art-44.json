@@ -1,0 +1,18 @@
+{
+  "juris": "EU",
+  "label": "GDPR Art. 44 — General principle for transfers",
+  "citation": "Regulation (EU) 2016/679, Art. 44",
+  "provenance": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504#art_44",
+  "body": [
+    "<p>Any transfer of personal data … to a third country or to an international organisation shall take place only if, subject to the other provisions of this Regulation, the conditions laid down in this Chapter are complied with by the controller and processor, including for onward transfers … All provisions in this Chapter shall be applied in order to ensure that the <b>level of protection of natural persons guaranteed by this Regulation is not undermined</b>.</p>"
+  ],
+  "kind": "statute",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

@@ -1,5 +1,130 @@
 # HANDOFF
 
+## 2026-09-14 - Privacy Wizards: privacy-first plan, decisions, content files (W1.0 part 1)
+
+Ben re-pointed the Council's expansion at privacy rather than AI and answered the plan's four
+calls (Linear doc *Privacy Wizards Council: expansion research (2026-09-13)*, section 6):
+one jurisdiction input at the top of multi-regime paths; all 2026 US states; Ben is reviewer of
+record, with his review as the last gate on each rebuilt path (breach and DPIA first; how he is
+credited in this public repo is still open); the two AI Act paths stay on date maintenance only.
+
+**Finder.** `privacy-wizards-council/src/lib/data/categories.js`: Cross-border transfer replaces
+AI Act risk tier in the five common rows (changelog bullets in the tool and on Home). Proof
+`proofs/states/3c-wizards-finder.png` and the local shell both show it.
+
+**W1.0 part 1: the registry as authored files.** `privacy-wizards-council/content/` now holds
+`registry.json` (manifest version, paths in finder order, `published` flags), 16 files under
+`wizards/`, 139 under `sources/<jurisdiction>/` (the included text as a list of lines plus a
+`review` block that stays out of the content hash), and a README for authors.
+`scripts/registry/content.mjs` reads, validates and builds the same shapes the engine imports;
+`scripts/registry/migrate-legacy.mjs` did the one-time split and refuses to overwrite.
+`tests/unit/registry.test.js` (8 tests) proves the files equal the legacy extraction byte for
+byte (paths in order, sources including bodies, manifest entries, published list, check notes),
+that the built registry passes the engine's graph checks, and that a review-status change does
+not change a source's content hash. **The build still reads `wizards.html`**: nothing the page
+renders changed.
+
+**W1.0 part 2 waits on the 2.1.0 commit**, so the two land as separate, reviewable commits
+(package.json and council.js carry both). Part 2: generate the data modules from `content/`,
+rename the import, relabel the record line "Registry SHA-256", bump the manifest version (source
+order becomes canonical, so the manifest hash changes by design), derive the pinned counts in
+`council.test.js`, retire `extract-legacy-data.mjs` (commit the font CSS), update BASELINE.md,
+add PWC-NEXT-008, drop the README's pending banner.
+
+**Verification.** Folder check: 44 vitest across three files, style audit, build,
+verify-artifact (`dist/wizards.html` sha256 `16ee17fa…`). Restaged; root gate green, census
+unchanged.
+
+**Open.** (1) A commit on `main` deploys through Pages, so the four pending-law notes in
+`motion.js` want Ben's read before the tuck. (2) The finder placeholder still reads "Try
+breach, DPIA, cookies, AI risk…"; swapping the example is a copy call. (3) Wave 1 content
+(W1.1 state cohort, W1.2 breach clocks, W1.3 DPIA and assessments) is authored into `content/`
+after part 2; the recovered July drafts are in `.local-working/advo-73-july-2026/`.
+
+## 2026-09-13 - Privacy Wizards: the authored depth reaches the page (0.4.3, tool 2.1.0)
+
+Ben asked for "Wave 0" of the Council expansion research (Linear doc *Privacy Wizards
+Council: expansion research (2026-09-13)*, Toolkit rollout project). Measured before the
+change: 140 of the 224 authored help and reasoning texts were cut at their first sentence
+with no way to the rest; the 24 outcomes that carry a clock showed no reasoning at all (the
+clock line took the qualifier's place); 78 option notes never rendered; the 139 verbatim
+source texts were unreachable (`openSources()` had no trigger since the Toolkit redesign);
+and the per-path `verifiedAsOf` stamp never showed. No decision node, option, citation or
+source record changed; the registry hash is unchanged.
+
+**What changed** (`privacy-wizards-council/`, all in the design system's own disclosure
+shape, DESIGN-SYSTEM §3 Disclosure / Authority row / Next determination, recorded there):
+
+- Question: the aside keeps the help's first sentence; `Why this question?` opens the rest,
+  so no sentence appears twice. Options carry their authored note as the 13px sub-line.
+- Determination: `Read the rest of the reasoning` under the verdict block, or `Read the
+  reasoning` (the whole text) where a clock line is the qualifier. The aside states
+  "sources last checked <date>" from `verifiedAsOf`.
+- Authority rail: each source is a disclosure — label, dotted status label (amber = automated
+  check only), then the citation, `Open the official text ↗`, and the included text as plain
+  paragraphs (`sourceTextPlain` in `council.js`). The dead source layer and its functions
+  are gone.
+- `What may change`: dated pending-law notes (`src/lib/data/motion.js`, four notes on the
+  Digital Omnibus proposal for breach/EU, DPIA, cookies, RoPA, each citing the EDPB-EDPS
+  Joint Opinion 2/2026). Annotations only; PWC-NEXT-006 in `docs/BEHAVIOR-DELTAS.md`.
+- Finder: `Browse all` groups by category (`.group-label`); search matches synonyms
+  (`src/lib/data/search.js`: SAR, GPC, 72 hours, sub-processor, deepfake...).
+- `Next determination`: one chooser row under every outcome (`src/lib/data/related.js`);
+  the row is now a component, `src/lib/WizardRow.svelte`, shared with the finder.
+- Record: `Sources checked`, the answer notes, `## What may change`, and each source's
+  included text as a blockquote.
+
+**Verification.** Folder gate: 24 vitest (6 new), style audit, build, verify-artifact
+(`dist/wizards.html` sha256 `3e8660f13efa…`, 1.09 MB). Restaged; root gate green end to end.
+Census: every new run reuses a baseline tuple; the one retired control tuple (the old
+authority link) was pruned with `--update` in this change. State proofs: `4f` now draws the
+disclosures, the dated aside, the next-determination row and the dotted authority rows;
+`3c` and `4e` are unchanged (question 2 has no option notes and a short help). Behaviour
+rig `.local-working/pwc-wave0-verify.mjs` (gitignored): 40/40 at 1440 and 390 — synonym
+search, grouped browse, option notes, both disclosures, the pending-law source link, the
+check date, six authority rows opening to text, the next-determination hand-off closing
+every disclosure, zero overflow, zero console errors. Shots reviewed at both widths.
+
+**Inline citations (2026-09-14, Ben: "hover over each mention of an article… a small popup
+card").** Every article, section, guidance, case and defined-term mention in the question,
+help, verdict line, reasoning, actions and pending-law notes is now a `button.cite` that opens
+a citation card in place: source label, formal citation, dotted review status, the cited
+paragraph when the mention names one (`Art. 33(1)` opens paragraph 1; `controller` opens Art.
+4(7)) or the whole text otherwise, `Show the whole text`, `Open the official text ↗`, and a ×.
+Hover opens after 140ms and closes 220ms after the pointer leaves; click pins; focus opens;
+Escape, the × or a click elsewhere closes and focus returns to the mention without reopening.
+The card flips above the mention when the frame has no room below and never exceeds the block
+width. Resolution lives in `privacy-wizards-council/src/lib/engine/mentions.js` with the
+curated names and defined terms in `src/lib/data/mentions.js`, and it is conservative: the
+regime family comes from the wizard (GDPR paths, AI Act paths), the UK setting from the node's
+own citations, and a mention that does not map to exactly one registry source stays plain
+text. Across all 1,024 text blocks 1,530 mentions resolve; the unresolved rest (GDPR Arts. 55,
+56, 27; Annex I; WP242; Guidelines 05/2020…) have no registry source, which is the next
+content job, not a resolver gap. Answer rows carry no citations (a button cannot hold a
+button). DESIGN-SYSTEM §3 gains *Inline citation* and *Citation card*; the census baseline
+gains the two 15px citation tuples (the only new ones the drawn states render). Verification:
+36 vitest (12 new, including a sweep of every text block), full gate green, behaviour rig
+now 60 checks at 1440 and 390 (hover, pin, keyboard, Escape, ×, frame fit, citations in the
+actions and the reasoning), zero console errors. PWC-NEXT-007 in `BEHAVIOR-DELTAS.md`.
+
+**Open.** (1) The four pending-law notes deserve Ben's read before deploy; drop any he
+does not want. (2) The question card's right edge still stops short of the progress track
+(nitpick 3); it matches the artboard, untouched. (3) The one console error seen live on
+2026-09-13 (an inline style vs `style-src 'self'`) did not reproduce against the staged
+shell; recheck on the live site after deploy. (4) Nothing is committed; the tuck word
+commits, pushes, and Pages deploys from `main` (ARCHITECTURE.md). (5) ADVO-73's July prep:
+the merged `advo-73-registry-prep.md` lived in a Temp scratchpad and is gone, but the run's
+workflow journal survived and was snapshotted on 2026-09-14 to
+`.local-working/advo-73-july-2026/` (gitignored, not backed up): per-regime drafts plus
+trap-coverage and statutory-accuracy verdicts for Indiana, Kentucky, Rhode Island, Oregon and
+the CCPA 2025 regulations, and the workflow script. The merged IN/KY/RI divergence rows and
+the later RI fixes survive only in the ADVO-73 Linear comments. Re-verify everything against
+primary text before use. (6) Before any new path: wizard content is still authored inside the
+legacy `privacy-wizards-council/wizards.html` and extracted by `scripts/extract-legacy-data.mjs`,
+which hardcodes the enabled-path allowlist, the manifest version and every source's
+`automated-check-only` status; the unit tests pin the path and node counts. Moving the registry
+into authored data files is the recommended first content job.
+
 ## 2026-09-11 - Redactorium: Vite replaces Create React App
 
 The last tool on react-scripts 5 (behind craco) moved to Vite 7, which the rest of the Toolkit

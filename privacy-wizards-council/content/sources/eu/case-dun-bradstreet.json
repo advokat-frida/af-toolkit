@@ -1,0 +1,33 @@
+{
+  "kind": "case",
+  "juris": "EU",
+  "label": "CJEU C-203/22 — Dun & Bradstreet Austria",
+  "citation": "CJEU, Case C-203/22, 27 February 2025",
+  "body": [
+    "JUDGMENT OF THE COURT (First Chamber)",
+    "27 February 2025",
+    "",
+    "Case C‑203/22, CK v Magistrat der Stadt Wien, other party: Dun & Bradstreet Austria GmbH (ECLI:EU:C:2025:117)",
+    "",
+    "[...]",
+    "",
+    "On those grounds, the Court (First Chamber) hereby rules:",
+    "",
+    "1. Article 15(1)(h) of Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (General Data Protection Regulation)",
+    "",
+    "must be interpreted as meaning that, in the case of automated decision-making, including profiling, within the meaning of Article 22(1) of that regulation, the data subject may require the controller, as ‘meaningful information about the logic involved’, to explain, by means of relevant information and in a concise, transparent, intelligible and easily accessible form, the procedure and principles actually applied in order to use, by automated means, the personal data concerning that person with a view to obtaining a specific result, such as a credit profile.",
+    "",
+    "2. Article 15(1)(h) of Regulation 2016/679",
+    "",
+    "must be interpreted as meaning that, where the controller takes the view that the information to be provided to the data subject in accordance with that provision contains data of third parties protected by that regulation or trade secrets, within the meaning of point 1 of Article 2 of Directive (EU) 2016/943 of the European Parliament and of the Council of 8 June 2016 on the protection of undisclosed know-how and business information (trade secrets) against their unlawful acquisition, use and disclosure, that controller is required to provide the allegedly protected information to the competent supervisory authority or court, which must balance the rights and interests at issue with a view to determining the extent of the data subject’s right of access provided for in Article 15 of that regulation."
+  ],
+  "provenance": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:62022CJ0203",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "kind": "case",
+  "juris": "EU",
+  "label": "CJEU C-40/17 — Fashion ID (joint controllership of plugins)",
+  "citation": "CJEU (Second Chamber), 29 July 2019, ECLI:EU:C:2019:629",
+  "provenance": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:62017CJ0040",
+  "body": [
+    "<p><b>Operative part (selected):</b></p>",
+    "  <p><span class=\"num\">2.</span> A website operator embedding a social plugin (Facebook 'Like' button) causing the visitor's browser to transmit personal data to the plugin provider is a <b>joint controller</b> with the provider — but only for the <b>collection and disclosure-by-transmission</b> operations it actually co-determines. Not for subsequent operations carried out by the provider alone.</p>",
+    "  <p><span class=\"num\">3.</span> For Art. 6(1)(f) to apply, <b>each</b> of the joint controllers must independently pursue a legitimate interest.</p>",
+    "  <p><span class=\"num\">4.</span> The operator must obtain consent and provide Art. 13/14 transparency only as regards the operations it controls.</p>",
+    "  <p><b>Why it matters:</b> Reframed pixel/SDK embeddings as joint-controllership for the collection/transmission stage. Combined with C-210/16 Wirtschaftsakademie (page admin) and C-25/17 Jehovan todistajat — sets a broad joint-controllership doctrine.</p>",
+    "  <p><b>UK status:</b> Decided pre-Brexit-transition-end (2019), so assimilated (retained) EU case law in the UK — but UK higher courts may depart from it under the Retained EU Law (Revocation and Reform) Act 2023.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

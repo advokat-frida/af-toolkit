@@ -1,0 +1,28 @@
+{
+  "juris": "US-CA",
+  "label": "CCPA § 1798.105 — Right to delete",
+  "citation": "Cal. Civ. Code § 1798.105",
+  "provenance": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.105.",
+  "body": [
+    "<p><span class=\"num\">(a)</span> A consumer shall have the right to request that a business <b>delete</b> any personal information about the consumer which the business has collected from the consumer.</p>",
+    "  <p><span class=\"num\">(c)(1)</span> A business that receives a verifiable consumer request … shall delete the consumer's personal information from its records, <b>notify any service providers or contractors</b> to delete, and <b>notify all third parties</b> to whom the business has sold or shared the personal information to delete the personal information unless this proves impossible or involves disproportionate effort.</p>",
+    "  <p><span class=\"num\">(d)</span> A business … shall not be required to comply with a consumer's request to delete … if it is reasonably necessary … to:</p>",
+    "  <blockquote>(1) Complete the transaction for which the personal information was collected … or otherwise perform a contract …;</blockquote>",
+    "  <blockquote>(2) Help to ensure security and integrity …;</blockquote>",
+    "  <blockquote>(3) Debug to identify and repair errors …;</blockquote>",
+    "  <blockquote>(4) Exercise free speech …;</blockquote>",
+    "  <blockquote>(5) Comply with the California Electronic Communications Privacy Act …;</blockquote>",
+    "  <blockquote>(6) Engage in public or peer-reviewed scientific, historical, or statistical research …;</blockquote>",
+    "  <blockquote>(7) To enable solely internal uses … reasonably aligned with the expectations of the consumer …;</blockquote>",
+    "  <blockquote>(8) Comply with a legal obligation.</blockquote>"
+  ],
+  "kind": "statute",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

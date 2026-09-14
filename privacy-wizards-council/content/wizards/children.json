@@ -1,0 +1,377 @@
+{
+  "title": "Children's data",
+  "tag": "GDPR Art. 8 + COPPA + state laws — when do you need parental consent?",
+  "q": "Do you need a parent's consent, and at what age?",
+  "icon": "🧒",
+  "jurisdictions": [
+    "EU",
+    "UK",
+    "US (federal)",
+    "US-CA"
+  ],
+  "start": "q-jurisdiction",
+  "nodes": {
+    "q-jurisdiction": {
+      "type": "question",
+      "q": "Which jurisdiction's rules are you analyzing?",
+      "opts": [
+        {
+          "label": "EU — GDPR Art. 8 for information society services",
+          "goto": "q-eu-iss"
+        },
+        {
+          "label": "UK — UK GDPR (consent age 13, DPA 2018 s.9) + ICO Children's code",
+          "goto": "q-uk-aadc"
+        },
+        {
+          "label": "US — COPPA (under 13)",
+          "goto": "q-coppa"
+        },
+        {
+          "label": "California — CCPA <16 opt-in, plus various state-law minor protections",
+          "goto": "q-ca-minor"
+        }
+      ]
+    },
+    "q-eu-iss": {
+      "type": "question",
+      "q": "Are you offering an information society service (ISS) directly to a child, and relying on consent under Art. 6(1)(a)?",
+      "help": "Art. 8 only applies to consent-based processing of children's data for information society services, such as online platforms, apps and social media. Other legal bases — contract, legitimate interests (LI), legal obligation — aren't affected by Art. 8.",
+      "cites": [
+        "gdpr-art-8",
+        "gdpr-art-6"
+      ],
+      "opts": [
+        {
+          "label": "Yes — ISS directly to child + consent basis",
+          "goto": "q-eu-age"
+        },
+        {
+          "label": "Yes — an ISS, but we rely on contract or legitimate interests",
+          "goto": "o-eu-not-art8"
+        },
+        {
+          "label": "No — not an ISS (e.g. offline service, B2B)",
+          "goto": "o-eu-not-art8"
+        }
+      ]
+    },
+    "o-eu-not-art8": {
+      "type": "outcome",
+      "tier": "info",
+      "title": "Art. 8 doesn't gate — but the standard Art. 6 analysis still applies",
+      "summary": "Art. 8 is specifically for consent-based ISS to children. For other bases (contract, legitimate interests (LI), legal obligation), apply the normal Art. 6 analysis — but be extra cautious: Art. 6(1)(f) balancing tilts strongly against the controller where the subject is a child.",
+      "actions": [
+        "Run the Legal Basis wizard",
+        "LI balancing: tighten the test where children are involved",
+        "Even without parental consent, age-appropriate transparency (Art. 12(1)) and design considerations remain",
+        "Online platforms: no advertising based on profiling using a minor's personal data (DSA Art. 28(2)) — a flat ban, independent of GDPR lawful basis"
+      ],
+      "cites": [
+        "gdpr-art-6",
+        "gdpr-art-8",
+        "dsa-art-28"
+      ]
+    },
+    "q-eu-age": {
+      "type": "question",
+      "q": "What's the child's age and Member State?",
+      "help": "Art. 8(1) default is 16, but Member States can lower to no less than 13. National ages: France 15; Germany 16; Ireland 16; Spain 14; Belgium 13; Italy 14; Netherlands 16; Sweden 13. Check current national law — these have shifted. (This table is EU-only: the UK consent age is 13 under DPA 2018 s.9 — use the UK branch.)",
+      "cites": [
+        "gdpr-art-8"
+      ],
+      "opts": [
+        {
+          "label": "Below the national digital-consent age",
+          "goto": "o-eu-parental"
+        },
+        {
+          "label": "At or above the national digital-consent age",
+          "goto": "o-eu-self-consent"
+        }
+      ]
+    },
+    "o-eu-parental": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Parental consent required (Art. 8(1))",
+      "summary": "Consent must be given or authorized by the holder of parental responsibility. The controller must make reasonable efforts to verify, taking into account available technology (Art. 8(2)).",
+      "actions": [
+        "Implement age-gating before any consent flow",
+        "Use a verification method proportionate to risk: parent's signed declaration; payment-card check; ID document scan; trusted-third-party verification; in-person",
+        "Document the verification trail",
+        "Provide an age-appropriate notice (transparency under Art. 12(1) and 13/14)",
+        "Online platforms: do not present ads based on profiling using a minor's personal data (DSA Art. 28(2), applicable since 17 Feb 2024) — a flat ban, regardless of lawful basis or parental consent"
+      ],
+      "cites": [
+        "gdpr-art-8",
+        "gdpr-art-6",
+        "dsa-art-28"
+      ]
+    },
+    "o-eu-self-consent": {
+      "type": "outcome",
+      "tier": "warn",
+      "title": "Child can self-consent — but apply age-appropriate transparency",
+      "summary": "At or above the digital-consent age, the child can give Art. 6(1)(a) consent. But Art. 12(1) requires information that is 'concise, transparent, intelligible and easily accessible', in clear and plain language — especially for children.",
+      "actions": [
+        "Age-gate so under-age users go through parental flow",
+        "Provide age-appropriate transparency (icon-based, layered, plain language)",
+        "Online platforms: no advertising based on profiling using a minor's personal data (DSA Art. 28(2), applicable since 17 Feb 2024) — a flat ban regardless of lawful basis, consent included",
+        "Other profiling of children (recommendations, scoring) will usually require a data protection impact assessment (DPIA) under Art. 35"
+      ],
+      "cites": [
+        "gdpr-art-8",
+        "dsa-art-28",
+        "gdpr-art-35"
+      ]
+    },
+    "q-uk-aadc": {
+      "type": "question",
+      "q": "Is your online service likely to be accessed by children under 18 in the UK?",
+      "help": "The ICO Age Appropriate Design Code (Children's code) — a statutory code of practice under DPA 2018 s.123, in force 2 Sept 2020 with conformance required from 2 Sept 2021 — applies to ISS likely to be accessed by under-18s in the UK. 15 standards including: best interests of the child; high-privacy defaults; data minimisation; no nudge techniques that weaken protections; transparency in age-appropriate language; geolocation off by default. Note: the UK digital-consent age is 13 (DPA 2018 s.9) — the EU Art. 8 default of 16 and the Member State age table do not apply in the UK.",
+      "cites": [
+        "ico-aadc",
+        "uk-dpa2018-s123",
+        "uk-dpa-2018-s9"
+      ],
+      "opts": [
+        {
+          "label": "Yes — likely accessed by under-18s",
+          "goto": "o-uk-aadc"
+        },
+        {
+          "label": "No — not likely to be accessed by under-18s",
+          "goto": "q-uk-age"
+        }
+      ]
+    },
+    "o-uk-aadc": {
+      "type": "outcome",
+      "tier": "warn",
+      "title": "ICO Children's code: conformance expected — statutory code the ICO must take into account",
+      "summary": "The Children's code (AADC) is a statutory code of practice issued under DPA 2018 s.123. Its 15 standards are not themselves directly binding rules, but the ICO and the courts must take the code into account. The ICO treats conformance as evidence of UK GDPR compliance for children's processing — and non-conformance as evidence against it. The ICO has investigated and acted against major platforms (TikTok, Snap). The Data (Use and Access) Act 2025 (DUAA 2025) has since placed children's higher-protection needs on a statutory footing for services likely to be accessed by children.",
+      "actions": [
+        "Run a Child Rights Impact Assessment (CRIA) — ICO recommends; effectively part of your data protection impact assessment (DPIA)",
+        "Set defaults to high privacy",
+        "Switch geolocation off by default",
+        "No targeted advertising to children",
+        "Disable profile-based recommendation amplification; do not use nudge techniques that lead children to weaken their privacy protections",
+        "Provide bite-sized, clear, age-appropriate transparency",
+        "Verify ages or apply the standards to all users",
+        "Consent-age check: if you rely on consent for an ISS offered directly to a child, the UK digital-consent age is 13 (DPA 2018 s.9, unchanged by DUAA 2025) — parental consent is required below 13 only",
+        "DUAA 2025: the children's higher-protection duty for likely-to-be-accessed services now sits in statute — verify commencement regulations and current ICO guidance",
+        "Work through ICO's published guidance for each of the 15 standards"
+      ],
+      "cites": [
+        "ico-aadc",
+        "uk-dpa2018-s123",
+        "uk-dpa-2018-s9",
+        "uk-duaa-2025",
+        "gdpr-art-35"
+      ]
+    },
+    "q-uk-age": {
+      "type": "question",
+      "q": "Are you offering an ISS directly to a child on a consent basis — and is the child under 13?",
+      "help": "UK GDPR Art. 8, as modified by DPA 2018 s.9, sets the UK digital-consent age at 13 — not the EU default of 16, and the EU Member State age table does not apply. Below 13, consent must be given or authorized by the holder of parental responsibility, and you must make reasonable efforts to verify. The 13 threshold is unchanged by the Data (Use and Access) Act 2025.",
+      "cites": [
+        "uk-dpa-2018-s9"
+      ],
+      "opts": [
+        {
+          "label": "Under 13 — ISS + consent basis",
+          "goto": "o-uk-under-13"
+        },
+        {
+          "label": "13 or over — ISS + consent basis",
+          "goto": "o-uk-13-plus"
+        },
+        {
+          "label": "Not relying on consent / not an ISS",
+          "goto": "o-uk-not-art8"
+        }
+      ]
+    },
+    "o-uk-under-13": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Parental consent required (UK GDPR Art. 8; DPA 2018 s.9 — age 13)",
+      "summary": "Below 13, consent for an ISS offered directly to a child must be given or authorized by the holder of parental responsibility. Make reasonable efforts to verify, taking available technology into account. The UK threshold is 13, not the EU default of 16.",
+      "actions": [
+        "Implement age-gating before any consent flow",
+        "Use a verification method proportionate to risk: parent's signed declaration; payment-card check; ID document scan; trusted-third-party verification",
+        "Document the verification trail",
+        "Provide an age-appropriate notice (UK GDPR transparency duties)",
+        "If the service is likely to be accessed by under-18s, the ICO Children's code standards also apply"
+      ],
+      "cites": [
+        "uk-dpa-2018-s9",
+        "ico-aadc"
+      ]
+    },
+    "o-uk-13-plus": {
+      "type": "outcome",
+      "tier": "warn",
+      "title": "Child can self-consent from 13 — transparency and design duties remain",
+      "summary": "At 13 or over, the child can give their own consent under UK GDPR Art. 8 as modified by DPA 2018 s.9. Age-appropriate transparency still applies, and the ICO Children's code standards apply if the service is likely to be accessed by under-18s.",
+      "actions": [
+        "Age-gate so under-13 users go through the parental flow",
+        "Provide age-appropriate transparency (icon-based, layered, plain language)",
+        "If likely accessed by under-18s: Children's code — profiling off by default, no targeted advertising to children",
+        "Profiling children requires a data protection impact assessment (DPIA)"
+      ],
+      "cites": [
+        "uk-dpa-2018-s9",
+        "ico-aadc"
+      ]
+    },
+    "o-uk-not-art8": {
+      "type": "outcome",
+      "tier": "info",
+      "title": "The age-13 consent rule doesn't gate — standard lawful-basis analysis applies",
+      "summary": "UK GDPR Art. 8 / DPA 2018 s.9 only gates consent-based ISS offered directly to a child. On other bases, apply the normal lawfulness analysis (UK GDPR mirrors Art. 6) — legitimate-interests balancing tilts strongly against the controller where the subject is a child. The ICO Children's code may still apply if the service is likely to be accessed by under-18s.",
+      "actions": [
+        "Run the Legal Basis wizard",
+        "LI balancing: tighten the test where children are involved",
+        "Age-appropriate transparency and design considerations remain"
+      ],
+      "cites": [
+        "gdpr-art-6",
+        "uk-dpa-2018-s9",
+        "ico-aadc"
+      ]
+    },
+    "q-coppa": {
+      "type": "question",
+      "q": "Is the website/online service 'directed to children' under 13, or do you have actual knowledge of collection from a child under 13?",
+      "help": "COPPA covers operators of websites/online services 'directed to children' or with actual knowledge of collection from a child under 13 (15 U.S.C. § 6502). 'Directed to children' is determined by total content evaluation under the FTC's multi-factor test (subject matter, visuals, music, age of models, language, ad placement, audience composition).",
+      "cites": [
+        "coppa-6502"
+      ],
+      "opts": [
+        {
+          "label": "Yes — directed to children",
+          "goto": "o-coppa-yes"
+        },
+        {
+          "label": "Actual knowledge of collection from a child under 13",
+          "goto": "o-coppa-yes"
+        },
+        {
+          "label": "No — general-audience and no actual knowledge",
+          "goto": "o-coppa-no"
+        }
+      ]
+    },
+    "o-coppa-yes": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "COPPA applies — verifiable parental consent + privacy notice + direct notice (amended Rule)",
+      "summary": "Provide direct notice to parents and obtain verifiable parental consent before collecting, using, or disclosing personal information from a child under 13 (16 CFR §§ 312.4–312.5). Limited exceptions for one-time direct responses, parental contact, and safety. Note: the FTC's amended COPPA Rule (effective June 23, 2025; compliance deadline April 22, 2026) adds a separate opt-in consent for third-party disclosures, written security and retention programs, and an expanded 'personal information' definition.",
+      "actions": [
+        "Publish a COPPA-compliant privacy notice (16 CFR § 312.4(d))",
+        "Direct notice to parent before collection (duty: 16 CFR § 312.4(b); required content: § 312.4(c))",
+        "Verify parental consent via FTC-approved methods: signed form; credit card; phone/video call; government-issued ID match; knowledge-based authentication; or other reasonable methods (16 CFR § 312.5(b))",
+        "Amended Rule: obtain separate verifiable parental consent before disclosing a child's personal information to third parties, including for targeted advertising — a general consent to collection no longer covers ad-tech disclosures",
+        "Lower-risk 'email plus' method (email + delayed confirmation) acceptable only for internal-use-only collection (16 CFR § 312.5(b)(2))",
+        "Honor parental rights: let parents review the collected information, refuse further use, and request deletion (16 CFR § 312.6)",
+        "Maintain a written information security program (amended 16 CFR § 312.8)",
+        "Adopt a written data-retention policy with defined retention limits — indefinite retention prohibited (amended 16 CFR § 312.10)",
+        "'Personal information' now includes biometric identifiers (amended 16 CFR § 312.2) — re-scope your data inventory",
+        "FTC-approved safe-harbor programs (e.g. iKeepSafe, PRIVO) grant a rebuttable presumption of compliance"
+      ],
+      "cites": [
+        "coppa-6502",
+        "coppa-rule-312"
+      ]
+    },
+    "o-coppa-no": {
+      "type": "outcome",
+      "tier": "ok",
+      "title": "COPPA not triggered — but prepare for the actual-knowledge trigger",
+      "summary": "General-audience services with no actual knowledge fall outside COPPA. But: once you have actual knowledge (e.g. user self-identifies as under 13), the obligations attach immediately to that user.",
+      "actions": [
+        "Build a neutral age screen — one that doesn't itself count as evidence the service is 'directed to children'",
+        "On actual-knowledge trigger: immediately block under-13 collection or route to parental-consent flow",
+        "Don't market the service to children",
+        "Audit ad placements — ads on children's properties can flip you to 'directed-to-children'",
+        "California overlays: SB 976 (social-media age assurance) is under constitutional challenge in NetChoice v. Bonta, with portions enjoined — check what is currently enforceable before relying on it. Do the same for any further California minors legislation, including CCPA amendments"
+      ],
+      "cites": [
+        "coppa-6502"
+      ]
+    },
+    "q-ca-minor": {
+      "type": "question",
+      "q": "What's the consumer's age?",
+      "help": "CCPA § 1798.120(c) requires an affirmative opt-in before selling/sharing personal information (PI) where the business has actual knowledge the consumer is under 16 — and a business that 'willfully disregards' the consumer's age is deemed to have actual knowledge. For 13–15, the consumer's own opt-in is sufficient; for under 13, the parent/guardian must opt in.",
+      "cites": [
+        "ccpa-1798-120"
+      ],
+      "opts": [
+        {
+          "label": "Under 13 — parent/guardian opt-in for sale/share",
+          "goto": "o-ca-under-13"
+        },
+        {
+          "label": "13–15 — consumer's own opt-in for sale/share",
+          "goto": "o-ca-13-15"
+        },
+        {
+          "label": "16+ — standard CCPA opt-out applies",
+          "goto": "o-ca-adult"
+        }
+      ]
+    },
+    "o-ca-under-13": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Cannot sell/share without parent/guardian affirmative opt-in",
+      "summary": "§ 1798.120(c) prohibits sale or sharing of PI from a consumer under 13 unless the parent or guardian has affirmatively authorized it. Pair this with the COPPA verifiable parental consent procedure.",
+      "actions": [
+        "Verifiable parental consent — align with COPPA mechanisms",
+        "Document the opt-in",
+        "Do not bundle the opt-in with general terms of service",
+        "12-month reauthorization wait if revoked (§ 1798.135(c)(4))",
+        "Run COPPA wizard in parallel"
+      ],
+      "cites": [
+        "ccpa-1798-120",
+        "ccpa-1798-135",
+        "coppa-6502"
+      ]
+    },
+    "o-ca-13-15": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Consumer's own affirmative opt-in required",
+      "summary": "§ 1798.120(c) — the 13–15 consumer can opt in for themselves; you cannot rely on the default 16+ opt-out model.",
+      "actions": [
+        "Build an opt-in flow with age-appropriate language",
+        "Don't pre-tick the box",
+        "12-month reauthorization wait (§ 1798.135(c)(4))",
+        "Maintain age verification trail"
+      ],
+      "cites": [
+        "ccpa-1798-120",
+        "ccpa-1798-135"
+      ]
+    },
+    "o-ca-adult": {
+      "type": "outcome",
+      "tier": "ok",
+      "title": "Standard CCPA opt-out model applies",
+      "summary": "For consumers 16+, you can sell/share PI as long as you provide the § 1798.135 opt-out (or honor the Global Privacy Control (GPC) opt-out preference signal).",
+      "actions": [
+        "Run the Sale/Share wizard for the full analysis",
+        "Implement the § 1798.135 opt-out link or honor the GPC signal"
+      ],
+      "cites": [
+        "ccpa-1798-120",
+        "ccpa-1798-135"
+      ]
+    }
+  },
+  "verifiedAsOf": "2026-07-02 (automated cross-check against official source texts; not yet reviewed by counsel)"
+}

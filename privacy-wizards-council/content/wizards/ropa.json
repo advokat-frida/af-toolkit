@@ -1,0 +1,92 @@
+{
+  "title": "Records of processing (Art. 30)",
+  "tag": "Do you need a written record of processing activities — and what should be in it?",
+  "q": "Do you need the register, and what goes in it?",
+  "icon": "📋",
+  "jurisdictions": [
+    "EU",
+    "UK"
+  ],
+  "start": "q-size",
+  "nodes": {
+    "q-size": {
+      "type": "question",
+      "q": "Does your organization have 250 or more employees?",
+      "help": "Art. 30(5) — the obligation 'shall not apply to an enterprise or organisation employing fewer than 250 persons unless …' three exceptions. At 250 persons or more, the obligation always applies. Currency note (EU only): a pending Commission proposal (fourth Omnibus simplification package, May 2025) would raise the exemption threshold to under 750 persons and narrow the trigger to processing likely to result in a high risk (Art. 35 alignment); it had not been adopted as of mid-2026 — verify current status before relying on the 250 gate for EU entities in the 250–750 band. The UK GDPR threshold (250) is unaffected by the EU proposal.",
+      "cites": [
+        "gdpr-art-30"
+      ],
+      "opts": [
+        {
+          "label": "Yes — 250 or more employees",
+          "goto": "o-required"
+        },
+        {
+          "label": "No — under 250",
+          "goto": "q-small-exceptions"
+        }
+      ]
+    },
+    "q-small-exceptions": {
+      "type": "question",
+      "q": "Do any of these apply to your processing?",
+      "help": "Art. 30(5) — even under-250 organizations must keep records if any of the following applies: the processing is likely to result in a risk to rights and freedoms; the processing is not occasional (i.e. regular or structural); or the processing involves special categories or criminal-conviction data. Note: where an exception applies, the record duty extends only to the processing activities meeting that condition (WP29 Position Paper on Art. 30(5), 19 April 2018) — see the outcome for detail.",
+      "cites": [
+        "gdpr-art-30",
+        "gdpr-art-9",
+        "wp29-pp-art30-5"
+      ],
+      "opts": [
+        {
+          "label": "Processing is likely to result in a risk to rights and freedoms",
+          "goto": "o-required"
+        },
+        {
+          "label": "Processing is not occasional (i.e. regular/structural)",
+          "goto": "o-required"
+        },
+        {
+          "label": "Special category data (Art. 9) or criminal-conviction data (Art. 10)",
+          "goto": "o-required"
+        },
+        {
+          "label": "None of the above — only truly occasional, low-risk, non-sensitive",
+          "goto": "o-not-required"
+        }
+      ]
+    },
+    "o-required": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Maintain an Art. 30 record of processing activities (ROPA) — controller (Art. 30(1)) and/or processor (Art. 30(2))",
+      "summary": "Records must be in writing (including electronic) (Art. 30(3)) and made available on request to the supervisory authority (EU) or the ICO (UK) (Art. 30(4)). The ROPA underpins Art. 5(2) accountability and is typically among the first documents a supervisory authority or the ICO requests in an investigation.",
+      "actions": [
+        "If controller, record the Art. 30(1) items: who's involved (controller, any joint controller, representative, DPO — names and contacts); purposes; categories of data subjects and of personal data; categories of recipients (including in third countries); any third-country transfers — naming the country and, for Art. 49(1) second-subparagraph transfers, documenting the safeguards; planned erasure time limits where possible; and, where possible, a general description of Art. 32 security measures",
+        "If processor: Art. 30(2) — name/contact of processor and each controller; categories of processing per controller; transfers; security measures",
+        "If mixed-role (SaaS): maintain both Art. 30(1) and Art. 30(2) records",
+        "Update when processing changes — treat ROPA as a living register, not a one-time exercise",
+        "Under-250 organizations caught by an Art. 30(5) exception: the mandatory record covers only the processing activities meeting the exception conditions (e.g. the non-occasional HR processing) per the WP29 Position Paper on Art. 30(5) (19 April 2018) — a complete register of all processing remains best practice",
+        "ICO and CNIL both publish ROPA templates"
+      ],
+      "cites": [
+        "gdpr-art-30",
+        "wp29-pp-art30-5"
+      ]
+    },
+    "o-not-required": {
+      "type": "outcome",
+      "tier": "ok",
+      "title": "No Art. 30 record-keeping duty applies — a lightweight register is still recommended",
+      "summary": "Without Art. 30 records, demonstrating Art. 5(2) accountability becomes hard. A lightweight register (key processing activities, basis, retention) helps satisfy the accountability principle and prepares for any threshold change.",
+      "actions": [
+        "Maintain a minimal register even though none is required",
+        "Re-check the threshold annually — once you cross 250 or processing becomes structural, the duty attaches",
+        "Document the 'no Art. 30 required' analysis"
+      ],
+      "cites": [
+        "gdpr-art-30"
+      ]
+    }
+  },
+  "verifiedAsOf": "2026-07-02 (automated cross-check against official source texts; not yet reviewed by counsel)"
+}

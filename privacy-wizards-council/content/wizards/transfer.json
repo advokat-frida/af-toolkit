@@ -1,0 +1,368 @@
+{
+  "title": "Cross-border transfer (Ch. V)",
+  "tag": "Pick the GDPR transfer mechanism for sending personal data outside the EEA.",
+  "q": "Can this data leave the EEA, and on what paperwork?",
+  "icon": "🌍",
+  "jurisdictions": [
+    "EU",
+    "UK"
+  ],
+  "start": "q-destination",
+  "nodes": {
+    "q-destination": {
+      "type": "question",
+      "q": "Is the data being transferred to a recipient outside the EEA (for GDPR) / outside the UK (for UK GDPR)?",
+      "help": "Art. 44 sets the general principle: any onward transfer outside the EEA needs a Chapter V mechanism. 'Transfer' includes making data available — not just sending it (EDPB Guidelines 05/2021 on the interplay between Art. 3 and Chapter V — e.g. remote read access from a third country counts).",
+      "cites": [
+        "gdpr-art-44",
+        "guide-edpb-gl-05-2021"
+      ],
+      "opts": [
+        {
+          "label": "Yes — data goes to or is accessible from a non-EEA country / non-UK country",
+          "goto": "q-adequacy"
+        },
+        {
+          "label": "No — all processing stays within the EEA / UK",
+          "goto": "o-no-transfer"
+        },
+        {
+          "label": "Yes — to a sub-processor located outside the EEA, engaged by our EEA processor",
+          "goto": "q-adequacy"
+        }
+      ]
+    },
+    "o-no-transfer": {
+      "type": "outcome",
+      "tier": "ok",
+      "title": "No Chapter V mechanism needed",
+      "summary": "Intra-EEA flows are governed by other GDPR articles (Art. 6 basis, Art. 28 processor contracts) but not Chapter V transfer rules. Watch for cloud providers with non-EEA support access — even read access from outside is a transfer.",
+      "actions": [
+        "Confirm with vendors that no support/admin access happens from outside the EEA",
+        "Update the record of processing activities (ROPA) to reflect the 'no transfer' position; re-check if the vendor moves operations",
+        "If the vendor changes sub-processor locations, the analysis may flip"
+      ],
+      "cites": [
+        "gdpr-art-44"
+      ]
+    },
+    "q-adequacy": {
+      "type": "question",
+      "q": "Does the destination have an EU Commission adequacy decision (or UK equivalent)?",
+      "help": "Art. 45 adequacy decisions (as of early 2026) cover: Andorra, Argentina, Canada (commercial), Faroe Islands, Guernsey, Isle of Man, Israel, Japan, Jersey, New Zealand, South Korea, Switzerland, United Kingdom, Uruguay, and the USA (under the EU-US Data Privacy Framework (DPF), for participating organizations). The list moves — more are in the pipeline (e.g. Brazil and Kenya) and decisions can be adopted or suspended — so check the Commission's live adequacy page before relying on it.\n\nUK divergence: the Data (Use and Access) Act 2025 (DUAA 2025, Sch. 7) rewrites UK GDPR Chapter V. The Secretary of State makes adequacy-style regulations (new Arts. 45A–45B UK GDPR) against a statutory 'data protection test' (protection 'not materially lower' than the UK standard), replacing the EU 'essentially equivalent' framing, and the fixed four-yearly review is replaced by an ongoing monitoring duty. The EU and UK lists can diverge — check the UK's own adequacy regulations and DUAA commencement status.\n\nFor EU transfers, Schrems II (C-311/18) confirmed an adequacy decision must afford 'essentially equivalent' protection — and invalidated the Privacy Shield. Its successor for the USA, the DPF, remains under legal challenge — verify current status before relying on it.",
+      "cites": [
+        "gdpr-art-45",
+        "case-schrems-i",
+        "case-schrems-ii",
+        "uk-duaa-2025"
+      ],
+      "opts": [
+        {
+          "label": "Yes — adequacy decision covers this destination",
+          "goto": "o-adequacy"
+        },
+        {
+          "label": "Yes — US recipient certified under the EU-US DPF (or UK DPF Extension)",
+          "goto": "o-dpf"
+        },
+        {
+          "label": "No adequacy decision",
+          "goto": "q-safeguard"
+        }
+      ]
+    },
+    "o-adequacy": {
+      "type": "outcome",
+      "tier": "ok",
+      "title": "Art. 45 adequacy decision — transfer permitted without further authorization",
+      "summary": "Adequacy decisions provide a 'green light' — no additional Chapter V instrument required. The Commission reviews EU adequacy decisions at least every 4 years and can suspend them (Schrems I/II precedents). UK divergence: under DUAA 2025 the fixed periodic review is replaced by an ongoing monitoring duty on the Secretary of State — verify current ICO guidance and DUAA commencement status.",
+      "actions": [
+        "Document the adequacy decision in the Art. 30 record of processing activities (ROPA)",
+        "Monitor the live adequacy lists — EU Commission page and the UK's own adequacy regulations (they can diverge under DUAA 2025) — decisions can be suspended (Schrems-style)",
+        "If adequacy is suspended: Art. 49 derogations remain available for occasional, specific transfers, but cannot replace a suspended adequacy decision for systematic flows — rebuild those on Art. 46 safeguards quickly",
+        "Update privacy notice to disclose the third country (Art. 13(1)(f) / 14(1)(f))"
+      ],
+      "cites": [
+        "gdpr-art-44",
+        "gdpr-art-45",
+        "uk-duaa-2025"
+      ]
+    },
+    "o-dpf": {
+      "type": "outcome",
+      "tier": "warn",
+      "title": "EU-US Data Privacy Framework (DPF) — US recipient must be certified",
+      "summary": "The EU-US DPF (July 2023 adequacy decision) covers transfers to US importers self-certified to the DPF principles, administered by the US Department of Commerce. The UK has its own DPF Extension (October 2023). Verify the recipient is on the live DPF list before relying on it. Schrems II (C-311/18) invalidated the previous Privacy Shield over US surveillance concerns; the DPF added the Data Protection Review Court and Executive Order 14086 to address them. The DPF survived its first annulment challenge (Latombe v Commission, T-553/23, dismissed by the General Court on 3 September 2025). An appeal and further challenges ('Schrems III') remain possible, and the quorum and independence of the US oversight board it relies on (the Privacy and Civil Liberties Oversight Board, PCLOB) have been challenged. Re-verify DPF status on the date you rely on this outcome.",
+      "actions": [
+        "Confirm the importer is on the DPF list at dataprivacyframework.gov",
+        "Track DPF list changes — companies can be removed for non-compliance",
+        "No transfer impact assessment (TIA) is legally required for DPF-covered transfers — this is the Art. 45 adequacy route, and the EDPB Recommendations 01/2020 six-step methodology applies to Art. 46 tools, not adequacy decisions",
+        "Given the litigation and oversight risk, keep an Art. 46 standard contractual clauses (SCC) fallback and a Recommendations 01/2020-style analysis ready in case the DPF is suspended or invalidated — a prudent risk-management step, not a legal duty"
+      ],
+      "cites": [
+        "gdpr-art-45",
+        "case-schrems-ii",
+        "guide-edpb-rec-01-2020"
+      ]
+    },
+    "q-safeguard": {
+      "type": "question",
+      "q": "Can you put an appropriate safeguard in place under Art. 46?",
+      "help": "Art. 46 lists the standard safeguards: binding corporate rules (BCRs), standard contractual clauses (SCCs) — the most common — approved codes of conduct, approved certifications, and ad-hoc clauses (with supervisory authority (SA) approval). The EU SCCs (2021 set, Decision 2021/914) are the workhorse for controller-to-controller, controller-to-processor, processor-to-processor, and processor-to-controller transfers. After Schrems II (C-311/18) you must also run a transfer impact assessment (TIA) for EU transfers, or the ICO's transfer risk assessment (TRA) for UK transfers.",
+      "cites": [
+        "gdpr-art-46"
+      ],
+      "opts": [
+        {
+          "label": "Yes — SCCs (2021 set) — most common",
+          "goto": "o-scc"
+        },
+        {
+          "label": "Yes — BCRs (group-wide, SA-approved)",
+          "goto": "o-bcr"
+        },
+        {
+          "label": "Yes — approved code of conduct or certification with binding commitments",
+          "goto": "o-cofc"
+        },
+        {
+          "label": "No safeguard practical — rely on a derogation",
+          "goto": "q-derogation"
+        }
+      ]
+    },
+    "o-scc": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Art. 46(2)(c) — Standard contractual clauses (2021 set) + TIA/TRA",
+      "summary": "The 2021 SCCs (Commission Implementing Decision 2021/914) come in modules. Pick the correct module (controller-to-controller, controller-to-processor, processor-to-processor, or processor-to-controller). Sign the right module with Annexes I (parties), II (technical and organizational measures — TOMs), III (sub-processors — Modules 2 and 3). After Schrems II (C-311/18), EU exporters must also run a transfer impact assessment (TIA) following the six-step methodology in EDPB Recommendations 01/2020; UK exporters run the ICO's transfer risk assessment (TRA) instead (see actions). The 2010 SCCs upheld in Schrems II were later replaced — only the 2021 set is valid for new contracts.",
+      "actions": [
+        "Identify the correct module: controller-to-controller (Module 1), controller-to-processor (Module 2), processor-to-processor (Module 3), processor-to-controller (Module 4)",
+        "Sign the 2021 SCCs — legacy SCCs (2001/497 and 2004/915 C2C sets, 2010/87 C2P) were repealed with effect from 27 Sept 2021 by Decision 2021/914; contracts signed on them ceased to provide valid safeguards after the grandfathering period ended 27 Dec 2022",
+        "Complete the Annexes: I (parties/processing/data), II (TOMs), III (sub-processors if applicable)",
+        "EU exporters: run the TIA per the EDPB Recommendations 01/2020 six steps: (1) know your transfers; (2) identify the tool; (3) assess third-country law; (4) supplementary measures; (5) procedural steps; (6) re-evaluate",
+        "EU supplementary measures: encryption with EU-held keys, split-key pseudonymisation, contractual transparency, organizational policies. Use Cases 6 and 7 (cloud importer holds keys) remain rejected by the EDPB (an EU-branch position — the ICO's TRA does not adopt it)",
+        "Document the TIA (accountability, Art. 5(2); EDPB Recommendations 01/2020) and reference it from the record of processing activities (ROPA)",
+        "UK exporters: use the UK Addendum (B1.0) to the EU SCCs or the UK international data transfer agreement (IDTA), then run the ICO's transfer risk assessment (TRA) using its published guidance and tool — a risk-of-harm-to-data-subjects approach, deliberately more permissive than the EDPB methodology (the ICO also accepts an EU-style TIA). Under DUAA 2025, act 'reasonably and proportionately' when considering the UK data protection test — verify current ICO guidance and DUAA commencement status",
+        "SA suspension power: under Schrems II (C-311/18), the competent SA must suspend or prohibit transfers if SCCs cannot be complied with — be prepared to defend the TIA"
+      ],
+      "cites": [
+        "gdpr-art-46",
+        "case-schrems-ii",
+        "guide-edpb-rec-01-2020",
+        "guide-ico-tra",
+        "uk-duaa-2025"
+      ]
+    },
+    "o-bcr": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Art. 46(2)(b) / Art. 47 — Binding Corporate Rules",
+      "summary": "BCRs are SA-approved intragroup data protection policies that allow transfers within a corporate group. Approval is slow (12–24 months) but durable — and you don't sign SCCs internally. Still: TIA-equivalent analysis required for onward transfers to non-BCR group members.",
+      "actions": [
+        "Engage the lead SA early — approval process is heavy",
+        "BCRs cover only intra-group flows — external transfers still need their own mechanism",
+        "Maintain governance records (Art. 47(2)(i) complaint procedures, (j) compliance-verification/audit mechanisms, (n) data-protection training)",
+        "Onward transfers from BCR-bound entities to non-BCR-bound third parties still need their own Art. 46 mechanism"
+      ],
+      "cites": [
+        "gdpr-art-46"
+      ]
+    },
+    "o-cofc": {
+      "type": "outcome",
+      "tier": "warn",
+      "title": "Art. 46(2)(e)/(f) — Code of conduct or certification with binding commitments",
+      "summary": "Lesser-used but available for sector-specific or industry-led mechanisms. The recipient must give binding, enforceable commitments to apply the appropriate safeguards.",
+      "actions": [
+        "Identify the SA-approved code/certification covering the destination",
+        "Get the binding commitment from the importer in writing",
+        "Document in the record of processing activities (ROPA)",
+        "Likely still need a TIA for high-risk destinations"
+      ],
+      "cites": [
+        "gdpr-art-46"
+      ]
+    },
+    "q-derogation": {
+      "type": "question",
+      "q": "Which Art. 49 derogation applies?",
+      "help": "Art. 49 derogations are exceptional — EDPB Guidelines 2/2018 explicitly disallow using them as a regular transfer mechanism. They're for specific, occasional, non-systematic transfers.",
+      "cites": [
+        "gdpr-art-49"
+      ],
+      "opts": [
+        {
+          "label": "Explicit consent of the subject (informed of risks) — Art. 49(1)(a)",
+          "goto": "o-49-a"
+        },
+        {
+          "label": "Necessary for performance of a contract with the subject — Art. 49(1)(b)",
+          "goto": "o-49-b"
+        },
+        {
+          "label": "Necessary in the subject's interest under a contract between us and a third party — Art. 49(1)(c)",
+          "goto": "o-49-c"
+        },
+        {
+          "label": "Important reasons of public interest — Art. 49(1)(d)",
+          "goto": "o-49-d"
+        },
+        {
+          "label": "Establishment/exercise/defense of legal claims — Art. 49(1)(e)",
+          "goto": "o-49-e"
+        },
+        {
+          "label": "Vital interests of incapacitated subject — Art. 49(1)(f)",
+          "goto": "o-49-f"
+        },
+        {
+          "label": "Transfer from a public register established under Union or Member State law — Art. 49(1)(g)",
+          "goto": "o-49-g"
+        },
+        {
+          "label": "None of the above, but a one-off transfer for compelling legitimate interests — Art. 49(1) second subparagraph",
+          "goto": "o-49-cli"
+        },
+        {
+          "label": "None — derogations don't fit",
+          "goto": "o-no-route"
+        }
+      ]
+    },
+    "o-49-a": {
+      "type": "outcome",
+      "tier": "warn",
+      "title": "Art. 49(1)(a) — Explicit consent of the data subject",
+      "summary": "Subject has explicitly consented after being informed of the possible risks of transfer due to absence of adequacy and appropriate safeguards. Cannot be the basis for repeated, mass, or structural transfers.",
+      "actions": [
+        "Disclose the specific risks: lack of adequacy, absence of safeguards, potential government-access risk",
+        "Get a separate, granular, explicit consent — not bundled with general terms of service",
+        "Easy withdrawal (Art. 7(3))",
+        "Document the consent",
+        "Don't repeat this for every login — it's for occasional, specific transfers"
+      ],
+      "cites": [
+        "gdpr-art-49"
+      ]
+    },
+    "o-49-b": {
+      "type": "outcome",
+      "tier": "warn",
+      "title": "Art. 49(1)(b) — Necessary for contract with subject",
+      "summary": "Strict 'necessity' standard — must be objectively necessary to perform the contract or pre-contractual measures at the subject's request. Booking a flight to the US through your business is the canonical example.",
+      "actions": [
+        "Document the necessity link (without the transfer, contract cannot be performed)",
+        "Use the minimum data necessary",
+        "Not for systematic / repeated transfers (EDPB Guidelines 2/2018)"
+      ],
+      "cites": [
+        "gdpr-art-49"
+      ]
+    },
+    "o-49-c": {
+      "type": "outcome",
+      "tier": "warn",
+      "title": "Art. 49(1)(c) — Subject's interest in contract with third party",
+      "summary": "Contract is between you and a third party, but in the subject's interest. Narrow.",
+      "actions": [
+        "Document why this is in the subject's interest",
+        "Minimum data only"
+      ],
+      "cites": [
+        "gdpr-art-49"
+      ]
+    },
+    "o-49-d": {
+      "type": "outcome",
+      "tier": "warn",
+      "title": "Art. 49(1)(d) — Important reasons of public interest",
+      "summary": "Must be recognized in Union or MS law (Art. 49(4)). Examples: cross-border law enforcement cooperation, public health crisis response.",
+      "actions": [
+        "Cite the specific Union/MS law",
+        "Minimum data only",
+        "If public interest doesn't fit, see the compelling-legitimate-interests last resort — it carries its own duty to inform the SA"
+      ],
+      "cites": [
+        "gdpr-art-49"
+      ]
+    },
+    "o-49-e": {
+      "type": "outcome",
+      "tier": "warn",
+      "title": "Art. 49(1)(e) — Legal claims",
+      "summary": "Necessary for the establishment, exercise, or defense of legal claims. The most-used Art. 49 derogation for e-discovery and litigation document production.",
+      "actions": [
+        "Narrow scope to claims-relevant data",
+        "Apply protective-order or sealing requests in destination court",
+        "Consider Art. 48 — the transfer may be in conflict with foreign-judgment recognition rules"
+      ],
+      "cites": [
+        "gdpr-art-49"
+      ]
+    },
+    "o-49-f": {
+      "type": "outcome",
+      "tier": "info",
+      "title": "Art. 49(1)(f) — Vital interests of incapacitated subject",
+      "summary": "Emergency medical/safety transfers where the subject is physically or legally incapable of consenting. Very narrow.",
+      "actions": [
+        "Switch to a more durable basis as soon as feasible",
+        "Document the incapacity and emergency"
+      ],
+      "cites": [
+        "gdpr-art-49"
+      ]
+    },
+    "o-49-g": {
+      "type": "outcome",
+      "tier": "warn",
+      "title": "Art. 49(1)(g) — Transfer from a public register",
+      "summary": "This covers transfers from a register that, under Union or Member State law, is intended to inform the public and is open to consultation — by anyone, or by anyone who can show a legitimate interest. Art. 49(2) limits it: the transfer may not involve the entirety of the register or entire categories of the data in it.",
+      "actions": [
+        "Confirm the register is legally intended to provide information to the public (company registers, land registers, etc.)",
+        "Transfer only the specific extract needed — not the whole register or entire categories (Art. 49(2))",
+        "Where the register is limited to persons with a legitimate interest, transfer only at their request or where they are the recipients",
+        "Document the register's legal basis and the scope limitation"
+      ],
+      "cites": [
+        "gdpr-art-49"
+      ]
+    },
+    "o-49-cli": {
+      "type": "outcome",
+      "tier": "warn",
+      "title": "Art. 49(1) second subparagraph — Compelling legitimate interests (last resort)",
+      "summary": "Absolute last resort, available only where neither Art. 45/46 nor any first-subparagraph derogation applies. Every condition must hold: the transfer is not repetitive; it concerns only a limited number of data subjects; it is necessary for your compelling legitimate interests and those aren't overridden by the subject's interests or rights; and you have assessed all the circumstances and provided suitable safeguards on that basis.",
+      "actions": [
+        "Verify every condition is met: non-repetitive, limited number of data subjects, compelling legitimate interests, no less-intrusive route available",
+        "Document the assessment of all circumstances and the suitable safeguards adopted",
+        "Inform the SA of the transfer",
+        "Inform the data subjects of the transfer and of the compelling legitimate interests pursued (on top of Art. 13/14 information)",
+        "Never use this for repeated or structural transfers — build an Art. 46 mechanism instead"
+      ],
+      "cites": [
+        "gdpr-art-49"
+      ]
+    },
+    "o-no-route": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "No lawful transfer mechanism — stop or rebuild",
+      "summary": "Without adequacy, an Art. 46 safeguard, or an Art. 49 derogation (including the compelling-legitimate-interests last resort), the transfer is unlawful. Stop the transfer, or build an Art. 46 mechanism (most likely SCCs+TIA), or re-architect to keep data in-region.",
+      "actions": [
+        "Stop the transfer until a mechanism is in place",
+        "Investigate SCCs as the default route — see the 'Yes — SCCs' branch",
+        "Consider data localization: EU-region cloud, on-prem, or processor with no non-EEA access",
+        "If continuing without a mechanism: EU GDPR Art. 83(5)(c) — up to €20M or, for an undertaking, 4% of total worldwide annual turnover of the preceding financial year, whichever is higher; UK GDPR — up to £17.5M or 4% of global annual turnover, whichever is higher (DPA 2018 s. 157)"
+      ],
+      "cites": [
+        "gdpr-art-44",
+        "gdpr-art-46",
+        "gdpr-art-49",
+        "uk-dpa-2018-s157"
+      ]
+    }
+  },
+  "verifiedAsOf": "2026-07-02 (automated cross-check against official source texts; not yet reviewed by counsel)"
+}

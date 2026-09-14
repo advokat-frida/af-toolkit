@@ -1,0 +1,607 @@
+{
+  "title": "Breach notification",
+  "tag": "You discovered an incident. Decide who to notify, when, and what to record.",
+  "q": "Who do you have to tell, and how fast?",
+  "icon": "🚨",
+  "jurisdictions": [
+    "EU",
+    "UK",
+    "US-CA",
+    "US-NY",
+    "US-IL"
+  ],
+  "start": "q-incident",
+  "nodes": {
+    "q-incident": {
+      "type": "question",
+      "q": "Is this a personal-data breach?",
+      "help": "A 'personal data breach' under GDPR Art. 4(12) is a security breach leading to accidental or unlawful destruction, loss, alteration, unauthorized disclosure of, or access to personal data. NY GBL §899-aa(1)(c) is the state-law analogue — unauthorized access to or acquisition of computerized data that compromises the security, confidentiality, or integrity of private information. European Data Protection Board (EDPB) Guidelines 9/2022 sort breaches into confidentiality / integrity / availability — each demands its own analysis.",
+      "cites": [
+        "gdpr-art-4",
+        "ny-shield-aa",
+        "guide-edpb-9-2022-breach"
+      ],
+      "opts": [
+        {
+          "label": "Yes — confirmed loss, alteration, or unauthorized access/disclosure of personal data",
+          "goto": "q-territorial"
+        },
+        {
+          "label": "Suspected but unconfirmed — still investigating",
+          "goto": "o-investigate",
+          "desc": "Document the suspected incident and start the 72-h clock conservatively if EU/UK data is in scope."
+        },
+        {
+          "label": "No — this is a system outage, no personal data affected",
+          "goto": "o-no-breach"
+        },
+        {
+          "label": "An employee with authorized access disclosed it internally by accident, and nothing was misused",
+          "goto": "o-internal-good-faith"
+        }
+      ]
+    },
+    "o-internal-good-faith": {
+      "type": "outcome",
+      "tier": "info",
+      "title": "Likely an internal good-faith access — but document it",
+      "summary": "GDPR Art. 4(12) still includes 'unauthorised disclosure of, or access to' personal data, so an employee accessing data beyond their role is still a breach. NY §899-aa explicitly carves out good-faith access by an authorized employee where information isn't misused. If the access stayed within the employee's role and nothing was misused, the EU analysis will usually land at 'unlikely to result in a risk', and New York's carve-out applies — but you must still document the analysis in both cases.",
+      "actions": [
+        "Record the facts, scope, and reasoning under GDPR Art. 33(5) — required whether or not you notify.",
+        "If NY private information was exposed to >500 NY residents, send the written 'no misuse' determination to the NY AG within 10 days (§899-aa(2)(a)).",
+        "Retain the determination for at least 5 years (NY)."
+      ],
+      "cites": [
+        "gdpr-art-4",
+        "gdpr-art-33",
+        "ny-shield-aa"
+      ]
+    },
+    "o-no-breach": {
+      "type": "outcome",
+      "tier": "ok",
+      "title": "No personal-data breach — no notification clock",
+      "summary": "A system outage with no compromise of confidentiality, integrity, or availability of personal data is not a 'personal data breach' under Art. 4(12). Still, consider whether availability was impaired (e.g. ransomware that locked access without exfiltration is an availability breach and Art. 32 controls must hold).",
+      "actions": [
+        "Document the determination and the basis for it.",
+        "Review whether Art. 32 security obligations were met (this is also a useful audit trigger)."
+      ],
+      "cites": [
+        "gdpr-art-4",
+        "gdpr-art-32"
+      ]
+    },
+    "o-investigate": {
+      "type": "outcome",
+      "tier": "warn",
+      "title": "Treat the 72-h clock as having started — confirm fast",
+      "summary": "GDPR Art. 33(1) starts the 72-hour clock from when the controller becomes 'aware'. EDPB Guidelines 9/2022 interpret 'awareness' as a reasonable degree of certainty that a breach has occurred — not waiting for the full forensic closure. Don't wait for the full report before deciding whether to notify.",
+      "actions": [
+        "Convene the incident response team immediately.",
+        "Preserve forensic evidence and logs.",
+        "If by the 72-h mark you still cannot rule out an Art. 33 trigger, file a preliminary/phased notification (Art. 33(4) explicitly contemplates this).",
+        "Document timestamps of awareness, investigation steps, and decisions.",
+        "Remember: under the CJEU's judgment in VB v NAP (C-340/21) the controller bears the burden of proving Art. 32 security measures were appropriate — start documenting the security posture as part of the response."
+      ],
+      "cites": [
+        "gdpr-art-33",
+        "gdpr-art-32",
+        "guide-edpb-9-2022-breach",
+        "case-vb-nap"
+      ]
+    },
+    "q-territorial": {
+      "type": "question",
+      "q": "Whose personal data is affected? (select the primary group; you can run the wizard again for each)",
+      "help": "You may have stacked notification obligations. Run the relevant branches in parallel — they have different clocks and recipients.",
+      "opts": [
+        {
+          "label": "EU/EEA residents",
+          "goto": "q-eu-risk"
+        },
+        {
+          "label": "UK residents",
+          "goto": "q-uk-risk"
+        },
+        {
+          "label": "California residents",
+          "goto": "q-ca-breach"
+        },
+        {
+          "label": "New York residents",
+          "goto": "q-ny-pi"
+        },
+        {
+          "label": "Illinois residents",
+          "goto": "q-il-pi"
+        },
+        {
+          "label": "Illinois biometric identifiers (covered by the Biometric Information Privacy Act — BIPA)",
+          "goto": "o-bipa-breach"
+        }
+      ]
+    },
+    "q-eu-risk": {
+      "type": "question",
+      "q": "How much risk does the breach pose to the people affected (their 'rights and freedoms')?",
+      "help": "Art. 33(1) creates a presumption of notification — unless the breach is 'unlikely to result in a risk'. Art. 34(1) requires subject notification only on 'high risk'. EDPB Guidelines 9/2022 (which replaced WP250 rev.01) list typical risk factors: type of breach (confidentiality/integrity/availability); nature, sensitivity, and volume of data; ease of identification; severity of consequences; special characteristics of individuals; number affected.",
+      "cites": [
+        "gdpr-art-33",
+        "gdpr-art-34",
+        "guide-edpb-9-2022-breach"
+      ],
+      "opts": [
+        {
+          "label": "Unlikely to result in any risk",
+          "desc": "e.g. a lost device holding strongly encrypted data whose keys were not compromised, or exposure of data that was already public",
+          "goto": "o-eu-no-notify"
+        },
+        {
+          "label": "Risk, but not high risk",
+          "desc": "e.g. low-volume non-sensitive data, with mitigations applied",
+          "goto": "o-eu-sa-only"
+        },
+        {
+          "label": "High risk to rights and freedoms",
+          "desc": "e.g. financial/identifier data, sensitive data, large-scale, vulnerable subjects",
+          "goto": "q-eu-mitigation"
+        }
+      ]
+    },
+    "o-eu-no-notify": {
+      "type": "outcome",
+      "tier": "info",
+      "title": "No notification required — but document the reasoning",
+      "summary": "Art. 33(1) carves out breaches 'unlikely to result in a risk'. Art. 33(5) still requires you to document any personal data breach, comprising the facts, effects, and remedial action, so the supervisory authority can verify compliance. EDPB Guidelines 9/2022 worked examples illustrate the analysis (e.g. lost encrypted USB with uncompromised keys + working backups = often not reportable).",
+      "actions": [
+        "Write up the risk-assessment rationale (factors considered, mitigations relied on, why each factor is low).",
+        "Retain in the breach register indefinitely (no statutory retention period, but supervisors expect to see it on audit).",
+        "Review Art. 32 controls — if a control failed, fix it even if no notification is required."
+      ],
+      "cites": [
+        "gdpr-art-33",
+        "gdpr-art-32",
+        "guide-edpb-9-2022-breach"
+      ]
+    },
+    "o-eu-sa-only": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Notify the competent supervisory authority within 72 hours — but not the data subjects",
+      "summary": "Article 33(1) requires notification to the supervisory authority (SA) competent under Art. 55, without undue delay and, where feasible, within 72 hours of awareness. Where the breach involves cross-border processing by an EU-established controller, that is the lead SA (Art. 56 one-stop-shop). A controller with no EU establishment cannot use the one-stop-shop — an Art. 27 representative does not create a lead SA — and must notify the SA of every member state where affected data subjects reside (EDPB Guidelines 9/2022). Article 34(1) requires communication to subjects only if the breach is likely to result in 'high risk' — not the case here. Note: VB v NAP (C-340/21) confirmed that even where there is no high risk to subjects, the controller still faces Art. 82 damages exposure if it cannot prove appropriate Art. 32 measures.",
+      "actions": [
+        "Identify the correct recipient(s): purely domestic breach → the national SA; EU-established controller with cross-border processing → the lead SA (Art. 56); no EU establishment → the SA of each member state where affected subjects reside (EDPB 9/2022).",
+        "File the Art. 33(3) notification: nature of breach; categories and approximate number of subjects and records; DPO contact; likely consequences; measures taken and proposed.",
+        "Use phased notification (Art. 33(4)) if you cannot provide all information at once.",
+        "If you miss 72h, include reasons for the delay (still required to notify).",
+        "Document everything in the Art. 33(5) breach register.",
+        "If a processor: confirm you also notified the controller without undue delay (Art. 33(2)).",
+        "Document Art. 32 controls — controller bears burden of proof on appropriateness (C-340/21)."
+      ],
+      "cites": [
+        "gdpr-art-33",
+        "guide-edpb-9-2022-breach",
+        "case-vb-nap"
+      ],
+      "clock": "72 hours from awareness",
+      "clockSpec": {
+        "anchorLabel": "When did you become aware of the breach?",
+        "legs": [
+          {
+            "label": "Supervisory-authority notification (GDPR Art. 33)",
+            "hours": 72
+          }
+        ]
+      }
+    },
+    "q-eu-mitigation": {
+      "type": "question",
+      "q": "Was the breached data unreadable to whoever got it (e.g. strong encryption with keys not compromised) — or have you since taken measures so the high risk is no longer likely to materialise?",
+      "help": "Art. 34(3) lists three exceptions to subject notification: (a) the controller had applied protection measures (e.g. encryption) so the data is unintelligible; (b) subsequent measures eliminate the high risk; (c) disproportionate effort, in which case use a public communication instead.",
+      "cites": [
+        "gdpr-art-34"
+      ],
+      "opts": [
+        {
+          "label": "Yes — encryption kept the data unintelligible, or mitigations removed the high risk",
+          "goto": "o-eu-sa-only"
+        },
+        {
+          "label": "No — high risk persists; subject communication required",
+          "goto": "o-eu-full-notify"
+        },
+        {
+          "label": "Too many people / no current contact details — disproportionate effort",
+          "goto": "o-eu-disproportionate"
+        }
+      ]
+    },
+    "o-eu-full-notify": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Notify the supervisory authority within 72 hours and communicate to data subjects without undue delay",
+      "summary": "Art. 33 notification to the supervisory authority (SA) and Art. 34 communication to data subjects both apply. Subject communication must be in clear and plain language and contain Art. 33(3)(b)–(d) information (DPO contact, likely consequences, mitigations). Note: VB v NAP (C-340/21) held that subjects' fear of misuse following a breach can in itself constitute non-material damage under Art. 82 — controllers face Art. 82 actions even without proof of actual misuse.",
+      "actions": [
+        "File the Art. 33(3) SA notification within 72h (phased if needed). Recipient rules: competent SA under Art. 55; the lead SA only for cross-border processing by an EU-established controller (Art. 56); a controller with no EU establishment must notify each concerned member state's SA (EDPB 9/2022).",
+        "Communicate to affected data subjects without undue delay — direct individual communication (email/letter), not buried in a press release.",
+        "Clear, plain language. Avoid legalese. Include: nature of breach; DPO/contact for more info; likely consequences; mitigations taken or proposed.",
+        "Document everything in the Art. 33(5) breach register.",
+        "If a DPIA had been done, review whether the residual risk had been accurately assessed (Art. 36 considerations).",
+        "Expect Art. 82 class actions — preserve security-program documentation; you bear the burden of proving Art. 32 measures were appropriate (C-340/21)."
+      ],
+      "cites": [
+        "gdpr-art-33",
+        "gdpr-art-34",
+        "guide-edpb-9-2022-breach",
+        "case-vb-nap"
+      ],
+      "clock": "SA: 72 hours · Subjects: without undue delay",
+      "clockSpec": {
+        "anchorLabel": "When did you become aware of the breach?",
+        "legs": [
+          {
+            "label": "Supervisory-authority notification (GDPR Art. 33)",
+            "hours": 72
+          }
+        ],
+        "note": "Data-subject communication (Art. 34) runs 'without undue delay' — no fixed statutory date; act as soon as practicable rather than waiting out the SA clock."
+      }
+    },
+    "o-eu-disproportionate": {
+      "type": "outcome",
+      "tier": "warn",
+      "title": "Supervisory authority notification plus public communication instead of individual notice",
+      "summary": "Art. 34(3)(c) permits a 'public communication or similar measure whereby the data subjects are informed in an equally effective manner' when individual notification would involve disproportionate effort. The supervisory authority (SA) can still require individual notice under Art. 34(4).",
+      "actions": [
+        "File the Art. 33 SA notification within 72h. Recipient rules: competent SA under Art. 55; lead SA only if cross-border processing by an EU-established controller; if no EU establishment, notify each concerned member state's SA (EDPB 9/2022).",
+        "Publish a clear, prominent public communication (press release + website banner + push to known channels).",
+        "Where any direct contact channels exist (even partial), use them — disproportionate-effort is a narrow exception.",
+        "Document the disproportionality analysis (size of population, lack of contact info, cost) in writing.",
+        "Be prepared for the SA to disagree with the analysis and require direct notification under Art. 34(4)."
+      ],
+      "cites": [
+        "gdpr-art-33",
+        "gdpr-art-34"
+      ],
+      "clock": "SA: 72 hours · Public notice: without undue delay",
+      "clockSpec": {
+        "anchorLabel": "When did you become aware of the breach?",
+        "legs": [
+          {
+            "label": "Supervisory-authority notification (GDPR Art. 33)",
+            "hours": 72
+          }
+        ],
+        "note": "The public communication instead of individual notice (Art. 34(3)(c)) runs 'without undue delay' — no fixed statutory date."
+      }
+    },
+    "q-uk-risk": {
+      "type": "question",
+      "q": "How much risk does the breach pose to the UK individuals affected (their 'rights and freedoms')?",
+      "help": "UK GDPR Arts. 33–34 substantively mirror the EU provisions, with the Commissioner (ICO) substituted for the supervisory authority and no lead-SA/one-stop-shop machinery. Same 72-h clock, same risk/high-risk thresholds. The Data (Use and Access) Act 2025 (DUAA) did not rewrite the breach articles, but the UK and EU regimes now formally diverge elsewhere — cite UK-law sources for UK determinations. Sectoral clocks sit outside this wizard: EU telecoms/communications service providers remain on the 24-hour clock under Regulation 611/2013, while the DUAA moves breach reporting under the UK Privacy and Electronic Communications Regulations (PECR) reg. 5A to 72 hours.",
+      "cites": [
+        "uk-gdpr-art-33",
+        "uk-gdpr-art-34"
+      ],
+      "opts": [
+        {
+          "label": "Unlikely to result in any risk",
+          "goto": "o-uk-no-notify"
+        },
+        {
+          "label": "Risk, not high risk — notify ICO only",
+          "goto": "o-uk-ico-only"
+        },
+        {
+          "label": "High risk — notify the ICO and data subjects",
+          "goto": "o-uk-full-notify"
+        }
+      ]
+    },
+    "o-uk-no-notify": {
+      "type": "outcome",
+      "tier": "info",
+      "title": "No notification — but document under UK GDPR Art. 33(5)",
+      "summary": "Same analysis as EU (UK GDPR Art. 33 mirrors the EU provision, with the Commissioner substituted) — record the rationale in the breach register.",
+      "actions": [
+        "Document the risk assessment for ICO inspection",
+        "Review Art. 32 controls (UK GDPR Art. 32 mirrors the EU provision)"
+      ],
+      "cites": [
+        "uk-gdpr-art-33",
+        "gdpr-art-32"
+      ]
+    },
+    "o-uk-ico-only": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Notify the ICO within 72 hours",
+      "summary": "Use the ICO's online breach-reporting tool or call the helpline. Same content elements as EU Art. 33(3), per UK GDPR Art. 33(3).",
+      "actions": [
+        "File via ICO's reporting tool (or call the helpline for urgent matters)",
+        "Provide nature/scope/DPO contact/consequences/mitigations",
+        "Phased notification permitted under Art. 33(4)",
+        "Before filing, check who the UK regulator now is and where to report: DUAA 2025 will replace the ICO with a new Information Commission, phased in by regulations — check current ICO/gov.uk guidance."
+      ],
+      "cites": [
+        "uk-gdpr-art-33"
+      ],
+      "clock": "72 hours from awareness",
+      "clockSpec": {
+        "anchorLabel": "When did you become aware of the breach?",
+        "legs": [
+          {
+            "label": "ICO notification (UK GDPR Art. 33)",
+            "hours": 72
+          }
+        ]
+      }
+    },
+    "o-uk-full-notify": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Notify the ICO (72h) and affected UK data subjects (without undue delay)",
+      "summary": "Same exemptions as EU Art. 34(3): unintelligible-due-to-encryption, mitigations removing the high risk, or disproportionate effort + public communication (per UK GDPR Art. 34(3)).",
+      "actions": [
+        "File ICO notification within 72h",
+        "Communicate to UK data subjects in clear plain language",
+        "Document in breach register",
+        "Before filing, check who the UK regulator now is and where to report: DUAA 2025 will replace the ICO with a new Information Commission, phased in by regulations — check current ICO/gov.uk guidance."
+      ],
+      "cites": [
+        "uk-gdpr-art-33",
+        "uk-gdpr-art-34"
+      ],
+      "clock": "ICO: 72 hours · Subjects: without undue delay",
+      "clockSpec": {
+        "anchorLabel": "When did you become aware of the breach?",
+        "legs": [
+          {
+            "label": "ICO notification (UK GDPR Art. 33)",
+            "hours": 72
+          }
+        ],
+        "note": "Communication to UK data subjects runs 'without undue delay' — no fixed statutory date."
+      }
+    },
+    "q-ca-breach": {
+      "type": "question",
+      "q": "What type of CA-resident data was breached?",
+      "help": "CCPA § 1798.150 only creates a private right of action for narrow data types. California's separate breach-notification law (Cal. Civ. Code § 1798.82) requires notice to residents whose unencrypted personal information (PI) (as defined in § 1798.82(h): name plus an enumerated element, or credentials permitting account access) was acquired by an unauthorized person. SB 446 (2025), effective Jan 1, 2026, added a 30-calendar-day outer deadline for consumer notice.",
+      "cites": [
+        "ccpa-1798-150",
+        "ca-1798-82"
+      ],
+      "opts": [
+        {
+          "label": "Unencrypted and unredacted personal information — SSN, driver's license, financial account with security code, medical or health-insurance information",
+          "goto": "o-ca-pra"
+        },
+        {
+          "label": "Email + password / security Q&A allowing online account access",
+          "goto": "o-ca-pra"
+        },
+        {
+          "label": "Data that does not meet § 1798.82(h)'s definition (e.g. names or email addresses alone, no password or sensitive element)",
+          "goto": "o-ca-1798-82"
+        }
+      ]
+    },
+    "o-ca-pra": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "CCPA § 1798.150 private right of action exposure + § 1798.82 notification",
+      "summary": "This is the narrow CCPA private-right-of-action trigger: unencrypted and unredacted PI (or credentials allowing account access) subject to unauthorized access and exfiltration, theft, or disclosure as a result of the business's failure to implement reasonable security. Statutory damages $100–$750 per consumer per incident, or actual damages, whichever is greater. Federal-court removability is uncertain post-TransUnion v Ramirez — purely procedural violations may lack Article III standing, but California state court doesn't apply Spokeo/TransUnion to state-law claims, so cases stay in state court routinely.",
+      "actions": [
+        "Notify affected California residents under Cal. Civ. Code § 1798.82 in the most expedient time and without unreasonable delay — and in any event within 30 calendar days of discovery or notification of the breach (§ 1798.82(a)(2)(A), added by SB 446 (2025), effective Jan 1, 2026). Notice may be delayed beyond 30 days only for the legitimate needs of law enforcement, or as necessary to determine the scope of the breach and restore the reasonable integrity of the data system (§ 1798.82(a)(2)(B)).",
+        "If more than 500 California residents are affected, also submit a single sample copy of the notification to the California AG within 15 calendar days of notifying affected consumers (§ 1798.82(f)).",
+        "Note: § 1798.150(b)'s 30-day cure provision does not cure a breach itself — 'implementation and maintenance of reasonable security procedures and practices following a breach does not constitute a cure with respect to that breach.'",
+        "Document forensic timeline; expect class actions if statutory-damages population is large.",
+        "Implement/strengthen reasonable security controls (which Cal. Civ. Code § 1798.81.5 requires).",
+        "If defending in federal court: TransUnion v Ramirez may help — argue lack of concrete injury for class members whose data wasn't actually misused or exfiltrated downstream."
+      ],
+      "cites": [
+        "ccpa-1798-150",
+        "ca-1798-82",
+        "case-transunion-ramirez"
+      ],
+      "clock": "Consumer notice: within 30 calendar days of discovery or notification (§ 1798.82(a)(2)(A); delay permitted for legitimate law-enforcement needs or to determine breach scope and restore system integrity, § 1798.82(a)(2)(B)) · AG sample copy: within 15 calendar days of consumer notice if >500 CA residents (§ 1798.82(f))",
+      "clockSpec": {
+        "anchorLabel": "When was the breach discovered (or when were you notified of it)?",
+        "legs": [
+          {
+            "label": "Consumer notice — Cal. Civ. Code § 1798.82(a)(2)(A)",
+            "days": 30
+          }
+        ],
+        "note": "If >500 CA residents are notified, the AG sample copy is due within 15 calendar days of the consumer notice (§ 1798.82(f)) — that clock starts when you send the notices, not at discovery; diary it when you send. The 30-day limit may be exceeded only for legitimate law-enforcement needs or to determine breach scope and restore system integrity (§ 1798.82(a)(2)(B))."
+      }
+    },
+    "o-ca-1798-82": {
+      "type": "outcome",
+      "tier": "ok",
+      "title": "No § 1798.82 notice duty — the data doesn't meet the statutory definition",
+      "summary": "Cal. Civ. Code § 1798.82(h) defines 'personal information' narrowly: first name or initial + last name in combination with an enumerated element (SSN, driver's license/CA ID, account number with required access code, medical information, health insurance information, biometric data, genetic data), or a username/email address in combination with a password or security question and answer permitting online-account access. Names or email addresses alone do not meet the definition, so no California statutory breach notice is triggered — and the § 1798.150 private right of action (reserved for the narrower § 1798.81.5 data set and account credentials) does not apply either. Contractual, sectoral, or other states' notice duties may still apply.",
+      "actions": [
+        "Confirm against § 1798.82(h) that no name-plus-element combination or account-credential combination is actually in scope — if one is, re-run this wizard and take the California notification path instead.",
+        "Document the determination and the basis for it.",
+        "Check contractual notice obligations and the breach statutes of other implicated states.",
+        "No statutory damages exposure under § 1798.150."
+      ],
+      "cites": [
+        "ccpa-1798-150",
+        "ca-1798-82"
+      ]
+    },
+    "q-ny-pi": {
+      "type": "question",
+      "q": "Was 'private information' acquired (or reasonably believed to have been acquired) by a person without valid authorization?",
+      "help": "NY GBL § 899-aa(1)(b) defines 'private information' narrowly — personal information plus a sensitive element (SSN, license, account number with required security code, biometric, medical, or health-insurance information), OR a username/email + password/security Q&A allowing online account access. Public-records data is excluded.",
+      "cites": [
+        "ny-shield-aa"
+      ],
+      "opts": [
+        {
+          "label": "Yes — private information in scope",
+          "goto": "q-ny-mitigation"
+        },
+        {
+          "label": "No — only 'personal information' that does not meet the §899-aa(1)(b) definition",
+          "goto": "o-ny-no"
+        }
+      ]
+    },
+    "o-ny-no": {
+      "type": "outcome",
+      "tier": "info",
+      "title": "§ 899-aa notification not triggered, but § 899-bb security duty still applies",
+      "summary": "§899-aa only triggers for 'private information' — data with a sensitive element or online-account credentials. § 899-bb requires reasonable safeguards regardless.",
+      "actions": [
+        "Document the determination",
+        "Review SHIELD reasonable-security program adequacy"
+      ],
+      "cites": [
+        "ny-shield-aa",
+        "ny-shield-bb"
+      ]
+    },
+    "q-ny-mitigation": {
+      "type": "question",
+      "q": "Was the exposure an inadvertent disclosure by authorized persons unlikely to result in misuse or harm?",
+      "help": "§ 899-aa(2)(a) carves out inadvertent authorized-person disclosures where the business reasonably determines no likely misuse or harm. Determination must be documented in writing and retained ≥5 years. If >500 NY residents, must send the determination to AG within 10 days.",
+      "cites": [
+        "ny-shield-aa"
+      ],
+      "opts": [
+        {
+          "label": "Yes — inadvertent, authorized, no likely misuse",
+          "goto": "o-ny-good-faith"
+        },
+        {
+          "label": "No — unauthorized access or likely harm",
+          "goto": "o-ny-notify"
+        }
+      ]
+    },
+    "o-ny-good-faith": {
+      "type": "outcome",
+      "tier": "warn",
+      "title": "Document determination — notify AG within 10 days if >500 NY residents",
+      "summary": "§ 899-aa(2)(a) good-faith carve-out applies, but the documentation and conditional AG notification are still required.",
+      "actions": [
+        "Write up the determination: facts, why no misuse likely, basis for harm assessment",
+        "Retain for at least 5 years",
+        "If >500 NY residents, submit determination to NY AG within 10 days",
+        "No individual notice required"
+      ],
+      "cites": [
+        "ny-shield-aa"
+      ]
+    },
+    "o-ny-notify": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Notify NY residents plus the AG, Department of State, and State Police — covered entities also notify DFS under 23 NYCRR 500.17",
+      "summary": "§ 899-aa(2) requires notice 'in the most expedient time possible and without unreasonable delay, … within thirty days after the breach has been discovered' (subject to law-enforcement delay). Concurrently notify the state AG, the Department of State, and the Division of State Police in all cases. Notice to the Department of Financial Services (DFS) is required only if the business is a covered entity as defined in 23 NYCRR 500.1 — the S804 chapter amendment (eff. 14 Feb 2025) restored the covered-entity qualifier in § 899-aa(8)(a) and directs that the DFS notice be made in compliance with 23 NYCRR § 500.17, rather than requiring a second, free-standing DFS filing.",
+      "actions": [
+        "Notify affected NY residents by written, electronic (with consent), telephone, or substitute notice (§ 899-aa(5))",
+        "Notice must include contact info, agency telephone numbers, and a description of categories of information accessed (§ 899-aa(7))",
+        "Notify the NY AG, the Department of State, and the Division of State Police in all cases — provide the timing, content, and distribution of the notices, the approximate number affected, and the notice template (§ 899-aa(8)(a), as amended by the S804 chapter amendment, eff. 14 Feb 2025)",
+        "If a covered entity as defined in 23 NYCRR 500.1, also notify DFS — § 899-aa(8)(a) directs that this notice be made in compliance with 23 NYCRR § 500.17, which includes the 72-hour cybersecurity-event notification to the superintendent",
+        "If >5,000 NY residents notified at one time, also notify consumer reporting agencies (§ 899-aa(8)(b))",
+        "If subject to HIPAA/HITECH and notifying HHS, also notify NY AG within 5 business days (§ 899-aa(9))",
+        "Maintain reasonable safeguards under § 899-bb"
+      ],
+      "cites": [
+        "ny-shield-aa",
+        "ny-shield-bb",
+        "nydfs-500-17"
+      ],
+      "clock": "Within 30 days of discovery (without unreasonable delay) · DFS § 500.17 notice: 72 hours (covered entities)",
+      "clockSpec": {
+        "anchorLabel": "When was the breach discovered?",
+        "legs": [
+          {
+            "label": "NY resident notice + AG / Dept. of State / State Police (§ 899-aa)",
+            "days": 30
+          },
+          {
+            "label": "NYDFS 72-hour notice — ONLY if a 23 NYCRR 500.1 covered entity",
+            "hours": 72
+          }
+        ],
+        "note": "The 72-hour leg applies only to DFS covered entities — discard that event if you are not one. The 30-day limit still requires notice 'in the most expedient time possible and without unreasonable delay.'"
+      }
+    },
+    "q-il-pi": {
+      "type": "question",
+      "q": "How many Illinois residents need to be notified?",
+      "help": "IL PIPA Sec. 10(e)(2) adds an AG-notification trigger when >500 Illinois residents must be notified from a single breach.",
+      "cites": [
+        "il-pipa-10"
+      ],
+      "opts": [
+        {
+          "label": "≤ 500 IL residents",
+          "goto": "o-il-residents-only"
+        },
+        {
+          "label": "> 500 IL residents",
+          "goto": "o-il-residents-plus-ag"
+        }
+      ]
+    },
+    "o-il-residents-only": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Notify Illinois residents in the most expedient time possible",
+      "summary": "IL PIPA Sec. 10(a) requires resident notification in the most expedient time and without unreasonable delay, consistent with the needs of investigation and restoration of system integrity. Notice must include FTC and consumer reporting agency (CRA) contact info for SSN-type breaches; for online-credential breaches, direct the resident to change credentials.",
+      "actions": [
+        "Send notice via written, electronic, or substitute notice (Sec. 10(c))",
+        "For SSN-type personal information: include CRA toll-free numbers/addresses and FTC info; statement about fraud alerts and freezes",
+        "For online-credential personal information: direct the resident to change username/password and security Q&A",
+        "Do not include the count of Illinois residents affected (Sec. 10(a) explicitly excludes that)"
+      ],
+      "cites": [
+        "il-pipa-10"
+      ]
+    },
+    "o-il-residents-plus-ag": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Notify IL residents + IL AG (single-breach >500 trigger)",
+      "summary": "In addition to resident notice, Sec. 10(e)(2) requires AG notification: nature of the breach, number of IL residents affected, and steps taken. Must be made in the most expedient time and no later than when consumer notice goes out.",
+      "actions": [
+        "Send resident notices (see ≤500 path for content rules)",
+        "File AG notification simultaneously (or earlier) — describe breach nature, IL resident count, response steps",
+        "If date of breach unknown at the time of AG notice, supplement once known",
+        "AG may publish business name, types of PI compromised, and date range of the breach"
+      ],
+      "cites": [
+        "il-pipa-10"
+      ]
+    },
+    "o-bipa-breach": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Biometric breach: notify under IL PIPA Sec. 10 — and assess BIPA Sec. 15/20 liability exposure",
+      "summary": "BIPA has no breach-notification provision — the notification duty for breached Illinois biometric data flows from IL PIPA Sec. 10 (biometric data is within PIPA 'personal information'). BIPA Sec. 15(e) requires biometric data to be stored, transmitted, and protected using the reasonable standard of care within the entity's industry, and at the same or higher level than other confidential and sensitive info. A breach puts Sec. 15(e) compliance in issue — assess whether that standard was met; a breach alone does not establish a violation, and Sec. 20 liability additionally requires a negligent, intentional, or reckless violation. BIPA Sec. 20 provides liquidated damages of $1,000 per negligent violation or $5,000 per intentional/reckless violation, or actual damages, whichever is greater — and such damages are discretionary, not automatic (Cothron v White Castle). 9th Circuit's Patel v Facebook confirmed that BIPA notice-and-consent violations create concrete Article III injury independent of pecuniary loss ($650M settlement). Illinois Supreme Court (Cothron, 2023) held each scan is a separate violation; the 2024 legislative amendment reduced this to per-person aggregate liability for some claims.",
+      "actions": [
+        "Run the IL PIPA Sec. 10 notification analysis now (the Illinois-residents branch of this wizard) — the notification duty comes from PIPA, not BIPA — and run NY/CA/other-state breach analyses in parallel as applicable",
+        "Document Sec. 15(a) written retention policy and confirm destruction schedule was followed",
+        "Confirm Sec. 15(b) written notice + written release was obtained from each affected subject before collection",
+        "Sec. 15(e): assess whether the industry standard of care and same-or-more-protective handling were met — document the security program; do not concede a violation merely because a breach occurred",
+        "Anticipate Sec. 20 private actions — preserve all collection-consent and retention-policy records",
+        "Patel v Facebook makes federal-court standing easy for BIPA plaintiffs — assume class certification is likely"
+      ],
+      "cites": [
+        "il-bipa-15",
+        "il-bipa-20",
+        "il-pipa-10",
+        "case-patel-facebook",
+        "case-cothron-white-castle"
+      ]
+    }
+  },
+  "verifiedAsOf": "2026-07-02 (automated cross-check against official source texts; not yet reviewed by counsel)"
+}

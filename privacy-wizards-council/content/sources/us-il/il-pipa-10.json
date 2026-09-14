@@ -1,0 +1,20 @@
+{
+  "juris": "US-IL",
+  "label": "IL PIPA Sec. 10 — Breach notification",
+  "citation": "815 ILCS 530/10",
+  "provenance": "https://www.ilga.gov/Legislation/ILCS/Articles?ActID=2702&ChapterID=67",
+  "body": [
+    "<p><span class=\"num\">(a)</span> Any data collector that owns or licenses personal information concerning an Illinois resident shall notify the resident at <b>no charge</b> that there has been a breach … in the <b>most expedient time possible and without unreasonable delay</b>, consistent with any measures necessary to determine the scope of the breach and restore the reasonable integrity, security, and confidentiality of the data system.</p>",
+    "  <p><span class=\"num\">(b)</span> A data collector that maintains/stores but does not own/license shall notify the owner or licensee <b>immediately</b> following discovery if the personal information was acquired by an unauthorized person, and cooperate with the owner/licensee.</p>",
+    "  <p><span class=\"num\">(e)(2)</span> Any data collector required to issue notice to <b>more than 500 Illinois residents</b> as a result of a single breach shall provide notice to the <b>Attorney General</b>, including: (A) description of the nature of the breach; (B) number of Illinois residents affected; (C) any steps taken or planned.</p>"
+  ],
+  "kind": "statute",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

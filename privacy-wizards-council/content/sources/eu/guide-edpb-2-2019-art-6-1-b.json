@@ -1,0 +1,24 @@
+{
+  "kind": "guidance",
+  "juris": "EU",
+  "label": "EDPB Guidelines 2/2019 — Art. 6(1)(b) for Online Services",
+  "citation": "EDPB Guidelines 2/2019, version 2.0 (8 October 2019)",
+  "provenance": "https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-22019-processing-personal-data-under-article-61b_en",
+  "body": [
+    "<p><b>Key positions:</b></p>",
+    "  <p>• Art. 6(1)(b) \"necessary for contract\" requires the processing to be <b>objectively necessary for a purpose which is integral to the delivery of that contractual service</b>. If the same service can be delivered without the processing, contract basis fails.</p>",
+    "  <p>• <b>Service improvement</b> is NOT covered — relying on contract basis for product analytics is wrong.</p>",
+    "  <p>• <b>Fraud prevention</b> typically not covered — separate Art. 6(1)(c) legal obligation or Art. 6(1)(f) LI required.</p>",
+    "  <p>• <b>Online behavioural advertising</b> is NOT covered — needs consent, not contract.</p>",
+    "  <p>• <b>Personalisation of content</b> may be covered, but only if integral and explicit in the agreement; generic engagement-driving personalisation isn't.</p>",
+    "  <p><i>Codified by CJEU C-252/21 Meta v Bundeskartellamt: contract basis applies only where the processing is \"objectively indispensable for a purpose that is integral to the contractual obligation\".</i></p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

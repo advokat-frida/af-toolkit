@@ -1,0 +1,20 @@
+{
+  "juris": "EU",
+  "label": "ENISA — Severity assessment of personal data breaches",
+  "citation": "ENISA with the Data Protection Authorities of Greece and Germany, Recommendations for a methodology of the assessment of severity of personal data breaches, v1.0, 20 December 2013",
+  "body": [
+    "ENISA, working with the Greek and German data protection authorities, published a methodology for assessing the severity of personal data breaches that can be used both by DPAs and by data controllers. Its defining feature is the perspective: severity is graded by the impact on the individuals whose data was breached — driven by the type of data involved (the data processing context), how identifiable the individuals are (ease of identification), and aggravating circumstances of the breach — rather than by the damage to the organization. The output is a graded severity level (from low through very high) that scales the response.",
+    "",
+    "This wizard follows that graded, individual-first approach; the specific five-level ladder and the Low / Medium / High / Critical mapping used here are Advokat Frida's general-purpose adaptation (see the outcome text), not figures prescribed by the ENISA document."
+  ],
+  "kind": "guidance",
+  "provenance": "https://www.enisa.europa.eu/publications/dbn-severity",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

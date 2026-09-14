@@ -1,0 +1,18 @@
+{
+  "kind": "guidance",
+  "juris": "UK",
+  "label": "ICO — Biometric data guidance (first phase, February 2024)",
+  "citation": "ICO, Biometric data guidance: biometric recognition (February 2024)",
+  "body": [
+    "ICO 'Biometric data guidance: Biometric recognition' - the first phase of the ICO's biometric data guidance (published February 2024), covering biometric recognition uses of biometric data under the UK GDPR. It defines biometric data (personal information about physical, physiological or behavioural characteristics, resulting from specific technical processing, allowing or confirming unique identification) and treats biometric data used for the purpose of uniquely identifying someone as special category biometric data, explaining how recognition systems work (capture, feature extraction, template creation, comparison, decision thresholds). Controllers must identify both an Art. 6 lawful basis and a separate Art. 9 special category condition; the ICO's headline position is that explicit consent is likely to be the most appropriate condition in most cases, because no Art. 9 condition specific to identification or verification exists. Consent must be specific, informed and freely given, which requires offering a suitable alternative (e.g. a PIN) without detriment, with particular care for employers and public authorities given power imbalances; consent is highly unlikely to work for systematic monitoring of public spaces. Other conditions (notably substantial public interest and research) may apply depending on the circumstances, but if no valid condition can be identified the organisation must not process special category biometric data. Reliance on any non-consent lawful basis requires showing the biometric processing is necessary - a targeted and proportionate way of achieving the purpose, not merely useful or a chosen business method. The guidance also covers accountability (controller identification, data protection by design, whether a DPIA is needed), risks to consider (personal data breaches, biometric false acceptance/rejection, discrimination, systematic monitoring of public spaces), fairness and statistical accuracy of biometric algorithms, transparency, rights requests (including automated decision-making), and security (appropriate measures, privacy-enhancing technologies, biometric template protection, on-device verification, data minimisation and whether to retain biometric samples)."
+  ],
+  "provenance": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/lawful-basis/biometric-data-guidance-biometric-recognition/",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

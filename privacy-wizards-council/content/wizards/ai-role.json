@@ -1,0 +1,461 @@
+{
+  "title": "AI Act: What's my role?",
+  "tag": "Provider, deployer, importer, distributor, authorized representative, or product manufacturer — assessed per AI system, not per company, and roles can stack on one system.",
+  "q": "Are you the provider, the deployer, or both at once?",
+  "icon": "🤖",
+  "jurisdictions": [
+    "EU"
+  ],
+  "start": "q-scope",
+  "verifiedAsOf": "2026-07-06 (automated cross-check against the EUR-Lex texts of Regulation (EU) 2024/1689 and the adopted Digital Omnibus on AI (PE-CONS 30/26); not yet reviewed by counsel)",
+  "nodes": {
+    "q-scope": {
+      "type": "question",
+      "q": "Does the EU AI Act reach this AI system at all?",
+      "help": "Art. 2(1): the Act reaches providers placing AI systems on the EU market or putting them into service in the EU (for general-purpose AI models: placing on the market), wherever the provider sits; deployers established or located in the EU; and third-country providers and deployers where the system's output is used in the EU. Roles attach to each AI system, not to your company — the same company is often provider of one system and deployer of another. Run this wizard once per system.",
+      "cites": [
+        "eu-ai-act-art-2"
+      ],
+      "opts": [
+        {
+          "label": "Yes — we develop, supply, import, distribute, or use it with an EU connection",
+          "goto": "q-hat"
+        },
+        {
+          "label": "It is only used privately, outside any business or professional activity",
+          "goto": "o-personal"
+        },
+        {
+          "label": "It is exclusively for military, defense or national-security purposes",
+          "goto": "o-excluded",
+          "desc": "Art. 2(3) — excluded regardless of the type of entity."
+        },
+        {
+          "label": "It exists solely for scientific research and development, or is still in pre-market R&D and testing",
+          "goto": "o-excluded",
+          "desc": "Art. 2(6) and 2(8) — but testing in real-world conditions is NOT covered by the exclusion."
+        },
+        {
+          "label": "No EU market, no EU establishment, and its output is not used in the EU",
+          "goto": "o-no-nexus"
+        }
+      ]
+    },
+    "q-hat": {
+      "type": "question",
+      "q": "Which of these best describes what you do with THIS system?",
+      "help": "The definitions live in Art. 3(3)-(8), and three market terms do the work here: 'placing on the market' is the first supply in the EU; 'putting into service' includes supplying a system for your OWN use (Art. 3(11)); 'making available' covers free-of-charge supply (Art. 3(10)) — and on the standard reading that includes rolling a system out to group affiliates. Watch the provider definition: it covers not only developing but also HAVING an AI system developed and supplying it under your own name or trademark — commissioning a build and shipping it under your brand makes you the provider, not the vendor. If more than one option is true for this system, run the wizard once per hat — the duties stack.",
+      "cites": [
+        "eu-ai-act-art-3-roles"
+      ],
+      "opts": [
+        {
+          "label": "We developed it — or commissioned it — and we place it on the market or put it into service under OUR name or trademark",
+          "goto": "o-provider",
+          "desc": "Supplied to customers or third parties. Built it only for your own use? Take the next option instead."
+        },
+        {
+          "label": "We built it (or commissioned it) for our OWN use — we do not supply it to anyone else",
+          "goto": "o-inhouse",
+          "desc": "The classic miss: 'putting into service' includes first use for your own purposes (Art. 3(11)) — in-house builds carry BOTH the provider and the deployer hats."
+        },
+        {
+          "label": "We use a system someone else supplies, in our operations, under our authority",
+          "goto": "q-deployer-trap",
+          "desc": "Likely a deployer — but check the Art. 25 traps first."
+        },
+        {
+          "label": "We are located or established in the EU and we place on the EU market a system carrying the name or trademark of a company or person based outside the EU (a 'third country')",
+          "goto": "q-imp-trap"
+        },
+        {
+          "label": "We resell or otherwise make it available on the EU market as part of the supply chain (we are not the provider or the importer)",
+          "goto": "q-dist-trap"
+        },
+        {
+          "label": "We are located or established in the EU and hold a written mandate from a non-EU provider to act on its behalf",
+          "goto": "o-authrep"
+        },
+        {
+          "label": "We manufacture a physical product (a toy, a lift, a medical device...) that ships with this AI as a safety component, under our product's name",
+          "goto": "o-prodmanuf"
+        },
+        {
+          "label": "We integrate someone else's general-purpose AI model into a system we supply — or use ourselves",
+          "goto": "o-downstream",
+          "desc": "Integrating purely for internal use? The own-use-build option above is the same doorway — both hats land either way."
+        },
+        {
+          "label": "We provide a general-purpose AI MODEL itself (weights or API for others to build on), not a system",
+          "goto": "o-gpai-provider"
+        }
+      ]
+    },
+    "q-deployer-trap": {
+      "type": "question",
+      "q": "Before settling on 'deployer' — have you done, or do you plan to do, any of these to the system?",
+      "help": "Art. 25(1) is the trap that catches confident deployers: any distributor, importer, deployer or other third party BECOMES the provider — with the full Art. 16 obligation stack — in three situations. What you do to the system decides, not what the contract calls you. Not sure whether the system is high-risk? Run the companion 'AI Act: What risk tier?' wizard, then come back.",
+      "cites": [
+        "eu-ai-act-art-25"
+      ],
+      "opts": [
+        {
+          "label": "We put our own name or trademark on a high-risk system already on the market",
+          "goto": "o-flip",
+          "desc": "White-labeling — Art. 25(1)(a). Contractual allocation of the obligations can change the answer; check your agreement."
+        },
+        {
+          "label": "We substantially modified a high-risk system (and it stays high-risk)",
+          "goto": "o-flip",
+          "desc": "Art. 25(1)(b). 'Substantial modification' (Art. 3(23)): a change not foreseen in the provider's conformity assessment that affects compliance or changes the intended purpose."
+        },
+        {
+          "label": "We changed the intended purpose of a NON-high-risk system (including a general-purpose AI system) so that it now becomes high-risk",
+          "goto": "o-flip",
+          "desc": "Art. 25(1)(c) — repurposing a harmless tool into a high-risk use (an Annex III use, or an Annex I safety-component role)."
+        },
+        {
+          "label": "None of these — we use it as supplied, within its intended purpose",
+          "goto": "o-deployer"
+        }
+      ]
+    },
+    "q-dist-trap": {
+      "type": "question",
+      "q": "Do you rebrand, change, or reposition the system before making it available?",
+      "help": "The Art. 25(1) traps apply to distributors too: rebranding or substantially modifying a HIGH-RISK system — or repositioning a non-high-risk one into a high-risk use — converts you into its provider. The PROVIDER's instructions, promotional and sales materials set the intended purpose (Art. 3(12)); repositioning the system in YOUR OWN marketing modifies that purpose — the Art. 25(1)(c) trap — without touching the software. Not sure what is high-risk? Run 'AI Act: What risk tier?' first.",
+      "cites": [
+        "eu-ai-act-art-25",
+        "eu-ai-act-art-3-roles"
+      ],
+      "opts": [
+        {
+          "label": "No — we pass it on as supplied, positioned as the provider intended",
+          "goto": "o-distributor"
+        },
+        {
+          "label": "We sell a HIGH-RISK system under OUR name or trademark",
+          "goto": "o-flip"
+        },
+        {
+          "label": "We substantially modify a HIGH-RISK system before making it available",
+          "goto": "o-flip"
+        },
+        {
+          "label": "We market or position a non-high-risk system for a different, high-risk use than the provider intended",
+          "goto": "o-flip",
+          "desc": "Art. 25(1)(c) — the flip that needs no code change."
+        },
+        {
+          "label": "We sell a system that is NOT high-risk under OUR name or trademark",
+          "goto": "o-provider",
+          "desc": "Below high-risk, Art. 25(1) does not bite — but supplying under your own name fits the Art. 3(3) provider definition; the live exposure is the provider-side Art. 50 transparency set, not the Art. 16 stack. Fact-specific — document the analysis."
+        }
+      ]
+    },
+    "q-imp-trap": {
+      "type": "question",
+      "q": "Do you rebrand or change the system before placing it on the market?",
+      "help": "Art. 25(1) names importers expressly: rebranding or substantially modifying a HIGH-RISK system (localizing, retraining) — or repositioning a non-high-risk one into a high-risk use — makes you the provider, not the importer. One doctrinal note: Art. 25(1) speaks to systems ALREADY on the EU market; if you modify before the system's first EU placement, the provider role arrives via Art. 3(3) directly (you are placing YOUR modified system), and the Art. 25(2) cooperation entitlements are the already-marketed case. Not sure what is high-risk? Run 'AI Act: What risk tier?' first.",
+      "cites": [
+        "eu-ai-act-art-25",
+        "eu-ai-act-art-3-roles"
+      ],
+      "opts": [
+        {
+          "label": "No — we place it on the market as supplied, under the third-country provider's name",
+          "goto": "o-importer"
+        },
+        {
+          "label": "We place a HIGH-RISK system on the market under OUR name or trademark",
+          "goto": "o-flip"
+        },
+        {
+          "label": "We substantially modify a HIGH-RISK system before placing it",
+          "goto": "o-flip",
+          "desc": "Localizing or retraining CAN qualify — test against Art. 3(23): a change not foreseen in the provider's conformity assessment that affects compliance or changes the intended purpose. Changes within the provider's foreseen regime are not substantial."
+        },
+        {
+          "label": "We reposition a non-high-risk system for a high-risk use",
+          "goto": "o-flip"
+        },
+        {
+          "label": "We place a system that is NOT high-risk on the market under OUR name or trademark",
+          "goto": "o-provider",
+          "desc": "Below high-risk, Art. 25(1) does not bite — but supplying under your own name fits the Art. 3(3) provider definition; the live exposure is the provider-side Art. 50 transparency set, not the Art. 16 stack."
+        }
+      ]
+    },
+    "o-provider": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "You are the provider of this AI system",
+      "summary": "Art. 3(3): you develop an AI system (or have one developed) and place it on the market or put it into service under your own name or trademark, paid or free. The provider carries the heaviest obligation set, and which parts bite depends on the system's risk tier — run the companion wizard 'AI Act: What risk tier?' next. Non-compliance with provider obligations sits in the EUR 15m / 3% fine tier (Art. 99(4)(a)); prohibited practices in the EUR 35m / 7% tier (Art. 99(3)).",
+      "actions": [
+        "Classify the system: the Art. 5 prohibitions have applied since 2 Feb 2025, and the new non-consensual intimate imagery and CSAM prohibitions apply from 2 Dec 2026. High-risk obligations apply from 2 Dec 2027 for Annex III systems and 2 Aug 2028 for Annex I product-embedded systems (dates as deferred by the 2026 Digital Omnibus) — that is the Art. 16 stack: risk management, data governance, technical documentation, logging, deployer transparency, human oversight, accuracy and robustness, QMS, conformity assessment, CE marking, registration.",
+        "If the system interacts with people or generates synthetic content: Art. 50(1)-(2) transparency duties apply from 2 Aug 2026 — machine-readable marking of synthetic outputs; systems already on the market before 2 Aug 2026 have until 2 Dec 2026 to comply with the marking duty (Art. 111(4)).",
+        "If you also provide a general-purpose AI MODEL, the Ch. V model obligations (Arts. 53-55) have applied since 2 Aug 2025 — that is a separate hat: rerun this wizard and take the model-provider lane.",
+        "Established outside the EU? Appoint an EU authorized representative by written mandate BEFORE making a high-risk system available (Art. 22(1)); the same duty applies to GPAI model providers (Art. 54), except genuinely free and open-source models without systemic risk (Art. 54(6)).",
+        "Register Annex III high-risk systems (and documented Art. 6(3) not-high-risk conclusions) in the EU database before placing on the market (Art. 49(1)-(2)) — except Annex III point 2 critical-infrastructure systems, which register at national level (Art. 49(5)).",
+        "Releasing it free and open-source? Art. 2(12) takes the release outside the Act — unless it is placed on the market or put into service as a high-risk system, or falls under Art. 5 (prohibited practices) or Art. 50 (transparency).",
+        "Contract discipline: for tools, services, components or AI models integrated into your high-risk system, put the Art. 25(4) written agreement in place — the omnibus made breaches of it separately fineable.",
+        "Also using the system yourselves? The deployer hat stacks on top — the Art. 26 duties plus any Art. 27 FRIA trigger; the in-house-build outcome details the dual role."
+      ],
+      "cites": [
+        "eu-ai-act-art-3-roles",
+        "eu-ai-act-art-16",
+        "eu-ai-act-art-22",
+        "eu-ai-act-art-26",
+        "eu-ai-act-art-27",
+        "eu-ai-act-art-50",
+        "eu-ai-act-art-49",
+        "eu-ai-act-art-99",
+        "eu-ai-act-art-113",
+        "eu-ai-act-omnibus-2026"
+      ]
+    },
+    "o-deployer": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "You are the deployer of this AI system",
+      "summary": "Art. 3(4): you use the system under your authority in a professional context. Your duties scale with the system's tier: for high-risk systems the Art. 26 stack applies from 2 Dec 2027 (Annex III) or 2 Aug 2028 (Annex I) — dates as deferred by the 2026 Digital Omnibus. Two duties already live for every AI system: AI literacy measures for your staff (Art. 4, since 2 Feb 2025) and the Art. 5 prohibitions, which ban certain USES — a lawful tool can still be used unlawfully, and prohibited use sits in the top fine tier (EUR 35m / 7%, Art. 99(3)) while Art. 26 breaches sit at EUR 15m / 3% (Art. 99(4)(e)).",
+      "actions": [
+        "Classify the system first — run the companion 'AI Act: What risk tier?' wizard; every duty below scales with its answer.",
+        "For high-risk systems (from the dates above): follow the instructions for use; assign competent, trained, supported human oversight; ensure input data you control is relevant and sufficiently representative; monitor operation and suspend + escalate on Art. 79(1) risk; report serious incidents (provider first, then importer/distributor and the market surveillance authority); keep system logs at least six months; inform workers and their representatives before workplace use; inform people subject to Annex III decisions.",
+        "Check whether you owe a fundamental rights impact assessment BEFORE first use (Art. 27): public-law bodies, private entities providing public services, and any deployer of creditworthiness/credit-scoring or life and health insurance pricing systems (Annex III 5(b)-(c)) — critical-infrastructure systems (Annex III point 2) are exempt from the FRIA duty. You may cross-reference your GDPR DPIA (Art. 27(4) as amended).",
+        "Public authority or Union body? Register your use of Annex III high-risk systems (except point 2 — national-level registration) in the EU database before use (Art. 49(3), 49(5)) — and do not use an unregistered one (Art. 26(8)).",
+        "Deploying an emotion-recognition or biometric-categorization system, or publishing deepfakes or AI-written public-interest text? The Art. 50(3)-(4) disclosure duties apply from 2 Aug 2026.",
+        "Legacy relief: high-risk systems already on the market before the Chapter III application date only come into scope on a significant design change (Art. 111(2) as amended) — but if the system is intended for use by public authorities, compliance is due by 2 Aug 2030 regardless.",
+        "The trap to keep watching: rebrand it, substantially modify it, or repurpose it into a high-risk use and you stop being a deployer — you become the provider (Art. 25(1); rerun this wizard on any such change). And if you also import or resell this same system, those hats stack — run the wizard once per hat."
+      ],
+      "cites": [
+        "eu-ai-act-art-3-roles",
+        "eu-ai-act-art-26",
+        "eu-ai-act-art-27",
+        "eu-ai-act-art-49",
+        "eu-ai-act-art-50",
+        "eu-ai-act-art-25",
+        "eu-ai-act-art-99",
+        "eu-ai-act-art-111",
+        "eu-ai-act-art-113",
+        "eu-ai-act-omnibus-2026"
+      ]
+    },
+    "o-importer": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "You are the importer — verify before you place on the market",
+      "summary": "Art. 3(6): located or established in the EU, placing on the EU market an AI system bearing the name or trademark of a person established in a third country. For high-risk systems, Art. 23 makes you the conformity gatekeeper at the border: you must verify the paperwork BEFORE the system touches the market, and you may not place a non-conforming or falsified system at all. Importer breaches sit in the EUR 15m / 3% fine tier (Art. 99(4)(c)). The Art. 23 duties apply from 2 Dec 2027 (Annex III) / 2 Aug 2028 (Annex I) — but the Art. 5 prohibitions have bound what you may PLACE on the market since 2 Feb 2025 (new NCII/CSAM bans from 2 Dec 2026), in the EUR 35m / 7% tier.",
+      "actions": [
+        "Screen against Art. 5 now: placing a prohibited system (e.g. workplace emotion inference) on the EU market is already the Act's most heavily fined violation — no 2027 runway.",
+        "Verify before placing on the market: the Art. 43 conformity assessment was carried out; the Art. 11 / Annex IV technical documentation exists; CE marking, EU declaration of conformity and instructions for use accompany the system; an authorized representative is appointed (Art. 23(1)).",
+        "If you have sufficient reason to consider the system non-conforming or falsified: do not place it; if it presents an Art. 79(1) risk, inform the provider, the authorized representative and the market surveillance authorities (Art. 23(2)).",
+        "Put your name and contact address on the system or its packaging/documentation (Art. 23(3)).",
+        "Keep storage and transport conditions from compromising compliance while the system is your responsibility (Art. 23(4)); keep the certificate, instructions and declaration of conformity for 10 years (Art. 23(5)).",
+        "Wearing another hat on this same system (you also deploy it internally)? The duties stack — run the wizard once per hat."
+      ],
+      "cites": [
+        "eu-ai-act-art-3-roles",
+        "eu-ai-act-art-23",
+        "eu-ai-act-art-25",
+        "eu-ai-act-art-5",
+        "eu-ai-act-art-99",
+        "eu-ai-act-art-113",
+        "eu-ai-act-omnibus-2026"
+      ]
+    },
+    "o-distributor": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "You are the distributor — verify, and stop the line on non-conformity",
+      "summary": "Art. 3(7): in the supply chain, other than the provider or the importer, making the system available on the EU market. Art. 24 gives you a lighter verify-and-react duty set than the importer's: check the visible conformity signals before making the system available, and act when you have reason to think something is wrong. Distributor breaches sit in the EUR 15m / 3% fine tier (Art. 99(4)(d)). The Art. 24 duties apply from 2 Dec 2027 (Annex III) / 2 Aug 2028 (Annex I) — but the Art. 5 prohibitions have bound this system class since 2 Feb 2025 (new NCII/CSAM bans from 2 Dec 2026): a prohibited system has no lawful EU market to distribute into (the ban catches placing on the market, putting into service and use), and the top fine tier (EUR 35m / 7%) sits behind it.",
+      "actions": [
+        "Screen your catalog against Art. 5 now — the prohibitions carry no 2027 runway.",
+        "Verify before making available: CE marking, a copy of the EU declaration of conformity, instructions for use, and that the provider and importer met their labeling duties and the provider its quality-management-system duty (Art. 24(1), referencing Art. 16(b)-(c) and Art. 23(3)).",
+        "If you have reason to consider it non-conforming: hold it back until conformity is restored; on an Art. 79(1) risk, inform the provider or importer (Art. 24(2)).",
+        "After making it available: if you have reason to think it is non-conforming, take or procure corrective action — fix, withdraw, or recall — and if it presents a risk, immediately inform the provider/importer and the competent authorities with details (Art. 24(4)).",
+        "Keep storage and transport conditions compliant while the system is your responsibility (Art. 24(3)); cooperate with authorities on request (Art. 24(5)-(6)).",
+        "Also using this same system in your own operations? The deployer stack lands on you too — run the wizard once per hat."
+      ],
+      "cites": [
+        "eu-ai-act-art-3-roles",
+        "eu-ai-act-art-24",
+        "eu-ai-act-art-25",
+        "eu-ai-act-art-5",
+        "eu-ai-act-art-99",
+        "eu-ai-act-art-113",
+        "eu-ai-act-omnibus-2026"
+      ]
+    },
+    "o-authrep": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "You are the authorized representative — the provider's EU anchor",
+      "summary": "Art. 3(5): located or established in the EU, holding a written mandate from a non-EU provider. For high-risk AI systems the mandate must empower the Art. 22(3) task list, and authorities may address you instead of the provider on all compliance issues. The same construct exists for general-purpose AI model providers (Art. 54). Timing runs on two tracks: the Art. 54 GPAI-model mandate has been live since 2 Aug 2025, while the Art. 22 high-risk-system mandate bites with the high-risk package (2 Dec 2027 Annex III / 2 Aug 2028 Annex I). Authorized-representative breaches sit in the EUR 15m / 3% fine tier (Art. 99(4)(b)).",
+      "actions": [
+        "Verify the EU declaration of conformity and technical documentation were drawn up and a proper conformity assessment was carried out (Art. 22(3)(a)).",
+        "Keep the provider's contact details, declaration of conformity, technical documentation and any notified-body certificate at the authorities' disposal for 10 years (Art. 22(3)(b)).",
+        "On reasoned request, hand over the information, documentation and log access needed to demonstrate conformity (Art. 22(3)(c)); cooperate on risk mitigation (Art. 22(3)(d)); handle Art. 49 registration where the mandate assigns it (Art. 22(3)(e)).",
+        "If you consider the provider is acting contrary to its obligations: terminate the mandate and immediately inform the market surveillance authority and any notified body, with reasons (Art. 22(4)).",
+        "Scope your mandate in writing and price the 10-year retention — the mandate is what authorities will read first."
+      ],
+      "cites": [
+        "eu-ai-act-art-3-roles",
+        "eu-ai-act-art-22",
+        "eu-ai-act-art-99",
+        "eu-ai-act-art-113",
+        "eu-ai-act-omnibus-2026"
+      ]
+    },
+    "o-prodmanuf": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Product manufacturer — for Section A products, you ARE the provider",
+      "summary": "First check WHICH list your product legislation is on — the split decides everything. Section A of Annex I (toys, lifts, PPE, radio equipment, medical devices...): if a high-risk AI safety component ships with the product under YOUR name or trademark (or is put into service under it afterwards), Art. 25(3) makes you — the product manufacturer — its provider, carrying the full Art. 16 stack from 2 Aug 2028, with conformity folded into your product route (Art. 43(3) as amended). Section B (aviation, vehicles, rail, marine — and, since the 2026 omnibus, machinery): the far lighter Art. 2(2) regime applies instead (only Art. 6(1), 60a and 102-112), with your sectoral legislation carrying the requirements.",
+      "actions": [
+        "Confirm the section first: the 2026 omnibus moved machinery from Section A (Directive 2006/42/EC, deleted) to Section B (Machinery Regulation (EU) 2023/1230) — machinery and vehicle manufacturers should read the Section B lane, not this outcome's Art. 16 framing.",
+        "For Section A products: integrate the Chapter III Section 2 requirements into your product technical file and run them through the product's conformity assessment procedure (Art. 43(3)) — third-party assessment is not forced solely because an AI safety component is present if your product legislation does not require it, provided harmonized standards (or common specifications) covering the Section 2 requirements were applied.",
+        "Plan against 2 Aug 2028 for the Art. 6(1) high-risk stack; watch for the Art. 2(13) delegated acts (due by 2 Aug 2027) that may disapply specific duplicated requirements where your product law already provides equivalent protection.",
+        "If the AI safety component ships under the AI supplier's own name instead of yours, the roles split — the AI supplier is its provider and Art. 25(4) written-agreement discipline governs the interface."
+      ],
+      "cites": [
+        "eu-ai-act-art-25",
+        "eu-ai-act-art-6",
+        "eu-ai-act-art-16",
+        "eu-ai-act-art-2",
+        "eu-ai-act-art-113",
+        "eu-ai-act-omnibus-2026"
+      ]
+    },
+    "o-flip": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "The Art. 25 flip: you just became the provider",
+      "summary": "Art. 25(1): putting your name or trademark on a marketed high-risk system, substantially modifying one, or repurposing a non-high-risk system (including a general-purpose AI system) into a high-risk use makes YOU the provider of that system, with the full Art. 16 obligation stack — conformity assessment, CE marking, registration, the lot. The initial provider simultaneously stops being the provider for that specific system (Art. 25(2)). One scoping note: Art. 25(1) is a HIGH-RISK mechanism — whether rebranding a system that stays below high-risk makes you its provider is a fact-specific Art. 3(3) question, and the practical exposure there is the lighter provider-side duty set (e.g. Art. 50 transparency), not the Art. 16 stack.",
+      "actions": [
+        "Treat the modified or rebranded system as a fresh provider project: run the risk-tier classification, then the Art. 16 stack including a conformity assessment before further making available.",
+        "Collect the cooperation you are owed: the initial provider must make available technical documentation sufficient to assess Art. 16 compliance, inform you of known limitations and failure modes, and give targeted technical access for testing and validation (Art. 25(2) as amended by the 2026 omnibus).",
+        "Check the carve-outs before relying on them: the initial provider owes no cooperation where it clearly specified the system is not to be changed into a high-risk system; and for the white-label route, Art. 25(1)(a) yields to contractual arrangements allocating the obligations otherwise.",
+        "Paper the value chain: the Art. 25(4) written agreement with whoever supplies components, tools, services or AI models for your now-high-risk system — breaches of Art. 25(2) and (4) are separately fineable since the omnibus (Art. 99(4)(da)).",
+        "Timing follows the system class: 2 Dec 2027 for Annex III, 2 Aug 2028 for Annex I products (as deferred by the 2026 Digital Omnibus)."
+      ],
+      "cites": [
+        "eu-ai-act-art-25",
+        "eu-ai-act-art-16",
+        "eu-ai-act-art-3-roles",
+        "eu-ai-act-art-99",
+        "eu-ai-act-art-113",
+        "eu-ai-act-omnibus-2026"
+      ]
+    },
+    "o-downstream": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Downstream provider — you provide the SYSTEM; the model keeps its own provider",
+      "summary": "Integrating a general-purpose AI model into a system you supply — or put into service for your OWN use (Art. 3(11) counts own use) — makes you a 'downstream provider' (Art. 3(68)): the provider of the resulting AI SYSTEM. Classify what YOU ship or run — the system's risk tier is yours to determine and carry. The model's Ch. V obligations (documentation, downstream information package, copyright policy, training-content summary) remain with the model provider, whose Art. 53(1)(b) package exists precisely so you can comply.",
+      "actions": [
+        "Run 'AI Act: What risk tier?' on the system you supply or operate — the model's status does not decide your system's tier.",
+        "Demand the Art. 53(1)(b) information and documentation from the model provider — you are its intended audience. One exception: providers of genuinely free and open-source models (public weights, architecture and usage information) owe no Art. 53(1)(a)-(b) package unless the model carries systemic risk (Art. 53(2)) — for those, plan on doing your own capability/limitation homework.",
+        "If your system is (or becomes) high-risk: put the Art. 25(4) written agreement in place with the model supplier — the free and open-source carve-out has never extended to general-purpose AI models (Art. 25(4); the 2026 omnibus added 'AI models' to the written-agreement item list).",
+        "Running the system yourselves rather than (only) supplying it? The deployer hat lands on you too — the Art. 26 stack plus any Art. 27 FRIA trigger; the in-house-build outcome details the dual role.",
+        "If you substantially fine-tune or otherwise modify the model itself, you may become the provider of a new general-purpose AI model with the Ch. V duties for your modification — the boundary is fact-specific; document your analysis rather than assuming the answer.",
+        "Watch the purpose trap: repurposing a marketed non-high-risk general-purpose AI system into a high-risk use is the Art. 25(1)(c) flip."
+      ],
+      "cites": [
+        "eu-ai-act-art-3-roles",
+        "eu-ai-act-ch5-gpai",
+        "eu-ai-act-art-25",
+        "eu-ai-act-art-26",
+        "eu-ai-act-art-27",
+        "eu-ai-act-omnibus-2026"
+      ]
+    },
+    "o-personal": {
+      "type": "outcome",
+      "tier": "info",
+      "title": "Personal, non-professional use — deployer duties do not attach",
+      "summary": "Art. 2(10): if you are an individual using the system in a purely personal, non-professional activity, the Act's deployer obligations do not apply to you. The moment the same use turns professional — a side business, your employer's workflows — the deployer analysis applies; and whoever SUPPLIES the system keeps their provider-side obligations regardless of your private status.",
+      "actions": [
+        "Re-run this wizard if the use drifts into anything professional or commercial.",
+        "Note the Art. 5 prohibitions still govern what may be PLACED on the market or put into service — including, from 2 Dec 2026, systems for generating non-consensual intimate imagery (Art. 5(1)(ba)). The Act's use-side prohibitions are keyed to deployers, so they attach the moment use stops being purely personal — and national criminal law reaches such material regardless of this Regulation."
+      ],
+      "cites": [
+        "eu-ai-act-art-2",
+        "eu-ai-act-art-5"
+      ]
+    },
+    "o-excluded": {
+      "type": "outcome",
+      "tier": "info",
+      "title": "Likely outside the Act's scope — but check the boundary you are standing on",
+      "summary": "Art. 2 carves out: systems placed on the market, put into service or used exclusively for military, defense or national-security purposes (2(3)); systems and models developed and put into service solely for scientific research and development (2(6)); and pre-market research, testing and development activity (2(8)). Each boundary is narrower than it sounds — dual-use kills the military exclusion, commercialising kills the research exclusion, and real-world testing is expressly NOT covered by the pre-market exclusion.",
+      "actions": [
+        "Document which exclusion you rely on and the facts supporting it.",
+        "Free and open-source releases are also outside scope (Art. 2(12)) — unless placed on the market or put into service as high-risk systems, or falling under Art. 5 (prohibited practices) or Art. 50 (transparency).",
+        "Set a tripwire: the day the system heads toward the market or a live pilot with real users, rerun this wizard — real-world testing has its own regime (Arts. 57-60a)."
+      ],
+      "cites": [
+        "eu-ai-act-art-2"
+      ]
+    },
+    "o-no-nexus": {
+      "type": "outcome",
+      "tier": "ok",
+      "title": "No EU nexus — no AI Act role today",
+      "summary": "The Act reaches you through the market, establishment, or output: placing on the EU market or putting into service in the EU; being an EU-established or EU-located deployer; or — the catch most third-country teams miss — a third-country provider or deployer whose system's OUTPUT is used in the EU (Art. 2(1)(c)). None of those apply on your answers.",
+      "actions": [
+        "Revisit the moment EU customers, EU users, or EU-consumed outputs appear — the output-use hook does not require you to market anything in the EU.",
+        "If anyone imports your system into the EU, you become its in-scope provider (Art. 2(1)(a)): for a high-risk system you must appoint the Art. 22(1) authorized representative BEFORE it is made available, and your importer is legally required to verify you did (Art. 23(1)(d)) — an unprepared vendor blocks its own channel."
+      ],
+      "cites": [
+        "eu-ai-act-art-2",
+        "eu-ai-act-art-22",
+        "eu-ai-act-art-23"
+      ]
+    },
+    "o-inhouse": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "In-house build for own use — you are BOTH provider and deployer",
+      "summary": "The miss that catches most enterprises: 'putting into service' means the supply of an AI system for first use directly to the deployer OR FOR OWN USE in the EU for its intended purpose (Art. 3(11)). Build (or commission) a system and start using it yourself and you have put it into service under your own name — which makes you its provider under Art. 3(3), on top of the deployer hat you already expected. No external customer is needed — and free-of-charge supply counts (Art. 3(10)), so a group-wide rollout to affiliates is commonly read as making available too.",
+      "actions": [
+        "Run 'AI Act: What risk tier?' on the system — an in-house credit-scoring, recruitment or fraud-scoring build is exactly the profile that lands in Annex III.",
+        "If high-risk: the FULL provider stack is yours — Section 2 requirements, QMS, conformity assessment, EU declaration, CE marking, Art. 49(1) registration — from 2 Dec 2027 (Annex III) / 2 Aug 2028 (Annex I), AND the Art. 26 deployer duties plus any Art. 27 FRIA trigger, since you also use it.",
+        "If it talks to people or generates content: the Art. 50 provider duties (disclosure, machine-readable marking) apply from 2 Aug 2026 regardless of tier.",
+        "Watch the vendor boundary: heavily customising a vendor system can be the Art. 25(1) flip instead — the practical difference is the initial provider's cooperation duties (documentation, known limitations, technical access) that Art. 25(2) gives you; a true greenfield build has no one to lean on.",
+        "Building on someone else's general-purpose AI model? The downstream lane's items stack: demand the Art. 53(1)(b) documentation package from the model provider and paper the Art. 25(4) written agreement with the model supplier if the system is high-risk.",
+        "Prohibitions and AI literacy already apply (Art. 5 since 2 Feb 2025; Art. 4 since 2 Feb 2025)."
+      ],
+      "cites": [
+        "eu-ai-act-art-3-roles",
+        "eu-ai-act-art-16",
+        "eu-ai-act-art-26",
+        "eu-ai-act-art-27",
+        "eu-ai-act-art-50",
+        "eu-ai-act-ch5-gpai",
+        "eu-ai-act-art-25",
+        "eu-ai-act-art-113",
+        "eu-ai-act-omnibus-2026"
+      ]
+    },
+    "o-gpai-provider": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "General-purpose AI model provider — Ch. V is already live",
+      "summary": "Providing a general-purpose AI model (Art. 3(63)) is its own regulatory lane, separate from any system built on it — and it is the one provider hat with duties in force NOW: Ch. V (Arts. 53-55) has applied since 2 August 2025. The Art. 53 base set: technical documentation for authorities (Annex XI); an information package for downstream system providers (Annex XII); a copyright policy honoring Art. 4(3) text-and-data-mining reservations; and a public training-content summary on the AI Office template.",
+      "actions": [
+        "Models on the market before 2 Aug 2025 must be brought into compliance by 2 Aug 2027 (Art. 111(3)); new models comply from day one.",
+        "Established outside the EU? Appoint an EU authorized representative before placing the model on the market (Art. 54) — genuinely free and open-source models are exempt unless they carry systemic risk (Art. 54(6)).",
+        "Check the FOSS relief honestly: Art. 53(2) lifts the documentation duties (53(1)(a)-(b)) only for genuinely open releases (public parameters, weights, architecture, usage information) — never the copyright policy or training-content summary, and never for systemic-risk models.",
+        "Crossing 10^25 training FLOPs — or matching frontier capabilities — moves you to the systemic-risk lane: notify the Commission within two weeks and add the Art. 55 stack; the companion 'AI Act: What risk tier?' wizard walks that branch.",
+        "If you ALSO ship the model behind your own end-user product (a chat interface, an assistant, an app), that product is an AI system with its own ladder — run this wizard again for it (own use counts as putting into service). Raw model-access APIs for developers stay on this model lane."
+      ],
+      "cites": [
+        "eu-ai-act-ch5-gpai",
+        "eu-ai-act-art-3-roles",
+        "eu-ai-act-art-111",
+        "eu-ai-act-art-113"
+      ]
+    }
+  }
+}

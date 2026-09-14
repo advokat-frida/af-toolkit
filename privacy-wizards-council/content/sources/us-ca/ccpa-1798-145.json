@@ -1,0 +1,29 @@
+{
+  "juris": "US-CA",
+  "label": "CCPA § 1798.145 — Exemptions; manifestly unfounded or excessive requests",
+  "citation": "Cal. Civ. Code § 1798.145(h)(3)",
+  "body": [
+    "1798.145. Exemptions",
+    "",
+    "[...]",
+    "",
+    "(h) Notwithstanding a business’s obligations to respond to and honor consumer rights requests pursuant to this title:",
+    "(1) A time period for a business to respond to a consumer for any verifiable consumer request may be extended by up to a total of 90 days where necessary, taking into account the complexity and number of the requests. The business shall inform the consumer of any such extension within 45 days of receipt of the request, together with the reasons for the delay.",
+    "(2) If the business does not take action on the request of the consumer, the business shall inform the consumer, without delay and at the latest within the time period permitted of response by this section, of the reasons for not taking action and any rights the consumer may have to appeal the decision to the business.",
+    "(3) If requests from a consumer are manifestly unfounded or excessive, in particular because of their repetitive character, a business may either charge a reasonable fee, taking into account the administrative costs of providing the information or communication or taking the action requested, or refuse to act on the request and notify the consumer of the reason for refusing the request. The business shall bear the burden of demonstrating that any verifiable consumer request is manifestly unfounded or excessive.",
+    "",
+    "[...]",
+    "",
+    "(Amended by Stats. 2023, Ch. 567, Sec. 2.   (AB 1194)   Effective January 1, 2024.   Subdivisions (m) and (n) inoperative January 1, 2023, by their own provisions.)"
+  ],
+  "kind": "statute",
+  "provenance": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.145.",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

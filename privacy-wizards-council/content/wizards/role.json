@@ -1,0 +1,236 @@
+{
+  "title": "Controller vs processor",
+  "tag": "Classify the role each party plays in a data flow — drives liability, contracting, and notice duties.",
+  "q": "You, them, or both — who answers for this data?",
+  "icon": "🪪",
+  "jurisdictions": [
+    "EU",
+    "UK"
+  ],
+  "start": "q-decides",
+  "nodes": {
+    "q-decides": {
+      "type": "question",
+      "q": "Who decides what the data is used for (the purposes)?",
+      "help": "Art. 4(7): a controller determines the purposes and the means. Art. 4(8): a processor processes on behalf of the controller. EDPB Guidelines 07/2020 elaborate: 'essential means' (data type, retention, recipients) are always for the controller; 'non-essential means' (technical tools) can be delegated. UK note: EDPB guidance does not bind the ICO post-Brexit — the operative UK authority is the ICO's 'Controllers and processors' guidance, which broadly mirrors the essential/non-essential means analysis.",
+      "cites": [
+        "gdpr-art-4",
+        "gdpr-art-28",
+        "guide-ico-controllers-processors"
+      ],
+      "opts": [
+        {
+          "label": "We decide purposes alone",
+          "goto": "q-means"
+        },
+        {
+          "label": "We decide purposes jointly with another party",
+          "goto": "o-joint"
+        },
+        {
+          "label": "The customer/client decides purposes; we just process on their instructions",
+          "goto": "q-on-behalf"
+        },
+        {
+          "label": "We process for our own purposes and for someone else's purposes",
+          "goto": "o-multi-role"
+        }
+      ]
+    },
+    "q-means": {
+      "type": "question",
+      "q": "Do you also determine the essential means (data types, retention, recipients)?",
+      "help": "Essential means are always controller-level decisions. Non-essential technical means can be delegated to a processor without changing roles. Note: because you determine the purposes, you cannot be a mere processor on any answer here — the only question is whether you are sole controller or in a joint-controllership analysis with the party deciding the essential means.",
+      "cites": [
+        "gdpr-art-4"
+      ],
+      "opts": [
+        {
+          "label": "Yes — we decide what data, how long, who gets it",
+          "goto": "o-controller"
+        },
+        {
+          "label": "We decide the essential means too; only the technical means (which servers, encryption choices) are delegated to a vendor",
+          "goto": "o-controller"
+        },
+        {
+          "label": "Another party decides the essential means (data types, retention, recipients)",
+          "goto": "o-joint",
+          "desc": "You determine purposes; deciding essential means is itself controller-level influence (EDPB 07/2020). Two parties each exerting controller-level influence over the same processing points to joint controllership — not a controller-processor relationship."
+        }
+      ]
+    },
+    "q-on-behalf": {
+      "type": "question",
+      "q": "Is there a written Art. 28 data processing agreement (DPA) with the party you're processing for?",
+      "help": "Art. 28(3) requires a contract or other legal act binding the processor. Without it, you may still be a processor in fact, but you're missing the documentation backbone — and the controller is in breach.",
+      "cites": [
+        "gdpr-art-28"
+      ],
+      "opts": [
+        {
+          "label": "Yes — proper Art. 28 DPA in place",
+          "goto": "o-processor-ok"
+        },
+        {
+          "label": "No DPA, or DPA missing required clauses",
+          "goto": "o-processor-gap"
+        },
+        {
+          "label": "DPA exists, but we sometimes go beyond the controller's instructions",
+          "goto": "q-beyond"
+        }
+      ]
+    },
+    "q-beyond": {
+      "type": "question",
+      "q": "When you go beyond instructions, do you determine your own purposes (or essential means) for that processing?",
+      "help": "Art. 28(10) deems a processor a controller only where it infringes the Regulation by determining the purposes and means of the processing. Merely departing from instructions — e.g. on execution details or non-essential technical means — is a breach of the Art. 28(3)(a) instruction obligation, but does not by itself flip the role.",
+      "cites": [
+        "gdpr-art-28",
+        "guide-edpb-07-2020-controller"
+      ],
+      "opts": [
+        {
+          "label": "Yes — we use the data for our own purposes (e.g. product improvement, ML training) or set our own essential means",
+          "goto": "o-controller-by-default"
+        },
+        {
+          "label": "No — deviations are execution-level only (non-essential technical means, timing, method)",
+          "goto": "o-instruction-breach"
+        }
+      ]
+    },
+    "o-controller": {
+      "type": "outcome",
+      "tier": "info",
+      "title": "You are the controller (Art. 4(7))",
+      "summary": "You determine purposes and essential means. You bear primary responsibility for compliance with all controller-specific obligations: Art. 5 principles, Art. 6 lawful basis, Art. 12–22 subject rights (EU — see UK note), Art. 30 record of processing activities (ROPA), Art. 33 breach notification, Art. 35 data protection impact assessment (DPIA), transparency duties. UK divergence: the UK regime is the UK GDPR and the Data Protection Act 2018, as amended by the Data (Use and Access) Act 2025 (DUAA 2025). The Art. 22 automated-decision-making regime is restructured into Arts 22A–22D, so in the UK the subject-rights provisions are Arts 12–21 plus 22A–22D. For data subject access requests (DSARs), DUAA 2025 codifies the 'reasonable and proportionate search' standard and the stop-the-clock mechanism (the response deadline pauses while you await clarification from the requester). It also adds 'recognised legitimate interests' at the lawful-basis layer. DUAA commencement is phased by statutory instrument — verify which provisions are in force at your assessment date and check current ICO guidance.",
+      "actions": [
+        "Sign Art. 28 DPAs with all your processors",
+        "Maintain a ROPA under Art. 30(1). The Art. 30(5) under-250-staff exemption applies only where processing is occasional, low-risk, and involves no Art. 9/10 data — rarely satisfied. The Commission's May 2025 GDPR simplification proposal would widen it; verify whether adopted.",
+        "Deliver Art. 13/14 notices",
+        "Be the primary respondent for subject rights requests (UK: DUAA 2025 codifies the 'reasonable and proportionate search' standard and stop-the-clock for DSARs)",
+        "Run breach analysis and 72-h notification if applicable",
+        "Run DPIA where Art. 35 thresholds met"
+      ],
+      "cites": [
+        "gdpr-art-4",
+        "gdpr-art-28",
+        "gdpr-art-30",
+        "gdpr-art-33",
+        "gdpr-art-35",
+        "uk-duaa-2025"
+      ]
+    },
+    "o-joint": {
+      "type": "outcome",
+      "tier": "warn",
+      "title": "Joint controllers (Art. 26)",
+      "summary": "Art. 26: where two or more controllers jointly determine purposes and means, they are joint controllers and must agree a transparent arrangement dividing their responsibilities between them — in particular for subject rights. The essence of the arrangement must be made available to the data subject. The CJEU trio — Wirtschaftsakademie (C-210/16), Jehovan todistajat (C-25/17) and Fashion ID (C-40/17) — established that joint controllership can arise from even limited shared decision-making. IAB Europe (C-604/22) extended this to operators of industry frameworks — there, the Transparency and Consent Framework (TCF) used for ad-consent signals. EDPB Guidelines 07/2020 codify the doctrine. UK note: post-2020 CJEU judgments (including IAB Europe) and EDPB guidance are persuasive, not binding, under the UK GDPR; the pre-2021 trio is assimilated case law from which UK higher courts may now depart under the Retained EU Law (Revocation and Reform) Act 2023. The ICO's controller/processor guidance is the UK reference.",
+      "actions": [
+        "Put a joint-controller arrangement in place allocating: subject-rights handling, transparency, security, breach response (Art. 26 imposes no written-form requirement, but written form is strongly recommended per EDPB)",
+        "Publish the essence of the arrangement (often a summary of the joint-controller arrangement in the privacy notice)",
+        "Subjects can exercise rights against either joint controller (Art. 26(3))",
+        "Joint and several liability for damage under Art. 82(2)–(4)",
+        "Each controller still has its own Art. 30 ROPA entry",
+        "Embedding third-party plugins / pixels = likely joint controller for the collection/transmission stage (Fashion ID (C-40/17))",
+        "If you operate an industry consent framework: in the EU you are a joint controller for the consent-recording stage (IAB Europe (C-604/22)). In the UK that ruling is not binding — the same result is likely under UK GDPR Art. 4(7) first principles, but it is not settled; check current ICO guidance"
+      ],
+      "cites": [
+        "gdpr-art-4",
+        "gdpr-art-26",
+        "gdpr-art-82",
+        "case-fashion-id",
+        "case-iab-tcf",
+        "guide-edpb-07-2020-controller",
+        "guide-ico-controllers-processors"
+      ]
+    },
+    "o-processor-ok": {
+      "type": "outcome",
+      "tier": "ok",
+      "title": "You are a processor (Art. 4(8)) with a valid Art. 28 DPA",
+      "summary": "Your obligations: process only on documented controller instructions (Art. 28(3)(a)); confidentiality (3(b)); security (3(c) + Art. 32); use sub-processors only with controller authorization (3(d) + Art. 28(2)/(4)); assist with subject rights (3(e)) and DPIA/breach (3(f)); return or delete data after end of services (3(g)); make compliance demonstrable (3(h)). Maintain your own Art. 30(2) processor records.",
+      "actions": [
+        "Maintain Art. 30(2) processor ROPA (Art. 30(5) exempts organizations under 250 staff only where processing is occasional, low-risk, and involves no Art. 9/10 data — rarely satisfied)",
+        "Notify controller without undue delay on breach awareness (Art. 33(2))",
+        "Don't process for your own purposes — that flips you to controller (Art. 28(10))",
+        "Manage sub-processor approval workflow and flow-down of Art. 28 obligations",
+        "Representative check: offering services into the Union under GDPR Art. 3(2) may require an EU Art. 27 representative; offering goods or services to, or monitoring, data subjects in the UK under UK GDPR Art. 3(2) may require a UK representative under UK GDPR Art. 27 — verify the UK requirement against DUAA 2025 commencement and current ICO guidance"
+      ],
+      "cites": [
+        "gdpr-art-4",
+        "gdpr-art-28",
+        "gdpr-art-30",
+        "gdpr-art-33"
+      ]
+    },
+    "o-processor-gap": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Processor in fact, but contracting gap — controller and processor are both exposed",
+      "summary": "Art. 28(3) is mandatory. Both controller and processor commit a violation by processing without a compliant Art. 28 contract. Supervisory authorities — for example Spain's AEPD — have fined both controller and processor for this gap.",
+      "actions": [
+        "Sign or update the Art. 28 DPA immediately, with all Art. 28(3)(a)–(h) clauses",
+        "Document who has been doing what in the interim",
+        "Don't fix the gap retroactively in a way that hides the non-compliance — that compounds the issue"
+      ],
+      "cites": [
+        "gdpr-art-28"
+      ]
+    },
+    "o-controller-by-default": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Art. 28(10) — Processor that determines its own purposes and means is a controller for that processing",
+      "summary": "If the processor 'determines the purposes and means' of any processing — beyond what the controller instructed — Art. 28(10) deems them a controller for that scope. EDPB Guidelines 07/2020 expand on the test: factual control over purposes flips the role regardless of contractual labeling. Common trigger: a vendor uses customer data to train its own AI models without explicit controller instruction.",
+      "actions": [
+        "Identify the out-of-scope processing precisely",
+        "Either stop the out-of-scope processing or reclassify (and accept full controller obligations including own Art. 6 basis, Art. 13/14 notice, Art. 30(1) ROPA)",
+        "Update the DPA to either narrow the scope or explicitly authorize the activity (becoming a separate controller for that purpose)",
+        "Notify the original controller if subject-facing notices need to be updated"
+      ],
+      "cites": [
+        "gdpr-art-28",
+        "guide-edpb-07-2020-controller"
+      ]
+    },
+    "o-instruction-breach": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Instruction deviations — Art. 28(3)(a) breach, but you remain a processor",
+      "summary": "Processing outside the controller's documented instructions breaches the Art. 28(3)(a) instruction obligation (and your DPA), even where you are not determining your own purposes or essential means. You stay a processor, but the deviation is a compliance gap for both sides. If deviations extend to deciding purposes or essential means, Art. 28(10) reclassification applies for that scope — factual control trumps contractual labels (EDPB Guidelines 07/2020).",
+      "actions": [
+        "Stop or regularise the deviations: obtain documented instructions covering the activity, or amend the DPA scope",
+        "If a legal obligation requires off-instruction processing, inform the controller of that requirement before processing unless the law prohibits it (Art. 28(3)(a))",
+        "Audit past deviations: any that involved determining purposes or essential means fall under Art. 28(10) — treat that scope as controller processing",
+        "Tighten internal change control so new processing purposes route through the controller-instruction workflow"
+      ],
+      "cites": [
+        "gdpr-art-28",
+        "guide-edpb-07-2020-controller"
+      ]
+    },
+    "o-multi-role": {
+      "type": "outcome",
+      "tier": "warn",
+      "title": "Mixed role — controller for some purposes, processor for others",
+      "summary": "Many SaaS providers hold both roles: processor for customer-uploaded data, controller for product-improvement and billing. EDPB Guidelines 07/2020 recognize this — segregate the analyses per processing activity.",
+      "actions": [
+        "Map processing activities, classifying each as controller-role or processor-role",
+        "Maintain separate Art. 30(1) and 30(2) ROPA entries as applicable",
+        "Customer-facing data flows: processor with Art. 28 DPA",
+        "Own-purpose flows (analytics on customer data, ML training, billing): controller with own Art. 6 basis and Art. 13/14 notice",
+        "Be explicit in the DPA about which is which — otherwise you risk Art. 28(10) reclassification"
+      ],
+      "cites": [
+        "gdpr-art-4",
+        "gdpr-art-28",
+        "gdpr-art-30",
+        "guide-edpb-07-2020-controller"
+      ]
+    }
+  },
+  "verifiedAsOf": "2026-07-02 (automated cross-check against official source texts; not yet reviewed by counsel)"
+}

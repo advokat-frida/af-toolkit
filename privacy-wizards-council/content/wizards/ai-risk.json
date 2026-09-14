@@ -1,0 +1,461 @@
+{
+  "title": "AI Act: What risk tier?",
+  "tag": "Prohibited, high-risk, transparency-only, GPAI, or minimal — and the dates each obligation set starts to bite.",
+  "q": "Is this high-risk, and when do the rules bite?",
+  "icon": "🪜",
+  "jurisdictions": [
+    "EU"
+  ],
+  "start": "q-subject",
+  "verifiedAsOf": "2026-07-06 (automated cross-check against the EUR-Lex texts of Regulation (EU) 2024/1689 and the adopted Digital Omnibus on AI (PE-CONS 30/26); not yet reviewed by counsel)",
+  "nodes": {
+    "q-subject": {
+      "type": "question",
+      "q": "What are you classifying?",
+      "help": "Systems and models ride different ladders. An AI SYSTEM (Art. 3(1)) is the thing with an intended purpose that ships; a GENERAL-PURPOSE AI MODEL (Art. 3(63)) is the trained model that systems are built on, with its own Ch. V track. A system built on a GPAI model — a 'general-purpose AI system' (Art. 3(66)) — is classified as a system; the underlying model keeps its own obligations. Classify per system, per intended purpose. First check scope (Art. 2): research-only and pre-market R&D systems, military/national-security purposes, and most free open-source releases sit outside the Act, and purely personal use escapes the deployer duties (the supplier's duties stand) — the companion 'AI Act: What's my role?' wizard walks those exits.",
+      "cites": [
+        "eu-ai-act-art-3-roles",
+        "eu-ai-act-art-2"
+      ],
+      "opts": [
+        {
+          "label": "An AI system — an application with an intended purpose",
+          "goto": "q-prohibited"
+        },
+        {
+          "label": "A system built ON a general-purpose model (a chatbot, copilot or app on top of an LLM)",
+          "goto": "q-prohibited",
+          "desc": "The system ladder applies to what you ship; the model's Ch. V duties stay with the model provider — though if you fine-tune or substantially modify the model itself, you may become its provider for the modification (a contested boundary; document your analysis)."
+        },
+        {
+          "label": "A general-purpose AI MODEL itself — trained weights others build on",
+          "goto": "q-gpai"
+        }
+      ]
+    },
+    "q-prohibited": {
+      "type": "question",
+      "q": "Does the system do anything on the Art. 5 banned list?",
+      "help": "The prohibitions have applied since 2 Feb 2025 and carry the top fine tier (EUR 35m / 7%, Art. 99(3)). They catch placing on the market, putting into service AND use — a deployer can commit them with someone else's lawful tool. The 2026 Digital Omnibus added two more (non-consensual intimate imagery; CSAM), applying from 2 Dec 2026. Boundary note: detecting PHYSICAL states — fatigue, drowsiness, pain (e.g. driver-drowsiness monitoring) — is not emotion recognition under the Act; answer 'None of these' here and let the later gates place the system (in-vehicle safety components ride the Annex I product route; a system used to monitor or score YOUR drivers is an Annex III employment question).",
+      "cites": [
+        "eu-ai-act-art-5",
+        "eu-ai-act-art-99"
+      ],
+      "opts": [
+        {
+          "label": "Subliminal, manipulative or deceptive techniques — or exploiting age, disability, or social/economic vulnerability — materially distorting behavior, with significant harm likely",
+          "goto": "o-prohibited"
+        },
+        {
+          "label": "Social scoring that leads to detrimental treatment out of context, or disproportionate to the behavior",
+          "goto": "o-prohibited"
+        },
+        {
+          "label": "Predicting criminal risk from profiling or personality alone; scraping faces off the internet or CCTV for recognition databases; inferring emotions at work or school (except medical/safety uses); biometric categorization to infer the listed sensitive attributes (race, political opinions, trade union membership, religious or philosophical beliefs, sex life or sexual orientation)",
+          "goto": "o-prohibited"
+        },
+        {
+          "label": "Generating or manipulating sexual imagery of identifiable people without their explicit consent — or CSAM-type material",
+          "goto": "o-prohibited-new"
+        },
+        {
+          "label": "'Real-time' remote biometric identification in publicly accessible spaces for law enforcement",
+          "goto": "o-rbi"
+        },
+        {
+          "label": "None of these",
+          "goto": "q-annex1"
+        }
+      ]
+    },
+    "q-annex1": {
+      "type": "question",
+      "q": "Is the AI a safety component of a regulated product — or itself such a product — and does that product need a third-party conformity assessment?",
+      "help": "Art. 6(1) high-risk needs BOTH: (a) the AI is a safety component of a product (or is the product) covered by the Annex I legislation, and (b) that product needs a third-party conformity assessment under that legislation. The 2026 omnibus sharpened the edges: convenience, UX, efficiency or quality-control functions alone are NOT safety components (6(1a)) — unless failure would endanger health or safety (6(1b)) — and third-party assessment triggered solely by non-safety risks like radio spectrum does not count (6(1c)).",
+      "cites": [
+        "eu-ai-act-art-6",
+        "eu-ai-act-omnibus-2026"
+      ],
+      "opts": [
+        {
+          "label": "Yes — under Section A legislation (toys, lifts, PPE, medical devices, radio equipment...)",
+          "goto": "o-high-annex1"
+        },
+        {
+          "label": "Yes — under Section B legislation (aviation, motor vehicles, rail, marine equipment... and, since the 2026 omnibus, machinery)",
+          "goto": "o-annex1-b"
+        },
+        {
+          "label": "It sits in a product, but only for user assistance, performance, efficiency or quality control — no safety function, and failure would not endanger anyone",
+          "goto": "q-annex3",
+          "desc": "Art. 6(1a)-(1b) as inserted 2026 — not a safety component; keep walking the ladder."
+        },
+        {
+          "label": "It IS a genuine safety component, but the product needs no third-party conformity assessment — or only for non-safety risks like radio spectrum",
+          "goto": "q-annex3",
+          "desc": "Art. 6(1) needs BOTH conditions, and third-party assessment triggered solely by non-health-and-safety risks (spectrum, EMI) does not count (Art. 6(1c), inserted 2026). Keep walking; Annex III can still catch it."
+        },
+        {
+          "label": "No regulated-product angle at all",
+          "goto": "q-annex3"
+        }
+      ]
+    },
+    "q-annex3": {
+      "type": "question",
+      "q": "Is its intended purpose in one of the Annex III areas?",
+      "help": "Annex III lists eight areas. Judge by the system's INTENDED purpose — what you put in the instructions and marketing — not by what a creative user might do with it. Two boundary notes: emotion recognition here means inferring EMOTIONS or intentions from biometric data — detecting physical states like fatigue or pain is outside it; and every in-scope emotion-recognition system is Annex III point 1(c) wherever it lawfully runs (point 1 applies in so far as the use is permitted — the workplace/education variants are prohibited outright).",
+      "cites": [
+        "eu-ai-act-annex-iii"
+      ],
+      "opts": [
+        {
+          "label": "Biometrics — remote identification, categorization by sensitive attributes, or emotion recognition",
+          "goto": "q-filter",
+          "desc": "Annex III point 1. Pure one-to-one verification ('is this the person they claim to be?') is carved out."
+        },
+        {
+          "label": "Safety components in critical infrastructure — critical digital infrastructure, road traffic, water, gas, heating, electricity",
+          "goto": "q-filter"
+        },
+        {
+          "label": "Education or employment — admissions, exam scoring or proctoring; recruitment (including targeted job-ad delivery), promotion, termination, task allocation, monitoring",
+          "goto": "q-filter",
+          "desc": "Employment includes monitoring and evaluating your OWN staff — insider-threat and employee-misconduct scoring is Annex III 4(b), not 'fraud detection'."
+        },
+        {
+          "label": "Essential services — public benefits eligibility, creditworthiness or credit scoring, life/health insurance pricing, emergency call triage and dispatch",
+          "goto": "q-filter",
+          "desc": "The creditworthiness carve-out is purpose-keyed (detecting financial fraud, e.g. transaction fraud) — it does not stretch to scoring your own staff's or customers' character."
+        },
+        {
+          "label": "Law enforcement, migration/asylum/border, justice, or elections",
+          "goto": "q-filter"
+        },
+        {
+          "label": "None of these areas",
+          "goto": "q-transparency"
+        }
+      ]
+    },
+    "q-filter": {
+      "type": "question",
+      "q": "The Art. 6(3) filter: does the system profile people — or does one of the narrow-role conditions genuinely fit?",
+      "help": "Annex III listing is a presumption, not a verdict. Art. 6(3): the system is NOT high-risk if it poses no significant risk of harm to health, safety or fundamental rights — including by not materially influencing decisions — and one of four conditions fits. The override sits at the end of the paragraph: a system that performs profiling of natural persons is ALWAYS high-risk, whatever else is true.",
+      "cites": [
+        "eu-ai-act-art-6"
+      ],
+      "opts": [
+        {
+          "label": "It profiles natural persons — automated evaluation of personal aspects (performance, economic situation, health, preferences, behavior, location...)",
+          "goto": "o-high-annex3",
+          "desc": "The profiling override forecloses the derogation."
+        },
+        {
+          "label": "It only performs a narrow procedural task",
+          "goto": "o-derogation",
+          "desc": "Art. 6(3)(a) — e.g. converting unstructured data to structured. Careful: classifying DOCUMENTS is not classifying PEOPLE — a system that scores, ranks or filters candidates, applicants or claimants is profiling them (pick the first option)."
+        },
+        {
+          "label": "It only improves the result of a previously completed human activity",
+          "goto": "o-derogation",
+          "desc": "Art. 6(3)(b) — e.g. polishing the language of an already-written assessment."
+        },
+        {
+          "label": "It only detects decision patterns or deviations, without replacing or influencing the human assessment",
+          "goto": "o-derogation",
+          "desc": "Art. 6(3)(c) — a checker on top of a completed human decision, with proper human review."
+        },
+        {
+          "label": "It only performs a preparatory task for an Annex III assessment",
+          "goto": "o-derogation",
+          "desc": "Art. 6(3)(d) — indexing, search, or data preparation feeding a later human assessment."
+        },
+        {
+          "label": "None of these conditions fit",
+          "goto": "o-high-annex3",
+          "desc": "The derogation fails when no condition fits — whether or not the system drives decisions."
+        }
+      ]
+    },
+    "q-transparency": {
+      "type": "question",
+      "q": "Does it talk to people, generate content, categorize by biometrics, or make deepfakes?",
+      "help": "Art. 50 attaches targeted disclosure duties, on providers for the first two situations and deployers for the last two. One catch-net here: emotion recognition never belongs on this tier — it sits on the Annex III branch (point 1(c), with Art. 50(3) stacking on top); the Art. 6(3) filter still gets a look there, though emotion inference almost always profiles, and the workplace/education variants are prohibited outright.",
+      "cites": [
+        "eu-ai-act-art-50",
+        "eu-ai-act-annex-iii"
+      ],
+      "opts": [
+        {
+          "label": "It interacts directly with natural persons (chatbot, voice agent, avatar...)",
+          "goto": "o-transparency"
+        },
+        {
+          "label": "It generates synthetic audio, image, video or text",
+          "goto": "o-transparency"
+        },
+        {
+          "label": "It is a biometric-categorization system (non-sensitive attributes, lawful context)",
+          "goto": "o-transparency",
+          "desc": "Categorization by SENSITIVE attributes is Annex III point 1(b) high-risk — or prohibited (Art. 5(1)(g)) where it infers the listed traits."
+        },
+        {
+          "label": "It infers people's emotions or intentions from biometric data (face, voice, physiological signals)",
+          "goto": "q-filter",
+          "desc": "Back to the high-risk branch: emotion recognition is Annex III point 1(c) wherever it lawfully runs — point 1 applies in so far as the use is permitted under Union/national law, and workplace/education emotion inference is prohibited outright (Art. 5(1)(f)). Text-only sentiment analysis is not emotion recognition under Art. 3(39) — that is not this option."
+        },
+        {
+          "label": "It generates or manipulates deepfakes, or publishes AI-written text informing the public",
+          "goto": "o-transparency"
+        },
+        {
+          "label": "None of these",
+          "goto": "o-minimal"
+        }
+      ]
+    },
+    "q-gpai": {
+      "type": "question",
+      "q": "Does the model hit the systemic-risk markers?",
+      "help": "Ch. V has two lanes. Every general-purpose AI model gets the Art. 53 base duties. Models with 'high impact capabilities' under Art. 51(1)(a) — presumed when cumulative training compute exceeds 10^25 FLOPs (51(2)), but the presumption is not the test: capability evaluations matching the most advanced models meet it below that figure — and models designated by Commission decision (51(1)(b)) are 'GPAI with systemic risk' and add the Art. 55 stack.",
+      "cites": [
+        "eu-ai-act-ch5-gpai"
+      ],
+      "opts": [
+        {
+          "label": "Training compute above 10^25 FLOPs (or we expect to cross it) — or capability evaluations matching the most advanced models (Art. 51(1)(a))",
+          "goto": "o-gpai-systemic"
+        },
+        {
+          "label": "The Commission has designated it by decision (Art. 51(1)(b), guided by the Annex XIII criteria)",
+          "goto": "o-gpai-systemic"
+        },
+        {
+          "label": "Neither — a general-purpose model below the systemic markers",
+          "goto": "o-gpai"
+        }
+      ]
+    },
+    "o-prohibited": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Prohibited practice — do not build, sell, or use it",
+      "summary": "Art. 5 bans this outright — placing on the market, putting into service, and use. The prohibitions have applied since 2 February 2025, ahead of everything else in the Act, and carry the top fine tier: up to EUR 35 000 000 or 7% of total worldwide annual turnover, whichever is higher (Art. 99(3)). There is no conformity route out — the only fixes are changing what the system does or abandoning the use.",
+      "actions": [
+        "Stop the use case now if it is live; the prohibition already applies.",
+        "Check the exact statutory edges before redesigning — several prohibitions have carve-outs (e.g. criminal-risk assessment supporting a human evaluation based on objective facts; emotion recognition for medical or safety reasons; filtering lawfully acquired biometric datasets).",
+        "Document the analysis and the design decision — the market surveillance authority's first question will be what you knew and when.",
+        "If the same capability can serve a lawful intended purpose, rerun this wizard against the redesigned system — and pin the lawful purpose in the instructions for use and marketing."
+      ],
+      "cites": [
+        "eu-ai-act-art-5",
+        "eu-ai-act-art-99",
+        "eu-ai-act-art-113"
+      ]
+    },
+    "o-prohibited-new": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Prohibited from 2 December 2026 — the omnibus NCII/CSAM bans",
+      "summary": "The 2026 Digital Omnibus inserted Art. 5(1)(ba) and (bb): generating or manipulating realistic sexual or intimate imagery of identifiable people without their freely-given, specific, informed, unambiguous and explicit consent — and generating CSAM-type material within the meaning of Directive 2011/93/EU (except where the conduct is lawful under national law — the Directive's 'without right' defense). These apply from 2 December 2026, and then carry the EUR 35m / 7% fine tier like the other prohibitions. For providers, Art. 5(1a) scopes the ban to systems where this is the intended purpose OR a reasonably foreseeable, reproducible outcome the system lacks adequate safeguards against; for deployers, using ANY system for this purpose is prohibited.",
+      "actions": [
+        "Deployer side: any use of a system to generate such material is prohibited from 2 Dec 2026 — full stop.",
+        "Provider side: if your system can generate realistic imagery of people, build and document the Art. 5(1a)(a)(ii) defense now — reasonable and adequate technical safety measures that reliably prevent this generation, account for reasonably foreseeable misuse, and correct observed or reported misuse.",
+        "Note the Art. 5(1b) boundary: manipulation that does not increase the exposure of depicted intimate parts or alter the nature of depicted sexual activity is out of the (ba) ban.",
+        "Remember the separate Art. 50 layer: lawful synthetic-content generation still needs machine-readable marking from 2 Aug 2026 (legacy systems: by 2 Dec 2026)."
+      ],
+      "cites": [
+        "eu-ai-act-art-5",
+        "eu-ai-act-omnibus-2026",
+        "eu-ai-act-art-99",
+        "eu-ai-act-art-50"
+      ]
+    },
+    "o-rbi": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Real-time remote biometric identification for law enforcement — banned with narrow exceptions",
+      "summary": "Art. 5(1)(h): prohibited in publicly accessible spaces for law-enforcement purposes, UNLESS strictly necessary for one of three exhaustively listed objectives — a targeted search for abduction, trafficking or sexual-exploitation victims and missing persons; preventing a specific, substantial and imminent threat to people's lives or physical safety, or a genuine and present (or genuine and foreseeable) terrorist threat; or localizing or identifying suspects of Annex II offenses punishable by at least four years' custody. Even inside an exception, each use needs prior authorization from a judicial or binding independent administrative authority (5(3)), a fundamental rights impact assessment and registration (5(2)), and it only works at all in Member States that opted in by national law (5(5)).",
+      "actions": [
+        "If you are not a law-enforcement authority (or acting on one's behalf): this use is prohibited with no exception route — and note that the non-real-time cousin, post-remote biometric identification, is Annex III point 1 high-risk with its own Art. 26(10) authorization regime.",
+        "If you are: confirm the Member State's authorizing national law exists, secure the prior authorization per use, complete the fundamental rights impact assessment (FRIA) and registration, and honor the rule that no adverse decision may rest solely on the system's output (5(3)).",
+        "Providers of RBI systems: the system itself is Annex III point 1 high-risk — run the high-risk branch of this wizard too."
+      ],
+      "cites": [
+        "eu-ai-act-art-5",
+        "eu-ai-act-annex-iii",
+        "eu-ai-act-art-26"
+      ]
+    },
+    "o-high-annex1": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "High-risk under Art. 6(1) — the product-safety route, from 2 August 2028",
+      "summary": "If the AI is a safety component of a Section A Annex I product — or is itself such a product — and that product requires third-party conformity assessment, it is high-risk. The full Chapter III stack applies — the Section 2 requirements plus the Art. 16 provider obligations — but it runs through your existing product conformity route: the AI requirements become part of the product's conformity assessment (Art. 43(3) as amended). The 2026 Digital Omnibus deferred application for Art. 6(1) systems to 2 August 2028. Tiers stack: high-risk does not exhaust the analysis.",
+      "actions": [
+        "Fold the Section 2 requirements (risk management, data governance, technical documentation, logging, transparency to deployers, human oversight, accuracy/robustness/cybersecurity) into the product technical file and conformity assessment.",
+        "Check the Annex III overlap: Art. 6(2) applies IN ADDITION to 6(1), and the Act explicitly allows dual-classified systems (amended Art. 43(3): conformity still runs through your Section A procedure). If the system's intended purpose also sits in an Annex III area (e.g. emergency healthcare triage in a medical device), walk the Annex III branch of this wizard too — on the literal text, the Annex III classification and its specific duties (Art. 49(1) database registration, the deployer-side Art. 26/27 stack) ride the EARLIER 2 Dec 2027 date; the omnibus does not expressly resolve the dual case, so plan to the earlier date.",
+        "If the system also interacts with people, generates content, or exposes people to emotion recognition or biometric categorization (Art. 50(3)), the Art. 50 transparency duties stack on top from 2 Aug 2026 (Art. 50(6)) — they do not wait for the high-risk date.",
+        "Deployers of these systems carry the Art. 26 stack too (oversight, monitoring, logs, worker information) — plus Art. 27 FRIA where the dual Annex III classification and the deployer's profile trigger it.",
+        "Check the Section A vs Section B boundary after the omnibus — machinery moved to Section B (Regulation (EU) 2023/1230), where only Art. 6(1), 60a and 102-112 apply via Art. 2(2).",
+        "Watch the Art. 2(13) delegated acts (due by 2 Aug 2027): the Commission may limit specific Chapter III requirements where your product legislation already provides equivalent or higher protection.",
+        "Legacy systems: on the market before 2 Aug 2028, the Act applies only on a significant design change (Art. 111(2) as amended) — public-authority-use systems must comply by 2 Aug 2030 regardless.",
+        "Who carries this: if the AI ships with the product under the product manufacturer's name, the manufacturer IS the provider (Art. 25(3)) — run 'AI Act: What's my role?' if that is unclear."
+      ],
+      "cites": [
+        "eu-ai-act-art-6",
+        "eu-ai-act-art-16",
+        "eu-ai-act-art-26",
+        "eu-ai-act-art-50",
+        "eu-ai-act-art-25",
+        "eu-ai-act-art-49",
+        "eu-ai-act-art-111",
+        "eu-ai-act-art-113",
+        "eu-ai-act-omnibus-2026"
+      ]
+    },
+    "o-annex1-b": {
+      "type": "outcome",
+      "tier": "info",
+      "title": "Section B product — the light-touch Art. 2(2) regime",
+      "summary": "For high-risk AI systems under Art. 6(1) related to products covered by SECTION B of Annex I (aviation, motor vehicles, agricultural vehicles, marine equipment, rail — and, since the 2026 omnibus, machinery under Regulation (EU) 2023/1230), only Art. 6(1), the new Art. 60a real-world-testing article, and Arts. 102-112 apply. The substantive AI requirements are instead integrated into the sectoral product legislation by its own amendments.",
+      "actions": [
+        "Track your sectoral legislation, not the AI Act's Chapter III — the requirements reach you through the sector's own rulebook as it absorbs them (Arts. 102-109 are the sectoral amendments — Art. 110 amends the representative-actions directive; they apply from the omnibus's entry into force).",
+        "Note Arts. 57-59 (sandboxes) apply only in so far as the AI requirements have been integrated into your sectoral legislation (Art. 2(2) as amended).",
+        "If the same AI system ALSO has an intended purpose in an Annex III area independent of the product, walk the Annex III branch separately."
+      ],
+      "cites": [
+        "eu-ai-act-art-2",
+        "eu-ai-act-art-6",
+        "eu-ai-act-omnibus-2026"
+      ]
+    },
+    "o-high-annex3": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "High-risk under Annex III — the full stack, from 2 December 2027",
+      "summary": "The system is high-risk under Art. 6(2). The 2026 Digital Omnibus moved the application date for the whole Chapter III package (Sections 1-3: classification, requirements, and provider/deployer obligations) from 2 August 2026 to 2 DECEMBER 2027 for Annex III systems. Providers carry the Art. 16 stack (Section 2 requirements, QMS, conformity assessment, CE marking, registration); deployers carry Art. 26 (oversight, monitoring, logs, worker information) and, for some, the Art. 27 fundamental rights impact assessment. Tiers stack: the high-risk date does NOT defer everything else.",
+      "actions": [
+        "Do not diary everything to Dec 2027: if the system also interacts with people, generates content, makes deepfakes, or exposes people to emotion recognition or biometric categorization (the Art. 50(3) deployer disclosure), the Art. 50 transparency duties stack on top from 2 AUG 2026 (Art. 50(6)) — a high-risk recruitment chatbot owes interaction disclosure and output marking a full 16 months before its Chapter III stack bites. The Art. 5 prohibitions bind already.",
+        "Providers: build against the Section 2 requirements now — risk management, data governance, technical documentation, logging, transparency to deployers, human oversight, accuracy/robustness/cybersecurity — then QMS (Art. 17), conformity assessment (Art. 43), EU declaration, CE marking, and Art. 49(1) registration in the EU database before placing on the market.",
+        "Deployers: line up Art. 26 (use per instructions, competent human oversight, input-data control, monitoring and incident escalation, 6-month log retention, worker information, informing people subject to decisions) — and check the Art. 27 FRIA trigger (public bodies, private providers of public services, and all deployers of credit-scoring or life/health-insurance-pricing systems; Annex III point 2 systems are exempt).",
+        "Diary the dates: obligations bite 2 Dec 2027; systems already on the market before then come into scope only on a significant design change (Art. 111(2) as amended; components of Annex X large-scale IT systems placed before 2 Aug 2027 instead run to 31 Dec 2030, Art. 111(1)); public-authority-use systems must comply by 2 Aug 2030 regardless.",
+        "Registration nuance: critical-infrastructure systems (Annex III point 2) register at national level, not the EU database (Art. 49(5)), and are exempt from the FRIA duty.",
+        "Penalties for non-compliance sit at EUR 15m / 3% (Art. 99(4)); prohibited-practice creep (e.g. drifting into social scoring) jumps to EUR 35m / 7%."
+      ],
+      "cites": [
+        "eu-ai-act-annex-iii",
+        "eu-ai-act-art-6",
+        "eu-ai-act-art-16",
+        "eu-ai-act-art-26",
+        "eu-ai-act-art-27",
+        "eu-ai-act-art-49",
+        "eu-ai-act-art-50",
+        "eu-ai-act-art-99",
+        "eu-ai-act-art-111",
+        "eu-ai-act-art-113",
+        "eu-ai-act-omnibus-2026"
+      ]
+    },
+    "o-derogation": {
+      "type": "outcome",
+      "tier": "warn",
+      "title": "Annex III area, but likely NOT high-risk — the provider documents it BEFORE market, and registers",
+      "summary": "Art. 6(3): despite the Annex III listing, the system is not high-risk if it poses no significant risk to health, safety or fundamental rights — including by not materially influencing decision outcomes — and your selected condition holds. This is the PROVIDER's call and paperwork: Art. 6(4) requires the provider to document the assessment BEFORE placing on the market or putting into service, and Art. 49(2) requires the provider to register the system in the EU database on that basis. A deployer cannot self-derogate a vendor's tool.",
+      "actions": [
+        "Providers: write the Art. 6(4) assessment now — the concrete condition relied on, why the system does not materially influence outcomes, and why no significant risk of harm arises; keep it ready for the national competent authority, which can demand it. Register under Art. 49(2) before market.",
+        "Deployers: ask the vendor for its documented Art. 6(4) assessment and Art. 49(2) registration — if neither exists, treat the classification as unresolved.",
+        "Re-verify the profiling override honestly: any automated evaluation of personal aspects of natural persons voids the derogation — 'we only score the documents, not the person' has to actually be true in the data.",
+        "Timing: the classification machinery rides the Annex III package (2 Dec 2027, as deferred), while the Art. 49 registration infrastructure is live from 2 Aug 2026 — the defensible posture is to have the documentation and registration in place before the system is on the market, whichever date you plan against.",
+        "If the system interacts with people, generates content, or exposes people to emotion recognition or biometric categorization (Art. 50(3)), the Art. 50 transparency duties apply from 2 Aug 2026 regardless of this derogation.",
+        "Set change tripwires: a new feature that starts influencing decisions, or a customer using it as the decision-maker, re-opens the classification (and Art. 25(1)(c) can flip a repurposing third party into a provider).",
+        "Watch the Commission's Art. 6 guidance and the delegated acts amending the condition list (Art. 6(6)-(7)) — the ground here can move."
+      ],
+      "cites": [
+        "eu-ai-act-art-6",
+        "eu-ai-act-art-49",
+        "eu-ai-act-art-50",
+        "eu-ai-act-annex-iii",
+        "eu-ai-act-art-113",
+        "eu-ai-act-omnibus-2026"
+      ]
+    },
+    "o-transparency": {
+      "type": "outcome",
+      "tier": "warn",
+      "title": "Transparency tier — Art. 50 disclosure duties, from 2 August 2026",
+      "summary": "Not high-risk, but not silent either. Art. 50 attaches duties by role: PROVIDERS — people must be told (or it must be obvious) that they are interacting with an AI system (50(1)); synthetic audio/image/video/text outputs must be marked machine-readably as artificially generated (50(2)). DEPLOYERS — people exposed to emotion recognition or biometric categorization must be informed (50(3)); deepfakes and AI-generated public-interest text must be disclosed (50(4)). All of it applies from 2 August 2026, delivered clearly at first interaction or exposure (50(5)).",
+      "actions": [
+        "Providers of generators: implement machine-readable marking (watermarking/provenance) that is effective, interoperable and robust as far as technically feasible — the assistive-editing and no-substantial-alteration carve-outs are narrow; document if you rely on them.",
+        "Legacy relief (omnibus): systems generating synthetic content placed on the market BEFORE 2 Aug 2026 have until 2 Dec 2026 to comply with 50(2) (Art. 111(4)).",
+        "Deployers publishing deepfakes: disclose the manipulation — for evidently artistic, creative or satirical work the duty softens to a non-hampering disclosure; for AI-written public-interest text, human editorial review with editorial responsibility lifts the duty.",
+        "Law-enforcement carve-outs run through Art. 50, but their scopes differ per paragraph — para 3 covers detection, prevention and investigation only (prosecution is not covered), and para 1's carve-out does not cover systems the public uses to report crimes — check the exact paragraph before relying on one.",
+        "Watch the codes of practice on detection and marking (50(7) as amended 2026) — the Commission can convert inadequate codes into binding common rules by implementing act.",
+        "Fines for Art. 50 breaches reach EUR 15m / 3% (Art. 99(4)(g)). And re-check the ladder on any repurposing — transparency-tier systems drift into Annex III uses easily."
+      ],
+      "cites": [
+        "eu-ai-act-art-50",
+        "eu-ai-act-art-111",
+        "eu-ai-act-art-99",
+        "eu-ai-act-art-113",
+        "eu-ai-act-omnibus-2026"
+      ]
+    },
+    "o-minimal": {
+      "type": "outcome",
+      "tier": "ok",
+      "title": "Minimal risk — no ladder obligations, two standing duties anyway",
+      "summary": "No prohibited practice, no Annex I or Annex III hook, no Art. 50 trigger: the Act imposes no system-specific obligations. Two things still stand: the Art. 4 AI-literacy duty (since 2 Feb 2025, providers AND deployers must take measures to support staff AI literacy — the 2026 omnibus softened it: no guaranteed literacy level is required) and the Art. 5 prohibitions, which constrain USE of any system. Voluntary codes of conduct (Art. 95) are the opt-in layer.",
+      "actions": [
+        "Record this classification with one line of reasoning per gate — it is your evidence of a considered assessment if the system's use later drifts.",
+        "Set a re-classification tripwire on purpose changes: a minimal-risk tool repurposed into an Annex III use becomes high-risk, and whoever repurposes a marketed system can inherit the provider role (Art. 25(1)(c)).",
+        "Keep the Art. 4 literacy measures real for the teams building or using the system.",
+        "If the system is built on a general-purpose model, remember the model's own Ch. V track sits with the model provider — your integration can rely on their Art. 53(1)(b) documentation."
+      ],
+      "cites": [
+        "eu-ai-act-art-113",
+        "eu-ai-act-art-5",
+        "eu-ai-act-omnibus-2026"
+      ]
+    },
+    "o-gpai": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "General-purpose AI model — the Art. 53 base duties (live since 2 August 2025)",
+      "summary": "Every provider of a general-purpose AI model placed on the EU market owes the Art. 53 set: technical documentation for authorities (Annex XI minimum); an information package for downstream system providers (Annex XII minimum); a copyright-compliance policy honoring Art. 4(3) text-and-data-mining reservations; and a public, sufficiently detailed training-content summary on the AI Office template. In application since 2 August 2025; models on the market before that date must comply by 2 August 2027 (Art. 111(3)).",
+      "actions": [
+        "Stand up the four Art. 53(1) deliverables and keep them current — (a) technical documentation, (b) the downstream information package, (c) the copyright policy including rights-reservation compliance, (d) the public training-content summary.",
+        "Check the open-source carve-out honestly: Art. 53(2) lifts (a) and (b) only for genuinely free and open-source releases with public parameters, weights, architecture and usage information — and never for systemic-risk models.",
+        "Third-country provider? Appoint an EU authorized representative before placing the model on the market (Art. 54).",
+        "Codes of practice are the practical compliance route until harmonized standards land (Art. 53(4), Art. 56) — if you do not sign up to one, you must show the Commission an adequate alternative way of complying.",
+        "Monitor the compute trajectory: crossing 10^25 FLOPs (or matching frontier capabilities, or a Commission designation) moves the model to the systemic-risk lane with a two-week notification duty (Arts. 51-52).",
+        "Shipping the model behind your own end-user product (a chat interface, an assistant, an app)? That product is an AI SYSTEM with its own ladder — rerun this wizard for it (Art. 50(2) expressly covers general-purpose AI systems, and own use counts as putting into service). Raw model-access APIs for developers stay on the model lane."
+      ],
+      "cites": [
+        "eu-ai-act-ch5-gpai",
+        "eu-ai-act-art-111",
+        "eu-ai-act-art-113"
+      ]
+    },
+    "o-gpai-systemic": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "GPAI with systemic risk — Art. 53 plus the Art. 55 stack, and a two-week clock",
+      "summary": "Above 10^25 training FLOPs the model is PRESUMED to have high-impact capabilities (Art. 51(2)); meeting the Art. 51(1)(a) condition triggers a duty to notify the Commission without delay and at latest within TWO WEEKS (Art. 52(1)) — with a chance to argue the model exceptionally poses no systemic risk (52(2)). On top of the full Art. 53 base set, Art. 55 adds: state-of-the-art model evaluations including adversarial testing; Union-level systemic-risk assessment and mitigation; serious-incident tracking and reporting to the AI Office; and cybersecurity for the model and its infrastructure. The open-source carve-out does not apply on this lane.",
+      "actions": [
+        "Diary the Art. 52(1) notification: within two weeks of meeting the threshold — or of knowing you will meet it (training-run planning counts).",
+        "Build the Art. 55 evidence chain: documented adversarial testing per standardized protocols, a living systemic-risk register with mitigations, an incident pipeline to the AI Office, and a cybersecurity posture covering weights and infrastructure.",
+        "All four Art. 53 deliverables apply with no open-source relief (53(2) exception excludes systemic-risk models).",
+        "Timing: Ch. V has applied since 2 Aug 2025; models on the market before then had to comply by 2 Aug 2027 (Art. 111(3)).",
+        "Expect the public list: the Commission publishes and maintains the register of systemic-risk models (Art. 52(6)).",
+        "Shipping the model behind your own end-user product? That product is an AI SYSTEM with its own ladder — rerun this wizard for it; raw model-access APIs for developers stay on the model lane."
+      ],
+      "cites": [
+        "eu-ai-act-ch5-gpai",
+        "eu-ai-act-art-111",
+        "eu-ai-act-art-113"
+      ]
+    }
+  }
+}

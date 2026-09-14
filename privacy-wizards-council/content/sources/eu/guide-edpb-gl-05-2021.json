@@ -1,0 +1,23 @@
+{
+  "kind": "guidance",
+  "juris": "EU",
+  "label": "EDPB Guidelines 05/2021 — Interplay between Art. 3 and Chapter V (definition of 'transfer')",
+  "citation": "EDPB Guidelines 05/2021, version 2.0 (14 February 2023)",
+  "body": [
+    "<p><b>EDPB Guidelines 05/2021 on the Interplay between the application of Article 3 and the provisions on international transfers as per Chapter V of the GDPR — Version 2.0, adopted 14 February 2023 (final, after public consultation; v1.0 adopted 18 November 2021).</b></p>",
+    "  <p><b>Verbatim — the three cumulative criteria for a \"transfer\" (para. 9):</b> \"1) A controller or a processor (\"exporter\") is subject to the GDPR for the given processing. 2) The exporter discloses by transmission or otherwise makes personal data, subject to this processing, available to another controller, joint controller or processor (\"importer\"). 3) The importer is in a third country, irrespective of whether or not this importer is subject to the GDPR for the given processing in accordance with Article 3, or is an international organisation.\"</p>",
+    "  <p><b>Verbatim — making available / remote access (section 2.2):</b> \"Some examples of how personal data could be \"made available\" are by creating an account, granting access rights to an existing account, \"confirming\"/\"accepting\" an effective request for remote access, embedding a hard drive or submitting a password to a file. It should be kept in mind that remote access from a third country (even if it takes place only by means of displaying personal data on a screen, for example in support situations, troubleshooting or for administration purposes) and/or storage in a cloud situated outside the EEA offered by a service provider, is also considered to be a transfer, provided that the three criteria outlined in paragraph 9 above are met.\"</p>",
+    "  <p>• If all three criteria are met, Chapter V applies: the transfer needs an Art. 45 adequacy decision, Art. 46 appropriate safeguards, or an Art. 49 derogation.</p>",
+    "  <p>• Whether the GDPR applies is assessed per processing operation, not per entity — and the importer being itself subject to the GDPR under Art. 3 does not prevent the disclosure from being a transfer.</p>",
+    "  <p>• No transfer where there is no controller/processor \"exporter\" making the data available — e.g. where data are disclosed directly by the data subject to the recipient — and no transfer for \"internal processing\" within the same controller or processor, including where that processing takes place outside the EU (though the controller remains responsible for all GDPR safeguards).</p>"
+  ],
+  "provenance": "https://www.edpb.europa.eu/system/files/documents/2023-02/edpb_guidelines_05-2021_interplay_between_the_application_of_art3-chapter_v_of_the_gdpr_v2_en_0.pdf",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

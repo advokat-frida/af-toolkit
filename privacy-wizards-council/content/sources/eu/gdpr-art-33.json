@@ -1,0 +1,26 @@
+{
+  "juris": "EU",
+  "label": "GDPR Art. 33 — Breach notification to supervisory authority",
+  "citation": "Regulation (EU) 2016/679, Art. 33",
+  "body": [
+    "<p><span class=\"num\">1.</span> In the case of a personal data breach, the controller shall <b>without undue delay and, where feasible, not later than 72 hours</b> after having become aware of it, notify the personal data breach to the supervisory authority … <b>unless the personal data breach is unlikely to result in a risk to the rights and freedoms of natural persons</b>. Where the notification to the supervisory authority is not made within 72 hours, it shall be accompanied by reasons for the delay.</p>",
+    "  <p><span class=\"num\">2.</span> The processor shall notify the controller without undue delay after becoming aware of a personal data breach.</p>",
+    "  <p><span class=\"num\">3.</span> The notification … shall at least:</p>",
+    "  <blockquote>(a) describe the nature of the personal data breach including … the categories and approximate number of data subjects concerned and the categories and approximate number of personal data records concerned;</blockquote>",
+    "  <blockquote>(b) communicate the name and contact details of the data protection officer or other contact point …;</blockquote>",
+    "  <blockquote>(c) describe the likely consequences of the personal data breach;</blockquote>",
+    "  <blockquote>(d) describe the measures taken or proposed to be taken by the controller to address the personal data breach, including, where appropriate, measures to mitigate its possible adverse effects.</blockquote>",
+    "  <p><span class=\"num\">4.</span> Where, and in so far as, it is not possible to provide the information at the same time, the information <b>may be provided in phases</b> without undue further delay.</p>",
+    "  <p><span class=\"num\">5.</span> The controller shall <b>document any personal data breaches</b>, comprising the facts relating to the personal data breach, its effects and the remedial action taken.</p>"
+  ],
+  "kind": "statute",
+  "provenance": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504#art_33",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

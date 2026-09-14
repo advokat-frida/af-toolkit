@@ -1,0 +1,24 @@
+{
+  "kind": "guidance",
+  "juris": "EU",
+  "label": "EDPB Guidelines 3/2019 — Processing through Video Devices",
+  "citation": "EDPB Guidelines 3/2019, version 2.0 (29 January 2020)",
+  "provenance": "https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-32019-processing-personal-data-through-video_en",
+  "body": [
+    "<p><b>Key positions:</b></p>",
+    "  <p>• Photographs and video are <b>not automatically</b> biometric data — they become Art. 9 biometric only when processed through a <b>specific technical means</b> that allows unique identification (template extraction, face matching against a database).</p>",
+    "  <p>• A plain photograph in an HR file = ordinary personal data; the same photograph processed through facial-recognition templating = Art. 9 special category data.</p>",
+    "  <p>• Legitimate interest (Art. 6(1)(f)) is the most common basis for CCTV — but balancing test is strict, especially in public-facing or workplace contexts.</p>",
+    "  <p>• Mandatory: signage / on-the-spot first-layer notice + a full second-layer notice available on request.</p>",
+    "  <p>• Retention: short by default (24–72 hours typical); longer requires documented justification.</p>",
+    "  <p>• Subject-rights operations: access requests can be unique — controllers may need to provide a still image or footage clip, subject to third-party redaction. DPIA generally required for systematic monitoring of public areas (Art. 35(3)(c)).</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

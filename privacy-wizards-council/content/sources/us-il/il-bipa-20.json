@@ -1,0 +1,22 @@
+{
+  "kind": "statute",
+  "juris": "US-IL",
+  "label": "IL BIPA Sec. 20 — Right of action",
+  "citation": "740 ILCS 14/20 (as amended 2024)",
+  "body": [
+    "<p><span class=\"num\">740 ILCS 14/20</span> Sec. 20. <b>Right of action.</b></p>",
+    "  <p><span class=\"num\">(a)</span> Any person aggrieved by a violation of this Act shall have a right of action in a State circuit court or as a supplemental claim in federal district court against an offending party. A prevailing party may recover for each violation: (1) against a private entity that negligently violates a provision of this Act, <b>liquidated damages of $1,000 or actual damages, whichever is greater</b>; (2) against a private entity that intentionally or recklessly violates a provision of this Act, <b>liquidated damages of $5,000 or actual damages, whichever is greater</b>; (3) reasonable attorneys' fees and costs, including expert witness fees and other litigation expenses; and (4) other relief, including an injunction, as the State or federal court may deem appropriate.</p>",
+    "  <p><span class=\"num\">(b)</span> For purposes of subsection (b) of Section 15, a private entity that, in more than one instance, collects, captures, purchases, receives through trade, or otherwise obtains the same biometric identifier or biometric information from the same person using the same method of collection in violation of subsection (b) of Section 15 has committed <b>a single violation</b> of subsection (b) of Section 15 for which the aggrieved person is entitled to, <b>at most, one recovery</b> under this Section.</p>",
+    "  <p><span class=\"num\">(c)</span> For purposes of subsection (d) of Section 15, a private entity that, in more than one instance, discloses, rediscloses, or otherwise disseminates the same biometric identifier or biometric information from the same person to the same recipient using the same method of collection in violation of subsection (d) of Section 15 has committed a single violation of subsection (d) of Section 15 for which the aggrieved person is entitled to, at most, one recovery under this Section regardless of the number of times the private entity disclosed, redisclosed, or otherwise disseminated the same biometric identifier or biometric information of the same person to the same recipient.</p>",
+    "  <p>(Source: P.A. 103-769, eff. 8-2-24.)</p>"
+  ],
+  "provenance": "https://www.ilga.gov/Legislation/ILCS/Articles?ActID=3004&ChapterID=57",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

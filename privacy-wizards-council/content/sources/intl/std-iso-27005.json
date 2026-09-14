@@ -1,0 +1,18 @@
+{
+  "juris": "INTL",
+  "label": "ISO/IEC 27005:2022 — Information security risk management",
+  "citation": "ISO/IEC 27005:2022, Guidance on managing information security risks",
+  "body": [
+    "ISO/IEC 27005:2022 provides the consequence-and-likelihood structure underpinning the matrix approach used by this wizard: risks are analyzed by assessing the potential consequences of an event and the likelihood of its occurrence, and risk levels are derived from the combination of the two — commonly presented as a consequence x likelihood matrix. The standard deliberately leaves the number of scale levels and the risk-acceptance thresholds to the organization applying it."
+  ],
+  "kind": "guidance",
+  "provenance": "https://www.iso.org/standard/80585.html",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

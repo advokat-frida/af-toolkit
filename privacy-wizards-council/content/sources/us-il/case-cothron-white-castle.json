@@ -1,0 +1,34 @@
+{
+  "kind": "case",
+  "juris": "US-IL",
+  "label": "Ill. Sup. Ct. — Cothron v White Castle (per-scan accrual; damages discretionary)",
+  "citation": "2023 IL 128004",
+  "body": [
+    "Cothron v. White Castle System, Inc., 2023 IL 128004",
+    "Docket No. 128004 — Filed February 17, 2023 — Separate opinion upon denial of rehearing July 18, 2023",
+    "Certified question from the United States Court of Appeals for the Seventh Circuit. Certified question answered.",
+    "",
+    "¶1 This case requires us to construe section 15(b) and 15(d) of the Biometric Information Privacy Act (Act) (740 ILCS 14/15(b), (d) (West 2018)) in an action alleging that an employer violated the Act when it repeatedly collected fingerprints from an employee and disclosed that biometric information to a third party without consent. Specifically, the United States Court of Appeals for the Seventh Circuit certified the following question of law to this court: \"Do section 15(b) and 15(d) claims accrue each time a private entity scans a person's biometric identifier and each time a private entity transmits such a scan to a third party, respectively, or only upon the first scan and first transmission?\" Cothron v. White Castle System, Inc., 20 F.4th 1156, 1167 (7th Cir. 2021). We hold that a separate claim accrues under the Act each time a private entity scans or transmits an individual's biometric identifier or information in violation of section 15(b) or 15(d).",
+    "",
+    "[...]",
+    "",
+    "¶ 42 All of that said, we generally agree with our appellate court's recognition that \"[a] trial court presiding over a class action--a creature of equity--would certainly possess the discretion to fashion a damage award that (1) fairly compensated claiming class members and (2) included an amount designed to deter future violations, without destroying defendant's business.\" Century Mutual Insurance Co. v. Tracy's Treasures, Inc., 2014 IL App (1st) 123339, ¶ 72. It also appears that the General Assembly chose to make damages discretionary rather than mandatory under the Act. See 740 ILCS 14/20 (West 2018) (detailing the amounts and types of damages that a \"prevailing party may recover\" (emphasis added)); see also Watson, 2021 IL App (1st) 210279, ¶ 66 n.4 (concluding that damages under the Act are discretionary rather than mandatory). While we explained in Rosenbach that \"subjecting private entities who fail to follow the statute's requirements to substantial potential liability, including liquidated damages, injunctions, attorney fees, and litigation expenses `for each violation' of the law\" is one of the principal means that the Illinois legislature adopted to achieve the Act's objectives of protecting biometric information (Rosenbach, 2019 IL 123186, ¶ 36 (quoting 740 ILCS 14/20 (West 2016))), there is no language in the Act suggesting legislative intent to authorize a damages award that would result in the financial destruction of a business.",
+    "",
+    "¶ 43 Ultimately, however, we continue to believe that policy-based concerns about potentially excessive damage awards under the Act are best addressed by the legislature. See McDonald, 2022 IL 126511, ¶¶ 48-49 (observing that violations of the Act have the potential for \"substantial consequences\" and large damage awards but concluding that \"whether a different balance should be struck *** is a question more appropriately addressed to the legislature\"). We respectfully suggest that the legislature review these policy concerns and make clear its intent regarding the assessment of damages under the Act.",
+    "",
+    "[...]",
+    "",
+    "¶ 45 In sum, we conclude that the plain language of section 15(b) and 15(d) shows that a claim accrues under the Act with every scan or transmission of biometric identifiers or biometric information without prior informed consent.",
+    "",
+    "¶ 46 Certified question answered."
+  ],
+  "provenance": "https://ilcourtsaudio.blob.core.windows.net/antilles-resources/resources/e304b011-82d9-4832-9cae-d8205749a2ec/Cothron%20v.%20White%20Castle%20System,%20Inc.,%202023%20IL%20128004.pdf",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

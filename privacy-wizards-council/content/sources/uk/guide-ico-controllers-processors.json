@@ -1,0 +1,18 @@
+{
+  "kind": "guidance",
+  "juris": "UK",
+  "label": "ICO guidance — Controllers and processors",
+  "citation": "ICO, Guide to the UK GDPR: Controllers and processors",
+  "body": [
+    "ICO detailed guidance 'Controllers and processors' (Guide to UK GDPR guidance and resources series, web version, fetched 1 July 2026; no page-level version number stated). Key positions: an organisation is not by its nature either a controller or a processor - the role must be assessed per processing activity by asking who determines the purposes and manner of that specific processing. Indicators of controller status are deciding to collect the personal data in the first place, the lawful basis, the types of data, the purposes, which individuals are covered, disclosures, what to tell individuals, how to respond to rights requests, and retention; making any of these decisions makes you likely a controller. A processor may, within its contract, decide technical matters (IT systems, storage, security details, transfer, retrieval, retention-schedule adherence, deletion) but cannot take the overarching decisions such as what types of personal data to collect or what the data will be used for. The key test in practice is each party's degree of independence in determining how and in what manner the data is processed and the degree of control over it, illustrated by examples: a bank's IT archiving firm remains a processor despite technical discretion; a school-attendance software company is likely a processor; a market-research firm that determines what information to collect and how becomes a joint controller with the commissioning bank. An organisation can be both controller and processor, but never for the same processing activity, and a processor that processes outside the controller's instructions becomes a controller in its own right for that element; systems must distinguish the two capacities or the parties are likely joint controllers. The page carries the ICO's site-wide banner stating the Data (Use and Access) Act provisions affecting data protection law and PECR are now in force, but flags no DUAA-specific change to this guidance's controller/processor test."
+  ],
+  "provenance": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/controllers-and-processors/controllers-and-processors/",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

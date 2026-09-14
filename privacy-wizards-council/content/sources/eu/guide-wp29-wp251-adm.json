@@ -1,0 +1,25 @@
+{
+  "kind": "guidance",
+  "juris": "EU",
+  "label": "WP29 Guidelines on Automated Decision-Making (WP251 rev.01)",
+  "citation": "Article 29 Working Party WP251 rev.01 (6 February 2018), endorsed by EDPB",
+  "provenance": "https://ec.europa.eu/newsroom/article29/items/612053",
+  "body": [
+    "<p><b>Key positions:</b></p>",
+    "  <p>• \"<b>Solely</b> automated\" = no <b>meaningful</b> human intervention. Rubber-stamp human review does NOT escape Art. 22.</p>",
+    "  <p>• The human must have <b>actual authority and competence</b> to change the decision, with access to all relevant information including additional data the subject submits.</p>",
+    "  <p>• \"<b>Legal effects</b>\": affects legal rights, status, or eligibility — denial of benefits, contract termination, exclusion from a service.</p>",
+    "  <p>• \"<b>Similarly significantly affects</b>\": online credit decisions, e-recruiting without human intervention, dynamic pricing that effectively excludes the subject from a service, behavioural-advertising that exploits vulnerabilities.</p>",
+    "  <p>• Personalised content recommendations of low-impact products typically don't reach the threshold; but profile-driven exclusion from offers or services may.</p>",
+    "  <p>• Required safeguards under Art. 22(3): genuine human-intervention route, ability to express the subject's point of view (e.g. submit additional context), ability to contest with appeal mechanism.</p>",
+    "  <p>• \"<b>Meaningful information about the logic</b>\" (Art. 13(2)(f), 14(2)(g), 15(1)(h)) ≠ the full algorithm. Must explain: the kind of data used, why the data is relevant, what the consequences are.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

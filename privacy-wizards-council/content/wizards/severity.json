@@ -1,0 +1,410 @@
+{
+  "title": "Breach severity: how bad is it?",
+  "tag": "Grade the harm to the people affected — severity x likelihood on the audited risk-matrix ladder — and see what the band implies for Art. 33/34.",
+  "q": "How serious is the harm to the people affected?",
+  "icon": "🌡️",
+  "jurisdictions": [
+    "EU",
+    "UK"
+  ],
+  "start": "q-scope",
+  "verifiedAsOf": "2026-07-06 (automated cross-check against official source texts and the adversarially audited Advokat Frida risk-matrix methodology (ADVO-22); not yet reviewed by counsel)",
+  "nodes": {
+    "q-scope": {
+      "type": "question",
+      "q": "What are you grading?",
+      "help": "This wizard grades the impact on the PEOPLE whose data was involved — the GDPR's own lens (Recitals 75-76: risk of varying likelihood and severity to the rights and freedoms of natural persons) and the perspective the ENISA breach-severity methodology takes. Damage to your organization is a different assessment. The output is a severity band and what it implies for the Art. 33/34 notification decisions — the notification determination itself, with its jurisdictional branches and clocks, lives in the Breach notification wizard. UK note: UK GDPR Arts. 33/34 are materially identical, and the Breach notification wizard carries the UK branch — the EDPB guidance cited here is persuasive only in the UK.",
+      "cites": [
+        "gdpr-recitals-75-76",
+        "enisa-severity-2013",
+        "gdpr-art-4",
+        "guide-edpb-9-2022-breach"
+      ],
+      "opts": [
+        {
+          "label": "A personal-data breach at the organization that decides why and how the data is processed (we are the controller — or we are grading on its behalf)",
+          "goto": "q-sev",
+          "desc": "Confirmed or suspected compromise of confidentiality, integrity, or availability of personal data (Art. 4(12) covers destruction, loss and alteration too)."
+        },
+        {
+          "label": "We process this data on behalf of another organization (we are the processor)",
+          "goto": "o-processor"
+        },
+        {
+          "label": "An incident with no personal data involved",
+          "goto": "o-nopd"
+        }
+      ]
+    },
+    "q-sev": {
+      "type": "question",
+      "q": "How severe is the impact on the affected individuals?",
+      "help": "Match your situation to a description — grade by what the affected people face, not by headline numbers. The harm catalog is GDPR Recital 75: discrimination, identity theft or fraud, financial loss, reputational damage, loss of confidentiality of data under professional secrecy, unauthorized reversal of pseudonymisation, or any other significant economic or social disadvantage — plus loss of control over their data. The ladder is the NIST SP 800-30 five-step scale (Very Low → Very High), as used in the audited Advokat Frida risk matrix. One reading note: the organizational-consequence clauses inside the descriptions (fines, regulatory action, reputation) describe what typically CO-OCCURS at each level — they are context, not the thing you grade; grade the people impact.",
+      "cites": [
+        "gdpr-recitals-75-76",
+        "std-nist-800-30",
+        "enisa-severity-2013"
+      ],
+      "opts": [
+        {
+          "label": "Negligible (Very Low) — minimal or no adverse impact",
+          "desc": "Individuals experience little to no adverse effect; any inconvenience is trivial and easily overcome, with no meaningful loss of control over their data. No regulatory or material consequence for the organization.",
+          "goto": "q-lik-1"
+        },
+        {
+          "label": "Minor (Low) — limited, short-term impact",
+          "desc": "Individuals face minor, short-term inconvenience they can overcome without difficulty (re-entering data, minor annoyance). Isolated complaints or minor cost; no regulatory interest.",
+          "goto": "q-lik-2"
+        },
+        {
+          "label": "Moderate (Moderate) — noticeable but recoverable",
+          "desc": "Individuals face real but recoverable harm — stress, lost time, minor financial loss, or limited loss of control over their personal data. Moderate cost, a possible regulatory inquiry, or limited reputational damage.",
+          "goto": "q-lik-3"
+        },
+        {
+          "label": "Major (High) — significant, lasting impact",
+          "desc": "Individuals face significant harm that is difficult to overcome — material financial loss, discrimination, damage to reputation, or loss of confidentiality of protected data. Significant fines, regulatory action, or material reputational harm.",
+          "goto": "q-lik-4"
+        },
+        {
+          "label": "Severe (Very High) — critical, potentially irreversible",
+          "desc": "Individuals face severe or irreversible harm to their fundamental rights — identity theft or fraud, physical or safety risk, financial ruin, or being unable to exercise control over their data. Maximum penalties, enforcement, litigation, or existential reputational damage.",
+          "goto": "q-lik-5"
+        }
+      ]
+    },
+    "q-lik-1": {
+      "type": "question",
+      "q": "How likely is it that this harm actually materialises for the people affected?",
+      "help": "You graded severity as Negligible (Very Low). Now grade the likelihood of the CONSEQUENTIAL harm landing — misuse, further spread, fraud — not the likelihood of the breach (it already happened, and the disclosure itself is already priced into the severity grade). Map the level descriptions onto exposure evidence for THIS breach: Rare fits data that is unintelligible (encryption with keys intact), verified non-access — or a known, trusted recipient's confirmed deletion or return; the middle levels (Unlikely, Possible, Likely) fit access possible or confirmed with no evidence of use, scaled by who plausibly has it; Almost certain fits confirmed exfiltration or data already circulating or misused. Read the percentage aids over the whole period the data remains exploitable, not a fixed year. EDPB Guidelines 9/2022 walk the same factors.",
+      "cites": [
+        "std-nist-800-30",
+        "guide-edpb-9-2022-breach"
+      ],
+      "opts": [
+        {
+          "label": "Rare (Very Low) — only in exceptional circumstances",
+          "desc": "No known occurrences; strong, tested controls in place. Calibration aid: roughly below 10% over the period you care about.",
+          "goto": "o-low"
+        },
+        {
+          "label": "Unlikely (Low) — could occur but not expected",
+          "desc": "Few occurrences in comparable contexts; reasonable controls in place. Calibration aid: roughly 10–30%.",
+          "goto": "o-low"
+        },
+        {
+          "label": "Possible (Moderate) — might occur at some point",
+          "desc": "Has happened occasionally in similar contexts; only partial controls. Calibration aid: roughly 30–50%.",
+          "goto": "o-low"
+        },
+        {
+          "label": "Likely (High) — will probably occur",
+          "desc": "Occurs regularly in comparable contexts; limited controls. Calibration aid: roughly 50–80%.",
+          "goto": "o-low"
+        },
+        {
+          "label": "Almost certain (Very High) — expected to occur",
+          "desc": "Common and recurring, with little or no effective control. Calibration aid: roughly above 80%.",
+          "goto": "o-medium"
+        },
+        {
+          "label": "Cannot yet be assessed — access or exfiltration cannot be ruled out",
+          "desc": "The honest mid-incident answer. Graded conservatively at the 'Likely' column until forensics say otherwise, in line with EDPB 9/2022's worked examples — the outcome describes the band you provisionally occupy, not an established finding; re-run this wizard as facts land.",
+          "goto": "o-low"
+        }
+      ]
+    },
+    "q-lik-2": {
+      "type": "question",
+      "q": "How likely is it that this harm actually materialises for the people affected?",
+      "help": "You graded severity as Minor (Low). Now grade the likelihood of the CONSEQUENTIAL harm landing — misuse, further spread, fraud — not the likelihood of the breach (it already happened, and the disclosure itself is already priced into the severity grade). Map the level descriptions onto exposure evidence for THIS breach: Rare fits data that is unintelligible (encryption with keys intact), verified non-access — or a known, trusted recipient's confirmed deletion or return; the middle levels (Unlikely, Possible, Likely) fit access possible or confirmed with no evidence of use, scaled by who plausibly has it; Almost certain fits confirmed exfiltration or data already circulating or misused. Read the percentage aids over the whole period the data remains exploitable, not a fixed year. EDPB Guidelines 9/2022 walk the same factors.",
+      "cites": [
+        "std-nist-800-30",
+        "guide-edpb-9-2022-breach"
+      ],
+      "opts": [
+        {
+          "label": "Rare (Very Low) — only in exceptional circumstances",
+          "desc": "No known occurrences; strong, tested controls in place. Calibration aid: roughly below 10% over the period you care about.",
+          "goto": "o-low"
+        },
+        {
+          "label": "Unlikely (Low) — could occur but not expected",
+          "desc": "Few occurrences in comparable contexts; reasonable controls in place. Calibration aid: roughly 10–30%.",
+          "goto": "o-low"
+        },
+        {
+          "label": "Possible (Moderate) — might occur at some point",
+          "desc": "Has happened occasionally in similar contexts; only partial controls. Calibration aid: roughly 30–50%.",
+          "goto": "o-medium"
+        },
+        {
+          "label": "Likely (High) — will probably occur",
+          "desc": "Occurs regularly in comparable contexts; limited controls. Calibration aid: roughly 50–80%.",
+          "goto": "o-medium"
+        },
+        {
+          "label": "Almost certain (Very High) — expected to occur",
+          "desc": "Common and recurring, with little or no effective control. Calibration aid: roughly above 80%.",
+          "goto": "o-high"
+        },
+        {
+          "label": "Cannot yet be assessed — access or exfiltration cannot be ruled out",
+          "desc": "The honest mid-incident answer. Graded conservatively at the 'Likely' column until forensics say otherwise, in line with EDPB 9/2022's worked examples — the outcome describes the band you provisionally occupy, not an established finding; re-run this wizard as facts land.",
+          "goto": "o-medium"
+        }
+      ]
+    },
+    "q-lik-3": {
+      "type": "question",
+      "q": "How likely is it that this harm actually materialises for the people affected?",
+      "help": "You graded severity as Moderate (Moderate). Now grade the likelihood of the CONSEQUENTIAL harm landing — misuse, further spread, fraud — not the likelihood of the breach (it already happened, and the disclosure itself is already priced into the severity grade). Map the level descriptions onto exposure evidence for THIS breach: Rare fits data that is unintelligible (encryption with keys intact), verified non-access — or a known, trusted recipient's confirmed deletion or return; the middle levels (Unlikely, Possible, Likely) fit access possible or confirmed with no evidence of use, scaled by who plausibly has it; Almost certain fits confirmed exfiltration or data already circulating or misused. Read the percentage aids over the whole period the data remains exploitable, not a fixed year. EDPB Guidelines 9/2022 walk the same factors.",
+      "cites": [
+        "std-nist-800-30",
+        "guide-edpb-9-2022-breach"
+      ],
+      "opts": [
+        {
+          "label": "Rare (Very Low) — only in exceptional circumstances",
+          "desc": "No known occurrences; strong, tested controls in place. Calibration aid: roughly below 10% over the period you care about.",
+          "goto": "o-low"
+        },
+        {
+          "label": "Unlikely (Low) — could occur but not expected",
+          "desc": "Few occurrences in comparable contexts; reasonable controls in place. Calibration aid: roughly 10–30%.",
+          "goto": "o-medium"
+        },
+        {
+          "label": "Possible (Moderate) — might occur at some point",
+          "desc": "Has happened occasionally in similar contexts; only partial controls. Calibration aid: roughly 30–50%.",
+          "goto": "o-medium"
+        },
+        {
+          "label": "Likely (High) — will probably occur",
+          "desc": "Occurs regularly in comparable contexts; limited controls. Calibration aid: roughly 50–80%.",
+          "goto": "o-high"
+        },
+        {
+          "label": "Almost certain (Very High) — expected to occur",
+          "desc": "Common and recurring, with little or no effective control. Calibration aid: roughly above 80%.",
+          "goto": "o-critical"
+        },
+        {
+          "label": "Cannot yet be assessed — access or exfiltration cannot be ruled out",
+          "desc": "The honest mid-incident answer. Graded conservatively at the 'Likely' column until forensics say otherwise, in line with EDPB 9/2022's worked examples — the outcome describes the band you provisionally occupy, not an established finding; re-run this wizard as facts land.",
+          "goto": "o-high"
+        }
+      ]
+    },
+    "q-lik-4": {
+      "type": "question",
+      "q": "How likely is it that this harm actually materialises for the people affected?",
+      "help": "You graded severity as Major (High). Now grade the likelihood of the CONSEQUENTIAL harm landing — misuse, further spread, fraud — not the likelihood of the breach (it already happened, and the disclosure itself is already priced into the severity grade). Map the level descriptions onto exposure evidence for THIS breach: Rare fits data that is unintelligible (encryption with keys intact), verified non-access — or a known, trusted recipient's confirmed deletion or return; the middle levels (Unlikely, Possible, Likely) fit access possible or confirmed with no evidence of use, scaled by who plausibly has it; Almost certain fits confirmed exfiltration or data already circulating or misused. Read the percentage aids over the whole period the data remains exploitable, not a fixed year. EDPB Guidelines 9/2022 walk the same factors. At Major severity, grade Rare only on VERIFIED assurance — intact encryption with keys confirmed uncompromised, or confirmed non-access — not on general confidence in your controls.",
+      "cites": [
+        "std-nist-800-30",
+        "guide-edpb-9-2022-breach"
+      ],
+      "opts": [
+        {
+          "label": "Rare (Very Low) — only in exceptional circumstances",
+          "desc": "No known occurrences; strong, tested controls in place. Calibration aid: roughly below 10% over the period you care about.",
+          "goto": "o-low"
+        },
+        {
+          "label": "Unlikely (Low) — could occur but not expected",
+          "desc": "Few occurrences in comparable contexts; reasonable controls in place. Calibration aid: roughly 10–30%.",
+          "goto": "o-medium"
+        },
+        {
+          "label": "Possible (Moderate) — might occur at some point",
+          "desc": "Has happened occasionally in similar contexts; only partial controls. Calibration aid: roughly 30–50%.",
+          "goto": "o-high"
+        },
+        {
+          "label": "Likely (High) — will probably occur",
+          "desc": "Occurs regularly in comparable contexts; limited controls. Calibration aid: roughly 50–80%.",
+          "goto": "o-critical"
+        },
+        {
+          "label": "Almost certain (Very High) — expected to occur",
+          "desc": "Common and recurring, with little or no effective control. Calibration aid: roughly above 80%.",
+          "goto": "o-critical"
+        },
+        {
+          "label": "Cannot yet be assessed — access or exfiltration cannot be ruled out",
+          "desc": "The honest mid-incident answer. Graded conservatively at the 'Likely' column until forensics say otherwise, in line with EDPB 9/2022's worked examples — the outcome describes the band you provisionally occupy, not an established finding; re-run this wizard as facts land.",
+          "goto": "o-critical"
+        }
+      ]
+    },
+    "q-lik-5": {
+      "type": "question",
+      "q": "How likely is it that this harm actually materialises for the people affected?",
+      "help": "You graded severity as Severe (Very High). Now grade the likelihood of the CONSEQUENTIAL harm landing — misuse, further spread, fraud — not the likelihood of the breach (it already happened, and the disclosure itself is already priced into the severity grade). Map the level descriptions onto exposure evidence for THIS breach: Rare fits data that is unintelligible (encryption with keys intact), verified non-access — or a known, trusted recipient's confirmed deletion or return; the middle levels (Unlikely, Possible, Likely) fit access possible or confirmed with no evidence of use, scaled by who plausibly has it; Almost certain fits confirmed exfiltration or data already circulating or misused. Read the percentage aids over the whole period the data remains exploitable, not a fixed year. EDPB Guidelines 9/2022 walk the same factors. At Severe severity, grade Rare only on VERIFIED assurance — intact encryption with keys confirmed uncompromised, or confirmed non-access — not on general confidence in your controls.",
+      "cites": [
+        "std-nist-800-30",
+        "guide-edpb-9-2022-breach"
+      ],
+      "opts": [
+        {
+          "label": "Rare (Very Low) — only in exceptional circumstances",
+          "desc": "No known occurrences; strong, tested controls in place. Calibration aid: roughly below 10% over the period you care about.",
+          "goto": "o-medium"
+        },
+        {
+          "label": "Unlikely (Low) — could occur but not expected",
+          "desc": "Few occurrences in comparable contexts; reasonable controls in place. Calibration aid: roughly 10–30%.",
+          "goto": "o-high"
+        },
+        {
+          "label": "Possible (Moderate) — might occur at some point",
+          "desc": "Has happened occasionally in similar contexts; only partial controls. Calibration aid: roughly 30–50%.",
+          "goto": "o-critical"
+        },
+        {
+          "label": "Likely (High) — will probably occur",
+          "desc": "Occurs regularly in comparable contexts; limited controls. Calibration aid: roughly 50–80%.",
+          "goto": "o-critical"
+        },
+        {
+          "label": "Almost certain (Very High) — expected to occur",
+          "desc": "Common and recurring, with little or no effective control. Calibration aid: roughly above 80%.",
+          "goto": "o-critical"
+        },
+        {
+          "label": "Cannot yet be assessed — access or exfiltration cannot be ruled out",
+          "desc": "The honest mid-incident answer. Graded conservatively at the 'Likely' column until forensics say otherwise, in line with EDPB 9/2022's worked examples — the outcome describes the band you provisionally occupy, not an established finding; re-run this wizard as facts land.",
+          "goto": "o-critical"
+        }
+      ]
+    },
+    "o-low": {
+      "type": "outcome",
+      "tier": "ok",
+      "clock": "The 72-hour clock has been running since AWARENESS regardless of this grade — record your awareness time even if you do not notify",
+      "title": "Low band (provisional) — confirm in the Breach notification wizard before closing the file",
+      "summary": "Severity x likelihood lands in the LOW band of the audited Advokat Frida risk matrix. For the legal decisions this is the 'unlikely to result in a risk' neighborhood: Art. 33(1) requires notifying the supervisory authority UNLESS the breach is unlikely to result in a risk to the rights and freedoms of natural persons — a low-band assessment, honestly reached, is the classic basis for rebutting that presumption. Art. 34 (communicating to the affected people) requires that the breach be LIKELY to result in a high risk, which is far from this band. The band is a structured aid, not the statutory test — the tests are Art. 33(1) and 34(1), and the documented reasoning is what the regulator will read. Methodology: the grading ladders follow NIST SP 800-30 Rev. 1, the harm catalog follows GDPR Recital 75, the individuals-first grading follows ENISA, and the matrix follows ISO/IEC 27005 — but the Low / Medium / High / Critical mapping is Advokat Frida's general-purpose default (the standards deliberately leave acceptance thresholds to each organization); treat the band as a starting point, not a rule to hide behind.",
+      "actions": [
+        "Run the Breach notification wizard before closing anything — it owns the actual notify/do-not-notify determination per jurisdiction, and a GDPR-low grade does NOT carry over to the US state branches (CA/NY/IL), whose notice triggers work differently; a GDPR-low breach can still be notifiable in the US.",
+        "Whether or not you notify, record the breach, its effects and the remedial action under Art. 33(5) — the no-notification decision is exactly what that record must be able to defend.",
+        "Re-score if facts move: exfiltration confirmed, decryption of protected fields, data surfacing in the wild — likelihood is the input that most often shifts mid-incident; this grade is provisional until forensics close.",
+        "Going-forward risk posture for the affected PROCESSING (audited band advice — this rates the processing, not the breach, and internal sign-off never displaces the Art. 33/34 duties): Broadly acceptable. Monitor, document the decision, and review periodically."
+      ],
+      "cites": [
+        "gdpr-art-33",
+        "gdpr-art-34",
+        "gdpr-recitals-75-76",
+        "guide-edpb-9-2022-breach",
+        "std-nist-800-30",
+        "std-iso-27005",
+        "enisa-severity-2013"
+      ]
+    },
+    "o-medium": {
+      "type": "outcome",
+      "tier": "warn",
+      "clock": "The 72-hour clock runs from AWARENESS of the breach — not from this grading; record your awareness time now",
+      "title": "Medium band — a real risk is plausible; work the Art. 33 question now",
+      "summary": "Severity x likelihood lands in the MEDIUM band of the audited Advokat Frida risk matrix. A breach in this band usually clears the Art. 33(1) threshold — some real risk to individuals is plausible — so plan on notifying the supervisory authority unless your documented analysis honestly supports 'unlikely to result in a risk'. Art. 34 subject communication requires that a HIGH risk be likely and is typically not triggered here, but check the EDPB 9/2022 factors (nature of the data, ease of identification, volume, vulnerable people) before parking it. The band is a structured aid, not the statutory test. Methodology: the grading ladders follow NIST SP 800-30 Rev. 1, the harm catalog follows GDPR Recital 75, the individuals-first grading follows ENISA, and the matrix follows ISO/IEC 27005 — but the Low / Medium / High / Critical mapping is Advokat Frida's general-purpose default (the standards deliberately leave acceptance thresholds to each organization); treat the band as a starting point, not a rule to hide behind.",
+      "actions": [
+        "Run the Breach notification wizard NOW for the actual determination and the clock — Art. 33(1) requires notification without undue delay and, where feasible, within 72 hours of awareness (late filings need reasons); EDPB 9/2022 reads awareness as reasonable certainty, not forensic closure.",
+        "Document under Art. 33(5) either way — especially the severity and likelihood reasoning behind this band.",
+        "Line up the Art. 34 factors so you can escalate fast if the facts worsen — if a re-score shows a likely HIGH RISK to individuals, Art. 34 communication triggers without undue delay, subject to the Art. 34(3) exceptions.",
+        "This grade is provisional — re-run the wizard as forensics land.",
+        "Going-forward risk posture for the affected PROCESSING (audited band advice — this rates the processing, not the breach, and internal sign-off never displaces the Art. 33/34 duties): Reduce where reasonably practicable. Assign an owner and a target date, and keep evidence of the controls."
+      ],
+      "cites": [
+        "gdpr-art-33",
+        "gdpr-art-34",
+        "gdpr-recitals-75-76",
+        "guide-edpb-9-2022-breach",
+        "std-nist-800-30",
+        "std-iso-27005",
+        "enisa-severity-2013"
+      ]
+    },
+    "o-high": {
+      "type": "outcome",
+      "tier": "required",
+      "clock": "The Art. 33 clock should be treated as running — it started at awareness of the breach",
+      "title": "High band — notify the authority; take the Art. 34 question seriously",
+      "summary": "Severity x likelihood lands in the HIGH band of the audited Advokat Frida risk matrix. At this level the Art. 33(1) 'unlikely to result in a risk' escape is not credible — notification to the supervisory authority without undue delay, and where feasible within 72 hours of awareness, should be the working assumption. The live question is Art. 34: whether the breach is LIKELY to result in a high risk to individuals, requiring communication to them without undue delay. Grade that against the EDPB 9/2022 factors — special-category or financial data, easy identification, scale, vulnerable people — and remember the Art. 34(3) outs (protection measures rendering the data unintelligible, classically encryption with keys intact; subsequent measures removing the high risk; disproportionate effort with public communication instead). The band is a structured aid, not the statutory test. Methodology: the grading ladders follow NIST SP 800-30 Rev. 1, the harm catalog follows GDPR Recital 75, the individuals-first grading follows ENISA, and the matrix follows ISO/IEC 27005 — but the Low / Medium / High / Critical mapping is Advokat Frida's general-purpose default (the standards deliberately leave acceptance thresholds to each organization); treat the band as a starting point, not a rule to hide behind.",
+      "actions": [
+        "Run the Breach notification wizard immediately — it carries the Art. 33/34 determination, the UK and US state branches, and the 72-hour clock with the calendar download.",
+        "Prepare the Art. 34 communication in parallel rather than sequentially — if it is needed, it is needed 'without undue delay', not after the SA filing.",
+        "Document the full severity reasoning under Art. 33(5), including likelihood evidence (exfiltration confirmation, encryption state, who holds the data).",
+        "Brief the DPO and accountable leadership now — this band is where phased Art. 33(4) notification and follow-up updates become the realistic path.",
+        "This grade is provisional — re-run as forensics land, in either direction.",
+        "Going-forward risk posture for the affected PROCESSING (audited band advice — this rates the processing, not the breach, and internal sign-off never displaces the Art. 33/34 duties): Treat before proceeding. Add controls and re-score, or escalate for documented senior sign-off."
+      ],
+      "cites": [
+        "gdpr-art-33",
+        "gdpr-art-34",
+        "gdpr-recitals-75-76",
+        "guide-edpb-9-2022-breach",
+        "std-nist-800-30",
+        "std-iso-27005",
+        "enisa-severity-2013"
+      ]
+    },
+    "o-critical": {
+      "type": "outcome",
+      "tier": "required",
+      "clock": "Treat both the Art. 33 clock (running since awareness) and the Art. 34 duty as live now",
+      "title": "Critical band — presume both Art. 33 and Art. 34 apply",
+      "summary": "Severity x likelihood lands in the CRITICAL band of the audited Advokat Frida risk matrix — severe or hard-to-reverse harm to individuals is likely or near-certain. Work from the presumption that BOTH duties apply: notification to the supervisory authority without undue delay and, where feasible, within 72 hours of awareness (Art. 33(1) — later only with reasons), and communication to the affected people without undue delay (Art. 34(1)), in clear and plain language, naming the likely consequences and the measures taken. Check the Art. 34(3) exceptions honestly (protection measures rendering the data unintelligible — classically encryption with keys intact; subsequent measures removing the high risk; disproportionate effort with an equally effective public communication) — at this band they rarely hold. The band is a structured aid, not the statutory test. Methodology: the grading ladders follow NIST SP 800-30 Rev. 1, the harm catalog follows GDPR Recital 75, the individuals-first grading follows ENISA, and the matrix follows ISO/IEC 27005 — but the Low / Medium / High / Critical mapping is Advokat Frida's general-purpose default (the standards deliberately leave acceptance thresholds to each organization); treat the band as a starting point, not a rule to hide behind.",
+      "actions": [
+        "Run the Breach notification wizard now for the determination, the jurisdictional branches, and the clocks — and expect a phased Art. 33(4) notification, since full facts rarely exist inside 72 hours at this severity.",
+        "Draft the Art. 34 communication in parallel: plain language, the DPO contact, likely consequences, measures taken and advised (Art. 34(2) mirrors Art. 33(3)(b)-(d)).",
+        "Consider whether the supervisory authority may order communication anyway (Art. 34(4)) — pre-empting that conversation is usually cheaper than losing it.",
+        "Preserve evidence and document everything under Art. 33(5); at this band, litigation and regulatory scrutiny of the record are the base case, not the tail risk.",
+        "This grade is provisional — re-run as forensics land; a verified downgrade needs the same documented reasoning as the grade itself.",
+        "Going-forward risk posture for the affected PROCESSING (audited band advice — this rates the processing, not the breach, and internal sign-off never displaces the Art. 33/34 duties): Do not proceed as-is. Mitigate immediately, or obtain explicit, documented risk acceptance from accountable leadership."
+      ],
+      "cites": [
+        "gdpr-art-33",
+        "gdpr-art-34",
+        "gdpr-recitals-75-76",
+        "guide-edpb-9-2022-breach",
+        "std-nist-800-30",
+        "std-iso-27005",
+        "enisa-severity-2013"
+      ]
+    },
+    "o-nopd": {
+      "type": "outcome",
+      "tier": "info",
+      "title": "No personal data, no personal-data-breach severity to grade",
+      "summary": "This wizard grades harm to individuals from a personal-data breach; an incident that never touches personal data (a pure availability outage of non-personal systems, defaced marketing pages, loss of anonymised-beyond-reidentification data) has nothing for it to grade. Two cautions before you close the file: 'no personal data' fails more often than expected — logs, backups, and support tickets hide personal data; and an availability incident that locks personal data away (ransomware without exfiltration) IS a personal-data breach of the availability kind.",
+      "actions": [
+        "Verify the 'no personal data' premise against logs, backups, caches and tickets — then document the determination and its basis.",
+        "If personal data availability or integrity was in fact affected, restart this wizard and open the Breach notification wizard — Art. 4(12) covers destruction, loss and alteration, not just disclosure.",
+        "Even without a GDPR breach you may still owe incident notifications: security-incident regimes outside the GDPR — NIS2, DORA, sectoral and telecoms rules — carry their own notification clocks and are not covered by this tool; check them separately.",
+        "Treat the incident as an Art. 32 security-measures audit trigger regardless."
+      ],
+      "cites": [
+        "gdpr-art-4",
+        "gdpr-art-32",
+        "guide-edpb-9-2022-breach"
+      ]
+    },
+    "o-processor": {
+      "type": "outcome",
+      "tier": "required",
+      "clock": "Your notice duty to the controller is immediate — do not wait for this grade to firm up",
+      "title": "You are the processor — notify the controller now; the risk call is theirs",
+      "summary": "Art. 33(2): a processor that becomes aware of a personal data breach must notify the CONTROLLER without undue delay — the EDPB reads that as effectively immediately — and the duty is unconditional: no severity threshold, no band, no risk analysis gates it. The Art. 33(1) supervisory-authority decision and the Art. 34 subject-communication decision belong to the controller, whose own 72-hour clock typically starts when your notice makes it aware.",
+      "actions": [
+        "Notify the controller immediately, with what you know now — phased detail is expected; silence is the breach.",
+        "Check the data processing agreement: contractual notice clocks tighter than 'without undue delay' — often measured in hours — are standard market practice, and so are prescribed content and channels.",
+        "Keep gathering and forwarding facts as forensics land — the controller's Art. 33(3) filing will lean on your information (nature, categories, approximate numbers, measures taken).",
+        "You can still run this wizard's severity grade as INPUT for the controller's assessment (the first option covers grading on a controller's behalf) — send the band and the reasoning with your notice, clearly labeled as provisional. And if the same incident also hit data you control (your own staff or customer records), run the controller lane for that slice separately.",
+        "Document your own timeline (awareness, notice to controller, updates) — it is your evidence of Art. 33(2) compliance and your answer to the DPA clause."
+      ],
+      "cites": [
+        "gdpr-art-33",
+        "guide-edpb-9-2022-breach"
+      ]
+    }
+  }
+}

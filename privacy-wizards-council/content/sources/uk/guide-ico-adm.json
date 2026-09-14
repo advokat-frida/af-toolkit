@@ -1,0 +1,18 @@
+{
+  "kind": "guidance",
+  "juris": "UK",
+  "label": "ICO guidance — Automated decision-making and profiling",
+  "citation": "ICO, Automated decision-making and profiling guidance (verify current post-DUAA version)",
+  "body": [
+    "ICO detailed guidance 'Automated decision-making, including profiling' - currently a DRAFT updated for the Data (Use and Access) Act 2025: the page states 'We are consulting on the Data (Use and Access) Act updates to this guidance' and 'Latest updates - 31 March 2026 - We have updated this draft guidance to reflect changes to the UK GDPR following the Data (Use and Access) Act 2025 (DUAA)'; the previous (pre-DUAA) version remains available as a PDF and will be withdrawn when the updated guidance is finalized after the consultation. The guidance now frames ADM around new Article 22A UK GDPR: a decision 'based solely on automated processing', including profiling (i.e. no meaningful human involvement), with a 'legal or similarly significant effect' on a person (a 'significant decision'), and uses 'the ADM provisions' to mean Articles 22A-22D. New DUAA-driven content covers determining whether processing falls within the Article 22A scope, when ADM is restricted and what conditions must be satisfied (lawful bases - consent, contract, public task, legitimate interests - and the special-category-data conditions of explicit consent, contract, or required/authorised by law), and a new section on the mandatory safeguards: providing information about decisions, enabling people to make representations, obtaining meaningful human intervention, and enabling people to contest decisions, plus the related transparency rights (right to be informed, right of access) and DPIA expectations. The guidance states it will inform the statutory code of practice on artificial intelligence and ADM that the ICO will develop."
+  ],
+  "provenance": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/individual-rights/automated-decision-making-and-profiling/",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

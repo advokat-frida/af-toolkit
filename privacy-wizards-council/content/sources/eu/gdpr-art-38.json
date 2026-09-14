@@ -1,0 +1,23 @@
+{
+  "juris": "EU",
+  "label": "GDPR Art. 38 — Position of the DPO",
+  "citation": "Regulation (EU) 2016/679, Art. 38",
+  "body": [
+    "<p><span class=\"num\">1.</span> The controller and the processor shall ensure that the data protection officer is <b>involved, properly and in a timely manner</b>, in all issues which relate to the protection of personal data.</p>",
+    "  <p><span class=\"num\">2.</span> The controller and processor shall <b>support</b> the data protection officer in performing the tasks referred to in Article 39 by providing <b>resources necessary</b> to carry out those tasks and access to personal data and processing operations, and to maintain his or her expert knowledge.</p>",
+    "  <p><span class=\"num\">3.</span> The controller and processor shall ensure that the data protection officer <b>does not receive any instructions</b> regarding the exercise of those tasks. He or she shall <b>not be dismissed or penalised</b> by the controller or the processor for performing his tasks. The data protection officer shall <b>directly report to the highest management level</b> of the controller or the processor.</p>",
+    "  <p><span class=\"num\">4.</span> Data subjects may contact the data protection officer with regard to all issues related to processing of their personal data and to the exercise of their rights under this Regulation.</p>",
+    "  <p><span class=\"num\">5.</span> The data protection officer shall be bound by <b>secrecy or confidentiality</b> concerning the performance of his or her tasks, in accordance with Union or Member State law.</p>",
+    "  <p><span class=\"num\">6.</span> The data protection officer may fulfil other tasks and duties. The controller or processor shall ensure that any such tasks and duties do not result in a <b>conflict of interests</b>.</p>"
+  ],
+  "kind": "statute",
+  "provenance": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504#art_38",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

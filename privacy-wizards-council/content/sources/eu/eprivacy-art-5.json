@@ -1,0 +1,19 @@
+{
+  "juris": "EU",
+  "label": "ePrivacy Directive Art. 5 — Confidentiality of communications",
+  "citation": "Directive 2002/58/EC, Art. 5",
+  "provenance": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02002L0058-20091219#art_5",
+  "body": [
+    "<p><span class=\"num\">3.</span> Member States shall ensure that the use of electronic communications networks to <b>store information</b> or to <b>gain access to information stored</b> in the terminal equipment of a subscriber or user is only allowed on condition that the subscriber or user concerned is provided with <b>clear and comprehensive information</b> … and is offered the right to refuse such processing. This shall not prevent any technical storage or access for the sole purpose of carrying out or facilitating the transmission of a communication … or as <b>strictly necessary in order to provide an information society service explicitly requested</b> by the subscriber or user.</p>",
+    "  <p>Note: the 2009 amendment under Directive 2009/136/EC re-interprets \"offered the right to refuse\" as a <b>prior, freely given, informed consent</b> requirement (the \"cookie consent\" rule). GDPR Art. 4(11) supplies the consent standard.</p>"
+  ],
+  "kind": "statute",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

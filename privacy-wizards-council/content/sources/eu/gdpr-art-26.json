@@ -1,0 +1,20 @@
+{
+  "kind": "statute",
+  "juris": "EU",
+  "label": "GDPR Art. 26 — Joint controllers",
+  "citation": "Regulation (EU) 2016/679, Art. 26",
+  "body": [
+    "<p><span class=\"num\">1.</span> Where two or more controllers <b>jointly determine the purposes and means of processing</b>, they shall be joint controllers. They shall in a transparent manner determine their respective responsibilities for compliance with the obligations under this Regulation, in particular as regards the exercising of the rights of the data subject and their respective duties to provide the information referred to in Articles 13 and 14, by means of an <b>arrangement</b> between them unless, and in so far as, the respective responsibilities of the controllers are determined by Union or Member State law to which the controllers are subject. The arrangement may designate a contact point for data subjects.</p>",
+    "  <p><span class=\"num\">2.</span> The arrangement referred to in paragraph 1 shall duly reflect the respective roles and relationships of the joint controllers vis-à-vis the data subjects. The <b>essence of the arrangement shall be made available to the data subject</b>.</p>",
+    "  <p><span class=\"num\">3.</span> Irrespective of the terms of the arrangement referred to in paragraph 1, the data subject may exercise his or her rights under this Regulation <b>in respect of and against each of the controllers</b>.</p>"
+  ],
+  "provenance": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504#art_26",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

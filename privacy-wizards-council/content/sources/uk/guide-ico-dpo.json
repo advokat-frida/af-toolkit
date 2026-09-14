@@ -1,0 +1,18 @@
+{
+  "kind": "guidance",
+  "juris": "UK",
+  "label": "ICO guidance — Data protection officers (UK GDPR)",
+  "citation": "ICO Guide to the UK GDPR — Data protection officers",
+  "body": [
+    "ICO guidance 'Data protection officers' in the Guide to accountability and governance (Guide to the UK GDPR); page 'Latest updates' shows 18 September 2023 (clarifying that communication with the DPO may be overseen by an office of the DPO), with the guide split into smaller guides on 19 May 2023. You must appoint a DPO if you are a public authority or body (except courts acting in their judicial capacity), if your core activities require large-scale, regular and systematic monitoring of individuals, or if your core activities consist of large-scale processing of special category or criminal convictions/offences data; this applies to both controllers and processors, and a voluntarily appointed DPO is subject to the same requirements. Core activities are the primary business activities, distinguished from ancillary processing such as payroll/HR; for 'large scale' and 'regular and systematic monitoring' the ICO points to the WP29 DPO guidelines (endorsed by the EDPB) as useful though no longer binding under the UK regime. The DPO's Article 39 tasks are to inform and advise, monitor compliance (including awareness-raising, training and internal audits), advise on and monitor DPIAs, cooperate with the ICO and act as first contact point, taking a risk-based approach. The organisation must involve the DPO closely and in a timely manner, ensure the DPO reports to the highest management level, operates independently, is not dismissed or penalised for performing their tasks, and is adequately resourced; other tasks may be assigned only if they do not create a conflict of interests - the DPO cannot hold a position that leads them to determine the purposes and means of processing. Contact details must be published and provided to the ICO; the DPO can be an existing employee, contracted out, or shared across organisations, and is not personally liable for compliance. No DUAA 2025 changes are flagged on this page (the DUAA retained the UK GDPR DPO regime); the site-wide banner states DUAA provisions are now in force."
+  ],
+  "provenance": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/accountability-and-governance/guide-to-accountability-and-governance/data-protection-officers/",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

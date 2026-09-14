@@ -1,0 +1,22 @@
+{
+  "juris": "EU",
+  "label": "GDPR Art. 32 — Security of processing",
+  "citation": "Regulation (EU) 2016/679, Art. 32",
+  "provenance": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504#art_32",
+  "body": [
+    "<p><span class=\"num\">1.</span> Taking into account the state of the art, the costs of implementation … the controller and the processor shall implement appropriate technical and organisational measures to ensure a level of security appropriate to the risk, including inter alia as appropriate:</p>",
+    "  <blockquote>(a) the pseudonymisation and encryption of personal data;</blockquote>",
+    "  <blockquote>(b) the ability to ensure the ongoing confidentiality, integrity, availability and resilience of processing systems and services;</blockquote>",
+    "  <blockquote>(c) the ability to restore the availability and access to personal data in a timely manner in the event of a physical or technical incident;</blockquote>",
+    "  <blockquote>(d) a process for regularly testing, assessing and evaluating the effectiveness of technical and organisational measures …</blockquote>"
+  ],
+  "kind": "statute",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

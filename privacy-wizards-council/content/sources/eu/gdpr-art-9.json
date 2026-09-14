@@ -1,0 +1,29 @@
+{
+  "juris": "EU",
+  "label": "GDPR Art. 9 — Special categories of personal data",
+  "citation": "Regulation (EU) 2016/679, Art. 9",
+  "provenance": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504#art_9",
+  "body": [
+    "<p><span class=\"num\">1.</span> Processing of personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data for the purpose of uniquely identifying a natural person, data concerning health or data concerning a natural person's sex life or sexual orientation shall be prohibited.</p>",
+    "  <p><span class=\"num\">2.</span> Paragraph 1 shall not apply if one of the following applies:</p>",
+    "  <blockquote>(a) the data subject has given <b>explicit consent</b> … except where Union or Member State law provide that the prohibition … may not be lifted by the data subject;</blockquote>",
+    "  <blockquote>(b) processing is necessary for the purposes of carrying out the obligations and exercising specific rights of the controller or of the data subject in the field of employment and social security and social protection law …</blockquote>",
+    "  <blockquote>(c) processing is necessary to protect the vital interests of the data subject … where the data subject is physically or legally incapable of giving consent;</blockquote>",
+    "  <blockquote>(d) processing is carried out in the course of its legitimate activities … by a foundation, association or any other not-for-profit body with a political, philosophical, religious or trade union aim …</blockquote>",
+    "  <blockquote>(e) processing relates to personal data which are manifestly made public by the data subject;</blockquote>",
+    "  <blockquote>(f) processing is necessary for the establishment, exercise or defence of legal claims or whenever courts are acting in their judicial capacity;</blockquote>",
+    "  <blockquote>(g) processing is necessary for reasons of substantial public interest, on the basis of Union or Member State law …</blockquote>",
+    "  <blockquote>(h) processing is necessary for the purposes of preventive or occupational medicine … medical diagnosis, the provision of health or social care or treatment …</blockquote>",
+    "  <blockquote>(i) processing is necessary for reasons of public interest in the area of public health …</blockquote>",
+    "  <blockquote>(j) processing is necessary for archiving purposes in the public interest, scientific or historical research purposes or statistical purposes …</blockquote>"
+  ],
+  "kind": "statute",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}
