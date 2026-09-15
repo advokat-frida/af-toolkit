@@ -1,5 +1,60 @@
 # HANDOFF
 
+## 2026-09-14 - Privacy Wizards 2.1.0: review fixes, merged and live (PR #13)
+
+The tuck's independent review of PR #13 (`f8e5f42` authored depth, `5336ed7` content files
+part 1) ran ten finder angles and a sweep, and verified every candidate with a probe. It
+confirmed fifteen defects. All are fixed, with tests, in `419c706`; ADVO-197 carries the list.
+Ben saw the four pending-law notes summarised in chat before he called the tuck, which closes
+the first open item in the entry below.
+
+**What the fixes change**
+- *Citations* (`src/lib/engine/mentions.js`, `src/lib/data/mentions.js`). The EU or UK provision
+  follows the node's cites first, then the clause's regime words, then the node's UK reading;
+  "Art. 22" beside "Arts. 22A–22D" is the original article. A defined term links only where the
+  node cites law of its jurisdiction. Lettered articles other than 22A–22D, paragraphs an excerpt
+  source lacks (read from its citation), and short instrument names marked `instrument: true`
+  for a provision the path does not cite stay plain. The paragraph locator follows marker chains
+  line by line and searches a bilingual source's English rendering first. No lookbehind anywhere;
+  a unit test reads the files to keep it that way.
+- *The card* (`src/lib/Mentions.svelte`). Show the whole text pins the card and moves focus into
+  it; the window click reads the dispatch path; focus never unpins; Escape refocuses only from
+  inside the block; a changed block or a step change drops the open card; the card is measured at
+  its final width. The question card and its answer group take the plain question as their name.
+- *`council.js`*. Own-key lookups (`#constructor` threw), abbreviation-aware `sentenceBreaks` for
+  the lead, tag stripping to a fixed point with one-pass entities (the two CodeQL alerts), scoped
+  pending-law notes, jurisdiction-filtered next determinations (`related.js`: sale-share adds
+  dsar, cookies adds legal-basis), and the record's answer note nested under the answer.
+- *Registry and gates*. `validateContent` checks the path graph; sources sort by id; the style
+  audit reads every component; the draft status dot matches its label.
+- *Docs*. DESIGN-SYSTEM's citation entries; REVIEW-GATE's artboard exception (3C, 4E and 4F follow
+  Ben's calls); BEHAVIOR-DELTAS renumbered (the 2.1.0 entries are PWC-NEXT-006 to 008, and part 2
+  takes 009); the QA record's "Review fixes" section.
+
+**Verification.** Tool gate (52 vitest, style audit, build, artifact check); root gate green;
+both review probes refuted every finding with zero page errors; behaviour rig 68 of 68; a before
+and after resolution of every mention in every path (16 links dropped and 4 moved to the UK
+text, each intended); the whole-text card measured inside the frame at 1440 and 390. CI on
+`419c706`: CodeQL, Gate, check, Analyze and Workers Builds all pass. Fast-forwarded to `main` and live on toolkit.advokatfrida.com: `tool-sources.json` lists
+`33c28fcd…` for the Wizards artifact, and a browser run on the live site showed the whole-text card
+pinned, the plain group label, Rights request triage after sale-share, and zero page errors. The
+served tool equals the artifact apart from a hidden `/cdn-cgi/content` link Cloudflare adds after
+`<body>` with a new id on every request, so served bytes never hash like the artifact; `.html` tool
+URLs also redirect to the extensionless path, so a check with curl needs `-L`.
+
+**Probes and rigs** (gitignored, `.local-working/`): `review-probe-browser.mjs`,
+`review-probe-data.mjs`, `review-fix-shots.mjs`, `review-fix-fit.mjs`, `review-fix-live.mjs`,
+`pwc-wave0-verify.mjs`.
+
+**Deferred from the review** (real, not blocking): search does not index cited source
+citations, so "art. 33" finds nothing; the pending-law notes live outside the registry and its
+hash; each citation block adds its own window listeners, and the rail renders every source text
+up front; some duplicated text-button styles and dead CSS remain; the citation components have no
+style-bible receipt.
+
+**Open.** (1) The finder placeholder still reads "Try breach, DPIA, cookies, AI risk…", a copy
+call. (2) W1.0 part 2 is next, on its own branch.
+
 ## 2026-09-14 - Privacy Wizards: privacy-first plan, decisions, content files (W1.0 part 1)
 
 Ben re-pointed the Council's expansion at privacy rather than AI and answered the plan's four
