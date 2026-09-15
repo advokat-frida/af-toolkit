@@ -6,7 +6,7 @@
 **Decision baseline:** unchanged — 16 paths, 139 sources, registry SHA-256
 `11250ac35555835903fcaa20f3f1ecef567ae3283c459e736e825cbd005359d2`<br>
 **Legal state:** every source remains `automated-check-only`; no practitioner review is claimed<br>
-**Change:** PWC-NEXT-005 and PWC-NEXT-006 in `BEHAVIOR-DELTAS.md`; Ben's call, 2026-09-13
+**Change:** PWC-NEXT-006 and PWC-NEXT-007 in `BEHAVIOR-DELTAS.md`; Ben's call, 2026-09-13
 
 Automated evidence: folder gate (24 vitest, style audit, build, verify-artifact); the Toolkit
 gate end to end including the rendered-style census (every new run reuses a baseline tuple);
@@ -39,6 +39,18 @@ staged shell, not a grep.
 | 1440×1000 | Determination, reasoning and actions open | Nine citations in the reasoning and nine in the actions (Art. 33(1), Article 34(1), VB v NAP, C-340/21, Art. 82, Art. 32, controller, processor, EDPB Guidelines 9/2022…); "controller" opens Art. 4(7) as a card over the actions; the × closes it. The Omnibus note's "Art. 33" is a citation too. | PASS |
 | 390×844 | Question 1, pinned card | The card flips above the aside because the frame has no room below, spans the block width, and stays inside the frame. | PASS |
 | 390×844 | Determination, citation in the actions | Card opens under "controller" at full block width; Escape and × both close it. | PASS |
+
+## Review fixes (PR #13, 2026-09-14, artifact SHA-256 `33c28fcdfd086a2a5b71c5ab556a5eff95170e16640cd838b0aa8f3dff582c10`)
+
+| Viewport | State | Direct observation | Result |
+|---|---|---|---|
+| 1440×1000 | Breach, question 1, aside citation pinned, Show the whole text | The card stays open with the whole text and focus moves into it; the mention stays red. The card measures 481 to 903 in a 944px frame. | PASS |
+| 1440×1000 | Same, heading citation | The card opens under "personal-data breach" and measures 118 to 540. The answer group is named by the plain question, not by the card. | PASS |
+| 390×844 | Breach, question 1, heading citation pinned | The card spans 10 to 380 of the 390px frame with paragraph (12), Show the whole text and the official link; after Show the whole text it measures 104 to 526 in a 788px frame. | PASS |
+| 1440×1000 | Sale and sharing determination | The next determination is Rights request triage (EU / UK / US-CA); the EU and UK cookies path no longer shows for a California answer. | PASS |
+| 1440×1000 | Pinned card, then #dpia | No stale card on the new path; hovering a citation there opens its card. | PASS |
+| 1440×1000 | Focus on Next, hover a citation, Escape | The card closes and focus stays on Next. | PASS |
+| 1440 and 390 | Behaviour rig | 68 checks, zero console errors, zero horizontal overflow. | PASS |
 
 ## Boundary checks
 

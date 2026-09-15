@@ -10,6 +10,7 @@ export const REVIEW_FIELDS = ['status', 'retrievedDate', 'effectiveOrPublication
 
 const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex');
 const byName = (a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0);
+const own = (object, key) => Boolean(object) && Object.prototype.hasOwnProperty.call(object, key);
 
 // The folder a source lives in: its jurisdiction, lower-cased (US-CA -> us-ca).
 export function jurisdictionFolder(juris) {
@@ -128,12 +129,34 @@ export function validateContent(content) {
   for (const [id, wizard] of Object.entries(wizards)) {
     const where = `wizards/${id}.json`;
     for (const field of ['title', 'start', 'nodes']) if (!wizard[field]) errors.push(`${where}: ${field} is required`);
-    for (const [nodeId, node] of Object.entries(wizard.nodes || {})) {
-      for (const cite of node.cites || []) if (!sources[cite]) errors.push(`${where}:${nodeId}: cites ${cite}, which has no source file`);
+    const nodes = wizard.nodes || {};
+    if (wizard.start && !own(nodes, wizard.start)) errors.push(`${where}: start ${wizard.start} is not a node in this file`);
+    for (const [nodeId, node] of Object.entries(nodes)) {
+      if (node.type === 'question') {
+        if (!node.q) errors.push(`${where}:${nodeId}: a question needs q`);
+        if (!Array.isArray(node.opts) || !node.opts.length) errors.push(`${where}:${nodeId}: a question needs at least one option`);
+      } else if (node.type === 'outcome') {
+        for (const field of ['title', 'summary', 'tier']) if (!node[field]) errors.push(`${where}:${nodeId}: an outcome needs ${field}`);
+        if (!node.cites?.length) errors.push(`${where}:${nodeId}: an outcome needs at least one cited source`);
+      } else {
+        errors.push(`${where}:${nodeId}: type must be question or outcome`);
+      }
+      for (const cite of node.cites || []) if (!own(sources, cite)) errors.push(`${where}:${nodeId}: cites ${cite}, which has no source file`);
       for (const option of node.opts || []) {
-        for (const cite of option.cites || []) if (!sources[cite]) errors.push(`${where}:${nodeId}: an option cites ${cite}, which has no source file`);
+        if (!own(nodes, option.goto)) errors.push(`${where}:${nodeId}: option "${option.label}" goes to ${option.goto}, which is not a node in this file`);
+        for (const cite of option.cites || []) if (!own(sources, cite)) errors.push(`${where}:${nodeId}: an option cites ${cite}, which has no source file`);
       }
     }
+    // A node no answer leads to from the start is a node no reader will ever see.
+    const reached = new Set();
+    const queue = own(nodes, wizard.start) ? [wizard.start] : [];
+    while (queue.length) {
+      const nodeId = queue.shift();
+      if (reached.has(nodeId)) continue;
+      reached.add(nodeId);
+      for (const option of nodes[nodeId].opts || []) if (own(nodes, option.goto)) queue.push(option.goto);
+    }
+    for (const nodeId of Object.keys(nodes)) if (!reached.has(nodeId)) errors.push(`${where}:${nodeId}: no answer leads here from the start`);
   }
   return errors;
 }
@@ -153,7 +176,8 @@ export function buildRegistry(content) {
   const { registry, wizards, sources, reviews } = content;
   const WIZARDS = {};
   for (const entry of registry.wizards || []) if (wizards[entry.id]) WIZARDS[entry.id] = wizards[entry.id];
-  const SOURCES = sources;
+  // Sorted by id, so the manifest hash does not depend on the order the folders are read in.
+  const SOURCES = Object.fromEntries(Object.keys(sources).sort().map((id) => [id, sources[id]]));
   const citations = Object.entries(WIZARDS).map(([id, wizard]) => [id, citedBy(wizard)]);
   const SOURCE_MANIFEST = Object.fromEntries(
     Object.entries(SOURCES).map(([id, item]) => {

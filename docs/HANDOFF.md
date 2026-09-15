@@ -29,7 +29,7 @@ renders changed.
 rename the import, relabel the record line "Registry SHA-256", bump the manifest version (source
 order becomes canonical, so the manifest hash changes by design), derive the pinned counts in
 `council.test.js`, retire `extract-legacy-data.mjs` (commit the font CSS), update BASELINE.md,
-add PWC-NEXT-008, drop the README's pending banner.
+add PWC-NEXT-009, drop the README's pending banner.
 
 **Verification.** Folder check: 44 vitest across three files, style audit, build,
 verify-artifact (`dist/wizards.html` sha256 `16ee17fa…`). Restaged; root gate green, census
@@ -66,7 +66,7 @@ shape, DESIGN-SYSTEM §3 Disclosure / Authority row / Next determination, record
   are gone.
 - `What may change`: dated pending-law notes (`src/lib/data/motion.js`, four notes on the
   Digital Omnibus proposal for breach/EU, DPIA, cookies, RoPA, each citing the EDPB-EDPS
-  Joint Opinion 2/2026). Annotations only; PWC-NEXT-006 in `docs/BEHAVIOR-DELTAS.md`.
+  Joint Opinion 2/2026). Annotations only; PWC-NEXT-007 in `docs/BEHAVIOR-DELTAS.md`.
 - Finder: `Browse all` groups by category (`.group-label`); search matches synonyms
   (`src/lib/data/search.js`: SAR, GPC, 72 hours, sub-processor, deepfake...).
 - `Next determination`: one chooser row under every outcome (`src/lib/data/related.js`);
@@ -105,7 +105,7 @@ button). DESIGN-SYSTEM §3 gains *Inline citation* and *Citation card*; the cens
 gains the two 15px citation tuples (the only new ones the drawn states render). Verification:
 36 vitest (12 new, including a sweep of every text block), full gate green, behaviour rig
 now 60 checks at 1440 and 390 (hover, pin, keyboard, Escape, ×, frame fit, citations in the
-actions and the reasoning), zero console errors. PWC-NEXT-007 in `BEHAVIOR-DELTAS.md`.
+actions and the reasoning), zero console errors. PWC-NEXT-008 in `BEHAVIOR-DELTAS.md`.
 
 **Open.** (1) The four pending-law notes deserve Ben's read before deploy; drop any he
 does not want. (2) The question card's right edge still stops short of the progress track

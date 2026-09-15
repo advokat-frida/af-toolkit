@@ -18,39 +18,72 @@ export function verifiedDate(wizard) {
   return match ? match[0] : null;
 }
 
-// The first sentence(s) of a long text, for the one-line aside and the verdict qualifier.
+const own = (object, key) => Object.prototype.hasOwnProperty.call(object, key);
+
+// Abbreviations the authored text follows with a capital ("Cal. Civ. Code", "Ch. V",
+// "e.g. Google"): their full stop does not end a sentence.
+const ABBREVIATIONS = new Set(['cal', 'civ', 'ch', 'gen', 'bus', 'cf', 'e.g', 'i.e', 'u.s', 'u.s.c', 'n.y', 'c.f.r', 'fed', 'eff', 'dept', 'inc', 'ltd', 'corp', 'jan', 'feb', 'apr', 'jun', 'jul', 'aug', 'sep', 'sept', 'oct', 'nov', 'dec']);
+
+// The index just past each sentence end: a . ! or ? before a space and a capital, where a
+// full stop does not close one of those abbreviations.
+export function sentenceBreaks(text) {
+  const value = String(text || '');
+  const breaks = [];
+  for (const match of value.matchAll(/[.!?](?=\s+[("'“‘]?[A-Z])/g)) {
+    if (match[0] === '.') {
+      const word = (value.slice(Math.max(0, match.index - 12), match.index).match(/[A-Za-z.]+$/) || [''])[0].toLowerCase();
+      if (ABBREVIATIONS.has(word)) continue;
+    }
+    breaks.push(match.index + 1);
+  }
+  return breaks;
+}
+
+// The first sentence of a long text, for the one-line aside and the verdict qualifier.
 // Short text comes back whole; the full text always stays reachable behind a disclosure.
 export function decisionLead(text) {
   const value = String(text || '').trim();
   if (value.length <= 340) return value;
-  const boundary = value.match(/[.!?](?=\s+[A-Z])/);
-  return boundary?.index !== undefined ? value.slice(0, boundary.index + 1) : `${value.slice(0, 337).trimEnd()}…`;
+  const [first] = sentenceBreaks(value);
+  return first !== undefined ? value.slice(0, first) : `${value.slice(0, 337).trimEnd()}…`;
 }
 
 // The included source text as plain paragraphs. Source bodies are authored with p, span,
 // blockquote, b and i only; anything else is stripped the same way.
+const ENTITIES = { nbsp: ' ', amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", '#39': "'" };
+
 export function sourceTextPlain(html) {
-  return String(html || '')
+  let text = String(html || '')
     .replace(/\r/g, '')
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<\/(?:p|div|li|blockquote|h[1-6]|tr)>/gi, '\n\n')
-    .replace(/<li[^>]*>/gi, '• ')
-    .replace(/<[^>]+>/g, '')
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;|&apos;/g, "'")
+    .replace(/<li[^>]*>/gi, '• ');
+  // Strip tag-shaped markup until none is left; a bare "<" in the prose is text and stays.
+  let previous;
+  do {
+    previous = text;
+    text = text.replace(/<\/?[A-Za-z][^<>]*>/g, '');
+  } while (text !== previous);
+  // Entities decode in one pass, so an escaped "&amp;lt;" reads "&lt;", not "<".
+  return text
+    .replace(/&(nbsp|amp|lt|gt|quot|apos|#39);/g, (entity, name) => ENTITIES[name])
     .replace(/[ \t]+\n/g, '\n')
     .replace(/\n[ \t]+/g, '\n')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
 }
 
-// The path most readers open after this one (data/related.js), only ids that exist.
-export function relatedWizardIds(id) {
-  return (RELATED[id] || []).filter((other) => other !== id && WIZARDS[other]);
+// The path most readers open after this one (data/related.js), only ids that exist. Given
+// an outcome, only paths that share a jurisdiction with the law the outcome cites: a
+// California answer is not sent to an EU-only path. INTL sources and paths are neutral.
+export function relatedWizardIds(id, outcomeId = null) {
+  if (!own(RELATED, id)) return [];
+  const outcome = outcomeId && own(WIZARDS, id) && own(WIZARDS[id].nodes || {}, outcomeId) ? WIZARDS[id].nodes[outcomeId] : null;
+  const juris = new Set((outcome?.cites || []).map((sourceId) => SOURCES[sourceId]?.juris).filter((value) => value && value !== 'INTL'));
+  return RELATED[id].filter((other) => {
+    if (other === id || !own(WIZARDS, other)) return false;
+    return !juris.size || (WIZARDS[other].jurisdictions || []).some((value) => value === 'INTL' || juris.has(value));
+  });
 }
 
 // Everything the finder matches a query against, lower-cased: the id, the authored
@@ -62,9 +95,16 @@ export function searchText(id, wizard, categoryLabel = '') {
     .toLowerCase();
 }
 
-// Pending-law notes that touch this outcome (data/motion.js). Annotations only.
+// Pending-law notes that touch this outcome (data/motion.js). Annotations only. A scoped
+// note shows only where the outcome cites law of that jurisdiction: an EU proposal says
+// nothing about an answer that rests on UK law alone.
 export function motionNotes(wizardId, outcomeId) {
-  return MOTION.filter((note) => note.wizardIds.includes(wizardId) && (!note.outcomeIds || note.outcomeIds.includes(outcomeId)));
+  const nodes = own(WIZARDS, wizardId) ? WIZARDS[wizardId].nodes || {} : {};
+  const outcome = own(nodes, outcomeId) ? nodes[outcomeId] : null;
+  const juris = new Set((outcome?.cites || []).map((id) => SOURCES[id]?.juris));
+  return MOTION.filter((note) => note.wizardIds.includes(wizardId)
+    && (!note.outcomeIds || note.outcomeIds.includes(outcomeId))
+    && (!note.scope || juris.has(note.scope)));
 }
 
 export function wizardSourceIds(wizard) {
@@ -172,7 +212,7 @@ export function parseWizardHash(hash) {
   if (!hash || hash === '#') return { status: 'empty' };
   if (!/^#[a-z0-9-]{1,64}$/.test(hash)) return { status: 'invalid' };
   const id = hash.slice(1);
-  return WIZARDS[id] ? { status: 'ok', id } : { status: 'unknown' };
+  return own(WIZARDS, id) ? { status: 'ok', id } : { status: 'unknown' };
 }
 
 export function sourceIdsForState(wizard, history = [], currentNodeId = null, outcomeId = null) {
@@ -261,7 +301,7 @@ export function buildRecord({ wizardId, history, outcomeId, date = new Date(), m
   ];
   for (const entry of history) {
     lines.push(`- **${entry.question}**`, `  - ${entry.answer}`);
-    if (entry.answerNote) lines.push(`    ${entry.answerNote}`);
+    if (entry.answerNote) lines.push(`    - ${entry.answerNote}`);
   }
   lines.push('', '## Outcome', '', `**${outcome.title}**`, '', outcome.summary, '');
   if (outcome.actions?.length) {

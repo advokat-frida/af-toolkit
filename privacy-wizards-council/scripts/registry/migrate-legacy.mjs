@@ -10,7 +10,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '.
 const contentDir = path.join(root, 'content');
 const existing = fs.existsSync(contentDir) ? fs.readdirSync(contentDir).filter((name) => name !== 'README.md') : [];
 if (existing.length) {
-  console.error(`content/ already holds ${existing.join(', ')}. The migration runs once; move those aside to run it again.`);
+  console.error(`content/ already holds ${existing.join(', ')}. The migration ran once and content/ is now the authored source: edit those files. Nothing was written.`);
   process.exit(1);
 }
 

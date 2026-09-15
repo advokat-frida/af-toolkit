@@ -16,6 +16,7 @@ import {
   relatedWizardIds,
   reviewedThrough,
   searchText,
+  sentenceBreaks,
   sourceIdsForState,
   sourceTextPlain,
   validateGraph,
@@ -23,6 +24,7 @@ import {
   wizardReviewState,
   wizardSourceIds
 } from '../../src/lib/engine/council.js';
+import { categories } from '../../src/lib/data/categories.js';
 import { MOTION } from '../../src/lib/data/motion.js';
 import { RELATED } from '../../src/lib/data/related.js';
 import { SEARCH_ALIASES } from '../../src/lib/data/search.js';
@@ -219,6 +221,33 @@ describe('the authored depth reaches the page', () => {
     for (const id of Object.keys(RELATED)) expect(WIZARDS[id], id).toBeTruthy();
   });
 
+  it('an_outcome_names_only_next_determinations_that_share_its_jurisdiction', () => {
+    for (const [id, wizard] of Object.entries(WIZARDS)) {
+      for (const [outcomeId, node] of Object.entries(wizard.nodes)) {
+        if (node.type !== 'outcome') continue;
+        const juris = new Set(node.cites.map((sourceId) => SOURCES[sourceId].juris).filter((value) => value !== 'INTL'));
+        if (!juris.size) continue;
+        for (const other of relatedWizardIds(id, outcomeId)) {
+          expect(WIZARDS[other].jurisdictions.some((value) => juris.has(value)), `${id}:${outcomeId} -> ${other}`).toBe(true);
+        }
+      }
+    }
+    const saleShare = Object.keys(WIZARDS['sale-share'].nodes).find((nodeId) => WIZARDS['sale-share'].nodes[nodeId].type === 'outcome');
+    expect(relatedWizardIds('sale-share', saleShare)).toEqual(['dsar']);
+    expect(relatedWizardIds('breach', 'o-ny-notify')).toEqual([]);
+    expect(relatedWizardIds('breach', 'o-eu-sa-only')).toEqual(['severity']);
+  });
+
+  it('inherited_object_keys_are_not_wizards', () => {
+    expect(parseWizardHash('#constructor')).toEqual({ status: 'unknown' });
+    expect(relatedWizardIds('constructor')).toEqual([]);
+    expect(motionNotes('constructor', 'constructor')).toEqual([]);
+  });
+
+  it('every_wizard_sits_in_exactly_one_category', () => {
+    for (const id of Object.keys(WIZARDS)) expect(categories.filter((category) => category.wizardIds.includes(id)).length, id).toBe(1);
+  });
+
   it('search_aliases_name_existing_wizards_and_resolve_common_terms', () => {
     for (const id of Object.keys(SEARCH_ALIASES)) expect(WIZARDS[id], id).toBeTruthy();
     expect(searchText('dsar', WIZARDS.dsar)).toContain('subject access');
@@ -241,6 +270,10 @@ describe('the authored depth reaches the page', () => {
     expect(text).toContain('\n\n');
     expect(sourceTextPlain('')).toBe('');
     expect(sourceTextPlain('<p>a &amp; b</p><blockquote>c</blockquote>')).toBe('a & b\n\nc');
+    // Entities decode once, a bare "<" in prose stays, and tag fragments cannot reassemble.
+    expect(sourceTextPlain('<p>&amp;lt;b&amp;gt; and &lt;i&gt;</p>')).toBe('&lt;b&gt; and <i>');
+    expect(sourceTextPlain('<p>small (fewer than 50; <$3M revenue) ok</p><p>next</p>')).toBe('small (fewer than 50; <$3M revenue) ok\n\nnext');
+    expect(sourceTextPlain('<scr<b>ipt>x</p>')).toBe('x');
   });
 
   it('decision_lead_returns_short_text_whole_and_cuts_long_text_at_a_sentence', () => {
@@ -253,6 +286,10 @@ describe('the authored depth reaches the page', () => {
     const longNodes = Object.values(WIZARDS).flatMap((wizard) => Object.values(wizard.nodes)).filter((node) => (node.help || node.summary || '').length > 340);
     expect(longNodes.length).toBeGreaterThan(100);
     for (const node of longNodes) expect(decisionLead(node.help || node.summary)).not.toBe(node.help || node.summary);
+    // A citation abbreviation before a capital does not end the lead.
+    const text = 'Under Cal. Civ. Code § 1798.82. Then Ch. V applies. Done';
+    expect(sentenceBreaks(text).map((index) => text.slice(0, index))).toEqual(['Under Cal. Civ. Code § 1798.82.', 'Under Cal. Civ. Code § 1798.82. Then Ch. V applies.']);
+    for (const node of longNodes) expect(decisionLead(node.help || node.summary)).not.toMatch(/\b(?:Cal|Civ|Ch|Gen|Bus)\.$/);
   });
 
   it('pending_law_notes_point_at_existing_outcomes_and_carry_a_dated_official_source', () => {
@@ -270,6 +307,9 @@ describe('the authored depth reaches the page', () => {
     expect(motionNotes('breach', 'o-ny-notify')).toHaveLength(0);
     expect(motionNotes('dpia', Object.keys(WIZARDS.dpia.nodes).find((id) => WIZARDS.dpia.nodes[id].type === 'outcome'))).toHaveLength(1);
     expect(motionNotes('ai-risk', 'anything')).toHaveLength(0);
+    // An EU proposal note stays off an answer that rests on UK law alone.
+    expect(motionNotes('cookies', 'o-analytics')).toHaveLength(1);
+    expect(motionNotes('cookies', 'o-analytics-uk')).toHaveLength(0);
   });
 
   it('record_carries_the_check_date_answer_notes_pending_notes_and_included_source_text', () => {
@@ -292,7 +332,8 @@ describe('the authored depth reaches the page', () => {
     expect(record).toContain('  - Included text:');
     expect(record).toMatch(/\n    > /);
     const noted = history.find((entry) => entry.answerNote);
-    expect(record).toContain(`    ${noted.answerNote}`);
+    // A nested item, so a Markdown viewer does not run the note into the answer line.
+    expect(record).toContain(`  - ${noted.answer}\n    - ${noted.answerNote}`);
     if (motionNotes('breach', outcomeId).length) expect(record).toContain('## What may change');
   });
 });

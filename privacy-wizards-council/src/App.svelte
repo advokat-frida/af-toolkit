@@ -31,6 +31,7 @@
   import { wizardIcon, wizardIconColor } from './lib/icons.js';
   import { contextFor } from './lib/engine/mentions.js';
   import Mentions from './lib/Mentions.svelte';
+  import { activeCite } from './lib/engine/cite-state.js';
   import WizardRow from './lib/WizardRow.svelte';
 
   // Lucide "search" (lucide-static 1.31.0, ISC) — the one non-wizard glyph on the finder.
@@ -89,7 +90,7 @@
   $: reasoningRest = outcome ? (outcome.clock ? String(outcome.summary || '').trim() : restAfterLead(outcome.summary, reasoningLead)) : '';
   $: reasoningLabel = outcome?.clock ? 'Read the reasoning' : 'Read the rest of the reasoning';
   $: motion = selectedWizardId && outcomeId ? motionNotes(selectedWizardId, outcomeId) : [];
-  $: related = selectedWizardId ? relatedWizardIds(selectedWizardId) : [];
+  $: related = selectedWizardId ? relatedWizardIds(selectedWizardId, outcomeId) : [];
   $: checkedDate = wizard ? verifiedDate(wizard) : null;
   // Inline citations: one context per node, and one shared term scope per group of blocks
   // (the help's lead and rest; the verdict line and the reasoning; the actions), recreated
@@ -131,10 +132,12 @@
     return value.slice(lead.length).trim();
   }
 
+  // A step change closes what the last step had open, the citation card included.
   function closeDisclosures() {
     decisionExpanded = false;
     helpExpanded = false;
     motionExpanded = false;
+    activeCite.set(null);
   }
 
   function selectAnswer(index) {
@@ -468,13 +471,14 @@
           <section class="decision-stage">
 
             {#if currentNode}
-              <article class="question-card" aria-labelledby="question-heading">
+              <!-- The heading holds citation cards, so the card and the answer group take the plain question as their name. -->
+              <article class="question-card" aria-label={currentNode.q}>
                 <div class="question-progress">
                   <p class="question-count">Question {history.length + 1} of {questionTotal}</p>
                   <span class="progress-track" aria-hidden="true"><span class="progress-fill" style={`width:${Math.round(((history.length + 1) / Math.max(questionTotal, 1)) * 100)}%`}></span></span>
                 </div>
                 <h3 id="question-heading" tabindex="-1"><Mentions text={currentNode.q} context={citeState.context} /></h3>
-                <div class="answer-list" role="radiogroup" aria-labelledby="question-heading">
+                <div class="answer-list" role="radiogroup" aria-label={currentNode.q}>
                   {#each currentOptions as option, index}
                     <button type="button" class="answer-card" class:selected={pendingIndex === index} role="radio" aria-checked={pendingIndex === index} on:click={() => selectAnswer(index)}>
                       <span><strong>{option.label}</strong>{#if option.desc}<small>{option.desc}</small>{/if}</span>
@@ -555,7 +559,7 @@
                               </summary>
                               <div class="authority-body">
                                 <p class="citation">{item.source.citation}</p>
-                                {#if item.source.provenance}<a class="official-link" href={item.source.provenance} target="_blank" rel="noopener noreferrer">Open the official text ↗</a>{/if}
+                                {#if item.source.provenance || item.source.url}<a class="official-link" href={item.source.provenance || item.source.url} target="_blank" rel="noopener noreferrer">Open the official text ↗</a>{/if}
                                 {#if item.source.body}<p class="source-body">{sourceTextPlain(item.source.body)}</p>{/if}
                               </div>
                             </details>

@@ -201,7 +201,12 @@ underline; hover and the open state turn `--red`. Resolution is conservative: a 
 does not map to exactly one registry source stays plain text, so a wrong card never appears.
 A defined term (controller, processor, personal data breach, provider, deployer…) links once
 per block group, not on every occurrence. Options inside answer rows carry no citations,
-because a button cannot hold a button.
+because a button cannot hold a button. A heading that holds citations never names a control:
+the answer group takes the plain question as its label, so an open card is never read as part
+of the group's name. A mention also stays plain when its source holds only other paragraphs of
+the provision, when it names a lettered article the registry lacks, when a short instrument
+name (PECR) stands for a provision the path does not cite, or when a defined term belongs to a
+jurisdiction the node does not cite.
 
 **Citation card.** The small surface a citation opens, positioned under the mention (above it
 when the frame has no room below), `min(440px, block width)` wide: `--paper`, `1px solid
@@ -211,7 +216,9 @@ var(--ink)`, the `4px 4px 0` ink shadow, padding `14px 16px 12px`. Inside: the s
 names one, otherwise the whole text in a 260px scroll region; `Show the whole text` as a text
 action and `Open the official text ↗` as the same text-action link the authority row uses.
 Hover opens after 140ms and closes 220ms after the pointer leaves the mention or the card;
-click pins; focus opens; Escape, the ×, or a click elsewhere closes. One card open at a time.
+click pins; focus opens; `Show the whole text` pins the card and moves focus into it. Escape,
+the ×, a click elsewhere, or moving to another step closes; Escape hands focus back to the
+mention only when focus was in the card or on the mention. One card open at a time.
 
 **Chooser row** (Privacy Wizards pattern). Grid: 20px Lucide icon in `--forest` / content / `→`
 in `--soft`. Title 16/700; one sub-line 14px `--soft` — `question · jurisdictions`. Rows separated

@@ -2362,8 +2362,8 @@ textarea {
 }
 .status-dot { width: 7px; height: 7px; flex: none; background: var(--amber); }
 .status-dot.dot-practitioner-reviewed { background: var(--forest); }
-.status-dot.dot-superseded,
-.status-dot.dot-draft { background: var(--red); }
+.status-dot.dot-superseded { background: var(--red); }
+.status-dot.dot-draft { background: var(--ink-soft); }
 .authority-body { padding: 0 0 12px; }
 .authority-body .citation {
   margin: 0;

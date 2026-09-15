@@ -36,7 +36,10 @@ Review the actual rendered screens at literal size, every state, before signing 
 - [ ] State fidelity: each `proofs/states/*.png` matches its canvas artboard (render the import
       in `.local-working/design-import/` with real fonts and put them side by side) — same
       elements, same order, nothing extra in the drawn area. A visible difference on a drawn
-      state is a defect, not a variation.
+      state is a defect, not a variation. The exception is a state Ben has since changed, with
+      the call recorded by name and date in `DESIGN-SYSTEM.md`: his call supersedes the
+      artboard and the reviewed proof becomes the reference. The Privacy Wizards finder,
+      question and determination states (3C, 4E, 4F) follow his 2026-09-13 and 2026-09-14 calls.
 - [ ] Tokens: no color outside `DESIGN-SYSTEM.md` §1; status hues used semantically only.
 - [ ] Type: every text node maps to a §2 role. No new sizes, no synthesized weights, Anton only
       on nameplates, mono only on generated data. Read `npm run qa:census:report`: every line

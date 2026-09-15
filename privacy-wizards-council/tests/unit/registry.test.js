@@ -23,6 +23,8 @@ describe('authored content registry', () => {
   it('sources_match_the_legacy_extraction_including_the_included_text', () => {
     expect(Object.keys(built.SOURCES).sort()).toEqual(Object.keys(legacy.SOURCES).sort());
     for (const id of Object.keys(legacy.SOURCES)) expect(JSON.stringify(built.SOURCES[id]), id).toBe(JSON.stringify(legacy.SOURCES[id]));
+    // Sorted by id, so the manifest hash cannot depend on the order folders are read in.
+    expect(Object.keys(built.SOURCES)).toEqual(Object.keys(built.SOURCES).sort());
   });
 
   it('manifest_entries_published_paths_and_check_notes_match', () => {
@@ -78,5 +80,32 @@ describe('authored content registry', () => {
     expect(errors).toContain('sources/uk/s.json: practitioner-reviewed needs reviewDate and reviewer');
     expect(errors).toContain('sources/uk/s.json: review.reviewerRole is required (null when unknown)');
     expect(errors).toContain('sources/uk/s.json: review.retrievedDate must be YYYY-MM-DD or null');
+  });
+
+  it('validation_checks_the_path_graph', () => {
+    const errors = validateContent({
+      errors: [],
+      registry: { manifestVersion: 'test', wizards: [{ id: 'w', published: true }] },
+      wizards: {
+        w: {
+          title: 'W',
+          start: 'nope',
+          nodes: {
+            q: { type: 'question', q: 'Q?', opts: [{ label: 'A', goto: 'missing' }] },
+            o: { type: 'outcome', title: 'O', tier: 'ok' },
+            x: { type: 'note' }
+          }
+        }
+      },
+      sources: {},
+      reviews: {},
+      locations: {}
+    });
+    expect(errors).toContain('wizards/w.json: start nope is not a node in this file');
+    expect(errors).toContain('wizards/w.json:q: option "A" goes to missing, which is not a node in this file');
+    expect(errors).toContain('wizards/w.json:o: an outcome needs summary');
+    expect(errors).toContain('wizards/w.json:o: an outcome needs at least one cited source');
+    expect(errors).toContain('wizards/w.json:x: type must be question or outcome');
+    expect(errors).toContain('wizards/w.json:q: no answer leads here from the start');
   });
 });

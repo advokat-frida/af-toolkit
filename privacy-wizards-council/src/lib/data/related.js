@@ -1,9 +1,11 @@
-// Next determination: the path a reader most often needs after this one. One row per
-// outcome, never more than two. Keys and values are wizard ids in legacy.generated.js.
+// Next determination: the path a reader most often needs after this one, never more than
+// two. Keys and values are wizard ids in legacy.generated.js. An outcome drops a path that
+// shares no jurisdiction with the law it cites (relatedWizardIds), so a second id serves the
+// readers the first one does not.
 export const RELATED = {
   breach: ['severity'],
   severity: ['breach'],
-  'sale-share': ['cookies'],
+  'sale-share': ['cookies', 'dsar'],
   'legal-basis': ['special-category'],
   'special-category': ['legal-basis'],
   transfer: ['role'],
@@ -13,7 +15,7 @@ export const RELATED = {
   ropa: ['dpia'],
   dsar: ['role'],
   children: ['cookies'],
-  cookies: ['sale-share'],
+  cookies: ['sale-share', 'legal-basis'],
   adm: ['ai-risk'],
   'ai-role': ['ai-risk'],
   'ai-risk': ['ai-role']

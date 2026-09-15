@@ -84,7 +84,7 @@ it does not convert any source or path into a practitioner-reviewed determinatio
 - Search feedback is reactively derived from the current term; nonsense input visibly produces zero
   results and a recovery instruction.
 
-## PWC-NEXT-005 — The authored depth reaches the page (2026-09-13)
+## PWC-NEXT-006 — The authored depth reaches the page (2026-09-13)
 
 - Legacy (Toolkit 0.4.x): the question aside showed the help's first sentence with no way to
   the rest; the verdict qualifier showed the reasoning's first sentence, or the clock line
@@ -94,6 +94,9 @@ it does not convert any source or path into a practitioner-reviewed determinatio
   option notes as the row sub-line, each authority row opening to its citation, official link
   and included text, and the check date on the outcome aside and in the record. The record
   also carries the answer notes and the included texts.
+- Next determination: one or two paths from `src/lib/data/related.js`. An outcome drops a path
+  that shares no jurisdiction with the law it cites, so a New York breach answer is not sent to
+  the EU and UK severity path.
 - Reason: a reader should not have to leave the tool to understand it (DESIGN-PRINCIPLES
   nitpick 7; ADVO-189).
 - Compatibility: no decision node, option, citation, or source record changed; the registry
@@ -101,7 +104,7 @@ it does not convert any source or path into a practitioner-reviewed determinatio
 - Evidence: unit tests over the lead, the plain-text conversion, the record; the Toolkit gate.
 - Ben approval: the Wave 0 unlock, on Ben's word, 2026-09-13.
 
-## PWC-NEXT-006 — Pending-law notes are annotations, never outcomes (2026-09-13)
+## PWC-NEXT-007 — Pending-law notes are annotations, never outcomes (2026-09-13)
 
 - vNext: `src/lib/data/motion.js` carries dated notes about a pending instrument that would
   change an outcome if adopted (today: four notes on the Commission's Digital Omnibus
@@ -109,20 +112,27 @@ it does not convert any source or path into a practitioner-reviewed determinatio
   change` on the outcomes they touch and in the record.
 - Boundary: a note never alters a determination and always says the cited law applies until
   an amending act is adopted and applies. Every note carries the date it was checked and an
-  official document. A note without both fails the unit tests.
+  official document. A note without both fails the unit tests. A note scoped to a jurisdiction
+  shows only on outcomes that cite law of that jurisdiction, so the EU cookies note stays off
+  the UK-only cookies outcomes.
 - Review: the notes describe a proposal, not the law the paths decide on; they still deserve
   Ben's read before deploy, and a stale note is removed rather than left to age.
 
-## PWC-NEXT-007 — Inline citations open the cited text in place (2026-09-14)
+## PWC-NEXT-008 — Inline citations open the cited text in place (2026-09-14)
 
 - vNext: `src/lib/engine/mentions.js` turns the article, section, guidance, case and
   defined-term mentions inside the authored text into citations that open a card with the
   cited paragraph (or the whole text), the formal citation, the review status and the official
   link. Curated aliases and defined terms live in `src/lib/data/mentions.js`.
 - Boundary: resolution is conservative. A mention resolves only when it maps to exactly one
-  registry source within the wizard's regime family and the node's UK/EU context; anything else
-  stays plain text (Art. 55 and Art. 56 of the GDPR, Annex I, WP242 and the like have no
-  registry source and are not linked). An explicit "UK GDPR Art. N" never opens the EU text.
+  registry source within the wizard's regime family; anything else stays plain text (Art. 55
+  and Art. 56 of the GDPR, Annex I, WP242 and the like have no registry source and are not
+  linked). An explicit "UK GDPR Art. N" never opens the EU text. A bare article opens the EU or
+  UK provision the node cites; where the node cites both, the clause decides when it names
+  only one regime, and the node's UK reading decides otherwise. A lettered article (Arts.
+  45A–45B), a paragraph an excerpt source does not hold (AI Act Art. 3(1)), a short instrument
+  name for a provision the path does not cite (PECR in the breach path) and a defined term of
+  another jurisdiction (the GDPR's "biometric data" in the Illinois outcome) stay plain.
 - Compatibility: no decision content, citation or source record changed; the registry hash is
   unchanged. The Authority rail keeps the full list.
 - Evidence: unit tests over the rules and over every text block of every wizard (every
