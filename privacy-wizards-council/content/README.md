@@ -5,13 +5,15 @@ source. They were split out of the legacy `wizards.html` on 2026-09-14, byte for
 build has read them instead of it since the same day. `scripts/registry/generate.mjs` turns them
 into the modules the tool imports (`npm run registry`; dev, build and test run it first) and
 stops with a list of errors when a file does not validate. Edit these files, never the
-generated modules.
+generated modules. While `npm run dev` is running, run `npm run registry` after an edit to see
+it. Commit the regenerated modules, `dist/wizards.html` and the restaged Toolkit copy with the
+content change: CI fails when they are stale.
 
 ## Layout
 
 | Path | Holds |
 | --- | --- |
-| `registry.json` | The manifest version and every path in finder order. `published: true` makes a path available. |
+| `registry.json` | The manifest version and every path in finder order. `published: true` makes a path available; the value must be `true` or `false`. |
 | `wizards/<id>.json` | One path: `title`, `tag`, `q` (the one-line question under the title), `icon`, `jurisdictions`, `start`, `nodes`, `verifiedAsOf`. |
 | `sources/<jurisdiction>/<id>.json` | One source: `kind`, `juris`, `label`, `citation`, `provenance`, an optional `note`, `body`, and `review`. |
 
@@ -40,7 +42,8 @@ with no source stays plain text.
 card finds a cited paragraph by the marker that opens its line (`1.`, `(a)`, `1.(b)`, `(a) (1)`)
 and follows a chain such as `(3)(a)` down from the parent line. A source that holds only some
 paragraphs of its provision lists them in its `citation` right after the number
-(`Art. 3(3)-(8), (23)`); a mention of any other paragraph stays plain.
+(`Art. 3(3)-(8), (23)`); a mention of any other paragraph stays plain. A draft or superseded
+source never opens from the text.
 
 `review` holds the review state. It never enters the source's content hash, so a status change
 does not look like a text change.
@@ -61,7 +64,8 @@ Unknown values are `null`, never omitted.
 - The start and every `goto` name a node in the same file, every node is a question or an
   outcome with its required fields, and every node is reachable from the start.
 - `provenance` is an https URL, and each file sits in its jurisdiction's folder.
-- A published path that cites a draft, missing or superseded source fails closed.
+- A published path that cites a draft, missing or superseded source fails validation, so the
+  build stops.
 - A path says "Legal sources reviewed through" only when every source it cites is
   `practitioner-reviewed`.
 

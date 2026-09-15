@@ -14,6 +14,8 @@ if (!html.includes('Privacy Wizards Council')) failures.push('missing product ti
 if (!html.includes('Changelog (last updated:')) failures.push('missing canonical SafeSeed changelog summary');
 if (/Product changelog|class=["']chevron["']|summary-date/.test(appSource)) failures.push('noncanonical changelog label or custom disclosure chrome remains');
 if (!html.includes('automated-check-only')) failures.push('missing fail-closed legal review state');
+// src/styles/fonts.css carries the self-hosted faces; without them the tool renders in fallback fonts.
+if ((html.match(/@font-face/g) || []).length < 3) failures.push('missing the self-hosted font faces from src/styles/fonts.css');
 if (!html.includes('Analytics by Plausible, cookieless and aggregate, no ad-tech.')) failures.push('missing canonical Advokat Frida footer');
 if (!html.includes('href="https://advokatfrida.com/#/portal/signup"')) failures.push('missing canonical Subscribe action');
 for (const [label, href] of [

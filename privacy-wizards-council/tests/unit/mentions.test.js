@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { SOURCES, WIZARDS } from '../../src/lib/engine/council.js';
+import { SOURCE_MANIFEST, SOURCES, WIZARDS } from '../../src/lib/engine/council.js';
 import { contextFor, familyOf, mentionCard, paragraphFor, tokenize } from '../../src/lib/engine/mentions.js';
 import { DEFINED_TERMS, NAMED_MENTIONS } from '../../src/lib/data/mentions.js';
 
@@ -188,5 +188,19 @@ describe('inline citations resolve conservatively', () => {
     for (const file of ['../../src/lib/engine/mentions.js', '../../src/lib/data/mentions.js', '../../src/lib/engine/council.js']) {
       expect(readFileSync(new URL(file, import.meta.url), 'utf8'), file).not.toMatch(/\(\?<[!=]/);
     }
+  });
+
+  it('a_draft_or_superseded_source_never_opens_from_the_text', () => {
+    const entry = SOURCE_MANIFEST['gdpr-art-33'];
+    const status = entry.status;
+    try {
+      entry.status = 'draft';
+      expect(links('Art. 33(1) applies', eu)).toEqual([]);
+      entry.status = 'superseded';
+      expect(links('Art. 33(1) applies', eu)).toEqual([]);
+    } finally {
+      entry.status = status;
+    }
+    expect(links('Art. 33(1) applies', eu)).toEqual([['Art. 33(1)', 'gdpr-art-33', '(1)']]);
   });
 });

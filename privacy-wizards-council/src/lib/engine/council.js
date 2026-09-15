@@ -6,6 +6,7 @@ import {
   MANIFEST_VERSION,
   SOURCE_MANIFEST
 } from '../data/manifest.generated.js';
+import { categories, categoryForWizard, commonWizardIds } from '../data/categories.js';
 import { MOTION } from '../data/motion.js';
 import { RELATED } from '../data/related.js';
 import { SEARCH_ALIASES } from '../data/search.js';
@@ -76,6 +77,24 @@ export function sourceTextPlain(html) {
 // The paths the finder offers: every published path, in registry order (content/registry.json).
 export function publishedWizardIds(enabled = ENABLED_WIZARDS) {
   return Object.keys(WIZARDS).filter((id) => enabled.includes(id));
+}
+
+// What the finder lists for a search, a category, Browse all or the common rows: published
+// paths only, in registry order.
+export function finderWizardIds({ term = '', categoryId = null, showAll = false, enabled = ENABLED_WIZARDS } = {}) {
+  const published = publishedWizardIds(enabled);
+  const query = String(term || '').trim().toLowerCase();
+  if (query) return published.filter((id) => searchText(id, WIZARDS[id], categoryForWizard(id)?.label || '').includes(query));
+  const ids = categoryId ? categories.find((category) => category.id === categoryId)?.wizardIds || [] : showAll ? published : commonWizardIds;
+  return ids.filter((id) => published.includes(id));
+}
+
+// Browse all, grouped by category: published paths only, and no heading without a path under it.
+export function finderGroups(enabled = ENABLED_WIZARDS) {
+  const published = publishedWizardIds(enabled);
+  return categories
+    .map((category) => ({ ...category, ids: category.wizardIds.filter((id) => published.includes(id)) }))
+    .filter((group) => group.ids.length);
 }
 
 // The path most readers open after this one (data/related.js), only published paths. Given

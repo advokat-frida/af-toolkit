@@ -36,3 +36,11 @@ jobs:
       - run: npm ci
       - name: Tests, style audit, build, artifact verification
         run: npm run check
+      # The check regenerates the registry modules and rebuilds dist/wizards.html. A committed copy
+      # that differs is stale: the Toolkit would serve content the source no longer says.
+      - name: Committed registry modules and build match the source
+        run: |
+          if ! git diff --exit-code --stat -- src/lib/data dist/wizards.html; then
+            echo "::error::The committed registry modules or dist/wizards.html are stale. In privacy-wizards-council run npm ci and npm run check, then npm run build:tools at the repository root, and commit the result."
+            exit 1
+          fi

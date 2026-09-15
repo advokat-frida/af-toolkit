@@ -1,8 +1,8 @@
 // Generated from content/ by scripts/registry/generate.mjs. Edit the files in content/, not this one.
 // Enabled means a published aid, not practitioner review.
 
-export const MANIFEST_VERSION = 'af-pwc-vnext-2026-09-14';
-export const MANIFEST_SHA256 = '38c8d6398bfe069f1b1ce826bf8331921b9a23b249fe996ecf4d74fcca8d9fea';
+export const MANIFEST_VERSION = "af-pwc-vnext-2026-09-14";
+export const MANIFEST_SHA256 = "38c8d6398bfe069f1b1ce826bf8331921b9a23b249fe996ecf4d74fcca8d9fea";
 export const SOURCE_MANIFEST = {
   "bdsg-38": {
     "id": "bdsg-38",

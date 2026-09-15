@@ -6359,4 +6359,4 @@ export const WIZARDS = {
  }
 };
 
-export const REGISTRY_SHA256 = 'a1cafbd97b46b0bd7fa2d6e717d7ae0898f3534bba65956918152f10936bacea';
+export const REGISTRY_SHA256 = "a1cafbd97b46b0bd7fa2d6e717d7ae0898f3534bba65956918152f10936bacea";

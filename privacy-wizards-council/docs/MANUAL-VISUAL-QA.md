@@ -70,9 +70,11 @@ the direct-link task-card scroll correction and was reopened at exact mobile siz
 
 - `automated-check-only` is not practitioner review and is visible at the finder, determination,
   outcome, source, copy, and record layers.
-- A future extracted wizard is not automatically public; the generator has an explicit 16-ID
-  allowlist.
-- Any enabled path containing a draft, missing, or superseded source fails closed.
+- A new path is not automatically public: it starts as `"published": false` in
+  `content/registry.json`, only a literal `true` publishes it, and the tests keep the sixteen
+  baseline paths published.
+- Any enabled path containing a draft, missing, or superseded source fails validation, so the
+  build stops.
 - Calendar export remains unavailable until both the path and clock semantics have recorded
   practitioner review.
 - Source or decision changes require a new registry comparison, automated checks, and a fresh

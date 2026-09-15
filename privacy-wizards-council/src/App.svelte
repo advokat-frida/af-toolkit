@@ -1,7 +1,6 @@
 <script>
   import { onMount, tick } from 'svelte';
   import {
-    ENABLED_WIZARDS,
     MANIFEST_SHA256,
     MANIFEST_VERSION,
     SOURCE_MANIFEST,
@@ -13,12 +12,13 @@
     decisionLead,
     editAnswer,
     eligibleOptions,
+    finderGroups,
+    finderWizardIds,
     historyContext,
     motionNotes,
     parseWizardHash,
     publishedWizardIds,
     relatedWizardIds,
-    searchText,
     sourceIdsForState,
     sourceStatusLabel,
     sourceTextPlain,
@@ -27,7 +27,7 @@
     verifiedDate,
     wizardReviewState
   } from './lib/engine/council.js';
-  import { categories, categoryForWizard, commonWizardIds } from './lib/data/categories.js';
+  import { categoryForWizard } from './lib/data/categories.js';
   import { changelog, formatChangelogDate, newestChangelogDate } from './lib/data/changelog.js';
   import { wizardIcon, wizardIconColor } from './lib/icons.js';
   import { contextFor } from './lib/engine/mentions.js';
@@ -78,10 +78,8 @@
   $: usedSourceIds = wizard ? sourceIdsForState(wizard, history, currentNodeId, outcomeId) : [];
   $: usedSources = usedSourceIds.map((id) => ({ id, source: SOURCES[id], manifest: SOURCE_MANIFEST[id] })).filter((item) => item.source);
   $: calendarState = selectedWizardId && outcomeId ? calendarEligibility({ wizardId: selectedWizardId, outcomeId }) : null;
-  $: filteredWizardIds = filterWizardIds(search, activeCategory, showAll);
-  $: groupedLibrary = !search.trim() && !activeCategory && showAll
-    ? categories.map((category) => ({ ...category, ids: category.wizardIds.filter((id) => publishedIds.includes(id)) }))
-    : null;
+  $: filteredWizardIds = finderWizardIds({ term: search, categoryId: activeCategory, showAll });
+  $: groupedLibrary = !search.trim() && !activeCategory && showAll ? finderGroups() : null;
   $: questionsAhead = wizard && currentNodeId ? longestQuestionRun(wizard, currentNodeId) : 0;
   $: questionTotal = history.length + questionsAhead;
   // The aside and the verdict qualifier show the lead; a disclosure carries only what is
@@ -161,13 +159,6 @@
     pendingIndex = null;
     if (history.length) goBack();
     else changeDetermination();
-  }
-
-  function filterWizardIds(currentSearch, currentCategory, currentShowAll) {
-    const term = currentSearch.trim().toLowerCase();
-    if (term) return publishedIds.filter((id) => searchText(id, WIZARDS[id], categoryForWizard(id)?.label || '').includes(term));
-    const ids = currentCategory ? categories.find((category) => category.id === currentCategory)?.wizardIds || [] : currentShowAll ? publishedIds : commonWizardIds;
-    return ids.filter((id) => publishedIds.includes(id));
   }
 
   function handleHash(hash) {

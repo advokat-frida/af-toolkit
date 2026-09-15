@@ -149,13 +149,19 @@ it does not convert any source or path into a practitioner-reviewed determinatio
   source, and a review block per source. Published flags live in `registry.json` and review status
   in each source file. A file that does not validate stops the build.
 - Publication: an unpublished path (`published: false`) is left out of the finder and the next
-  determinations, and its link opens nothing; the legacy tool listed every extracted path. The
+  determinations, and its link opens nothing; the legacy tool listed every extracted path. Only a
+  literal `true` publishes: any value but `true` or `false` fails validation. A published path that
+  cites a draft or superseded source fails validation too, and such a source never opens from the
+  text of any path. The
   tests read publication and review status from the files instead of requiring every path
   published and every source `automated-check-only`. The sixteen baseline paths must stay
   published.
 - Record: the "Legacy registry SHA-256" line becomes "Registry SHA-256", the hash of the content
   registry. The manifest version moves to `af-pwc-vnext-2026-09-14`, and the manifest hash changes
-  because sources are now ordered by id.
+  with it and because sources are now ordered by id.
+- Build output: CI regenerates the modules and rebuilds `dist/wizards.html`, and fails when the
+  committed copies differ. The Toolkit gate fails when a staged copy was not staged from the
+  committed artifact.
 - Compatibility: no path, source, text, citation or status changed. At the switch-over the files
   equalled the legacy extraction byte for byte, and every citation in every path resolved the same.
 - Evidence: the equivalence test before the switch, the generated-module test after it, the before

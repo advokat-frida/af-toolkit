@@ -15,15 +15,23 @@ content error stops the build with the list of errors.
 - `extract-legacy-data.mjs`, `migrate-legacy.mjs` and `legacy.generated.js` are deleted. The
   font faces are now the committed `src/styles/fonts.css`.
 - The record's hash line reads "Registry SHA-256", the content registry hash `a1cafbd9…`. The
-  manifest version is `af-pwc-vnext-2026-09-14`, and the manifest hash changed because sources
-  are ordered by id.
+  manifest version is `af-pwc-vnext-2026-09-14`, and the manifest hash changed with it and
+  because sources are ordered by id.
 - Publication: an unpublished path is left out of the finder and the next determinations, and
-  its link opens nothing (`publishedWizardIds`, `relatedWizardIds`, `parseWizardHash`).
-- Tests: the registry tests prove the generated modules equal the content files and that only
-  published paths are enabled. In `council.test.js` the graph counts, the manifest version,
-  publication and every source's review status come from the content files, so a draft source
-  or Ben's first practitioner review no longer fails them. The sixteen baseline paths must stay
-  published.
+  its link opens nothing (`publishedWizardIds`, `finderWizardIds`, `finderGroups`,
+  `relatedWizardIds`, `parseWizardHash`). Only a literal `true` publishes. A published path that
+  cites a draft or superseded source fails validation, and such a source never opens from the
+  text of any path.
+- Tests: the registry tests prove the generated modules equal the content files. In
+  `council.test.js` the graph counts, the manifest version, publication, the review state and the
+  check dates come from the content files, so a draft source for an unpublished path, Ben's first
+  practitioner review or a re-stamped check date no longer fails them. The sixteen baseline paths
+  must stay published.
+- Build output: Privacy Wizards CI fails when the committed registry modules or
+  `dist/wizards.html` differ from its rebuild, and the Toolkit gate checks that each staged copy
+  was staged from the committed artifact (`scripts/canonical.mjs` holds the shared
+  normalization). Build a committed artifact only after `npm ci` in the tool folder: a stale
+  install put a newline in the artifact that CI's build does not have.
 - Docs: `content/README.md` (the switch-over banner is gone; marker and excerpt rules added),
   `BASELINE.md` (a registry source section with both hashes), `BEHAVIOR-DELTAS.md` PWC-NEXT-009,
   and the tool README.
@@ -31,15 +39,23 @@ content error stops the build with the list of errors.
 **Proof that nothing changed.** Captured before the switch: every path and source from the
 legacy extraction, and the resolution of every citation in every text block. After it, the paths
 and sources are identical and all 1,507 citation resolutions are byte-identical. The built
-artifact differs from the live one only in the record label and the publication filter.
+artifact differs from the live one throughout, because the bundled sources are now in id order,
+and also in the record label, the manifest version and hashes, and the publication filter.
 
-**Verification.** Tool gate: 52 vitest, style audit, build and artifact check (`ce315fed…`).
-A probe built the tool with Breach severity unpublished: the finder counted and listed 15 paths,
-a search did not offer it, `#severity` opened nothing and `#breach` still opened, with zero page
-errors. The registry and the generated modules were then restored and hash-checked. Restaged,
-then the root gate: design gate, typecheck, tests, 125 static checks, rendered QA, every canvas
-state proof, style census. Behaviour rig: 68 of 68 at 1440 and 390. On the final tree, all 1,507
-citation resolutions still match the legacy extraction exactly.
+**Review (PR #14).** The usage limit stopped the ten finder agents before they reported, so the
+finder angles ran in this session and one independent sweep agent looked for gaps. Fifteen
+findings: fourteen fixed with tests or checks, and the dev server's content watch documented in
+`content/README.md` instead. ADVO-198 carries the list.
+
+**Verification.** Tool gate after `npm ci`: 55 vitest, style audit, build and artifact check
+(`e9e80a31…`). Restaged, then the root gate: design gate, typecheck, tests, 128 static checks (the
+three new staged-copy checks among them), rendered QA, every canvas state proof, style census.
+Behaviour rig: 68 of 68 at 1440 and 390. The browser probe with Breach severity unpublished passed
+against the engine-driven finder with zero page errors, and the files were restored and
+hash-checked. All 1,507 citation resolutions still match the legacy extraction. In a scratch
+worktree each new guard was shown to fire: the CI freshness step on output that was not
+recommitted, the staged-copy check on a rebuild without a restage, generation on a quoted publish
+flag, and the artifact check without the font faces.
 
 **Next.** Wave 1 content is written straight into `content/`: W1.1 the US state cohort (the
 recovered July drafts are in `.local-working/advo-73-july-2026/`), W1.2 the breach clocks, W1.3

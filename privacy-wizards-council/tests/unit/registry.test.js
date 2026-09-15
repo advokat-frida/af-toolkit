@@ -25,12 +25,26 @@ describe('authored content registry', () => {
     expect(manifest.MANIFEST_SHA256).toBe(built.MANIFEST_SHA256);
     expect(manifest.SOURCE_MANIFEST).toEqual(built.SOURCE_MANIFEST);
     expect(manifest.AUTOMATED_CHECK_NOTES).toEqual(built.AUTOMATED_CHECK_NOTES);
+    expect(manifest.ENABLED_WIZARDS).toEqual(built.ENABLED_WIZARDS);
     // Sorted by id, so the manifest hash cannot depend on the order folders are read in.
     expect(Object.keys(registry.SOURCES)).toEqual(Object.keys(registry.SOURCES).sort());
   });
 
-  it('only_published_paths_are_enabled', () => {
-    expect(manifest.ENABLED_WIZARDS).toEqual(content.registry.wizards.filter((entry) => entry.published).map((entry) => entry.id));
+  it('only_a_literal_true_publishes_a_path', () => {
+    const quoted = { ...content, registry: { ...content.registry, wizards: content.registry.wizards.map((entry) => (entry.id === 'severity' ? { ...entry, published: 'false' } : entry)) } };
+    expect(validateContent(quoted)).toContain('registry.json: severity needs "published": true or false');
+    expect(buildRegistry(quoted).ENABLED_WIZARDS).not.toContain('severity');
+  });
+
+  it('a_published_path_that_cites_a_draft_or_superseded_source_fails_validation', () => {
+    const review = content.reviews['gdpr-art-33'];
+    const draft = { ...content, reviews: { ...content.reviews, 'gdpr-art-33': { ...review, status: 'draft' } } };
+    expect(validateContent(draft)).toContain('wizards/breach.json: published, but it cites gdpr-art-33, which is draft');
+    const superseded = { ...content, reviews: { ...content.reviews, 'gdpr-art-33': { ...review, status: 'superseded' } } };
+    expect(validateContent(superseded)).toContain('wizards/breach.json: published, but it cites gdpr-art-33, which is superseded');
+    // An unpublished path may still cite a draft while it is being written.
+    const unpublished = { ...draft, registry: { ...content.registry, wizards: content.registry.wizards.map((entry) => (entry.id === 'breach' ? { ...entry, published: false } : entry)) } };
+    expect(validateContent(unpublished).filter((error) => error.startsWith('wizards/breach.json'))).toEqual([]);
   });
 
   it('the_built_registry_passes_the_engine_graph_checks', () => {

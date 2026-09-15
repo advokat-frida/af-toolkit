@@ -106,6 +106,10 @@ export function validateContent(content) {
   const errors = [...(content.errors || [])];
   const { registry, wizards, sources, reviews, locations } = content;
   if (typeof registry?.manifestVersion !== 'string' || !registry.manifestVersion) errors.push('registry.json: manifestVersion is required');
+  // Only a literal true publishes, so "published": "false" in quotes fails here instead of going live.
+  for (const entry of registry?.wizards || []) {
+    if (entry && typeof entry.id === 'string' && typeof entry.published !== 'boolean') errors.push(`registry.json: ${entry.id} needs "published": true or false`);
+  }
   for (const [id, source] of Object.entries(sources)) {
     const where = locations[id] || `sources/?/${id}.json`;
     for (const field of ['juris', 'label', 'citation']) if (!source[field]) errors.push(`${where}: ${field} is required`);
@@ -158,6 +162,15 @@ export function validateContent(content) {
     }
     for (const nodeId of Object.keys(nodes)) if (!reached.has(nodeId)) errors.push(`${where}:${nodeId}: no answer leads here from the start`);
   }
+  // A published path may cite only checked or reviewed sources. A draft or superseded one stops the
+  // build here instead of stopping the whole tool at runtime.
+  for (const entry of registry?.wizards || []) {
+    if (entry?.published !== true || !own(wizards, entry.id)) continue;
+    for (const cite of citedBy(wizards[entry.id])) {
+      const status = reviews[cite]?.status;
+      if (status === 'draft' || status === 'superseded') errors.push(`wizards/${entry.id}.json: published, but it cites ${cite}, which is ${status}`);
+    }
+  }
   return errors;
 }
 
@@ -201,7 +214,7 @@ export function buildRegistry(content) {
       ];
     })
   );
-  const ENABLED_WIZARDS = (registry.wizards || []).filter((entry) => entry.published && WIZARDS[entry.id]).map((entry) => entry.id);
+  const ENABLED_WIZARDS = (registry.wizards || []).filter((entry) => entry.published === true && WIZARDS[entry.id]).map((entry) => entry.id);
   const MANIFEST_VERSION = registry.manifestVersion;
   const MANIFEST_SHA256 = sha256(JSON.stringify({ manifestVersion: MANIFEST_VERSION, manifest: SOURCE_MANIFEST, enabledWizards: ENABLED_WIZARDS }));
   const AUTOMATED_CHECK_NOTES = Object.fromEntries(Object.entries(WIZARDS).map(([id, wizard]) => [id, wizard.verifiedAsOf || null]));

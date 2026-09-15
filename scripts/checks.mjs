@@ -3,6 +3,7 @@ import { existsSync } from "node:fs";
 import { readFile, readdir } from "node:fs/promises";
 import { dirname, extname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { canonicalBytes } from "./canonical.mjs";
 
 const scriptDir = dirname(fileURLToPath(import.meta.url));
 export const candidateRoot = resolve(scriptDir, "..");
@@ -125,6 +126,11 @@ export async function runStaticChecks() {
       results.push(check(true, `source artifact is a declared build output: ${tool.id}`));
     } else {
       results.push(check(existsSync(sourcePath), `source artifact exists: ${tool.id}`));
+      // The staged copy must come from the committed artifact. An artifact rebuilt without a
+      // restage would leave the Toolkit serving the previous build.
+      if (tool.toolkitArtifact.endsWith(".html") && existsSync(sourcePath)) {
+        results.push(check(sha256(await canonicalBytes(sourcePath)) === tool.sourceSha256, `staged copy matches the committed artifact: ${tool.id}`));
+      }
     }
     if (tool.toolkitArtifact.endsWith(".html")) {
       results.push(check(sha256(await readFile(target)) === tool.toolkitSha256, `artifact hash matches manifest: ${tool.id}`));

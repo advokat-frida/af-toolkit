@@ -7,12 +7,16 @@
 // No lookbehind assertions here or in data/mentions.js: Safari before 16.4 rejects them when
 // it parses the script, and the whole tool would fail to load. A pattern that needs a left
 // boundary captures it as its first group instead and says so with `lead: true`.
+import { SOURCE_MANIFEST } from '../data/manifest.generated.js';
 import { SOURCES, WIZARDS } from '../data/registry.generated.js';
 import { ARTICLE_OVERRIDES, DEFINED_TERMS, NAMED_MENTIONS } from '../data/mentions.js';
 import { sentenceBreaks, sourceTextPlain, wizardSourceIds } from './council.js';
 
 const own = (object, key) => Boolean(object) && Object.prototype.hasOwnProperty.call(object, key);
-const exists = (id) => Boolean(id) && own(SOURCES, id);
+// Only a source a published path may rely on opens from the text. A draft or superseded record
+// stays plain, so unreviewed text never reaches a reader through a citation card.
+const LINKABLE = new Set(['automated-check-only', 'practitioner-reviewed']);
+const exists = (id) => Boolean(id) && own(SOURCES, id) && LINKABLE.has(SOURCE_MANIFEST[id]?.status);
 
 export function familyOf(sourceId) {
   const id = String(sourceId || '');
@@ -153,6 +157,7 @@ function resolveArticle(prefix, numberText, paras, context, clause) {
 const guidanceIndex = new Map();
 const caseIndex = new Map();
 for (const [id, source] of Object.entries(SOURCES)) {
+  if (!exists(id)) continue;
   const label = String(source.label || '');
   if (id.startsWith('guide-') || id.startsWith('wp29-')) {
     const m = label.match(/\b(Guidelines|Recommendations|Opinion)\s+(\d{1,2})\/(\d{4})\b/);

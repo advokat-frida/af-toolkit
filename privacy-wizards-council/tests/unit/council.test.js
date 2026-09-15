@@ -14,6 +14,8 @@ import {
   calendarEligibility,
   decisionLead,
   editAnswer,
+  finderGroups,
+  finderWizardIds,
   motionNotes,
   parseWizardHash,
   publishedWizardIds,
@@ -28,7 +30,7 @@ import {
   wizardReviewState,
   wizardSourceIds
 } from '../../src/lib/engine/council.js';
-import { categories } from '../../src/lib/data/categories.js';
+import { categories, commonWizardIds } from '../../src/lib/data/categories.js';
 import { MOTION } from '../../src/lib/data/motion.js';
 import { RELATED } from '../../src/lib/data/related.js';
 import { SEARCH_ALIASES } from '../../src/lib/data/search.js';
@@ -101,7 +103,7 @@ describe('decision graph integrity', () => {
 describe('published baseline and legal review state', () => {
   it('published_paths_run_and_claim_only_the_review_their_sources_carry', () => {
     // Publication and review status are authored in content/, so the expectations come from there.
-    const published = content.registry.wizards.filter((entry) => entry.published).map((entry) => entry.id);
+    const published = content.registry.wizards.filter((entry) => entry.published === true).map((entry) => entry.id);
     expect(ENABLED_WIZARDS).toEqual(published);
     expect(publishedWizardIds()).toEqual(published);
     // Retiring a baseline path needs Ben's recorded approval, not a registry edit.
@@ -138,7 +140,6 @@ describe('published baseline and legal review state', () => {
     expect(MANIFEST_VERSION).toBe(content.registry.manifestVersion);
     expect(MANIFEST_VERSION).toMatch(/^af-pwc-vnext-\d{4}-\d{2}-\d{2}$/);
     expect(MANIFEST_SHA256).toMatch(/^[a-f0-9]{64}$/);
-    for (const [id, entry] of Object.entries(SOURCE_MANIFEST)) expect(entry.status, id).toBe(content.reviews[id].status);
   });
 });
 
@@ -187,6 +188,20 @@ describe('path state and deep-link privacy', () => {
     expect(wizardReviewState('severity', { enabled }).available).toBe(false);
   });
 
+  it('the_finder_lists_only_published_paths', () => {
+    const enabled = ENABLED_WIZARDS.filter((id) => id !== 'severity');
+    expect(finderWizardIds()).toEqual(commonWizardIds);
+    expect(finderWizardIds({ showAll: true })).toEqual(publishedWizardIds());
+    expect(finderWizardIds({ showAll: true, enabled })).not.toContain('severity');
+    expect(finderWizardIds({ term: 'severity' })).toContain('severity');
+    expect(finderWizardIds({ term: 'severity', enabled })).not.toContain('severity');
+    expect(finderWizardIds({ categoryId: 'incidents', enabled })).toEqual(['breach']);
+    expect(finderGroups(enabled).flatMap((group) => group.ids)).not.toContain('severity');
+    expect(finderGroups().flatMap((group) => group.ids).sort()).toEqual([...publishedWizardIds()].sort());
+    // A category whose paths are all unpublished shows no heading.
+    expect(finderGroups(ENABLED_WIZARDS.filter((id) => !['breach', 'severity'].includes(id))).map((group) => group.id)).not.toContain('incidents');
+  });
+
   it('deep_link_never_serializes_answers_history_outcome_or_dates', () => {
     const allowed = Object.keys(WIZARDS).map((id) => `#${id}`);
     for (const hash of allowed) expect(hash).toMatch(/^#[a-z0-9-]+$/);
@@ -222,7 +237,8 @@ describe('records and calendar gate', () => {
     expect(record).toContain(`Source manifest SHA-256: ${MANIFEST_SHA256}`);
     expect(record).toContain(`Registry SHA-256: ${REGISTRY_SHA256}`);
     expect(record).not.toContain('Legacy registry');
-    expect(record).toContain('automated-check-only');
+    const review = wizardReviewState('breach');
+    expect(record).toContain(review.practitionerReviewed ? 'Legal sources reviewed through:' : `Legal review state: ${review.status}`);
     expect(record).not.toContain('Sources verified as of');
   });
 
@@ -230,7 +246,9 @@ describe('records and calendar gate', () => {
     const wizard = WIZARDS.breach;
     const clockedOutcome = Object.entries(wizard.nodes).find(([, node]) => node.clockSpec)?.[0];
     expect(clockedOutcome).toBeTruthy();
-    expect(calendarEligibility({ wizardId: 'breach', outcomeId: clockedOutcome })).toEqual({ available: false, reason: 'legal-review' });
+    // Unreviewed sources stop the reminder at legal review; reviewed sources still stop it at the clock review.
+    const reason = wizardReviewState('breach').practitionerReviewed ? 'clock-review' : 'legal-review';
+    expect(calendarEligibility({ wizardId: 'breach', outcomeId: clockedOutcome })).toEqual({ available: false, reason });
   });
 
   it('unclocked_outcomes_do_not_offer_calendar_export', () => {
@@ -244,8 +262,9 @@ describe('records and calendar gate', () => {
 });
 
 describe('the authored depth reaches the page', () => {
-  it('every_wizard_names_at_most_two_next_determinations_that_exist', () => {
-    for (const id of Object.keys(WIZARDS)) {
+  it('every_published_path_names_one_or_two_next_determinations_that_exist', () => {
+    // Unpublished paths may point at each other while they are written; only what readers reach counts.
+    for (const id of publishedWizardIds()) {
       const related = relatedWizardIds(id);
       expect(related.length, id).toBeGreaterThan(0);
       expect(related.length, id).toBeLessThanOrEqual(2);
@@ -293,8 +312,8 @@ describe('the authored depth reaches the page', () => {
   });
 
   it('verified_date_reads_the_iso_prefix_of_the_authored_stamp', () => {
-    expect(verifiedDate(WIZARDS.breach)).toBe('2026-07-02');
-    expect(verifiedDate(WIZARDS['ai-risk'])).toBe('2026-07-06');
+    expect(verifiedDate({ verifiedAsOf: '2026-07-02 (automated check)' })).toBe('2026-07-02');
+    for (const id of publishedWizardIds()) expect(verifiedDate(WIZARDS[id]), id).toMatch(/^\d{4}-\d{2}-\d{2}$/);
     expect(verifiedDate({ verifiedAsOf: 'soon' })).toBe(null);
     expect(verifiedDate({})).toBe(null);
   });
@@ -364,7 +383,7 @@ describe('the authored depth reaches the page', () => {
     }
     expect(history.some((entry) => entry.answerNote)).toBe(true);
     const record = buildRecord({ wizardId: 'breach', history, outcomeId, date: new Date('2026-09-13T12:00:00') });
-    expect(record).toContain('Sources checked: 2026-07-02');
+    expect(record).toContain(`Sources checked: ${WIZARDS.breach.verifiedAsOf}`);
     expect(record).toContain('  - Included text:');
     expect(record).toMatch(/\n    > /);
     const noted = history.find((entry) => entry.answerNote);
