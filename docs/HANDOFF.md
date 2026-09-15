@@ -30,8 +30,11 @@ content error stops the build with the list of errors.
 - Build output: Privacy Wizards CI fails when the committed registry modules or
   `dist/wizards.html` differ from its rebuild, and the Toolkit gate checks that each staged copy
   was staged from the committed artifact (`scripts/canonical.mjs` holds the shared
-  normalization). Build a committed artifact only after `npm ci` in the tool folder: a stale
-  install put a newline in the artifact that CI's build does not have.
+  normalization). The step caught this rig on its first run: the working copy of `index.html` is
+  CRLF, and vite-plugin-singlefile left a stray blank line where it removes the module script, so
+  the artifact was a byte longer than CI's. `vite.config.js` now normalises the template, and a
+  CRLF checkout builds CI's bytes. A stale `node_modules` was reinstalled too, but it was not the
+  cause.
 - Docs: `content/README.md` (the switch-over banner is gone; marker and excerpt rules added),
   `BASELINE.md` (a registry source section with both hashes), `BEHAVIOR-DELTAS.md` PWC-NEXT-009,
   and the tool README.
@@ -48,7 +51,7 @@ findings: fourteen fixed with tests or checks, and the dev server's content watc
 `content/README.md` instead. ADVO-198 carries the list.
 
 **Verification.** Tool gate after `npm ci`: 55 vitest, style audit, build and artifact check
-(`e9e80a31…`). Restaged, then the root gate: design gate, typecheck, tests, 128 static checks (the
+(`ebe2caa9…`). Restaged, then the root gate: design gate, typecheck, tests, 128 static checks (the
 three new staged-copy checks among them), rendered QA, every canvas state proof, style census.
 Behaviour rig: 68 of 68 at 1440 and 390. The browser probe with Breach severity unpublished passed
 against the engine-driven finder with zero page errors, and the files were restored and
