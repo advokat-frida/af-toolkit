@@ -60,6 +60,14 @@ worktree each new guard was shown to fire: the CI freshness step on output that 
 recommitted, the staged-copy check on a rebuild without a restage, generation on a quoted publish
 flag, and the artifact check without the font faces.
 
+**Merged and live.** PR #14 fast-forwarded to `main` at `94f34d4` after CI passed, the new
+freshness step included. On toolkit.advokatfrida.com, `tool-sources.json` listed `ebe2caa9…`
+within a minute of the push, and the served tool equals that artifact byte for byte once
+Cloudflare's hidden `/cdn-cgi/content` link is removed. In a browser on the live site the finder
+offered the sixteen published paths, the breach path ran to an outcome, and the downloaded record
+named `Registry SHA-256: a1cafbd9…` and `af-pwc-vnext-2026-09-14` with no legacy label, with zero
+page errors.
+
 **Next.** Wave 1 content is written straight into `content/`: W1.1 the US state cohort (the
 recovered July drafts are in `.local-working/advo-73-july-2026/`), W1.2 the breach clocks, W1.3
 DPIA and assessments.
