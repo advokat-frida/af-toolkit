@@ -25,8 +25,9 @@ That isn't a bug, it's the whole design. The Council was never meant to be compr
 
 - **Fork the shipped baseline.** [`wizards.html`](wizards.html) remains the untouched legacy
   artifact.
-- **Change the maintainable source.** The local redesign lives in [`src/`](src/) with graph,
-  legal-state, URL, export, and privacy tests under [`tests/`](tests/).
+- **Change the maintainable source.** The paths and sources live in [`content/`](content/), one
+  file each; the interface lives in [`src/`](src/), with graph, legal-state, URL, export, and
+  privacy tests under [`tests/`](tests/).
 - **Carry one file.** `npm run build` produces `dist/wizards.html`; the built artifact has no runtime
   server or third-party dependency.
 

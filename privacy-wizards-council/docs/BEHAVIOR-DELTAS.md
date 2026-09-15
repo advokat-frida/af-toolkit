@@ -140,3 +140,23 @@ it does not convert any source or path into a practitioner-reviewed determinatio
   behaviour rig (hover, pin, keyboard, Escape, ×, frame-width fit) at 1440 and 390.
 - Ben approval: asked for on 2026-09-14 ("hover over each mention of an article… a small popup
   card"), built the same day.
+
+## PWC-NEXT-009 — The registry is authored content, not extracted HTML (2026-09-14)
+
+- Legacy: the build extracted `SOURCES` and `WIZARDS` from `wizards.html`, with the manifest
+  version, the published allowlist and every source's status hardcoded in the extraction script.
+- vNext: the build generates the registry modules from `content/`: one file per path, one per
+  source, and a review block per source. Published flags live in `registry.json` and review status
+  in each source file. A file that does not validate stops the build.
+- Publication: an unpublished path (`published: false`) is left out of the finder and the next
+  determinations, and its link opens nothing; the legacy tool listed every extracted path. The
+  tests read publication and review status from the files instead of requiring every path
+  published and every source `automated-check-only`. The sixteen baseline paths must stay
+  published.
+- Record: the "Legacy registry SHA-256" line becomes "Registry SHA-256", the hash of the content
+  registry. The manifest version moves to `af-pwc-vnext-2026-09-14`, and the manifest hash changes
+  because sources are now ordered by id.
+- Compatibility: no path, source, text, citation or status changed. At the switch-over the files
+  equalled the legacy extraction byte for byte, and every citation in every path resolved the same.
+- Evidence: the equivalence test before the switch, the generated-module test after it, the before
+  and after resolution of every citation, and the Toolkit gate.

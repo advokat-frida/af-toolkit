@@ -1,8 +1,8 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
-import * as legacy from '../../src/lib/data/legacy.generated.js';
 import * as manifest from '../../src/lib/data/manifest.generated.js';
+import * as registry from '../../src/lib/data/registry.generated.js';
 import { validateGraph } from '../../src/lib/engine/council.js';
 import { buildRegistry, jurisdictionFolder, readContent, sourceFromFile, sourceToFile, validateContent } from '../../scripts/registry/content.mjs';
 
@@ -15,24 +15,22 @@ describe('authored content registry', () => {
     expect(validateContent(content)).toEqual([]);
   });
 
-  it('paths_match_the_legacy_extraction_in_order_and_byte_for_byte', () => {
-    expect(Object.keys(built.WIZARDS)).toEqual(Object.keys(legacy.WIZARDS));
-    for (const id of Object.keys(legacy.WIZARDS)) expect(JSON.stringify(built.WIZARDS[id]), id).toBe(JSON.stringify(legacy.WIZARDS[id]));
-  });
-
-  it('sources_match_the_legacy_extraction_including_the_included_text', () => {
-    expect(Object.keys(built.SOURCES).sort()).toEqual(Object.keys(legacy.SOURCES).sort());
-    for (const id of Object.keys(legacy.SOURCES)) expect(JSON.stringify(built.SOURCES[id]), id).toBe(JSON.stringify(legacy.SOURCES[id]));
+  it('the_generated_modules_are_the_content_files', () => {
+    // `npm test` regenerates them first; this catches a stale module in a bare vitest run.
+    expect(Object.keys(registry.WIZARDS)).toEqual(content.registry.wizards.map((entry) => entry.id));
+    expect(JSON.stringify(registry.WIZARDS)).toBe(JSON.stringify(built.WIZARDS));
+    expect(JSON.stringify(registry.SOURCES)).toBe(JSON.stringify(built.SOURCES));
+    expect(registry.REGISTRY_SHA256).toBe(built.REGISTRY_SHA256);
+    expect(manifest.MANIFEST_VERSION).toBe(built.MANIFEST_VERSION);
+    expect(manifest.MANIFEST_SHA256).toBe(built.MANIFEST_SHA256);
+    expect(manifest.SOURCE_MANIFEST).toEqual(built.SOURCE_MANIFEST);
+    expect(manifest.AUTOMATED_CHECK_NOTES).toEqual(built.AUTOMATED_CHECK_NOTES);
     // Sorted by id, so the manifest hash cannot depend on the order folders are read in.
-    expect(Object.keys(built.SOURCES)).toEqual(Object.keys(built.SOURCES).sort());
+    expect(Object.keys(registry.SOURCES)).toEqual(Object.keys(registry.SOURCES).sort());
   });
 
-  it('manifest_entries_published_paths_and_check_notes_match', () => {
-    expect(built.MANIFEST_VERSION).toBe(manifest.MANIFEST_VERSION);
-    expect(built.ENABLED_WIZARDS).toEqual(manifest.ENABLED_WIZARDS);
-    expect(built.AUTOMATED_CHECK_NOTES).toEqual(manifest.AUTOMATED_CHECK_NOTES);
-    expect(Object.keys(built.SOURCE_MANIFEST).sort()).toEqual(Object.keys(manifest.SOURCE_MANIFEST).sort());
-    for (const id of Object.keys(manifest.SOURCE_MANIFEST)) expect(built.SOURCE_MANIFEST[id], id).toEqual(manifest.SOURCE_MANIFEST[id]);
+  it('only_published_paths_are_enabled', () => {
+    expect(manifest.ENABLED_WIZARDS).toEqual(content.registry.wizards.filter((entry) => entry.published).map((entry) => entry.id));
   });
 
   it('the_built_registry_passes_the_engine_graph_checks', () => {
@@ -62,6 +60,7 @@ describe('authored content registry', () => {
     expect(rebuilt.SOURCE_MANIFEST[id].contentSha256).toBe(built.SOURCE_MANIFEST[id].contentSha256);
     expect(rebuilt.SOURCE_MANIFEST[id].status).toBe('practitioner-reviewed');
     expect(rebuilt.MANIFEST_SHA256).not.toBe(built.MANIFEST_SHA256);
+    expect(rebuilt.REGISTRY_SHA256).toBe(built.REGISTRY_SHA256);
   });
 
   it('validation_names_the_mistakes_an_author_makes', () => {

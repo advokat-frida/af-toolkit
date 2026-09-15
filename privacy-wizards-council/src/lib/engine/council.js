@@ -1,4 +1,4 @@
-import { LEGACY_REGISTRY_SHA256, SOURCES, WIZARDS } from '../data/legacy.generated.js';
+import { REGISTRY_SHA256, SOURCES, WIZARDS } from '../data/registry.generated.js';
 import {
   AUTOMATED_CHECK_NOTES,
   ENABLED_WIZARDS,
@@ -73,15 +73,20 @@ export function sourceTextPlain(html) {
     .trim();
 }
 
-// The path most readers open after this one (data/related.js), only ids that exist. Given
+// The paths the finder offers: every published path, in registry order (content/registry.json).
+export function publishedWizardIds(enabled = ENABLED_WIZARDS) {
+  return Object.keys(WIZARDS).filter((id) => enabled.includes(id));
+}
+
+// The path most readers open after this one (data/related.js), only published paths. Given
 // an outcome, only paths that share a jurisdiction with the law the outcome cites: a
 // California answer is not sent to an EU-only path. INTL sources and paths are neutral.
-export function relatedWizardIds(id, outcomeId = null) {
+export function relatedWizardIds(id, outcomeId = null, enabled = ENABLED_WIZARDS) {
   if (!own(RELATED, id)) return [];
   const outcome = outcomeId && own(WIZARDS, id) && own(WIZARDS[id].nodes || {}, outcomeId) ? WIZARDS[id].nodes[outcomeId] : null;
   const juris = new Set((outcome?.cites || []).map((sourceId) => SOURCES[sourceId]?.juris).filter((value) => value && value !== 'INTL'));
   return RELATED[id].filter((other) => {
-    if (other === id || !own(WIZARDS, other)) return false;
+    if (other === id || !own(WIZARDS, other) || !enabled.includes(other)) return false;
     return !juris.size || (WIZARDS[other].jurisdictions || []).some((value) => value === 'INTL' || juris.has(value));
   });
 }
@@ -208,11 +213,12 @@ export function validateGraph({ wizards = WIZARDS, sources = SOURCES, manifest =
   return { ok: errors.length === 0, errors, warnings, stats };
 }
 
-export function parseWizardHash(hash) {
+// A link names one published path. An unpublished path's link opens nothing, like an unknown one.
+export function parseWizardHash(hash, enabled = ENABLED_WIZARDS) {
   if (!hash || hash === '#') return { status: 'empty' };
   if (!/^#[a-z0-9-]{1,64}$/.test(hash)) return { status: 'invalid' };
   const id = hash.slice(1);
-  return own(WIZARDS, id) ? { status: 'ok', id } : { status: 'unknown' };
+  return own(WIZARDS, id) && enabled.includes(id) ? { status: 'ok', id } : { status: 'unknown' };
 }
 
 export function sourceIdsForState(wizard, history = [], currentNodeId = null, outcomeId = null) {
@@ -294,7 +300,7 @@ export function buildRecord({ wizardId, history, outcomeId, date = new Date(), m
     `Sources checked: ${wizard.verifiedAsOf || 'not recorded'}`,
     `Source manifest: ${MANIFEST_VERSION}`,
     `Source manifest SHA-256: ${MANIFEST_SHA256}`,
-    `Legacy registry SHA-256: ${LEGACY_REGISTRY_SHA256}`,
+    `Registry SHA-256: ${REGISTRY_SHA256}`,
     '',
     '## Selected facts',
     ''
@@ -359,4 +365,4 @@ export function sourceStatusLabel(status) {
   );
 }
 
-export { AUTOMATED_CHECK_NOTES, ENABLED_WIZARDS, LEGACY_REGISTRY_SHA256, MANIFEST_SHA256, MANIFEST_VERSION, SOURCE_MANIFEST, SOURCES, WIZARDS };
+export { AUTOMATED_CHECK_NOTES, ENABLED_WIZARDS, MANIFEST_SHA256, MANIFEST_VERSION, REGISTRY_SHA256, SOURCE_MANIFEST, SOURCES, WIZARDS };

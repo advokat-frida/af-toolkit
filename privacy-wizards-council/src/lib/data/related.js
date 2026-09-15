@@ -1,5 +1,5 @@
 // Next determination: the path a reader most often needs after this one, never more than
-// two. Keys and values are wizard ids in legacy.generated.js. An outcome drops a path that
+// two. Keys and values are path ids in content/registry.json. An outcome drops a path that
 // shares no jurisdiction with the law it cites (relatedWizardIds), so a second id serves the
 // readers the first one does not.
 export const RELATED = {

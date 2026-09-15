@@ -1,4 +1,4 @@
-// Curated mention aliases, keyed by source id (legacy.generated.js). Article and section
+// Curated mention aliases, keyed by source id (a content/sources/ file name). Article and section
 // numbers resolve by rule in engine/mentions.js; this table carries what rules cannot
 // infer: case names, guidance short names, statutes known by an acronym, and the defined
 // terms that open a definition. Names match whole words, case-sensitive; terms match

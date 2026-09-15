@@ -16,6 +16,7 @@
     historyContext,
     motionNotes,
     parseWizardHash,
+    publishedWizardIds,
     relatedWizardIds,
     searchText,
     sourceIdsForState,
@@ -65,6 +66,8 @@
   let pendingIndex = null;
 
   const graph = validateGraph();
+  // Only published paths are offered, named as a next determination, or opened by link.
+  const publishedIds = publishedWizardIds();
 
   $: changelogDate = newestChangelogDate(changelog);
   $: wizard = selectedWizardId ? WIZARDS[selectedWizardId] : null;
@@ -77,7 +80,7 @@
   $: calendarState = selectedWizardId && outcomeId ? calendarEligibility({ wizardId: selectedWizardId, outcomeId }) : null;
   $: filteredWizardIds = filterWizardIds(search, activeCategory, showAll);
   $: groupedLibrary = !search.trim() && !activeCategory && showAll
-    ? categories.map((category) => ({ ...category, ids: category.wizardIds.filter((id) => WIZARDS[id]) }))
+    ? categories.map((category) => ({ ...category, ids: category.wizardIds.filter((id) => publishedIds.includes(id)) }))
     : null;
   $: questionsAhead = wizard && currentNodeId ? longestQuestionRun(wizard, currentNodeId) : 0;
   $: questionTotal = history.length + questionsAhead;
@@ -162,13 +165,9 @@
 
   function filterWizardIds(currentSearch, currentCategory, currentShowAll) {
     const term = currentSearch.trim().toLowerCase();
-    if (term) {
-      return Object.entries(WIZARDS)
-        .filter(([id, item]) => searchText(id, item, categoryForWizard(id)?.label || '').includes(term))
-        .map(([id]) => id);
-    }
-    if (currentCategory) return categories.find((category) => category.id === currentCategory)?.wizardIds || [];
-    return currentShowAll ? Object.keys(WIZARDS) : commonWizardIds;
+    if (term) return publishedIds.filter((id) => searchText(id, WIZARDS[id], categoryForWizard(id)?.label || '').includes(term));
+    const ids = currentCategory ? categories.find((category) => category.id === currentCategory)?.wizardIds || [] : currentShowAll ? publishedIds : commonWizardIds;
+    return ids.filter((id) => publishedIds.includes(id));
   }
 
   function handleHash(hash) {
@@ -206,8 +205,8 @@
   }
 
   function openWizard(id, updateHash = true) {
+    if (!publishedIds.includes(id)) return;
     const next = WIZARDS[id];
-    if (!next) return;
     selectedWizardId = id;
     currentNodeId = next.start;
     outcomeId = null;
@@ -418,7 +417,7 @@
       {#if search}<p class:empty={filteredWizardIds.length === 0} class="search-feedback" role="status">{filteredWizardIds.length ? `${filteredWizardIds.length} matching ${filteredWizardIds.length === 1 ? 'determination' : 'determinations'}.` : 'No matching determination. Try a shorter term or reset the finder.'}</p>{/if}
 
       <div class="library-heading">
-        {#if search || activeCategory || showAll}<button type="button" class="text-button" on:click={resetFinder}>Reset finder</button>{:else}<button type="button" class="text-button" on:click={() => (showAll = true)}>Browse all {Object.keys(WIZARDS).length}</button>{/if}
+        {#if search || activeCategory || showAll}<button type="button" class="text-button" on:click={resetFinder}>Reset finder</button>{:else}<button type="button" class="text-button" on:click={() => (showAll = true)}>Browse all {publishedIds.length}</button>{/if}
       </div>
 
       <div class="wizard-list">

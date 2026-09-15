@@ -1,13 +1,11 @@
 # Council content
 
 The Privacy Wizards Council runs on the files in this folder: one file per path and one per
-source. They were split out of the legacy `wizards.html` on 2026-09-14 and match it exactly;
-`tests/unit/registry.test.js` proves it on every test run.
-
-> **Switch-over pending.** The build still extracts the registry from `wizards.html`
-> (`scripts/extract-legacy-data.mjs`). It moves to these files in the commit after the 2.1.0
-> work lands, so the two changes stay reviewable apart. Until then, do not edit these files:
-> the equivalence test fails on any difference from `wizards.html`.
+source. They were split out of the legacy `wizards.html` on 2026-09-14, byte for byte, and the
+build has read them instead of it since the same day. `scripts/registry/generate.mjs` turns them
+into the modules the tool imports (`npm run registry`; dev, build and test run it first) and
+stops with a list of errors when a file does not validate. Edit these files, never the
+generated modules.
 
 ## Layout
 
@@ -39,7 +37,10 @@ with no source stays plain text.
 
 `body` is the included text as a list of lines, joined with a newline at build. Use `<p>`,
 `<span class="num">` for paragraph numbers, `<blockquote>`, `<b>` and `<i>` only. The citation
-card finds a cited paragraph by its `(1)` or `1.` marker.
+card finds a cited paragraph by the marker that opens its line (`1.`, `(a)`, `1.(b)`, `(a) (1)`)
+and follows a chain such as `(3)(a)` down from the parent line. A source that holds only some
+paragraphs of its provision lists them in its `citation` right after the number
+(`Art. 3(3)-(8), (23)`); a mention of any other paragraph stays plain.
 
 `review` holds the review state. It never enters the source's content hash, so a status change
 does not look like a text change.
@@ -57,18 +58,23 @@ Unknown values are `null`, never omitted.
 
 - Every path in `registry.json` has a file, and every path file is listed.
 - Every cite resolves to a source file, and source ids are unique across folders.
+- The start and every `goto` name a node in the same file, every node is a question or an
+  outcome with its required fields, and every node is reachable from the start.
 - `provenance` is an https URL, and each file sits in its jurisdiction's folder.
 - A published path that cites a draft, missing or superseded source fails closed.
 - A path says "Legal sources reviewed through" only when every source it cites is
   `practitioner-reviewed`.
 
-## Adding a path, after the switch-over
+## Adding a path
 
 1. Sources first: fetch the primary text and write each source file with `status: "draft"` and
    its `retrievedDate`.
 2. Write `wizards/<id>.json` and add `{ "id": "<id>", "published": false }` to `registry.json`.
+   An unpublished path is left out of the finder and the next determinations, and its link opens
+   nothing.
 3. Add the path to `src/lib/data/categories.js`, `related.js` and `search.js`.
 4. Run the adversarial legal panel, move each source to `automated-check-only`, and stamp
    `verifiedAsOf`.
-5. Publish. Practitioner review then moves each source to `practitioner-reviewed` with its
-   `reviewDate` and `reviewer`.
+5. Publish: set `published: true`. The tests refuse a published path that cites a draft or
+   superseded source. Practitioner review then moves each source to `practitioner-reviewed`
+   with its `reviewDate` and `reviewer`.

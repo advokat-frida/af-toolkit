@@ -1,5 +1,50 @@
 # HANDOFF
 
+## 2026-09-14 - Privacy Wizards: the build reads content/ (W1.0 part 2)
+
+Tucked on Ben's word through a pull request from `wizards-registry-switchover`, because it
+changes the build pipeline. Linear: ADVO-198.
+
+The build no longer extracts the registry from the legacy `wizards.html`.
+`scripts/registry/generate.mjs` validates `content/` and writes
+`src/lib/data/registry.generated.js` (`SOURCES`, `WIZARDS`, `REGISTRY_SHA256`) and
+`manifest.generated.js`. `npm run registry` runs it, and dev, build and test run it first. A
+content error stops the build with the list of errors.
+
+**What changed**
+- `extract-legacy-data.mjs`, `migrate-legacy.mjs` and `legacy.generated.js` are deleted. The
+  font faces are now the committed `src/styles/fonts.css`.
+- The record's hash line reads "Registry SHA-256", the content registry hash `a1cafbd9…`. The
+  manifest version is `af-pwc-vnext-2026-09-14`, and the manifest hash changed because sources
+  are ordered by id.
+- Publication: an unpublished path is left out of the finder and the next determinations, and
+  its link opens nothing (`publishedWizardIds`, `relatedWizardIds`, `parseWizardHash`).
+- Tests: the registry tests prove the generated modules equal the content files and that only
+  published paths are enabled. In `council.test.js` the graph counts, the manifest version,
+  publication and every source's review status come from the content files, so a draft source
+  or Ben's first practitioner review no longer fails them. The sixteen baseline paths must stay
+  published.
+- Docs: `content/README.md` (the switch-over banner is gone; marker and excerpt rules added),
+  `BASELINE.md` (a registry source section with both hashes), `BEHAVIOR-DELTAS.md` PWC-NEXT-009,
+  and the tool README.
+
+**Proof that nothing changed.** Captured before the switch: every path and source from the
+legacy extraction, and the resolution of every citation in every text block. After it, the paths
+and sources are identical and all 1,507 citation resolutions are byte-identical. The built
+artifact differs from the live one only in the record label and the publication filter.
+
+**Verification.** Tool gate: 52 vitest, style audit, build and artifact check (`ce315fed…`).
+A probe built the tool with Breach severity unpublished: the finder counted and listed 15 paths,
+a search did not offer it, `#severity` opened nothing and `#breach` still opened, with zero page
+errors. The registry and the generated modules were then restored and hash-checked. Restaged,
+then the root gate: design gate, typecheck, tests, 125 static checks, rendered QA, every canvas
+state proof, style census. Behaviour rig: 68 of 68 at 1440 and 390. On the final tree, all 1,507
+citation resolutions still match the legacy extraction exactly.
+
+**Next.** Wave 1 content is written straight into `content/`: W1.1 the US state cohort (the
+recovered July drafts are in `.local-working/advo-73-july-2026/`), W1.2 the breach clocks, W1.3
+DPIA and assessments.
+
 ## 2026-09-14 - Privacy Wizards 2.1.0: review fixes, merged and live (PR #13)
 
 The tuck's independent review of PR #13 (`f8e5f42` authored depth, `5336ed7` content files

@@ -1,8 +1,11 @@
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import {
   ENABLED_WIZARDS,
   MANIFEST_SHA256,
   MANIFEST_VERSION,
+  REGISTRY_SHA256,
   SOURCE_MANIFEST,
   SOURCES,
   WIZARDS,
@@ -13,6 +16,7 @@ import {
   editAnswer,
   motionNotes,
   parseWizardHash,
+  publishedWizardIds,
   relatedWizardIds,
   reviewedThrough,
   searchText,
@@ -28,6 +32,11 @@ import { categories } from '../../src/lib/data/categories.js';
 import { MOTION } from '../../src/lib/data/motion.js';
 import { RELATED } from '../../src/lib/data/related.js';
 import { SEARCH_ALIASES } from '../../src/lib/data/search.js';
+import { readContent } from '../../scripts/registry/content.mjs';
+
+const content = readContent(path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..'));
+// The sixteen paths the legacy tool published: the extraction's allowlist until 2026-09-14.
+const BASELINE_PATHS = ['breach', 'sale-share', 'dpia', 'legal-basis', 'special-category', 'transfer', 'role', 'dpo', 'dsar', 'children', 'cookies', 'adm', 'ropa', 'ai-role', 'ai-risk', 'severity'];
 
 function firstOutcomePath(wizard) {
   let current = wizard.start;
@@ -49,7 +58,17 @@ describe('decision graph integrity', () => {
     const result = validateGraph();
     expect(result.ok).toBe(true);
     expect(result.errors).toEqual([]);
-    expect(result.stats).toEqual({ wizards: 16, nodes: 225, questions: 76, outcomes: 149, branches: 298, citations: 658 });
+    // The counts come from the authored files, so a new path changes them in one place.
+    const nodes = Object.values(content.wizards).flatMap((wizard) => Object.values(wizard.nodes));
+    expect(result.stats).toEqual({
+      wizards: Object.keys(content.wizards).length,
+      nodes: nodes.length,
+      questions: nodes.filter((node) => node.type === 'question').length,
+      outcomes: nodes.filter((node) => node.type === 'outcome').length,
+      branches: nodes.reduce((sum, node) => sum + (node.opts || []).length, 0),
+      citations: nodes.reduce((sum, node) => sum + (node.cites || []).length, 0)
+    });
+    expect(result.stats.wizards).toBeGreaterThanOrEqual(16);
   });
 
   it('all_nodes_are_reachable_or_explicitly_exempt', () => {
@@ -80,14 +99,19 @@ describe('decision graph integrity', () => {
 });
 
 describe('published baseline and legal review state', () => {
-  it('the_exact_legacy_baseline_is_available_without_claiming_practitioner_review', () => {
-    expect(ENABLED_WIZARDS).toEqual(Object.keys(WIZARDS));
+  it('published_paths_run_and_claim_only_the_review_their_sources_carry', () => {
+    // Publication and review status are authored in content/, so the expectations come from there.
+    const published = content.registry.wizards.filter((entry) => entry.published).map((entry) => entry.id);
+    expect(ENABLED_WIZARDS).toEqual(published);
+    expect(publishedWizardIds()).toEqual(published);
+    // Retiring a baseline path needs Ben's recorded approval, not a registry edit.
+    for (const id of BASELINE_PATHS) expect(published, id).toContain(id);
     for (const id of Object.keys(WIZARDS)) {
       const review = wizardReviewState(id);
-      expect(review.available, id).toBe(true);
-      expect(review.practitionerReviewed, id).toBe(false);
-      expect(review.status, id).toBe('automated-check-only');
-      expect(review.reviewedThrough, id).toBe(null);
+      const reviewed = review.sourceIds.every((sourceId) => SOURCE_MANIFEST[sourceId].status === 'practitioner-reviewed');
+      expect(review.available, id).toBe(published.includes(id));
+      expect(review.practitionerReviewed, id).toBe(reviewed);
+      expect(review.reviewedThrough !== null, id).toBe(published.includes(id) && reviewed);
     }
   });
 
@@ -111,9 +135,10 @@ describe('published baseline and legal review state', () => {
   });
 
   it('ui_record_allowlist_and_manifest_hash_agree', () => {
-    expect(MANIFEST_VERSION).toBe('af-pwc-vnext-2026-08-21');
+    expect(MANIFEST_VERSION).toBe(content.registry.manifestVersion);
+    expect(MANIFEST_VERSION).toMatch(/^af-pwc-vnext-\d{4}-\d{2}-\d{2}$/);
     expect(MANIFEST_SHA256).toMatch(/^[a-f0-9]{64}$/);
-    expect(Object.values(SOURCE_MANIFEST).every((entry) => entry.status === 'automated-check-only')).toBe(true);
+    for (const [id, entry] of Object.entries(SOURCE_MANIFEST)) expect(entry.status, id).toBe(content.reviews[id].status);
   });
 });
 
@@ -153,6 +178,15 @@ describe('path state and deep-link privacy', () => {
     expect(parseWizardHash('#ai-risk')).toEqual({ status: 'ok', id: 'ai-risk' });
   });
 
+  it('an_unpublished_path_is_not_offered_named_or_opened_by_link', () => {
+    const enabled = ENABLED_WIZARDS.filter((id) => id !== 'severity');
+    expect(publishedWizardIds(enabled)).not.toContain('severity');
+    expect(parseWizardHash('#severity', enabled)).toEqual({ status: 'unknown' });
+    expect(relatedWizardIds('breach', 'o-eu-sa-only', enabled)).toEqual([]);
+    expect(relatedWizardIds('breach', 'o-eu-sa-only')).toEqual(['severity']);
+    expect(wizardReviewState('severity', { enabled }).available).toBe(false);
+  });
+
   it('deep_link_never_serializes_answers_history_outcome_or_dates', () => {
     const allowed = Object.keys(WIZARDS).map((id) => `#${id}`);
     for (const hash of allowed) expect(hash).toMatch(/^#[a-z0-9-]+$/);
@@ -180,12 +214,14 @@ describe('records and calendar gate', () => {
 
   it('markdown_record_contains_path_outcome_sources_and_manifest_hash', () => {
     const wizard = WIZARDS.breach;
-    const path = firstOutcomePath(wizard);
-    const record = buildRecord({ wizardId: 'breach', history: path.history, outcomeId: path.outcomeId, date: new Date('2026-08-20T12:00:00') });
+    const route = firstOutcomePath(wizard);
+    const record = buildRecord({ wizardId: 'breach', history: route.history, outcomeId: route.outcomeId, date: new Date('2026-08-20T12:00:00') });
     expect(record).toContain('## Selected facts');
     expect(record).toContain('## Outcome');
     expect(record).toContain('## Sources');
     expect(record).toContain(`Source manifest SHA-256: ${MANIFEST_SHA256}`);
+    expect(record).toContain(`Registry SHA-256: ${REGISTRY_SHA256}`);
+    expect(record).not.toContain('Legacy registry');
     expect(record).toContain('automated-check-only');
     expect(record).not.toContain('Sources verified as of');
   });

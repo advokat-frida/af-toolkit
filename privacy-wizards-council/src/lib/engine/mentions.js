@@ -7,7 +7,7 @@
 // No lookbehind assertions here or in data/mentions.js: Safari before 16.4 rejects them when
 // it parses the script, and the whole tool would fail to load. A pattern that needs a left
 // boundary captures it as its first group instead and says so with `lead: true`.
-import { SOURCES, WIZARDS } from '../data/legacy.generated.js';
+import { SOURCES, WIZARDS } from '../data/registry.generated.js';
 import { ARTICLE_OVERRIDES, DEFINED_TERMS, NAMED_MENTIONS } from '../data/mentions.js';
 import { sentenceBreaks, sourceTextPlain, wizardSourceIds } from './council.js';
 

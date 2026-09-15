@@ -1,5 +1,5 @@
 // The authored registry: one JSON file per path and one per source, under content/.
-// Pure functions shared by the build, the tests and the one-time migration. Nothing here
+// Pure functions shared by the build (generate.mjs) and the tests. Nothing here
 // runs in the browser.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -170,8 +170,8 @@ function citedBy(wizard) {
   return [...ids].sort();
 }
 
-// The same shapes the engine imports today (SOURCES, WIZARDS, the source manifest), built
-// from the authored files instead of the legacy HTML.
+// The shapes the engine imports (SOURCES, WIZARDS, the source manifest), built from the
+// authored files.
 export function buildRegistry(content) {
   const { registry, wizards, sources, reviews } = content;
   const WIZARDS = {};
