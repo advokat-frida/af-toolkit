@@ -26,7 +26,32 @@ with [remaining shared usability](https://app.notion.com/p/3e30f293ed9d817bba7cc
 as Idea. The original expansion research links to these and is labeled historical.
 No schema or status choices changed. Other Toolkit tasks remain parked pending Ben's check-in.
 
-Release completion, commit and live verification are appended here after deployment.
+**Released.** Commit `e9e606e6aea68f5b9cbff72a62eed9deaa577abe` fast-forwarded to main.
+Cloudflare build `b108d897-a248-4d5b-ad9b-a2c5617c5c1a` succeeded. GitHub Toolkit CI
+`35796755618`, PWC CI `35796755619` and CodeQL `35796755740` all passed. The live manifest
+lists the approved hash. Served PWC and Home HTML equal the committed files after removing
+exactly one observed Cloudflare-injected hidden `/cdn-cgi/content` link from each response.
+The normalized Home SHA-256 is
+`f04006aeab6c50de14321f631b39315146e3403e31e02bd3b779fa29a6ff9ab8`.
+
+**Live verification.** The alphabetical 18-topic finder, California/Texas progression and
+stacked unresolved outcomes were exercised in the production browser. Desktop 1440px and
+phone 390px results were inspected directly; the phone tool frame measured zero horizontal
+overflow. The September 22 Home changelog was opened and inspected on mobile. Local final
+proofs also confirm the distinct action, Authority and Next determination treatments.
+
+**Closed out.** AF-9 is Done; AF-10 breach and AF-11 DPIA are Backlog; AF-12 shared usability
+is Idea. The research page retains its historical material with a current task map at the top.
+Ben's earlier Tuck-skill request is implemented at `.agents/skills/tuck/SKILL.md`: Notion
+instead of Linear, no new review status, and actual repository deployment routing. Validation
+passed. Workspace hygiene passed in report-only mode with unrelated existing warnings.
+
+**Restart/resume.** The merged `codex/pwc-expansion` branch was pruned locally and remotely;
+its clean detached worktree remains at the release commit to preserve the local preview.
+Primary `af-toolkit` retains only the pre-existing untracked `.claude/` directory. No other
+Toolkit work has started. After a Codex restart, use the live Toolkit or run `node server.mjs`
+from the primary checkout if a local preview is needed. The next action is Ben's choice of
+backlog work or the requested check-in before another Toolkit task.
 
 ---
 
