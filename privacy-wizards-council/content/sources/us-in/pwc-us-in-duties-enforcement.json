@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-IN",
+  "label": "Indiana: enforcement and cure",
+  "citation": "IC 24-15-10-1 through 24-15-10-3 (2026)",
+  "provenance": "https://iga.in.gov/ic/2026/Title_24/Article_15.pdf",
+  "note": "Editorial summary of the cited primary provisions, not a verbatim extract. Current-law check as of September 22, 2026; enforcement cure procedures do not postpone substantive compliance duties.",
+  "body": [
+    "<p>The Attorney General exclusively enforces the act. Before an action under IC 24-15-10-2, the Attorney General must give the controller or processor 30 days' written notice identifying the specific alleged violations.</p>",
+    "<p>Within that period, the recipient must cure and give an express written statement that the violation has been cured and actions have been taken to prevent further such violations. If both conditions are met, the Attorney General must not initiate the action.</p>",
+    "<p>Continued violations or breach of that statement permit action. This cure provision has no stated sunset and is separate from the act's January 1, 2026 start date.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2026-01-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

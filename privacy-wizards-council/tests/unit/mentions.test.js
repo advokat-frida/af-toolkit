@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { SOURCE_MANIFEST, SOURCES, WIZARDS } from '../../src/lib/engine/council.js';
-import { contextFor, familyOf, mentionCard, paragraphFor, tokenize } from '../../src/lib/engine/mentions.js';
+import { contextFor, familyOf, mentionCard, paragraphFor, tokenize, tokenizeWithLinks } from '../../src/lib/engine/mentions.js';
 import { DEFINED_TERMS, NAMED_MENTIONS } from '../../src/lib/data/mentions.js';
 
 const links = (text, context) => tokenize(text, context).filter((s) => s.sourceId).map((s) => [s.text, s.sourceId, s.para]);
@@ -11,6 +11,15 @@ const ai = contextFor('ai-role', WIZARDS['ai-role'].nodes[WIZARDS['ai-role'].sta
 const cookies = contextFor('cookies', WIZARDS.cookies.nodes[WIZARDS.cookies.start]);
 
 describe('inline citations resolve conservatively', () => {
+  it('resource_links_are_https_only_and_preserve_adjacent_legal_citations', () => {
+    const text = 'Use [template](https://ico.org.uk/example.xlsx) under Art. 30(1).';
+    const segments = tokenizeWithLinks(text, contextFor('ropa'));
+    expect(segments.find(segment => segment.href)).toEqual({ text: 'template', href: 'https://ico.org.uk/example.xlsx' });
+    expect(segments.find(segment => segment.sourceId)?.sourceId).toBe('gdpr-art-30');
+    for (const unsafe of ['javascript:alert(1)', 'data:text/html,test', 'https://user:pass@example.com/file']) {
+      expect(tokenizeWithLinks(`[template](${unsafe})`).some(segment => segment.href)).toBe(false);
+    }
+  });
   it('context_reads_the_family_and_the_uk_setting_from_the_node', () => {
     expect(eu.family).toBe('GDPR');
     expect(eu.uk).toBe(false);
@@ -161,7 +170,8 @@ describe('inline citations resolve conservatively', () => {
     expect(links('UK GDPR Arts. 45A–45B and Art. 45B', transfer)).toEqual([]);
     // An excerpt source opens only for the paragraphs it holds.
     expect(links('Art. 3(1) and Art. 3(12) and Art. 3(4)', ai)).toEqual([['Art. 3(4)', 'eu-ai-act-art-3-roles', '(4)']]);
-    expect(links('Art. 5(1)(f) and Art. 5(2)', contextFor('dpia')).map((l) => l[0])).toEqual(['Art. 5(2)']);
+    // The Art. 5 source holds the full article, including storage limitation and security.
+    expect(links('Art. 5(1)(e), Art. 5(1)(f) and Art. 5(2)', contextFor('dpia')).map((l) => l[0])).toEqual(['Art. 5(1)(e)', 'Art. 5(1)(f)', 'Art. 5(2)']);
     // A short instrument name links only where the path cites the provision it stands for.
     expect(links('PECR applies', contextFor('breach', WIZARDS.breach.nodes['q-uk-risk']))).toEqual([]);
     expect(links('PECR applies', cookies)).toEqual([['PECR', 'uk-pecr-reg-6', null]]);

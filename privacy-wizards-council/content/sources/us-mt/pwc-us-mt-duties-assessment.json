@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-MT",
+  "label": "Montana: risk assessments",
+  "citation": "Mont. Code Ann. §30-14-2814",
+  "provenance": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0140/0300-0140-0280-0140.html",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Assess heightened-risk targeted advertising, sales, sensitive processing and qualifying profiling created or generated after January 1, 2025.</p>",
+    "<p>Document benefits, harms, safeguards and the activity's creation date.</p>",
+    "<p>Separately assess the online-minor regime when relevant; the general count threshold does not resolve every minor provision.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

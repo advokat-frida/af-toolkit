@@ -127,7 +127,9 @@
         {
           "label": "EU / EEA users",
           "goto": "o-analytics",
-          "desc": "If you serve both regimes, apply each branch to its users — or run the stricter EU standard across the board."
+          "resultActions": [
+            "If you serve both regimes, apply each branch to its users — or run the stricter EU standard across the board."
+          ]
         },
         {
           "label": "UK users",
@@ -215,7 +217,9 @@
         {
           "label": "EU / EEA users",
           "goto": "o-functionality",
-          "desc": "If you serve both regimes, apply each branch to its users — or run the stricter EU standard across the board."
+          "resultActions": [
+            "If you serve both regimes, apply each branch to its users — or run the stricter EU standard across the board."
+          ]
         },
         {
           "label": "UK users",

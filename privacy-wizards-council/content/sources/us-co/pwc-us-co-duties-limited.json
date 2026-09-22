@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-CO",
+  "label": "Colorado: limited duties",
+  "citation": "C.R.S. §6-1-1304(1)(a)(II), (1)(b)",
+  "provenance": "https://olls.info/crs/crs2026-title-06.htm",
+  "note": "Editorial summary of the limited provision. This is not a conclusion that full-law duties apply.",
+  "body": [
+    "<p>A below-threshold biometric or minor-specific provision does not establish full-law coverage.</p>",
+    "<p>Privacy counsel must identify whether the relevant biometric provisions or §§6-1-1308.5 and 6-1-1309.5 apply.</p>",
+    "<p>Document the biometric use, ages/knowledge, online service and exact scope before selecting a full-law duties comparison.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

@@ -6,7 +6,7 @@ import {
   MANIFEST_VERSION,
   SOURCE_MANIFEST
 } from '../data/manifest.generated.js';
-import { categories, categoryForWizard, commonWizardIds } from '../data/categories.js';
+import { categories, categoryForWizard } from '../data/categories.js';
 import { MOTION } from '../data/motion.js';
 import { RELATED } from '../data/related.js';
 import { SEARCH_ALIASES } from '../data/search.js';
@@ -79,22 +79,25 @@ export function publishedWizardIds(enabled = ENABLED_WIZARDS) {
   return Object.keys(WIZARDS).filter((id) => enabled.includes(id));
 }
 
-// What the finder lists for a search, a category, Browse all or the common rows: published
-// paths only, in registry order.
-export function finderWizardIds({ term = '', categoryId = null, showAll = false, enabled = ENABLED_WIZARDS } = {}) {
-  const published = publishedWizardIds(enabled);
+// Natural browsing always offers every published topic, alphabetized by its visible title.
+const alphabetically = (a, b) => a.localeCompare(b, 'en', { sensitivity: 'base', ignorePunctuation: true });
+const byTitle = (a, b) => alphabetically(WIZARDS[a].title, WIZARDS[b].title);
+
+export function finderWizardIds({ term = '', categoryId = null, enabled = ENABLED_WIZARDS } = {}) {
+  const published = publishedWizardIds(enabled).sort(byTitle);
   const query = String(term || '').trim().toLowerCase();
   if (query) return published.filter((id) => searchText(id, WIZARDS[id], categoryForWizard(id)?.label || '').includes(query));
-  const ids = categoryId ? categories.find((category) => category.id === categoryId)?.wizardIds || [] : showAll ? published : commonWizardIds;
-  return ids.filter((id) => published.includes(id));
+  const ids = categoryId ? categories.find((category) => category.id === categoryId)?.wizardIds || [] : published;
+  return ids.filter((id) => published.includes(id)).sort(byTitle);
 }
 
-// Browse all, grouped by category: published paths only, and no heading without a path under it.
+// Alphabetical categories and topics, with no heading for an empty category.
 export function finderGroups(enabled = ENABLED_WIZARDS) {
   const published = publishedWizardIds(enabled);
   return categories
-    .map((category) => ({ ...category, ids: category.wizardIds.filter((id) => published.includes(id)) }))
-    .filter((group) => group.ids.length);
+    .map((category) => ({ ...category, ids: category.wizardIds.filter((id) => published.includes(id)).sort(byTitle) }))
+    .filter((group) => group.ids.length)
+    .sort((a, b) => alphabetically(a.label, b.label));
 }
 
 // The path most readers open after this one (data/related.js), only published paths. Given
@@ -271,6 +274,8 @@ export function answerQuestion(wizard, nodeId, optionIndex, history = []) {
     optionIndex,
     answer: option.label,
     answerNote: option.desc || '',
+    resultActions: option.resultActions || [],
+    resultNotes: option.resultNotes || [],
     optionCites: option.cites || [],
     goto: option.goto
   };
@@ -301,9 +306,31 @@ function localDate(date = new Date()) {
   return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
 }
 
+// Answer rows describe facts. Selected branch guidance joins only the final result.
+export function outcomeForState(wizard, history, outcomeId) {
+  const outcome = wizard?.nodes?.[outcomeId];
+  if (outcome?.type !== 'outcome') return null;
+  const actions = new Map((outcome.actions || []).map(text => [text, outcome.cites || []]));
+  const notes = new Map((outcome.notes || []).map(text => [text, outcome.cites || []]));
+  for (const entry of history) {
+    const cites = [...new Set([...(wizard.nodes[entry.nodeId]?.cites || []), ...(entry.optionCites || [])])];
+    for (const text of entry.resultActions || []) if (!actions.has(text)) actions.set(text, cites);
+    for (const text of entry.resultNotes || []) if (!notes.has(text)) notes.set(text, cites);
+  }
+  return {
+    ...outcome,
+    actions: [...actions.keys()],
+    notes: [...notes.keys()],
+    // Keep each passage's jurisdiction context. The full history source union belongs
+    // in the authority list/export, not in the outcome's inline citation resolver.
+    actionCites: [...actions.values()],
+    noteCites: [...notes.values()]
+  };
+}
+
 export function buildRecord({ wizardId, history, outcomeId, date = new Date(), manifest = SOURCE_MANIFEST, enabled = ENABLED_WIZARDS }) {
   const wizard = WIZARDS[wizardId];
-  const outcome = wizard?.nodes?.[outcomeId];
+  const outcome = outcomeForState(wizard, history, outcomeId);
   if (!wizard || !outcome || outcome.type !== 'outcome') throw new Error('A complete outcome is required.');
   const review = wizardReviewState(wizardId, { manifest, enabled });
   const sourceIds = sourceIdsForState(wizard, history, null, outcomeId);
@@ -329,6 +356,7 @@ export function buildRecord({ wizardId, history, outcomeId, date = new Date(), m
     if (entry.answerNote) lines.push(`    - ${entry.answerNote}`);
   }
   lines.push('', '## Outcome', '', `**${outcome.title}**`, '', outcome.summary, '');
+  if (outcome.notes?.length) lines.push('## Reasoning from selected facts', '', ...outcome.notes.map(note => `- ${note}`), '');
   if (outcome.actions?.length) {
     lines.push('## What to do next', '');
     for (const action of outcome.actions) lines.push(`- ${action}`);
@@ -346,6 +374,7 @@ export function buildRecord({ wizardId, history, outcomeId, date = new Date(), m
     const source = SOURCES[id];
     const manifestEntry = manifest[id];
     lines.push(`- **${source?.label || id}** — ${source?.citation || 'Citation unavailable'}`, `  - Status: ${manifestEntry?.status || 'draft'}`, `  - Official text: ${source?.provenance || source?.url || 'No official URL recorded'}`);
+    if (source?.note) lines.push(`  - Source note: ${sourceTextPlain(source.note)}`);
     const text = sourceTextPlain(source?.body);
     if (text) {
       lines.push('  - Included text:', '');

@@ -1,0 +1,20 @@
+{
+  "kind": "statute",
+  "juris": "US-IN",
+  "label": "Indiana: entity and data exclusions",
+  "citation": "Ind. Code §§24-15-1-1, 24-15-1-2, 24-15-2-8, 24-15-2-18",
+  "provenance": "https://iga.in.gov/ic/2026/Title_24/Article_15.pdf",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Current Indiana Code2026 primary PDF retrieved September 22, 2026 using native PowerShell Invoke-WebRequest and PDF text extraction. Includes P.L.236-2025 §5; every exclusion must satisfy its exact definition and conditions. Independent and practitioner review remain separate.",
+  "body": [
+    "<p>IC 24-15-1-1(b) excludes government entities and contractors only while acting on their behalf within the contract; GLBA financial institutions and affiliates; HIPAA covered entities/business associates; qualifying nonprofits; higher education; defined public utilities and affiliated service companies; and 501(c)(4) insurance-crime/fraud organizations with a memorandum of understanding with statewide law enforcement.</p>",
+    "<p>IC 24-15-1-2 excludes specified HIPAA, Part2, health-research, patient-safety, deidentified-health, same-manner health, public-health-only, FCRA-regulated, DPPA, FERPA, Farm Credit and employment-role/emergency-contact/benefits information. Each category retains its holder, purpose or handling conditions. GLBA data is independently excluded in IC 24-15-1-1(b)(2).</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

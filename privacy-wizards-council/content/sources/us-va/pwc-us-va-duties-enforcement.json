@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-VA",
+  "label": "Virginia: enforcement and cure opportunity",
+  "citation": "Va. Code §59.1-584(A)–(C)",
+  "provenance": "https://law.lis.virginia.gov/vacode/title59.1/chapter 53/section59.1-584/",
+  "note": "Editorial summary of the cited current primary law, not a verbatim statutory extract. Cure/enforcement checkpoint: September 22, 2026. Independent content review and practitioner review are separate. This card addresses the comprehensive privacy law's cure opportunity and enforcement actor, not a complete remedies schedule.",
+  "body": [
+    "<p>The Attorney General has exclusive authority to enforce this chapter and must provide a controller or processor thirty days' written notice before an action, identifying the specific provisions allegedly violated.</p>",
+    "<p>If the controller or processor cures the noticed violation within that period and provides an express written statement that the alleged violations are cured and no further violations will occur, no action is to be initiated under those conditions.</p>",
+    "<p>Continued violations after the cure period or breach of the written statement permit an action. The current section states no cure sunset.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

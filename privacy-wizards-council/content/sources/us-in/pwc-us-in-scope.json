@@ -1,0 +1,22 @@
+{
+  "kind": "statute",
+  "juris": "US-IN",
+  "label": "Indiana: applicability",
+  "citation": "Ind. Code §§24-15-1-1, 24-15-1-2, 24-15-2-8, 24-15-2-18",
+  "provenance": "https://iga.in.gov/ic/2026/Title_24/Article_15.pdf",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Current Indiana Code2026 primary PDF retrieved September 22, 2026 using native PowerShell Invoke-WebRequest and PDF text extraction. Includes P.L.236-2025 §5; every exclusion must satisfy its exact definition and conditions. Independent and practitioner review remain separate.",
+  "body": [
+    "<p>Does it conduct business in Indiana OR produce products or services targeted to Indiana residents?</p>",
+    "<p>During the applicable calendar year, does it control or process personal data of at least 100,000 consumers; OR at least 25,000 consumers AND derive strictly more than 50% of gross revenue from selling personal data?</p>",
+    "<p>Indiana consumers in their individual/household role, not commercial or employment roles. The statute's consumer definition, not an undifferentiated database of residents, controls the count.</p>",
+    "<p>Measuring period: During the applicable calendar year.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

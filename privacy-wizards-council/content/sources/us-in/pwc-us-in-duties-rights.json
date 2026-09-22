@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-IN",
+  "label": "Indiana: consumer rights",
+  "citation": "Ind. Code §24-15-3-1(b)–(d)",
+  "provenance": "https://iga.in.gov/ic/2026/Title_24/Article_15.pdf",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Correction is limited to data the consumer previously provided. For the copy right, the controller may provide a representative summary instead of the data.</p>",
+    "<p>Do not promise a broader correction/copy entitlement on the basis of this statute alone; access and deletion have their own wording.</p>",
+    "<p>Respond within 45 days, with a reasonably necessary 45-day extension on timely notice; decide an appeal within 60 days.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2026-01-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

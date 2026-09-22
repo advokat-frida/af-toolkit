@@ -1,0 +1,19 @@
+{
+  "kind": "statute",
+  "juris": "US-NE",
+  "label": "Nebraska: small-business sensitive-data sales",
+  "citation": "Neb. Rev. Stat. §87-1118",
+  "provenance": "https://nebraskalegislature.gov/laws/statutes.php?statute=87-1118",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Read alongside §87-1103's January 1, 2024 federal-definition reference.",
+  "body": [
+    "<p>A person within §87-1103(1)(c)'s small-business exception may not sell sensitive personal data without the consumer's prior consent. The penalty in §87-1124 applies. A small-business classification therefore does not clear a sensitive-data sale.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

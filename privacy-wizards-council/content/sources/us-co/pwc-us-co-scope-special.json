@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-CO",
+  "label": "Colorado: biometric and minors scope",
+  "citation": "C.R.S. §§6-1-1304(1), 6-1-1308.5, 6-1-1314",
+  "provenance": "https://olls.info/crs/crs2026-title-06.htm",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Official legislature download index links this 2026 title: https://content.leg.colorado.gov/agencies/office-legislative-legal-services/2026-crs-titles-download",
+  "body": [
+    "<p>Current §6-1-1304 separately reaches processing of biometric identifiers or biometric data regardless of volume. When only this route establishes coverage, the Act applies only to that biometric processing.</p>",
+    "<p>The listed minors provisions apply to controllers conducting Colorado business or delivering intentionally targeted commercial products/services even below the general thresholds. The online-service duties require assessment of actual knowledge or willful disregard that the consumer is a minor.</p>",
+    "<p>Employment records are ordinarily excluded, but §6-1-1314 separately addresses employer biometric collection and permitted conditions. A low general consumer count does not resolve those duties.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

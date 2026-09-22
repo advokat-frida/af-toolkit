@@ -4,6 +4,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import { validateJurisdictionRoutes } from '../../src/lib/engine/jurisdiction-routes.js';
 
 export const LEGAL_STATUSES = ['draft', 'automated-check-only', 'practitioner-reviewed', 'superseded'];
 export const REVIEW_FIELDS = ['status', 'retrievedDate', 'effectiveOrPublicationDate', 'reviewDate', 'reviewer', 'reviewerRole'];
@@ -132,6 +133,7 @@ export function validateContent(content) {
   }
   for (const [id, wizard] of Object.entries(wizards)) {
     const where = `wizards/${id}.json`;
+    for (const error of validateJurisdictionRoutes(wizard)) errors.push(`${where}: ${error}`);
     for (const field of ['title', 'start', 'nodes']) if (!wizard[field]) errors.push(`${where}: ${field} is required`);
     const nodes = wizard.nodes || {};
     if (wizard.start && !own(nodes, wizard.start)) errors.push(`${where}: start ${wizard.start} is not a node in this file`);
@@ -147,6 +149,9 @@ export function validateContent(content) {
       }
       for (const cite of node.cites || []) if (!own(sources, cite)) errors.push(`${where}:${nodeId}: cites ${cite}, which has no source file`);
       for (const option of node.opts || []) {
+        for (const field of ['resultActions', 'resultNotes']) {
+          if (option[field] !== undefined && (!Array.isArray(option[field]) || option[field].some(value => typeof value !== 'string' || !value.trim()))) errors.push(`${where}:${nodeId}: ${field} must be an array of non-empty strings`);
+        }
         if (!own(nodes, option.goto)) errors.push(`${where}:${nodeId}: option "${option.label}" goes to ${option.goto}, which is not a node in this file`);
         for (const cite of option.cites || []) if (!own(sources, cite)) errors.push(`${where}:${nodeId}: an option cites ${cite}, which has no source file`);
       }

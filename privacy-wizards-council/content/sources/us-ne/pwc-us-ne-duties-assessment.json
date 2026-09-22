@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-NE",
+  "label": "Nebraska: risk assessments",
+  "citation": "Neb. Rev. Stat. §87-1116",
+  "provenance": "https://nebraskalegislature.gov/laws/statutes.php?statute=87-1116",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Assess targeted advertising, sale, sensitive data, qualifying risky profiling and other heightened-risk processing.</p>",
+    "<p>Document the benefits, risks, safeguards and reasonable consumer expectations.</p>",
+    "<p>A reasonably comparable assessment for another law may be used; record the comparison rather than assuming equivalence.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2025-01-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

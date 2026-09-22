@@ -1,0 +1,19 @@
+{
+  "kind": "statute",
+  "juris": "US-FL",
+  "label": "Florida: appeals",
+  "citation": "Fla. Stat. §501.707",
+  "provenance": "https://www.flsenate.gov/Laws/Statutes/2025/501.707",
+  "note": "Editorial summary of primary authority, not a verbatim extract. See the cited provision for all qualifiers.",
+  "body": [
+    "<p>Controllers must provide a conspicuous internal appeal process and give a written decision and reasons within 60 days after receiving an appeal.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2024-07-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

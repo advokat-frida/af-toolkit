@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-MN",
+  "label": "Minnesota: enforcement and cure",
+  "citation": "Minn. Stat. §325M.20(a)–(b), effective-date note",
+  "provenance": "https://www.revisor.mn.gov/statutes/cite/325M.20",
+  "note": "Editorial summary of the cited primary provisions, not a verbatim extract. Current-law check as of September 22, 2026; enforcement cure procedures do not postpone substantive compliance duties.",
+  "body": [
+    "<p>The Attorney General may bring a civil enforcement action under §325M.20(b). Paragraph (a)'s mandatory warning-letter and 30-day cure procedure expired January 31, 2026; there is no current mandatory cure entitlement in that section.</p>",
+    "<p>The historical clock ran from issuance of the warning letter identifying the alleged provisions. It must not be presented as an available 2026 grace period after its expiry.</p>",
+    "<p>The act's July 31, 2025 commencement and the separate July 31, 2029 compliance date for postsecondary institutions regulated by the Office of Higher Education are implementation rules, not extensions of that expired cure procedure.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2025-07-31",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

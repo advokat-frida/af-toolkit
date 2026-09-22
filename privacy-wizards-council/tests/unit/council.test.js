@@ -30,7 +30,7 @@ import {
   wizardReviewState,
   wizardSourceIds
 } from '../../src/lib/engine/council.js';
-import { categories, commonWizardIds } from '../../src/lib/data/categories.js';
+import { categories } from '../../src/lib/data/categories.js';
 import { MOTION } from '../../src/lib/data/motion.js';
 import { RELATED } from '../../src/lib/data/related.js';
 import { SEARCH_ALIASES } from '../../src/lib/data/search.js';
@@ -190,14 +190,20 @@ describe('path state and deep-link privacy', () => {
 
   it('the_finder_lists_only_published_paths', () => {
     const enabled = ENABLED_WIZARDS.filter((id) => id !== 'severity');
-    expect(finderWizardIds()).toEqual(commonWizardIds);
-    expect(finderWizardIds({ showAll: true })).toEqual(publishedWizardIds());
-    expect(finderWizardIds({ showAll: true, enabled })).not.toContain('severity');
+    expect([...finderWizardIds()].sort()).toEqual([...publishedWizardIds()].sort());
+    expect(finderWizardIds({ enabled })).not.toContain('severity');
     expect(finderWizardIds({ term: 'severity' })).toContain('severity');
     expect(finderWizardIds({ term: 'severity', enabled })).not.toContain('severity');
     expect(finderWizardIds({ categoryId: 'incidents', enabled })).toEqual(['breach']);
     expect(finderGroups(enabled).flatMap((group) => group.ids)).not.toContain('severity');
     expect(finderGroups().flatMap((group) => group.ids).sort()).toEqual([...publishedWizardIds()].sort());
+    const groups = finderGroups();
+    expect(groups.map(group => group.label)).toEqual(['AI systems', 'Data use', 'Governance', 'Incidents', 'Rights & people']);
+    const alphabetic = (a, b) => a.localeCompare(b, 'en', { sensitivity: 'base', ignorePunctuation: true });
+    for (const ids of [finderWizardIds(), ...groups.map(group => group.ids)]) {
+      const titles = ids.map(id => WIZARDS[id].title);
+      expect(titles).toEqual([...titles].sort(alphabetic));
+    }
     // A category whose paths are all unpublished shows no heading.
     expect(finderGroups(ENABLED_WIZARDS.filter((id) => !['breach', 'severity'].includes(id))).map((group) => group.id)).not.toContain('incidents');
   });

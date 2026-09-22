@@ -1,6 +1,8 @@
 // Finder synonyms: the words practitioners type that the titles do not contain.
 // Matching is case-insensitive substring; keep entries short and literal.
 export const SEARCH_ALIASES = {
+  'us-applicability': ['US states', 'state law', 'comprehensive', 'scope', 'threshold', 'small business', 'SBA', 'CCPA', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Indiana', 'Iowa', 'Kentucky', 'Maryland', 'Minnesota', 'Montana', 'Nebraska', 'New Hampshire', 'New Jersey', 'Oregon', 'Rhode Island', 'Tennessee', 'Texas', 'Utah', 'Virginia'],
+  'us-divergence': ['US states', 'state law', 'compare', 'differences', 'sensitive data', 'consent', 'sale', 'targeted advertising', 'rights', 'assessment', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Indiana', 'Iowa', 'Kentucky', 'Maryland', 'Minnesota', 'Montana', 'Nebraska', 'New Hampshire', 'New Jersey', 'Oregon', 'Rhode Island', 'Tennessee', 'Texas', 'Utah', 'Virginia'],
   breach: ['incident', '72 hours', 'notify', 'notification', 'ransomware', 'leak', 'hack', 'attorney general', 'regulator'],
   severity: ['how bad', 'harm', 'risk score', 'ENISA', 'impact'],
   'sale-share': ['sell', 'selling', 'share', 'sharing', 'targeted advertising', 'opt out', 'opt-out', 'GPC', 'Global Privacy Control', 'do not sell', 'CPRA', 'ad tech'],

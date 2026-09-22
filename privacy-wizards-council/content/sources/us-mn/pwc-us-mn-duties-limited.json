@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-MN",
+  "label": "Minnesota: limited duties",
+  "citation": "Minn. Stat. §325M.17",
+  "provenance": "https://www.revisor.mn.gov/statutes/cite/325M.17",
+  "note": "Editorial summary of the limited provision. This is not a conclusion that full-law duties apply.",
+  "body": [
+    "<p>An SBA-defined small business that conducts business in Minnesota or targets Minnesota residents must obtain prior consent before selling a consumer's sensitive data.</p>",
+    "<p>Confirm the SBA classification and state nexus with the business owner.</p>",
+    "<p>Obtain and retain consent before sensitive-data sales. This limited rule does not establish all other chapter duties.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2025-07-31",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

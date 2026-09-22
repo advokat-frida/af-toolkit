@@ -1,0 +1,22 @@
+{
+  "kind": "statute",
+  "juris": "US-OR",
+  "label": "Oregon: applicability",
+  "citation": "ORS 646A.570, 646A.572",
+  "provenance": "https://www.oregonlegislature.gov/bills_laws/ors/ors646a.html",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Nonprofits became covered July 1, 2025. Current §646A.572(1)(b) bypasses volume thresholds for motor-vehicle manufacturers and affiliates processing consumer vehicle-use data.",
+  "body": [
+    "<p>Does it conduct business in Oregon OR provide products or services to Oregon residents?</p>",
+    "<p>During a calendar year, does it control or process personal data of at least 100,000 consumers (excluding payment-only data); OR at least 25,000 consumers while deriving at least 25% of annual gross revenue from selling personal data?</p>",
+    "<p>Oregon residents acting individually or as a household, excluding commercial or employment roles. Deduct payment-only data from the 100,000 limb.</p>",
+    "<p>Measuring period: During a calendar year; sale limb uses annual gross revenue.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

@@ -28,7 +28,7 @@
           "goto": "q-coppa"
         },
         {
-          "label": "California — CCPA <16 opt-in, plus various state-law minor protections",
+          "label": "California — CCPA and state-law minor protections",
           "goto": "q-ca-minor"
         }
       ]
@@ -311,15 +311,15 @@
       ],
       "opts": [
         {
-          "label": "Under 13 — parent/guardian opt-in for sale/share",
+          "label": "Under 13",
           "goto": "o-ca-under-13"
         },
         {
-          "label": "13–15 — consumer's own opt-in for sale/share",
+          "label": "13–15",
           "goto": "o-ca-13-15"
         },
         {
-          "label": "16+ — standard CCPA opt-out applies",
+          "label": "16 or older",
           "goto": "o-ca-adult"
         }
       ]

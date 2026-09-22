@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-TX",
+  "label": "Texas: sale and targeted advertising",
+  "citation": "Tex. Bus. & Com. Code §§541.051, 541.055, 541.102",
+  "provenance": "https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Sale, targeted advertising and qualifying significant-effect profiling have opt-outs. Sensitive/biometric data sales carry additional prominent notices.</p>",
+    "<p>Implement the consumer and authorized-agent opt-out routes, including qualifying technology under §541.055.</p>",
+    "<p>Use the exact applicable §541.102 notice text; an ordinary privacy-policy paragraph may not satisfy it.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2024-07-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

@@ -1,8 +1,8 @@
 // Generated from content/ by scripts/registry/generate.mjs. Edit the files in content/, not this one.
 // Enabled means a published aid, not practitioner review.
 
-export const MANIFEST_VERSION = "af-pwc-vnext-2026-09-14";
-export const MANIFEST_SHA256 = "38c8d6398bfe069f1b1ce826bf8331921b9a23b249fe996ecf4d74fcca8d9fea";
+export const MANIFEST_VERSION = "af-pwc-vnext-2026-09-22";
+export const MANIFEST_SHA256 = "a5be901fa1e8dcc1b7d76b3e297c003fc754fc8afd0af181b6319f8e046caab7";
 export const SOURCE_MANIFEST = {
   "bdsg-38": {
     "id": "bdsg-38",
@@ -916,14 +916,14 @@ export const SOURCE_MANIFEST = {
     "id": "eu-ai-act-art-6",
     "jurisdiction": "EU",
     "sourceType": "statute",
-    "officialUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R1689",
-    "effectiveOrPublicationDate": null,
-    "retrievedDate": null,
+    "officialUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/2026-07-27/eng",
+    "effectiveOrPublicationDate": "2026-07-27",
+    "retrievedDate": "2026-09-22",
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "facf6a3ca6dffdc3ce301fea4391185a75e152eb22ae9bd1831c3ea82d753ef3",
+    "contentSha256": "21e9399b7082902c9c94609fe30462d07cb2508a2458e034df0ed80ba4c281e0",
     "affectedWizards": [
       "ai-role",
       "ai-risk"
@@ -967,14 +967,14 @@ export const SOURCE_MANIFEST = {
     "id": "eu-ai-act-omnibus-2026",
     "jurisdiction": "EU",
     "sourceType": "statute",
-    "officialUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=consil:PE_30_2026_INIT",
-    "effectiveOrPublicationDate": null,
-    "retrievedDate": null,
+    "officialUrl": "https://eur-lex.europa.eu/eli/reg/2026/1744/oj/eng",
+    "effectiveOrPublicationDate": "2026-07-27",
+    "retrievedDate": "2026-09-22",
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "abb454ca8ef88f92dcf17fb17b5fdfb5f5c6f47b9d3370e4d7350175aea2929c",
+    "contentSha256": "1c110800147b1eca6f425c95ff0452b2412612295bb78a648b2368588b77034a",
     "affectedWizards": [
       "ai-role",
       "ai-risk"
@@ -1396,8 +1396,9 @@ export const SOURCE_MANIFEST = {
     "reviewer": null,
     "reviewerRole": null,
     "status": "automated-check-only",
-    "contentSha256": "a38a544c2fe7ff6f2ad4078a0676f0f231b52bddb7eaeb0f2c66d625475c9e85",
+    "contentSha256": "4f7b2ec37c6b35d0bddf128f824081e313ac7e20cdcc93f05c9436fc50d384d6",
     "affectedWizards": [
+      "breach",
       "dpia",
       "dpo"
     ]
@@ -1989,6 +1990,2598 @@ export const SOURCE_MANIFEST = {
       "breach"
     ]
   },
+  "pwc-us-ca-duties-ads": {
+    "id": "pwc-us-ca-duties-ads",
+    "jurisdiction": "US-CA",
+    "sourceType": "statute",
+    "officialUrl": "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "b4c0caa7b4d424bc702390f3483a38293573cd8d13baee8414058d14c31e9119",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ca-duties-assessment": {
+    "id": "pwc-us-ca-duties-assessment",
+    "jurisdiction": "US-CA",
+    "sourceType": "regulation",
+    "officialUrl": "https://cppa.ca.gov/regulations/pdf/ccpa_statute_eff_20260101.pdf",
+    "effectiveOrPublicationDate": "2026-01-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "3e4fccee3336cd8378e1ddca744b2db9913f47971697efacc751a2734d9dcb13",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ca-duties-enforcement": {
+    "id": "pwc-us-ca-duties-enforcement",
+    "jurisdiction": "US-CA",
+    "sourceType": "statute",
+    "officialUrl": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.199.45.",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "65c5db9b06ceeb180ea93474c8d9d4b42c5a9062b2ceeffd95af6be4767e5810",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ca-duties-rights": {
+    "id": "pwc-us-ca-duties-rights",
+    "jurisdiction": "US-CA",
+    "sourceType": "regulation",
+    "officialUrl": "https://cppa.ca.gov/regulations/pdf/ccpa_statute_eff_20260101.pdf",
+    "effectiveOrPublicationDate": "2026-01-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "436ffcbc8a6515857e063c1d5275b6e5a0e763dd03034bf8d7a6ac8331017871",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ca-duties-scope": {
+    "id": "pwc-us-ca-duties-scope",
+    "jurisdiction": "US-CA",
+    "sourceType": "guidance",
+    "officialUrl": "https://cppa.ca.gov/faq.html",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "06d7adc1bd85e2aa2a80722b10aa51177cb25c5f94058f464109242d246b28be",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ca-duties-sensitive": {
+    "id": "pwc-us-ca-duties-sensitive",
+    "jurisdiction": "US-CA",
+    "sourceType": "statute",
+    "officialUrl": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1798.121.&lawCode=CIV",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "57f92c5cdad04b4760ac3865bb4b13a84e12c08e485e4286a8675382ffcdf109",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ca-scope": {
+    "id": "pwc-us-ca-scope",
+    "jurisdiction": "US-CA",
+    "sourceType": "statute",
+    "officialUrl": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.140.",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "c64135ecb6191ce728a5e105a05669a6a51a1e7ef39bd50ecd3c625825e73465",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-ca-scope-adjustment": {
+    "id": "pwc-us-ca-scope-adjustment",
+    "jurisdiction": "US-CA",
+    "sourceType": "guidance",
+    "officialUrl": "https://cppa.ca.gov/announcements/2024/20241217.html",
+    "effectiveOrPublicationDate": "2025-01-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "fe33e719615404d291b43d9edec6cd20eac80dfc3f6752c71e54659420f611d6",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-ca-scope-exemptions": {
+    "id": "pwc-us-ca-scope-exemptions",
+    "jurisdiction": "US-CA",
+    "sourceType": "statute",
+    "officialUrl": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.145.",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "8b674a70b52b2ead6ca90cdf0cd49571c649b11ed44e40b938cf26464412ae3a",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-ca-scope-related": {
+    "id": "pwc-us-ca-scope-related",
+    "jurisdiction": "US-CA",
+    "sourceType": "statute",
+    "officialUrl": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.140.",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "fccaa58ce48483deb9a88233cc6c15dfbc646763f56263bb9090a56ea3ec0be6",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-co-duties-ads": {
+    "id": "pwc-us-co-duties-ads",
+    "jurisdiction": "US-CO",
+    "sourceType": "statute",
+    "officialUrl": "https://olls.info/crs/crs2026-title-06.htm",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "5dd14fbdecc21523670e6aa904178a2e207d8e2e218d36783ba79fc708ad4356",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-co-duties-assessment": {
+    "id": "pwc-us-co-duties-assessment",
+    "jurisdiction": "US-CO",
+    "sourceType": "statute",
+    "officialUrl": "https://olls.info/crs/crs2026-title-06.htm",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "bc222890252f95f69957ec5266e3da19c003229e700d0f80e481b3ad88984adb",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-co-duties-enforcement": {
+    "id": "pwc-us-co-duties-enforcement",
+    "jurisdiction": "US-CO",
+    "sourceType": "statute",
+    "officialUrl": "https://olls.info/crs/crs2026-title-06.htm",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "75d89bed7173c8946b2a19ea22cf4192e8835cbdef1153fedb708f2562c7ff72",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-co-duties-limited": {
+    "id": "pwc-us-co-duties-limited",
+    "jurisdiction": "US-CO",
+    "sourceType": "statute",
+    "officialUrl": "https://olls.info/crs/crs2026-title-06.htm",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "6a6cb23a53247794bd8f8b86fc227d523c4ef6c6710e9a9304cd92b61b90fdf9",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-co-duties-rights": {
+    "id": "pwc-us-co-duties-rights",
+    "jurisdiction": "US-CO",
+    "sourceType": "statute",
+    "officialUrl": "https://olls.info/crs/crs2026-title-06.htm",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "50e2c63d72d4ade0c818e0db9bdf8dccd852ccbc77eff601bc3d0e0a8be8c78e",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-co-duties-sensitive": {
+    "id": "pwc-us-co-duties-sensitive",
+    "jurisdiction": "US-CO",
+    "sourceType": "statute",
+    "officialUrl": "https://olls.info/crs/crs2026-title-06.htm",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "733d556fa009db447e96179535d30aaac1fcb6a2160d8f4ccf2d77f9658f2d1e",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-co-scope": {
+    "id": "pwc-us-co-scope",
+    "jurisdiction": "US-CO",
+    "sourceType": "statute",
+    "officialUrl": "https://olls.info/crs/crs2026-title-06.htm",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "0b494892f35058d39a5990956099b513908c4b24cb38d1af0ce3b0641d44bbe9",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-co-scope-exemptions": {
+    "id": "pwc-us-co-scope-exemptions",
+    "jurisdiction": "US-CO",
+    "sourceType": "statute",
+    "officialUrl": "https://olls.info/crs/crs2026-title-06.htm",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "6ab7615fc5fe39f4bb2fd2a990dcb7b02deab8e35ea7ddf08165072c93d30d58",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-co-scope-special": {
+    "id": "pwc-us-co-scope-special",
+    "jurisdiction": "US-CO",
+    "sourceType": "statute",
+    "officialUrl": "https://olls.info/crs/crs2026-title-06.htm",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "ddb2448bfb64f2d057ed15506fd45d204732d1f001df0d3a12362422e970c747",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-ct-duties-ads": {
+    "id": "pwc-us-ct-duties-ads",
+    "jurisdiction": "US-CT",
+    "sourceType": "statute",
+    "officialUrl": "https://www.cga.ct.gov/2026/sup/chap_743jj.htm",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "d1155036d635871a6aee8f06d28c62942891ab1a4f2d769c233915d29b110c8b",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ct-duties-assessment": {
+    "id": "pwc-us-ct-duties-assessment",
+    "jurisdiction": "US-CT",
+    "sourceType": "statute",
+    "officialUrl": "https://www.cga.ct.gov/2026/sup/chap_743jj.htm",
+    "effectiveOrPublicationDate": "2026-07-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "c05a4d8a7d2b28505c8c64a87296c0cd49d0895c0587cce32ebd5c73f80f6daa",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ct-duties-enforcement": {
+    "id": "pwc-us-ct-duties-enforcement",
+    "jurisdiction": "US-CT",
+    "sourceType": "statute",
+    "officialUrl": "https://www.cga.ct.gov/current/pub/chap_743jj.htm#sec_42-525",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "ad67aec704230617343c2250ad55305c5fdf11a786eef814df7e0bf7e491c3f1",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ct-duties-rights": {
+    "id": "pwc-us-ct-duties-rights",
+    "jurisdiction": "US-CT",
+    "sourceType": "statute",
+    "officialUrl": "https://www.cga.ct.gov/2026/sup/chap_743jj.htm",
+    "effectiveOrPublicationDate": "2026-07-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "191803d199a95ffd7869e12073d9240556361435347c7e71c88829d00d0fbc15",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ct-duties-sensitive": {
+    "id": "pwc-us-ct-duties-sensitive",
+    "jurisdiction": "US-CT",
+    "sourceType": "statute",
+    "officialUrl": "https://www.cga.ct.gov/2026/sup/chap_743jj.htm",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "4a4c1ba5aa7b8d762e2558609714690f40b2d0e25fb61c9f795e6239586d008b",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ct-scope": {
+    "id": "pwc-us-ct-scope",
+    "jurisdiction": "US-CT",
+    "sourceType": "statute",
+    "officialUrl": "https://cga.ct.gov/2026/sup/chap_743jj.htm",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "4615f79e36e1c455fa0e16776f89a100d231a51bfe8fd8713ab3614fbe037496",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-ct-scope-dot": {
+    "id": "pwc-us-ct-scope-dot",
+    "jurisdiction": "US-CT",
+    "sourceType": "statute",
+    "officialUrl": "https://www.cga.ct.gov/2026/act/Pa/pdf/2026PA-00076-R00SB-00477-PA.PDF",
+    "effectiveOrPublicationDate": "2026-07-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "1c525e462605df1086e10d6f8e0f8b10acf18fa49f74b52b5b4881821fc56436",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-ct-scope-exemptions": {
+    "id": "pwc-us-ct-scope-exemptions",
+    "jurisdiction": "US-CT",
+    "sourceType": "statute",
+    "officialUrl": "https://cga.ct.gov/2026/sup/chap_743jj.htm",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "041675b763d249fe652a4fc8a9a8c59bc69012f4dce87d3be7cb377c893c6788",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-de-duties-ads": {
+    "id": "pwc-us-de-duties-ads",
+    "jurisdiction": "US-DE",
+    "sourceType": "statute",
+    "officialUrl": "https://www.delcode.delaware.gov/title6/c012d/index.html",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "7d2eec9b77e91c0bc2b84b011f4227e0a3a83cc31537fd9e60b4b1d295a357e9",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-de-duties-assessment": {
+    "id": "pwc-us-de-duties-assessment",
+    "jurisdiction": "US-DE",
+    "sourceType": "statute",
+    "officialUrl": "https://www.delcode.delaware.gov/title6/c012d/index.html",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "018af45839bf7db9e8f37a12e2d1f6ee0d1e8dc27a3439a4e677eb152eb0c843",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-de-duties-enforcement": {
+    "id": "pwc-us-de-duties-enforcement",
+    "jurisdiction": "US-DE",
+    "sourceType": "statute",
+    "officialUrl": "https://www.delcode.delaware.gov/title6/c012d/index.html#12D-111",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "28b69b24b44788cabdbc99d9f90ab4e1107b834f247ce4495f673ceb65e9efe7",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-de-duties-rights": {
+    "id": "pwc-us-de-duties-rights",
+    "jurisdiction": "US-DE",
+    "sourceType": "statute",
+    "officialUrl": "https://www.delcode.delaware.gov/title6/c012d/index.html",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "9998b4533f0ec7eb3b0f4ee59dac36b872e044984e65389a1e926c5d4b5a9e93",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-de-duties-sensitive": {
+    "id": "pwc-us-de-duties-sensitive",
+    "jurisdiction": "US-DE",
+    "sourceType": "statute",
+    "officialUrl": "https://www.delcode.delaware.gov/title6/c012d/index.html",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "3e4589a7c03b578748cb057288f99aac2ce041a17efc78562352dc6c57c360fc",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-de-scope": {
+    "id": "pwc-us-de-scope",
+    "jurisdiction": "US-DE",
+    "sourceType": "statute",
+    "officialUrl": "https://www.delcode.delaware.gov/title6/c012d/index.html",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "e7a39c0ac2a687db16b0f69bb01231c27e45057f507952bbd3394c7744e0c5b2",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-de-scope-exemptions": {
+    "id": "pwc-us-de-scope-exemptions",
+    "jurisdiction": "US-DE",
+    "sourceType": "statute",
+    "officialUrl": "https://www.delcode.delaware.gov/title6/c012d/index.html",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "98708f9a1cc212ac043b7febecf7fbdfe5036bc9cc602d25eb644c3f25c3a21f",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-fl-duties-ads": {
+    "id": "pwc-us-fl-duties-ads",
+    "jurisdiction": "US-FL",
+    "sourceType": "statute",
+    "officialUrl": "https://www.flsenate.gov/Laws/Statutes/2025/501.705",
+    "effectiveOrPublicationDate": "2024-07-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "3c018713f7934259646468dd9895f953758bb20df4c1a026b1e679ba5962aee5",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-fl-duties-appeals": {
+    "id": "pwc-us-fl-duties-appeals",
+    "jurisdiction": "US-FL",
+    "sourceType": "statute",
+    "officialUrl": "https://www.flsenate.gov/Laws/Statutes/2025/501.707",
+    "effectiveOrPublicationDate": "2024-07-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "cb9c1b7e86e488c826d74ba35881d3025602dd9b297cf67abdf348ef15920347",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-fl-duties-assessment": {
+    "id": "pwc-us-fl-duties-assessment",
+    "jurisdiction": "US-FL",
+    "sourceType": "statute",
+    "officialUrl": "https://www.flsenate.gov/Laws/Statutes/2025/501.713",
+    "effectiveOrPublicationDate": "2024-07-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "c315777c4e289fd92fef5e01430ccc5e7fae52a14ab0a10b8875274f88fa81f2",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-fl-duties-enforcement": {
+    "id": "pwc-us-fl-duties-enforcement",
+    "jurisdiction": "US-FL",
+    "sourceType": "statute",
+    "officialUrl": "https://www.flsenate.gov/Laws/Statutes/2026/501.72",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "be9924a348f6bb9c1cc35f7357404375da93e51ec7de76f4810de457446654b4",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-fl-duties-limited": {
+    "id": "pwc-us-fl-duties-limited",
+    "jurisdiction": "US-FL",
+    "sourceType": "statute",
+    "officialUrl": "https://www.flsenate.gov/Laws/Statutes/2025/501.715",
+    "effectiveOrPublicationDate": "2024-07-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "9a3ae3518386dd7f1576072e58905912764ba6c0b5891d64778d3eb1fdc9b48b",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-fl-duties-rights": {
+    "id": "pwc-us-fl-duties-rights",
+    "jurisdiction": "US-FL",
+    "sourceType": "statute",
+    "officialUrl": "https://www.flsenate.gov/Laws/Statutes/2025/501.706",
+    "effectiveOrPublicationDate": "2024-07-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "af963818c8896dd2b4d0b1b038fa0f52d6e17b2b3579ef70fb50a0c54995f524",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-fl-duties-sensitive": {
+    "id": "pwc-us-fl-duties-sensitive",
+    "jurisdiction": "US-FL",
+    "sourceType": "statute",
+    "officialUrl": "https://www.flsenate.gov/Laws/Statutes/2025/501.71",
+    "effectiveOrPublicationDate": "2024-07-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "9edd1995012c0c8c1f342c6c044811c5835fcb86d004fef9d62da76d04cd80e0",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-fl-scope": {
+    "id": "pwc-us-fl-scope",
+    "jurisdiction": "US-FL",
+    "sourceType": "statute",
+    "officialUrl": "https://www.flsenate.gov/Laws/Statutes/2025/501.702",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "62c585cbced01a71a77bdcec23ef7499c79cd4ec059a74bc268d5d637c42e662",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-fl-scope-data": {
+    "id": "pwc-us-fl-scope-data",
+    "jurisdiction": "US-FL",
+    "sourceType": "statute",
+    "officialUrl": "https://www.flsenate.gov/Laws/Statutes/2025/501.704",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "340289265f031e771a05662740a9d49a207f433b20e3b28c9c0c654d6c830263",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-fl-scope-exemptions": {
+    "id": "pwc-us-fl-scope-exemptions",
+    "jurisdiction": "US-FL",
+    "sourceType": "statute",
+    "officialUrl": "https://www.flsenate.gov/Laws/Statutes/2025/501.703",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "f553de7f75599a6cebec9cb2e7cba4afab536a3f08f053586d36df36345c2960",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-fl-scope-sensitive-sale": {
+    "id": "pwc-us-fl-scope-sensitive-sale",
+    "jurisdiction": "US-FL",
+    "sourceType": "statute",
+    "officialUrl": "https://www.flsenate.gov/Laws/Statutes/2025/501.715",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "9ca48c58f7315f98cbb9b407d363ee923221aa96811a1aaf81b949dd75864e31",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-ia-duties-ads": {
+    "id": "pwc-us-ia-duties-ads",
+    "jurisdiction": "US-IA",
+    "sourceType": "statute",
+    "officialUrl": "https://www.legis.iowa.gov/docs/code/715D.pdf",
+    "effectiveOrPublicationDate": "2025-01-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "5ec360e12d25f5c7e4b3e83d63ab6386bf39af8102bc5e172d6875db25c0ab07",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ia-duties-assessment": {
+    "id": "pwc-us-ia-duties-assessment",
+    "jurisdiction": "US-IA",
+    "sourceType": "statute",
+    "officialUrl": "https://www.legis.iowa.gov/docs/code/715D.pdf",
+    "effectiveOrPublicationDate": "2025-01-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "d10fe08fc335a087b30dfa402df96ee3f5f81f759fe96dd688f431c6e570f83e",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ia-duties-enforcement": {
+    "id": "pwc-us-ia-duties-enforcement",
+    "jurisdiction": "US-IA",
+    "sourceType": "statute",
+    "officialUrl": "https://www.legis.iowa.gov/docs/code/715D.pdf",
+    "effectiveOrPublicationDate": "2025-01-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "a3cb4cc62ae566bf7e2aadf8d476080a237a221f0093962fdf594ab07646e4ba",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ia-duties-rights": {
+    "id": "pwc-us-ia-duties-rights",
+    "jurisdiction": "US-IA",
+    "sourceType": "statute",
+    "officialUrl": "https://www.legis.iowa.gov/docs/code/715D.pdf",
+    "effectiveOrPublicationDate": "2025-01-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "cebbfb81f401125b8c8e31cb13311ea74b1420a5e9318635f1443daa9e95f75a",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ia-duties-sensitive": {
+    "id": "pwc-us-ia-duties-sensitive",
+    "jurisdiction": "US-IA",
+    "sourceType": "statute",
+    "officialUrl": "https://www.legis.iowa.gov/docs/code/715D.pdf",
+    "effectiveOrPublicationDate": "2025-01-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "aab7212dfe9d4e7c9db63ace692e300a847b0e60724a272f21c34e79f772a4f5",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ia-scope": {
+    "id": "pwc-us-ia-scope",
+    "jurisdiction": "US-IA",
+    "sourceType": "statute",
+    "officialUrl": "https://www.legis.iowa.gov/docs/code/715D.2.pdf",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "0b61659a58a1ea2ae4819702e4c77bd295323cac5da0ac059f3c61a897015855",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-ia-scope-exemptions": {
+    "id": "pwc-us-ia-scope-exemptions",
+    "jurisdiction": "US-IA",
+    "sourceType": "statute",
+    "officialUrl": "https://www.legis.iowa.gov/docs/code/715D.2.pdf",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "76e3b4d56812a4fad76ba352bc7409d67ae4c21156101c3009edde42c901fa81",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-in-duties-ads": {
+    "id": "pwc-us-in-duties-ads",
+    "jurisdiction": "US-IN",
+    "sourceType": "statute",
+    "officialUrl": "https://iga.in.gov/ic/2026/Title_24/Article_15.pdf",
+    "effectiveOrPublicationDate": "2026-01-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "6a6511a2e3d23e38612eca8eef11a8f0f652e97254674f673eee61695598622a",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-in-duties-assessment": {
+    "id": "pwc-us-in-duties-assessment",
+    "jurisdiction": "US-IN",
+    "sourceType": "statute",
+    "officialUrl": "https://iga.in.gov/ic/2026/Title_24/Article_15.pdf",
+    "effectiveOrPublicationDate": "2026-01-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "6cc7ff293f36839ebc3d0c7da132b25a336dc90ccede6c69cb812cdba783b6bb",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-in-duties-enforcement": {
+    "id": "pwc-us-in-duties-enforcement",
+    "jurisdiction": "US-IN",
+    "sourceType": "statute",
+    "officialUrl": "https://iga.in.gov/ic/2026/Title_24/Article_15.pdf",
+    "effectiveOrPublicationDate": "2026-01-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "815054675789a5cdc54c78e4f34d1094b9234c6eb88f5009e28046abab29b922",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-in-duties-rights": {
+    "id": "pwc-us-in-duties-rights",
+    "jurisdiction": "US-IN",
+    "sourceType": "statute",
+    "officialUrl": "https://iga.in.gov/ic/2026/Title_24/Article_15.pdf",
+    "effectiveOrPublicationDate": "2026-01-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "f75725bda351c79291ce5d1481a4b459771fe865bf2f249865c43443e6dd8d30",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-in-duties-sensitive": {
+    "id": "pwc-us-in-duties-sensitive",
+    "jurisdiction": "US-IN",
+    "sourceType": "statute",
+    "officialUrl": "https://iga.in.gov/ic/2026/Title_24/Article_15.pdf",
+    "effectiveOrPublicationDate": "2026-01-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "8b56bc6b03326d9f306bed0edde47f4075b99225582cbdf4659c4e609ccd9d9a",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-in-scope": {
+    "id": "pwc-us-in-scope",
+    "jurisdiction": "US-IN",
+    "sourceType": "statute",
+    "officialUrl": "https://iga.in.gov/ic/2026/Title_24/Article_15.pdf",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "dad22cb1c434f5ff4e63c391338e4eb9d4b0aed5cfad47e7fd1d52d45fc470fb",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-in-scope-exemptions": {
+    "id": "pwc-us-in-scope-exemptions",
+    "jurisdiction": "US-IN",
+    "sourceType": "statute",
+    "officialUrl": "https://iga.in.gov/ic/2026/Title_24/Article_15.pdf",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "048f44c839a15cb12037dbc190c58a3bd1bfa2340a71bdc78269462c8e63191a",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-ky-duties-ads": {
+    "id": "pwc-us-ky-duties-ads",
+    "jurisdiction": "US-KY",
+    "sourceType": "statute",
+    "officialUrl": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=55838",
+    "effectiveOrPublicationDate": "2026-01-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "697094340f41b63418e40ee685e0f86c85237920c24ab1cbe420ac156a743067",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ky-duties-assessment": {
+    "id": "pwc-us-ky-duties-assessment",
+    "jurisdiction": "US-KY",
+    "sourceType": "statute",
+    "officialUrl": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=56649",
+    "effectiveOrPublicationDate": "2026-01-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "b6a07b431119a0c636bb9c1d38725ba704f8e0a2c2d4b0c8b8c43fdfaa08abc1",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ky-duties-enforcement": {
+    "id": "pwc-us-ky-duties-enforcement",
+    "jurisdiction": "US-KY",
+    "sourceType": "statute",
+    "officialUrl": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=55844",
+    "effectiveOrPublicationDate": "2026-01-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "993494d65af0ab62f68ad8419b83548d8507545d79eae5d78b5057c2bde33c40",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ky-duties-rights": {
+    "id": "pwc-us-ky-duties-rights",
+    "jurisdiction": "US-KY",
+    "sourceType": "statute",
+    "officialUrl": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=55838",
+    "effectiveOrPublicationDate": "2026-01-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "cdc217d0194cf5a83be3da739f35f9e56ddf33b55b91236b1b5f5362def45f24",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ky-duties-sensitive": {
+    "id": "pwc-us-ky-duties-sensitive",
+    "jurisdiction": "US-KY",
+    "sourceType": "statute",
+    "officialUrl": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=55839",
+    "effectiveOrPublicationDate": "2026-01-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "dd6934a7a93e10f42ff343668432e5255e682204705e09869179a85cad9a1c0e",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ky-scope": {
+    "id": "pwc-us-ky-scope",
+    "jurisdiction": "US-KY",
+    "sourceType": "statute",
+    "officialUrl": "https://apps.legislature.ky.gov/law/Statutes/statute.aspx?id=56648",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "fd6d5ee69a344d3cc5c2dc68a6a0320fcfa29127d2e3ca52ba10626cced30f96",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-ky-scope-exemptions": {
+    "id": "pwc-us-ky-scope-exemptions",
+    "jurisdiction": "US-KY",
+    "sourceType": "statute",
+    "officialUrl": "https://apps.legislature.ky.gov/law/Statutes/statute.aspx?id=56648",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "5e15e102e63fbbdd21a4c938b2626479a6be3ae15f27d2e8abcf22b4111f63b9",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-md-duties-2026-amendment": {
+    "id": "pwc-us-md-duties-2026-amendment",
+    "jurisdiction": "US-MD",
+    "sourceType": "statute",
+    "officialUrl": "https://mgaleg.maryland.gov/2026RS/chapters_noln/Ch_874_hb0711T.pdf",
+    "effectiveOrPublicationDate": "2026-07-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "e8ad8c91752831b119521ea9965f77a187e5fa15074f8f80fec292df89954b94",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-md-duties-ads": {
+    "id": "pwc-us-md-duties-ads",
+    "jurisdiction": "US-MD",
+    "sourceType": "statute",
+    "officialUrl": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&enactments=false&section=14-4707",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "1f3f156a33d1e740790b0ca2aad6d5b9963a8199c13cd97921ce44f3ffea16a5",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-md-duties-assessment": {
+    "id": "pwc-us-md-duties-assessment",
+    "jurisdiction": "US-MD",
+    "sourceType": "statute",
+    "officialUrl": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&enactments=false&section=14-4710",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "a3f5efbbf620bf580fa01d7b86bd792ebf166a791437310970eca730c9f28c8a",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-md-duties-enforcement": {
+    "id": "pwc-us-md-duties-enforcement",
+    "jurisdiction": "US-MD",
+    "sourceType": "statute",
+    "officialUrl": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&enactments=false&section=14-4714",
+    "effectiveOrPublicationDate": "2025-10-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "d25f525a8ac41f1fe7fee89dcd0c2f298f91c4e5a10d2ce7b6b6f72e0419dec7",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-md-duties-rights": {
+    "id": "pwc-us-md-duties-rights",
+    "jurisdiction": "US-MD",
+    "sourceType": "statute",
+    "officialUrl": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&enactments=false&section=14-4705",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "dbc5a8b5fac8e4ae7daaec8b44258d36568db870b4d263964899424d246abb1a",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-md-duties-sensitive": {
+    "id": "pwc-us-md-duties-sensitive",
+    "jurisdiction": "US-MD",
+    "sourceType": "statute",
+    "officialUrl": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&enactments=false&section=14-4707",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "bed0f8b8f10f4103b07e48fef1a44c20cf76bc1de4d5fd8d13a84d4ee6c1e632",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-md-scope": {
+    "id": "pwc-us-md-scope",
+    "jurisdiction": "US-MD",
+    "sourceType": "statute",
+    "officialUrl": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4702&enactments=false",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "4de9e61e52819172b97a383bdea9bdf43dff2f373a6d24a918d6636c1e59470e",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-md-scope-exemptions": {
+    "id": "pwc-us-md-scope-exemptions",
+    "jurisdiction": "US-MD",
+    "sourceType": "statute",
+    "officialUrl": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4703&enactments=false",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "9907ca0fa4bef2b4d97447f4f1fd5753a8bb5df0abfa7ecad0ff7bbcb3cdd2e1",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-mn-duties-ads": {
+    "id": "pwc-us-mn-duties-ads",
+    "jurisdiction": "US-MN",
+    "sourceType": "statute",
+    "officialUrl": "https://www.revisor.mn.gov/statutes/cite/325M/full",
+    "effectiveOrPublicationDate": "2025-07-31",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "531208346162923b53f4f2de23af4c5f705a199ce99f2d603e69b734e17df812",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-mn-duties-assessment": {
+    "id": "pwc-us-mn-duties-assessment",
+    "jurisdiction": "US-MN",
+    "sourceType": "statute",
+    "officialUrl": "https://www.revisor.mn.gov/statutes/cite/325M.18",
+    "effectiveOrPublicationDate": "2025-07-31",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "9f13499b70ed16c6c26560ce81662a5d827b706eb1710dc843f5a4979e69a503",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-mn-duties-enforcement": {
+    "id": "pwc-us-mn-duties-enforcement",
+    "jurisdiction": "US-MN",
+    "sourceType": "statute",
+    "officialUrl": "https://www.revisor.mn.gov/statutes/cite/325M.20",
+    "effectiveOrPublicationDate": "2025-07-31",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "e38901a20b1a44738d915ad8df1f4540b3102fe54282584e0aa9eaeb40638705",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-mn-duties-limited": {
+    "id": "pwc-us-mn-duties-limited",
+    "jurisdiction": "US-MN",
+    "sourceType": "statute",
+    "officialUrl": "https://www.revisor.mn.gov/statutes/cite/325M.17",
+    "effectiveOrPublicationDate": "2025-07-31",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "4eb29f72f55b0d1dbf6cd7f2d72232132e3baf28a9cb29c9b1844c833cf6a5f7",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-mn-duties-rights": {
+    "id": "pwc-us-mn-duties-rights",
+    "jurisdiction": "US-MN",
+    "sourceType": "statute",
+    "officialUrl": "https://www.revisor.mn.gov/statutes/cite/325M.14",
+    "effectiveOrPublicationDate": "2025-07-31",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "2c8ab1e1c913e0e3d3b0fa28332e6ca3f2c4d27324d652780dfacb16688132de",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-mn-duties-sensitive": {
+    "id": "pwc-us-mn-duties-sensitive",
+    "jurisdiction": "US-MN",
+    "sourceType": "statute",
+    "officialUrl": "https://www.revisor.mn.gov/statutes/cite/325M.16",
+    "effectiveOrPublicationDate": "2025-07-31",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "f6d257577cee52121ef6068737abb9b5765dc8cb969db460e8f604ec69ec6368",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-mn-scope": {
+    "id": "pwc-us-mn-scope",
+    "jurisdiction": "US-MN",
+    "sourceType": "statute",
+    "officialUrl": "https://www.revisor.mn.gov/statutes/cite/325M.12",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "0ab034375e03b88030ff0103fd8526bd854f7be2b4de2ec4d8f9f6716ae003e8",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-mn-scope-exemptions": {
+    "id": "pwc-us-mn-scope-exemptions",
+    "jurisdiction": "US-MN",
+    "sourceType": "statute",
+    "officialUrl": "https://www.revisor.mn.gov/statutes/cite/325M.12",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "41d972cadc3407a1a3cc0c44a6da9522032f7d09266a87d46e78167cd5bfe8ba",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-mn-scope-small-business": {
+    "id": "pwc-us-mn-scope-small-business",
+    "jurisdiction": "US-MN",
+    "sourceType": "statute",
+    "officialUrl": "https://www.revisor.mn.gov/statutes/cite/325M.17",
+    "effectiveOrPublicationDate": "2025-07-31",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "d43bd577c82b1e4076d1604f0f9c805a1c16da48565f8e29ce5e8a9c621bfa05",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-mt-duties-ads": {
+    "id": "pwc-us-mt-duties-ads",
+    "jurisdiction": "US-MT",
+    "sourceType": "statute",
+    "officialUrl": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0120/0300-0140-0280-0120.html",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "7d5d5c0eaf2ebbbb286eb690d25a724926a07f62043e180bce3eaabd3a58a139",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-mt-duties-assessment": {
+    "id": "pwc-us-mt-duties-assessment",
+    "jurisdiction": "US-MT",
+    "sourceType": "statute",
+    "officialUrl": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0140/0300-0140-0280-0140.html",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "7d74532987fb9076f8257fe08310bf8ff28688f9cc6c53b179878d9e65bf8c6b",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-mt-duties-enforcement": {
+    "id": "pwc-us-mt-duties-enforcement",
+    "jurisdiction": "US-MT",
+    "sourceType": "statute",
+    "officialUrl": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0170/0300-0140-0280-0170.html",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "ec4e58da552aa419afaa44c909d3ceebc7fd55de606227f3c3628cd4b610c885",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-mt-duties-limited": {
+    "id": "pwc-us-mt-duties-limited",
+    "jurisdiction": "US-MT",
+    "sourceType": "statute",
+    "officialUrl": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0110/0300-0140-0280-0110.html",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "a60a6522e091337954d0d8c9940b7776da87c3a76faf3a54ee2f6fab389c3213",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-mt-duties-minor": {
+    "id": "pwc-us-mt-duties-minor",
+    "jurisdiction": "US-MT",
+    "sourceType": "statute",
+    "officialUrl": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0110/0300-0140-0280-0110.html",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "7b06be2bc8d010677802ff50e3e6be49b8a6795eb607f20f0ccd104567862458",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-mt-duties-rights": {
+    "id": "pwc-us-mt-duties-rights",
+    "jurisdiction": "US-MT",
+    "sourceType": "statute",
+    "officialUrl": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0080/0300-0140-0280-0080.html",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "a91d6cf3bf608d3b0b91907ea28a589399604ee116fad4328a073f49585e0cca",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-mt-duties-sensitive": {
+    "id": "pwc-us-mt-duties-sensitive",
+    "jurisdiction": "US-MT",
+    "sourceType": "statute",
+    "officialUrl": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0120/0300-0140-0280-0120.html",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "2d0a86172078fb28addd63eeef7ec0030dc04c0ac214ef878e6102dc349edd42",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-mt-scope": {
+    "id": "pwc-us-mt-scope",
+    "jurisdiction": "US-MT",
+    "sourceType": "statute",
+    "officialUrl": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0030/0300-0140-0280-0030.html",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "6ca3c19623c105227d8f62e065403979031e9f6a03ace87b49e5f2cee90449c1",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-mt-scope-exemptions": {
+    "id": "pwc-us-mt-scope-exemptions",
+    "jurisdiction": "US-MT",
+    "sourceType": "statute",
+    "officialUrl": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0040/0300-0140-0280-0040.html",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "9dd8cdd2e8237e4eab22064861a46ec80f5af008497548b14a6c97f1a23a8086",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-mt-scope-minors": {
+    "id": "pwc-us-mt-scope-minors",
+    "jurisdiction": "US-MT",
+    "sourceType": "statute",
+    "officialUrl": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0110/0300-0140-0280-0110.html",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "609589c3f9c909fd4fc8357bb5f7e403244e861ec2cb67de73d7b8ee1768c470",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-mt-scope-minors-assessment": {
+    "id": "pwc-us-mt-scope-minors-assessment",
+    "jurisdiction": "US-MT",
+    "sourceType": "statute",
+    "officialUrl": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0190/0300-0140-0280-0190.html",
+    "effectiveOrPublicationDate": "2025-10-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "6e1eb4bd5cba6aa8e78675e7ca580fe057d382d73555e3a4df82dfd205cc16c8",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-mt-scope-minors-processor": {
+    "id": "pwc-us-mt-scope-minors-processor",
+    "jurisdiction": "US-MT",
+    "sourceType": "statute",
+    "officialUrl": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0180/0300-0140-0280-0180.html",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "667312e99d802f54fffd8382d1081abab3b6cdfc2db63e18691e12078e801105",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-ne-duties-ads": {
+    "id": "pwc-us-ne-duties-ads",
+    "jurisdiction": "US-NE",
+    "sourceType": "statute",
+    "officialUrl": "https://nebraskalegislature.gov/laws/laws-index/chap87-full.html",
+    "effectiveOrPublicationDate": "2025-01-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "bca35f41fdad49816ce4276aacb9a405d9194ae8ec8c7ea171cbfd4b83b9be24",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ne-duties-assessment": {
+    "id": "pwc-us-ne-duties-assessment",
+    "jurisdiction": "US-NE",
+    "sourceType": "statute",
+    "officialUrl": "https://nebraskalegislature.gov/laws/statutes.php?statute=87-1116",
+    "effectiveOrPublicationDate": "2025-01-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "cf8b789d5ecaa8a83363ce05168ba562a2ed5451297b000de4b8e8dae8fcab65",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ne-duties-enforcement": {
+    "id": "pwc-us-ne-duties-enforcement",
+    "jurisdiction": "US-NE",
+    "sourceType": "statute",
+    "officialUrl": "https://nebraskalegislature.gov/laws/laws-index/chap87-full.html",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "87ff7eda17dfd21e0ea04b61ff134b5f5ffa0d414cdf79f6943d0ad6514e59cb",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ne-duties-limited": {
+    "id": "pwc-us-ne-duties-limited",
+    "jurisdiction": "US-NE",
+    "sourceType": "statute",
+    "officialUrl": "https://nebraskalegislature.gov/laws/statutes.php?statute=87-1118",
+    "effectiveOrPublicationDate": "2025-01-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "b459309cbfacceaccd9362b244fad360b695a0346c0079e09e77e241296de53d",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ne-duties-rights": {
+    "id": "pwc-us-ne-duties-rights",
+    "jurisdiction": "US-NE",
+    "sourceType": "statute",
+    "officialUrl": "https://nebraskalegislature.gov/laws/laws-index/chap87-full.html",
+    "effectiveOrPublicationDate": "2025-01-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "43bb9912af79ed16a94734243dce0ab5435718d7e0d59e0aa99fda38c9606b42",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ne-duties-sensitive": {
+    "id": "pwc-us-ne-duties-sensitive",
+    "jurisdiction": "US-NE",
+    "sourceType": "statute",
+    "officialUrl": "https://nebraskalegislature.gov/laws/statutes.php?statute=87-1112",
+    "effectiveOrPublicationDate": "2025-01-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "571d6ae433e5ef7f74ea9e2a19414a500ebcee19c13f6a6b37c52bbe91c9e7b2",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ne-scope": {
+    "id": "pwc-us-ne-scope",
+    "jurisdiction": "US-NE",
+    "sourceType": "statute",
+    "officialUrl": "https://nebraskalegislature.gov/laws/statutes.php?statute=87-1103",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "c9da89b42b3ce8b2759347c442d0965d87abef751308a8984cc8831b0458c6e1",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-ne-scope-exemptions": {
+    "id": "pwc-us-ne-scope-exemptions",
+    "jurisdiction": "US-NE",
+    "sourceType": "statute",
+    "officialUrl": "https://nebraskalegislature.gov/laws/statutes.php?statute=87-1104",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "a6aaa9306982919f7d66e4ae1897e7fa565ed9bd34213c786f939af4a392f450",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-ne-scope-small-business": {
+    "id": "pwc-us-ne-scope-small-business",
+    "jurisdiction": "US-NE",
+    "sourceType": "statute",
+    "officialUrl": "https://nebraskalegislature.gov/laws/statutes.php?statute=87-1118",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "c19f694148c3ac2ba27670ba99195f0227a66066dc77af888d1794061365e40a",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-nh-duties-ads": {
+    "id": "pwc-us-nh-duties-ads",
+    "jurisdiction": "US-NH",
+    "sourceType": "statute",
+    "officialUrl": "https://www.gc.nh.gov/rsa/html/LII/507-H/507-H-mrg.htm",
+    "effectiveOrPublicationDate": "2025-01-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "b26ed993826cabca7fd04d8e72342c5ca1ef85cab7fd6adcc61d2d139faa5d99",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-nh-duties-assessment": {
+    "id": "pwc-us-nh-duties-assessment",
+    "jurisdiction": "US-NH",
+    "sourceType": "statute",
+    "officialUrl": "https://www.gc.nh.gov/rsa/html/LII/507-H/507-H-mrg.htm",
+    "effectiveOrPublicationDate": "2025-01-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "80b4c8eecf1083171db8d2d9d60d77de9944a58aeb32055cfa51b38e051adb74",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-nh-duties-enforcement": {
+    "id": "pwc-us-nh-duties-enforcement",
+    "jurisdiction": "US-NH",
+    "sourceType": "statute",
+    "officialUrl": "https://gc.nh.gov/rsa/html/LII/507-H/507-H-11.htm",
+    "effectiveOrPublicationDate": "2025-01-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "0fa5c4a453d075441985eb28701189701988178b471e52b9a20057ea62ecdadb",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-nh-duties-rights": {
+    "id": "pwc-us-nh-duties-rights",
+    "jurisdiction": "US-NH",
+    "sourceType": "statute",
+    "officialUrl": "https://www.gc.nh.gov/rsa/html/LII/507-H/507-H-mrg.htm",
+    "effectiveOrPublicationDate": "2025-01-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "ae874a43b87bb9c526a7a06742bfd35830640d50c7ec2d3c05aca242b0ef1faf",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-nh-duties-sensitive": {
+    "id": "pwc-us-nh-duties-sensitive",
+    "jurisdiction": "US-NH",
+    "sourceType": "statute",
+    "officialUrl": "https://www.gc.nh.gov/rsa/html/LII/507-H/507-H-mrg.htm",
+    "effectiveOrPublicationDate": "2025-01-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "e9c329aa93f4c234f0dac188d729c7aeb29015b2fd8ae53ed6e648193f7c8d72",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-nh-scope": {
+    "id": "pwc-us-nh-scope",
+    "jurisdiction": "US-NH",
+    "sourceType": "statute",
+    "officialUrl": "https://gc.nh.gov/rsa/html/LII/507-H/507-H-2.htm",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "3710d5b41ec6c279a514ad2e6a45c46eb43841f1639910c2f6bc304f37588582",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-nh-scope-exemptions": {
+    "id": "pwc-us-nh-scope-exemptions",
+    "jurisdiction": "US-NH",
+    "sourceType": "statute",
+    "officialUrl": "https://gc.nh.gov/rsa/html/LII/507-H/507-H-3.htm",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "aa88c85e47edf848c5785fa6618243f0def6da9bfb7d4f5aac8228f6fbfcfcf3",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-nj-duties-ads": {
+    "id": "pwc-us-nj-duties-ads",
+    "jurisdiction": "US-NJ",
+    "sourceType": "statute",
+    "officialUrl": "https://pub.njleg.gov/Bills/2022/AL23/266_.HTM",
+    "effectiveOrPublicationDate": "2025-01-15",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "49cc72f412648b8266d8c75d51e8ab9c570205ee9ad8e3047d54bc59e32e8273",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-nj-duties-assessment": {
+    "id": "pwc-us-nj-duties-assessment",
+    "jurisdiction": "US-NJ",
+    "sourceType": "statute",
+    "officialUrl": "https://pub.njleg.gov/Bills/2022/AL23/266_.HTM",
+    "effectiveOrPublicationDate": "2025-01-15",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "9e290bea026ad461b084c5ae4725347abf37d90059b210318284c297ca470edc",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-nj-duties-enforcement": {
+    "id": "pwc-us-nj-duties-enforcement",
+    "jurisdiction": "US-NJ",
+    "sourceType": "statute",
+    "officialUrl": "https://pub.njleg.state.nj.us/Bills/2022/PL23/266_.HTM",
+    "effectiveOrPublicationDate": "2025-01-15",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "83d28aeafde42de42c3fd5f1f5f3061e21142a97e3dbf57bd13ca282b4939a6c",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-nj-duties-rights": {
+    "id": "pwc-us-nj-duties-rights",
+    "jurisdiction": "US-NJ",
+    "sourceType": "statute",
+    "officialUrl": "https://pub.njleg.gov/Bills/2022/AL23/266_.HTM",
+    "effectiveOrPublicationDate": "2025-01-15",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "d46f5cb099dbd5a8ae2210f7e5be8ba5f7a0c0dd7977800b9d0aeff1a4527a50",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-nj-duties-sensitive": {
+    "id": "pwc-us-nj-duties-sensitive",
+    "jurisdiction": "US-NJ",
+    "sourceType": "statute",
+    "officialUrl": "https://pub.njleg.gov/Bills/2022/AL23/266_.HTM",
+    "effectiveOrPublicationDate": "2025-01-15",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "2c5633551dfd7da1ddfef0add0d92dc3459a8ae26e2cbc49ae71fa4329c1bab9",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-nj-scope": {
+    "id": "pwc-us-nj-scope",
+    "jurisdiction": "US-NJ",
+    "sourceType": "statute",
+    "officialUrl": "https://pub.njleg.state.nj.us/Bills/2022/PL23/266_.HTM",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "009b6de36d612277ec28ad6aada2b3aa6c83062645f1940f4b269d5a39689954",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-nj-scope-exemptions": {
+    "id": "pwc-us-nj-scope-exemptions",
+    "jurisdiction": "US-NJ",
+    "sourceType": "statute",
+    "officialUrl": "https://pub.njleg.state.nj.us/Bills/2022/PL23/266_.HTM",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "1a5163a26d3cfc66f5c98bbb6fcf9bd9ecc6b2e67e45222d406856f8f352014a",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-or-duties-ads": {
+    "id": "pwc-us-or-duties-ads",
+    "jurisdiction": "US-OR",
+    "sourceType": "statute",
+    "officialUrl": "https://www.oregonlegislature.gov/bills_laws/ors/ors646A.html",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "20a322d7902a56282984f38081157475145bbeb28aab738601ed262e240e801f",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-or-duties-assessment": {
+    "id": "pwc-us-or-duties-assessment",
+    "jurisdiction": "US-OR",
+    "sourceType": "statute",
+    "officialUrl": "https://www.oregonlegislature.gov/bills_laws/ors/ors646A.html",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "1fadf848ad4758bd4cb5299880e5074cfd833df90df9e0288c8989ca3aa7e212",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-or-duties-enforcement": {
+    "id": "pwc-us-or-duties-enforcement",
+    "jurisdiction": "US-OR",
+    "sourceType": "statute",
+    "officialUrl": "https://www.oregonlegislature.gov/bills_laws/ors/ors646a.html",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "7fd84fb9bc45f0acd7166fbcaaa1354f47128616685763751933576fa72de346",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-or-duties-rights": {
+    "id": "pwc-us-or-duties-rights",
+    "jurisdiction": "US-OR",
+    "sourceType": "statute",
+    "officialUrl": "https://www.oregonlegislature.gov/bills_laws/ors/ors646A.html",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "36659baee10138d5f410ffd7d3e36484dd8a14d395e882304c4e809a7d1f9ab2",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-or-duties-sensitive": {
+    "id": "pwc-us-or-duties-sensitive",
+    "jurisdiction": "US-OR",
+    "sourceType": "statute",
+    "officialUrl": "https://www.oregonlegislature.gov/bills_laws/ors/ors646A.html",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "58ced232db2b2839311c3a669700c5d181ed1e9e4456feec63f282e5fe57b971",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-or-scope": {
+    "id": "pwc-us-or-scope",
+    "jurisdiction": "US-OR",
+    "sourceType": "statute",
+    "officialUrl": "https://www.oregonlegislature.gov/bills_laws/ors/ors646a.html",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "9f446fe7430f9937df7590fde8934d1550efbf0a5997168e7d39a5c13f0bd3db",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-or-scope-exemptions": {
+    "id": "pwc-us-or-scope-exemptions",
+    "jurisdiction": "US-OR",
+    "sourceType": "statute",
+    "officialUrl": "https://www.oregonlegislature.gov/bills_laws/ors/ors646a.html",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "1b8b9972ede606ce52c1ce74c1c2b67989470fbd27a1519aa26b15edc1c46ad0",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-ri-duties-ads": {
+    "id": "pwc-us-ri-duties-ads",
+    "jurisdiction": "US-RI",
+    "sourceType": "statute",
+    "officialUrl": "https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-5.htm",
+    "effectiveOrPublicationDate": "2026-01-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "a2fb1cc51d30160c54130fd09a70dff7e20194d1afd5d1f0ec1b7ce1fb84f090",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ri-duties-assessment": {
+    "id": "pwc-us-ri-duties-assessment",
+    "jurisdiction": "US-RI",
+    "sourceType": "statute",
+    "officialUrl": "https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-7.htm",
+    "effectiveOrPublicationDate": "2026-01-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "93918a76cd74cde71ededb18a204b300051e920c9cc02145ba6107731b70d76d",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ri-duties-enforcement": {
+    "id": "pwc-us-ri-duties-enforcement",
+    "jurisdiction": "US-RI",
+    "sourceType": "statute",
+    "officialUrl": "https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-8.htm",
+    "effectiveOrPublicationDate": "2026-01-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "625ed24def621022184a13ed9e95ac9745534a2d4d8aa54dc90f9747469a0a44",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ri-duties-limited": {
+    "id": "pwc-us-ri-duties-limited",
+    "jurisdiction": "US-RI",
+    "sourceType": "statute",
+    "officialUrl": "https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-3.htm",
+    "effectiveOrPublicationDate": "2026-01-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "c9ce8e163e39b0b606adb34050fbff1befc9f79416f792e21970c04f0b761959",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ri-duties-rights": {
+    "id": "pwc-us-ri-duties-rights",
+    "jurisdiction": "US-RI",
+    "sourceType": "statute",
+    "officialUrl": "https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-6.htm",
+    "effectiveOrPublicationDate": "2026-01-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "7cd6bdafbaa1c15b8f3c5da654c564b28b7f7d4b42991ce34df7820a0153a4dd",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ri-duties-sensitive": {
+    "id": "pwc-us-ri-duties-sensitive",
+    "jurisdiction": "US-RI",
+    "sourceType": "statute",
+    "officialUrl": "https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-4.htm",
+    "effectiveOrPublicationDate": "2026-01-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "3351157df91e96d8d048af77b5905b6113a6fa5d85bfb4d2b87287b03d4c1dd2",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ri-scope": {
+    "id": "pwc-us-ri-scope",
+    "jurisdiction": "US-RI",
+    "sourceType": "statute",
+    "officialUrl": "https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-4.htm",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "02efd5434e207a974adf55704400d8d9bc37e1e1a218a634e0ceb6732abdf845",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-ri-scope-exemptions": {
+    "id": "pwc-us-ri-scope-exemptions",
+    "jurisdiction": "US-RI",
+    "sourceType": "statute",
+    "officialUrl": "https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-3.htm",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "484b8f698d2dc227d981c75aba6ce808648ddc93e8ba5761d68b91d926c2dc4e",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-tn-duties-ads": {
+    "id": "pwc-us-tn-duties-ads",
+    "jurisdiction": "US-TN",
+    "sourceType": "statute",
+    "officialUrl": "https://www.capitol.tn.gov/Archives/Joint/publications/TNCodeBills/2025/TNCodeBill_Volume1_2025.pdf",
+    "effectiveOrPublicationDate": "2025-07-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "713d80188358a2b30d980315a13026b45aa0da2abbd4c612581df53569bee4f7",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-tn-duties-assessment": {
+    "id": "pwc-us-tn-duties-assessment",
+    "jurisdiction": "US-TN",
+    "sourceType": "statute",
+    "officialUrl": "https://www.capitol.tn.gov/Archives/Joint/publications/TNCodeBills/2025/TNCodeBill_Volume1_2025.pdf",
+    "effectiveOrPublicationDate": "2025-07-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "66591f26acf9262654369606c85f792d63777b1fce40765dd8b089dde7bda442",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-tn-duties-enforcement": {
+    "id": "pwc-us-tn-duties-enforcement",
+    "jurisdiction": "US-TN",
+    "sourceType": "statute",
+    "officialUrl": "https://www.capitol.tn.gov/Archives/Joint/publications/TNCodeBills/2025/TNCodeBill_Volume1_2025.pdf",
+    "effectiveOrPublicationDate": "2025-07-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "162e1f91d65144cb45ef3f656dd6f1459fd7e7301aeee873531ee3927373572e",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-tn-duties-rights": {
+    "id": "pwc-us-tn-duties-rights",
+    "jurisdiction": "US-TN",
+    "sourceType": "statute",
+    "officialUrl": "https://www.capitol.tn.gov/Archives/Joint/publications/TNCodeBills/2025/TNCodeBill_Volume1_2025.pdf",
+    "effectiveOrPublicationDate": "2025-07-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "6ea9632ba178a4a35147cc93e4b2663b7da9ee028fd39608bb399bfb98ca4b68",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-tn-duties-sensitive": {
+    "id": "pwc-us-tn-duties-sensitive",
+    "jurisdiction": "US-TN",
+    "sourceType": "statute",
+    "officialUrl": "https://www.capitol.tn.gov/Archives/Joint/publications/TNCodeBills/2025/TNCodeBill_Volume1_2025.pdf",
+    "effectiveOrPublicationDate": "2025-07-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "ea690c9ae72885165a72f49287e308b96fa3026e16cca4785701c85548064534",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-tn-scope": {
+    "id": "pwc-us-tn-scope",
+    "jurisdiction": "US-TN",
+    "sourceType": "statute",
+    "officialUrl": "https://www.capitol.tn.gov/Archives/Joint/publications/TNCodeBills/2025/TNCodeBill_Volume1_2025.pdf",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "8d27b6ae4eb64eecb3e0d2a7347cff2ff5b0e7f9dacc51d86209def522e4267a",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-tn-scope-exemptions": {
+    "id": "pwc-us-tn-scope-exemptions",
+    "jurisdiction": "US-TN",
+    "sourceType": "statute",
+    "officialUrl": "https://www.capitol.tn.gov/Archives/Joint/publications/TNCodeBills/2025/TNCodeBill_Volume1_2025.pdf",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "8ab1190648f5932317262d2761707e7f1f1393921b8b0e0c73af63a72289bf37",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-tx-duties-ads": {
+    "id": "pwc-us-tx-duties-ads",
+    "jurisdiction": "US-TX",
+    "sourceType": "statute",
+    "officialUrl": "https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm",
+    "effectiveOrPublicationDate": "2024-07-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "3ab40fcd31bf3ff949f8728dabe8e2875f0e75d101c4a81fab036a2a677dadae",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-tx-duties-assessment": {
+    "id": "pwc-us-tx-duties-assessment",
+    "jurisdiction": "US-TX",
+    "sourceType": "statute",
+    "officialUrl": "https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm",
+    "effectiveOrPublicationDate": "2024-07-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "bef84a45b458c9823c94fbb0c506363965448b1efa340db0cf071b378a2e9f92",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-tx-duties-enforcement": {
+    "id": "pwc-us-tx-duties-enforcement",
+    "jurisdiction": "US-TX",
+    "sourceType": "statute",
+    "officialUrl": "https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm",
+    "effectiveOrPublicationDate": "2024-07-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "5f03f7305048ae52fa5e19e8051d755dab1a8b66c3d902d699c1077e319be279",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-tx-duties-limited": {
+    "id": "pwc-us-tx-duties-limited",
+    "jurisdiction": "US-TX",
+    "sourceType": "statute",
+    "officialUrl": "https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm",
+    "effectiveOrPublicationDate": "2024-07-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "3a071ce41d4f20cec5d2af90ea91351c09bc027ece27c4e618b15ec803eec2b7",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-tx-duties-rights": {
+    "id": "pwc-us-tx-duties-rights",
+    "jurisdiction": "US-TX",
+    "sourceType": "statute",
+    "officialUrl": "https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm",
+    "effectiveOrPublicationDate": "2024-07-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "6f5117aff0eabd68d18a20cc64835f271d636aad4fc955883bb5783e3d8e9652",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-tx-duties-sensitive": {
+    "id": "pwc-us-tx-duties-sensitive",
+    "jurisdiction": "US-TX",
+    "sourceType": "statute",
+    "officialUrl": "https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm",
+    "effectiveOrPublicationDate": "2024-07-01",
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "5092a0bd4600bd183c09eddb90c038ceb240e30e31008fe2f55163e8d8341cec",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-tx-scope": {
+    "id": "pwc-us-tx-scope",
+    "jurisdiction": "US-TX",
+    "sourceType": "statute",
+    "officialUrl": "https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "047943a9078038b6b43370410c150e2f1de3a3061fd397977ac27ff81cf8fca5",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-tx-scope-exemptions": {
+    "id": "pwc-us-tx-scope-exemptions",
+    "jurisdiction": "US-TX",
+    "sourceType": "statute",
+    "officialUrl": "https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "8627d76b7095b8e7f973847d3ae426826090a42e6c604f70704e5208e94447c5",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-ut-duties-ads": {
+    "id": "pwc-us-ut-duties-ads",
+    "jurisdiction": "US-UT",
+    "sourceType": "statute",
+    "officialUrl": "https://le.utah.gov/xcode/Title13/Chapter61/C13-61_2022050420231231.pdf",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "7ed6fc41e1b82d1981c8d04ad1f6ec30143aa23d7250b7345cec854693fd0d98",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ut-duties-assessment": {
+    "id": "pwc-us-ut-duties-assessment",
+    "jurisdiction": "US-UT",
+    "sourceType": "statute",
+    "officialUrl": "https://le.utah.gov/xcode/Title13/Chapter61/C13-61_2022050420231231.pdf",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "837163704e66dd9998f6714df6590f740c0d95d3336265de0934f3ac78c48490",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ut-duties-enforcement": {
+    "id": "pwc-us-ut-duties-enforcement",
+    "jurisdiction": "US-UT",
+    "sourceType": "statute",
+    "officialUrl": "https://le.utah.gov/xcode/Title 13/Chapter 61/C13-61_2022050420231231.pdf",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "16ac75190bcf95623b61d4ff4e9b7417e8879f9166b5256e77206d4d5a190aa5",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ut-duties-rights": {
+    "id": "pwc-us-ut-duties-rights",
+    "jurisdiction": "US-UT",
+    "sourceType": "statute",
+    "officialUrl": "https://le.utah.gov/xcode/Title13/Chapter61/C13-61_2022050420231231.pdf",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "888958d674b13791b4fcdd6e8152d1a2777bee6e68b71c54440c045b26afd3bb",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ut-duties-sensitive": {
+    "id": "pwc-us-ut-duties-sensitive",
+    "jurisdiction": "US-UT",
+    "sourceType": "statute",
+    "officialUrl": "https://le.utah.gov/xcode/Title13/Chapter61/C13-61_2022050420231231.pdf",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "faa8380d7fdfe210b0192ccd76be1e525e176f4fcb38f4a61ecaa4364d22c031",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-ut-scope": {
+    "id": "pwc-us-ut-scope",
+    "jurisdiction": "US-UT",
+    "sourceType": "statute",
+    "officialUrl": "https://le.utah.gov/xcode/Title13/Chapter61/C13-61-S102_2024050120240501.pdf",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "0eb4405caf34d2b660d952f48364afa6536c9d2da4e87e69d5ad5e5e25ddd78d",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-ut-scope-exemptions": {
+    "id": "pwc-us-ut-scope-exemptions",
+    "jurisdiction": "US-UT",
+    "sourceType": "statute",
+    "officialUrl": "https://le.utah.gov/xcode/Title13/Chapter61/C13-61-S102_2024050120240501.pdf",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "db61b89f4a49b38caf3a3a173e9ee17a017eef87f1831201625368bfb7ec20e3",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-va-duties-ads": {
+    "id": "pwc-us-va-duties-ads",
+    "jurisdiction": "US-VA",
+    "sourceType": "statute",
+    "officialUrl": "https://law.lis.virginia.gov/vacodefull/title59.1/chapter53/",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "a7cd08ef6400c9a49b6e77c543402bfc3f9f824ad619cd62c0d1fdc46f95f932",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-va-duties-assessment": {
+    "id": "pwc-us-va-duties-assessment",
+    "jurisdiction": "US-VA",
+    "sourceType": "statute",
+    "officialUrl": "https://law.lis.virginia.gov/vacodefull/title59.1/chapter53/",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "54104b2c71951d1cbffad55fff43338a2e55d671749756b21e784d74025c4473",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-va-duties-enforcement": {
+    "id": "pwc-us-va-duties-enforcement",
+    "jurisdiction": "US-VA",
+    "sourceType": "statute",
+    "officialUrl": "https://law.lis.virginia.gov/vacode/title59.1/chapter 53/section59.1-584/",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "7069c06e7b9b4da3a533accc2635e6cdf4172499d9889541d02d7e1eb085b55f",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-va-duties-rights": {
+    "id": "pwc-us-va-duties-rights",
+    "jurisdiction": "US-VA",
+    "sourceType": "statute",
+    "officialUrl": "https://law.lis.virginia.gov/vacodefull/title59.1/chapter53/",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "03f0c938761fbbba96d09040a862d85a52dcc123c9cb0530c599f27188061980",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-va-duties-sensitive": {
+    "id": "pwc-us-va-duties-sensitive",
+    "jurisdiction": "US-VA",
+    "sourceType": "statute",
+    "officialUrl": "https://law.lis.virginia.gov/vacodefull/title59.1/chapter53/",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "d445fde6ba82e81f7f22f0b75f7dabcf34d4a9e46ac6248661a7040c9946b5ad",
+    "affectedWizards": [
+      "us-divergence"
+    ]
+  },
+  "pwc-us-va-scope": {
+    "id": "pwc-us-va-scope",
+    "jurisdiction": "US-VA",
+    "sourceType": "statute",
+    "officialUrl": "https://law.lis.virginia.gov/vacode/title59.1/chapter53/section59.1-576/",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "4cfb09ca2a88ea97ab6c5f04a62735ed160202bafa5b5d336debbd35ca187b79",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
+  "pwc-us-va-scope-exemptions": {
+    "id": "pwc-us-va-scope-exemptions",
+    "jurisdiction": "US-VA",
+    "sourceType": "statute",
+    "officialUrl": "https://law.lis.virginia.gov/vacode/title59.1/chapter53/section59.1-576/",
+    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null,
+    "status": "automated-check-only",
+    "contentSha256": "fccd33f7360e746adc4c83137357f1d012cc53f65ab84a83f3e60693426e8589",
+    "affectedWizards": [
+      "us-applicability"
+    ]
+  },
   "std-iso-27005": {
     "id": "std-iso-27005",
     "jurisdiction": "INTL",
@@ -2317,7 +4910,9 @@ export const AUTOMATED_CHECK_NOTES = {
   "ropa": "2026-07-02 (automated cross-check against official source texts; not yet reviewed by counsel)",
   "ai-role": "2026-07-06 (automated cross-check against the EUR-Lex texts of Regulation (EU) 2024/1689 and the adopted Digital Omnibus on AI (PE-CONS 30/26); not yet reviewed by counsel)",
   "ai-risk": "2026-07-06 (automated cross-check against the EUR-Lex texts of Regulation (EU) 2024/1689 and the adopted Digital Omnibus on AI (PE-CONS 30/26); not yet reviewed by counsel)",
-  "severity": "2026-07-06 (automated cross-check against official source texts and the adversarially audited Advokat Frida risk-matrix methodology (ADVO-22); not yet reviewed by counsel)"
+  "severity": "2026-07-06 (automated cross-check against official source texts and the adversarially audited Advokat Frida risk-matrix methodology (ADVO-22); not yet reviewed by counsel)",
+  "us-applicability": "2026-09-22 (automated primary-source check and independent adversarial cross-review; not practitioner-reviewed)",
+  "us-divergence": "2026-09-22 (automated primary-source check and independent adversarial cross-review; not practitioner-reviewed)"
 };
 export const ENABLED_WIZARDS = [
   "breach",
@@ -2335,5 +4930,7 @@ export const ENABLED_WIZARDS = [
   "ropa",
   "ai-role",
   "ai-risk",
-  "severity"
+  "severity",
+  "us-applicability",
+  "us-divergence"
 ];

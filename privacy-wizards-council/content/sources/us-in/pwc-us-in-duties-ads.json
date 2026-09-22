@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-IN",
+  "label": "Indiana: sale and targeted advertising",
+  "citation": "Ind. Code §§24-15-3-1(b)(5), 24-15-4-4",
+  "provenance": "https://iga.in.gov/ic/2026/Title_24/Article_15.pdf",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Consumers can opt out of sale, targeted advertising and qualifying significant-effect profiling.</p>",
+    "<p>Classify each transfer under Indiana's own sale definition and exceptions.</p>",
+    "<p>Disclose sale or targeted advertising conspicuously and provide the statutory opt-out route.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2026-01-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

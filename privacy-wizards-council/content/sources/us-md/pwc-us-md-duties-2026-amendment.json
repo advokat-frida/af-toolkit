@@ -1,0 +1,19 @@
+{
+  "kind": "statute",
+  "juris": "US-MD",
+  "label": "Maryland: 2026 amendment",
+  "citation": "2026 Maryland Laws ch.874 (HB711), §§1–2",
+  "provenance": "https://mgaleg.maryland.gov/2026RS/chapters_noln/Ch_874_hb0711T.pdf",
+  "note": "Editorial summary of primary authority, not a verbatim extract. See the cited provision for all qualifiers.",
+  "body": [
+    "<p>Effective July 1, 2026, Chapter 874 expands precise-geolocation and sensitive-data definitions and adds qualified restrictions on personal-data sales connected to civil immigration enforcement. Read the enacted amendment with the 14-470x codification; the base web page may not display this overlay.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2026-07-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

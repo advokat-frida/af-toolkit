@@ -1,0 +1,20 @@
+{
+  "kind": "statute",
+  "juris": "US-MT",
+  "label": "Montana: minors duties below general thresholds",
+  "citation": "MCA §§30-14-2803(2), 30-14-2811",
+  "provenance": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0110/0300-0140-0280-0110.html",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Cross-reference source pwc-us-mt-scope carries the threshold-bypass text.",
+  "body": [
+    "<p>Controllers offering an online service, product or feature to a consumer they actually know, or willfully disregard, is a minor must assess the reasonable-care, consent, retention, geolocation, design-feature and messaging safeguards in §30-14-2811.</p>",
+    "<p>Section 30-14-2803(2) applies the named minors provisions without the general 25,000/15,000 thresholds to the stated Montana business or intentionally targeted commercial activity.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

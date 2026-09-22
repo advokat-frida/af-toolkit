@@ -1,0 +1,22 @@
+{
+  "kind": "statute",
+  "juris": "US-CA",
+  "label": "California: applicability",
+  "citation": "Cal. Civ. Code § 1798.140(d), (i)",
+  "provenance": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.140.",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. The $26,625,000 adjustment took effect January 1, 2025. Verify the next odd-year adjustment before a 2027 assessment.",
+  "body": [
+    "<p>Does the entity do business in California?</p>",
+    "<p>Does ANY threshold hold: preceding-calendar-year annual gross revenue is strictly greater than $26,625,000 (as of January 1); OR it annually buys, sells or shares personal information of at least 100,000 consumers or households; OR at least 50% of annual revenue comes from selling or sharing consumers’ personal information?</p>",
+    "<p>California residents, including employment and business-contact data; the transaction-count limb also counts households. It counts buying, selling or sharing, not processing alone.</p>",
+    "<p>Measuring period: Revenue: preceding calendar year as of January 1. Transaction count and sale/share revenue: annual.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

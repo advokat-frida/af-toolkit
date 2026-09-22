@@ -1,0 +1,20 @@
+{
+  "kind": "statute",
+  "juris": "US-MT",
+  "label": "Montana: entity and data exclusions",
+  "citation": "MCA § 30-14-2804",
+  "provenance": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0040/0300-0140-0280-0040.html",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Entity status and record-level exclusions are separate decisions; the listed categories must satisfy the linked law's definitions and conditions.",
+  "body": [
+    "<p>§30-14-2804 excludes government bodies, insurance-fraud nonprofits, higher education, specified securities associations, qualifying banks/credit unions and financial affiliates, HIPAA covered entities/business associates, and qualifying insurance entities. There is no general nonprofit exemption and no universal GLBA entity exemption.</p>",
+    "<p>§30-14-2804 excludes specified GLBA, health/research, regulated credit, DPPA, FERPA, Farm Credit and employment-role data. Check statutory conditions before excluding a dataset.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

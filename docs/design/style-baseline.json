@@ -76,6 +76,7 @@
     "button · space grotesk 16px/400 none · fg rgb(22, 20, 15) · bg rgba(0, 0, 0, 0) · border 0px none rgb(22, 20, 15) · radius 0px · shadow none · pad 14px 6px · min-h auto",
     "div · space grotesk 15px/400 none · fg rgb(22, 20, 15) · bg rgb(255, 253, 248) · border 1px dashed rgba(22, 20, 15, 0.32) · radius 0px · shadow none · pad 20px 16px · min-h 140px",
     "input · space grotesk 15px/400 none · fg rgb(22, 20, 15) · bg rgb(255, 253, 248) · border 1px solid rgb(22, 20, 15) · radius 0px · shadow none · pad 8px 12px · min-h 44px",
+    "input · space grotesk 15px/400 none · fg rgb(22, 20, 15) · bg rgba(0, 0, 0, 0) · border 0px none rgb(22, 20, 15) · radius 0px · shadow none · pad 0px 0px · min-h auto",
     "input · space grotesk 16px/400 none · fg rgb(22, 20, 15) · bg rgba(0, 0, 0, 0) · border 0px none rgb(22, 20, 15) · radius 0px · shadow none · pad 8px 0px · min-h 44px",
     "input · ui-monospace 14px/400 none · fg rgb(22, 20, 15) · bg rgba(0, 0, 0, 0) · border 1px solid rgba(0, 0, 0, 0) · radius 0px · shadow none · pad 4px 8px · min-h 40px",
     "select · space grotesk 15px/400 none · fg rgb(22, 20, 15) · bg rgb(255, 253, 248) · border 1px solid rgb(22, 20, 15) · radius 0px · shadow none · pad 0px 34px · min-h 44px",
@@ -83,6 +84,8 @@
     "select · space grotesk 15px/400 none · fg rgb(74, 70, 61) · bg rgba(0, 0, 0, 0) · border 1px solid rgba(0, 0, 0, 0) · radius 0px · shadow none · pad 4px 8px · min-h 40px"
   ],
   "colors": [
+    "color(srgb 0.929726 0.937255 0.910431)",
+    "color(srgb 0.938196 0.93098 0.938667)",
     "rgb(158, 84, 21)",
     "rgb(18, 102, 106)",
     "rgb(200, 50, 50)",

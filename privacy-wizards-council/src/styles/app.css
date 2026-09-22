@@ -1017,6 +1017,8 @@ h4 {
   border-top: 1px solid var(--line-soft);
 }
 
+.resource-link { color: var(--forest); text-decoration: underline; text-underline-offset: 3px; }
+
 .why-disclosure {
   max-width: 620px;
 }
@@ -1945,6 +1947,10 @@ main.is-embed {
   max-width: 70ch;
 }
 
+/* Short helper and source notices use their available column instead of stranding citations. */
+.question-aside,
+.outcome-aside { max-width: none; text-wrap: pretty; }
+
 .question-tools {
   display: flex;
   align-items: center;
@@ -2292,7 +2298,16 @@ textarea {
 }
 .disclosure-body + .disclosure-body { margin-top: 10px; }
 .question-aside + .disclosure { margin-top: 4px; }
-.outcome-main > .disclosure + .next-actions { margin-top: 18px; }
+.outcome-reasoning { margin-top: 4px; }
+.outcome-grid { margin-top: 16px; }
+.outcome-reasoning + .outcome-grid { margin-top: 12px; }
+.outcome-main > .disclosure + .outcome-aside { margin-top: 8px; }
+.verdict-title { text-wrap: balance; }
+.verdict-sub,
+.outcome-summary,
+.disclosure-body,
+.action-check-text,
+.authority-label { text-wrap: pretty; }
 
 /* Text-action links inside a disclosure body (the official text, the pending-law source). */
 .motion-source,
@@ -2325,10 +2340,17 @@ textarea {
   line-height: var(--lh-label);
 }
 
-/* Next determination: one eyebrow and the same chooser row as the finder. */
-.next-determination { margin-top: 26px; }
+/* Related paths get a distinct navigation panel, separate from actions and authority. */
+.next-determination {
+  margin-top: 24px;
+  padding: 16px;
+  border-left: 3px solid var(--indigo);
+  background: var(--indigo-soft);
+}
 .next-determination .field-label { margin-bottom: 0; }
-.next-determination .wizard-list { margin-top: 6px; }
+.next-determination .wizard-list { margin-top: 6px; border-top: 0; }
+.next-determination .wizard-row:last-child { border-bottom: 0; }
+.next-determination .wizard-copy { min-width: 0; text-wrap: pretty; }
 
 /* Authority rows: label over a dotted status label; open for citation, link, and text. */
 .authority-row > summary {
@@ -2385,7 +2407,8 @@ textarea {
    Every article, section, guidance, case and defined-term mention in the authored text
    is a citation that opens its source where it stands. The trigger inherits the run it
    sits in; the card is its own small surface. */
-.mentions { display: block; position: relative; }
+.mentions { display: block; position: relative; text-wrap: pretty; }
+.question-aside > .mentions { text-wrap: balance; }
 .cite {
   display: inline;
   margin: 0;
@@ -2477,4 +2500,107 @@ textarea {
 .cite-card-actions .text-button { padding-left: 0; }
 @media print {
   .cite-card { display: none !important; }
+}
+
+/* State-law paths share the Council's question and outcome grammar. */
+.jurisdiction-run { min-width: 0; }
+.jurisdiction-run > .action-message { margin: 0 0 20px; }
+.state-selector > .step-label { margin: 0 0 12px; }
+.state-selector h3 { margin: 0 0 10px; }
+.state-selector h3 + p { margin: 0; line-height: var(--lh-body); }
+.state-search-label { display: block; margin-top: 20px; margin-bottom: 8px; font-family: var(--font-label); font-size: 13px; font-weight: 700; }
+.state-search { width: min(100%, 400px); min-height: 44px; padding: 8px 12px; border: 1px solid var(--ink); border-radius: 0; background: var(--paper); color: var(--ink); font-size: 16px; }
+.state-selection-note { font-size: 14px; color: var(--ink-soft); line-height: var(--lh-helper); }
+.jurisdiction-choices { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px; border: 0; padding: 0; margin: 24px 0; }
+.jurisdiction-choice { display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 10px 12px; border: 1px solid var(--line-soft); background: var(--paper); font-size: 15px; }
+.jurisdiction-choice.selected { border-color: var(--forest); background: var(--forest-wash); }
+.jurisdiction-choice input, .jurisdiction-answer input { accent-color: var(--forest); width: 18px; height: 18px; margin: 0; flex: 0 0 18px; }
+.jurisdiction-answers { border: 0; margin: 20px 0; padding: 0; min-width: 0; }
+.answer-card.jurisdiction-answer { display: flex; align-items: flex-start; gap: 12px; }
+.jurisdiction-answer input { margin-top: 3px; }
+.jurisdiction-answer > span { min-width: 0; }
+.jurisdiction-answer strong, .jurisdiction-answer small { display: block; }
+.jurisdiction-answer small { margin-top: 6px; line-height: var(--lh-body); }
+.jurisdiction-progress { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px; margin-bottom: 12px; }
+.jurisdiction-progress p { margin: 0; }
+.question-disclosures { display: flex; flex-wrap: wrap; gap: 0 20px; margin-top: 8px; }
+.question-disclosures > .disclosure { margin: 0; }
+.question-disclosures > .disclosure[open] { flex-basis: 100%; }
+.state-step-sources { padding-left: 20px; }
+.state-step-sources a { overflow-wrap: anywhere; }
+.state-results { display: grid; gap: 24px; }
+.state-results-heading { margin: 0 0 16px; }
+.state-results-heading h3 { font-size: 19px; line-height: var(--lh-heading); margin: 0 0 10px; }
+.state-results-heading .outcome-aside { margin: 0; }
+.state-result { padding: 0; }
+.state-result > .step-label { margin: 0 0 8px; }
+.state-result h4 { margin: 0; }
+.state-result .verdict-block { padding: 16px; }
+.state-result .verdict-sub { margin: 8px 0 0; }
+.state-result > .next-actions { margin-top: 16px; }
+.state-result > .disclosure { margin-top: 12px; border: 0; }
+.state-result > .disclosure + .disclosure { margin-top: 0; }
+.state-result > p, .state-result li, .state-missing { line-height: var(--lh-body); }
+.state-missing { margin: 16px 0 0; padding: 12px 16px; border-left: 3px solid var(--amber); background: var(--amber-soft); }
+.state-missing dl { margin: 0; }
+.state-missing dt { font-weight: 700; }
+.state-missing dd { margin: 6px 0 16px; }
+.state-missing dd:last-child { margin-bottom: 0; }
+.selected-facts ol { padding: 0; list-style: none; }
+.selected-facts li { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line-soft); }
+.selected-facts li span { min-width: 0; }
+.state-authority .authority-body { padding: 16px 0; }
+.state-export { flex-wrap: wrap; margin-top: 24px; }
+
+/* One card keeps the action list together without dividing every sentence. */
+.next-actions.action-checklist {
+  padding: 16px;
+  border: 1px solid var(--line-soft);
+  background: var(--paper);
+}
+.authority-list {
+  align-self: start;
+  min-width: 0;
+  padding: 16px;
+  border: 0;
+  border-top: 3px solid var(--forest);
+  background: var(--forest-wash);
+}
+.authority-list li:last-child { border-bottom: 0; }
+.action-checklist .field-label,
+.authority-list .field-label { margin: 0 0 8px; }
+.action-checklist li {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.action-checklist li + li { margin-top: 4px; }
+.action-check-target {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 44px;
+  cursor: pointer;
+  padding-top: 13px;
+}
+.action-check-target input {
+  accent-color: var(--forest);
+  color: var(--ink);
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  cursor: pointer;
+}
+.action-check-target:focus-within { outline: 2px solid var(--forest); outline-offset: -2px; }
+.action-check-text { padding: 10px 0; min-width: 0; }
+@media (max-width: 520px) {
+  .next-actions.action-checklist,
+  .authority-list,
+  .next-determination { padding: 12px; }
+  .jurisdiction-choices { grid-template-columns: 1fr; }
+  .state-export { align-items: flex-start; }
+  .state-export .button { max-width: 100%; white-space: normal; }
 }

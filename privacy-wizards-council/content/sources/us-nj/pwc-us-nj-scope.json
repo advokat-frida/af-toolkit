@@ -1,0 +1,22 @@
+{
+  "kind": "statute",
+  "juris": "US-NJ",
+  "label": "New Jersey: applicability",
+  "citation": "N.J.S.A. §§ 56:8-166.4, 56:8-166.5, 56:8-166.13",
+  "provenance": "https://pub.njleg.state.nj.us/Bills/2022/PL23/266_.HTM",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Enacted P.L.2023,c.266 took effect January 15, 2025. The revenue/discount limb has no minimum sale percentage.",
+  "body": [
+    "<p>Does the controller conduct business in New Jersey OR produce products or services targeted to New Jersey residents?</p>",
+    "<p>During a calendar year, does it control or process personal data of at least 100,000 consumers (excluding payment-only data); OR at least 25,000 consumers AND derive any revenue or receive any discount from selling personal data?</p>",
+    "<p>New Jersey residents acting only in an individual/household context, excluding commercial and employment roles. Deduct payment-only data from the 100,000 limb.</p>",
+    "<p>Measuring period: During a calendar year.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

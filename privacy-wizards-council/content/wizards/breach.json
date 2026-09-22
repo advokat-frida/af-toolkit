@@ -28,8 +28,7 @@
         },
         {
           "label": "Suspected but unconfirmed — still investigating",
-          "goto": "o-investigate",
-          "desc": "Document the suspected incident and start the 72-h clock conservatively if EU/UK data is in scope."
+          "goto": "o-investigate"
         },
         {
           "label": "No — this is a system outage, no personal data affected",
@@ -74,13 +73,14 @@
     "o-investigate": {
       "type": "outcome",
       "tier": "warn",
-      "title": "Treat the 72-h clock as having started — confirm fast",
-      "summary": "GDPR Art. 33(1) starts the 72-hour clock from when the controller becomes 'aware'. EDPB Guidelines 9/2022 interpret 'awareness' as a reasonable degree of certainty that a breach has occurred — not waiting for the full forensic closure. Don't wait for the full report before deciding whether to notify.",
+      "title": "Investigate promptly and establish the awareness time",
+      "summary": "Suspicion alone does not establish when the GDPR notification clock started. EDPB Guidelines 9/2022 allow a short, prompt initial investigation to establish a reasonable degree of certainty that personal data were compromised. Once that awareness exists, a controller must assess notification without waiting for full forensic closure. Jurisdiction and risk still determine which notification duties apply.",
       "actions": [
         "Convene the incident response team immediately.",
         "Preserve forensic evidence and logs.",
-        "If by the 72-h mark you still cannot rule out an Art. 33 trigger, file a preliminary/phased notification (Art. 33(4) explicitly contemplates this).",
-        "Document timestamps of awareness, investigation steps, and decisions.",
+        "Record the first alert, the investigation steps and the time reasonable certainty was established, if it has been established. A conservative internal response timer is a precaution, not proof that statutory awareness has occurred.",
+        "If EU GDPR Art. 33 applies, notify the supervisory authority without undue delay and, where feasible, within 72 hours after awareness unless the breach is unlikely to create a risk to people's rights and freedoms. Provide information in phases under Art. 33(4) when necessary; incomplete detail does not reset the clock.",
+        "Confirm the affected jurisdictions and re-run the notification path as the incident facts become clear.",
         "Remember: under the CJEU's judgment in VB v NAP (C-340/21) the controller bears the burden of proving Art. 32 security measures were appropriate — start documenting the security posture as part of the response."
       ],
       "cites": [
@@ -155,12 +155,13 @@
       "summary": "Art. 33(1) carves out breaches 'unlikely to result in a risk'. Art. 33(5) still requires you to document any personal data breach, comprising the facts, effects, and remedial action, so the supervisory authority can verify compliance. EDPB Guidelines 9/2022 worked examples illustrate the analysis (e.g. lost encrypted USB with uncompromised keys + working backups = often not reportable).",
       "actions": [
         "Write up the risk-assessment rationale (factors considered, mitigations relied on, why each factor is low).",
-        "Retain in the breach register indefinitely (no statutory retention period, but supervisors expect to see it on audit).",
+        "Keep the breach record for a justified retention period sufficient to evidence compliance with Art. 33(5). Apply storage limitation under Art. 5(1)(e) to any personal data in the record; GDPR specifies no fixed period (EDPB Guidelines 9/2022, para. 124).",
         "Review Art. 32 controls — if a control failed, fix it even if no notification is required."
       ],
       "cites": [
         "gdpr-art-33",
         "gdpr-art-32",
+        "gdpr-art-5",
         "guide-edpb-9-2022-breach"
       ]
     },
@@ -207,7 +208,7 @@
           "goto": "o-eu-sa-only"
         },
         {
-          "label": "No — high risk persists; subject communication required",
+          "label": "No — high risk persists",
           "goto": "o-eu-full-notify"
         },
         {
@@ -289,11 +290,11 @@
           "goto": "o-uk-no-notify"
         },
         {
-          "label": "Risk, not high risk — notify ICO only",
+          "label": "Risk, but not high risk",
           "goto": "o-uk-ico-only"
         },
         {
-          "label": "High risk — notify the ICO and data subjects",
+          "label": "High risk to rights and freedoms",
           "goto": "o-uk-full-notify"
         }
       ]

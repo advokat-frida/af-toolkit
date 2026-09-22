@@ -1,0 +1,20 @@
+{
+  "kind": "statute",
+  "juris": "US-CA",
+  "label": "California: other routes to business status",
+  "citation": "Cal. Civ. Code §1798.140(d)(2)–(4)",
+  "provenance": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.140.",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate.",
+  "body": [
+    "<p>An entity is also a business if it controls or is controlled by a qualifying direct business, shares common branding with it, and receives consumers' personal information shared by that business. All three conditions matter.</p>",
+    "<p>A joint venture or partnership composed of businesses, each holding at least a 40% interest, is a separate route. A person doing business in California can also voluntarily certify to the Agency that it agrees to comply. These routes cannot be replaced by a simple under-the-revenue-threshold exit.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

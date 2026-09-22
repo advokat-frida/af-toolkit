@@ -13,7 +13,7 @@ content change: CI fails when they are stale.
 
 | Path | Holds |
 | --- | --- |
-| `registry.json` | The manifest version and every path in finder order. `published: true` makes a path available; the value must be `true` or `false`. |
+| `registry.json` | The manifest version and every path. `published: true` makes a path available; the value must be `true` or `false`. The finder alphabetizes published categories and titles. |
 | `wizards/<id>.json` | One path: `title`, `tag`, `q` (the one-line question under the title), `icon`, `jurisdictions`, `start`, `nodes`, `verifiedAsOf`. |
 | `sources/<jurisdiction>/<id>.json` | One source: `kind`, `juris`, `label`, `citation`, `provenance`, an optional `note`, `body`, and `review`. |
 
@@ -25,6 +25,19 @@ The jurisdiction folder is the `juris` value lower-cased: `EU` becomes `eu`, `US
 A **question** has `type: "question"`, `q`, `help`, `cites` and `opts`. The first sentence of
 `help` shows as the aside and the rest opens under *Why this question?*. Each option has a
 `label`, a `goto` and an optional `desc`, shown under the option.
+
+The answer and `desc` describe the fact being selected. `desc` may clarify a definition or
+give an example; it must not tell the reader what to do or announce the determination.
+Put instructions in outcome `actions`. If advice or reasoning applies only to one selected
+answer, put it in that option's `resultActions` or `resultNotes` arrays. The engine carries
+these to the final result and the downloaded record, and removes them when the answer is
+changed. Scope and provisional-status notes remain visible on the result.
+
+A path may declare `jurisdictionRoutes`, an array of `{ id, label, start }`. Each ID must
+occur in `jurisdictions`, each route start must be an option of the ordinary start node,
+and the routes must be acyclic and share no nodes. The interface selects jurisdictions
+upfront and keeps their answers and results independent. Unknown outcomes may declare
+`missingFacts`, an array of `{ fact, owner, why }`, to make the follow-up concrete.
 
 An **outcome** has `type: "outcome"`, `tier` (`required`, `warn`, `ok` or `info`), `title`,
 `summary` (the reasoning), `actions` and `cites`, and optionally `clock` (the line under the

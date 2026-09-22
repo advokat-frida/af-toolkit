@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-TN",
+  "label": "Tennessee: enforcement and cure opportunity",
+  "citation": "Tenn. Code Ann. §47-18-3313(a)–(c)",
+  "provenance": "https://www.capitol.tn.gov/Archives/Joint/publications/TNCodeBills/2025/TNCodeBill_Volume1_2025.pdf",
+  "note": "Editorial summary of the cited current primary law, not a verbatim statutory extract. Cure/enforcement checkpoint: September 22, 2026. Independent content review and practitioner review are separate. This card addresses the comprehensive privacy law's cure opportunity and enforcement actor, not a complete remedies schedule.",
+  "body": [
+    "<p>The Attorney General and Reporter has exclusive enforcement authority. Before an action it must provide the controller or processor sixty days' written notice identifying the specific provisions allegedly violated.</p>",
+    "<p>If the controller or processor cures within that period and provides an express written statement that the alleged violations are cured and no such further violations will occur, the Attorney General and Reporter must not initiate the action.</p>",
+    "<p>Continued violations or breach of the statement permit an action. The current provision has no stated cure sunset.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2025-07-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-RI",
+  "label": "Rhode Island: sensitive data",
+  "citation": "R.I. Gen. Laws §6-48.1-4(c)–(e)",
+  "provenance": "https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-4.htm",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Sensitive processing requires consent, including the statute's consent and COPPA requirements for known children.</p>",
+    "<p>Provide a mechanism to grant and revoke consent.</p>",
+    "<p>After revocation, suspend processing as soon as practicable and no later than 15 days.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2026-01-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "kind": "statute",
+  "juris": "US-CO",
+  "label": "Colorado: entity and data exclusions",
+  "citation": "C.R.S. § 6-1-1304",
+  "provenance": "https://olls.info/crs/crs2026-title-06.htm",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Entity status and record-level exclusions are separate decisions; the listed categories must satisfy the linked law's definitions and conditions.",
+  "body": [
+    "<p>Qualifying GLBA financial institutions and their affiliates, air carriers, and specified national securities associations have entity exclusions. There is no general nonprofit or HIPAA-covered-entity exclusion; government data is excluded only for a noncommercial purpose.</p>",
+    "<p>§6-1-1304(2) excludes specified HIPAA, health-research, GLBA, FCRA-regulated activity, DPPA, FERPA, COPPA-compliant, employment and other listed data. Check each record and the conditions. A job role alone does not resolve the separate biometric provisions.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

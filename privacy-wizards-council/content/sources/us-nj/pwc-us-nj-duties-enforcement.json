@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-NJ",
+  "label": "New Jersey: enforcement and cure opportunity",
+  "citation": "N.J.S.A. §§56:8-166.17(b), 56:8-166.19; P.L. 2023, c. 266 §§14,16–17",
+  "provenance": "https://pub.njleg.state.nj.us/Bills/2022/PL23/266_.HTM",
+  "note": "Editorial summary of the cited current primary law, not a verbatim statutory extract. Cure/enforcement checkpoint: September 22, 2026. Independent content review and practitioner review are separate. This card addresses the comprehensive privacy law's cure opportunity and enforcement actor, not a complete remedies schedule.",
+  "body": [
+    "<p>The Office of the Attorney General has sole and exclusive authority under §56:8-166.19.</p>",
+    "<p>Section 56:8-166.17(b) temporarily required Division of Consumer Affairs notice to a controller before an administrative or court action if cure was deemed possible. The controller then had thirty days after receiving notice to cure.</p>",
+    "<p>That requirement lasted only until the first day of the eighteenth month next following the Act's effective date. Section 17 made the January 16, 2024 enactment effective on the 365th following day, January 15, 2025; the month-based cutoff is July 1, 2026. The temporary opportunity has expired.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2025-01-15",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "kind": "statute",
+  "juris": "US-KY",
+  "label": "Kentucky: applicability",
+  "citation": "KRS 367.3613",
+  "provenance": "https://apps.legislature.ky.gov/law/Statutes/statute.aspx?id=56648",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Use current KRS367.3613 (id56648). The chapter also displays July 1, 2027 versions of other provisions; those are not current at this checkpoint.",
+  "body": [
+    "<p>Does it conduct business in Kentucky OR produce products or services targeted to Kentucky residents?</p>",
+    "<p>During a calendar year, does it control or process personal data of at least 100,000 consumers; OR at least 25,000 consumers AND derive strictly more than 50% of gross revenue from selling personal data?</p>",
+    "<p>Kentucky residents acting in an individual context, excluding employment and commercial roles. No payment-only deduction in the 100,000 limb.</p>",
+    "<p>Measuring period: During a calendar year.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

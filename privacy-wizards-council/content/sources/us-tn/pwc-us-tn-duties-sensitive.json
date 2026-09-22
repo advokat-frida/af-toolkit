@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-TN",
+  "label": "Tennessee: sensitive data",
+  "citation": "Tenn. Code Ann. §47-18-3305(a)(5)",
+  "provenance": "https://www.capitol.tn.gov/Archives/Joint/publications/TNCodeBills/2025/TNCodeBill_Volume1_2025.pdf",
+  "note": "Editorial summary of the current codification in the official 2025 Tennessee Code Bill, pages 1096-1107, checked against the enacted 2023 chapter. Not a verbatim extract.",
+  "body": [
+    "<p>Sensitive processing requires consumer consent, with COPPA treatment for known-child sensitive data.</p>",
+    "<p>Identify the sensitive category and record valid consent before processing.</p>",
+    "<p>Keep purpose compatibility and separate consent for incompatible reuse in the processing record.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2025-07-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

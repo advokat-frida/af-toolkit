@@ -241,6 +241,23 @@ function rules(context, text, clauseAt) {
 // Split a block of authored text into plain segments and resolved mentions. `termsSeen` may
 // be shared across sibling blocks (the actions of one outcome) so a defined term links once
 // per group rather than once per line.
+export function tokenizeWithLinks(text, context = contextFor(null), termsSeen = new Set()) {
+  const value = String(text || '');
+  const segments = [];
+  let cursor = 0;
+  // Authored resource links only: HTTPS, a plain label, and no embedded HTML.
+  for (const match of value.matchAll(/\[([^\]\r\n]+)\]\((https:\/\/[^\s)]+)\)/g)) {
+    let url;
+    try { url = new URL(match[2]); } catch { continue; }
+    if (url.protocol !== 'https:' || url.username || url.password) continue;
+    segments.push(...tokenize(value.slice(cursor, match.index), context, termsSeen));
+    segments.push({ text: match[1], href: url.href });
+    cursor = match.index + match[0].length;
+  }
+  segments.push(...tokenize(value.slice(cursor), context, termsSeen));
+  return segments;
+}
+
 export function tokenize(text, context = contextFor(null), termsSeen = new Set()) {
   const value = String(text || '');
   if (!value) return [];
@@ -413,5 +430,5 @@ export function mentionCard(sourceId, para) {
   if (!exists(sourceId)) return null;
   const source = SOURCES[sourceId];
   const { focus, full } = paragraphFor(sourceId, para);
-  return { id: sourceId, label: source.label, citation: source.citation, provenance: source.provenance || source.url || null, kind: source.kind || 'authority', juris: source.juris || '', para: focus ? para : null, focus, full };
+  return { id: sourceId, label: source.label, citation: source.citation, provenance: source.provenance || source.url || null, note: source.note ? sourceTextPlain(source.note) : null, kind: source.kind || 'authority', juris: source.juris || '', para: focus ? para : null, focus, full };
 }

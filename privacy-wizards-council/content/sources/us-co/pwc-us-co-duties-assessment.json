@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-CO",
+  "label": "Colorado: risk assessments",
+  "citation": "C.R.S. §§6-1-1309, 6-1-1309.5",
+  "provenance": "https://olls.info/crs/crs2026-title-06.htm",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Assess covered heightened-risk processing before it begins, including targeted advertising, sale, sensitive data and qualifying risky profiling.</p>",
+    "<p>§1309 addresses personal data acquired on or after July 1, 2023. Document benefits, harms and safeguards.</p>",
+    "<p>For an online service used by known or willfully disregarded minors, separately check §1309.5 and the current Colorado rules.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

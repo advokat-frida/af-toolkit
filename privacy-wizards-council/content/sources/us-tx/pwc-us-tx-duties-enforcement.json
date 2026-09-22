@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-TX",
+  "label": "Texas: enforcement and cure opportunity",
+  "citation": "Tex. Bus. & Com. Code §§541.151, 541.154, 541.155(a)",
+  "provenance": "https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm",
+  "note": "Editorial summary of the cited current primary law, not a verbatim statutory extract. Cure/enforcement checkpoint: September 22, 2026. Independent content review and practitioner review are separate. This card addresses the comprehensive privacy law's cure opportunity and enforcement actor, not a complete remedies schedule.",
+  "body": [
+    "<p>The Attorney General has exclusive enforcement authority. Section 541.154 requires written notice identifying the alleged provisions at least thirty days before a §541.155 action.</p>",
+    "<p>The Attorney General may not bring the action if the person cures within that period and gives a written statement confirming cure, consumer notification when the consumer's contact information has been made available to the person, supportive documentation, and internal-policy changes when necessary to prevent such further violations.</p>",
+    "<p>Continued violations after cure or breach of the written statement can support enforcement. No cure sunset is stated.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2024-07-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

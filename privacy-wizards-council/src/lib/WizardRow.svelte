@@ -13,7 +13,7 @@
 {#if item}
   <button type="button" class="wizard-row" on:click={() => onOpen(id)}>
     <span class={`wizard-glyph icon-${wizardIconColor(id)}`} aria-hidden="true">{@html wizardIcon(id)}</span>
-    <span class="wizard-copy"><strong>{item.title}</strong><small>{item.q || item.tag} · {(item.jurisdictions || []).join(' / ')}</small></span>
+    <span class="wizard-copy"><strong>{item.title}</strong><small>{item.q || item.tag} · {item.jurisdictionRoutes ? `${item.jurisdictionRoutes.length} US states` : (item.jurisdictions || []).join(' / ')}</small></span>
     <span class="card-arrow" aria-hidden="true">→</span>
   </button>
 {/if}

@@ -1,0 +1,20 @@
+{
+  "kind": "statute",
+  "juris": "US-MD",
+  "label": "Maryland: entity and data exclusions",
+  "citation": "Md. Code, Com. Law § 14-4703",
+  "provenance": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4703&enactments=false",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Entity status and record-level exclusions are separate decisions; the listed categories must satisfy the linked law's definitions and conditions.",
+  "body": [
+    "<p>§14-4703 excludes government instrumentalities, specified national securities/futures associations, GLBA financial institutions/affiliates, and nonprofits whose processing is solely for the listed insurance-fraud or catastrophic-event first-responder purposes. There is no general nonprofit, higher-education or HIPAA-covered-entity exemption.</p>",
+    "<p>§14-4703 separately excludes GLBA data and specified health/research, FCRA-regulated, DPPA, FERPA, Farm Credit and employment-role data. A covered entity's unrelated marketing or customer data needs its own analysis; HIPAA is not a blanket entity exemption.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

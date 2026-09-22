@@ -140,7 +140,9 @@
         {
           "label": "Either could work — subjects would expect consent (e.g. direct marketing)",
           "goto": "o-consent",
-          "desc": "In the EU, consent is usually the better fit here. In the UK, the Data (Use and Access) Act 2025 (DUAA 2025) acknowledges direct marketing as a purpose that may constitute a legitimate interest — but consent rules under the UK's Privacy and Electronic Communications Regulations (PECR) still govern the electronic channel (email/SMS)."
+          "resultNotes": [
+            "In the EU, consent is usually the better fit here. In the UK, the Data (Use and Access) Act 2025 (DUAA 2025) acknowledges direct marketing as a purpose that may constitute a legitimate interest — but consent rules under the UK's Privacy and Electronic Communications Regulations (PECR) still govern the electronic channel (email/SMS)."
+          ]
         },
         {
           "label": "Either could work — consent is impractical (e.g. fraud prevention)",

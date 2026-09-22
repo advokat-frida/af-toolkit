@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-MD",
+  "label": "Maryland: consumer rights",
+  "citation": "Md. Code, Commercial Law §14-4705",
+  "provenance": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&enactments=false&section=14-4705",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Access, correction, deletion, portability and specified opt-outs include a right to categories of third parties receiving data.</p>",
+    "<p>Respond within 45 days; a reasonably necessary 45-day extension requires timely notice and reasons.</p>",
+    "<p>Decide an internal appeal within 60 days and provide the Division complaint route if denied.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

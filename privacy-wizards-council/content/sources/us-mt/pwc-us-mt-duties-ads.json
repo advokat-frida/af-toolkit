@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-MT",
+  "label": "Montana: sale and targeted advertising",
+  "citation": "Mont. Code Ann. §§30-14-2808, 30-14-2809, 30-14-2811–2812",
+  "provenance": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0120/0300-0140-0280-0120.html",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Sale, targeted advertising and qualifying profiling have opt-outs. The main controller rule requires consent for sale/targeted ads where consumers aged 13–15 are known or willfully disregarded.</p>",
+    "<p>Apply the additional online-minor rules in §2811 rather than relying on the narrower age band in §2812 alone.</p>",
+    "<p>Provide a conspicuous opt-out outside the notice and check qualifying universal opt-out signal handling under §2809.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

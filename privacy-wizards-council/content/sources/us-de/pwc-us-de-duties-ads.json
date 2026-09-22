@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-DE",
+  "label": "Delaware: sale and targeted advertising",
+  "citation": "6 Del. C. §§12D-104(a), 12D-106(a), (e), current through 2026",
+  "provenance": "https://www.delcode.delaware.gov/title6/c012d/index.html",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Sale, targeted advertising and qualifying profiling have opt-outs. Known or willfully disregarded consumers aged 13–17 require consent for sale or targeted advertising.</p>",
+    "<p>Honor qualifying universal opt-out mechanisms, required from January 1, 2026.</p>",
+    "<p>Apply the current 2026 version rather than importing January 2027 amendments.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

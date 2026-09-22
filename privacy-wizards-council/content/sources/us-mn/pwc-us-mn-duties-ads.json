@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-MN",
+  "label": "Minnesota: sale and targeted advertising",
+  "citation": "Minn. Stat. §§325M.14, subds.1(f), 3; 325M.16, subd.2(f)",
+  "provenance": "https://www.revisor.mn.gov/statutes/cite/325M/full",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Sale, targeted advertising and significant-effect profiling have opt-outs. Qualifying universal opt-out signals must be supported.</p>",
+    "<p>Implement the signal and accessible opt-out routes.</p>",
+    "<p>For consumers known to be 'between the ages of 13 and 16,' the statute requires consent for sale/targeted advertising. Preserve that statutory wording when setting the age rule.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2025-07-31",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

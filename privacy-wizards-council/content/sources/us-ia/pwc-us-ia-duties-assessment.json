@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-IA",
+  "label": "Iowa: risk assessments",
+  "citation": "Iowa Code chapter 715D, especially §715D.4",
+  "provenance": "https://www.legis.iowa.gov/docs/code/715D.pdf",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>This chapter does not impose a dedicated data protection assessment duty. That observation is limited to this statute and is not a conclusion that the activity is low risk.</p>",
+    "<p>Keep the required reasonable security and processor controls.</p>",
+    "<p>Ask the privacy owner to check other applicable sector, contractual and jurisdictional assessment duties for the same processing.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2025-01-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

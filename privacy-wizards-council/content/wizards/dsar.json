@@ -22,7 +22,12 @@
         {
           "label": "UK resident — UK GDPR rights apply",
           "goto": "q-eu-right",
-          "desc": "The UK regime is diverging from the EU GDPR under the Data (Use and Access) Act 2025; commencement is phased by secondary legislation. UK-specific notes below are verified only through January 2026 — check the current commencement position and ICO guidance."
+          "resultNotes": [
+            "The UK regime is diverging from the EU GDPR under the Data (Use and Access) Act 2025; commencement is phased by secondary legislation. These UK-specific notes were verified only through January 2026."
+          ],
+          "resultActions": [
+            "Check the current commencement position and ICO guidance before relying on the UK-specific notes."
+          ]
         },
         {
           "label": "California resident — CCPA rights apply",

@@ -444,10 +444,10 @@ export const SOURCES = {
  "eu-ai-act-art-6": {
   "juris": "EU",
   "label": "EU AI Act Art. 6 — Classification rules for high-risk AI systems",
-  "citation": "Regulation (EU) 2024/1689, Art. 6 (paras 1a-1c inserted by the Digital Omnibus on AI, 2026)",
+  "citation": "Regulation (EU) 2024/1689, Art. 6, as amended by Regulation (EU) 2026/1744, Art. 1(8) (paragraphs 1a-1c inserted)",
   "body": "1. [An] AI system shall be considered to be high-risk where both of the following conditions are fulfilled: (a) the AI system is intended to be used as a safety component of a product, or the AI system is itself a product, covered by the Union harmonisation legislation listed in Annex I; (b) the product whose safety component pursuant to point (a) is the AI system, or the AI system itself as a product, is required to undergo a third-party conformity assessment, with a view to the placing on the market or the putting into service of that product pursuant to the Union harmonisation legislation listed in Annex I.\n\n1a. (inserted 2026) AI systems that are solely used for non-safety related aspects of user assistance, performance optimisation, service efficiency, automation or convenience or quality control shall not qualify as safety components.\n1b. (inserted 2026) Notwithstanding paragraph 1a, AI systems the failure or malfunctioning of which would endanger health and safety shall qualify as safety components.\n1c. (inserted 2026) A product that is required to undergo a third-party conformity assessment solely due to risks other than risks to health and safety [e.g. radio spectrum or electromagnetic interference] shall not be considered as fulfilling the condition in paragraph 1, point (b).\n\n2. In addition to the high-risk AI systems referred to in paragraph 1, AI systems referred to in Annex III shall be considered to be high-risk.\n\n3. By derogation from paragraph 2, an AI system referred to in Annex III shall not be considered to be high-risk where it does not pose a significant risk of harm to the health, safety or fundamental rights of natural persons, including by not materially influencing the outcome of decision making. The first subparagraph shall apply where any of the following conditions is fulfilled: (a) the AI system is intended to perform a narrow procedural task; (b) the AI system is intended to improve the result of a previously completed human activity; (c) the AI system is intended to detect decision-making patterns or deviations from prior decision-making patterns and is not meant to replace or influence the previously completed human assessment, without proper human review; or (d) the AI system is intended to perform a preparatory task to an assessment relevant for the purposes of the use cases listed in Annex III.\nNotwithstanding the first subparagraph, an AI system referred to in Annex III shall always be considered to be high-risk where the AI system performs profiling of natural persons.\n\n4. A provider who considers that an AI system referred to in Annex III is not high-risk shall document its assessment before that system is placed on the market or put into service. Such provider shall be subject to the registration obligation set out in Article 49(2). Upon request of national competent authorities, the provider shall provide the documentation of the assessment.",
   "kind": "statute",
-  "provenance": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R1689"
+  "provenance": "https://eur-lex.europa.eu/eli/reg/2024/1689/2026-07-27/eng"
  },
  "eu-ai-act-art-99": {
   "juris": "EU",
@@ -467,11 +467,11 @@ export const SOURCES = {
  },
  "eu-ai-act-omnibus-2026": {
   "juris": "EU",
-  "label": "Digital Omnibus on AI (2026) — the amending regulation",
-  "citation": "Regulation of the European Parliament and of the Council amending Regulations (EU) 2024/1689, (EU) 2018/1139 and (EU) 2023/1230 (Digital Omnibus on AI), PE-CONS 30/26 — Parliament position 16 June 2026; Council final adoption announced 29 June 2026 (Consilium press release); enters into force on the third day following its Official Journal publication (expected July 2026); OJ number pending at verification date",
+  "label": "Digital Omnibus on AI — Regulation (EU) 2026/1744",
+  "citation": "Regulation (EU) 2026/1744 of 8 July 2026 amending Regulations (EU) 2024/1689, (EU) 2018/1139 and (EU) 2023/1230 (Digital Omnibus on AI), OJ L 2026/1744, 24 July 2026; entered into force 27 July 2026",
   "body": "The operative amendments to Regulation (EU) 2024/1689 relied on in these wizards, from the adopted joint text (PE-CONS 30/26):\n\nARTICLE 113 (application dates) — point (a): Chapters I and II apply from 2 February 2025, with the exception of Article 5(1), first subparagraph, points (ba) and (bb), and Article 5(1a) and (1b), which apply from 2 December 2026. Point (c): Chapter III, Sections 1, 2, and 3, with the exception of Article 6(5), apply from (i) 2 December 2027 as regards AI systems classified as high-risk pursuant to Article 6(2) and Annex III; and (ii) 2 August 2028 as regards AI systems classified as high-risk pursuant to Article 6(1) and Annex I.\n\nARTICLE 111(2) (replaced): operators of high-risk AI systems placed on the market or put into service before the date of application of Chapter III are covered only if, as from that date, those systems are subject to significant changes in their designs; providers and deployers of high-risk AI systems intended to be used by public authorities must comply by 2 August 2030. ARTICLE 111(4) (inserted): providers of AI systems generating synthetic content placed on the market before 2 August 2026 must comply with Article 50(2) by 2 December 2026.\n\nARTICLE 5 — new prohibitions (ba) [AI-generated or manipulated sexual imagery of identifiable persons without explicit consent] and (bb) [CSAM-type material per Directive 2011/93/EU], with the Article 5(1a)/(1b) scoping conditions.\n\nARTICLE 6 — paragraphs 1a-1c inserted (safety-component clarifications). ARTICLE 25(2) and (4) — initial-provider cooperation duties spelled out; written-agreement duty extended to AI-model suppliers; free and open-source carve-out (except general-purpose AI models). ARTICLE 99 — Article 25(2)/(4) breaches added to the 3%/EUR 15m fine tier; SMC fine caps.\n\nARTICLE 43(3) (replaced): for high-risk AI systems covered by Section A legislation, the provider follows the sectoral conformity assessment procedure with the Chapter III Section 2 requirements folded in; manufacturers keeping a no-third-party option under their product law may use it (subject to harmonised standards covering the AI requirements); and where a high-risk AI system is BOTH covered by Section A legislation AND falls within an Annex III category, the provider follows the Section A sectoral conformity assessment procedure.\n\nANNEX I — Section A point 1 (Machinery Directive 2006/42/EC) deleted; Machinery Regulation (EU) 2023/1230 added to Section B.",
   "kind": "statute",
-  "provenance": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=consil:PE_30_2026_INIT"
+  "provenance": "https://eur-lex.europa.eu/eli/reg/2026/1744/oj/eng"
  },
  "gdpr-art-13": {
   "juris": "EU",
@@ -668,7 +668,7 @@ export const SOURCES = {
  "gdpr-art-5": {
   "juris": "EU",
   "label": "GDPR Art. 5 — Principles (accountability, Art. 5(2))",
-  "citation": "Regulation (EU) 2016/679, Art. 5(2)",
+  "citation": "Regulation (EU) 2016/679, Art. 5",
   "body": "Article 5\nPrinciples relating to processing of personal data\n1. Personal data shall be:\n(a) processed lawfully, fairly and in a transparent manner in relation to the data subject (‘lawfulness, fairness and transparency’);\n(b) collected for specified, explicit and legitimate purposes and not further processed in a manner that is incompatible with those purposes; further processing for archiving purposes in the public interest, scientific or historical research purposes or statistical purposes shall, in accordance with Article 89(1), not be considered to be incompatible with the initial purposes (‘purpose limitation’);\n(c) adequate, relevant and limited to what is necessary in relation to the purposes for which they are processed (‘data minimisation’);\n(d) accurate and, where necessary, kept up to date; every reasonable step must be taken to ensure that personal data that are inaccurate, having regard to the purposes for which they are processed, are erased or rectified without delay (‘accuracy’);\n(e) kept in a form which permits identification of data subjects for no longer than is necessary for the purposes for which the personal data are processed; personal data may be stored for longer periods insofar as the personal data will be processed solely for archiving purposes in the public interest, scientific or historical research purposes or statistical purposes in accordance with Article 89(1) subject to implementation of the appropriate technical and organisational measures required by this Regulation in order to safeguard the rights and freedoms of the data subject (‘storage limitation’);\n(f) processed in a manner that ensures appropriate security of the personal data, including protection against unauthorised or unlawful processing and against accidental loss, destruction or damage, using appropriate technical or organisational measures (‘integrity and confidentiality’).\n2. The controller shall be responsible for, and be able to demonstrate compliance with, paragraph 1 (‘accountability’).",
   "kind": "statute",
   "provenance": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504#art_5"
@@ -962,6 +962,1464 @@ export const SOURCES = {
   "body": "<p><span class=\"num\">500.17(a)</span> <b>Notice of cybersecurity incident.</b> (1) Each covered entity shall notify the superintendent electronically in the form set forth on the department's website <b>as promptly as possible but in no event later than 72 hours</b> after determining that a <b>cybersecurity incident</b> has occurred at the covered entity, its affiliates, or a third-party service provider. (2) Each covered entity shall promptly provide to the superintendent any information requested regarding such incident. Covered entities shall have a continuing obligation to update the superintendent with material changes or new information previously unavailable.</p>\n  <p><span class=\"num\">500.17(b)</span> <b>Notice of compliance.</b> [...]</p>\n  <p><span class=\"num\">500.17(c)</span> <b>Notice and explanation of extortion payment.</b> Each covered entity, in the event of an extortion payment made in connection with a cybersecurity event involving the covered entity, shall provide the superintendent electronically, in the form set forth on the department's website, with the following: (1) within <b>24 hours</b> of the extortion payment, notice of the payment; and (2) within <b>30 days</b> of the extortion payment, a written description of the reasons payment was necessary, a description of alternatives to payment considered, all diligence performed to find alternatives to payment and all diligence performed to ensure compliance with applicable rules and regulations including those of the Office of Foreign Assets Control.</p>\n  <p><span class=\"num\">500.1(g)</span> [definitional context] <b>Cybersecurity incident</b> means a cybersecurity event that has occurred at the covered entity, its affiliates, or a third-party service provider that: (1) impacts the covered entity and requires the covered entity to notify any government body, self-regulatory agency or any other supervisory body; (2) has a reasonable likelihood of materially harming any material part of the normal operation(s) of the covered entity; or (3) results in the deployment of <b>ransomware</b> within a material part of the covered entity's information systems.</p>",
   "provenance": "https://www.dfs.ny.gov/industry_guidance/regulations/final_adoptions_fs/rf_fs_2amend23NYCRR500_text_20231101_alt"
  },
+ "pwc-us-ca-duties-ads": {
+  "kind": "statute",
+  "juris": "US-CA",
+  "label": "California: sale and targeted advertising",
+  "citation": "Civil Code §§1798.120, 1798.135; 11 CCR §§7025–7026, 7070–7071",
+  "provenance": "https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Sale and sharing for cross-context behavioral advertising trigger opt-out duties. Sharing can qualify without money changing hands.</p>\n<p>Implement the required sale/sharing choices and honor qualifying opt-out preference signals.</p>\n<p>For consumers known to be under 16, obtain the required opt-in before sale/sharing; the parent or guardian acts for children under 13.</p>"
+ },
+ "pwc-us-ca-duties-assessment": {
+  "kind": "regulation",
+  "juris": "US-CA",
+  "label": "California: risk assessments",
+  "citation": "11 CCR §§7150, 7155, 7157, 7200",
+  "provenance": "https://cppa.ca.gov/regulations/pdf/ccpa_statute_eff_20260101.pdf",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>New covered processing from January 1, 2026 needs a prior risk assessment. The first regulator submission is later; that does not postpone the assessment.</p>\n<p>Screen sale/sharing, sensitive information, significant-decision ADMT, specified systematic observation and model-training uses under §7150; check the narrow employee-administration exception.</p>\n<p>For covered activity begun before 2026 and continuing afterward, complete the assessment by December 31, 2027. Submit required 2026–2027 assessment information by April 1, 2028.</p>\n<p>ADMT consumer requirements apply by January 1, 2027. Keep that future date separate from the already-current risk-assessment duties.</p>"
+ },
+ "pwc-us-ca-duties-enforcement": {
+  "kind": "statute",
+  "juris": "US-CA",
+  "label": "California: enforcement and cure",
+  "citation": "Civil Code §§1798.155, 1798.199.45(a), 1798.199.90; §1798.150(b) (separate breach provision)",
+  "provenance": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.199.45.",
+  "note": "Editorial summary of the cited primary provisions, not a verbatim extract. Current-law check as of September 22, 2026; enforcement cure procedures do not postpone substantive compliance duties.",
+  "body": "<p>General CCPA enforcement has no mandatory notice-and-cure entitlement. The former 30-day regulatory cure requirement ended January 1, 2023. The CPPA conducts administrative enforcement; the Attorney General may bring civil enforcement.</p>\n<p>The CPPA may give a business time to cure under §1798.199.45(a), considering lack of intent and voluntary remediation before agency notice. That provision fixes no number of days and grants no automatic right.</p>\n<p>The separate 30-day notice rule in §1798.150(b) concerns specified private breach claims for statutory damages. It is not a general regulatory cure period.</p>"
+ },
+ "pwc-us-ca-duties-rights": {
+  "kind": "regulation",
+  "juris": "US-CA",
+  "label": "California: consumer rights",
+  "citation": "Civil Code §§1798.105–1798.135; 11 CCR §§7021, 7026–7027; CPPA business FAQ",
+  "provenance": "https://cppa.ca.gov/regulations/pdf/ccpa_statute_eff_20260101.pdf",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Support access/knowledge, deletion, correction, portability and the distinct sale/sharing and sensitive-use choices. Employee and B2B exemptions expired after 2022.</p>\n<p>For know/delete/correct requests, confirm receipt within 10 business days and respond within 45 calendar days; a necessary 45-day extension requires notice and reasons.</p>\n<p>Sale/sharing opt-outs and limit requests require action as soon as feasible, no later than 15 business days. Do not apply the 45-day schedule to them.</p>\n<p>General refusals do not create the Virginia-style internal appeal right. ADMT-specific rights have a separate January 1, 2027 compliance date.</p>"
+ },
+ "pwc-us-ca-duties-scope": {
+  "kind": "guidance",
+  "juris": "US-CA",
+  "label": "California: scope",
+  "citation": "CPPA FAQ: employee and business-to-business exemptions",
+  "provenance": "https://cppa.ca.gov/faq.html",
+  "note": "Editorial summary of primary authority, not a verbatim extract. See the cited provision for all qualifiers.",
+  "body": "<p>The statutory exemptions for employment-related information and business-to-business transactions expired on December 31, 2022. This does not remove specific statutory data exemptions.</p>"
+ },
+ "pwc-us-ca-duties-sensitive": {
+  "kind": "statute",
+  "juris": "US-CA",
+  "label": "California: sensitive data",
+  "citation": "Civil Code §1798.121; 11 CCR §7027",
+  "provenance": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1798.121.&lawCode=CIV",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>California uses a right to limit certain uses and disclosures of sensitive personal information, rather than a general prior-consent rule for every sensitive-data use.</p>\n<p>Map the purpose against §1798.121(a) and the regulatory permitted uses; provide the limit notice and mechanism when required.</p>\n<p>Apply minimization and notice-at-collection duties separately. Sector, biometric and child rules can impose additional conditions.</p>"
+ },
+ "pwc-us-ca-scope": {
+  "kind": "statute",
+  "juris": "US-CA",
+  "label": "California: applicability",
+  "citation": "Cal. Civ. Code § 1798.140(d), (i)",
+  "provenance": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.140.",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. The $26,625,000 adjustment took effect January 1, 2025. Verify the next odd-year adjustment before a 2027 assessment.",
+  "body": "<p>Does the entity do business in California?</p>\n<p>Does ANY threshold hold: preceding-calendar-year annual gross revenue is strictly greater than $26,625,000 (as of January 1); OR it annually buys, sells or shares personal information of at least 100,000 consumers or households; OR at least 50% of annual revenue comes from selling or sharing consumers’ personal information?</p>\n<p>California residents, including employment and business-contact data; the transaction-count limb also counts households. It counts buying, selling or sharing, not processing alone.</p>\n<p>Measuring period: Revenue: preceding calendar year as of January 1. Transaction count and sale/share revenue: annual.</p>"
+ },
+ "pwc-us-ca-scope-adjustment": {
+  "kind": "guidance",
+  "juris": "US-CA",
+  "label": "California: 2025–2026 revenue adjustment",
+  "citation": "CPPA 2025 CCPA monetary adjustments; Civ. Code §1798.185(a)(5)",
+  "provenance": "https://cppa.ca.gov/announcements/2024/20241217.html",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Use the statute for the comparison operator, and this official notice for the adjusted amount.",
+  "body": "<p>Effective January 1, 2025, the adjusted annual-gross-revenue amount in the business definition is $26,625,000. The statute uses a strict greater-than comparison; equality does not satisfy that revenue limb. The adjustment does not change the 100,000-consumer/household or 50%-sale/share limbs.</p>"
+ },
+ "pwc-us-ca-scope-exemptions": {
+  "kind": "statute",
+  "juris": "US-CA",
+  "label": "California: entity and data exclusions",
+  "citation": "Cal. Civ. Code § 1798.145",
+  "provenance": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.145.",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Entity status and record-level exclusions are separate decisions; the listed categories must satisfy the linked law's definitions and conditions.",
+  "body": "<p>A direct business must be organized for profit or owners’ financial benefit, collect consumers’ personal information (itself or on its behalf), and determine purposes and means, alone or jointly. Related entities, qualifying joint ventures and voluntary certification are separate routes.</p>\n<p>Exemptions are attached to particular data or activities under §1798.145. HIPAA/CMIA, qualifying clinical research, GLBA/CFIPA, FCRA and DPPA are not a general exemption for every record held by the organization. Employment and business-contact data are not generally excluded. Some exemptions preserve §1798.150 security-breach liability.</p>"
+ },
+ "pwc-us-ca-scope-related": {
+  "kind": "statute",
+  "juris": "US-CA",
+  "label": "California: other routes to business status",
+  "citation": "Cal. Civ. Code §1798.140(d)(2)–(4)",
+  "provenance": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.140.",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate.",
+  "body": "<p>An entity is also a business if it controls or is controlled by a qualifying direct business, shares common branding with it, and receives consumers' personal information shared by that business. All three conditions matter.</p>\n<p>A joint venture or partnership composed of businesses, each holding at least a 40% interest, is a separate route. A person doing business in California can also voluntarily certify to the Agency that it agrees to comply. These routes cannot be replaced by a simple under-the-revenue-threshold exit.</p>"
+ },
+ "pwc-us-co-duties-ads": {
+  "kind": "statute",
+  "juris": "US-CO",
+  "label": "Colorado: sale and targeted advertising",
+  "citation": "C.R.S. §§6-1-1306(1)(a), 6-1-1308.5",
+  "provenance": "https://olls.info/crs/crs2026-title-06.htm",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Consumers can opt out of sale, targeted advertising and significant-effect profiling. Qualifying universal opt-out mechanisms have been required for sale/targeted ads since July 1, 2024.</p>\n<p>Apply the state definitions to vendor transfers and give a conspicuous opt-out outside the privacy notice.</p>\n<p>Online services for known or willfully disregarded minors need the separate consent and care review under §1308.5, including age-appropriate parental consent.</p>"
+ },
+ "pwc-us-co-duties-assessment": {
+  "kind": "statute",
+  "juris": "US-CO",
+  "label": "Colorado: risk assessments",
+  "citation": "C.R.S. §§6-1-1309, 6-1-1309.5",
+  "provenance": "https://olls.info/crs/crs2026-title-06.htm",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Assess covered heightened-risk processing before it begins, including targeted advertising, sale, sensitive data and qualifying risky profiling.</p>\n<p>§1309 addresses personal data acquired on or after July 1, 2023. Document benefits, harms and safeguards.</p>\n<p>For an online service used by known or willfully disregarded minors, separately check §1309.5 and the current Colorado rules.</p>"
+ },
+ "pwc-us-co-duties-enforcement": {
+  "kind": "statute",
+  "juris": "US-CO",
+  "label": "Colorado: enforcement and cure",
+  "citation": "C.R.S. §6-1-1311(1)(a), (c), (d)(I)–(II), and editor's note (2026 code)",
+  "provenance": "https://olls.info/crs/crs2026-title-06.htm",
+  "note": "Editorial summary of the cited primary provisions, not a verbatim extract. Current-law check as of September 22, 2026; enforcement cure procedures do not postpone substantive compliance duties.",
+  "body": "<p>The Attorney General and district attorneys enforce the Colorado Privacy Act. The general cure provision was repealed effective January 1, 2025.</p>\n<p>A narrower current provision covers enforcement of the minors sections 6-1-1305.5, 6-1-1308.5 and 6-1-1309.5. If a cure is deemed possible, the enforcer must notify the controller before bringing the action; failure to cure within 60 days after receipt permits enforcement.</p>\n<p>That minors-specific cure subsection is repealed effective December 31, 2026. It does not provide a general 60-day cure right for other CPA duties.</p>"
+ },
+ "pwc-us-co-duties-limited": {
+  "kind": "statute",
+  "juris": "US-CO",
+  "label": "Colorado: limited duties",
+  "citation": "C.R.S. §6-1-1304(1)(a)(II), (1)(b)",
+  "provenance": "https://olls.info/crs/crs2026-title-06.htm",
+  "note": "Editorial summary of the limited provision. This is not a conclusion that full-law duties apply.",
+  "body": "<p>A below-threshold biometric or minor-specific provision does not establish full-law coverage.</p>\n<p>Privacy counsel must identify whether the relevant biometric provisions or §§6-1-1308.5 and 6-1-1309.5 apply.</p>\n<p>Document the biometric use, ages/knowledge, online service and exact scope before selecting a full-law duties comparison.</p>"
+ },
+ "pwc-us-co-duties-rights": {
+  "kind": "statute",
+  "juris": "US-CO",
+  "label": "Colorado: consumer rights",
+  "citation": "C.R.S. §6-1-1306(1)–(3)",
+  "provenance": "https://olls.info/crs/crs2026-title-06.htm",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Provide access, correction, deletion, portability and the specified opt-outs. Colorado's appeal schedule differs from the common 60-day model.</p>\n<p>Respond within 45 days; one reasonably necessary 45-day extension requires notice and reasons within the initial period.</p>\n<p>Decide an internal appeal within 45 days; a reasonably necessary additional 60 days requires timely notice and reasons.</p>"
+ },
+ "pwc-us-co-duties-sensitive": {
+  "kind": "statute",
+  "juris": "US-CO",
+  "label": "Colorado: sensitive data",
+  "citation": "C.R.S. §6-1-1308(7), §§6-1-1308.5, 6-1-1314",
+  "provenance": "https://olls.info/crs/crs2026-title-06.htm",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Obtain consent before processing or selling sensitive data. Known-child processing requires parent or guardian consent.</p>\n<p>Verify the data category and valid consent before the sensitive use begins.</p>\n<p>Biometric identifiers and online services for known or willfully disregarded minors have additional rules; route those uses to the privacy owner for a separate §1314 or §1308.5 review.</p>"
+ },
+ "pwc-us-co-scope": {
+  "kind": "statute",
+  "juris": "US-CO",
+  "label": "Colorado: applicability",
+  "citation": "C.R.S. § 6-1-1304",
+  "provenance": "https://olls.info/crs/crs2026-title-06.htm",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Current 2026 codification includes biometric coverage effective July 1, 2025 and minors provisions effective October 1, 2025; these bypass general volume thresholds.",
+  "body": "<p>Does the controller conduct business in Colorado OR produce or deliver commercial products or services intentionally targeted to Colorado residents?</p>\n<p>During a calendar year, does it control or process personal data of at least 100,000 consumers; OR does it control or process at least 25,000 consumers’ personal data AND derive any revenue or receive any discount from selling personal data?</p>\n<p>Colorado residents acting individually or as a household; ordinary consumer counts exclude commercial and employment roles. Biometric and minors provisions require separate checks.</p>\n<p>Measuring period: 100,000 limb: during a calendar year. The 25,000-plus-sale limb does not separately state a lookback; do not silently substitute preceding calendar year.</p>"
+ },
+ "pwc-us-co-scope-exemptions": {
+  "kind": "statute",
+  "juris": "US-CO",
+  "label": "Colorado: entity and data exclusions",
+  "citation": "C.R.S. § 6-1-1304",
+  "provenance": "https://olls.info/crs/crs2026-title-06.htm",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Entity status and record-level exclusions are separate decisions; the listed categories must satisfy the linked law's definitions and conditions.",
+  "body": "<p>Qualifying GLBA financial institutions and their affiliates, air carriers, and specified national securities associations have entity exclusions. There is no general nonprofit or HIPAA-covered-entity exclusion; government data is excluded only for a noncommercial purpose.</p>\n<p>§6-1-1304(2) excludes specified HIPAA, health-research, GLBA, FCRA-regulated activity, DPPA, FERPA, COPPA-compliant, employment and other listed data. Check each record and the conditions. A job role alone does not resolve the separate biometric provisions.</p>"
+ },
+ "pwc-us-co-scope-special": {
+  "kind": "statute",
+  "juris": "US-CO",
+  "label": "Colorado: biometric and minors scope",
+  "citation": "C.R.S. §§6-1-1304(1), 6-1-1308.5, 6-1-1314",
+  "provenance": "https://olls.info/crs/crs2026-title-06.htm",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Official legislature download index links this 2026 title: https://content.leg.colorado.gov/agencies/office-legislative-legal-services/2026-crs-titles-download",
+  "body": "<p>Current §6-1-1304 separately reaches processing of biometric identifiers or biometric data regardless of volume. When only this route establishes coverage, the Act applies only to that biometric processing.</p>\n<p>The listed minors provisions apply to controllers conducting Colorado business or delivering intentionally targeted commercial products/services even below the general thresholds. The online-service duties require assessment of actual knowledge or willful disregard that the consumer is a minor.</p>\n<p>Employment records are ordinarily excluded, but §6-1-1314 separately addresses employer biometric collection and permitted conditions. A low general consumer count does not resolve those duties.</p>"
+ },
+ "pwc-us-ct-duties-ads": {
+  "kind": "statute",
+  "juris": "US-CT",
+  "label": "Connecticut: sale and targeted advertising",
+  "citation": "Conn. Gen. Stat. §§42-518(a), 42-520(a)(1)(I), (c), effective July 1, 2026",
+  "provenance": "https://www.cga.ct.gov/2026/sup/chap_743jj.htm",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Sale/targeted advertising opt-outs and qualifying universal opt-out signals apply. The current text prohibits sale and targeted advertising for known or willfully disregarded consumers aged 13–17.</p>\n<p>Do not carry forward the older teen-consent exception into the July 2026 version.</p>\n<p>Map vendors, ages and the knowledge standard; apply the sensitive-data sale consent rule separately.</p>"
+ },
+ "pwc-us-ct-duties-assessment": {
+  "kind": "statute",
+  "juris": "US-CT",
+  "label": "Connecticut: risk assessments",
+  "citation": "Conn. Gen. Stat. §42-522",
+  "provenance": "https://www.cga.ct.gov/2026/sup/chap_743jj.htm",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>In addition to data protection assessments for specified high-risk processing, significant-decision profiling has a separate impact-assessment requirement for activities created or generated on or after August 1, 2026.</p>\n<p>Document the impact assessment elements in §42-522(c): purpose/context, risks and mitigations, inputs/outputs, relevant customization data, performance/limitations, transparency and post-deployment safeguards.</p>\n<p>Keep the dates separate: data protection assessments cover activities created or generated after July 1, 2023; profiling impact assessments cover activities created or generated on or after August 1, 2026. Neither provision is retroactive.</p>"
+ },
+ "pwc-us-ct-duties-enforcement": {
+  "kind": "statute",
+  "juris": "US-CT",
+  "label": "Connecticut: enforcement and cure",
+  "citation": "Conn. Gen. Stat. §42-525(a)–(c), (e)",
+  "provenance": "https://www.cga.ct.gov/current/pub/chap_743jj.htm#sec_42-525",
+  "note": "Editorial summary of the cited primary provisions, not a verbatim extract. Current-law check as of September 22, 2026; enforcement cure procedures do not postpone substantive compliance duties.",
+  "body": "<p>The Attorney General has exclusive enforcement authority for the comprehensive act. The mandatory notice and 60-day cure regime ended December 31, 2024.</p>\n<p>Since January 1, 2025, an opportunity to cure is discretionary. The Attorney General may weigh the number of violations, organizational size and complexity, processing, likely public injury, safety, human or technical error, and data sensitivity.</p>\n<p>Current subsection (c) does not prescribe a fixed cure length. Its discretion is not a guaranteed continuation of the expired 60-day regime.</p>"
+ },
+ "pwc-us-ct-duties-rights": {
+  "kind": "statute",
+  "juris": "US-CT",
+  "label": "Connecticut: consumer rights",
+  "citation": "Conn. Gen. Stat. §42-518(a)–(f), effective July 1, 2026",
+  "provenance": "https://www.cga.ct.gov/2026/sup/chap_743jj.htm",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Alongside access, correction, deletion, portability and opt-outs, the July 2026 law adds access to inferences, third-party sale-recipient lists and specific profiling-review rights.</p>\n<p>Provide the consumer-specific sale-recipient list or, if not maintained, all sale recipients, subject to the trade-secret limit.</p>\n<p>For significant automated profiling, provide the feasible questioning, reasons and data-review rights. Housing decisions also have the specified correction and re-evaluation right.</p>\n<p>Respond within 45 days, with a reasonably necessary 45-day extension on timely notice; decide an internal appeal within 60 days.</p>"
+ },
+ "pwc-us-ct-duties-sensitive": {
+  "kind": "statute",
+  "juris": "US-CT",
+  "label": "Connecticut: sensitive data",
+  "citation": "Conn. Gen. Stat. §42-520(a)(1)(D), (H), effective July 1, 2026",
+  "provenance": "https://www.cga.ct.gov/2026/sup/chap_743jj.htm",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>The July 2026 text requires both reasonable necessity for sensitive processing and consumer consent. Sensitive-data sale also requires consent.</p>\n<p>Check the expanded sensitive-data definition and document why the processing is reasonably necessary.</p>\n<p>Obtain valid consent, use COPPA-compliant treatment for known children, and implement the consent-revocation mechanism.</p>"
+ },
+ "pwc-us-ct-scope": {
+  "kind": "statute",
+  "juris": "US-CT",
+  "label": "Connecticut: applicability",
+  "citation": "Conn. Gen. Stat. §§ 42-515 to 42-517 (effective July 1, 2026)",
+  "provenance": "https://cga.ct.gov/2026/sup/chap_743jj.htm",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. PA26-64 and PA26-100 contain changes taking effect October 1, 2026. They are future law at this September 22 checkpoint and require a refresh before that date.",
+  "body": "<p>Does the assessment involve personal data of Connecticut consumers?</p>\n<p>Does ANY current route hold: it conducts business in Connecticut OR targets products/services to Connecticut residents, AND controlled or processed at least 35,000 consumers’ personal data in the preceding calendar year (excluding payment-only data); OR it controls or processes a consumer’s sensitive data (excluding payment-only data); OR it offers consumers’ personal data for sale in trade or commerce?</p>\n<p>Connecticut residents in an individual or household context, excluding employment and commercial roles. The 35,000 limb and sensitive-data limb exclude processing solely to complete a payment transaction.</p>\n<p>Measuring period: 35,000 route: preceding calendar year. Sensitive-data and offering-for-sale routes have no minimum count or revenue-share test.</p>"
+ },
+ "pwc-us-ct-scope-dot": {
+  "kind": "statute",
+  "juris": "US-CT",
+  "label": "Connecticut: current transportation-data exemption",
+  "citation": "PA26-76 §72; Conn. Gen. Stat. §42-517(b)(19)",
+  "provenance": "https://www.cga.ct.gov/2026/act/Pa/pdf/2026PA-00076-R00SB-00477-PA.PDF",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. This enacted amendment overlays the 2026 statutory supplement.",
+  "body": "<p>Effective July 1, 2026, a narrow exemption covers precise geolocation data deidentified or aggregated from personal data and collected, used, processed, shared or transferred by or to the Department of Transportation for the listed transportation-planning, traffic, highway-safety, infrastructure or public-sector-research purposes. It is not an exemption for identifiable location data generally.</p>"
+ },
+ "pwc-us-ct-scope-exemptions": {
+  "kind": "statute",
+  "juris": "US-CT",
+  "label": "Connecticut: entity and data exclusions",
+  "citation": "Conn. Gen. Stat. §§ 42-515 to 42-517 (effective July 1, 2026)",
+  "provenance": "https://cga.ct.gov/2026/sup/chap_743jj.htm",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Entity status and record-level exclusions are separate decisions; the listed categories must satisfy the linked law's definitions and conditions.",
+  "body": "<p>The July 1, 2026 version lists government bodies; specified government contractors processing consumer health data on their behalf; nonprofits; political committees; higher education; national securities associations; HIPAA covered entities/business associates; tribal government; air carriers; insurance entities; qualifying banks/credit unions and affiliates subject to the stated financial-activity, examination and privacy-program conditions; and specified regulated securities entities. GLBA status alone no longer creates a universal entity exemption.</p>\n<p>Use the July 1, 2026 §42-517(b), plus PA26-76 §72. Listed health/research, FCRA-regulated activity, DPPA, FERPA, Farm Credit, employment-role, airline and GLBA data remain conditional data exemptions. PA26-76 adds narrowly defined deidentified or aggregated DOT transportation geolocation data.</p>"
+ },
+ "pwc-us-de-duties-ads": {
+  "kind": "statute",
+  "juris": "US-DE",
+  "label": "Delaware: sale and targeted advertising",
+  "citation": "6 Del. C. §§12D-104(a), 12D-106(a), (e), current through 2026",
+  "provenance": "https://www.delcode.delaware.gov/title6/c012d/index.html",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Sale, targeted advertising and qualifying profiling have opt-outs. Known or willfully disregarded consumers aged 13–17 require consent for sale or targeted advertising.</p>\n<p>Honor qualifying universal opt-out mechanisms, required from January 1, 2026.</p>\n<p>Apply the current 2026 version rather than importing January 2027 amendments.</p>"
+ },
+ "pwc-us-de-duties-assessment": {
+  "kind": "statute",
+  "juris": "US-DE",
+  "label": "Delaware: risk assessments",
+  "citation": "6 Del. C. §12D-108(a), (f)",
+  "provenance": "https://www.delcode.delaware.gov/title6/c012d/index.html",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Delaware has a separate assessment threshold: control or processing of at least 100,000 consumers' data, excluding solely payment-transaction data.</p>\n<p>First confirm that separate assessment count; full-law coverage alone does not establish this duty.</p>\n<p>If met, assess heightened-risk activities created or generated after July 1, 2025, including targeted ads, sale, sensitive data and qualifying profiling.</p>"
+ },
+ "pwc-us-de-duties-enforcement": {
+  "kind": "statute",
+  "juris": "US-DE",
+  "label": "Delaware: enforcement and cure",
+  "citation": "6 Del. C. §12D-111(a)–(c), (e), version effective until January 1, 2027",
+  "provenance": "https://www.delcode.delaware.gov/title6/c012d/index.html#12D-111",
+  "note": "Editorial summary of the cited primary provisions, not a verbatim extract. Current-law check as of September 22, 2026; enforcement cure procedures do not postpone substantive compliance duties.",
+  "body": "<p>The Department of Justice exclusively enforces the Delaware Personal Data Privacy Act. In 2025, it had to notify a controller before action if cure was possible, with 60 days from receipt.</p>\n<p>That mandatory regime ended December 31, 2025. Since January 1, 2026, granting a controller or processor an opportunity to cure is discretionary, taking account of violations, organizational size and processing, likely injury, safety, error and past conduct.</p>\n<p>Current subsection (c) specifies no guaranteed duration. The January 1, 2027 version preserves this cure structure; it does not renew the expired mandatory period.</p>"
+ },
+ "pwc-us-de-duties-rights": {
+  "kind": "statute",
+  "juris": "US-DE",
+  "label": "Delaware: consumer rights",
+  "citation": "6 Del. C. §12D-104, version effective until January 1, 2027",
+  "provenance": "https://www.delcode.delaware.gov/title6/c012d/index.html",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Current rights include access, correction, deletion, portability and categories of third parties to which data was disclosed.</p>\n<p>Respond within 45 days, with one reasonably necessary 45-day extension on timely notice; decide an appeal within 60 days.</p>\n<p>The current right is a list of categories. Do not substitute the different future January 2027 third-party disclosure provision.</p>"
+ },
+ "pwc-us-de-duties-sensitive": {
+  "kind": "statute",
+  "juris": "US-DE",
+  "label": "Delaware: sensitive data",
+  "citation": "6 Del. C. §12D-106(a), version effective until January 1, 2027",
+  "provenance": "https://www.delcode.delaware.gov/title6/c012d/index.html",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Sensitive processing requires consent; known-child sensitive processing must comply with COPPA.</p>\n<p>Match the actual data to Delaware's sensitive-data definition and obtain consent before processing.</p>\n<p>Read the current version of §12D-106. The same official page also prints a different January 2027 version.</p>"
+ },
+ "pwc-us-de-scope": {
+  "kind": "statute",
+  "juris": "US-DE",
+  "label": "Delaware: applicability",
+  "citation": "6 Del. C. §§ 12D-102, 12D-103 (effective until January 1, 2027)",
+  "provenance": "https://www.delcode.delaware.gov/title6/c012d/index.html",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. The code shows a separate January 1, 2027 version: thresholds become 10,000 and 5,000 plus >20%, with additional changes. Do not apply it to a 2026 answer.",
+  "body": "<p>Does the person conduct business in Delaware OR produce products or services targeted to Delaware residents?</p>\n<p>In the preceding calendar year, did it control or process personal data of at least 35,000 consumers (excluding payment-only data); OR at least 10,000 consumers AND derive strictly more than 20% of gross revenue from selling personal data?</p>\n<p>Delaware residents acting individually or as a household, excluding employment and commercial roles. Exclude payment-only consumers from the 35,000 limb.</p>\n<p>Measuring period: Preceding calendar year.</p>"
+ },
+ "pwc-us-de-scope-exemptions": {
+  "kind": "statute",
+  "juris": "US-DE",
+  "label": "Delaware: entity and data exclusions",
+  "citation": "6 Del. C. §§ 12D-102, 12D-103 (effective until January 1, 2027)",
+  "provenance": "https://www.delcode.delaware.gov/title6/c012d/index.html",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Entity status and record-level exclusions are separate decisions; the listed categories must satisfy the linked law's definitions and conditions.",
+  "body": "<p>Government bodies are excluded but institutions of higher education are carved out of that exclusion. Qualifying GLBA financial institutions and affiliates, specified national securities/futures associations, and nonprofits dedicated exclusively to insurance-crime prevention are excluded. There is no general nonprofit, higher-education or HIPAA-entity exemption.</p>\n<p>§12D-103(c) excludes specified health/research, regulated credit, DPPA, FERPA, Farm Credit and employment-role data. A HIPAA relationship does not exclude unrelated records. Document why each claimed category meets the statutory conditions.</p>"
+ },
+ "pwc-us-fl-duties-ads": {
+  "kind": "statute",
+  "juris": "US-FL",
+  "label": "Florida: sale and targeted advertising",
+  "citation": "Fla. Stat. §501.705(2)",
+  "provenance": "https://www.flsenate.gov/Laws/Statutes/2025/501.705",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>The covered consumer can opt out of sale, targeted advertising and significant-effect profiling, with additional choices for sensitive-data collection and voice/facial-recognition collection.</p>\n<p>Map these additional collection opt-outs to actual device and product flows.</p>\n<p>Apply the separate sensitive-data consent and sales-notice provisions; a general marketing unsubscribe is insufficient.</p>"
+ },
+ "pwc-us-fl-duties-appeals": {
+  "kind": "statute",
+  "juris": "US-FL",
+  "label": "Florida: appeals",
+  "citation": "Fla. Stat. §501.707",
+  "provenance": "https://www.flsenate.gov/Laws/Statutes/2025/501.707",
+  "note": "Editorial summary of primary authority, not a verbatim extract. See the cited provision for all qualifiers.",
+  "body": "<p>Controllers must provide a conspicuous internal appeal process and give a written decision and reasons within 60 days after receiving an appeal.</p>"
+ },
+ "pwc-us-fl-duties-assessment": {
+  "kind": "statute",
+  "juris": "US-FL",
+  "label": "Florida: risk assessments",
+  "citation": "Fla. Stat. §501.713",
+  "provenance": "https://www.flsenate.gov/Laws/Statutes/2025/501.713",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Assess targeted advertising, sale, sensitive data, qualifying risky profiling and other heightened-risk processing.</p>\n<p>The statutory assessment provision covers processing activities generated on or after July 1, 2023.</p>\n<p>Document benefits, risks and safeguards. A comparable assessment for another law can qualify if its scope and effect are reasonably comparable.</p>"
+ },
+ "pwc-us-fl-duties-enforcement": {
+  "kind": "statute",
+  "juris": "US-FL",
+  "label": "Florida: enforcement and cure",
+  "citation": "Fla. Stat. §501.72(1)–(3) (2026)",
+  "provenance": "https://www.flsenate.gov/Laws/Statutes/2026/501.72",
+  "note": "Editorial summary of the cited primary provisions, not a verbatim extract. Current-law check as of September 22, 2026; enforcement cure procedures do not postpone substantive compliance duties.",
+  "body": "<p>The Department of Legal Affairs alone enforces this part, on behalf of Florida consumers. After written notice of an alleged violation, it may grant a 45-calendar-day cure period and issue guidance. This is discretionary and has no stated sunset.</p>\n<p>The cure opportunity is unavailable for the known-child violations in §501.72(1)(a); willful disregard of age counts as actual knowledge.</p>\n<p>If the violation is cured to the Department's satisfaction and proof is supplied, it may not bring an action for that allegation. It may specify in guidance that future violations will receive no cure opportunity.</p>"
+ },
+ "pwc-us-fl-duties-limited": {
+  "kind": "statute",
+  "juris": "US-FL",
+  "label": "Florida: limited duties",
+  "citation": "Fla. Stat. §501.715; §501.702(9)(a)1.–3.",
+  "provenance": "https://www.flsenate.gov/Laws/Statutes/2025/501.715",
+  "note": "Editorial summary of the limited provision. This is not a conclusion that full-law duties apply.",
+  "body": "<p>§501.715 has a separate sensitive-data sale rule for persons meeting §501.702(9)(a)1.–3.; full Digital Bill of Rights coverage is not the only relevant route.</p>\n<p>Obtain the consumer's prior consent before selling sensitive data, with the statutory child authorization route.</p>\n<p>Provide the exact website notice prescribed by §501.715(2). Have counsel verify this provision's own coverage conditions.</p>"
+ },
+ "pwc-us-fl-duties-rights": {
+  "kind": "statute",
+  "juris": "US-FL",
+  "label": "Florida: consumer rights",
+  "citation": "Fla. Stat. §§501.705–501.707",
+  "provenance": "https://www.flsenate.gov/Laws/Statutes/2025/501.706",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Access, correction, deletion and portability sit alongside Florida's broader collection opt-outs. The response extension is only 15 days.</p>\n<p>Respond without undue delay and within 45 days; one reasonably necessary 15-day extension requires notice and reasons within the first 45 days.</p>\n<p>Provide compliance notice within 60 days after receipt. Decide an internal appeal within 60 days.</p>"
+ },
+ "pwc-us-fl-duties-sensitive": {
+  "kind": "statute",
+  "juris": "US-FL",
+  "label": "Florida: sensitive data",
+  "citation": "Fla. Stat. §501.71(2)(d)",
+  "provenance": "https://www.flsenate.gov/Laws/Statutes/2025/501.71",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Sensitive-data processing requires consent. The statute separately specifies authorization for known children aged 13–17 and COPPA treatment for children under 13.</p>\n<p>Confirm valid consent and the applicable age route before processing.</p>\n<p>Sensitive-data sales also require the separate §501.715 review, including its prescribed notice.</p>"
+ },
+ "pwc-us-fl-scope": {
+  "kind": "statute",
+  "juris": "US-FL",
+  "label": "Florida: applicability",
+  "citation": "Fla. Stat. § 501.702(9)",
+  "provenance": "https://www.flsenate.gov/Laws/Statutes/2025/501.702",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Separate §501.715 sale-of-sensitive-data duties can apply without the $1 billion or business-model criteria.",
+  "body": "<p>Does it conduct business in Florida OR produce a product or service used by Florida residents, AND process or engage in the sale of personal data?</p>\n<p>Does it have strictly more than $1 billion in global gross annual revenue AND at least one of these: at least 50% of global gross annual revenue from online advertising; operation of the qualifying cloud-connected hands-free virtual-assistant smart speaker; or an app store/digital distribution platform offering at least 250,000 different software applications?</p>\n<p>Florida residents or domiciliaries acting in an individual or household context; not commercial or employment roles. General controller coverage is not a resident-volume test.</p>\n<p>Measuring period: Global gross annual revenue; no numeric resident-count limb.</p>"
+ },
+ "pwc-us-fl-scope-data": {
+  "kind": "statute",
+  "juris": "US-FL",
+  "label": "Florida: excluded data",
+  "citation": "Fla. Stat. §501.704",
+  "provenance": "https://www.flsenate.gov/Laws/Statutes/2025/501.704",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate.",
+  "body": "<p>Section 501.704 exempts specified protected-health, health-research, patient-safety, regulated credit, DPPA, FERPA, Farm Credit, employment-role and other listed data subject to their statutory conditions. An exemption for some data does not extend to unrelated data or every activity of the holder.</p>"
+ },
+ "pwc-us-fl-scope-exemptions": {
+  "kind": "statute",
+  "juris": "US-FL",
+  "label": "Florida: entity and data exclusions",
+  "citation": "Fla. Stat. § 501.703",
+  "provenance": "https://www.flsenate.gov/Laws/Statutes/2025/501.703",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Entity status and record-level exclusions are separate decisions; the listed categories must satisfy the linked law's definitions and conditions.",
+  "body": "<p>Section 501.703 applies this part to a person conducting business in Florida or producing a product/service used by Florida residents, and processing or engaging in the sale of personal data, subject to its exemptions.</p>\n<p>§501.703 excludes government entities, qualifying GLBA financial institutions, HIPAA covered entities/business associates, nonprofits, and postsecondary institutions. Section 501.703 also excludes purely personal/household processing and specified ad-measurement-only processing.</p>\n<p>GLBA data is separately excluded in §501.703. Further specific data exemptions are in §501.704, which has its own source card in this candidate.</p>"
+ },
+ "pwc-us-fl-scope-sensitive-sale": {
+  "kind": "statute",
+  "juris": "US-FL",
+  "label": "Florida: sale duties without the billion-dollar gate",
+  "citation": "Fla. Stat. §501.715",
+  "provenance": "https://www.flsenate.gov/Laws/Statutes/2025/501.715",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. A narrow surviving-duty screen; exemptions in the linked chapter still require their own analysis.",
+  "body": "<p>A person meeting §501.702(9)(a)1–3 must not sell sensitive personal data without prior consumer consent; this provision does not require the billion-dollar or specified business-model criteria.</p>\n<p>The section prescribes a sensitive-data sale notice. If the sensitive data belongs to a known child, it requires affirmative authorization for a child between13 and18, or COPPA compliance for a known child under13. Check age, knowledge and the precise statutory sensitive-data definition.</p>"
+ },
+ "pwc-us-ia-duties-ads": {
+  "kind": "statute",
+  "juris": "US-IA",
+  "label": "Iowa: sale and targeted advertising",
+  "citation": "Iowa Code §§715D.3(1)(d), 715D.4(5)",
+  "provenance": "https://www.legis.iowa.gov/docs/code/715D.pdf",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>The rights section expressly lists a sale opt-out, but not a targeted-advertising right. The controller-duty section nevertheless requires targeted-advertising disclosure and a manner to exercise an opt-out.</p>\n<p>Provide the express sale opt-out.</p>\n<p>For targeted advertising, ask privacy counsel to reconcile §715D.3 with §715D.4(5) and document the operational approach. Do not infer that targeted advertising needs no opt-out.</p>"
+ },
+ "pwc-us-ia-duties-assessment": {
+  "kind": "statute",
+  "juris": "US-IA",
+  "label": "Iowa: risk assessments",
+  "citation": "Iowa Code chapter 715D, especially §715D.4",
+  "provenance": "https://www.legis.iowa.gov/docs/code/715D.pdf",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>This chapter does not impose a dedicated data protection assessment duty. That observation is limited to this statute and is not a conclusion that the activity is low risk.</p>\n<p>Keep the required reasonable security and processor controls.</p>\n<p>Ask the privacy owner to check other applicable sector, contractual and jurisdictional assessment duties for the same processing.</p>"
+ },
+ "pwc-us-ia-duties-enforcement": {
+  "kind": "statute",
+  "juris": "US-IA",
+  "label": "Iowa: enforcement and cure",
+  "citation": "Iowa Code §715D.8(1)–(3) (2026)",
+  "provenance": "https://www.legis.iowa.gov/docs/code/715D.pdf",
+  "note": "Editorial summary of the cited primary provisions, not a verbatim extract. Current-law check as of September 22, 2026; enforcement cure procedures do not postpone substantive compliance duties.",
+  "body": "<p>The Attorney General exclusively enforces chapter 715D and must provide a controller or processor 90 days' written notice identifying specific alleged violations before initiating an action.</p>\n<p>Cure within that period plus an express written statement that the violations have been cured and no further such violations will occur bars initiation of the action. Continuing violations or breach of the statement permit enforcement.</p>\n<p>No sunset appears in this provision. The 90-day enforcement cure is triggered by the Attorney General's notice; it is separate from the consumer-request response period.</p>"
+ },
+ "pwc-us-ia-duties-rights": {
+  "kind": "statute",
+  "juris": "US-IA",
+  "label": "Iowa: consumer rights",
+  "citation": "Iowa Code §715D.3",
+  "provenance": "https://www.legis.iowa.gov/docs/code/715D.pdf",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Iowa does not enumerate a correction right. Deletion and portability are narrower and concern data provided by the consumer, subject to statutory limits.</p>\n<p>Support confirmation/access, the specified deletion/copy rights and sale opt-out.</p>\n<p>Respond within 90 days; one reasonably necessary 45-day extension requires timely notice and reasons. Decide an internal appeal within 60 days.</p>"
+ },
+ "pwc-us-ia-duties-sensitive": {
+  "kind": "statute",
+  "juris": "US-IA",
+  "label": "Iowa: sensitive data",
+  "citation": "Iowa Code §715D.4(2)",
+  "provenance": "https://www.legis.iowa.gov/docs/code/715D.pdf",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>For nonexempt sensitive-data processing, Iowa requires clear notice and an opportunity to opt out, rather than a general opt-in consent requirement.</p>\n<p>Provide the notice and opt-out opportunity before the sensitive processing.</p>\n<p>Apply COPPA for a known child's data and check sector-specific duties separately.</p>"
+ },
+ "pwc-us-ia-scope": {
+  "kind": "statute",
+  "juris": "US-IA",
+  "label": "Iowa: applicability",
+  "citation": "Iowa Code § 715D.2",
+  "provenance": "https://www.legis.iowa.gov/docs/code/715D.2.pdf",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Current 2026 code fetched; no future applicability version applied.",
+  "body": "<p>Does it conduct business in Iowa OR produce products or services targeted to consumers who are Iowa residents?</p>\n<p>During a calendar year, does it control or process personal data of at least 100,000 consumers; OR at least 25,000 consumers AND derive strictly more than 50% of gross revenue from selling personal data?</p>\n<p>Iowa residents in their individual/household role, excluding commercial and employment roles. There is no payment-only deduction in the 100,000 threshold.</p>\n<p>Measuring period: During a calendar year.</p>"
+ },
+ "pwc-us-ia-scope-exemptions": {
+  "kind": "statute",
+  "juris": "US-IA",
+  "label": "Iowa: entity and data exclusions",
+  "citation": "Iowa Code § 715D.2",
+  "provenance": "https://www.legis.iowa.gov/docs/code/715D.2.pdf",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Entity status and record-level exclusions are separate decisions; the listed categories must satisfy the linked law's definitions and conditions.",
+  "body": "<p>Government bodies, qualifying GLBA financial institutions/affiliates, persons subject to and complying with HIPAA/HITECH regulations, nonprofits and higher-education institutions are excluded. Satisfy the named statutory conditions, including HIPAA compliance, rather than relying on an industry label.</p>\n<p>§715D.2 separately excludes specified health/research, regulated credit, DPPA, FERPA, Farm Credit and employment-role, emergency-contact and benefits data. A partial exemption does not remove unrelated consumer data.</p>"
+ },
+ "pwc-us-in-duties-ads": {
+  "kind": "statute",
+  "juris": "US-IN",
+  "label": "Indiana: sale and targeted advertising",
+  "citation": "Ind. Code §§24-15-3-1(b)(5), 24-15-4-4",
+  "provenance": "https://iga.in.gov/ic/2026/Title_24/Article_15.pdf",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Consumers can opt out of sale, targeted advertising and qualifying significant-effect profiling.</p>\n<p>Classify each transfer under Indiana's own sale definition and exceptions.</p>\n<p>Disclose sale or targeted advertising conspicuously and provide the statutory opt-out route.</p>"
+ },
+ "pwc-us-in-duties-assessment": {
+  "kind": "statute",
+  "juris": "US-IN",
+  "label": "Indiana: risk assessments",
+  "citation": "Ind. Code §24-15-6-1",
+  "provenance": "https://iga.in.gov/ic/2026/Title_24/Article_15.pdf",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Assess sale, targeted advertising, sensitive data and qualifying high-risk activities created or generated after December 31, 2025.</p>\n<p>Record the activity's creation date; the provision is not retroactive to pre-2026 activities.</p>\n<p>Document the benefit/risk balance, safeguards and whether an existing assessment is reasonably comparable.</p>"
+ },
+ "pwc-us-in-duties-enforcement": {
+  "kind": "statute",
+  "juris": "US-IN",
+  "label": "Indiana: enforcement and cure",
+  "citation": "IC 24-15-10-1 through 24-15-10-3 (2026)",
+  "provenance": "https://iga.in.gov/ic/2026/Title_24/Article_15.pdf",
+  "note": "Editorial summary of the cited primary provisions, not a verbatim extract. Current-law check as of September 22, 2026; enforcement cure procedures do not postpone substantive compliance duties.",
+  "body": "<p>The Attorney General exclusively enforces the act. Before an action under IC 24-15-10-2, the Attorney General must give the controller or processor 30 days' written notice identifying the specific alleged violations.</p>\n<p>Within that period, the recipient must cure and give an express written statement that the violation has been cured and actions have been taken to prevent further such violations. If both conditions are met, the Attorney General must not initiate the action.</p>\n<p>Continued violations or breach of that statement permit action. This cure provision has no stated sunset and is separate from the act's January 1, 2026 start date.</p>"
+ },
+ "pwc-us-in-duties-rights": {
+  "kind": "statute",
+  "juris": "US-IN",
+  "label": "Indiana: consumer rights",
+  "citation": "Ind. Code §24-15-3-1(b)–(d)",
+  "provenance": "https://iga.in.gov/ic/2026/Title_24/Article_15.pdf",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Correction is limited to data the consumer previously provided. For the copy right, the controller may provide a representative summary instead of the data.</p>\n<p>Do not promise a broader correction/copy entitlement on the basis of this statute alone; access and deletion have their own wording.</p>\n<p>Respond within 45 days, with a reasonably necessary 45-day extension on timely notice; decide an appeal within 60 days.</p>"
+ },
+ "pwc-us-in-duties-sensitive": {
+  "kind": "statute",
+  "juris": "US-IN",
+  "label": "Indiana: sensitive data",
+  "citation": "Ind. Code §24-15-4-1(5)",
+  "provenance": "https://iga.in.gov/ic/2026/Title_24/Article_15.pdf",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Sensitive-data processing requires consumer consent, with COPPA treatment for known-child data.</p>\n<p>Check the statutory sensitive categories and obtain consent for the specific processing.</p>\n<p>Document the disclosed purpose and any separate consent for incompatible reuse.</p>"
+ },
+ "pwc-us-in-scope": {
+  "kind": "statute",
+  "juris": "US-IN",
+  "label": "Indiana: applicability",
+  "citation": "Ind. Code §§24-15-1-1, 24-15-1-2, 24-15-2-8, 24-15-2-18",
+  "provenance": "https://iga.in.gov/ic/2026/Title_24/Article_15.pdf",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Current Indiana Code2026 primary PDF retrieved September 22, 2026 using native PowerShell Invoke-WebRequest and PDF text extraction. Includes P.L.236-2025 §5; every exclusion must satisfy its exact definition and conditions. Independent and practitioner review remain separate.",
+  "body": "<p>Does it conduct business in Indiana OR produce products or services targeted to Indiana residents?</p>\n<p>During the applicable calendar year, does it control or process personal data of at least 100,000 consumers; OR at least 25,000 consumers AND derive strictly more than 50% of gross revenue from selling personal data?</p>\n<p>Indiana consumers in their individual/household role, not commercial or employment roles. The statute's consumer definition, not an undifferentiated database of residents, controls the count.</p>\n<p>Measuring period: During the applicable calendar year.</p>"
+ },
+ "pwc-us-in-scope-exemptions": {
+  "kind": "statute",
+  "juris": "US-IN",
+  "label": "Indiana: entity and data exclusions",
+  "citation": "Ind. Code §§24-15-1-1, 24-15-1-2, 24-15-2-8, 24-15-2-18",
+  "provenance": "https://iga.in.gov/ic/2026/Title_24/Article_15.pdf",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Current Indiana Code2026 primary PDF retrieved September 22, 2026 using native PowerShell Invoke-WebRequest and PDF text extraction. Includes P.L.236-2025 §5; every exclusion must satisfy its exact definition and conditions. Independent and practitioner review remain separate.",
+  "body": "<p>IC 24-15-1-1(b) excludes government entities and contractors only while acting on their behalf within the contract; GLBA financial institutions and affiliates; HIPAA covered entities/business associates; qualifying nonprofits; higher education; defined public utilities and affiliated service companies; and 501(c)(4) insurance-crime/fraud organizations with a memorandum of understanding with statewide law enforcement.</p>\n<p>IC 24-15-1-2 excludes specified HIPAA, Part2, health-research, patient-safety, deidentified-health, same-manner health, public-health-only, FCRA-regulated, DPPA, FERPA, Farm Credit and employment-role/emergency-contact/benefits information. Each category retains its holder, purpose or handling conditions. GLBA data is independently excluded in IC 24-15-1-1(b)(2).</p>"
+ },
+ "pwc-us-ky-duties-ads": {
+  "kind": "statute",
+  "juris": "US-KY",
+  "label": "Kentucky: sale and targeted advertising",
+  "citation": "KRS §§367.3615(1)(e), 367.3617(4)",
+  "provenance": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=55838",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Consumers can opt out of sale, targeted advertising and profiling in furtherance of decisions producing legal or similarly significant effects.</p>\n<p>Apply Kentucky's definitions to the transfer or advertising use.</p>\n<p>Provide the required disclosure and opt-out route; separately check sensitive processing consent.</p>"
+ },
+ "pwc-us-ky-duties-assessment": {
+  "kind": "statute",
+  "juris": "US-KY",
+  "label": "Kentucky: risk assessments",
+  "citation": "KRS §367.3621, as amended by 2025 Ky. Acts ch.13 §2",
+  "provenance": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=56649",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>The current assessment duty applies to processing activities created or generated on or after June 1, 2026.</p>\n<p>Assess covered targeted advertising, sale, sensitive processing and other specified heightened-risk activities.</p>\n<p>Record the June 1 activity-date boundary separately from the Act's January 1, 2026 effective date.</p>"
+ },
+ "pwc-us-ky-duties-enforcement": {
+  "kind": "statute",
+  "juris": "US-KY",
+  "label": "Kentucky: enforcement and cure",
+  "citation": "KRS §367.3627(1)–(3)",
+  "provenance": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=55844",
+  "note": "Editorial summary of the cited primary provisions, not a verbatim extract. Current-law check as of September 22, 2026; enforcement cure procedures do not postpone substantive compliance duties.",
+  "body": "<p>The Attorney General exclusively enforces the act. Before initiating an action, the Attorney General must provide the controller or processor 30 days' written notice identifying the specific alleged violations.</p>\n<p>Cure within 30 days plus an express written statement that the violations have been cured and no further violations will occur prevents an action for damages under subsection (3). The text does not describe this as blanket immunity from every remedy.</p>\n<p>Continued violations after the period, or breach of the statement, permit an action under subsection (3). The provision has no stated sunset and took effect January 1, 2026.</p>"
+ },
+ "pwc-us-ky-duties-rights": {
+  "kind": "statute",
+  "juris": "US-KY",
+  "label": "Kentucky: consumer rights",
+  "citation": "KRS §367.3615",
+  "provenance": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=55838",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Provide confirmation/access, correction, deletion, portability of previously provided data and the statutory opt-outs.</p>\n<p>Respond within 45 days; a reasonably necessary 45-day extension requires timely notice and reasons.</p>\n<p>Provide an internal appeal and respond within 60 days, with an Attorney General complaint route if denied.</p>"
+ },
+ "pwc-us-ky-duties-sensitive": {
+  "kind": "statute",
+  "juris": "US-KY",
+  "label": "Kentucky: sensitive data",
+  "citation": "KRS §367.3617(1)(e), version effective before July 1, 2027",
+  "provenance": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=55839",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Sensitive-data processing requires consent, with COPPA treatment for known-child data.</p>\n<p>Obtain valid consent before the sensitive use and preserve the evidence.</p>\n<p>Use the current controller duties; the chapter index also lists a future July 2027 version.</p>"
+ },
+ "pwc-us-ky-scope": {
+  "kind": "statute",
+  "juris": "US-KY",
+  "label": "Kentucky: applicability",
+  "citation": "KRS 367.3613",
+  "provenance": "https://apps.legislature.ky.gov/law/Statutes/statute.aspx?id=56648",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Use current KRS367.3613 (id56648). The chapter also displays July 1, 2027 versions of other provisions; those are not current at this checkpoint.",
+  "body": "<p>Does it conduct business in Kentucky OR produce products or services targeted to Kentucky residents?</p>\n<p>During a calendar year, does it control or process personal data of at least 100,000 consumers; OR at least 25,000 consumers AND derive strictly more than 50% of gross revenue from selling personal data?</p>\n<p>Kentucky residents acting in an individual context, excluding employment and commercial roles. No payment-only deduction in the 100,000 limb.</p>\n<p>Measuring period: During a calendar year.</p>"
+ },
+ "pwc-us-ky-scope-exemptions": {
+  "kind": "statute",
+  "juris": "US-KY",
+  "label": "Kentucky: entity and data exclusions",
+  "citation": "KRS 367.3613",
+  "provenance": "https://apps.legislature.ky.gov/law/Statutes/statute.aspx?id=56648",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Entity status and record-level exclusions are separate decisions; the listed categories must satisfy the linked law's definitions and conditions.",
+  "body": "<p>Government bodies, qualifying GLBA financial institutions/affiliates, HIPAA covered entities/business associates, nonprofits and higher education are excluded. Additional narrowly defined exclusions cover specified insurance-fraud/first-responder nonprofits and small telephone/Tier III wireless/municipal-utility entities that do not sell or share data with third parties.</p>\n<p>KRS367.3613 separately excludes GLBA data, specified health/research, regulated credit, DPPA, FERPA, Farm Credit and employment-role data. The current section includes the 2025 amendment for same-manner provider information and compliant limited datasets.</p>"
+ },
+ "pwc-us-md-duties-2026-amendment": {
+  "kind": "statute",
+  "juris": "US-MD",
+  "label": "Maryland: 2026 amendment",
+  "citation": "2026 Maryland Laws ch.874 (HB711), §§1–2",
+  "provenance": "https://mgaleg.maryland.gov/2026RS/chapters_noln/Ch_874_hb0711T.pdf",
+  "note": "Editorial summary of primary authority, not a verbatim extract. See the cited provision for all qualifiers.",
+  "body": "<p>Effective July 1, 2026, Chapter 874 expands precise-geolocation and sensitive-data definitions and adds qualified restrictions on personal-data sales connected to civil immigration enforcement. Read the enacted amendment with the 14-470x codification; the base web page may not display this overlay.</p>"
+ },
+ "pwc-us-md-duties-ads": {
+  "kind": "statute",
+  "juris": "US-MD",
+  "label": "Maryland: sale and targeted advertising",
+  "citation": "Md. Code, Commercial Law §§14-4705(b)(7), 14-4707(a); 2026 Md. Laws ch.874",
+  "provenance": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&enactments=false&section=14-4707",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Sale and targeted advertising have opt-outs, but sensitive-data sales and sale/targeted advertising for consumers the controller knew or should have known are under 18 are prohibited.</p>\n<p>Apply the statutory knew-or-should-have-known age test before treating an opt-out as enough.</p>\n<p>For July 2026 onward, also screen the amendment's restrictions on sales connected to civil immigration enforcement; preserve its purchaser, knowledge and timing conditions.</p>"
+ },
+ "pwc-us-md-duties-assessment": {
+  "kind": "statute",
+  "juris": "US-MD",
+  "label": "Maryland: risk assessments",
+  "citation": "Md. Code, Commercial Law §14-4710",
+  "provenance": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&enactments=false&section=14-4710",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Regular assessments cover heightened-risk processing, including an assessment for each algorithm used. Necessity and proportionality are express factors.</p>\n<p>Assess targeted advertising, sale, sensitive data and qualifying risky profiling; prohibited activity is not authorized by an assessment.</p>\n<p>Record the statutory October 1, 2025 activity boundary and the Act's transitional application separately; confirm applicability before applying this duty.</p>"
+ },
+ "pwc-us-md-duties-enforcement": {
+  "kind": "statute",
+  "juris": "US-MD",
+  "label": "Maryland: enforcement and cure",
+  "citation": "Md. Code, Commercial Law §§13-201, 14-4713, 14-4714(a)–(d)",
+  "provenance": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&enactments=false&section=14-4714",
+  "note": "Editorial summary of the cited primary provisions, not a verbatim extract. Current-law check as of September 22, 2026; enforcement cure procedures do not postpone substantive compliance duties.",
+  "body": "<p>The Office of the Attorney General's Division of Consumer Protection enforces MODPA through the applicable Title 13 framework. For alleged violations occurring on or before April 1, 2027, the Division may give a controller or processor notice before action if it determines cure is possible.</p>\n<p>Granting notice is discretionary. If granted, the recipient has at least 60 days after receipt to cure; the Division specifies the actual period. Failure within that period permits enforcement.</p>\n<p>The April 1, 2027 boundary concerns when the alleged violation occurs, not simply when enforcement is filed. This is distinct from MODPA's implementation and processing-date provisions.</p>"
+ },
+ "pwc-us-md-duties-rights": {
+  "kind": "statute",
+  "juris": "US-MD",
+  "label": "Maryland: consumer rights",
+  "citation": "Md. Code, Commercial Law §14-4705",
+  "provenance": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&enactments=false&section=14-4705",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Access, correction, deletion, portability and specified opt-outs include a right to categories of third parties receiving data.</p>\n<p>Respond within 45 days; a reasonably necessary 45-day extension requires timely notice and reasons.</p>\n<p>Decide an internal appeal within 60 days and provide the Division complaint route if denied.</p>"
+ },
+ "pwc-us-md-duties-sensitive": {
+  "kind": "statute",
+  "juris": "US-MD",
+  "label": "Maryland: sensitive data",
+  "citation": "Md. Code, Commercial Law §14-4707(a)(1)–(2); 2026 Md. Laws ch.874",
+  "provenance": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&enactments=false&section=14-4707",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Sensitive-data collection, processing and sharing must be strictly necessary for a specific product or service requested by the consumer. Selling sensitive data is prohibited.</p>\n<p>Document strict necessity for the requested product. Consent does not cure unnecessary processing or the sensitive-data sale ban.</p>\n<p>Use the expanded current sensitive/geolocation definitions in the July 1, 2026 amendment; include linked device and vehicle location in the review.</p>"
+ },
+ "pwc-us-md-scope": {
+  "kind": "statute",
+  "juris": "US-MD",
+  "label": "Maryland: applicability",
+  "citation": "Md. Code, Com. Law § 14-4702",
+  "provenance": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4702&enactments=false",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. The Act took effect October 1, 2025. Section 2 of the enacted law limits original §14-4612's application to processing activities from April 1, 2026; do not turn this into a universal entity exclusion. Current codification is Subtitle47, not the original bill's Subtitle46. July2026 sensitive-data changes affect later obligations.",
+  "body": "<p>Does it conduct business in Maryland OR provide products or services targeted to Maryland residents?</p>\n<p>In the preceding calendar year, did it control or process personal data of at least 35,000 consumers (excluding payment-only data); OR at least 10,000 consumers AND derive strictly more than 20% of gross revenue from selling personal data?</p>\n<p>Maryland residents acting individually or as a household, excluding employment and commercial roles. Deduct payment-only data only from the 35,000 limb.</p>\n<p>Measuring period: Preceding calendar year.</p>"
+ },
+ "pwc-us-md-scope-exemptions": {
+  "kind": "statute",
+  "juris": "US-MD",
+  "label": "Maryland: entity and data exclusions",
+  "citation": "Md. Code, Com. Law § 14-4703",
+  "provenance": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&section=14-4703&enactments=false",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Entity status and record-level exclusions are separate decisions; the listed categories must satisfy the linked law's definitions and conditions.",
+  "body": "<p>§14-4703 excludes government instrumentalities, specified national securities/futures associations, GLBA financial institutions/affiliates, and nonprofits whose processing is solely for the listed insurance-fraud or catastrophic-event first-responder purposes. There is no general nonprofit, higher-education or HIPAA-covered-entity exemption.</p>\n<p>§14-4703 separately excludes GLBA data and specified health/research, FCRA-regulated, DPPA, FERPA, Farm Credit and employment-role data. A covered entity's unrelated marketing or customer data needs its own analysis; HIPAA is not a blanket entity exemption.</p>"
+ },
+ "pwc-us-mn-duties-ads": {
+  "kind": "statute",
+  "juris": "US-MN",
+  "label": "Minnesota: sale and targeted advertising",
+  "citation": "Minn. Stat. §§325M.14, subds.1(f), 3; 325M.16, subd.2(f)",
+  "provenance": "https://www.revisor.mn.gov/statutes/cite/325M/full",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Sale, targeted advertising and significant-effect profiling have opt-outs. Qualifying universal opt-out signals must be supported.</p>\n<p>Implement the signal and accessible opt-out routes.</p>\n<p>For consumers known to be 'between the ages of 13 and 16,' the statute requires consent for sale/targeted advertising. Preserve that statutory wording when setting the age rule.</p>"
+ },
+ "pwc-us-mn-duties-assessment": {
+  "kind": "statute",
+  "juris": "US-MN",
+  "label": "Minnesota: risk assessments",
+  "citation": "Minn. Stat. §§325M.16, subd.2(c); 325M.18",
+  "provenance": "https://www.revisor.mn.gov/statutes/cite/325M.18",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Document privacy policies and the responsible privacy contact, maintain the data inventory, and assess specified heightened-risk activities.</p>\n<p>Include targeted advertising, sale, sensitive processing and qualifying risky profiling in the assessment screen.</p>\n<p>Assess against the documented privacy policies and controls, and preserve the benefit/risk analysis and safeguards.</p>"
+ },
+ "pwc-us-mn-duties-enforcement": {
+  "kind": "statute",
+  "juris": "US-MN",
+  "label": "Minnesota: enforcement and cure",
+  "citation": "Minn. Stat. §325M.20(a)–(b), effective-date note",
+  "provenance": "https://www.revisor.mn.gov/statutes/cite/325M.20",
+  "note": "Editorial summary of the cited primary provisions, not a verbatim extract. Current-law check as of September 22, 2026; enforcement cure procedures do not postpone substantive compliance duties.",
+  "body": "<p>The Attorney General may bring a civil enforcement action under §325M.20(b). Paragraph (a)'s mandatory warning-letter and 30-day cure procedure expired January 31, 2026; there is no current mandatory cure entitlement in that section.</p>\n<p>The historical clock ran from issuance of the warning letter identifying the alleged provisions. It must not be presented as an available 2026 grace period after its expiry.</p>\n<p>The act's July 31, 2025 commencement and the separate July 31, 2029 compliance date for postsecondary institutions regulated by the Office of Higher Education are implementation rules, not extensions of that expired cure procedure.</p>"
+ },
+ "pwc-us-mn-duties-limited": {
+  "kind": "statute",
+  "juris": "US-MN",
+  "label": "Minnesota: limited duties",
+  "citation": "Minn. Stat. §325M.17",
+  "provenance": "https://www.revisor.mn.gov/statutes/cite/325M.17",
+  "note": "Editorial summary of the limited provision. This is not a conclusion that full-law duties apply.",
+  "body": "<p>An SBA-defined small business that conducts business in Minnesota or targets Minnesota residents must obtain prior consent before selling a consumer's sensitive data.</p>\n<p>Confirm the SBA classification and state nexus with the business owner.</p>\n<p>Obtain and retain consent before sensitive-data sales. This limited rule does not establish all other chapter duties.</p>"
+ },
+ "pwc-us-mn-duties-rights": {
+  "kind": "statute",
+  "juris": "US-MN",
+  "label": "Minnesota: consumer rights",
+  "citation": "Minn. Stat. §325M.14, subds.1, 4–5",
+  "provenance": "https://www.revisor.mn.gov/statutes/cite/325M.14",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Minnesota adds specific third-party lists and a right to question significant profiling decisions, obtain reasons, review data and secure correction/re-evaluation when based on inaccurate data.</p>\n<p>Build these additional rights alongside access to categories, correction, deletion and portability of previously provided data.</p>\n<p>Generally respond within 45 days, with a reasonably necessary 45-day extension on timely notice; opt-outs must be implemented as soon as feasible, no later than 45 days.</p>\n<p>Decide appeals within 45 days, with a reasonably necessary 60-day extension on timely notice; retain appeal records for at least 24 months.</p>"
+ },
+ "pwc-us-mn-duties-sensitive": {
+  "kind": "statute",
+  "juris": "US-MN",
+  "label": "Minnesota: sensitive data",
+  "citation": "Minn. Stat. §325M.16, subd.2(d)–(e)",
+  "provenance": "https://www.revisor.mn.gov/statutes/cite/325M.16",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Sensitive processing requires consumer consent; known-child processing uses parental consent under COPPA.</p>\n<p>Obtain and record the applicable consent.</p>\n<p>Provide an equally easy revocation mechanism and cease applicable processing as soon as practicable, no later than 15 days after revocation.</p>"
+ },
+ "pwc-us-mn-scope": {
+  "kind": "statute",
+  "juris": "US-MN",
+  "label": "Minnesota: applicability",
+  "citation": "Minn. Stat. § 325M.12",
+  "provenance": "https://www.revisor.mn.gov/statutes/cite/325M.12",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Postsecondary institutions regulated by the Office of Higher Education need not comply until July 31, 2029. Small businesses still face §325M.17 sensitive-data-sale consent duties.",
+  "body": "<p>Does the legal entity conduct business in Minnesota OR produce products or services targeted to Minnesota residents?</p>\n<p>Does it control or process at least 100,000 consumers’ personal data during a calendar year (excluding payment-only data); OR control or process at least 25,000 consumers’ personal data AND derive strictly more than 25% of gross revenue from selling personal data?</p>\n<p>Minnesota residents acting in an individual/household context, excluding commercial or employment roles. Deduct payment-only data from the 100,000 limb.</p>\n<p>Measuring period: 100,000 limb: during a calendar year. The 25,000-plus-sale limb does not separately state a measuring period.</p>"
+ },
+ "pwc-us-mn-scope-exemptions": {
+  "kind": "statute",
+  "juris": "US-MN",
+  "label": "Minnesota: entity and data exclusions",
+  "citation": "Minn. Stat. § 325M.12",
+  "provenance": "https://www.revisor.mn.gov/statutes/cite/325M.12",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Entity status and record-level exclusions are separate decisions; the listed categories must satisfy the linked law's definitions and conditions.",
+  "body": "<p>Government and tribal bodies, qualifying banks/credit unions and financial affiliates, insurance entities/financial affiliates, and nonprofits established to prevent insurance fraud have specific exclusions. General nonprofit and HIPAA-entity exemptions do not exist. SBA small businesses and deferred higher-education compliance are checked separately.</p>\n<p>§325M.12 lists protected health and research information, same-manner provider records, compliant limited datasets, GLBA and regulated credit data, and other specific exclusions. Check conditions by record. Student technology-provider obligations under §13.32 are not cleared by this route.</p>"
+ },
+ "pwc-us-mn-scope-small-business": {
+  "kind": "statute",
+  "juris": "US-MN",
+  "label": "Minnesota: small-business sensitive-data sales",
+  "citation": "Minn. Stat. §325M.17",
+  "provenance": "https://www.revisor.mn.gov/statutes/cite/325M.17",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. SBA classification is an industry- and affiliation-specific factual inquiry.",
+  "body": "<p>A small business as defined by the US SBA under 13 CFR Part121 that conducts business in Minnesota or targets products/services to Minnesota residents must obtain a consumer's prior consent before selling the consumer's sensitive data. Section 325M.20 enforcement applies.</p>\n<p>The provision took effect July 31, 2025; postsecondary institutions regulated by the Office of Higher Education are not required to comply until July 31, 2029.</p>"
+ },
+ "pwc-us-mt-duties-ads": {
+  "kind": "statute",
+  "juris": "US-MT",
+  "label": "Montana: sale and targeted advertising",
+  "citation": "Mont. Code Ann. §§30-14-2808, 30-14-2809, 30-14-2811–2812",
+  "provenance": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0120/0300-0140-0280-0120.html",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Sale, targeted advertising and qualifying profiling have opt-outs. The main controller rule requires consent for sale/targeted ads where consumers aged 13–15 are known or willfully disregarded.</p>\n<p>Apply the additional online-minor rules in §2811 rather than relying on the narrower age band in §2812 alone.</p>\n<p>Provide a conspicuous opt-out outside the notice and check qualifying universal opt-out signal handling under §2809.</p>"
+ },
+ "pwc-us-mt-duties-assessment": {
+  "kind": "statute",
+  "juris": "US-MT",
+  "label": "Montana: risk assessments",
+  "citation": "Mont. Code Ann. §30-14-2814",
+  "provenance": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0140/0300-0140-0280-0140.html",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Assess heightened-risk targeted advertising, sales, sensitive processing and qualifying profiling created or generated after January 1, 2025.</p>\n<p>Document benefits, harms, safeguards and the activity's creation date.</p>\n<p>Separately assess the online-minor regime when relevant; the general count threshold does not resolve every minor provision.</p>"
+ },
+ "pwc-us-mt-duties-enforcement": {
+  "kind": "statute",
+  "juris": "US-MT",
+  "label": "Montana: enforcement and cure opportunity",
+  "citation": "MCA §30-14-2817 (2025 code, as amended by 2025 ch. 567 §8)",
+  "provenance": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0170/0300-0140-0280-0170.html",
+  "note": "Editorial summary of the cited current primary law, not a verbatim statutory extract. Cure/enforcement checkpoint: September 22, 2026. Independent content review and practitioner review are separate. This card addresses the comprehensive privacy law's cure opportunity and enforcement actor, not a complete remedies schedule.",
+  "body": "<p>The Attorney General has exclusive authority to enforce this part and may use the stated Title 30, chapter 14 powers.</p>\n<p>The current §30-14-2817, amended by 2025 chapter 567, contains no mandatory pre-enforcement cure notice or cure period. A historical 60-day cure rule must not be used as a current entitlement.</p>"
+ },
+ "pwc-us-mt-duties-limited": {
+  "kind": "statute",
+  "juris": "US-MT",
+  "label": "Montana: limited duties",
+  "citation": "Mont. Code Ann. §§30-14-2802, 30-14-2811, 30-14-2818–2819",
+  "provenance": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0110/0300-0140-0280-0110.html",
+  "note": "Editorial summary of the limited provision. This is not a conclusion that full-law duties apply.",
+  "body": "<p>Specific online-minor provisions can apply outside full-law coverage. That limited route needs its own analysis.</p>\n<p>Privacy counsel and the product owner must establish the user's age, the controller's knowledge and the online service or feature.</p>\n<p>Review §2811's reasonable care, consent, retention, engagement-design and precise-location conditions, plus §§2818–2819. Do not infer full-law coverage.</p>"
+ },
+ "pwc-us-mt-duties-minor": {
+  "kind": "statute",
+  "juris": "US-MT",
+  "label": "Montana: minor",
+  "citation": "Mont. Code Ann. §30-14-2811",
+  "provenance": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0110/0300-0140-0280-0110.html",
+  "note": "Editorial summary of primary authority, not a verbatim extract. See the cited provision for all qualifiers.",
+  "body": "<p>Online services, products and features for known or willfully disregarded minors have additional reasonable-care and consent conditions, including targeted advertising, sale, significant profiling, purpose, retention, engagement design and precise geolocation. Child consent uses the parent or guardian.</p>"
+ },
+ "pwc-us-mt-duties-rights": {
+  "kind": "statute",
+  "juris": "US-MT",
+  "label": "Montana: consumer rights",
+  "citation": "Mont. Code Ann. §30-14-2808",
+  "provenance": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0080/0300-0140-0280-0080.html",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Provide access, correction, deletion, a copy of provided data and specified opt-outs. Access responses must describe, rather than disclose, protected identifiers listed in the statute.</p>\n<p>Keep Social Security/government ID numbers, account credentials and the other listed protected fields out of the actual access response.</p>\n<p>Respond within 45 days, with a reasonably necessary 45-day extension on timely notice; decide an appeal within 60 days.</p>"
+ },
+ "pwc-us-mt-duties-sensitive": {
+  "kind": "statute",
+  "juris": "US-MT",
+  "label": "Montana: sensitive data",
+  "citation": "Mont. Code Ann. §30-14-2812(2)(b)",
+  "provenance": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0120/0300-0140-0280-0120.html",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Sensitive processing requires consent; known-child sensitive data must be processed under COPPA.</p>\n<p>Record the data category, specific purpose and consent.</p>\n<p>The online-minor provisions in §30-14-2811 require a separate care, consent, design and location review where their conditions are met.</p>"
+ },
+ "pwc-us-mt-scope": {
+  "kind": "statute",
+  "juris": "US-MT",
+  "label": "Montana: applicability",
+  "citation": "MCA § 30-14-2803",
+  "provenance": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0030/0300-0140-0280-0030.html",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Current 25,000/15,000 thresholds replaced 50,000/25,000 on October 1, 2025. Sections 2811,2818,2819 can apply below the general thresholds.",
+  "body": "<p>Does it conduct business in Montana OR produce products or services targeted to Montana residents?</p>\n<p>Does it control or process personal data of at least 25,000 consumers (excluding payment-only data); OR at least 15,000 consumers AND derive strictly more than 25% of gross revenue from selling personal data?</p>\n<p>Montana residents acting individually or as a household, excluding commercial and employment roles. Deduct payment-only data from the 25,000 limb.</p>\n<p>Measuring period: §30-14-2803 does not state an annual or preceding-calendar-year period. Do not manufacture one; confirm counting methodology with the legal owner.</p>"
+ },
+ "pwc-us-mt-scope-exemptions": {
+  "kind": "statute",
+  "juris": "US-MT",
+  "label": "Montana: entity and data exclusions",
+  "citation": "MCA § 30-14-2804",
+  "provenance": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0040/0300-0140-0280-0040.html",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Entity status and record-level exclusions are separate decisions; the listed categories must satisfy the linked law's definitions and conditions.",
+  "body": "<p>§30-14-2804 excludes government bodies, insurance-fraud nonprofits, higher education, specified securities associations, qualifying banks/credit unions and financial affiliates, HIPAA covered entities/business associates, and qualifying insurance entities. There is no general nonprofit exemption and no universal GLBA entity exemption.</p>\n<p>§30-14-2804 excludes specified GLBA, health/research, regulated credit, DPPA, FERPA, Farm Credit and employment-role data. Check statutory conditions before excluding a dataset.</p>"
+ },
+ "pwc-us-mt-scope-minors": {
+  "kind": "statute",
+  "juris": "US-MT",
+  "label": "Montana: minors duties below general thresholds",
+  "citation": "MCA §§30-14-2803(2), 30-14-2811",
+  "provenance": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0110/0300-0140-0280-0110.html",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Cross-reference source pwc-us-mt-scope carries the threshold-bypass text.",
+  "body": "<p>Controllers offering an online service, product or feature to a consumer they actually know, or willfully disregard, is a minor must assess the reasonable-care, consent, retention, geolocation, design-feature and messaging safeguards in §30-14-2811.</p>\n<p>Section 30-14-2803(2) applies the named minors provisions without the general 25,000/15,000 thresholds to the stated Montana business or intentionally targeted commercial activity.</p>"
+ },
+ "pwc-us-mt-scope-minors-assessment": {
+  "kind": "statute",
+  "juris": "US-MT",
+  "label": "Montana: minors assessments and processor role",
+  "citation": "MCA §30-14-2819",
+  "provenance": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0190/0300-0140-0280-0190.html",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Processor assistance and contractual duties are separately governed by §30-14-2818; this candidate flags that role for follow-up.",
+  "body": "<p>From October 1, 2025, the specified online offerings to known minors require a documented data-protection assessment when they pose heightened risk, plus review for material change and a risk-mitigation plan when the assessment identifies that risk. This applies to processing activities created or generated after October 1, 2025.</p>"
+ },
+ "pwc-us-mt-scope-minors-processor": {
+  "kind": "statute",
+  "juris": "US-MT",
+  "label": "Montana: processors handling minors data",
+  "citation": "MCA §30-14-2818",
+  "provenance": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0180/0300-0140-0280-0180.html",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate.",
+  "body": "<p>A processor must follow the controller's instructions and assist with the duties and assessments in §§30-14-2811 and2819. The contract must meet §30-14-2813(2). Actual conduct, including deciding purposes and means, determines whether the person is a controller or processor.</p>"
+ },
+ "pwc-us-ne-duties-ads": {
+  "kind": "statute",
+  "juris": "US-NE",
+  "label": "Nebraska: sale and targeted advertising",
+  "citation": "Neb. Rev. Stat. §§87-1107, 87-1111, 87-1113",
+  "provenance": "https://nebraskalegislature.gov/laws/laws-index/chap87-full.html",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Sale, targeted advertising and significant-effect profiling have opt-outs. The Act provides an authorized-agent and qualifying technology route.</p>\n<p>Classify sale under Nebraska's own definition, then implement conspicuous notice and the applicable opt-out method.</p>\n<p>Check §87-1111's verification and technology conditions for delegated or signal-based requests.</p>"
+ },
+ "pwc-us-ne-duties-assessment": {
+  "kind": "statute",
+  "juris": "US-NE",
+  "label": "Nebraska: risk assessments",
+  "citation": "Neb. Rev. Stat. §87-1116",
+  "provenance": "https://nebraskalegislature.gov/laws/statutes.php?statute=87-1116",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Assess targeted advertising, sale, sensitive data, qualifying risky profiling and other heightened-risk processing.</p>\n<p>Document the benefits, risks, safeguards and reasonable consumer expectations.</p>\n<p>A reasonably comparable assessment for another law may be used; record the comparison rather than assuming equivalence.</p>"
+ },
+ "pwc-us-ne-duties-enforcement": {
+  "kind": "statute",
+  "juris": "US-NE",
+  "label": "Nebraska: enforcement and cure opportunity",
+  "citation": "Neb. Rev. Stat. §§87-1119, 87-1122, 87-1124",
+  "provenance": "https://nebraskalegislature.gov/laws/laws-index/chap87-full.html",
+  "note": "Editorial summary of the cited current primary law, not a verbatim statutory extract. Cure/enforcement checkpoint: September 22, 2026. Independent content review and practitioner review are separate. This card addresses the comprehensive privacy law's cure opportunity and enforcement actor, not a complete remedies schedule.",
+  "body": "<p>The Attorney General has exclusive enforcement authority under §87-1119. Before an action under §87-1124, §87-1122 requires written notice to the controller or processor at least thirty days beforehand, identifying the specific allegedly violated provisions.</p>\n<p>The Attorney General may not bring the action if the violation is cured within that thirty-day period and the controller or processor provides a written statement of cure with supportive documentation and an express written statement that it will not commit such a violation after cure.</p>\n<p>Continued violations or breach of the statutory written statement can support enforcement. No cure sunset is stated in these current provisions.</p>"
+ },
+ "pwc-us-ne-duties-limited": {
+  "kind": "statute",
+  "juris": "US-NE",
+  "label": "Nebraska: limited duties",
+  "citation": "Neb. Rev. Stat. §87-1118",
+  "provenance": "https://nebraskalegislature.gov/laws/statutes.php?statute=87-1118",
+  "note": "Editorial summary of the limited provision. This is not a conclusion that full-law duties apply.",
+  "body": "<p>An SBA small business covered by this limited provision must obtain prior consumer consent before selling sensitive data.</p>\n<p>Confirm the small-business status and the provision's state/business scope.</p>\n<p>Block sensitive-data sales until valid prior consent is recorded; do not import all full-law duties from this exception.</p>"
+ },
+ "pwc-us-ne-duties-rights": {
+  "kind": "statute",
+  "juris": "US-NE",
+  "label": "Nebraska: consumer rights",
+  "citation": "Neb. Rev. Stat. §§87-1107–87-1109",
+  "provenance": "https://nebraskalegislature.gov/laws/laws-index/chap87-full.html",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Support access, correction, deletion, portability of provided data and specified opt-outs.</p>\n<p>Respond within 45 days; a reasonably necessary 45-day extension requires timely notice and reasons.</p>\n<p>Decide an internal appeal within 60 days and provide the Attorney General complaint route if denied.</p>"
+ },
+ "pwc-us-ne-duties-sensitive": {
+  "kind": "statute",
+  "juris": "US-NE",
+  "label": "Nebraska: sensitive data",
+  "citation": "Neb. Rev. Stat. §87-1112",
+  "provenance": "https://nebraskalegislature.gov/laws/statutes.php?statute=87-1112",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Full-law controllers need consent for sensitive-data processing, with COPPA treatment for a known child's data.</p>\n<p>Confirm the sensitive category, disclosed purpose and valid consent.</p>\n<p>For an SBA small business, use the separate sensitive-data sales route rather than assuming the entire Act applies.</p>"
+ },
+ "pwc-us-ne-scope": {
+  "kind": "statute",
+  "juris": "US-NE",
+  "label": "Nebraska: applicability",
+  "citation": "Neb. Rev. Stat. § 87-1103",
+  "provenance": "https://nebraskalegislature.gov/laws/statutes.php?statute=87-1103",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. A qualifying small business must still obtain prior consumer consent before selling sensitive data under §87-1118.",
+  "body": "<p>Does it conduct business in Nebraska OR produce a product or service consumed by Nebraska residents, AND process or engage in the sale of personal data?</p>\n<p>General scope has no fixed consumer-volume or universal revenue cutoff. The small-business exception is assessed separately.</p>\n<p>Nebraska consumers acting in an individual or household context. There is no fixed consumer-volume or universal revenue threshold.</p>\n<p>Measuring period: No fixed annual consumer-volume test. Apply the federal small-business definition as it existed January 1, 2024.</p>"
+ },
+ "pwc-us-ne-scope-exemptions": {
+  "kind": "statute",
+  "juris": "US-NE",
+  "label": "Nebraska: entity and data exclusions",
+  "citation": "Neb. Rev. Stat. § 87-1104",
+  "provenance": "https://nebraskalegislature.gov/laws/statutes.php?statute=87-1104",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Entity status and record-level exclusions are separate decisions; the listed categories must satisfy the linked law's definitions and conditions.",
+  "body": "<p>Government entities, qualifying GLBA financial institutions and affiliates, HIPAA covered entities/business associates, nonprofits, higher education and the listed electricity/natural-gas utilities are excluded. SBA small-business status is a separate check, with a surviving consent duty.</p>\n<p>§87-1104 separately excludes specified health/research, regulated credit, DPPA, FERPA, Farm Credit and employment-role information. GLBA data is independently excluded in §87-1103.</p>"
+ },
+ "pwc-us-ne-scope-small-business": {
+  "kind": "statute",
+  "juris": "US-NE",
+  "label": "Nebraska: small-business sensitive-data sales",
+  "citation": "Neb. Rev. Stat. §87-1118",
+  "provenance": "https://nebraskalegislature.gov/laws/statutes.php?statute=87-1118",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Read alongside §87-1103's January 1, 2024 federal-definition reference.",
+  "body": "<p>A person within §87-1103(1)(c)'s small-business exception may not sell sensitive personal data without the consumer's prior consent. The penalty in §87-1124 applies. A small-business classification therefore does not clear a sensitive-data sale.</p>"
+ },
+ "pwc-us-nh-duties-ads": {
+  "kind": "statute",
+  "juris": "US-NH",
+  "label": "New Hampshire: sale and targeted advertising",
+  "citation": "RSA §§507-H:4, I(f), 507-H:6, I(g), V",
+  "provenance": "https://www.gc.nh.gov/rsa/html/LII/507-H/507-H-mrg.htm",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Sale, targeted advertising and qualifying solely automated profiling have opt-outs. Universal opt-out mechanisms have applied since January 1, 2025.</p>\n<p>Apply the teen sale/advertising consent provision to the statutory 13–15 age band and preserve its knowledge wording.</p>\n<p>The chapter also prints a child-sale provision effective January 1, 2027. Keep that future rule separate from the current determination.</p>"
+ },
+ "pwc-us-nh-duties-assessment": {
+  "kind": "statute",
+  "juris": "US-NH",
+  "label": "New Hampshire: risk assessments",
+  "citation": "RSA §507-H:8",
+  "provenance": "https://www.gc.nh.gov/rsa/html/LII/507-H/507-H-mrg.htm",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Assess targeted advertising, sale, sensitive processing and qualifying profiling created or generated after July 1, 2024.</p>\n<p>Record the activity's creation date and the nonretroactive boundary.</p>\n<p>Document the benefits, risks and safeguards; assess comparability before reusing another law's assessment.</p>"
+ },
+ "pwc-us-nh-duties-enforcement": {
+  "kind": "statute",
+  "juris": "US-NH",
+  "label": "New Hampshire: enforcement and cure opportunity",
+  "citation": "RSA 507-H:11(I)–(III), (V)",
+  "provenance": "https://gc.nh.gov/rsa/html/LII/507-H/507-H-11.htm",
+  "note": "Editorial summary of the cited current primary law, not a verbatim statutory extract. Cure/enforcement checkpoint: September 22, 2026. Independent content review and practitioner review are separate. This card addresses the comprehensive privacy law's cure opportunity and enforcement actor, not a complete remedies schedule.",
+  "body": "<p>The Attorney General has exclusive enforcement authority. During 2025 it had to give a pre-action violation notice if it determined cure was possible; after that period it may do so.</p>\n<p>Where the notice is issued, the controller has sixty days after receipt to cure before the Attorney General may bring the stated action.</p>\n<p>From January 1, 2026 the Attorney General may consider violation count, size/complexity, processing, likelihood of public injury, safety and human/technical error when deciding whether to allow cure.</p>"
+ },
+ "pwc-us-nh-duties-rights": {
+  "kind": "statute",
+  "juris": "US-NH",
+  "label": "New Hampshire: consumer rights",
+  "citation": "RSA §507-H:4",
+  "provenance": "https://www.gc.nh.gov/rsa/html/LII/507-H/507-H-mrg.htm",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Provide confirmation/access, correction, deletion, portability and the statutory opt-outs.</p>\n<p>Respond within 45 days, with a reasonably necessary 45-day extension on timely notice and reasons.</p>\n<p>Decide an internal appeal within 60 days and provide the Attorney General complaint route if denied.</p>"
+ },
+ "pwc-us-nh-duties-sensitive": {
+  "kind": "statute",
+  "juris": "US-NH",
+  "label": "New Hampshire: sensitive data",
+  "citation": "RSA §507-H:6, I(d)",
+  "provenance": "https://www.gc.nh.gov/rsa/html/LII/507-H/507-H-mrg.htm",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Sensitive processing requires consent; sensitive data concerning a known child must be processed under COPPA.</p>\n<p>Record the data category, purpose and consent.</p>\n<p>Provide the effective revocation mechanism and stop applicable processing as soon as practicable, no later than 15 days after revocation.</p>"
+ },
+ "pwc-us-nh-scope": {
+  "kind": "statute",
+  "juris": "US-NH",
+  "label": "New Hampshire: applicability",
+  "citation": "RSA 507-H:2",
+  "provenance": "https://gc.nh.gov/rsa/html/LII/507-H/507-H-2.htm",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Current applicability text fetched; no future amendment applied.",
+  "body": "<p>Does it conduct business in New Hampshire OR produce products or services targeted to New Hampshire residents?</p>\n<p>During a one-year period, does it control or process personal data of at least 35,000 unique consumers (excluding payment-only data); OR at least 10,000 unique consumers AND derive strictly more than 25% of gross revenue from selling personal data?</p>\n<p>Unique New Hampshire consumers acting in an individual/household context, excluding commercial and employment roles. Deduct payment-only data from the 35,000 limb.</p>\n<p>Measuring period: During a one-year period. The statute does not call it the preceding calendar year.</p>"
+ },
+ "pwc-us-nh-scope-exemptions": {
+  "kind": "statute",
+  "juris": "US-NH",
+  "label": "New Hampshire: entity and data exclusions",
+  "citation": "RSA 507-H:3",
+  "provenance": "https://gc.nh.gov/rsa/html/LII/507-H/507-H-3.htm",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Entity status and record-level exclusions are separate decisions; the listed categories must satisfy the linked law's definitions and conditions.",
+  "body": "<p>§507-H:3 excludes government bodies, nonprofits, higher education, specified national securities associations, qualifying GLBA financial institutions and HIPAA covered entities/business associates.</p>\n<p>§507-H:3 separately excludes GLBA data, health/research and limited datasets, regulated credit, DPPA, FERPA, Farm Credit, employment-role, specified airline and listed-chemical information. Each exclusion has conditions and is not a general data-industry exemption.</p>"
+ },
+ "pwc-us-nj-duties-ads": {
+  "kind": "statute",
+  "juris": "US-NJ",
+  "label": "New Jersey: sale and targeted advertising",
+  "citation": "P.L.2023, c.266 §§3, 8, 9(a)(7)",
+  "provenance": "https://pub.njleg.gov/Bills/2022/AL23/266_.HTM",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Sale, targeted advertising and qualifying profiling have opt-outs. Known or willfully disregarded consumers aged 13–16 require consent for sale, targeted advertising and significant-effect profiling.</p>\n<p>Do not reuse a 13–15 age gate from another state; New Jersey reaches under 17.</p>\n<p>Support qualifying universal opt-out mechanisms, whose phased commencement has already passed.</p>"
+ },
+ "pwc-us-nj-duties-assessment": {
+  "kind": "statute",
+  "juris": "US-NJ",
+  "label": "New Jersey: risk assessments",
+  "citation": "P.L.2023, c.266 §9(b)",
+  "provenance": "https://pub.njleg.gov/Bills/2022/AL23/266_.HTM",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Conduct an assessment before covered heightened-risk processing involving personal data acquired on or after the law's effective date.</p>\n<p>Screen targeted advertising, sale, sensitive processing and qualifying risky profiling.</p>\n<p>Document benefits, harms and safeguards and preserve the current effective-date boundary.</p>"
+ },
+ "pwc-us-nj-duties-enforcement": {
+  "kind": "statute",
+  "juris": "US-NJ",
+  "label": "New Jersey: enforcement and cure opportunity",
+  "citation": "N.J.S.A. §§56:8-166.17(b), 56:8-166.19; P.L. 2023, c. 266 §§14,16–17",
+  "provenance": "https://pub.njleg.state.nj.us/Bills/2022/PL23/266_.HTM",
+  "note": "Editorial summary of the cited current primary law, not a verbatim statutory extract. Cure/enforcement checkpoint: September 22, 2026. Independent content review and practitioner review are separate. This card addresses the comprehensive privacy law's cure opportunity and enforcement actor, not a complete remedies schedule.",
+  "body": "<p>The Office of the Attorney General has sole and exclusive authority under §56:8-166.19.</p>\n<p>Section 56:8-166.17(b) temporarily required Division of Consumer Affairs notice to a controller before an administrative or court action if cure was deemed possible. The controller then had thirty days after receiving notice to cure.</p>\n<p>That requirement lasted only until the first day of the eighteenth month next following the Act's effective date. Section 17 made the January 16, 2024 enactment effective on the 365th following day, January 15, 2025; the month-based cutoff is July 1, 2026. The temporary opportunity has expired.</p>"
+ },
+ "pwc-us-nj-duties-rights": {
+  "kind": "statute",
+  "juris": "US-NJ",
+  "label": "New Jersey: consumer rights",
+  "citation": "P.L.2023, c.266 §§3–5",
+  "provenance": "https://pub.njleg.gov/Bills/2022/AL23/266_.HTM",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Support access, correction, deletion, portability and statutory opt-outs. New Jersey uses a 45-day internal appeal decision period.</p>\n<p>Respond within 45 days; a reasonably necessary additional 45 days requires timely notice and reasons.</p>\n<p>Decide an appeal within 45 days and provide the Division of Consumer Affairs complaint route if denied.</p>"
+ },
+ "pwc-us-nj-duties-sensitive": {
+  "kind": "statute",
+  "juris": "US-NJ",
+  "label": "New Jersey: sensitive data",
+  "citation": "P.L.2023, c.266 §9(a)(4)",
+  "provenance": "https://pub.njleg.gov/Bills/2022/AL23/266_.HTM",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Sensitive-data processing requires consent; known-child sensitive data uses COPPA treatment.</p>\n<p>Check New Jersey's sensitive categories, including the specified financial credentials, before processing.</p>\n<p>Obtain valid consent and document the purpose and withdrawal process.</p>"
+ },
+ "pwc-us-nj-scope": {
+  "kind": "statute",
+  "juris": "US-NJ",
+  "label": "New Jersey: applicability",
+  "citation": "N.J.S.A. §§ 56:8-166.4, 56:8-166.5, 56:8-166.13",
+  "provenance": "https://pub.njleg.state.nj.us/Bills/2022/PL23/266_.HTM",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Enacted P.L.2023,c.266 took effect January 15, 2025. The revenue/discount limb has no minimum sale percentage.",
+  "body": "<p>Does the controller conduct business in New Jersey OR produce products or services targeted to New Jersey residents?</p>\n<p>During a calendar year, does it control or process personal data of at least 100,000 consumers (excluding payment-only data); OR at least 25,000 consumers AND derive any revenue or receive any discount from selling personal data?</p>\n<p>New Jersey residents acting only in an individual/household context, excluding commercial and employment roles. Deduct payment-only data from the 100,000 limb.</p>\n<p>Measuring period: During a calendar year.</p>"
+ },
+ "pwc-us-nj-scope-exemptions": {
+  "kind": "statute",
+  "juris": "US-NJ",
+  "label": "New Jersey: entity and data exclusions",
+  "citation": "N.J.S.A. §§ 56:8-166.4, 56:8-166.5, 56:8-166.13",
+  "provenance": "https://pub.njleg.state.nj.us/Bills/2022/PL23/266_.HTM",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Entity status and record-level exclusions are separate decisions; the listed categories must satisfy the linked law's definitions and conditions.",
+  "body": "<p>§56:8-166.13 excludes qualifying GLBA financial institutions/affiliates, specified secondary-market institutions, insurance institutions and government bodies. There is no general nonprofit or HIPAA-covered-entity exclusion.</p>\n<p>The same section separately excludes HIPAA protected health data, GLBA data, permitted Motor Vehicle Commission sales, FCRA-authorized consumer-reporting-agency data and qualifying human-subject research data. The activity and holder requirements matter.</p>"
+ },
+ "pwc-us-or-duties-ads": {
+  "kind": "statute",
+  "juris": "US-OR",
+  "label": "Oregon: sale and targeted advertising",
+  "citation": "ORS §§646A.574, 646A.578(2)(c)–(d), (5); HB2008 (2025)",
+  "provenance": "https://www.oregonlegislature.gov/bills_laws/ors/ors646A.html",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>From January 1, 2026, sale and targeted advertising/significant profiling are prohibited for consumers the controller knows or willfully disregards are under 16. Qualifying precise-location sales are also prohibited.</p>\n<p>Do not offer consent as an override to these prohibitions.</p>\n<p>For other covered sale/advertising activity, implement the opt-out and qualifying universal opt-out signal requirements, current from January 1, 2026.</p>"
+ },
+ "pwc-us-or-duties-assessment": {
+  "kind": "statute",
+  "juris": "US-OR",
+  "label": "Oregon: risk assessments",
+  "citation": "ORS §646A.586",
+  "provenance": "https://www.oregonlegislature.gov/bills_laws/ors/ors646A.html",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Assess heightened-risk targeted advertising, sale, sensitive processing and qualifying profiling. Retain assessments for at least five years.</p>\n<p>The requirement applies to processing activities occurring on and after July 1, 2024, and is not retroactive.</p>\n<p>Document benefits, risks, safeguards and any reasonably similar assessment reused from another law.</p>"
+ },
+ "pwc-us-or-duties-enforcement": {
+  "kind": "statute",
+  "juris": "US-OR",
+  "label": "Oregon: enforcement and cure opportunity",
+  "citation": "ORS 646A.589(4), (7); 2025 Or. Laws ch. 417 §§4–6 (note following §646A.589)",
+  "provenance": "https://www.oregonlegislature.gov/bills_laws/ors/ors646a.html",
+  "note": "Editorial summary of the cited current primary law, not a verbatim statutory extract. Cure/enforcement checkpoint: September 22, 2026. Independent content review and practitioner review are separate. This card addresses the comprehensive privacy law's cure opportunity and enforcement actor, not a complete remedies schedule.",
+  "body": "<p>The Attorney General has exclusive enforcement authority under ORS 646A.589(7).</p>\n<p>The temporary rule in 2025 chapter 417 §5 required notice when the Attorney General determined cure was possible, with thirty days after receipt. From January 1, 2026 it applied only to the defined noncommercial educational broadcasters meeting the funding/emergency-entry and free-journalism conditions.</p>\n<p>Section 6 repealed that remaining rule on July 1, 2026. Thus neither the general opportunity nor that temporary broadcaster exception guarantees cure at the September 22, 2026 checkpoint.</p>"
+ },
+ "pwc-us-or-duties-rights": {
+  "kind": "statute",
+  "juris": "US-OR",
+  "label": "Oregon: consumer rights",
+  "citation": "ORS §§646A.574–646A.576",
+  "provenance": "https://www.oregonlegislature.gov/bills_laws/ors/ors646A.html",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Oregon includes specific third-party lists, correction and deletion including derived data, alongside access/copy and opt-out rights.</p>\n<p>Provide the specific recipients list under the statute's consumer-specific or all-data option; categories alone are insufficient.</p>\n<p>Respond within 45 days, with a reasonably necessary 45-day extension on timely notice; decide an appeal within 45 days.</p>"
+ },
+ "pwc-us-or-duties-sensitive": {
+  "kind": "statute",
+  "juris": "US-OR",
+  "label": "Oregon: sensitive data",
+  "citation": "ORS §646A.578(2)(b), (d)",
+  "provenance": "https://www.oregonlegislature.gov/bills_laws/ors/ors646A.html",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Sensitive processing requires prior consent. Current law separately prohibits sale of qualifying precise location data; consent does not override that sale ban.</p>\n<p>Identify statutory sensitive categories and obtain consent, with COPPA treatment for a known child.</p>\n<p>For location sales, apply the 1,750-foot present/past location test, linked-device coverage and the exact statutory exceptions.</p>"
+ },
+ "pwc-us-or-scope": {
+  "kind": "statute",
+  "juris": "US-OR",
+  "label": "Oregon: applicability",
+  "citation": "ORS 646A.570, 646A.572",
+  "provenance": "https://www.oregonlegislature.gov/bills_laws/ors/ors646a.html",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Nonprofits became covered July 1, 2025. Current §646A.572(1)(b) bypasses volume thresholds for motor-vehicle manufacturers and affiliates processing consumer vehicle-use data.",
+  "body": "<p>Does it conduct business in Oregon OR provide products or services to Oregon residents?</p>\n<p>During a calendar year, does it control or process personal data of at least 100,000 consumers (excluding payment-only data); OR at least 25,000 consumers while deriving at least 25% of annual gross revenue from selling personal data?</p>\n<p>Oregon residents acting individually or as a household, excluding commercial or employment roles. Deduct payment-only data from the 100,000 limb.</p>\n<p>Measuring period: During a calendar year; sale limb uses annual gross revenue.</p>"
+ },
+ "pwc-us-or-scope-exemptions": {
+  "kind": "statute",
+  "juris": "US-OR",
+  "label": "Oregon: entity and data exclusions",
+  "citation": "ORS 646A.570, 646A.572",
+  "provenance": "https://www.oregonlegislature.gov/bills_laws/ors/ors646a.html",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Entity status and record-level exclusions are separate decisions; the listed categories must satisfy the linked law's definitions and conditions.",
+  "body": "<p>§646A.572 excludes public bodies/corporations; qualifying banks and directly financial affiliates/subsidiaries; insurers (not mere self-insurance), insurance producers/consultants and licensed third-party administrators; and insurance-fraud nonprofits. Noncommercial publishing/news activity has a separate activity exclusion. There is no general nonprofit or HIPAA-entity exemption.</p>\n<p>Specified HIPAA, health/research, Part2, patient-safety, same-manner records, employment/contract-role, FCRA, GLBA, DPPA, FERPA and preempted airline data are excluded subject to conditions. §646A.572(3) permitted-purpose processing is limited by necessity, proportionality, security and burden-of-proof requirements; it is not a blanket entity exemption.</p>"
+ },
+ "pwc-us-ri-duties-ads": {
+  "kind": "statute",
+  "juris": "US-RI",
+  "label": "Rhode Island: sale and targeted advertising",
+  "citation": "R.I. Gen. Laws §6-48.1-5(a)(5)",
+  "provenance": "https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-5.htm",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Covered customers can opt out of sale, targeted advertising and profiling in furtherance of solely automated decisions with legal or similarly significant effects.</p>\n<p>Implement the relevant opt-out route using Rhode Island's definitions.</p>\n<p>Check the separate commercial website/online-service notice provision; meeting or missing full-law thresholds does not settle that provision.</p>"
+ },
+ "pwc-us-ri-duties-assessment": {
+  "kind": "statute",
+  "juris": "US-RI",
+  "label": "Rhode Island: risk assessments",
+  "citation": "R.I. Gen. Laws §6-48.1-7",
+  "provenance": "https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-7.htm",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Assess heightened-risk sale, targeted advertising, sensitive processing and qualifying risky profiling created or generated after January 1, 2026.</p>\n<p>Record the processing activity's creation date and the statutory nonretroactive boundary.</p>\n<p>Document benefits, risks, safeguards and whether another assessment has reasonably comparable scope and effect.</p>"
+ },
+ "pwc-us-ri-duties-enforcement": {
+  "kind": "statute",
+  "juris": "US-RI",
+  "label": "Rhode Island: enforcement and cure opportunity",
+  "citation": "R.I. Gen. Laws §6-48.1-8(a)–(b)",
+  "provenance": "https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-8.htm",
+  "note": "Editorial summary of the cited current primary law, not a verbatim statutory extract. Cure/enforcement checkpoint: September 22, 2026. Independent content review and practitioner review are separate. This card addresses the comprehensive privacy law's cure opportunity and enforcement actor, not a complete remedies schedule.",
+  "body": "<p>Section 6-48.1-8 gives the Attorney General sole enforcement authority for this chapter and permits enforcement through its stated commercial-law and deceptive-trade-practice provisions.</p>\n<p>The comprehensive privacy chapter does not state a mandatory pre-enforcement cure notice or cure period. This summary does not resolve distinct procedures under the other commercial-law provisions referenced by the section.</p>"
+ },
+ "pwc-us-ri-duties-limited": {
+  "kind": "statute",
+  "juris": "US-RI",
+  "label": "Rhode Island: limited duties",
+  "citation": "R.I. Gen. Laws §6-48.1-3",
+  "provenance": "https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-3.htm",
+  "note": "Editorial summary of the limited provision. This is not a conclusion that full-law duties apply.",
+  "body": "<p>The commercial website/online-service information-sharing provision has separate scope from the full controller thresholds.</p>\n<p>Use §6-48.1-3 to identify the required notice, sale-recipient and contact disclosures for the service.</p>\n<p>Record why this limited notice duty applies; do not infer the full set of rights and assessment obligations.</p>"
+ },
+ "pwc-us-ri-duties-rights": {
+  "kind": "statute",
+  "juris": "US-RI",
+  "label": "Rhode Island: consumer rights",
+  "citation": "R.I. Gen. Laws §§6-48.1-5–6",
+  "provenance": "https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-6.htm",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Support confirmation/access, correction, deletion, portability and the statutory opt-outs.</p>\n<p>Respond within 45 days, with a reasonably necessary 45-day extension on timely notice and reasons.</p>\n<p>Decide an internal appeal within 60 days and give the Attorney General complaint route if denied.</p>"
+ },
+ "pwc-us-ri-duties-sensitive": {
+  "kind": "statute",
+  "juris": "US-RI",
+  "label": "Rhode Island: sensitive data",
+  "citation": "R.I. Gen. Laws §6-48.1-4(c)–(e)",
+  "provenance": "https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-4.htm",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Sensitive processing requires consent, including the statute's consent and COPPA requirements for known children.</p>\n<p>Provide a mechanism to grant and revoke consent.</p>\n<p>After revocation, suspend processing as soon as practicable and no later than 15 days.</p>"
+ },
+ "pwc-us-ri-scope": {
+  "kind": "statute",
+  "juris": "US-RI",
+  "label": "Rhode Island: applicability",
+  "citation": "R.I. Gen. Laws § 6-48.1-4(a)",
+  "provenance": "https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-4.htm",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Effective January 1, 2026. Below-threshold commercial websites and internet-service providers still need a separate §6-48.1-3 assessment.",
+  "body": "<p>Is it a for-profit entity conducting business in Rhode Island OR producing products or services targeted to Rhode Island residents?</p>\n<p>In the preceding calendar year, did it control or process personal data of at least 35,000 customers (excluding payment-only data); OR at least 10,000 customers AND derive strictly more than 20% of gross revenue from selling personal data?</p>\n<p>Rhode Island customers in their individual/household context, excluding commercial and employment roles. Deduct payment-only data from the 35,000 limb.</p>\n<p>Measuring period: Preceding calendar year for §6-48.1-4. Do not export these thresholds to §6-48.1-3.</p>"
+ },
+ "pwc-us-ri-scope-exemptions": {
+  "kind": "statute",
+  "juris": "US-RI",
+  "label": "Rhode Island: entity and data exclusions",
+  "citation": "R.I. Gen. Laws § 6-48.1-3",
+  "provenance": "https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-3.htm",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Entity status and record-level exclusions are separate decisions; the listed categories must satisfy the linked law's definitions and conditions.",
+  "body": "<p>§6-48.1-3(d) excludes government bodies, nonprofits, higher education, specified national securities associations, qualifying GLBA financial institutions and HIPAA covered entities/business associates.</p>\n<p>§6-48.1-3(e) separately excludes GLBA data, specified health/research, regulated credit, DPPA, FERPA, Farm Credit and employment-role data. §6-48.1-3 also creates website/online duties that are separate from §6-48.1-4's numeric thresholds.</p>"
+ },
+ "pwc-us-tn-duties-ads": {
+  "kind": "statute",
+  "juris": "US-TN",
+  "label": "Tennessee: sale and targeted advertising",
+  "citation": "Tenn. Code Ann. §§47-18-3304(a)(2)(E), 47-18-3305(d)",
+  "provenance": "https://www.capitol.tn.gov/Archives/Joint/publications/TNCodeBills/2025/TNCodeBill_Volume1_2025.pdf",
+  "note": "Editorial summary of the current codification in the official 2025 Tennessee Code Bill, pages 1096-1107, checked against the enacted 2023 chapter. Not a verbatim extract.",
+  "body": "<p>Consumers can opt out of sale, targeted advertising and qualifying significant-effect profiling.</p>\n<p>Apply Tennessee's sale definition and exceptions to vendor transfers.</p>\n<p>Disclose sale/targeted advertising and provide the statutory opt-out method; separately apply sensitive-data consent.</p>"
+ },
+ "pwc-us-tn-duties-assessment": {
+  "kind": "statute",
+  "juris": "US-TN",
+  "label": "Tennessee: risk assessments",
+  "citation": "Tenn. Code Ann. §§47-18-3307, 47-18-3314",
+  "provenance": "https://www.capitol.tn.gov/Archives/Joint/publications/TNCodeBills/2025/TNCodeBill_Volume1_2025.pdf",
+  "note": "Editorial summary of the current codification in the official 2025 Tennessee Code Bill, pages 1096-1107, checked against the enacted 2023 chapter. Not a verbatim extract.",
+  "body": "<p>Assess targeted advertising, sale, sensitive processing and specified heightened-risk activities. A voluntary privacy program may support an affirmative defense under separate conditions.</p>\n<p>The assessment provision applies to processing created or generated on or after July 1, 2024.</p>\n<p>Document the benefit/risk balance and safeguards. Do not treat a NIST-aligned program or certification as automatic compliance.</p>"
+ },
+ "pwc-us-tn-duties-enforcement": {
+  "kind": "statute",
+  "juris": "US-TN",
+  "label": "Tennessee: enforcement and cure opportunity",
+  "citation": "Tenn. Code Ann. §47-18-3313(a)–(c)",
+  "provenance": "https://www.capitol.tn.gov/Archives/Joint/publications/TNCodeBills/2025/TNCodeBill_Volume1_2025.pdf",
+  "note": "Editorial summary of the cited current primary law, not a verbatim statutory extract. Cure/enforcement checkpoint: September 22, 2026. Independent content review and practitioner review are separate. This card addresses the comprehensive privacy law's cure opportunity and enforcement actor, not a complete remedies schedule.",
+  "body": "<p>The Attorney General and Reporter has exclusive enforcement authority. Before an action it must provide the controller or processor sixty days' written notice identifying the specific provisions allegedly violated.</p>\n<p>If the controller or processor cures within that period and provides an express written statement that the alleged violations are cured and no such further violations will occur, the Attorney General and Reporter must not initiate the action.</p>\n<p>Continued violations or breach of the statement permit an action. The current provision has no stated cure sunset.</p>"
+ },
+ "pwc-us-tn-duties-rights": {
+  "kind": "statute",
+  "juris": "US-TN",
+  "label": "Tennessee: consumer rights",
+  "citation": "Tenn. Code Ann. §47-18-3304",
+  "provenance": "https://www.capitol.tn.gov/Archives/Joint/publications/TNCodeBills/2025/TNCodeBill_Volume1_2025.pdf",
+  "note": "Editorial summary of the current codification in the official 2025 Tennessee Code Bill, pages 1096-1107, checked against the enacted 2023 chapter. Not a verbatim extract.",
+  "body": "<p>Support confirmation/access, correction, deletion, portability and statutory opt-outs, with an internal appeal.</p>\n<p>Respond within 45 days, with a reasonably necessary 45-day extension on timely notice and reasons.</p>\n<p>Decide an appeal within 60 days and provide the Attorney General complaint route if denied.</p>"
+ },
+ "pwc-us-tn-duties-sensitive": {
+  "kind": "statute",
+  "juris": "US-TN",
+  "label": "Tennessee: sensitive data",
+  "citation": "Tenn. Code Ann. §47-18-3305(a)(5)",
+  "provenance": "https://www.capitol.tn.gov/Archives/Joint/publications/TNCodeBills/2025/TNCodeBill_Volume1_2025.pdf",
+  "note": "Editorial summary of the current codification in the official 2025 Tennessee Code Bill, pages 1096-1107, checked against the enacted 2023 chapter. Not a verbatim extract.",
+  "body": "<p>Sensitive processing requires consumer consent, with COPPA treatment for known-child sensitive data.</p>\n<p>Identify the sensitive category and record valid consent before processing.</p>\n<p>Keep purpose compatibility and separate consent for incompatible reuse in the processing record.</p>"
+ },
+ "pwc-us-tn-scope": {
+  "kind": "statute",
+  "juris": "US-TN",
+  "label": "Tennessee: applicability",
+  "citation": "Tenn. Code Ann. §§ 47-18-3303, 47-18-3311",
+  "provenance": "https://www.capitol.tn.gov/Archives/Joint/publications/TNCodeBills/2025/TNCodeBill_Volume1_2025.pdf",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Current recodification is Part33, §47-18-3303. The AG paraphrases the nexus with OR; this draft retains the statute's narrower wording and sends ambiguity to legal review.",
+  "body": "<p>Does it conduct business in Tennessee producing products or services that target Tennessee residents?</p>\n<p>Does its revenue strictly exceed $25 million AND does at least one limb hold: it controls or processes at least 25,000 consumers’ personal data AND derives strictly more than 50% of gross revenue from selling personal data; OR it controls or processes at least 175,000 consumers’ personal data during a calendar year?</p>\n<p>Tennessee consumers acting individually or as a household, excluding commercial and employment roles. Do not substitute total global database records.</p>\n<p>Measuring period: 175,000 limb: during a calendar year. §47-18-3303 states >$25m revenue and >50% gross revenue without separately naming a period; AG describes the general gate as annual.</p>"
+ },
+ "pwc-us-tn-scope-exemptions": {
+  "kind": "statute",
+  "juris": "US-TN",
+  "label": "Tennessee: entity and data exclusions",
+  "citation": "Tenn. Code Ann. §47-18-3311",
+  "provenance": "https://www.capitol.tn.gov/Archives/Joint/publications/TNCodeBills/2025/TNCodeBill_Volume1_2025.pdf",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Entity status and record-level exclusions are separate decisions; the listed categories must satisfy the linked law's definitions and conditions.",
+  "body": "<p>§47-18-3311 excludes government bodies, qualifying GLBA financial institutions/affiliates, licensed insurance companies transacting insurance business, licensed insurance producers, HIPAA covered entities/business associates, nonprofits and higher-education institutions.</p>\n<p>§47-18-3311 separately excludes specified health/research and limited-dataset information, regulated credit, GLBA, DPPA, FERPA, Farm Credit, employment-role, public/peer-reviewed scientific or statistical research, and listed-chemical data. Each category has its own holder, activity or handling conditions.</p>"
+ },
+ "pwc-us-tx-duties-ads": {
+  "kind": "statute",
+  "juris": "US-TX",
+  "label": "Texas: sale and targeted advertising",
+  "citation": "Tex. Bus. & Com. Code §§541.051, 541.055, 541.102",
+  "provenance": "https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Sale, targeted advertising and qualifying significant-effect profiling have opt-outs. Sensitive/biometric data sales carry additional prominent notices.</p>\n<p>Implement the consumer and authorized-agent opt-out routes, including qualifying technology under §541.055.</p>\n<p>Use the exact applicable §541.102 notice text; an ordinary privacy-policy paragraph may not satisfy it.</p>"
+ },
+ "pwc-us-tx-duties-assessment": {
+  "kind": "statute",
+  "juris": "US-TX",
+  "label": "Texas: risk assessments",
+  "citation": "Tex. Bus. & Com. Code §541.105",
+  "provenance": "https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Assess targeted advertising, sale, sensitive processing, qualifying risky profiling and other heightened-risk processing.</p>\n<p>Document benefits, harms, safeguards, context and reasonable consumer expectations.</p>\n<p>A reasonably comparable assessment for another law can qualify; the limited small-business sales rule alone does not impose this full-law assessment duty.</p>"
+ },
+ "pwc-us-tx-duties-enforcement": {
+  "kind": "statute",
+  "juris": "US-TX",
+  "label": "Texas: enforcement and cure opportunity",
+  "citation": "Tex. Bus. & Com. Code §§541.151, 541.154, 541.155(a)",
+  "provenance": "https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm",
+  "note": "Editorial summary of the cited current primary law, not a verbatim statutory extract. Cure/enforcement checkpoint: September 22, 2026. Independent content review and practitioner review are separate. This card addresses the comprehensive privacy law's cure opportunity and enforcement actor, not a complete remedies schedule.",
+  "body": "<p>The Attorney General has exclusive enforcement authority. Section 541.154 requires written notice identifying the alleged provisions at least thirty days before a §541.155 action.</p>\n<p>The Attorney General may not bring the action if the person cures within that period and gives a written statement confirming cure, consumer notification when the consumer's contact information has been made available to the person, supportive documentation, and internal-policy changes when necessary to prevent such further violations.</p>\n<p>Continued violations after cure or breach of the written statement can support enforcement. No cure sunset is stated.</p>"
+ },
+ "pwc-us-tx-duties-limited": {
+  "kind": "statute",
+  "juris": "US-TX",
+  "label": "Texas: limited duties",
+  "citation": "Tex. Bus. & Com. Code §541.107",
+  "provenance": "https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm",
+  "note": "Editorial summary of the limited provision. This is not a conclusion that full-law duties apply.",
+  "body": "<p>An SBA small business covered by §541.107 must obtain prior consumer consent before selling sensitive data.</p>\n<p>Confirm the small-business classification and applicable state/business scope.</p>\n<p>Block sensitive-data sales without valid prior consent; do not infer the other full-law duties from this limited provision.</p>"
+ },
+ "pwc-us-tx-duties-rights": {
+  "kind": "statute",
+  "juris": "US-TX",
+  "label": "Texas: consumer rights",
+  "citation": "Tex. Bus. & Com. Code §§541.051–541.053",
+  "provenance": "https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Support confirmation/access, correction, deletion, portability of provided data and statutory opt-outs.</p>\n<p>Respond within 45 days, with a reasonably necessary 45-day extension on timely notice and reasons.</p>\n<p>Decide an internal appeal within 60 days and provide the Attorney General complaint mechanism if denied.</p>"
+ },
+ "pwc-us-tx-duties-sensitive": {
+  "kind": "statute",
+  "juris": "US-TX",
+  "label": "Texas: sensitive data",
+  "citation": "Tex. Bus. & Com. Code §541.101(b)(4)",
+  "provenance": "https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Full-law controllers need consent for sensitive processing, with COPPA treatment for known-child data.</p>\n<p>Identify the sensitive category and obtain valid consent before processing.</p>\n<p>If selling sensitive or biometric data, also satisfy the additional statutory notice requirements in §541.102.</p>"
+ },
+ "pwc-us-tx-scope": {
+  "kind": "statute",
+  "juris": "US-TX",
+  "label": "Texas: applicability",
+  "citation": "Tex. Bus. & Com. Code §§ 541.001 to 541.003, 541.107",
+  "provenance": "https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. §541.107 still prohibits a qualifying small business from selling sensitive personal data without prior consumer consent.",
+  "body": "<p>Does it conduct business in Texas OR produce a product or service consumed by Texas residents, AND process or engage in the sale of personal data?</p>\n<p>General scope has no fixed consumer-volume or universal revenue cutoff. The small-business exception is assessed separately.</p>\n<p>Texas consumers acting individually or as a household, excluding employment and commercial roles. No fixed consumer-volume or universal revenue test applies.</p>\n<p>Measuring period: No fixed annual consumer-volume test. SBA classification depends on the applicable industry, size measure and affiliation rules.</p>"
+ },
+ "pwc-us-tx-scope-exemptions": {
+  "kind": "statute",
+  "juris": "US-TX",
+  "label": "Texas: entity and data exclusions",
+  "citation": "Tex. Bus. & Com. Code §§ 541.001 to 541.003, 541.107",
+  "provenance": "https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Entity status and record-level exclusions are separate decisions; the listed categories must satisfy the linked law's definitions and conditions.",
+  "body": "<p>§541.002 excludes government entities, qualifying GLBA financial institutions, HIPAA covered entities/business associates, nonprofits, higher education and specified electric-utility, power-generation and retail-electric entities. Do not assume every affiliate is itself a qualifying financial institution.</p>\n<p>§541.003 separately excludes specified health/research, regulated credit, DPPA, FERPA, Farm Credit and employment-role information; §541.002 separately excludes GLBA data. Check the exact conditions before excluding records.</p>"
+ },
+ "pwc-us-ut-duties-ads": {
+  "kind": "statute",
+  "juris": "US-UT",
+  "label": "Utah: sale and targeted advertising",
+  "citation": "Utah Code §§13-61-201, 13-61-302",
+  "provenance": "https://le.utah.gov/xcode/Title13/Chapter61/C13-61_2022050420231231.pdf",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Consumers have sale and targeted-advertising opt-outs. Utah does not enumerate the general significant-profiling opt-out used in many other states.</p>\n<p>Apply Utah's sale and targeted-advertising definitions and disclose the processing and opt-out method.</p>\n<p>Do not carry a broader profiling right or universal-signal mandate into Utah solely because another state has one.</p>"
+ },
+ "pwc-us-ut-duties-assessment": {
+  "kind": "statute",
+  "juris": "US-UT",
+  "label": "Utah: risk assessments",
+  "citation": "Utah Code chapter 13-61",
+  "provenance": "https://le.utah.gov/xcode/Title13/Chapter61/C13-61_2022050420231231.pdf",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>This chapter does not impose a dedicated data protection assessment duty. That is not a low-risk finding or a determination under other laws.</p>\n<p>Maintain the required reasonable security and processor controls.</p>\n<p>The official compilation also prints future January 2027 vehicle-related provisions. Keep those future duties separate and ask the privacy owner to check any other applicable assessment requirements.</p>"
+ },
+ "pwc-us-ut-duties-enforcement": {
+  "kind": "statute",
+  "juris": "US-UT",
+  "label": "Utah: enforcement and cure opportunity",
+  "citation": "Utah Code §§13-61-401, 13-61-402(1)–(3)",
+  "provenance": "https://le.utah.gov/xcode/Title 13/Chapter 61/C13-61_2022050420231231.pdf",
+  "note": "Editorial summary of the cited current primary law, not a verbatim statutory extract. Cure/enforcement checkpoint: September 22, 2026. Independent content review and practitioner review are separate. This card addresses the comprehensive privacy law's cure opportunity and enforcement actor, not a complete remedies schedule.",
+  "body": "<p>The Division receives and may investigate complaints and refers a matter when its director has the stated reasonable-cause/substantial-evidence basis. The Attorney General has exclusive enforcement authority and may act upon referral.</p>\n<p>At least thirty days before an action, the Attorney General must give written notice identifying each alleged provision and explaining each allegation. It may not initiate an action if the controller or processor cures within thirty days after the day of receipt and provides an express written statement that the violation is cured and the cured violation will not recur.</p>\n<p>Failure to cure or continued violations after cure/statement can permit enforcement. No cure sunset is stated.</p>"
+ },
+ "pwc-us-ut-duties-rights": {
+  "kind": "statute",
+  "juris": "US-UT",
+  "label": "Utah: consumer rights",
+  "citation": "Utah Code §§13-61-201, 13-61-203, current version including 2025 ch.468",
+  "provenance": "https://le.utah.gov/xcode/Title13/Chapter61/C13-61_2022050420231231.pdf",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Current Utah law includes correction. Older comparison charts saying Utah has no correction right are stale. Deletion and portability remain limited to provided data.</p>\n<p>Support access, correction, specified deletion/copy rights and sale/targeted-advertising opt-outs.</p>\n<p>Respond within 45 days, with a reasonably necessary 45-day extension on timely notice and reasons.</p>\n<p>This chapter does not provide the general internal appeal process found in many other states; preserve the consumer complaint route separately.</p>"
+ },
+ "pwc-us-ut-duties-sensitive": {
+  "kind": "statute",
+  "juris": "US-UT",
+  "label": "Utah: sensitive data",
+  "citation": "Utah Code §13-61-302(3)",
+  "provenance": "https://le.utah.gov/xcode/Title13/Chapter61/C13-61_2022050420231231.pdf",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Utah generally uses clear notice and an opportunity to opt out for sensitive processing, rather than a general prior opt-in requirement.</p>\n<p>Give notice and the opt-out opportunity before processing the sensitive data.</p>\n<p>Apply COPPA for a known child's personal data and separately check sector obligations.</p>"
+ },
+ "pwc-us-ut-scope": {
+  "kind": "statute",
+  "juris": "US-UT",
+  "label": "Utah: applicability",
+  "citation": "Utah Code § 13-61-102 (May 1, 2024 version, effective until January 1, 2027)",
+  "provenance": "https://le.utah.gov/xcode/Title13/Chapter61/C13-61-S102_2024050120240501.pdf",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. The fetched PDF explicitly identifies January 1, 2027 as its supersession date. Refresh before using this assessment in 2027.",
+  "body": "<p>Does the controller or processor conduct business in Utah OR produce a product or service targeted to consumers who are Utah residents?</p>\n<p>Is annual revenue at least $25 million AND does at least one limb hold: it controls or processes at least 100,000 consumers’ personal data during a calendar year; OR it controls or processes at least 25,000 consumers’ personal data AND derives strictly more than 50% of gross revenue from selling personal data?</p>\n<p>Utah consumers acting individually or as a household, excluding commercial and employment roles. No payment-only deduction in the 100,000 limb.</p>\n<p>Measuring period: Revenue is annual; 100,000 limb is during a calendar year. The 25,000-plus-sale limb does not separately state a lookback.</p>"
+ },
+ "pwc-us-ut-scope-exemptions": {
+  "kind": "statute",
+  "juris": "US-UT",
+  "label": "Utah: entity and data exclusions",
+  "citation": "Utah Code § 13-61-102 (May 1, 2024 version, effective until January 1, 2027)",
+  "provenance": "https://le.utah.gov/xcode/Title13/Chapter61/C13-61-S102_2024050120240501.pdf",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Entity status and record-level exclusions are separate decisions; the listed categories must satisfy the linked law's definitions and conditions.",
+  "body": "<p>Government entities and contractors acting on their behalf, tribes, higher education, nonprofit corporations, HIPAA covered entities/business associates, qualifying GLBA financial institutions/affiliates and air carriers are excluded. Purely personal/household processing is separately excluded.</p>\n<p>§13-61-102 separately excludes specified health/research, same-manner health records, regulated credit, GLBA, DPPA, FERPA, Farm Credit and employment-role information. Verify the regulated activity and record conditions.</p>"
+ },
+ "pwc-us-va-duties-ads": {
+  "kind": "statute",
+  "juris": "US-VA",
+  "label": "Virginia: sale and targeted advertising",
+  "citation": "Va. Code §§59.1-577(A)(5), 59.1-578",
+  "provenance": "https://law.lis.virginia.gov/vacodefull/title59.1/chapter53/",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Sale, targeted advertising and qualifying significant-effect profiling have opt-outs. Current child-specific provisions require their own review.</p>\n<p>Classify the transfer under Virginia's sale definition and offer the required opt-out.</p>\n<p>For children or a social-media product, have the privacy owner check the specific child provisions and any operative court order; this comparison does not decide those separate rules.</p>"
+ },
+ "pwc-us-va-duties-assessment": {
+  "kind": "statute",
+  "juris": "US-VA",
+  "label": "Virginia: risk assessments",
+  "citation": "Va. Code §59.1-580",
+  "provenance": "https://law.lis.virginia.gov/vacodefull/title59.1/chapter53/",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Assess targeted advertising, sale, sensitive processing and qualifying heightened-risk activities. Current law also specifies assessments for online services directed to known children.</p>\n<p>Document benefits, harms, safeguards and the statutory activity-date boundary.</p>\n<p>For a covered known-child service, record its purpose, categories of child data and processing purposes in the additional assessment.</p>"
+ },
+ "pwc-us-va-duties-enforcement": {
+  "kind": "statute",
+  "juris": "US-VA",
+  "label": "Virginia: enforcement and cure opportunity",
+  "citation": "Va. Code §59.1-584(A)–(C)",
+  "provenance": "https://law.lis.virginia.gov/vacode/title59.1/chapter 53/section59.1-584/",
+  "note": "Editorial summary of the cited current primary law, not a verbatim statutory extract. Cure/enforcement checkpoint: September 22, 2026. Independent content review and practitioner review are separate. This card addresses the comprehensive privacy law's cure opportunity and enforcement actor, not a complete remedies schedule.",
+  "body": "<p>The Attorney General has exclusive authority to enforce this chapter and must provide a controller or processor thirty days' written notice before an action, identifying the specific provisions allegedly violated.</p>\n<p>If the controller or processor cures the noticed violation within that period and provides an express written statement that the alleged violations are cured and no further violations will occur, no action is to be initiated under those conditions.</p>\n<p>Continued violations after the cure period or breach of the written statement permit an action. The current section states no cure sunset.</p>"
+ },
+ "pwc-us-va-duties-rights": {
+  "kind": "statute",
+  "juris": "US-VA",
+  "label": "Virginia: consumer rights",
+  "citation": "Va. Code §59.1-577",
+  "provenance": "https://law.lis.virginia.gov/vacodefull/title59.1/chapter53/",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Support confirmation/access, correction, deletion, portability of provided data and the statutory opt-outs.</p>\n<p>Respond within 45 days, with a reasonably necessary 45-day extension on timely notice and reasons.</p>\n<p>Decide an internal appeal within 60 days and provide the Attorney General complaint route if denied.</p>"
+ },
+ "pwc-us-va-duties-sensitive": {
+  "kind": "statute",
+  "juris": "US-VA",
+  "label": "Virginia: sensitive data",
+  "citation": "Va. Code §59.1-578(A)(5), (C)",
+  "provenance": "https://law.lis.virginia.gov/vacodefull/title59.1/chapter53/",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": "<p>Sensitive processing requires consent; known-child data has COPPA and additional child-specific conditions in the current code.</p>\n<p>Obtain the appropriate consent and document the specific processing purpose.</p>\n<p>If the service is directed to known children, separately apply the current child-processing conditions rather than treating ordinary adult consent as sufficient.</p>"
+ },
+ "pwc-us-va-scope": {
+  "kind": "statute",
+  "juris": "US-VA",
+  "label": "Virginia: applicability",
+  "citation": "Va. Code § 59.1-576",
+  "provenance": "https://law.lis.virginia.gov/vacode/title59.1/chapter53/section59.1-576/",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Current code retrieved September 22, 2026; no future applicability amendment applied.",
+  "body": "<p>Does it conduct business in Virginia OR produce products or services targeted to Virginia residents?</p>\n<p>Does it control or process at least 100,000 consumers’ personal data during a calendar year; OR control or process at least 25,000 consumers’ personal data AND derive strictly more than 50% of gross revenue from selling personal data?</p>\n<p>Virginia consumers acting individually or as a household, excluding employment and commercial roles. No payment-only deduction in the 100,000 limb.</p>\n<p>Measuring period: 100,000 limb: during a calendar year. The 25,000-plus-sale limb does not separately state a measuring period.</p>"
+ },
+ "pwc-us-va-scope-exemptions": {
+  "kind": "statute",
+  "juris": "US-VA",
+  "label": "Virginia: entity and data exclusions",
+  "citation": "Va. Code § 59.1-576",
+  "provenance": "https://law.lis.virginia.gov/vacode/title59.1/chapter53/section59.1-576/",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Entity status and record-level exclusions are separate decisions; the listed categories must satisfy the linked law's definitions and conditions.",
+  "body": "<p>Government bodies, qualifying GLBA financial institutions, HIPAA covered entities/business associates, statutory nonprofit organizations and higher-education institutions are excluded. Verify the Act's nonprofit definition rather than assuming every entity with a nonprofit label qualifies.</p>\n<p>§59.1-576 separately excludes GLBA data, specified health/research, regulated credit, DPPA, FERPA, Farm Credit and employment-role, emergency-contact and benefits records. A partial data exclusion does not cover unrelated records.</p>"
+ },
  "std-iso-27005": {
   "juris": "INTL",
   "label": "ISO/IEC 27005:2022 — Information security risk management",
@@ -1149,8 +2607,7 @@ export const WIZARDS = {
      },
      {
       "label": "Suspected but unconfirmed — still investigating",
-      "goto": "o-investigate",
-      "desc": "Document the suspected incident and start the 72-h clock conservatively if EU/UK data is in scope."
+      "goto": "o-investigate"
      },
      {
       "label": "No — this is a system outage, no personal data affected",
@@ -1195,13 +2652,14 @@ export const WIZARDS = {
    "o-investigate": {
     "type": "outcome",
     "tier": "warn",
-    "title": "Treat the 72-h clock as having started — confirm fast",
-    "summary": "GDPR Art. 33(1) starts the 72-hour clock from when the controller becomes 'aware'. EDPB Guidelines 9/2022 interpret 'awareness' as a reasonable degree of certainty that a breach has occurred — not waiting for the full forensic closure. Don't wait for the full report before deciding whether to notify.",
+    "title": "Investigate promptly and establish the awareness time",
+    "summary": "Suspicion alone does not establish when the GDPR notification clock started. EDPB Guidelines 9/2022 allow a short, prompt initial investigation to establish a reasonable degree of certainty that personal data were compromised. Once that awareness exists, a controller must assess notification without waiting for full forensic closure. Jurisdiction and risk still determine which notification duties apply.",
     "actions": [
      "Convene the incident response team immediately.",
      "Preserve forensic evidence and logs.",
-     "If by the 72-h mark you still cannot rule out an Art. 33 trigger, file a preliminary/phased notification (Art. 33(4) explicitly contemplates this).",
-     "Document timestamps of awareness, investigation steps, and decisions.",
+     "Record the first alert, the investigation steps and the time reasonable certainty was established, if it has been established. A conservative internal response timer is a precaution, not proof that statutory awareness has occurred.",
+     "If EU GDPR Art. 33 applies, notify the supervisory authority without undue delay and, where feasible, within 72 hours after awareness unless the breach is unlikely to create a risk to people's rights and freedoms. Provide information in phases under Art. 33(4) when necessary; incomplete detail does not reset the clock.",
+     "Confirm the affected jurisdictions and re-run the notification path as the incident facts become clear.",
      "Remember: under the CJEU's judgment in VB v NAP (C-340/21) the controller bears the burden of proving Art. 32 security measures were appropriate — start documenting the security posture as part of the response."
     ],
     "cites": [
@@ -1276,12 +2734,13 @@ export const WIZARDS = {
     "summary": "Art. 33(1) carves out breaches 'unlikely to result in a risk'. Art. 33(5) still requires you to document any personal data breach, comprising the facts, effects, and remedial action, so the supervisory authority can verify compliance. EDPB Guidelines 9/2022 worked examples illustrate the analysis (e.g. lost encrypted USB with uncompromised keys + working backups = often not reportable).",
     "actions": [
      "Write up the risk-assessment rationale (factors considered, mitigations relied on, why each factor is low).",
-     "Retain in the breach register indefinitely (no statutory retention period, but supervisors expect to see it on audit).",
+     "Keep the breach record for a justified retention period sufficient to evidence compliance with Art. 33(5). Apply storage limitation under Art. 5(1)(e) to any personal data in the record; GDPR specifies no fixed period (EDPB Guidelines 9/2022, para. 124).",
      "Review Art. 32 controls — if a control failed, fix it even if no notification is required."
     ],
     "cites": [
      "gdpr-art-33",
      "gdpr-art-32",
+     "gdpr-art-5",
      "guide-edpb-9-2022-breach"
     ]
    },
@@ -1328,7 +2787,7 @@ export const WIZARDS = {
       "goto": "o-eu-sa-only"
      },
      {
-      "label": "No — high risk persists; subject communication required",
+      "label": "No — high risk persists",
       "goto": "o-eu-full-notify"
      },
      {
@@ -1410,11 +2869,11 @@ export const WIZARDS = {
       "goto": "o-uk-no-notify"
      },
      {
-      "label": "Risk, not high risk — notify ICO only",
+      "label": "Risk, but not high risk",
       "goto": "o-uk-ico-only"
      },
      {
-      "label": "High risk — notify the ICO and data subjects",
+      "label": "High risk to rights and freedoms",
       "goto": "o-uk-full-notify"
      }
     ]
@@ -2365,7 +3824,9 @@ export const WIZARDS = {
      {
       "label": "Either could work — subjects would expect consent (e.g. direct marketing)",
       "goto": "o-consent",
-      "desc": "In the EU, consent is usually the better fit here. In the UK, the Data (Use and Access) Act 2025 (DUAA 2025) acknowledges direct marketing as a purpose that may constitute a legitimate interest — but consent rules under the UK's Privacy and Electronic Communications Regulations (PECR) still govern the electronic channel (email/SMS)."
+      "resultNotes": [
+       "In the EU, consent is usually the better fit here. In the UK, the Data (Use and Access) Act 2025 (DUAA 2025) acknowledges direct marketing as a purpose that may constitute a legitimate interest — but consent rules under the UK's Privacy and Electronic Communications Regulations (PECR) still govern the electronic channel (email/SMS)."
+      ]
      },
      {
       "label": "Either could work — consent is impractical (e.g. fraud prevention)",
@@ -3175,7 +4636,9 @@ export const WIZARDS = {
      {
       "label": "Another party decides the essential means (data types, retention, recipients)",
       "goto": "o-joint",
-      "desc": "You determine purposes; deciding essential means is itself controller-level influence (EDPB 07/2020). Two parties each exerting controller-level influence over the same processing points to joint controllership — not a controller-processor relationship."
+      "resultNotes": [
+       "You determine purposes; deciding essential means is itself controller-level influence (EDPB 07/2020). Two parties each exerting controller-level influence over the same processing points to joint controllership — not a controller-processor relationship."
+      ]
      }
     ]
    },
@@ -3561,7 +5024,12 @@ export const WIZARDS = {
      {
       "label": "UK resident — UK GDPR rights apply",
       "goto": "q-eu-right",
-      "desc": "The UK regime is diverging from the EU GDPR under the Data (Use and Access) Act 2025; commencement is phased by secondary legislation. UK-specific notes below are verified only through January 2026 — check the current commencement position and ICO guidance."
+      "resultNotes": [
+       "The UK regime is diverging from the EU GDPR under the Data (Use and Access) Act 2025; commencement is phased by secondary legislation. These UK-specific notes were verified only through January 2026."
+      ],
+      "resultActions": [
+       "Check the current commencement position and ICO guidance before relying on the UK-specific notes."
+      ]
      },
      {
       "label": "California resident — CCPA rights apply",
@@ -4035,7 +5503,7 @@ export const WIZARDS = {
       "goto": "q-coppa"
      },
      {
-      "label": "California — CCPA <16 opt-in, plus various state-law minor protections",
+      "label": "California — CCPA and state-law minor protections",
       "goto": "q-ca-minor"
      }
     ]
@@ -4318,15 +5786,15 @@ export const WIZARDS = {
     ],
     "opts": [
      {
-      "label": "Under 13 — parent/guardian opt-in for sale/share",
+      "label": "Under 13",
       "goto": "o-ca-under-13"
      },
      {
-      "label": "13–15 — consumer's own opt-in for sale/share",
+      "label": "13–15",
       "goto": "o-ca-13-15"
      },
      {
-      "label": "16+ — standard CCPA opt-out applies",
+      "label": "16 or older",
       "goto": "o-ca-adult"
      }
     ]
@@ -4511,7 +5979,9 @@ export const WIZARDS = {
      {
       "label": "EU / EEA users",
       "goto": "o-analytics",
-      "desc": "If you serve both regimes, apply each branch to its users — or run the stricter EU standard across the board."
+      "resultActions": [
+       "If you serve both regimes, apply each branch to its users — or run the stricter EU standard across the board."
+      ]
      },
      {
       "label": "UK users",
@@ -4599,7 +6069,9 @@ export const WIZARDS = {
      {
       "label": "EU / EEA users",
       "goto": "o-functionality",
-      "desc": "If you serve both regimes, apply each branch to its users — or run the stricter EU standard across the board."
+      "resultActions": [
+       "If you serve both regimes, apply each branch to its users — or run the stricter EU standard across the board."
+      ]
      },
      {
       "label": "UK users",
@@ -4677,7 +6149,9 @@ export const WIZARDS = {
      {
       "label": "Indirectly — we produce a score or output that a third party draws strongly on for a significant decision",
       "goto": "q-significant",
-      "desc": "SCHUFA (C-634/21): the score itself is an Art. 22(1) decision where the recipient draws strongly on it (EU authority; persuasive only in the UK)."
+      "resultNotes": [
+       "Under SCHUFA (C-634/21), a score can itself fall within Art. 22(1) when a recipient draws strongly on it for a decision with legal or similarly significant effects. This is EU authority and persuasive only in the UK."
+      ]
      },
      {
       "label": "No — meaningful human review of every individual decision",
@@ -4761,7 +6235,12 @@ export const WIZARDS = {
      {
       "label": "Both — EU and UK operations",
       "goto": "q-22-2",
-      "desc": "Complete the EU path first, then re-run this wizard for the UK branch."
+      "resultNotes": [
+       "This result covers the EU path. The UK branch remains a separate determination."
+      ],
+      "resultActions": [
+       "Re-run this wizard for the UK branch."
+      ]
      }
     ]
    },
@@ -4844,7 +6323,7 @@ export const WIZARDS = {
       "goto": "o-22-2-c"
      },
      {
-      "label": "None — the decision is unlawful as designed",
+      "label": "None of these exceptions applies",
       "goto": "o-22-unlawful"
      }
     ]
@@ -5001,7 +6480,7 @@ export const WIZARDS = {
      "If mixed-role (SaaS): maintain both Art. 30(1) and Art. 30(2) records",
      "Update when processing changes — treat ROPA as a living register, not a one-time exercise",
      "Under-250 organizations caught by an Art. 30(5) exception: the mandatory record covers only the processing activities meeting the exception conditions (e.g. the non-occasional HR processing) per the WP29 Position Paper on Art. 30(5) (19 April 2018) — a complete register of all processing remains best practice",
-     "ICO and CNIL both publish ROPA templates"
+     "ROPA templates: ICO [controller template (XLSX)](https://ico.org.uk/media2/for-organisations/documents/2172937/gdpr-documentation-controller-template.xlsx) and [processor template (XLSX)](https://ico.org.uk/media2/for-organisations/documents/2172936/gdpr-documentation-processor-template.xlsx); CNIL [simplified register (ODS, French)](https://www.cnil.fr/sites/default/files/atoms/files/registre-traitement-simplifie.ods)."
     ],
     "cites": [
      "gdpr-art-30",
@@ -5055,12 +6534,17 @@ export const WIZARDS = {
      {
       "label": "It is exclusively for military, defense or national-security purposes",
       "goto": "o-excluded",
-      "desc": "Art. 2(3) — excluded regardless of the type of entity."
+      "resultNotes": [
+       "Art. 2(3) — excluded regardless of the type of entity."
+      ]
      },
      {
       "label": "It exists solely for scientific research and development, or is still in pre-market R&D and testing",
       "goto": "o-excluded",
-      "desc": "Art. 2(6) and 2(8) — but testing in real-world conditions is NOT covered by the exclusion."
+      "desc": "This choice does not include testing in real-world conditions.",
+      "resultNotes": [
+       "Art. 2(6) and 2(8) — but testing in real-world conditions is NOT covered by the exclusion."
+      ]
      },
      {
       "label": "No EU market, no EU establishment, and its output is not used in the EU",
@@ -5079,17 +6563,25 @@ export const WIZARDS = {
      {
       "label": "We developed it — or commissioned it — and we place it on the market or put it into service under OUR name or trademark",
       "goto": "o-provider",
-      "desc": "Supplied to customers or third parties. Built it only for your own use? Take the next option instead."
+      "desc": "Supplied to customers or third parties.",
+      "resultActions": [
+       "If this system is only for your own use, re-run the wizard using the own-use-build option."
+      ]
      },
      {
       "label": "We built it (or commissioned it) for our OWN use — we do not supply it to anyone else",
       "goto": "o-inhouse",
-      "desc": "The classic miss: 'putting into service' includes first use for your own purposes (Art. 3(11)) — in-house builds carry BOTH the provider and the deployer hats."
+      "desc": "'Putting into service' includes first use for your own purposes (Art. 3(11)).",
+      "resultNotes": [
+       "An in-house build carries both the provider and deployer roles."
+      ]
      },
      {
       "label": "We use a system someone else supplies, in our operations, under our authority",
       "goto": "q-deployer-trap",
-      "desc": "Likely a deployer — but check the Art. 25 traps first."
+      "resultNotes": [
+       "This path checked whether using a supplied system leaves you as a deployer or triggers provider obligations under Art. 25."
+      ]
      },
      {
       "label": "We are located or established in the EU and we place on the EU market a system carrying the name or trademark of a company or person based outside the EU (a 'third country')",
@@ -5110,7 +6602,9 @@ export const WIZARDS = {
      {
       "label": "We integrate someone else's general-purpose AI model into a system we supply — or use ourselves",
       "goto": "o-downstream",
-      "desc": "Integrating purely for internal use? The own-use-build option above is the same doorway — both hats land either way."
+      "resultNotes": [
+       "Integrating a model into a system solely for internal use follows the own-use-build analysis: provider and deployer roles can both apply."
+      ]
      },
      {
       "label": "We provide a general-purpose AI MODEL itself (weights or API for others to build on), not a system",
@@ -5129,7 +6623,13 @@ export const WIZARDS = {
      {
       "label": "We put our own name or trademark on a high-risk system already on the market",
       "goto": "o-flip",
-      "desc": "White-labeling — Art. 25(1)(a). Contractual allocation of the obligations can change the answer; check your agreement."
+      "desc": "White-labeling — Art. 25(1)(a).",
+      "resultNotes": [
+       "Contractual allocation of the obligations can change the white-labeling analysis."
+      ],
+      "resultActions": [
+       "Check the agreement that allocates obligations between the original and new provider."
+      ]
      },
      {
       "label": "We substantially modified a high-risk system (and it stays high-risk)",
@@ -5171,12 +6671,20 @@ export const WIZARDS = {
      {
       "label": "We market or position a non-high-risk system for a different, high-risk use than the provider intended",
       "goto": "o-flip",
-      "desc": "Art. 25(1)(c) — the flip that needs no code change."
+      "desc": "This positioning change can occur without a code change.",
+      "resultNotes": [
+       "Art. 25(1)(c) can change the provider role when the intended purpose changes to a high-risk use."
+      ]
      },
      {
       "label": "We sell a system that is NOT high-risk under OUR name or trademark",
       "goto": "o-provider",
-      "desc": "Below high-risk, Art. 25(1) does not bite — but supplying under your own name fits the Art. 3(3) provider definition; the live exposure is the provider-side Art. 50 transparency set, not the Art. 16 stack. Fact-specific — document the analysis."
+      "resultNotes": [
+       "Below high-risk, Art. 25(1) does not apply, but supplying under your own name fits the Art. 3(3) provider definition. The provider-side Art. 50 transparency obligations remain relevant rather than the Art. 16 high-risk obligations. This is fact-specific."
+      ],
+      "resultActions": [
+       "Document the provider-role analysis."
+      ]
      }
     ]
    },
@@ -5200,7 +6708,10 @@ export const WIZARDS = {
      {
       "label": "We substantially modify a HIGH-RISK system before placing it",
       "goto": "o-flip",
-      "desc": "Localizing or retraining CAN qualify — test against Art. 3(23): a change not foreseen in the provider's conformity assessment that affects compliance or changes the intended purpose. Changes within the provider's foreseen regime are not substantial."
+      "desc": "Art. 3(23): a change not foreseen in the provider's conformity assessment that affects compliance or changes the intended purpose. Changes within the provider's foreseen regime are not substantial.",
+      "resultActions": [
+       "Assess localization or retraining against the Art. 3(23) substantial-modification definition."
+      ]
      },
      {
       "label": "We reposition a non-high-risk system for a high-risk use",
@@ -5209,7 +6720,9 @@ export const WIZARDS = {
      {
       "label": "We place a system that is NOT high-risk on the market under OUR name or trademark",
       "goto": "o-provider",
-      "desc": "Below high-risk, Art. 25(1) does not bite — but supplying under your own name fits the Art. 3(3) provider definition; the live exposure is the provider-side Art. 50 transparency set, not the Art. 16 stack."
+      "resultNotes": [
+       "Below high-risk, Art. 25(1) does not bite — but supplying under your own name fits the Art. 3(3) provider definition; the live exposure is the provider-side Art. 50 transparency set, not the Art. 16 stack."
+      ]
      }
     ]
    },
@@ -5513,7 +7026,12 @@ export const WIZARDS = {
      {
       "label": "A system built ON a general-purpose model (a chatbot, copilot or app on top of an LLM)",
       "goto": "q-prohibited",
-      "desc": "The system ladder applies to what you ship; the model's Ch. V duties stay with the model provider — though if you fine-tune or substantially modify the model itself, you may become its provider for the modification (a contested boundary; document your analysis)."
+      "resultNotes": [
+       "The system classification applies to what you ship. The model's Ch. V duties remain with its provider, although fine-tuning or substantially modifying the model itself may make you its provider for that modification; this boundary is contested."
+      ],
+      "resultActions": [
+       "If you fine-tune or substantially modify the model, document the provider-role analysis for that modification."
+      ]
      },
      {
       "label": "A general-purpose AI MODEL itself — trained weights others build on",
@@ -5576,12 +7094,16 @@ export const WIZARDS = {
      {
       "label": "It sits in a product, but only for user assistance, performance, efficiency or quality control — no safety function, and failure would not endanger anyone",
       "goto": "q-annex3",
-      "desc": "Art. 6(1a)-(1b) as inserted 2026 — not a safety component; keep walking the ladder."
+      "resultNotes": [
+       "Art. 6(1a)-(1b) as inserted 2026 — not a safety component; The path also screened Annex III."
+      ]
      },
      {
       "label": "It IS a genuine safety component, but the product needs no third-party conformity assessment — or only for non-safety risks like radio spectrum",
       "goto": "q-annex3",
-      "desc": "Art. 6(1) needs BOTH conditions, and third-party assessment triggered solely by non-health-and-safety risks (spectrum, EMI) does not count (Art. 6(1c), inserted 2026). Keep walking; Annex III can still catch it."
+      "resultNotes": [
+       "Art. 6(1) needs BOTH conditions, and third-party assessment triggered solely by non-health-and-safety risks (spectrum, EMI) does not count (Art. 6(1c), inserted 2026). The path also screened Annex III."
+      ]
      },
      {
       "label": "No regulated-product angle at all",
@@ -5637,12 +7159,17 @@ export const WIZARDS = {
      {
       "label": "It profiles natural persons — automated evaluation of personal aspects (performance, economic situation, health, preferences, behavior, location...)",
       "goto": "o-high-annex3",
-      "desc": "The profiling override forecloses the derogation."
+      "resultNotes": [
+       "The profiling override forecloses the derogation."
+      ]
      },
      {
       "label": "It only performs a narrow procedural task",
       "goto": "o-derogation",
-      "desc": "Art. 6(3)(a) — e.g. converting unstructured data to structured. Careful: classifying DOCUMENTS is not classifying PEOPLE — a system that scores, ranks or filters candidates, applicants or claimants is profiling them (pick the first option)."
+      "desc": "Art. 6(3)(a): for example, converting unstructured data to structured. Classifying documents is different from scoring, ranking or filtering people.",
+      "resultActions": [
+       "If the system actually scores, ranks or filters people, re-run the profiling route."
+      ]
      },
      {
       "label": "It only improves the result of a previously completed human activity",
@@ -5662,7 +7189,9 @@ export const WIZARDS = {
      {
       "label": "None of these conditions fit",
       "goto": "o-high-annex3",
-      "desc": "The derogation fails when no condition fits — whether or not the system drives decisions."
+      "resultNotes": [
+       "The derogation fails when no condition fits — whether or not the system drives decisions."
+      ]
      }
     ]
    },
@@ -5686,12 +7215,17 @@ export const WIZARDS = {
      {
       "label": "It is a biometric-categorization system (non-sensitive attributes, lawful context)",
       "goto": "o-transparency",
-      "desc": "Categorization by SENSITIVE attributes is Annex III point 1(b) high-risk — or prohibited (Art. 5(1)(g)) where it infers the listed traits."
+      "resultNotes": [
+       "Categorization by SENSITIVE attributes is Annex III point 1(b) high-risk — or prohibited (Art. 5(1)(g)) where it infers the listed traits."
+      ]
      },
      {
       "label": "It infers people's emotions or intentions from biometric data (face, voice, physiological signals)",
       "goto": "q-filter",
-      "desc": "Back to the high-risk branch: emotion recognition is Annex III point 1(c) wherever it lawfully runs — point 1 applies in so far as the use is permitted under Union/national law, and workplace/education emotion inference is prohibited outright (Art. 5(1)(f)). Text-only sentiment analysis is not emotion recognition under Art. 3(39) — that is not this option."
+      "desc": "This choice concerns biometric emotion inference. Text-only sentiment analysis is not emotion recognition under Art. 3(39).",
+      "resultNotes": [
+       "Emotion recognition is Annex III point 1(c) where it lawfully runs. Annex III point 1 applies only so far as the use is permitted under Union or national law; workplace and education emotion inference is prohibited under Art. 5(1)(f). This path also screened the high-risk branch."
+      ]
      },
      {
       "label": "It generates or manipulates deepfakes, or publishes AI-written text informing the public",
@@ -5997,28 +7531,28 @@ export const WIZARDS = {
     "opts": [
      {
       "label": "Negligible (Very Low) — minimal or no adverse impact",
-      "desc": "Individuals experience little to no adverse effect; any inconvenience is trivial and easily overcome, with no meaningful loss of control over their data. No regulatory or material consequence for the organization.",
-      "goto": "q-lik-1"
+      "goto": "q-lik-1",
+      "desc": "Individuals experience little to no adverse effect; any inconvenience is trivial and easily overcome, with no meaningful loss of control over their data."
      },
      {
       "label": "Minor (Low) — limited, short-term impact",
-      "desc": "Individuals face minor, short-term inconvenience they can overcome without difficulty (re-entering data, minor annoyance). Isolated complaints or minor cost; no regulatory interest.",
-      "goto": "q-lik-2"
+      "goto": "q-lik-2",
+      "desc": "Individuals face minor, short-term inconvenience they can overcome without difficulty (re-entering data, minor annoyance)."
      },
      {
       "label": "Moderate (Moderate) — noticeable but recoverable",
-      "desc": "Individuals face real but recoverable harm — stress, lost time, minor financial loss, or limited loss of control over their personal data. Moderate cost, a possible regulatory inquiry, or limited reputational damage.",
-      "goto": "q-lik-3"
+      "goto": "q-lik-3",
+      "desc": "Individuals face real but recoverable harm — stress, lost time, minor financial loss, or limited loss of control over their personal data."
      },
      {
       "label": "Major (High) — significant, lasting impact",
-      "desc": "Individuals face significant harm that is difficult to overcome — material financial loss, discrimination, damage to reputation, or loss of confidentiality of protected data. Significant fines, regulatory action, or material reputational harm.",
-      "goto": "q-lik-4"
+      "goto": "q-lik-4",
+      "desc": "Individuals face significant harm that is difficult to overcome — material financial loss, discrimination, damage to reputation, or loss of confidentiality of protected data."
      },
      {
       "label": "Severe (Very High) — critical, potentially irreversible",
-      "desc": "Individuals face severe or irreversible harm to their fundamental rights — identity theft or fraud, physical or safety risk, financial ruin, or being unable to exercise control over their data. Maximum penalties, enforcement, litigation, or existential reputational damage.",
-      "goto": "q-lik-5"
+      "goto": "q-lik-5",
+      "desc": "Individuals face severe or irreversible harm to their fundamental rights — identity theft or fraud, physical or safety risk, financial ruin, or being unable to exercise control over their data."
      }
     ]
    },
@@ -6058,8 +7592,13 @@ export const WIZARDS = {
      },
      {
       "label": "Cannot yet be assessed — access or exfiltration cannot be ruled out",
-      "desc": "The honest mid-incident answer. Graded conservatively at the 'Likely' column until forensics say otherwise, in line with EDPB 9/2022's worked examples — the outcome describes the band you provisionally occupy, not an established finding; re-run this wizard as facts land.",
-      "goto": "o-low"
+      "goto": "o-low",
+      "resultNotes": [
+       "Likelihood has not been established. This result provisionally uses the rubric's Likely column until the investigation resolves access or exfiltration; it is not an established finding."
+      ],
+      "resultActions": [
+       "Re-run this wizard when the investigation establishes the likelihood of harm."
+      ]
      }
     ]
    },
@@ -6099,8 +7638,13 @@ export const WIZARDS = {
      },
      {
       "label": "Cannot yet be assessed — access or exfiltration cannot be ruled out",
-      "desc": "The honest mid-incident answer. Graded conservatively at the 'Likely' column until forensics say otherwise, in line with EDPB 9/2022's worked examples — the outcome describes the band you provisionally occupy, not an established finding; re-run this wizard as facts land.",
-      "goto": "o-medium"
+      "goto": "o-medium",
+      "resultNotes": [
+       "Likelihood has not been established. This result provisionally uses the rubric's Likely column until the investigation resolves access or exfiltration; it is not an established finding."
+      ],
+      "resultActions": [
+       "Re-run this wizard when the investigation establishes the likelihood of harm."
+      ]
      }
     ]
    },
@@ -6140,8 +7684,13 @@ export const WIZARDS = {
      },
      {
       "label": "Cannot yet be assessed — access or exfiltration cannot be ruled out",
-      "desc": "The honest mid-incident answer. Graded conservatively at the 'Likely' column until forensics say otherwise, in line with EDPB 9/2022's worked examples — the outcome describes the band you provisionally occupy, not an established finding; re-run this wizard as facts land.",
-      "goto": "o-high"
+      "goto": "o-high",
+      "resultNotes": [
+       "Likelihood has not been established. This result provisionally uses the rubric's Likely column until the investigation resolves access or exfiltration; it is not an established finding."
+      ],
+      "resultActions": [
+       "Re-run this wizard when the investigation establishes the likelihood of harm."
+      ]
      }
     ]
    },
@@ -6181,8 +7730,13 @@ export const WIZARDS = {
      },
      {
       "label": "Cannot yet be assessed — access or exfiltration cannot be ruled out",
-      "desc": "The honest mid-incident answer. Graded conservatively at the 'Likely' column until forensics say otherwise, in line with EDPB 9/2022's worked examples — the outcome describes the band you provisionally occupy, not an established finding; re-run this wizard as facts land.",
-      "goto": "o-critical"
+      "goto": "o-critical",
+      "resultNotes": [
+       "Likelihood has not been established. This result provisionally uses the rubric's Likely column until the investigation resolves access or exfiltration; it is not an established finding."
+      ],
+      "resultActions": [
+       "Re-run this wizard when the investigation establishes the likelihood of harm."
+      ]
      }
     ]
    },
@@ -6222,8 +7776,13 @@ export const WIZARDS = {
      },
      {
       "label": "Cannot yet be assessed — access or exfiltration cannot be ruled out",
-      "desc": "The honest mid-incident answer. Graded conservatively at the 'Likely' column until forensics say otherwise, in line with EDPB 9/2022's worked examples — the outcome describes the band you provisionally occupy, not an established finding; re-run this wizard as facts land.",
-      "goto": "o-critical"
+      "goto": "o-critical",
+      "resultNotes": [
+       "Likelihood has not been established. This result provisionally uses the rubric's Likely column until the investigation resolves access or exfiltration; it is not an established finding."
+      ],
+      "resultActions": [
+       "Re-run this wizard when the investigation establishes the likelihood of harm."
+      ]
      }
     ]
    },
@@ -6356,7 +7915,10323 @@ export const WIZARDS = {
     ]
    }
   }
+ },
+ "us-applicability": {
+  "title": "US state privacy law applicability",
+  "tag": "Check which state law reaches an entity and its processing, with thresholds, exclusions and remaining duties.",
+  "q": "Which state privacy laws apply to this processing?",
+  "icon": "globe",
+  "jurisdictions": [
+   "US-CA",
+   "US-CO",
+   "US-CT",
+   "US-DE",
+   "US-FL",
+   "US-IN",
+   "US-IA",
+   "US-KY",
+   "US-MD",
+   "US-MN",
+   "US-MT",
+   "US-NE",
+   "US-NH",
+   "US-NJ",
+   "US-OR",
+   "US-RI",
+   "US-TN",
+   "US-TX",
+   "US-UT",
+   "US-VA"
+  ],
+  "start": "select-state",
+  "jurisdictionRoutes": [
+   {
+    "id": "US-CA",
+    "label": "California",
+    "start": "ca-nexus"
+   },
+   {
+    "id": "US-CO",
+    "label": "Colorado",
+    "start": "co-nexus"
+   },
+   {
+    "id": "US-CT",
+    "label": "Connecticut",
+    "start": "ct-nexus"
+   },
+   {
+    "id": "US-DE",
+    "label": "Delaware",
+    "start": "de-nexus"
+   },
+   {
+    "id": "US-FL",
+    "label": "Florida",
+    "start": "fl-nexus"
+   },
+   {
+    "id": "US-IN",
+    "label": "Indiana",
+    "start": "in-nexus"
+   },
+   {
+    "id": "US-IA",
+    "label": "Iowa",
+    "start": "ia-nexus"
+   },
+   {
+    "id": "US-KY",
+    "label": "Kentucky",
+    "start": "ky-nexus"
+   },
+   {
+    "id": "US-MD",
+    "label": "Maryland",
+    "start": "md-nexus"
+   },
+   {
+    "id": "US-MN",
+    "label": "Minnesota",
+    "start": "mn-nexus"
+   },
+   {
+    "id": "US-MT",
+    "label": "Montana",
+    "start": "mt-nexus"
+   },
+   {
+    "id": "US-NE",
+    "label": "Nebraska",
+    "start": "ne-nexus"
+   },
+   {
+    "id": "US-NH",
+    "label": "New Hampshire",
+    "start": "nh-nexus"
+   },
+   {
+    "id": "US-NJ",
+    "label": "New Jersey",
+    "start": "nj-nexus"
+   },
+   {
+    "id": "US-OR",
+    "label": "Oregon",
+    "start": "or-nexus"
+   },
+   {
+    "id": "US-RI",
+    "label": "Rhode Island",
+    "start": "ri-nexus"
+   },
+   {
+    "id": "US-TN",
+    "label": "Tennessee",
+    "start": "tn-nexus"
+   },
+   {
+    "id": "US-TX",
+    "label": "Texas",
+    "start": "tx-nexus"
+   },
+   {
+    "id": "US-UT",
+    "label": "Utah",
+    "start": "ut-nexus"
+   },
+   {
+    "id": "US-VA",
+    "label": "Virginia",
+    "start": "va-nexus"
+   }
+  ],
+  "nodes": {
+   "ca-nexus": {
+    "type": "question",
+    "q": "Does the entity do business in California?",
+    "help": "California residents, including employment and business-contact data; the transaction-count limb also counts households. It counts buying, selling or sharing, not processing alone. Use the actual entity and processing in this assessment; a website being technically reachable is not by itself proof of the stated business or targeting test.",
+    "cites": [
+     "pwc-us-ca-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "ca-entity"
+     },
+     {
+      "label": "No",
+      "goto": "ca-related"
+     },
+     {
+      "label": "Not sure",
+      "goto": "ca-nexus-unknown"
+     }
+    ]
+   },
+   "ca-nexus-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The California result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-ca-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Does the entity do business in California? Record resident reach, contracts, delivery and targeting evidence.",
+      "owner": "Business owner and privacy counsel",
+      "why": "The state connection is part of this law's applicability rule."
+     }
+    ]
+   },
+   "ca-entity": {
+    "type": "question",
+    "q": "Is it organized for profit or owners’ financial benefit, collecting consumer personal information itself or on its behalf, AND determining the purposes and means alone or jointly?",
+    "help": "A direct business must be organized for profit or owners’ financial benefit, collect consumers’ personal information (itself or on its behalf), and determine purposes and means, alone or jointly. Related entities, qualifying joint ventures and voluntary certification are separate routes.",
+    "cites": [
+     "pwc-us-ca-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "ca-threshold"
+     },
+     {
+      "label": "No",
+      "goto": "ca-related"
+     },
+     {
+      "label": "Not sure",
+      "goto": "ca-entity-unknown"
+     }
+    ]
+   },
+   "ca-entity-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The California result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-ca-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Entity purpose, who collects the information, and who determines processing purposes and means",
+      "owner": "Corporate counsel and processing owner",
+      "why": "These are cumulative conditions of the direct CCPA business definition."
+     }
+    ]
+   },
+   "ca-data": {
+    "type": "question",
+    "q": "Is every record in the assessed processing covered by a specific data exclusion?",
+    "help": "Exemptions are attached to particular data or activities under §1798.145. HIPAA/CMIA, qualifying clinical research, GLBA/CFIPA, FCRA and DPPA are not a general exemption for every record held by the organization. Employment and business-contact data are not generally excluded. Some exemptions preserve §1798.150 security-breach liability. Answer no if any relevant data remains, then measure that non-excluded scope; retain a record of the excluded categories.",
+    "cites": [
+     "pwc-us-ca-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "ca-data-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "ca-covered"
+     },
+     {
+      "label": "Not sure",
+      "goto": "ca-data-unknown"
+     }
+    ]
+   },
+   "ca-data-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The California result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-ca-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The data inventory, each claimed exemption, and evidence that its holder, purpose and handling conditions are satisfied",
+      "owner": "Privacy counsel and data owners",
+      "why": "An exemption for some records does not exclude all records or the whole organization."
+     }
+    ]
+   },
+   "ca-threshold": {
+    "type": "question",
+    "q": "Does ANY threshold hold: preceding-calendar-year annual gross revenue is strictly greater than $26,625,000 (as of January 1); OR it annually buys, sells or shares personal information of at least 100,000 consumers or households; OR at least 50% of annual revenue comes from selling or sharing consumers’ personal information?",
+    "help": "California residents, including employment and business-contact data; the transaction-count limb also counts households. It counts buying, selling or sharing, not processing alone. Revenue: preceding calendar year as of January 1. Transaction count and sale/share revenue: annual. Use this state's sale definition and its exceptions; advertising disclosure or a vendor contract is not automatically a statutory sale.",
+    "cites": [
+     "pwc-us-ca-scope",
+     "pwc-us-ca-scope-adjustment"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "ca-data"
+     },
+     {
+      "label": "No",
+      "goto": "ca-related"
+     },
+     {
+      "label": "Not sure",
+      "goto": "ca-threshold-unknown"
+     }
+    ]
+   },
+   "ca-threshold-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The California result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-ca-scope",
+     "pwc-us-ca-scope-adjustment"
+    ],
+    "missingFacts": [
+     {
+      "fact": "State-specific count, applicable measuring period, and any revenue or sale/share measure needed for: Does ANY threshold hold: preceding-calendar-year annual gross revenue is strictly greater than $26,625,000 (as of January 1); OR it annually buys, sells or shares personal information of at least 100,000 consumers or households; OR at least 50% of annual revenue comes from selling or sharing consumers’ personal information?",
+      "owner": "Finance, analytics/data owners and privacy counsel",
+      "why": "Exact counts, sale classification and strict versus inclusive comparisons determine whether this gate is met."
+     }
+    ]
+   },
+   "ca-data-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "The assessed dataset has an exclusion",
+    "summary": "The assessed records have a confirmed CCPA exclusion, within its exact boundaries. Some exemptions expressly preserve §1798.150 security-breach liability, so this is not a no-CCPA-duties result.",
+    "actions": [
+     "Check whether §1798.150 remains applicable to the claimed FCRA, GLBA/CFIPA/Farm Credit or DPPA exemption.",
+     "Record the provision, covered records, handling conditions and owner.",
+     "Reassess any new or mixed data and any duties expressly preserved by the exemption."
+    ],
+    "cites": [
+     "pwc-us-ca-scope-exemptions"
+    ]
+   },
+   "ca-covered": {
+    "type": "outcome",
+    "tier": "required",
+    "title": "The general applicability gate is met",
+    "summary": "Your answers satisfy the California scope gate for the non-excluded processing in this assessment. Specific obligations depend on the entity's actual controller, processor or other statutory role.",
+    "actions": [
+     "Save the nexus, exemption and threshold evidence with the assessment.",
+     "Assign the processing role and evaluate this state's notice, rights, consent, contracts and assessment duties.",
+     "Recheck when the entity, data, processing or law changes."
+    ],
+    "cites": [
+     "pwc-us-ca-scope"
+    ]
+   },
+   "co-nexus": {
+    "type": "question",
+    "q": "Does the controller conduct business in Colorado OR produce or deliver commercial products or services intentionally targeted to Colorado residents?",
+    "help": "Colorado residents acting individually or as a household; ordinary consumer counts exclude commercial and employment roles. Biometric and minors provisions require separate checks. Use the actual entity and processing in this assessment; a website being technically reachable is not by itself proof of the stated business or targeting test.",
+    "cites": [
+     "pwc-us-co-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "co-entity"
+     },
+     {
+      "label": "No",
+      "goto": "co-no-nexus"
+     },
+     {
+      "label": "Not sure",
+      "goto": "co-nexus-unknown"
+     }
+    ]
+   },
+   "co-nexus-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Colorado result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-co-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Does the controller conduct business in Colorado OR produce or deliver commercial products or services intentionally targeted to Colorado residents? Record resident reach, contracts, delivery and targeting evidence.",
+      "owner": "Business owner and privacy counsel",
+      "why": "The state connection is part of this law's applicability rule."
+     }
+    ]
+   },
+   "co-entity": {
+    "type": "question",
+    "q": "Does a specific entity exclusion fully cover this entity and the activity being assessed?",
+    "help": "Qualifying GLBA financial institutions and their affiliates, air carriers, and specified national securities associations have entity exclusions. There is no general nonprofit or HIPAA-covered-entity exclusion; government data is excluded only for a noncommercial purpose. Answer yes only after identifying the exact statutory category and satisfying every condition. A data-only exemption belongs in the next question.",
+    "cites": [
+     "pwc-us-co-scope-exemptions",
+     "pwc-us-co-scope-special"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "co-entity-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "co-data"
+     },
+     {
+      "label": "Not sure",
+      "goto": "co-entity-unknown"
+     }
+    ]
+   },
+   "co-entity-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Colorado result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-co-scope-exemptions",
+     "pwc-us-co-scope-special"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The exact statutory entity-exclusion category, legal status and any activity restrictions",
+      "owner": "Corporate counsel and the entity's regulatory or compliance owner",
+      "why": "A nonprofit, healthcare or financial-services label may not match the state's narrower legal definition."
+     }
+    ]
+   },
+   "co-data": {
+    "type": "question",
+    "q": "Is every record in the assessed processing covered by a specific data exclusion?",
+    "help": "§6-1-1304(2) excludes specified HIPAA, health-research, GLBA, FCRA-regulated activity, DPPA, FERPA, COPPA-compliant, employment and other listed data. Check each record and the conditions. A job role alone does not resolve the separate biometric provisions. Answer no if any relevant data remains, then measure that non-excluded scope; retain a record of the excluded categories.",
+    "cites": [
+     "pwc-us-co-scope-exemptions",
+     "pwc-us-co-scope-special"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "co-data-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "co-threshold"
+     },
+     {
+      "label": "Not sure",
+      "goto": "co-data-unknown"
+     }
+    ]
+   },
+   "co-data-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Colorado result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-co-scope-exemptions",
+     "pwc-us-co-scope-special"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The data inventory, each claimed exemption, and evidence that its holder, purpose and handling conditions are satisfied",
+      "owner": "Privacy counsel and data owners",
+      "why": "An exemption for some records does not exclude all records or the whole organization."
+     }
+    ]
+   },
+   "co-threshold": {
+    "type": "question",
+    "q": "During a calendar year, does it control or process personal data of at least 100,000 consumers; OR does it control or process at least 25,000 consumers’ personal data AND derive any revenue or receive any discount from selling personal data?",
+    "help": "Colorado residents acting individually or as a household; ordinary consumer counts exclude commercial and employment roles. Biometric and minors provisions require separate checks. 100,000 limb: during a calendar year. The 25,000-plus-sale limb does not separately state a lookback; do not silently substitute preceding calendar year. Use this state's sale definition and its exceptions; advertising disclosure or a vendor contract is not automatically a statutory sale.",
+    "cites": [
+     "pwc-us-co-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "co-covered"
+     },
+     {
+      "label": "No",
+      "goto": "co-biometric"
+     },
+     {
+      "label": "Not sure",
+      "goto": "co-threshold-unknown"
+     }
+    ]
+   },
+   "co-threshold-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Colorado result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-co-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "State-specific count, applicable measuring period, and any revenue or sale/share measure needed for: During a calendar year, does it control or process personal data of at least 100,000 consumers; OR does it control or process at least 25,000 consumers’ personal data AND derive any revenue or receive any discount from selling personal data?",
+      "owner": "Finance, analytics/data owners and privacy counsel",
+      "why": "Exact counts, sale classification and strict versus inclusive comparisons determine whether this gate is met."
+     }
+    ]
+   },
+   "co-no-nexus": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "General territorial scope is not established",
+    "summary": "On these answers, the stated Colorado business/resident connection is absent. This result addresses only the general applicability route assessed here.",
+    "actions": [
+     "Keep the business and resident-reach evidence supporting this answer.",
+     "Reassess if targeting, delivery, corporate relationships or processing changes; check any separate recipient, sector or contractual duties."
+    ],
+    "cites": [
+     "pwc-us-co-scope"
+    ]
+   },
+   "co-entity-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "An entity exclusion was identified",
+    "summary": "The specific Colorado entity exclusion you confirmed removes the entity/activity within that exclusion's boundaries from this law's general scope.",
+    "actions": [
+     "Record the exact provision and evidence supporting the category and its conditions.",
+     "Keep unrelated entities, activities and separate statutory duties outside this result."
+    ],
+    "cites": [
+     "pwc-us-co-scope-exemptions",
+     "pwc-us-co-scope-special"
+    ]
+   },
+   "co-data-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "The assessed dataset has an exclusion",
+    "summary": "You identified an applicable Colorado exclusion for every record in this assessed processing. The answer does not exempt the organization or other datasets.",
+    "actions": [
+     "If the dataset includes employer biometrics, assess §6-1-1314 separately before relying on the ordinary employment-data exclusion.",
+     "Record the provision, covered records, handling conditions and owner.",
+     "Reassess any new or mixed data and any duties expressly preserved by the exemption."
+    ],
+    "cites": [
+     "pwc-us-co-scope-exemptions",
+     "pwc-us-co-scope-special"
+    ]
+   },
+   "co-covered": {
+    "type": "outcome",
+    "tier": "required",
+    "title": "The general applicability gate is met",
+    "summary": "Your answers satisfy the Colorado scope gate for the non-excluded processing in this assessment. Specific obligations depend on the entity's actual controller, processor or other statutory role.",
+    "actions": [
+     "Save the nexus, exemption and threshold evidence with the assessment.",
+     "Assign the processing role and evaluate this state's notice, rights, consent, contracts and assessment duties.",
+     "Recheck when the entity, data, processing or law changes."
+    ],
+    "cites": [
+     "pwc-us-co-scope"
+    ]
+   },
+   "co-below": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "The general thresholds are not met",
+    "summary": "On the supplied facts, the Colorado general numeric/revenue scope gate is not met. This is limited to that gate and the stated measuring period.",
+    "actions": [
+     "Keep the counts, financial calculation and sale classification supporting this result.",
+     "Reassess growth and processing changes; assess separate sector, recipient and contractual duties where relevant."
+    ],
+    "cites": [
+     "pwc-us-co-scope"
+    ]
+   },
+   "ct-nexus": {
+    "type": "question",
+    "q": "Does the assessment involve personal data of Connecticut consumers?",
+    "help": "A consumer is a Connecticut resident acting in an individual or household context. Since July 1, 2026, sensitive-data processing and offering consumer data for sale are separate scope routes without a minimum count; the business/targeting condition appears in the 35,000 route.",
+    "cites": [
+     "pwc-us-ct-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "ct-entity"
+     },
+     {
+      "label": "No",
+      "goto": "ct-no-nexus"
+     },
+     {
+      "label": "Not sure",
+      "goto": "ct-nexus-unknown"
+     }
+    ]
+   },
+   "ct-nexus-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Connecticut result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-ct-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Does the assessment involve personal data of Connecticut consumers? Record resident reach, contracts, delivery and targeting evidence.",
+      "owner": "Business owner and privacy counsel",
+      "why": "The state connection is part of this law's applicability rule."
+     }
+    ]
+   },
+   "ct-entity": {
+    "type": "question",
+    "q": "Does a specific entity exclusion fully cover this entity and the activity being assessed?",
+    "help": "The July 1, 2026 version lists government bodies; specified government contractors processing consumer health data on their behalf; nonprofits; political committees; higher education; national securities associations; HIPAA covered entities/business associates; tribal government; air carriers; insurance entities; qualifying banks/credit unions and affiliates subject to the stated financial-activity, examination and privacy-program conditions; and specified regulated securities entities. GLBA status alone no longer creates a universal entity exemption. Answer yes only after identifying the exact statutory category and satisfying every condition. A data-only exemption belongs in the next question.",
+    "cites": [
+     "pwc-us-ct-scope-exemptions",
+     "pwc-us-ct-scope-dot"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "ct-entity-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "ct-data"
+     },
+     {
+      "label": "Not sure",
+      "goto": "ct-entity-unknown"
+     }
+    ]
+   },
+   "ct-entity-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Connecticut result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-ct-scope-exemptions",
+     "pwc-us-ct-scope-dot"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The exact statutory entity-exclusion category, legal status and any activity restrictions",
+      "owner": "Corporate counsel and the entity's regulatory or compliance owner",
+      "why": "A nonprofit, healthcare or financial-services label may not match the state's narrower legal definition."
+     }
+    ]
+   },
+   "ct-data": {
+    "type": "question",
+    "q": "Is every record in the assessed processing covered by a specific data exclusion?",
+    "help": "Use the July 1, 2026 §42-517(b), plus PA26-76 §72. Listed health/research, FCRA-regulated activity, DPPA, FERPA, Farm Credit, employment-role, airline and GLBA data remain conditional data exemptions. PA26-76 adds narrowly defined deidentified or aggregated DOT transportation geolocation data. Answer no if any relevant data remains, then measure that non-excluded scope; retain a record of the excluded categories.",
+    "cites": [
+     "pwc-us-ct-scope-exemptions",
+     "pwc-us-ct-scope-dot"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "ct-data-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "ct-threshold"
+     },
+     {
+      "label": "Not sure",
+      "goto": "ct-data-unknown"
+     }
+    ]
+   },
+   "ct-data-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Connecticut result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-ct-scope-exemptions",
+     "pwc-us-ct-scope-dot"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The data inventory, each claimed exemption, and evidence that its holder, purpose and handling conditions are satisfied",
+      "owner": "Privacy counsel and data owners",
+      "why": "An exemption for some records does not exclude all records or the whole organization."
+     }
+    ]
+   },
+   "ct-threshold": {
+    "type": "question",
+    "q": "Does ANY current route hold: it conducts business in Connecticut OR targets products/services to Connecticut residents, AND controlled or processed at least 35,000 consumers’ personal data in the preceding calendar year (excluding payment-only data); OR it controls or processes a consumer’s sensitive data (excluding payment-only data); OR it offers consumers’ personal data for sale in trade or commerce?",
+    "help": "Connecticut residents in an individual or household context, excluding employment and commercial roles. The 35,000 limb and sensitive-data limb exclude processing solely to complete a payment transaction. 35,000 route: preceding calendar year. Sensitive-data and offering-for-sale routes have no minimum count or revenue-share test. Use this state's sale definition and its exceptions; advertising disclosure or a vendor contract is not automatically a statutory sale.",
+    "cites": [
+     "pwc-us-ct-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "ct-covered"
+     },
+     {
+      "label": "No",
+      "goto": "ct-below"
+     },
+     {
+      "label": "Not sure",
+      "goto": "ct-threshold-unknown"
+     }
+    ]
+   },
+   "ct-threshold-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Connecticut result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-ct-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "State-specific count, applicable measuring period, and any revenue or sale/share measure needed for: Does ANY current route hold: it conducts business in Connecticut OR targets products/services to Connecticut residents, AND controlled or processed at least 35,000 consumers’ personal data in the preceding calendar year (excluding payment-only data); OR it controls or processes a consumer’s sensitive data (excluding payment-only data); OR it offers consumers’ personal data for sale in trade or commerce?",
+      "owner": "Finance, analytics/data owners and privacy counsel",
+      "why": "Exact counts, sale classification and strict versus inclusive comparisons determine whether this gate is met."
+     }
+    ]
+   },
+   "ct-no-nexus": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "General territorial scope is not established",
+    "summary": "On these answers, the stated Connecticut business/resident connection is absent. This result addresses only the general applicability route assessed here.",
+    "actions": [
+     "Keep the business and resident-reach evidence supporting this answer.",
+     "Reassess if targeting, delivery, corporate relationships or processing changes; check any separate recipient, sector or contractual duties."
+    ],
+    "cites": [
+     "pwc-us-ct-scope"
+    ]
+   },
+   "ct-entity-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "An entity exclusion was identified",
+    "summary": "The specific Connecticut entity exclusion you confirmed removes the entity/activity within that exclusion's boundaries from this law's general scope.",
+    "actions": [
+     "Record the exact provision and evidence supporting the category and its conditions.",
+     "Keep unrelated entities, activities and separate statutory duties outside this result."
+    ],
+    "cites": [
+     "pwc-us-ct-scope-exemptions",
+     "pwc-us-ct-scope-dot"
+    ]
+   },
+   "ct-data-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "The assessed dataset has an exclusion",
+    "summary": "You identified an applicable Connecticut exclusion for every record in this assessed processing. The answer does not exempt the organization or other datasets.",
+    "actions": [
+     "Record the provision, covered records, handling conditions and owner.",
+     "Reassess any new or mixed data and any duties expressly preserved by the exemption."
+    ],
+    "cites": [
+     "pwc-us-ct-scope-exemptions",
+     "pwc-us-ct-scope-dot"
+    ]
+   },
+   "ct-covered": {
+    "type": "outcome",
+    "tier": "required",
+    "title": "The general applicability gate is met",
+    "summary": "Your answers satisfy the Connecticut scope gate for the non-excluded processing in this assessment. Specific obligations depend on the entity's actual controller, processor or other statutory role.",
+    "actions": [
+     "Save the nexus, exemption and threshold evidence with the assessment.",
+     "Assign the processing role and evaluate this state's notice, rights, consent, contracts and assessment duties.",
+     "Recheck when the entity, data, processing or law changes."
+    ],
+    "cites": [
+     "pwc-us-ct-scope"
+    ]
+   },
+   "ct-below": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "The general thresholds are not met",
+    "summary": "On the supplied facts, the Connecticut general numeric/revenue scope gate is not met. This is limited to that gate and the stated measuring period.",
+    "actions": [
+     "Keep the counts, financial calculation and sale classification supporting this result.",
+     "Reassess growth and processing changes; assess separate sector, recipient and contractual duties where relevant."
+    ],
+    "cites": [
+     "pwc-us-ct-scope"
+    ]
+   },
+   "de-nexus": {
+    "type": "question",
+    "q": "Does the person conduct business in Delaware OR produce products or services targeted to Delaware residents?",
+    "help": "Delaware residents acting individually or as a household, excluding employment and commercial roles. Exclude payment-only consumers from the 35,000 limb. Use the actual entity and processing in this assessment; a website being technically reachable is not by itself proof of the stated business or targeting test.",
+    "cites": [
+     "pwc-us-de-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "de-entity"
+     },
+     {
+      "label": "No",
+      "goto": "de-no-nexus"
+     },
+     {
+      "label": "Not sure",
+      "goto": "de-nexus-unknown"
+     }
+    ]
+   },
+   "de-nexus-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Delaware result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-de-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Does the person conduct business in Delaware OR produce products or services targeted to Delaware residents? Record resident reach, contracts, delivery and targeting evidence.",
+      "owner": "Business owner and privacy counsel",
+      "why": "The state connection is part of this law's applicability rule."
+     }
+    ]
+   },
+   "de-entity": {
+    "type": "question",
+    "q": "Does a specific entity exclusion fully cover this entity and the activity being assessed?",
+    "help": "Government bodies are excluded but institutions of higher education are carved out of that exclusion. Qualifying GLBA financial institutions and affiliates, specified national securities/futures associations, and nonprofits dedicated exclusively to insurance-crime prevention are excluded. There is no general nonprofit, higher-education or HIPAA-entity exemption. Answer yes only after identifying the exact statutory category and satisfying every condition. A data-only exemption belongs in the next question.",
+    "cites": [
+     "pwc-us-de-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "de-entity-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "de-data"
+     },
+     {
+      "label": "Not sure",
+      "goto": "de-entity-unknown"
+     }
+    ]
+   },
+   "de-entity-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Delaware result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-de-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The exact statutory entity-exclusion category, legal status and any activity restrictions",
+      "owner": "Corporate counsel and the entity's regulatory or compliance owner",
+      "why": "A nonprofit, healthcare or financial-services label may not match the state's narrower legal definition."
+     }
+    ]
+   },
+   "de-data": {
+    "type": "question",
+    "q": "Is every record in the assessed processing covered by a specific data exclusion?",
+    "help": "§12D-103(c) excludes specified health/research, regulated credit, DPPA, FERPA, Farm Credit and employment-role data. A HIPAA relationship does not exclude unrelated records. Document why each claimed category meets the statutory conditions. Answer no if any relevant data remains, then measure that non-excluded scope; retain a record of the excluded categories.",
+    "cites": [
+     "pwc-us-de-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "de-data-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "de-threshold"
+     },
+     {
+      "label": "Not sure",
+      "goto": "de-data-unknown"
+     }
+    ]
+   },
+   "de-data-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Delaware result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-de-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The data inventory, each claimed exemption, and evidence that its holder, purpose and handling conditions are satisfied",
+      "owner": "Privacy counsel and data owners",
+      "why": "An exemption for some records does not exclude all records or the whole organization."
+     }
+    ]
+   },
+   "de-threshold": {
+    "type": "question",
+    "q": "In the preceding calendar year, did it control or process personal data of at least 35,000 consumers (excluding payment-only data); OR at least 10,000 consumers AND derive strictly more than 20% of gross revenue from selling personal data?",
+    "help": "Delaware residents acting individually or as a household, excluding employment and commercial roles. Exclude payment-only consumers from the 35,000 limb. Preceding calendar year. Use this state's sale definition and its exceptions; advertising disclosure or a vendor contract is not automatically a statutory sale.",
+    "cites": [
+     "pwc-us-de-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "de-covered"
+     },
+     {
+      "label": "No",
+      "goto": "de-below"
+     },
+     {
+      "label": "Not sure",
+      "goto": "de-threshold-unknown"
+     }
+    ]
+   },
+   "de-threshold-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Delaware result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-de-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "State-specific count, applicable measuring period, and any revenue or sale/share measure needed for: In the preceding calendar year, did it control or process personal data of at least 35,000 consumers (excluding payment-only data); OR at least 10,000 consumers AND derive strictly more than 20% of gross revenue from selling personal data?",
+      "owner": "Finance, analytics/data owners and privacy counsel",
+      "why": "Exact counts, sale classification and strict versus inclusive comparisons determine whether this gate is met."
+     }
+    ]
+   },
+   "de-no-nexus": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "General territorial scope is not established",
+    "summary": "On these answers, the stated Delaware business/resident connection is absent. This result addresses only the general applicability route assessed here.",
+    "actions": [
+     "Keep the business and resident-reach evidence supporting this answer.",
+     "Reassess if targeting, delivery, corporate relationships or processing changes; check any separate recipient, sector or contractual duties."
+    ],
+    "cites": [
+     "pwc-us-de-scope"
+    ]
+   },
+   "de-entity-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "An entity exclusion was identified",
+    "summary": "The specific Delaware entity exclusion you confirmed removes the entity/activity within that exclusion's boundaries from this law's general scope.",
+    "actions": [
+     "Record the exact provision and evidence supporting the category and its conditions.",
+     "Keep unrelated entities, activities and separate statutory duties outside this result."
+    ],
+    "cites": [
+     "pwc-us-de-scope-exemptions"
+    ]
+   },
+   "de-data-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "The assessed dataset has an exclusion",
+    "summary": "You identified an applicable Delaware exclusion for every record in this assessed processing. The answer does not exempt the organization or other datasets.",
+    "actions": [
+     "Record the provision, covered records, handling conditions and owner.",
+     "Reassess any new or mixed data and any duties expressly preserved by the exemption."
+    ],
+    "cites": [
+     "pwc-us-de-scope-exemptions"
+    ]
+   },
+   "de-covered": {
+    "type": "outcome",
+    "tier": "required",
+    "title": "The general applicability gate is met",
+    "summary": "Your answers satisfy the Delaware scope gate for the non-excluded processing in this assessment. Specific obligations depend on the entity's actual controller, processor or other statutory role.",
+    "actions": [
+     "Save the nexus, exemption and threshold evidence with the assessment.",
+     "Assign the processing role and evaluate this state's notice, rights, consent, contracts and assessment duties.",
+     "Recheck when the entity, data, processing or law changes."
+    ],
+    "cites": [
+     "pwc-us-de-scope"
+    ]
+   },
+   "de-below": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "The general thresholds are not met",
+    "summary": "On the supplied facts, the Delaware general numeric/revenue scope gate is not met. This is limited to that gate and the stated measuring period.",
+    "actions": [
+     "Keep the counts, financial calculation and sale classification supporting this result.",
+     "Reassess growth and processing changes; assess separate sector, recipient and contractual duties where relevant."
+    ],
+    "cites": [
+     "pwc-us-de-scope"
+    ]
+   },
+   "fl-nexus": {
+    "type": "question",
+    "q": "Does it conduct business in Florida OR produce a product or service used by Florida residents, AND process or engage in the sale of personal data?",
+    "help": "Florida residents or domiciliaries acting in an individual or household context; not commercial or employment roles. General controller coverage is not a resident-volume test. Use the actual entity and processing in this assessment; a website being technically reachable is not by itself proof of the stated business or targeting test.",
+    "cites": [
+     "pwc-us-fl-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "fl-entity"
+     },
+     {
+      "label": "No",
+      "goto": "fl-related"
+     },
+     {
+      "label": "Not sure",
+      "goto": "fl-nexus-unknown"
+     }
+    ]
+   },
+   "fl-nexus-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Florida result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-fl-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Does it conduct business in Florida OR produce a product or service used by Florida residents, AND process or engage in the sale of personal data? Record resident reach, contracts, delivery and targeting evidence.",
+      "owner": "Business owner and privacy counsel",
+      "why": "The state connection is part of this law's applicability rule."
+     }
+    ]
+   },
+   "fl-entity": {
+    "type": "question",
+    "q": "Does a specific entity exclusion fully cover this entity and the activity being assessed?",
+    "help": "§501.703 excludes government entities, qualifying GLBA financial institutions, HIPAA covered entities/business associates, nonprofits, and postsecondary institutions. Section 501.703 also excludes purely personal/household processing and specified ad-measurement-only processing. Answer yes only after identifying the exact statutory category and satisfying every condition. A data-only exemption belongs in the next question.",
+    "cites": [
+     "pwc-us-fl-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "fl-entity-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "fl-data"
+     },
+     {
+      "label": "Not sure",
+      "goto": "fl-entity-unknown"
+     }
+    ]
+   },
+   "fl-entity-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Florida result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-fl-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The exact statutory entity-exclusion category, legal status and any activity restrictions",
+      "owner": "Corporate counsel and the entity's regulatory or compliance owner",
+      "why": "A nonprofit, healthcare or financial-services label may not match the state's narrower legal definition."
+     }
+    ]
+   },
+   "fl-data": {
+    "type": "question",
+    "q": "Is every record in the assessed processing covered by a specific data exclusion?",
+    "help": "§501.704 and the GLBA-data exclusion in §501.703 apply to specified records and processing, including protected health and regulated credit data. They do not make every dataset held by an otherwise covered entity exempt. Answer no if any relevant data remains, then measure that non-excluded scope; retain a record of the excluded categories.",
+    "cites": [
+     "pwc-us-fl-scope-data",
+     "pwc-us-fl-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "fl-data-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "fl-base"
+     },
+     {
+      "label": "Not sure",
+      "goto": "fl-data-unknown"
+     }
+    ]
+   },
+   "fl-data-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Florida result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-fl-scope-data",
+     "pwc-us-fl-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The data inventory, each claimed exemption, and evidence that its holder, purpose and handling conditions are satisfied",
+      "owner": "Privacy counsel and data owners",
+      "why": "An exemption for some records does not exclude all records or the whole organization."
+     }
+    ]
+   },
+   "fl-threshold": {
+    "type": "question",
+    "q": "Does it have strictly more than $1 billion in global gross annual revenue AND at least one of these: at least 50% of global gross annual revenue from online advertising; operation of the qualifying cloud-connected hands-free virtual-assistant smart speaker; or an app store/digital distribution platform offering at least 250,000 different software applications?",
+    "help": "Florida residents or domiciliaries acting in an individual or household context; not commercial or employment roles. General controller coverage is not a resident-volume test. Global gross annual revenue; no numeric resident-count limb. Use this state's sale definition and its exceptions; advertising disclosure or a vendor contract is not automatically a statutory sale.",
+    "cites": [
+     "pwc-us-fl-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "fl-covered"
+     },
+     {
+      "label": "No",
+      "goto": "fl-related"
+     },
+     {
+      "label": "Not sure",
+      "goto": "fl-threshold-unknown"
+     }
+    ]
+   },
+   "fl-threshold-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Florida result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-fl-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "State-specific count, applicable measuring period, and any revenue or sale/share measure needed for: Does it have strictly more than $1 billion in global gross annual revenue AND at least one of these: at least 50% of global gross annual revenue from online advertising; operation of the qualifying cloud-connected hands-free virtual-assistant smart speaker; or an app store/digital distribution platform offering at least 250,000 different software applications?",
+      "owner": "Finance, analytics/data owners and privacy counsel",
+      "why": "Exact counts, sale classification and strict versus inclusive comparisons determine whether this gate is met."
+     }
+    ]
+   },
+   "fl-entity-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "An entity exclusion was identified",
+    "summary": "The specific Florida entity exclusion you confirmed removes the entity/activity within that exclusion's boundaries from this law's general scope.",
+    "actions": [
+     "Record the exact provision and evidence supporting the category and its conditions.",
+     "Keep unrelated entities, activities and separate statutory duties outside this result."
+    ],
+    "cites": [
+     "pwc-us-fl-scope-exemptions"
+    ]
+   },
+   "fl-data-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "The assessed dataset has an exclusion",
+    "summary": "You identified an applicable Florida exclusion for every record in this assessed processing. The answer does not exempt the organization or other datasets.",
+    "actions": [
+     "Record the provision, covered records, handling conditions and owner.",
+     "Reassess any new or mixed data and any duties expressly preserved by the exemption."
+    ],
+    "cites": [
+     "pwc-us-fl-scope-data",
+     "pwc-us-fl-scope-exemptions"
+    ]
+   },
+   "fl-covered": {
+    "type": "outcome",
+    "tier": "required",
+    "title": "The general applicability gate is met",
+    "summary": "Your answers satisfy the Florida scope gate for the non-excluded processing in this assessment. Specific obligations depend on the entity's actual controller, processor or other statutory role.",
+    "actions": [
+     "Save the nexus, exemption and threshold evidence with the assessment.",
+     "Assign the processing role and evaluate this state's notice, rights, consent, contracts and assessment duties.",
+     "Recheck when the entity, data, processing or law changes."
+    ],
+    "cites": [
+     "pwc-us-fl-scope"
+    ]
+   },
+   "fl-below": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "General controller status was not established",
+    "summary": "Neither the assessed direct/related controller route nor a sensitive/children's-data sale duty was established on these answers. This finding is limited to the criteria assessed.",
+    "actions": [
+     "Keep the counts, financial calculation and sale classification supporting this result.",
+     "Reassess growth and processing changes; assess separate sector, recipient and contractual duties where relevant."
+    ],
+    "cites": [
+     "pwc-us-fl-scope"
+    ]
+   },
+   "in-nexus": {
+    "type": "question",
+    "q": "Does it conduct business in Indiana OR produce products or services targeted to Indiana residents?",
+    "help": "Indiana consumers in their individual/household role, not commercial or employment roles. The statute's consumer definition, not an undifferentiated database of residents, controls the count. Use the actual entity and processing in this assessment; a website being technically reachable is not by itself proof of the stated business or targeting test.",
+    "cites": [
+     "pwc-us-in-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "in-entity"
+     },
+     {
+      "label": "No",
+      "goto": "in-no-nexus"
+     },
+     {
+      "label": "Not sure",
+      "goto": "in-nexus-unknown"
+     }
+    ]
+   },
+   "in-nexus-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Indiana result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-in-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Does it conduct business in Indiana OR produce products or services targeted to Indiana residents? Record resident reach, contracts, delivery and targeting evidence.",
+      "owner": "Business owner and privacy counsel",
+      "why": "The state connection is part of this law's applicability rule."
+     }
+    ]
+   },
+   "in-entity": {
+    "type": "question",
+    "q": "Does a specific entity exclusion fully cover this entity and the activity being assessed?",
+    "help": "IC 24-15-1-1(b) excludes government entities and contractors only while acting on their behalf within the contract; GLBA financial institutions and affiliates; HIPAA covered entities/business associates; qualifying nonprofits; higher education; defined public utilities and affiliated service companies; and 501(c)(4) insurance-crime/fraud organizations with a memorandum of understanding with statewide law enforcement. Answer yes only after identifying the exact statutory category and satisfying every condition. A data-only exemption belongs in the next question.",
+    "cites": [
+     "pwc-us-in-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "in-entity-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "in-data"
+     },
+     {
+      "label": "Not sure",
+      "goto": "in-entity-unknown"
+     }
+    ]
+   },
+   "in-entity-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Indiana result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-in-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The exact statutory entity-exclusion category, legal status and any activity restrictions",
+      "owner": "Corporate counsel and the entity's regulatory or compliance owner",
+      "why": "A nonprofit, healthcare or financial-services label may not match the state's narrower legal definition."
+     }
+    ]
+   },
+   "in-data": {
+    "type": "question",
+    "q": "Is every record in the assessed processing covered by a specific data exclusion?",
+    "help": "IC 24-15-1-2 excludes specified HIPAA, Part2, health-research, patient-safety, deidentified-health, same-manner health, public-health-only, FCRA-regulated, DPPA, FERPA, Farm Credit and employment-role/emergency-contact/benefits information. Each category retains its holder, purpose or handling conditions. GLBA data is independently excluded in IC 24-15-1-1(b)(2). Answer no if any relevant data remains, then measure that non-excluded scope; retain a record of the excluded categories.",
+    "cites": [
+     "pwc-us-in-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "in-data-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "in-threshold"
+     },
+     {
+      "label": "Not sure",
+      "goto": "in-data-unknown"
+     }
+    ]
+   },
+   "in-data-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Indiana result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-in-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The data inventory, each claimed exemption, and evidence that its holder, purpose and handling conditions are satisfied",
+      "owner": "Privacy counsel and data owners",
+      "why": "An exemption for some records does not exclude all records or the whole organization."
+     }
+    ]
+   },
+   "in-threshold": {
+    "type": "question",
+    "q": "During the applicable calendar year, does it control or process personal data of at least 100,000 consumers; OR at least 25,000 consumers AND derive strictly more than 50% of gross revenue from selling personal data?",
+    "help": "Indiana consumers in their individual/household role, not commercial or employment roles. The statute's consumer definition, not an undifferentiated database of residents, controls the count. During the applicable calendar year. Use this state's sale definition and its exceptions; advertising disclosure or a vendor contract is not automatically a statutory sale.",
+    "cites": [
+     "pwc-us-in-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "in-covered"
+     },
+     {
+      "label": "No",
+      "goto": "in-below"
+     },
+     {
+      "label": "Not sure",
+      "goto": "in-threshold-unknown"
+     }
+    ]
+   },
+   "in-threshold-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Indiana result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-in-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "State-specific count, applicable measuring period, and any revenue or sale/share measure needed for: During the applicable calendar year, does it control or process personal data of at least 100,000 consumers; OR at least 25,000 consumers AND derive strictly more than 50% of gross revenue from selling personal data?",
+      "owner": "Finance, analytics/data owners and privacy counsel",
+      "why": "Exact counts, sale classification and strict versus inclusive comparisons determine whether this gate is met."
+     }
+    ]
+   },
+   "in-no-nexus": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "General territorial scope is not established",
+    "summary": "On these answers, the stated Indiana business/resident connection is absent. This result addresses only the general applicability route assessed here.",
+    "actions": [
+     "Keep the business and resident-reach evidence supporting this answer.",
+     "Reassess if targeting, delivery, corporate relationships or processing changes; check any separate recipient, sector or contractual duties."
+    ],
+    "cites": [
+     "pwc-us-in-scope"
+    ]
+   },
+   "in-entity-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "An entity exclusion was identified",
+    "summary": "The specific Indiana entity exclusion you confirmed removes the entity/activity within that exclusion's boundaries from this law's general scope.",
+    "actions": [
+     "Record the exact IC 24-15-1-1(b) provision and evidence supporting the category and its conditions.",
+     "A government contractor must distinguish records held or created within the contract from those outside it; a service-company affiliate must satisfy the statutory definition."
+    ],
+    "cites": [
+     "pwc-us-in-scope-exemptions"
+    ]
+   },
+   "in-data-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "The assessed dataset has an exclusion",
+    "summary": "You identified an applicable Indiana exclusion for every record in this assessed processing. This does not exclude the organization or other datasets.",
+    "actions": [
+     "Record the provision, covered records, handling conditions and owner.",
+     "Reassess new or mixed data and any duties outside the exclusion."
+    ],
+    "cites": [
+     "pwc-us-in-scope-exemptions"
+    ]
+   },
+   "in-covered": {
+    "type": "outcome",
+    "tier": "required",
+    "title": "The general applicability gate is met",
+    "summary": "Your answers satisfy the Indiana scope gate for the non-excluded processing in this assessment. Specific obligations depend on the entity's actual controller, processor or other statutory role.",
+    "actions": [
+     "Save the nexus, exemption and threshold evidence with the assessment.",
+     "Assign the processing role and evaluate this state's notice, rights, consent, contracts and assessment duties.",
+     "Recheck when the entity, data, processing or law changes."
+    ],
+    "cites": [
+     "pwc-us-in-scope"
+    ]
+   },
+   "in-below": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "The general thresholds are not met",
+    "summary": "On the supplied facts, the Indiana general numeric/revenue scope gate is not met. This is limited to that gate and the stated measuring period.",
+    "actions": [
+     "Keep the counts, financial calculation and sale classification supporting this result.",
+     "Reassess growth and processing changes; assess separate sector, recipient and contractual duties where relevant."
+    ],
+    "cites": [
+     "pwc-us-in-scope"
+    ]
+   },
+   "ia-nexus": {
+    "type": "question",
+    "q": "Does it conduct business in Iowa OR produce products or services targeted to consumers who are Iowa residents?",
+    "help": "Iowa residents in their individual/household role, excluding commercial and employment roles. There is no payment-only deduction in the 100,000 threshold. Use the actual entity and processing in this assessment; a website being technically reachable is not by itself proof of the stated business or targeting test.",
+    "cites": [
+     "pwc-us-ia-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "ia-entity"
+     },
+     {
+      "label": "No",
+      "goto": "ia-no-nexus"
+     },
+     {
+      "label": "Not sure",
+      "goto": "ia-nexus-unknown"
+     }
+    ]
+   },
+   "ia-nexus-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Iowa result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-ia-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Does it conduct business in Iowa OR produce products or services targeted to consumers who are Iowa residents? Record resident reach, contracts, delivery and targeting evidence.",
+      "owner": "Business owner and privacy counsel",
+      "why": "The state connection is part of this law's applicability rule."
+     }
+    ]
+   },
+   "ia-entity": {
+    "type": "question",
+    "q": "Does a specific entity exclusion fully cover this entity and the activity being assessed?",
+    "help": "Government bodies, qualifying GLBA financial institutions/affiliates, persons subject to and complying with HIPAA/HITECH regulations, nonprofits and higher-education institutions are excluded. Satisfy the named statutory conditions, including HIPAA compliance, rather than relying on an industry label. Answer yes only after identifying the exact statutory category and satisfying every condition. A data-only exemption belongs in the next question.",
+    "cites": [
+     "pwc-us-ia-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "ia-entity-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "ia-data"
+     },
+     {
+      "label": "Not sure",
+      "goto": "ia-entity-unknown"
+     }
+    ]
+   },
+   "ia-entity-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Iowa result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-ia-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The exact statutory entity-exclusion category, legal status and any activity restrictions",
+      "owner": "Corporate counsel and the entity's regulatory or compliance owner",
+      "why": "A nonprofit, healthcare or financial-services label may not match the state's narrower legal definition."
+     }
+    ]
+   },
+   "ia-data": {
+    "type": "question",
+    "q": "Is every record in the assessed processing covered by a specific data exclusion?",
+    "help": "§715D.2 separately excludes specified health/research, regulated credit, DPPA, FERPA, Farm Credit and employment-role, emergency-contact and benefits data. A partial exemption does not remove unrelated consumer data. Answer no if any relevant data remains, then measure that non-excluded scope; retain a record of the excluded categories.",
+    "cites": [
+     "pwc-us-ia-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "ia-data-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "ia-threshold"
+     },
+     {
+      "label": "Not sure",
+      "goto": "ia-data-unknown"
+     }
+    ]
+   },
+   "ia-data-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Iowa result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-ia-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The data inventory, each claimed exemption, and evidence that its holder, purpose and handling conditions are satisfied",
+      "owner": "Privacy counsel and data owners",
+      "why": "An exemption for some records does not exclude all records or the whole organization."
+     }
+    ]
+   },
+   "ia-threshold": {
+    "type": "question",
+    "q": "During a calendar year, does it control or process personal data of at least 100,000 consumers; OR at least 25,000 consumers AND derive strictly more than 50% of gross revenue from selling personal data?",
+    "help": "Iowa residents in their individual/household role, excluding commercial and employment roles. There is no payment-only deduction in the 100,000 threshold. During a calendar year. Use this state's sale definition and its exceptions; advertising disclosure or a vendor contract is not automatically a statutory sale.",
+    "cites": [
+     "pwc-us-ia-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "ia-covered"
+     },
+     {
+      "label": "No",
+      "goto": "ia-below"
+     },
+     {
+      "label": "Not sure",
+      "goto": "ia-threshold-unknown"
+     }
+    ]
+   },
+   "ia-threshold-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Iowa result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-ia-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "State-specific count, applicable measuring period, and any revenue or sale/share measure needed for: During a calendar year, does it control or process personal data of at least 100,000 consumers; OR at least 25,000 consumers AND derive strictly more than 50% of gross revenue from selling personal data?",
+      "owner": "Finance, analytics/data owners and privacy counsel",
+      "why": "Exact counts, sale classification and strict versus inclusive comparisons determine whether this gate is met."
+     }
+    ]
+   },
+   "ia-no-nexus": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "General territorial scope is not established",
+    "summary": "On these answers, the stated Iowa business/resident connection is absent. This result addresses only the general applicability route assessed here.",
+    "actions": [
+     "Keep the business and resident-reach evidence supporting this answer.",
+     "Reassess if targeting, delivery, corporate relationships or processing changes; check any separate recipient, sector or contractual duties."
+    ],
+    "cites": [
+     "pwc-us-ia-scope"
+    ]
+   },
+   "ia-entity-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "An entity exclusion was identified",
+    "summary": "The specific Iowa entity exclusion you confirmed removes the entity/activity within that exclusion's boundaries from this law's general scope.",
+    "actions": [
+     "Record the exact provision and evidence supporting the category and its conditions.",
+     "Keep unrelated entities, activities and separate statutory duties outside this result."
+    ],
+    "cites": [
+     "pwc-us-ia-scope-exemptions"
+    ]
+   },
+   "ia-data-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "The assessed dataset has an exclusion",
+    "summary": "You identified an applicable Iowa exclusion for every record in this assessed processing. The answer does not exempt the organization or other datasets.",
+    "actions": [
+     "Record the provision, covered records, handling conditions and owner.",
+     "Reassess any new or mixed data and any duties expressly preserved by the exemption."
+    ],
+    "cites": [
+     "pwc-us-ia-scope-exemptions"
+    ]
+   },
+   "ia-covered": {
+    "type": "outcome",
+    "tier": "required",
+    "title": "The general applicability gate is met",
+    "summary": "Your answers satisfy the Iowa scope gate for the non-excluded processing in this assessment. Specific obligations depend on the entity's actual controller, processor or other statutory role.",
+    "actions": [
+     "Save the nexus, exemption and threshold evidence with the assessment.",
+     "Assign the processing role and evaluate this state's notice, rights, consent, contracts and assessment duties.",
+     "Recheck when the entity, data, processing or law changes."
+    ],
+    "cites": [
+     "pwc-us-ia-scope"
+    ]
+   },
+   "ia-below": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "The general thresholds are not met",
+    "summary": "On the supplied facts, the Iowa general numeric/revenue scope gate is not met. This is limited to that gate and the stated measuring period.",
+    "actions": [
+     "Keep the counts, financial calculation and sale classification supporting this result.",
+     "Reassess growth and processing changes; assess separate sector, recipient and contractual duties where relevant."
+    ],
+    "cites": [
+     "pwc-us-ia-scope"
+    ]
+   },
+   "ky-nexus": {
+    "type": "question",
+    "q": "Does it conduct business in Kentucky OR produce products or services targeted to Kentucky residents?",
+    "help": "Kentucky residents acting in an individual context, excluding employment and commercial roles. No payment-only deduction in the 100,000 limb. Use the actual entity and processing in this assessment; a website being technically reachable is not by itself proof of the stated business or targeting test.",
+    "cites": [
+     "pwc-us-ky-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "ky-entity"
+     },
+     {
+      "label": "No",
+      "goto": "ky-no-nexus"
+     },
+     {
+      "label": "Not sure",
+      "goto": "ky-nexus-unknown"
+     }
+    ]
+   },
+   "ky-nexus-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Kentucky result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-ky-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Does it conduct business in Kentucky OR produce products or services targeted to Kentucky residents? Record resident reach, contracts, delivery and targeting evidence.",
+      "owner": "Business owner and privacy counsel",
+      "why": "The state connection is part of this law's applicability rule."
+     }
+    ]
+   },
+   "ky-entity": {
+    "type": "question",
+    "q": "Does a specific entity exclusion fully cover this entity and the activity being assessed?",
+    "help": "Government bodies, qualifying GLBA financial institutions/affiliates, HIPAA covered entities/business associates, nonprofits and higher education are excluded. Additional narrowly defined exclusions cover specified insurance-fraud/first-responder nonprofits and small telephone/Tier III wireless/municipal-utility entities that do not sell or share data with third parties. Answer yes only after identifying the exact statutory category and satisfying every condition. A data-only exemption belongs in the next question.",
+    "cites": [
+     "pwc-us-ky-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "ky-entity-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "ky-data"
+     },
+     {
+      "label": "Not sure",
+      "goto": "ky-entity-unknown"
+     }
+    ]
+   },
+   "ky-entity-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Kentucky result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-ky-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The exact statutory entity-exclusion category, legal status and any activity restrictions",
+      "owner": "Corporate counsel and the entity's regulatory or compliance owner",
+      "why": "A nonprofit, healthcare or financial-services label may not match the state's narrower legal definition."
+     }
+    ]
+   },
+   "ky-data": {
+    "type": "question",
+    "q": "Is every record in the assessed processing covered by a specific data exclusion?",
+    "help": "KRS367.3613 separately excludes GLBA data, specified health/research, regulated credit, DPPA, FERPA, Farm Credit and employment-role data. The current section includes the 2025 amendment for same-manner provider information and compliant limited datasets. Answer no if any relevant data remains, then measure that non-excluded scope; retain a record of the excluded categories.",
+    "cites": [
+     "pwc-us-ky-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "ky-data-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "ky-threshold"
+     },
+     {
+      "label": "Not sure",
+      "goto": "ky-data-unknown"
+     }
+    ]
+   },
+   "ky-data-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Kentucky result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-ky-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The data inventory, each claimed exemption, and evidence that its holder, purpose and handling conditions are satisfied",
+      "owner": "Privacy counsel and data owners",
+      "why": "An exemption for some records does not exclude all records or the whole organization."
+     }
+    ]
+   },
+   "ky-threshold": {
+    "type": "question",
+    "q": "During a calendar year, does it control or process personal data of at least 100,000 consumers; OR at least 25,000 consumers AND derive strictly more than 50% of gross revenue from selling personal data?",
+    "help": "Kentucky residents acting in an individual context, excluding employment and commercial roles. No payment-only deduction in the 100,000 limb. During a calendar year. Use this state's sale definition and its exceptions; advertising disclosure or a vendor contract is not automatically a statutory sale.",
+    "cites": [
+     "pwc-us-ky-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "ky-covered"
+     },
+     {
+      "label": "No",
+      "goto": "ky-below"
+     },
+     {
+      "label": "Not sure",
+      "goto": "ky-threshold-unknown"
+     }
+    ]
+   },
+   "ky-threshold-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Kentucky result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-ky-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "State-specific count, applicable measuring period, and any revenue or sale/share measure needed for: During a calendar year, does it control or process personal data of at least 100,000 consumers; OR at least 25,000 consumers AND derive strictly more than 50% of gross revenue from selling personal data?",
+      "owner": "Finance, analytics/data owners and privacy counsel",
+      "why": "Exact counts, sale classification and strict versus inclusive comparisons determine whether this gate is met."
+     }
+    ]
+   },
+   "ky-no-nexus": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "General territorial scope is not established",
+    "summary": "On these answers, the stated Kentucky business/resident connection is absent. This result addresses only the general applicability route assessed here.",
+    "actions": [
+     "Keep the business and resident-reach evidence supporting this answer.",
+     "Reassess if targeting, delivery, corporate relationships or processing changes; check any separate recipient, sector or contractual duties."
+    ],
+    "cites": [
+     "pwc-us-ky-scope"
+    ]
+   },
+   "ky-entity-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "An entity exclusion was identified",
+    "summary": "The specific Kentucky entity exclusion you confirmed removes the entity/activity within that exclusion's boundaries from this law's general scope.",
+    "actions": [
+     "Record the exact provision and evidence supporting the category and its conditions.",
+     "Keep unrelated entities, activities and separate statutory duties outside this result."
+    ],
+    "cites": [
+     "pwc-us-ky-scope-exemptions"
+    ]
+   },
+   "ky-data-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "The assessed dataset has an exclusion",
+    "summary": "You identified an applicable Kentucky exclusion for every record in this assessed processing. The answer does not exempt the organization or other datasets.",
+    "actions": [
+     "Record the provision, covered records, handling conditions and owner.",
+     "Reassess any new or mixed data and any duties expressly preserved by the exemption."
+    ],
+    "cites": [
+     "pwc-us-ky-scope-exemptions"
+    ]
+   },
+   "ky-covered": {
+    "type": "outcome",
+    "tier": "required",
+    "title": "The general applicability gate is met",
+    "summary": "Your answers satisfy the Kentucky scope gate for the non-excluded processing in this assessment. Specific obligations depend on the entity's actual controller, processor or other statutory role.",
+    "actions": [
+     "Save the nexus, exemption and threshold evidence with the assessment.",
+     "Assign the processing role and evaluate this state's notice, rights, consent, contracts and assessment duties.",
+     "Recheck when the entity, data, processing or law changes."
+    ],
+    "cites": [
+     "pwc-us-ky-scope"
+    ]
+   },
+   "ky-below": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "The general thresholds are not met",
+    "summary": "On the supplied facts, the Kentucky general numeric/revenue scope gate is not met. This is limited to that gate and the stated measuring period.",
+    "actions": [
+     "Keep the counts, financial calculation and sale classification supporting this result.",
+     "Reassess growth and processing changes; assess separate sector, recipient and contractual duties where relevant."
+    ],
+    "cites": [
+     "pwc-us-ky-scope"
+    ]
+   },
+   "md-nexus": {
+    "type": "question",
+    "q": "Does it conduct business in Maryland OR provide products or services targeted to Maryland residents?",
+    "help": "Maryland residents acting individually or as a household, excluding employment and commercial roles. Deduct payment-only data only from the 35,000 limb. Use the actual entity and processing in this assessment; a website being technically reachable is not by itself proof of the stated business or targeting test.",
+    "cites": [
+     "pwc-us-md-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "md-entity"
+     },
+     {
+      "label": "No",
+      "goto": "md-no-nexus"
+     },
+     {
+      "label": "Not sure",
+      "goto": "md-nexus-unknown"
+     }
+    ]
+   },
+   "md-nexus-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Maryland result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-md-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Does it conduct business in Maryland OR provide products or services targeted to Maryland residents? Record resident reach, contracts, delivery and targeting evidence.",
+      "owner": "Business owner and privacy counsel",
+      "why": "The state connection is part of this law's applicability rule."
+     }
+    ]
+   },
+   "md-entity": {
+    "type": "question",
+    "q": "Does a specific entity exclusion fully cover this entity and the activity being assessed?",
+    "help": "§14-4703 excludes government instrumentalities, specified national securities/futures associations, GLBA financial institutions/affiliates, and nonprofits whose processing is solely for the listed insurance-fraud or catastrophic-event first-responder purposes. There is no general nonprofit, higher-education or HIPAA-covered-entity exemption. Answer yes only after identifying the exact statutory category and satisfying every condition. A data-only exemption belongs in the next question.",
+    "cites": [
+     "pwc-us-md-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "md-entity-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "md-data"
+     },
+     {
+      "label": "Not sure",
+      "goto": "md-entity-unknown"
+     }
+    ]
+   },
+   "md-entity-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Maryland result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-md-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The exact statutory entity-exclusion category, legal status and any activity restrictions",
+      "owner": "Corporate counsel and the entity's regulatory or compliance owner",
+      "why": "A nonprofit, healthcare or financial-services label may not match the state's narrower legal definition."
+     }
+    ]
+   },
+   "md-data": {
+    "type": "question",
+    "q": "Is every record in the assessed processing covered by a specific data exclusion?",
+    "help": "§14-4703 separately excludes GLBA data and specified health/research, FCRA-regulated, DPPA, FERPA, Farm Credit and employment-role data. A covered entity's unrelated marketing or customer data needs its own analysis; HIPAA is not a blanket entity exemption. Answer no if any relevant data remains, then measure that non-excluded scope; retain a record of the excluded categories.",
+    "cites": [
+     "pwc-us-md-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "md-data-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "md-threshold"
+     },
+     {
+      "label": "Not sure",
+      "goto": "md-data-unknown"
+     }
+    ]
+   },
+   "md-data-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Maryland result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-md-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The data inventory, each claimed exemption, and evidence that its holder, purpose and handling conditions are satisfied",
+      "owner": "Privacy counsel and data owners",
+      "why": "An exemption for some records does not exclude all records or the whole organization."
+     }
+    ]
+   },
+   "md-threshold": {
+    "type": "question",
+    "q": "In the preceding calendar year, did it control or process personal data of at least 35,000 consumers (excluding payment-only data); OR at least 10,000 consumers AND derive strictly more than 20% of gross revenue from selling personal data?",
+    "help": "Maryland residents acting individually or as a household, excluding employment and commercial roles. Deduct payment-only data only from the 35,000 limb. Preceding calendar year. Use this state's sale definition and its exceptions; advertising disclosure or a vendor contract is not automatically a statutory sale.",
+    "cites": [
+     "pwc-us-md-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "md-covered"
+     },
+     {
+      "label": "No",
+      "goto": "md-below"
+     },
+     {
+      "label": "Not sure",
+      "goto": "md-threshold-unknown"
+     }
+    ]
+   },
+   "md-threshold-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Maryland result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-md-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "State-specific count, applicable measuring period, and any revenue or sale/share measure needed for: In the preceding calendar year, did it control or process personal data of at least 35,000 consumers (excluding payment-only data); OR at least 10,000 consumers AND derive strictly more than 20% of gross revenue from selling personal data?",
+      "owner": "Finance, analytics/data owners and privacy counsel",
+      "why": "Exact counts, sale classification and strict versus inclusive comparisons determine whether this gate is met."
+     }
+    ]
+   },
+   "md-no-nexus": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "General territorial scope is not established",
+    "summary": "On these answers, the stated Maryland business/resident connection is absent. This result addresses only the general applicability route assessed here.",
+    "actions": [
+     "Keep the business and resident-reach evidence supporting this answer.",
+     "Reassess if targeting, delivery, corporate relationships or processing changes; check any separate recipient, sector or contractual duties."
+    ],
+    "cites": [
+     "pwc-us-md-scope"
+    ]
+   },
+   "md-entity-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "An entity exclusion was identified",
+    "summary": "The specific Maryland entity exclusion you confirmed removes the entity/activity within that exclusion's boundaries from this law's general scope.",
+    "actions": [
+     "Record the exact provision and evidence supporting the category and its conditions.",
+     "Keep unrelated entities, activities and separate statutory duties outside this result."
+    ],
+    "cites": [
+     "pwc-us-md-scope-exemptions"
+    ]
+   },
+   "md-data-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "The assessed dataset has an exclusion",
+    "summary": "You identified an applicable Maryland exclusion for every record in this assessed processing. The answer does not exempt the organization or other datasets.",
+    "actions": [
+     "Record the provision, covered records, handling conditions and owner.",
+     "Reassess any new or mixed data and any duties expressly preserved by the exemption."
+    ],
+    "cites": [
+     "pwc-us-md-scope-exemptions"
+    ]
+   },
+   "md-covered": {
+    "type": "outcome",
+    "tier": "required",
+    "title": "The general applicability gate is met",
+    "summary": "Your answers satisfy the Maryland scope gate for the non-excluded processing in this assessment. Specific obligations depend on the entity's actual controller, processor or other statutory role.",
+    "actions": [
+     "Save the nexus, exemption and threshold evidence with the assessment.",
+     "Assign the processing role and evaluate this state's notice, rights, consent, contracts and assessment duties.",
+     "Recheck when the entity, data, processing or law changes."
+    ],
+    "cites": [
+     "pwc-us-md-scope"
+    ]
+   },
+   "md-below": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "The general thresholds are not met",
+    "summary": "On the supplied facts, the Maryland general numeric/revenue scope gate is not met. This is limited to that gate and the stated measuring period.",
+    "actions": [
+     "Keep the counts, financial calculation and sale classification supporting this result.",
+     "Reassess growth and processing changes; assess separate sector, recipient and contractual duties where relevant."
+    ],
+    "cites": [
+     "pwc-us-md-scope"
+    ]
+   },
+   "mn-nexus": {
+    "type": "question",
+    "q": "Does the legal entity conduct business in Minnesota OR produce products or services targeted to Minnesota residents?",
+    "help": "Minnesota residents acting in an individual/household context, excluding commercial or employment roles. Deduct payment-only data from the 100,000 limb. Use the actual entity and processing in this assessment; a website being technically reachable is not by itself proof of the stated business or targeting test.",
+    "cites": [
+     "pwc-us-mn-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "mn-entity"
+     },
+     {
+      "label": "No",
+      "goto": "mn-no-nexus"
+     },
+     {
+      "label": "Not sure",
+      "goto": "mn-nexus-unknown"
+     }
+    ]
+   },
+   "mn-nexus-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Minnesota result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-mn-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Does the legal entity conduct business in Minnesota OR produce products or services targeted to Minnesota residents? Record resident reach, contracts, delivery and targeting evidence.",
+      "owner": "Business owner and privacy counsel",
+      "why": "The state connection is part of this law's applicability rule."
+     }
+    ]
+   },
+   "mn-entity": {
+    "type": "question",
+    "q": "Does a specific entity exclusion fully cover this entity and the activity being assessed?",
+    "help": "Government and tribal bodies, qualifying banks/credit unions and financial affiliates, insurance entities/financial affiliates, and nonprofits established to prevent insurance fraud have specific exclusions. General nonprofit and HIPAA-entity exemptions do not exist. SBA small businesses and deferred higher-education compliance are checked separately. Answer yes only after identifying the exact statutory category and satisfying every condition. A data-only exemption belongs in the next question.",
+    "cites": [
+     "pwc-us-mn-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "mn-entity-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "mn-deferral"
+     },
+     {
+      "label": "Not sure",
+      "goto": "mn-entity-unknown"
+     }
+    ]
+   },
+   "mn-entity-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Minnesota result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-mn-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The exact statutory entity-exclusion category, legal status and any activity restrictions",
+      "owner": "Corporate counsel and the entity's regulatory or compliance owner",
+      "why": "A nonprofit, healthcare or financial-services label may not match the state's narrower legal definition."
+     }
+    ]
+   },
+   "mn-data": {
+    "type": "question",
+    "q": "Is every record in the assessed processing covered by a specific data exclusion?",
+    "help": "§325M.12 lists protected health and research information, same-manner provider records, compliant limited datasets, GLBA and regulated credit data, and other specific exclusions. Check conditions by record. Student technology-provider obligations under §13.32 are not cleared by this route. Answer no if any relevant data remains, then measure that non-excluded scope; retain a record of the excluded categories.",
+    "cites": [
+     "pwc-us-mn-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "mn-data-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "mn-small"
+     },
+     {
+      "label": "Not sure",
+      "goto": "mn-data-unknown"
+     }
+    ]
+   },
+   "mn-data-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Minnesota result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-mn-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The data inventory, each claimed exemption, and evidence that its holder, purpose and handling conditions are satisfied",
+      "owner": "Privacy counsel and data owners",
+      "why": "An exemption for some records does not exclude all records or the whole organization."
+     }
+    ]
+   },
+   "mn-threshold": {
+    "type": "question",
+    "q": "Does it control or process at least 100,000 consumers’ personal data during a calendar year (excluding payment-only data); OR control or process at least 25,000 consumers’ personal data AND derive strictly more than 25% of gross revenue from selling personal data?",
+    "help": "Minnesota residents acting in an individual/household context, excluding commercial or employment roles. Deduct payment-only data from the 100,000 limb. 100,000 limb: during a calendar year. The 25,000-plus-sale limb does not separately state a measuring period. Use this state's sale definition and its exceptions; advertising disclosure or a vendor contract is not automatically a statutory sale.",
+    "cites": [
+     "pwc-us-mn-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "mn-covered"
+     },
+     {
+      "label": "No",
+      "goto": "mn-below"
+     },
+     {
+      "label": "Not sure",
+      "goto": "mn-threshold-unknown"
+     }
+    ]
+   },
+   "mn-threshold-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Minnesota result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-mn-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "State-specific count, applicable measuring period, and any revenue or sale/share measure needed for: Does it control or process at least 100,000 consumers’ personal data during a calendar year (excluding payment-only data); OR control or process at least 25,000 consumers’ personal data AND derive strictly more than 25% of gross revenue from selling personal data?",
+      "owner": "Finance, analytics/data owners and privacy counsel",
+      "why": "Exact counts, sale classification and strict versus inclusive comparisons determine whether this gate is met."
+     }
+    ]
+   },
+   "mn-no-nexus": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "General territorial scope is not established",
+    "summary": "On these answers, the stated Minnesota business/resident connection is absent. This result addresses only the general applicability route assessed here.",
+    "actions": [
+     "Keep the business and resident-reach evidence supporting this answer.",
+     "Reassess if targeting, delivery, corporate relationships or processing changes; check any separate recipient, sector or contractual duties."
+    ],
+    "cites": [
+     "pwc-us-mn-scope"
+    ]
+   },
+   "mn-entity-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "An entity exclusion was identified",
+    "summary": "The specific Minnesota entity exclusion you confirmed removes the entity/activity within that exclusion's boundaries from this law's general scope.",
+    "actions": [
+     "Record the exact provision and evidence supporting the category and its conditions.",
+     "Keep unrelated entities, activities and separate statutory duties outside this result."
+    ],
+    "cites": [
+     "pwc-us-mn-scope-exemptions"
+    ]
+   },
+   "mn-data-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "The assessed dataset has an exclusion",
+    "summary": "You identified an applicable Minnesota exclusion for every record in this assessed processing. The answer does not exempt the organization or other datasets.",
+    "actions": [
+     "Record the provision, covered records, handling conditions and owner.",
+     "Reassess any new or mixed data and any duties expressly preserved by the exemption."
+    ],
+    "cites": [
+     "pwc-us-mn-scope-exemptions"
+    ]
+   },
+   "mn-covered": {
+    "type": "outcome",
+    "tier": "required",
+    "title": "The general applicability gate is met",
+    "summary": "Your answers satisfy the Minnesota scope gate for the non-excluded processing in this assessment. Specific obligations depend on the entity's actual controller, processor or other statutory role.",
+    "actions": [
+     "Save the nexus, exemption and threshold evidence with the assessment.",
+     "Assign the processing role and evaluate this state's notice, rights, consent, contracts and assessment duties.",
+     "Recheck when the entity, data, processing or law changes."
+    ],
+    "cites": [
+     "pwc-us-mn-scope"
+    ]
+   },
+   "mn-below": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "The general thresholds are not met",
+    "summary": "On the supplied facts, the Minnesota general numeric/revenue scope gate is not met. This is limited to that gate and the stated measuring period.",
+    "actions": [
+     "Keep the counts, financial calculation and sale classification supporting this result.",
+     "Reassess growth and processing changes; assess separate sector, recipient and contractual duties where relevant."
+    ],
+    "cites": [
+     "pwc-us-mn-scope"
+    ]
+   },
+   "mt-nexus": {
+    "type": "question",
+    "q": "Does it conduct business in Montana OR produce products or services targeted to Montana residents?",
+    "help": "Montana residents acting individually or as a household, excluding commercial and employment roles. Deduct payment-only data from the 25,000 limb. Use the actual entity and processing in this assessment; a website being technically reachable is not by itself proof of the stated business or targeting test.",
+    "cites": [
+     "pwc-us-mt-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "mt-entity"
+     },
+     {
+      "label": "No",
+      "goto": "mt-no-nexus"
+     },
+     {
+      "label": "Not sure",
+      "goto": "mt-nexus-unknown"
+     }
+    ]
+   },
+   "mt-nexus-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Montana result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-mt-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Does it conduct business in Montana OR produce products or services targeted to Montana residents? Record resident reach, contracts, delivery and targeting evidence.",
+      "owner": "Business owner and privacy counsel",
+      "why": "The state connection is part of this law's applicability rule."
+     }
+    ]
+   },
+   "mt-entity": {
+    "type": "question",
+    "q": "Does a specific entity exclusion fully cover this entity and the activity being assessed?",
+    "help": "§30-14-2804 excludes government bodies, insurance-fraud nonprofits, higher education, specified securities associations, qualifying banks/credit unions and financial affiliates, HIPAA covered entities/business associates, and qualifying insurance entities. There is no general nonprofit exemption and no universal GLBA entity exemption. Answer yes only after identifying the exact statutory category and satisfying every condition. A data-only exemption belongs in the next question.",
+    "cites": [
+     "pwc-us-mt-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "mt-entity-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "mt-data"
+     },
+     {
+      "label": "Not sure",
+      "goto": "mt-entity-unknown"
+     }
+    ]
+   },
+   "mt-entity-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Montana result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-mt-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The exact statutory entity-exclusion category, legal status and any activity restrictions",
+      "owner": "Corporate counsel and the entity's regulatory or compliance owner",
+      "why": "A nonprofit, healthcare or financial-services label may not match the state's narrower legal definition."
+     }
+    ]
+   },
+   "mt-data": {
+    "type": "question",
+    "q": "Is every record in the assessed processing covered by a specific data exclusion?",
+    "help": "§30-14-2804 excludes specified GLBA, health/research, regulated credit, DPPA, FERPA, Farm Credit and employment-role data. Check statutory conditions before excluding a dataset. Answer no if any relevant data remains, then measure that non-excluded scope; retain a record of the excluded categories.",
+    "cites": [
+     "pwc-us-mt-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "mt-data-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "mt-threshold"
+     },
+     {
+      "label": "Not sure",
+      "goto": "mt-data-unknown"
+     }
+    ]
+   },
+   "mt-data-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Montana result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-mt-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The data inventory, each claimed exemption, and evidence that its holder, purpose and handling conditions are satisfied",
+      "owner": "Privacy counsel and data owners",
+      "why": "An exemption for some records does not exclude all records or the whole organization."
+     }
+    ]
+   },
+   "mt-threshold": {
+    "type": "question",
+    "q": "Does it control or process personal data of at least 25,000 consumers (excluding payment-only data); OR at least 15,000 consumers AND derive strictly more than 25% of gross revenue from selling personal data?",
+    "help": "Montana residents acting individually or as a household, excluding commercial and employment roles. Deduct payment-only data from the 25,000 limb. §30-14-2803 does not state an annual or preceding-calendar-year period. Do not manufacture one; confirm counting methodology with the legal owner. Use this state's sale definition and its exceptions; advertising disclosure or a vendor contract is not automatically a statutory sale.",
+    "cites": [
+     "pwc-us-mt-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "mt-covered"
+     },
+     {
+      "label": "No",
+      "goto": "mt-minors"
+     },
+     {
+      "label": "Not sure",
+      "goto": "mt-threshold-unknown"
+     }
+    ]
+   },
+   "mt-threshold-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Montana result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-mt-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "State-specific count, applicable measuring period, and any revenue or sale/share measure needed for: Does it control or process personal data of at least 25,000 consumers (excluding payment-only data); OR at least 15,000 consumers AND derive strictly more than 25% of gross revenue from selling personal data?",
+      "owner": "Finance, analytics/data owners and privacy counsel",
+      "why": "Exact counts, sale classification and strict versus inclusive comparisons determine whether this gate is met."
+     }
+    ]
+   },
+   "mt-no-nexus": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "General territorial scope is not established",
+    "summary": "On these answers, the stated Montana business/resident connection is absent. This result addresses only the general applicability route assessed here.",
+    "actions": [
+     "Keep the business and resident-reach evidence supporting this answer.",
+     "Reassess if targeting, delivery, corporate relationships or processing changes; check any separate recipient, sector or contractual duties."
+    ],
+    "cites": [
+     "pwc-us-mt-scope"
+    ]
+   },
+   "mt-entity-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "An entity exclusion was identified",
+    "summary": "The specific Montana entity exclusion you confirmed removes the entity/activity within that exclusion's boundaries from this law's general scope.",
+    "actions": [
+     "Record the exact provision and evidence supporting the category and its conditions.",
+     "Keep unrelated entities, activities and separate statutory duties outside this result."
+    ],
+    "cites": [
+     "pwc-us-mt-scope-exemptions"
+    ]
+   },
+   "mt-data-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "The assessed dataset has an exclusion",
+    "summary": "You identified an applicable Montana exclusion for every record in this assessed processing. The answer does not exempt the organization or other datasets.",
+    "actions": [
+     "Record the provision, covered records, handling conditions and owner.",
+     "Reassess any new or mixed data and any duties expressly preserved by the exemption."
+    ],
+    "cites": [
+     "pwc-us-mt-scope-exemptions"
+    ]
+   },
+   "mt-covered": {
+    "type": "outcome",
+    "tier": "required",
+    "title": "The general applicability gate is met",
+    "summary": "Your answers satisfy the Montana scope gate for the non-excluded processing in this assessment. Specific obligations depend on the entity's actual controller, processor or other statutory role.",
+    "actions": [
+     "Save the nexus, exemption and threshold evidence with the assessment.",
+     "Assign the processing role and evaluate this state's notice, rights, consent, contracts and assessment duties.",
+     "Recheck when the entity, data, processing or law changes."
+    ],
+    "cites": [
+     "pwc-us-mt-scope"
+    ]
+   },
+   "mt-below": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "The general thresholds are not met",
+    "summary": "On the supplied facts, the Montana general numeric/revenue scope gate is not met. This is limited to that gate and the stated measuring period.",
+    "actions": [
+     "Keep the counts, financial calculation and sale classification supporting this result.",
+     "Reassess growth and processing changes; assess separate sector, recipient and contractual duties where relevant."
+    ],
+    "cites": [
+     "pwc-us-mt-scope"
+    ]
+   },
+   "ne-nexus": {
+    "type": "question",
+    "q": "Does it conduct business in Nebraska OR produce a product or service consumed by Nebraska residents, AND process or engage in the sale of personal data?",
+    "help": "Nebraska consumers acting in an individual or household context. There is no fixed consumer-volume or universal revenue threshold. Use the actual entity and processing in this assessment; a website being technically reachable is not by itself proof of the stated business or targeting test.",
+    "cites": [
+     "pwc-us-ne-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "ne-entity"
+     },
+     {
+      "label": "No",
+      "goto": "ne-no-nexus"
+     },
+     {
+      "label": "Not sure",
+      "goto": "ne-nexus-unknown"
+     }
+    ]
+   },
+   "ne-nexus-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Nebraska result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-ne-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Does it conduct business in Nebraska OR produce a product or service consumed by Nebraska residents, AND process or engage in the sale of personal data? Record resident reach, contracts, delivery and targeting evidence.",
+      "owner": "Business owner and privacy counsel",
+      "why": "The state connection is part of this law's applicability rule."
+     }
+    ]
+   },
+   "ne-entity": {
+    "type": "question",
+    "q": "Does a specific entity exclusion fully cover this entity and the activity being assessed?",
+    "help": "Government entities, qualifying GLBA financial institutions and affiliates, HIPAA covered entities/business associates, nonprofits, higher education and the listed electricity/natural-gas utilities are excluded. SBA small-business status is a separate check, with a surviving consent duty. Answer yes only after identifying the exact statutory category and satisfying every condition. A data-only exemption belongs in the next question.",
+    "cites": [
+     "pwc-us-ne-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "ne-entity-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "ne-data"
+     },
+     {
+      "label": "Not sure",
+      "goto": "ne-entity-unknown"
+     }
+    ]
+   },
+   "ne-entity-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Nebraska result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-ne-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The exact statutory entity-exclusion category, legal status and any activity restrictions",
+      "owner": "Corporate counsel and the entity's regulatory or compliance owner",
+      "why": "A nonprofit, healthcare or financial-services label may not match the state's narrower legal definition."
+     }
+    ]
+   },
+   "ne-data": {
+    "type": "question",
+    "q": "Is every record in the assessed processing covered by a specific data exclusion?",
+    "help": "§87-1104 separately excludes specified health/research, regulated credit, DPPA, FERPA, Farm Credit and employment-role information. GLBA data is independently excluded in §87-1103. Answer no if any relevant data remains, then measure that non-excluded scope; retain a record of the excluded categories.",
+    "cites": [
+     "pwc-us-ne-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "ne-data-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "ne-small"
+     },
+     {
+      "label": "Not sure",
+      "goto": "ne-data-unknown"
+     }
+    ]
+   },
+   "ne-data-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Nebraska result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-ne-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The data inventory, each claimed exemption, and evidence that its holder, purpose and handling conditions are satisfied",
+      "owner": "Privacy counsel and data owners",
+      "why": "An exemption for some records does not exclude all records or the whole organization."
+     }
+    ]
+   },
+   "ne-no-nexus": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "General territorial scope is not established",
+    "summary": "On these answers, the stated Nebraska business/resident connection is absent. This result addresses only the general applicability route assessed here.",
+    "actions": [
+     "Keep the business and resident-reach evidence supporting this answer.",
+     "Reassess if targeting, delivery, corporate relationships or processing changes; check any separate recipient, sector or contractual duties."
+    ],
+    "cites": [
+     "pwc-us-ne-scope"
+    ]
+   },
+   "ne-entity-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "An entity exclusion was identified",
+    "summary": "The specific Nebraska entity exclusion you confirmed removes the entity/activity within that exclusion's boundaries from this law's general scope.",
+    "actions": [
+     "Record the exact provision and evidence supporting the category and its conditions.",
+     "Keep unrelated entities, activities and separate statutory duties outside this result."
+    ],
+    "cites": [
+     "pwc-us-ne-scope-exemptions"
+    ]
+   },
+   "ne-data-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "The assessed dataset has an exclusion",
+    "summary": "You identified an applicable Nebraska exclusion for every record in this assessed processing. The answer does not exempt the organization or other datasets.",
+    "actions": [
+     "Record the provision, covered records, handling conditions and owner.",
+     "Reassess any new or mixed data and any duties expressly preserved by the exemption."
+    ],
+    "cites": [
+     "pwc-us-ne-scope-exemptions"
+    ]
+   },
+   "ne-covered": {
+    "type": "outcome",
+    "tier": "required",
+    "title": "The general applicability gate is met",
+    "summary": "Your answers satisfy the Nebraska scope gate for the non-excluded processing in this assessment. Specific obligations depend on the entity's actual controller, processor or other statutory role.",
+    "actions": [
+     "Save the nexus, exemption and threshold evidence with the assessment.",
+     "Assign the processing role and evaluate this state's notice, rights, consent, contracts and assessment duties.",
+     "Recheck when the entity, data, processing or law changes."
+    ],
+    "cites": [
+     "pwc-us-ne-scope"
+    ]
+   },
+   "nh-nexus": {
+    "type": "question",
+    "q": "Does it conduct business in New Hampshire OR produce products or services targeted to New Hampshire residents?",
+    "help": "Unique New Hampshire consumers acting in an individual/household context, excluding commercial and employment roles. Deduct payment-only data from the 35,000 limb. Use the actual entity and processing in this assessment; a website being technically reachable is not by itself proof of the stated business or targeting test.",
+    "cites": [
+     "pwc-us-nh-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "nh-entity"
+     },
+     {
+      "label": "No",
+      "goto": "nh-no-nexus"
+     },
+     {
+      "label": "Not sure",
+      "goto": "nh-nexus-unknown"
+     }
+    ]
+   },
+   "nh-nexus-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The New Hampshire result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-nh-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Does it conduct business in New Hampshire OR produce products or services targeted to New Hampshire residents? Record resident reach, contracts, delivery and targeting evidence.",
+      "owner": "Business owner and privacy counsel",
+      "why": "The state connection is part of this law's applicability rule."
+     }
+    ]
+   },
+   "nh-entity": {
+    "type": "question",
+    "q": "Does a specific entity exclusion fully cover this entity and the activity being assessed?",
+    "help": "§507-H:3 excludes government bodies, nonprofits, higher education, specified national securities associations, qualifying GLBA financial institutions and HIPAA covered entities/business associates. Answer yes only after identifying the exact statutory category and satisfying every condition. A data-only exemption belongs in the next question.",
+    "cites": [
+     "pwc-us-nh-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "nh-entity-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "nh-data"
+     },
+     {
+      "label": "Not sure",
+      "goto": "nh-entity-unknown"
+     }
+    ]
+   },
+   "nh-entity-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The New Hampshire result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-nh-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The exact statutory entity-exclusion category, legal status and any activity restrictions",
+      "owner": "Corporate counsel and the entity's regulatory or compliance owner",
+      "why": "A nonprofit, healthcare or financial-services label may not match the state's narrower legal definition."
+     }
+    ]
+   },
+   "nh-data": {
+    "type": "question",
+    "q": "Is every record in the assessed processing covered by a specific data exclusion?",
+    "help": "§507-H:3 separately excludes GLBA data, health/research and limited datasets, regulated credit, DPPA, FERPA, Farm Credit, employment-role, specified airline and listed-chemical information. Each exclusion has conditions and is not a general data-industry exemption. Answer no if any relevant data remains, then measure that non-excluded scope; retain a record of the excluded categories.",
+    "cites": [
+     "pwc-us-nh-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "nh-data-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "nh-threshold"
+     },
+     {
+      "label": "Not sure",
+      "goto": "nh-data-unknown"
+     }
+    ]
+   },
+   "nh-data-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The New Hampshire result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-nh-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The data inventory, each claimed exemption, and evidence that its holder, purpose and handling conditions are satisfied",
+      "owner": "Privacy counsel and data owners",
+      "why": "An exemption for some records does not exclude all records or the whole organization."
+     }
+    ]
+   },
+   "nh-threshold": {
+    "type": "question",
+    "q": "During a one-year period, does it control or process personal data of at least 35,000 unique consumers (excluding payment-only data); OR at least 10,000 unique consumers AND derive strictly more than 25% of gross revenue from selling personal data?",
+    "help": "Unique New Hampshire consumers acting in an individual/household context, excluding commercial and employment roles. Deduct payment-only data from the 35,000 limb. During a one-year period. The statute does not call it the preceding calendar year. Use this state's sale definition and its exceptions; advertising disclosure or a vendor contract is not automatically a statutory sale.",
+    "cites": [
+     "pwc-us-nh-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "nh-covered"
+     },
+     {
+      "label": "No",
+      "goto": "nh-below"
+     },
+     {
+      "label": "Not sure",
+      "goto": "nh-threshold-unknown"
+     }
+    ]
+   },
+   "nh-threshold-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The New Hampshire result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-nh-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "State-specific count, applicable measuring period, and any revenue or sale/share measure needed for: During a one-year period, does it control or process personal data of at least 35,000 unique consumers (excluding payment-only data); OR at least 10,000 unique consumers AND derive strictly more than 25% of gross revenue from selling personal data?",
+      "owner": "Finance, analytics/data owners and privacy counsel",
+      "why": "Exact counts, sale classification and strict versus inclusive comparisons determine whether this gate is met."
+     }
+    ]
+   },
+   "nh-no-nexus": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "General territorial scope is not established",
+    "summary": "On these answers, the stated New Hampshire business/resident connection is absent. This result addresses only the general applicability route assessed here.",
+    "actions": [
+     "Keep the business and resident-reach evidence supporting this answer.",
+     "Reassess if targeting, delivery, corporate relationships or processing changes; check any separate recipient, sector or contractual duties."
+    ],
+    "cites": [
+     "pwc-us-nh-scope"
+    ]
+   },
+   "nh-entity-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "An entity exclusion was identified",
+    "summary": "The specific New Hampshire entity exclusion you confirmed removes the entity/activity within that exclusion's boundaries from this law's general scope.",
+    "actions": [
+     "Record the exact provision and evidence supporting the category and its conditions.",
+     "Keep unrelated entities, activities and separate statutory duties outside this result."
+    ],
+    "cites": [
+     "pwc-us-nh-scope-exemptions"
+    ]
+   },
+   "nh-data-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "The assessed dataset has an exclusion",
+    "summary": "You identified an applicable New Hampshire exclusion for every record in this assessed processing. The answer does not exempt the organization or other datasets.",
+    "actions": [
+     "Record the provision, covered records, handling conditions and owner.",
+     "Reassess any new or mixed data and any duties expressly preserved by the exemption."
+    ],
+    "cites": [
+     "pwc-us-nh-scope-exemptions"
+    ]
+   },
+   "nh-covered": {
+    "type": "outcome",
+    "tier": "required",
+    "title": "The general applicability gate is met",
+    "summary": "Your answers satisfy the New Hampshire scope gate for the non-excluded processing in this assessment. Specific obligations depend on the entity's actual controller, processor or other statutory role.",
+    "actions": [
+     "Save the nexus, exemption and threshold evidence with the assessment.",
+     "Assign the processing role and evaluate this state's notice, rights, consent, contracts and assessment duties.",
+     "Recheck when the entity, data, processing or law changes."
+    ],
+    "cites": [
+     "pwc-us-nh-scope"
+    ]
+   },
+   "nh-below": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "The general thresholds are not met",
+    "summary": "On the supplied facts, the New Hampshire general numeric/revenue scope gate is not met. This is limited to that gate and the stated measuring period.",
+    "actions": [
+     "Keep the counts, financial calculation and sale classification supporting this result.",
+     "Reassess growth and processing changes; assess separate sector, recipient and contractual duties where relevant."
+    ],
+    "cites": [
+     "pwc-us-nh-scope"
+    ]
+   },
+   "nj-nexus": {
+    "type": "question",
+    "q": "Does the controller conduct business in New Jersey OR produce products or services targeted to New Jersey residents?",
+    "help": "New Jersey residents acting only in an individual/household context, excluding commercial and employment roles. Deduct payment-only data from the 100,000 limb. Use the actual entity and processing in this assessment; a website being technically reachable is not by itself proof of the stated business or targeting test.",
+    "cites": [
+     "pwc-us-nj-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "nj-entity"
+     },
+     {
+      "label": "No",
+      "goto": "nj-no-nexus"
+     },
+     {
+      "label": "Not sure",
+      "goto": "nj-nexus-unknown"
+     }
+    ]
+   },
+   "nj-nexus-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The New Jersey result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-nj-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Does the controller conduct business in New Jersey OR produce products or services targeted to New Jersey residents? Record resident reach, contracts, delivery and targeting evidence.",
+      "owner": "Business owner and privacy counsel",
+      "why": "The state connection is part of this law's applicability rule."
+     }
+    ]
+   },
+   "nj-entity": {
+    "type": "question",
+    "q": "Does a specific entity exclusion fully cover this entity and the activity being assessed?",
+    "help": "§56:8-166.13 excludes qualifying GLBA financial institutions/affiliates, specified secondary-market institutions, insurance institutions and government bodies. There is no general nonprofit or HIPAA-covered-entity exclusion. Answer yes only after identifying the exact statutory category and satisfying every condition. A data-only exemption belongs in the next question.",
+    "cites": [
+     "pwc-us-nj-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "nj-entity-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "nj-data"
+     },
+     {
+      "label": "Not sure",
+      "goto": "nj-entity-unknown"
+     }
+    ]
+   },
+   "nj-entity-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The New Jersey result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-nj-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The exact statutory entity-exclusion category, legal status and any activity restrictions",
+      "owner": "Corporate counsel and the entity's regulatory or compliance owner",
+      "why": "A nonprofit, healthcare or financial-services label may not match the state's narrower legal definition."
+     }
+    ]
+   },
+   "nj-data": {
+    "type": "question",
+    "q": "Is every record in the assessed processing covered by a specific data exclusion?",
+    "help": "The same section separately excludes HIPAA protected health data, GLBA data, permitted Motor Vehicle Commission sales, FCRA-authorized consumer-reporting-agency data and qualifying human-subject research data. The activity and holder requirements matter. Answer no if any relevant data remains, then measure that non-excluded scope; retain a record of the excluded categories.",
+    "cites": [
+     "pwc-us-nj-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "nj-data-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "nj-threshold"
+     },
+     {
+      "label": "Not sure",
+      "goto": "nj-data-unknown"
+     }
+    ]
+   },
+   "nj-data-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The New Jersey result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-nj-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The data inventory, each claimed exemption, and evidence that its holder, purpose and handling conditions are satisfied",
+      "owner": "Privacy counsel and data owners",
+      "why": "An exemption for some records does not exclude all records or the whole organization."
+     }
+    ]
+   },
+   "nj-threshold": {
+    "type": "question",
+    "q": "During a calendar year, does it control or process personal data of at least 100,000 consumers (excluding payment-only data); OR at least 25,000 consumers AND derive any revenue or receive any discount from selling personal data?",
+    "help": "New Jersey residents acting only in an individual/household context, excluding commercial and employment roles. Deduct payment-only data from the 100,000 limb. During a calendar year. Use this state's sale definition and its exceptions; advertising disclosure or a vendor contract is not automatically a statutory sale.",
+    "cites": [
+     "pwc-us-nj-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "nj-covered"
+     },
+     {
+      "label": "No",
+      "goto": "nj-below"
+     },
+     {
+      "label": "Not sure",
+      "goto": "nj-threshold-unknown"
+     }
+    ]
+   },
+   "nj-threshold-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The New Jersey result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-nj-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "State-specific count, applicable measuring period, and any revenue or sale/share measure needed for: During a calendar year, does it control or process personal data of at least 100,000 consumers (excluding payment-only data); OR at least 25,000 consumers AND derive any revenue or receive any discount from selling personal data?",
+      "owner": "Finance, analytics/data owners and privacy counsel",
+      "why": "Exact counts, sale classification and strict versus inclusive comparisons determine whether this gate is met."
+     }
+    ]
+   },
+   "nj-no-nexus": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "General territorial scope is not established",
+    "summary": "On these answers, the stated New Jersey business/resident connection is absent. This result addresses only the general applicability route assessed here.",
+    "actions": [
+     "Keep the business and resident-reach evidence supporting this answer.",
+     "Reassess if targeting, delivery, corporate relationships or processing changes; check any separate recipient, sector or contractual duties."
+    ],
+    "cites": [
+     "pwc-us-nj-scope"
+    ]
+   },
+   "nj-entity-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "An entity exclusion was identified",
+    "summary": "The specific New Jersey entity exclusion you confirmed removes the entity/activity within that exclusion's boundaries from this law's general scope.",
+    "actions": [
+     "Record the exact provision and evidence supporting the category and its conditions.",
+     "Keep unrelated entities, activities and separate statutory duties outside this result."
+    ],
+    "cites": [
+     "pwc-us-nj-scope-exemptions"
+    ]
+   },
+   "nj-data-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "The assessed dataset has an exclusion",
+    "summary": "You identified an applicable New Jersey exclusion for every record in this assessed processing. The answer does not exempt the organization or other datasets.",
+    "actions": [
+     "Record the provision, covered records, handling conditions and owner.",
+     "Reassess any new or mixed data and any duties expressly preserved by the exemption."
+    ],
+    "cites": [
+     "pwc-us-nj-scope-exemptions"
+    ]
+   },
+   "nj-covered": {
+    "type": "outcome",
+    "tier": "required",
+    "title": "The general applicability gate is met",
+    "summary": "Your answers satisfy the New Jersey scope gate for the non-excluded processing in this assessment. Specific obligations depend on the entity's actual controller, processor or other statutory role.",
+    "actions": [
+     "Save the nexus, exemption and threshold evidence with the assessment.",
+     "Assign the processing role and evaluate this state's notice, rights, consent, contracts and assessment duties.",
+     "Recheck when the entity, data, processing or law changes."
+    ],
+    "cites": [
+     "pwc-us-nj-scope"
+    ]
+   },
+   "nj-below": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "The general thresholds are not met",
+    "summary": "On the supplied facts, the New Jersey general numeric/revenue scope gate is not met. This is limited to that gate and the stated measuring period.",
+    "actions": [
+     "Keep the counts, financial calculation and sale classification supporting this result.",
+     "Reassess growth and processing changes; assess separate sector, recipient and contractual duties where relevant."
+    ],
+    "cites": [
+     "pwc-us-nj-scope"
+    ]
+   },
+   "or-nexus": {
+    "type": "question",
+    "q": "Does it conduct business in Oregon OR provide products or services to Oregon residents?",
+    "help": "Oregon residents acting individually or as a household, excluding commercial or employment roles. Deduct payment-only data from the 100,000 limb. Use the actual entity and processing in this assessment; a website being technically reachable is not by itself proof of the stated business or targeting test.",
+    "cites": [
+     "pwc-us-or-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "or-entity"
+     },
+     {
+      "label": "No",
+      "goto": "or-no-nexus"
+     },
+     {
+      "label": "Not sure",
+      "goto": "or-nexus-unknown"
+     }
+    ]
+   },
+   "or-nexus-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Oregon result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-or-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Does it conduct business in Oregon OR provide products or services to Oregon residents? Record resident reach, contracts, delivery and targeting evidence.",
+      "owner": "Business owner and privacy counsel",
+      "why": "The state connection is part of this law's applicability rule."
+     }
+    ]
+   },
+   "or-entity": {
+    "type": "question",
+    "q": "Does a specific entity exclusion fully cover this entity and the activity being assessed?",
+    "help": "§646A.572 excludes public bodies/corporations; qualifying banks and directly financial affiliates/subsidiaries; insurers (not mere self-insurance), insurance producers/consultants and licensed third-party administrators; and insurance-fraud nonprofits. Noncommercial publishing/news activity has a separate activity exclusion. There is no general nonprofit or HIPAA-entity exemption. Answer yes only after identifying the exact statutory category and satisfying every condition. A data-only exemption belongs in the next question.",
+    "cites": [
+     "pwc-us-or-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "or-entity-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "or-data"
+     },
+     {
+      "label": "Not sure",
+      "goto": "or-entity-unknown"
+     }
+    ]
+   },
+   "or-entity-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Oregon result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-or-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The exact statutory entity-exclusion category, legal status and any activity restrictions",
+      "owner": "Corporate counsel and the entity's regulatory or compliance owner",
+      "why": "A nonprofit, healthcare or financial-services label may not match the state's narrower legal definition."
+     }
+    ]
+   },
+   "or-data": {
+    "type": "question",
+    "q": "Is every record in the assessed processing covered by a specific data exclusion?",
+    "help": "Specified HIPAA, health/research, Part2, patient-safety, same-manner records, employment/contract-role, FCRA, GLBA, DPPA, FERPA and preempted airline data are excluded subject to conditions. §646A.572(3) permitted-purpose processing is limited by necessity, proportionality, security and burden-of-proof requirements; it is not a blanket entity exemption. Answer no if any relevant data remains, then measure that non-excluded scope; retain a record of the excluded categories.",
+    "cites": [
+     "pwc-us-or-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "or-data-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "or-vehicle"
+     },
+     {
+      "label": "Not sure",
+      "goto": "or-data-unknown"
+     }
+    ]
+   },
+   "or-data-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Oregon result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-or-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The data inventory, each claimed exemption, and evidence that its holder, purpose and handling conditions are satisfied",
+      "owner": "Privacy counsel and data owners",
+      "why": "An exemption for some records does not exclude all records or the whole organization."
+     }
+    ]
+   },
+   "or-threshold": {
+    "type": "question",
+    "q": "During a calendar year, does it control or process personal data of at least 100,000 consumers (excluding payment-only data); OR at least 25,000 consumers while deriving at least 25% of annual gross revenue from selling personal data?",
+    "help": "Oregon residents acting individually or as a household, excluding commercial or employment roles. Deduct payment-only data from the 100,000 limb. During a calendar year; sale limb uses annual gross revenue. Use this state's sale definition and its exceptions; advertising disclosure or a vendor contract is not automatically a statutory sale.",
+    "cites": [
+     "pwc-us-or-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "or-covered"
+     },
+     {
+      "label": "No",
+      "goto": "or-below"
+     },
+     {
+      "label": "Not sure",
+      "goto": "or-threshold-unknown"
+     }
+    ]
+   },
+   "or-threshold-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Oregon result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-or-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "State-specific count, applicable measuring period, and any revenue or sale/share measure needed for: During a calendar year, does it control or process personal data of at least 100,000 consumers (excluding payment-only data); OR at least 25,000 consumers while deriving at least 25% of annual gross revenue from selling personal data?",
+      "owner": "Finance, analytics/data owners and privacy counsel",
+      "why": "Exact counts, sale classification and strict versus inclusive comparisons determine whether this gate is met."
+     }
+    ]
+   },
+   "or-no-nexus": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "General territorial scope is not established",
+    "summary": "On these answers, the stated Oregon business/resident connection is absent. This result addresses only the general applicability route assessed here.",
+    "actions": [
+     "Keep the business and resident-reach evidence supporting this answer.",
+     "Reassess if targeting, delivery, corporate relationships or processing changes; check any separate recipient, sector or contractual duties."
+    ],
+    "cites": [
+     "pwc-us-or-scope"
+    ]
+   },
+   "or-entity-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "An entity exclusion was identified",
+    "summary": "The specific Oregon entity exclusion you confirmed removes the entity/activity within that exclusion's boundaries from this law's general scope.",
+    "actions": [
+     "Record the exact provision and evidence supporting the category and its conditions.",
+     "Keep unrelated entities, activities and separate statutory duties outside this result."
+    ],
+    "cites": [
+     "pwc-us-or-scope-exemptions"
+    ]
+   },
+   "or-data-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "The assessed dataset has an exclusion",
+    "summary": "You identified an applicable Oregon exclusion for every record in this assessed processing. The answer does not exempt the organization or other datasets.",
+    "actions": [
+     "Record the provision, covered records, handling conditions and owner.",
+     "Reassess any new or mixed data and any duties expressly preserved by the exemption."
+    ],
+    "cites": [
+     "pwc-us-or-scope-exemptions"
+    ]
+   },
+   "or-covered": {
+    "type": "outcome",
+    "tier": "required",
+    "title": "The general applicability gate is met",
+    "summary": "Your answers satisfy the Oregon scope gate for the non-excluded processing in this assessment. Specific obligations depend on the entity's actual controller, processor or other statutory role.",
+    "actions": [
+     "Save the nexus, exemption and threshold evidence with the assessment.",
+     "Assign the processing role and evaluate this state's notice, rights, consent, contracts and assessment duties.",
+     "Recheck when the entity, data, processing or law changes."
+    ],
+    "cites": [
+     "pwc-us-or-scope"
+    ]
+   },
+   "or-below": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "The general thresholds are not met",
+    "summary": "On the supplied facts, the Oregon general numeric/revenue scope gate is not met. This is limited to that gate and the stated measuring period.",
+    "actions": [
+     "Keep the counts, financial calculation and sale classification supporting this result.",
+     "Reassess growth and processing changes; assess separate sector, recipient and contractual duties where relevant."
+    ],
+    "cites": [
+     "pwc-us-or-scope"
+    ]
+   },
+   "ri-nexus": {
+    "type": "question",
+    "q": "Is it a for-profit entity conducting business in Rhode Island OR producing products or services targeted to Rhode Island residents?",
+    "help": "Rhode Island customers in their individual/household context, excluding commercial and employment roles. Deduct payment-only data from the 35,000 limb. Use the actual entity and processing in this assessment; a website being technically reachable is not by itself proof of the stated business or targeting test.",
+    "cites": [
+     "pwc-us-ri-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "ri-entity"
+     },
+     {
+      "label": "No",
+      "goto": "ri-website"
+     },
+     {
+      "label": "Not sure",
+      "goto": "ri-nexus-unknown"
+     }
+    ]
+   },
+   "ri-nexus-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Rhode Island result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-ri-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Is it a for-profit entity conducting business in Rhode Island OR producing products or services targeted to Rhode Island residents? Record resident reach, contracts, delivery and targeting evidence.",
+      "owner": "Business owner and privacy counsel",
+      "why": "The state connection is part of this law's applicability rule."
+     }
+    ]
+   },
+   "ri-entity": {
+    "type": "question",
+    "q": "Does a specific entity exclusion fully cover this entity and the activity being assessed?",
+    "help": "§6-48.1-3(d) excludes government bodies, nonprofits, higher education, specified national securities associations, qualifying GLBA financial institutions and HIPAA covered entities/business associates. Answer yes only after identifying the exact statutory category and satisfying every condition. A data-only exemption belongs in the next question.",
+    "cites": [
+     "pwc-us-ri-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "ri-entity-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "ri-data"
+     },
+     {
+      "label": "Not sure",
+      "goto": "ri-entity-unknown"
+     }
+    ]
+   },
+   "ri-entity-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Rhode Island result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-ri-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The exact statutory entity-exclusion category, legal status and any activity restrictions",
+      "owner": "Corporate counsel and the entity's regulatory or compliance owner",
+      "why": "A nonprofit, healthcare or financial-services label may not match the state's narrower legal definition."
+     }
+    ]
+   },
+   "ri-data": {
+    "type": "question",
+    "q": "Is every record in the assessed processing covered by a specific data exclusion?",
+    "help": "§6-48.1-3(e) separately excludes GLBA data, specified health/research, regulated credit, DPPA, FERPA, Farm Credit and employment-role data. §6-48.1-3 also creates website/online duties that are separate from §6-48.1-4's numeric thresholds. Answer no if any relevant data remains, then measure that non-excluded scope; retain a record of the excluded categories.",
+    "cites": [
+     "pwc-us-ri-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "ri-data-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "ri-threshold"
+     },
+     {
+      "label": "Not sure",
+      "goto": "ri-data-unknown"
+     }
+    ]
+   },
+   "ri-data-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Rhode Island result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-ri-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The data inventory, each claimed exemption, and evidence that its holder, purpose and handling conditions are satisfied",
+      "owner": "Privacy counsel and data owners",
+      "why": "An exemption for some records does not exclude all records or the whole organization."
+     }
+    ]
+   },
+   "ri-threshold": {
+    "type": "question",
+    "q": "In the preceding calendar year, did it control or process personal data of at least 35,000 customers (excluding payment-only data); OR at least 10,000 customers AND derive strictly more than 20% of gross revenue from selling personal data?",
+    "help": "Rhode Island customers in their individual/household context, excluding commercial and employment roles. Deduct payment-only data from the 35,000 limb. Preceding calendar year for §6-48.1-4. Do not export these thresholds to §6-48.1-3. Use this state's sale definition and its exceptions; advertising disclosure or a vendor contract is not automatically a statutory sale.",
+    "cites": [
+     "pwc-us-ri-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "ri-covered"
+     },
+     {
+      "label": "No",
+      "goto": "ri-website"
+     },
+     {
+      "label": "Not sure",
+      "goto": "ri-threshold-unknown"
+     }
+    ]
+   },
+   "ri-threshold-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Rhode Island result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-ri-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "State-specific count, applicable measuring period, and any revenue or sale/share measure needed for: In the preceding calendar year, did it control or process personal data of at least 35,000 customers (excluding payment-only data); OR at least 10,000 customers AND derive strictly more than 20% of gross revenue from selling personal data?",
+      "owner": "Finance, analytics/data owners and privacy counsel",
+      "why": "Exact counts, sale classification and strict versus inclusive comparisons determine whether this gate is met."
+     }
+    ]
+   },
+   "ri-entity-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "An entity exclusion was identified",
+    "summary": "The specific Rhode Island entity exclusion you confirmed removes the entity/activity within that exclusion's boundaries from this law's general scope.",
+    "actions": [
+     "Record the exact provision and evidence supporting the category and its conditions.",
+     "Keep unrelated entities, activities and separate statutory duties outside this result."
+    ],
+    "cites": [
+     "pwc-us-ri-scope-exemptions"
+    ]
+   },
+   "ri-data-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "The assessed dataset has an exclusion",
+    "summary": "You identified an applicable Rhode Island exclusion for every record in this assessed processing. The answer does not exempt the organization or other datasets.",
+    "actions": [
+     "Record the provision, covered records, handling conditions and owner.",
+     "Reassess any new or mixed data and any duties expressly preserved by the exemption."
+    ],
+    "cites": [
+     "pwc-us-ri-scope-exemptions"
+    ]
+   },
+   "ri-covered": {
+    "type": "outcome",
+    "tier": "required",
+    "title": "The general applicability gate is met",
+    "summary": "Your answers satisfy the Rhode Island scope gate for the non-excluded processing in this assessment. Specific obligations depend on the entity's actual controller, processor or other statutory role.",
+    "actions": [
+     "Save the nexus, exemption and threshold evidence with the assessment.",
+     "Assign the processing role and evaluate this state's notice, rights, consent, contracts and assessment duties.",
+     "Recheck when the entity, data, processing or law changes."
+    ],
+    "cites": [
+     "pwc-us-ri-scope"
+    ]
+   },
+   "ri-below": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "General coverage was not established",
+    "summary": "The supplied business/targeting or numeric-threshold answers do not establish section4 coverage, and no separate website/ISP scope was reported. This conclusion is limited to those questions.",
+    "actions": [
+     "Keep the counts, financial calculation and sale classification supporting this result.",
+     "Reassess growth and processing changes; assess separate sector, recipient and contractual duties where relevant."
+    ],
+    "cites": [
+     "pwc-us-ri-scope"
+    ]
+   },
+   "tn-nexus": {
+    "type": "question",
+    "q": "Does it conduct business in Tennessee producing products or services that target Tennessee residents?",
+    "help": "Tennessee consumers acting individually or as a household, excluding commercial and employment roles. Do not substitute total global database records. Use the actual entity and processing in this assessment; a website being technically reachable is not by itself proof of the stated business or targeting test.",
+    "cites": [
+     "pwc-us-tn-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "tn-entity"
+     },
+     {
+      "label": "No",
+      "goto": "tn-no-nexus"
+     },
+     {
+      "label": "Not sure",
+      "goto": "tn-nexus-unknown"
+     }
+    ]
+   },
+   "tn-nexus-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Tennessee result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-tn-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Does it conduct business in Tennessee producing products or services that target Tennessee residents? Record resident reach, contracts, delivery and targeting evidence.",
+      "owner": "Business owner and privacy counsel",
+      "why": "The state connection is part of this law's applicability rule."
+     }
+    ]
+   },
+   "tn-entity": {
+    "type": "question",
+    "q": "Does a specific entity exclusion fully cover this entity and the activity being assessed?",
+    "help": "§47-18-3311 excludes government bodies, qualifying GLBA financial institutions/affiliates, licensed insurance companies transacting insurance business, licensed insurance producers, HIPAA covered entities/business associates, nonprofits and higher-education institutions. Answer yes only after identifying the exact statutory category and satisfying every condition. A data-only exemption belongs in the next question.",
+    "cites": [
+     "pwc-us-tn-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "tn-entity-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "tn-data"
+     },
+     {
+      "label": "Not sure",
+      "goto": "tn-entity-unknown"
+     }
+    ]
+   },
+   "tn-entity-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Tennessee result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-tn-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The exact statutory entity-exclusion category, legal status and any activity restrictions",
+      "owner": "Corporate counsel and the entity's regulatory or compliance owner",
+      "why": "A nonprofit, healthcare or financial-services label may not match the state's narrower legal definition."
+     }
+    ]
+   },
+   "tn-data": {
+    "type": "question",
+    "q": "Is every record in the assessed processing covered by a specific data exclusion?",
+    "help": "§47-18-3311 separately excludes specified health/research and limited-dataset information, regulated credit, GLBA, DPPA, FERPA, Farm Credit, employment-role, public/peer-reviewed scientific or statistical research, and listed-chemical data. Each category has its own holder, activity or handling conditions. Answer no if any relevant data remains, then measure that non-excluded scope; retain a record of the excluded categories.",
+    "cites": [
+     "pwc-us-tn-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "tn-data-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "tn-threshold"
+     },
+     {
+      "label": "Not sure",
+      "goto": "tn-data-unknown"
+     }
+    ]
+   },
+   "tn-data-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Tennessee result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-tn-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The data inventory, each claimed exemption, and evidence that its holder, purpose and handling conditions are satisfied",
+      "owner": "Privacy counsel and data owners",
+      "why": "An exemption for some records does not exclude all records or the whole organization."
+     }
+    ]
+   },
+   "tn-threshold": {
+    "type": "question",
+    "q": "Does its revenue strictly exceed $25 million AND does at least one limb hold: it controls or processes at least 25,000 consumers’ personal data AND derives strictly more than 50% of gross revenue from selling personal data; OR it controls or processes at least 175,000 consumers’ personal data during a calendar year?",
+    "help": "Tennessee consumers acting individually or as a household, excluding commercial and employment roles. Do not substitute total global database records. 175,000 limb: during a calendar year. §47-18-3303 states >$25m revenue and >50% gross revenue without separately naming a period; AG describes the general gate as annual. Use this state's sale definition and its exceptions; advertising disclosure or a vendor contract is not automatically a statutory sale.",
+    "cites": [
+     "pwc-us-tn-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "tn-covered"
+     },
+     {
+      "label": "No",
+      "goto": "tn-below"
+     },
+     {
+      "label": "Not sure",
+      "goto": "tn-threshold-unknown"
+     }
+    ]
+   },
+   "tn-threshold-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Tennessee result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-tn-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "State-specific count, applicable measuring period, and any revenue or sale/share measure needed for: Does its revenue strictly exceed $25 million AND does at least one limb hold: it controls or processes at least 25,000 consumers’ personal data AND derives strictly more than 50% of gross revenue from selling personal data; OR it controls or processes at least 175,000 consumers’ personal data during a calendar year?",
+      "owner": "Finance, analytics/data owners and privacy counsel",
+      "why": "Exact counts, sale classification and strict versus inclusive comparisons determine whether this gate is met."
+     }
+    ]
+   },
+   "tn-no-nexus": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve the Tennessee business connection",
+    "summary": "The statute's business/targeting wording and the AG's OR paraphrase require a concrete check where one connection is absent.",
+    "actions": [
+     "Have counsel assess Tennessee business operations and targeted products/services against §47-18-3303 before recording no general scope."
+    ],
+    "cites": [
+     "pwc-us-tn-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Whether Tennessee business or targeted products/services satisfies the statute on these facts",
+      "owner": "Tennessee privacy counsel and business owner",
+      "why": "A literal reading of the conjunctive wording should not silently become an out-of-scope answer where official guidance uses OR."
+     }
+    ]
+   },
+   "tn-entity-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "An entity exclusion was identified",
+    "summary": "The specific Tennessee entity exclusion you confirmed removes the entity/activity within that exclusion's boundaries from this law's general scope.",
+    "actions": [
+     "Record the exact provision and evidence supporting the category and its conditions.",
+     "Keep unrelated entities, activities and separate statutory duties outside this result."
+    ],
+    "cites": [
+     "pwc-us-tn-scope-exemptions"
+    ]
+   },
+   "tn-data-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "The assessed dataset has an exclusion",
+    "summary": "You identified an applicable Tennessee exclusion for every record in this assessed processing. The answer does not exempt the organization or other datasets.",
+    "actions": [
+     "Record the provision, covered records, handling conditions and owner.",
+     "Reassess any new or mixed data and any duties expressly preserved by the exemption."
+    ],
+    "cites": [
+     "pwc-us-tn-scope-exemptions"
+    ]
+   },
+   "tn-covered": {
+    "type": "outcome",
+    "tier": "required",
+    "title": "The general applicability gate is met",
+    "summary": "Your answers satisfy the Tennessee scope gate for the non-excluded processing in this assessment. Specific obligations depend on the entity's actual controller, processor or other statutory role.",
+    "actions": [
+     "Save the nexus, exemption and threshold evidence with the assessment.",
+     "Assign the processing role and evaluate this state's notice, rights, consent, contracts and assessment duties.",
+     "Recheck when the entity, data, processing or law changes."
+    ],
+    "cites": [
+     "pwc-us-tn-scope"
+    ]
+   },
+   "tn-below": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "The general thresholds are not met",
+    "summary": "On the supplied facts, the Tennessee general numeric/revenue scope gate is not met. This is limited to that gate and the stated measuring period.",
+    "actions": [
+     "Keep the counts, financial calculation and sale classification supporting this result.",
+     "Reassess growth and processing changes; assess separate sector, recipient and contractual duties where relevant."
+    ],
+    "cites": [
+     "pwc-us-tn-scope"
+    ]
+   },
+   "tx-nexus": {
+    "type": "question",
+    "q": "Does it conduct business in Texas OR produce a product or service consumed by Texas residents, AND process or engage in the sale of personal data?",
+    "help": "Texas consumers acting individually or as a household, excluding employment and commercial roles. No fixed consumer-volume or universal revenue test applies. Use the actual entity and processing in this assessment; a website being technically reachable is not by itself proof of the stated business or targeting test.",
+    "cites": [
+     "pwc-us-tx-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "tx-entity"
+     },
+     {
+      "label": "No",
+      "goto": "tx-no-nexus"
+     },
+     {
+      "label": "Not sure",
+      "goto": "tx-nexus-unknown"
+     }
+    ]
+   },
+   "tx-nexus-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Texas result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-tx-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Does it conduct business in Texas OR produce a product or service consumed by Texas residents, AND process or engage in the sale of personal data? Record resident reach, contracts, delivery and targeting evidence.",
+      "owner": "Business owner and privacy counsel",
+      "why": "The state connection is part of this law's applicability rule."
+     }
+    ]
+   },
+   "tx-entity": {
+    "type": "question",
+    "q": "Does a specific entity exclusion fully cover this entity and the activity being assessed?",
+    "help": "§541.002 excludes government entities, qualifying GLBA financial institutions, HIPAA covered entities/business associates, nonprofits, higher education and specified electric-utility, power-generation and retail-electric entities. Do not assume every affiliate is itself a qualifying financial institution. Answer yes only after identifying the exact statutory category and satisfying every condition. A data-only exemption belongs in the next question.",
+    "cites": [
+     "pwc-us-tx-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "tx-entity-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "tx-data"
+     },
+     {
+      "label": "Not sure",
+      "goto": "tx-entity-unknown"
+     }
+    ]
+   },
+   "tx-entity-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Texas result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-tx-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The exact statutory entity-exclusion category, legal status and any activity restrictions",
+      "owner": "Corporate counsel and the entity's regulatory or compliance owner",
+      "why": "A nonprofit, healthcare or financial-services label may not match the state's narrower legal definition."
+     }
+    ]
+   },
+   "tx-data": {
+    "type": "question",
+    "q": "Is every record in the assessed processing covered by a specific data exclusion?",
+    "help": "§541.003 separately excludes specified health/research, regulated credit, DPPA, FERPA, Farm Credit and employment-role information; §541.002 separately excludes GLBA data. Check the exact conditions before excluding records. Answer no if any relevant data remains, then measure that non-excluded scope; retain a record of the excluded categories.",
+    "cites": [
+     "pwc-us-tx-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "tx-data-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "tx-small"
+     },
+     {
+      "label": "Not sure",
+      "goto": "tx-data-unknown"
+     }
+    ]
+   },
+   "tx-data-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Texas result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-tx-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The data inventory, each claimed exemption, and evidence that its holder, purpose and handling conditions are satisfied",
+      "owner": "Privacy counsel and data owners",
+      "why": "An exemption for some records does not exclude all records or the whole organization."
+     }
+    ]
+   },
+   "tx-no-nexus": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "General territorial scope is not established",
+    "summary": "On these answers, the stated Texas business/resident connection is absent. This result addresses only the general applicability route assessed here.",
+    "actions": [
+     "Keep the business and resident-reach evidence supporting this answer.",
+     "Reassess if targeting, delivery, corporate relationships or processing changes; check any separate recipient, sector or contractual duties."
+    ],
+    "cites": [
+     "pwc-us-tx-scope"
+    ]
+   },
+   "tx-entity-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "An entity exclusion was identified",
+    "summary": "The specific Texas entity exclusion you confirmed removes the entity/activity within that exclusion's boundaries from this law's general scope.",
+    "actions": [
+     "Record the exact provision and evidence supporting the category and its conditions.",
+     "Keep unrelated entities, activities and separate statutory duties outside this result."
+    ],
+    "cites": [
+     "pwc-us-tx-scope-exemptions"
+    ]
+   },
+   "tx-data-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "The assessed dataset has an exclusion",
+    "summary": "You identified an applicable Texas exclusion for every record in this assessed processing. The answer does not exempt the organization or other datasets.",
+    "actions": [
+     "Record the provision, covered records, handling conditions and owner.",
+     "Reassess any new or mixed data and any duties expressly preserved by the exemption."
+    ],
+    "cites": [
+     "pwc-us-tx-scope-exemptions"
+    ]
+   },
+   "tx-covered": {
+    "type": "outcome",
+    "tier": "required",
+    "title": "The general applicability gate is met",
+    "summary": "Your answers satisfy the Texas scope gate for the non-excluded processing in this assessment. Specific obligations depend on the entity's actual controller, processor or other statutory role.",
+    "actions": [
+     "Save the nexus, exemption and threshold evidence with the assessment.",
+     "Assign the processing role and evaluate this state's notice, rights, consent, contracts and assessment duties.",
+     "Recheck when the entity, data, processing or law changes."
+    ],
+    "cites": [
+     "pwc-us-tx-scope"
+    ]
+   },
+   "ut-nexus": {
+    "type": "question",
+    "q": "Does the controller or processor conduct business in Utah OR produce a product or service targeted to consumers who are Utah residents?",
+    "help": "Utah consumers acting individually or as a household, excluding commercial and employment roles. No payment-only deduction in the 100,000 limb. Use the actual entity and processing in this assessment; a website being technically reachable is not by itself proof of the stated business or targeting test.",
+    "cites": [
+     "pwc-us-ut-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "ut-entity"
+     },
+     {
+      "label": "No",
+      "goto": "ut-no-nexus"
+     },
+     {
+      "label": "Not sure",
+      "goto": "ut-nexus-unknown"
+     }
+    ]
+   },
+   "ut-nexus-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Utah result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-ut-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Does the controller or processor conduct business in Utah OR produce a product or service targeted to consumers who are Utah residents? Record resident reach, contracts, delivery and targeting evidence.",
+      "owner": "Business owner and privacy counsel",
+      "why": "The state connection is part of this law's applicability rule."
+     }
+    ]
+   },
+   "ut-entity": {
+    "type": "question",
+    "q": "Does a specific entity exclusion fully cover this entity and the activity being assessed?",
+    "help": "Government entities and contractors acting on their behalf, tribes, higher education, nonprofit corporations, HIPAA covered entities/business associates, qualifying GLBA financial institutions/affiliates and air carriers are excluded. Purely personal/household processing is separately excluded. Answer yes only after identifying the exact statutory category and satisfying every condition. A data-only exemption belongs in the next question.",
+    "cites": [
+     "pwc-us-ut-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "ut-entity-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "ut-data"
+     },
+     {
+      "label": "Not sure",
+      "goto": "ut-entity-unknown"
+     }
+    ]
+   },
+   "ut-entity-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Utah result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-ut-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The exact statutory entity-exclusion category, legal status and any activity restrictions",
+      "owner": "Corporate counsel and the entity's regulatory or compliance owner",
+      "why": "A nonprofit, healthcare or financial-services label may not match the state's narrower legal definition."
+     }
+    ]
+   },
+   "ut-data": {
+    "type": "question",
+    "q": "Is every record in the assessed processing covered by a specific data exclusion?",
+    "help": "§13-61-102 separately excludes specified health/research, same-manner health records, regulated credit, GLBA, DPPA, FERPA, Farm Credit and employment-role information. Verify the regulated activity and record conditions. Answer no if any relevant data remains, then measure that non-excluded scope; retain a record of the excluded categories.",
+    "cites": [
+     "pwc-us-ut-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "ut-data-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "ut-threshold"
+     },
+     {
+      "label": "Not sure",
+      "goto": "ut-data-unknown"
+     }
+    ]
+   },
+   "ut-data-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Utah result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-ut-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The data inventory, each claimed exemption, and evidence that its holder, purpose and handling conditions are satisfied",
+      "owner": "Privacy counsel and data owners",
+      "why": "An exemption for some records does not exclude all records or the whole organization."
+     }
+    ]
+   },
+   "ut-threshold": {
+    "type": "question",
+    "q": "Is annual revenue at least $25 million AND does at least one limb hold: it controls or processes at least 100,000 consumers’ personal data during a calendar year; OR it controls or processes at least 25,000 consumers’ personal data AND derives strictly more than 50% of gross revenue from selling personal data?",
+    "help": "Utah consumers acting individually or as a household, excluding commercial and employment roles. No payment-only deduction in the 100,000 limb. Revenue is annual; 100,000 limb is during a calendar year. The 25,000-plus-sale limb does not separately state a lookback. Use this state's sale definition and its exceptions; advertising disclosure or a vendor contract is not automatically a statutory sale.",
+    "cites": [
+     "pwc-us-ut-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "ut-covered"
+     },
+     {
+      "label": "No",
+      "goto": "ut-below"
+     },
+     {
+      "label": "Not sure",
+      "goto": "ut-threshold-unknown"
+     }
+    ]
+   },
+   "ut-threshold-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Utah result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-ut-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "State-specific count, applicable measuring period, and any revenue or sale/share measure needed for: Is annual revenue at least $25 million AND does at least one limb hold: it controls or processes at least 100,000 consumers’ personal data during a calendar year; OR it controls or processes at least 25,000 consumers’ personal data AND derives strictly more than 50% of gross revenue from selling personal data?",
+      "owner": "Finance, analytics/data owners and privacy counsel",
+      "why": "Exact counts, sale classification and strict versus inclusive comparisons determine whether this gate is met."
+     }
+    ]
+   },
+   "ut-no-nexus": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "General territorial scope is not established",
+    "summary": "On these answers, the stated Utah business/resident connection is absent. This result addresses only the general applicability route assessed here.",
+    "actions": [
+     "Keep the business and resident-reach evidence supporting this answer.",
+     "Reassess if targeting, delivery, corporate relationships or processing changes; check any separate recipient, sector or contractual duties."
+    ],
+    "cites": [
+     "pwc-us-ut-scope"
+    ]
+   },
+   "ut-entity-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "An entity exclusion was identified",
+    "summary": "The specific Utah entity exclusion you confirmed removes the entity/activity within that exclusion's boundaries from this law's general scope.",
+    "actions": [
+     "Record the exact provision and evidence supporting the category and its conditions.",
+     "Keep unrelated entities, activities and separate statutory duties outside this result."
+    ],
+    "cites": [
+     "pwc-us-ut-scope-exemptions"
+    ]
+   },
+   "ut-data-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "The assessed dataset has an exclusion",
+    "summary": "You identified an applicable Utah exclusion for every record in this assessed processing. The answer does not exempt the organization or other datasets.",
+    "actions": [
+     "Record the provision, covered records, handling conditions and owner.",
+     "Reassess any new or mixed data and any duties expressly preserved by the exemption."
+    ],
+    "cites": [
+     "pwc-us-ut-scope-exemptions"
+    ]
+   },
+   "ut-covered": {
+    "type": "outcome",
+    "tier": "required",
+    "title": "The general applicability gate is met",
+    "summary": "Your answers satisfy the Utah scope gate for the non-excluded processing in this assessment. Specific obligations depend on the entity's actual controller, processor or other statutory role.",
+    "actions": [
+     "Save the nexus, exemption and threshold evidence with the assessment.",
+     "Assign the processing role and evaluate this state's notice, rights, consent, contracts and assessment duties.",
+     "Recheck when the entity, data, processing or law changes."
+    ],
+    "cites": [
+     "pwc-us-ut-scope"
+    ]
+   },
+   "ut-below": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "The general thresholds are not met",
+    "summary": "On the supplied facts, the Utah general numeric/revenue scope gate is not met. This is limited to that gate and the stated measuring period.",
+    "actions": [
+     "Keep the counts, financial calculation and sale classification supporting this result.",
+     "Reassess growth and processing changes; assess separate sector, recipient and contractual duties where relevant."
+    ],
+    "cites": [
+     "pwc-us-ut-scope"
+    ]
+   },
+   "va-nexus": {
+    "type": "question",
+    "q": "Does it conduct business in Virginia OR produce products or services targeted to Virginia residents?",
+    "help": "Virginia consumers acting individually or as a household, excluding employment and commercial roles. No payment-only deduction in the 100,000 limb. Use the actual entity and processing in this assessment; a website being technically reachable is not by itself proof of the stated business or targeting test.",
+    "cites": [
+     "pwc-us-va-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "va-entity"
+     },
+     {
+      "label": "No",
+      "goto": "va-no-nexus"
+     },
+     {
+      "label": "Not sure",
+      "goto": "va-nexus-unknown"
+     }
+    ]
+   },
+   "va-nexus-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Virginia result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-va-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Does it conduct business in Virginia OR produce products or services targeted to Virginia residents? Record resident reach, contracts, delivery and targeting evidence.",
+      "owner": "Business owner and privacy counsel",
+      "why": "The state connection is part of this law's applicability rule."
+     }
+    ]
+   },
+   "va-entity": {
+    "type": "question",
+    "q": "Does a specific entity exclusion fully cover this entity and the activity being assessed?",
+    "help": "Government bodies, qualifying GLBA financial institutions, HIPAA covered entities/business associates, statutory nonprofit organizations and higher-education institutions are excluded. Verify the Act's nonprofit definition rather than assuming every entity with a nonprofit label qualifies. Answer yes only after identifying the exact statutory category and satisfying every condition. A data-only exemption belongs in the next question.",
+    "cites": [
+     "pwc-us-va-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "va-entity-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "va-data"
+     },
+     {
+      "label": "Not sure",
+      "goto": "va-entity-unknown"
+     }
+    ]
+   },
+   "va-entity-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Virginia result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-va-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The exact statutory entity-exclusion category, legal status and any activity restrictions",
+      "owner": "Corporate counsel and the entity's regulatory or compliance owner",
+      "why": "A nonprofit, healthcare or financial-services label may not match the state's narrower legal definition."
+     }
+    ]
+   },
+   "va-data": {
+    "type": "question",
+    "q": "Is every record in the assessed processing covered by a specific data exclusion?",
+    "help": "§59.1-576 separately excludes GLBA data, specified health/research, regulated credit, DPPA, FERPA, Farm Credit and employment-role, emergency-contact and benefits records. A partial data exclusion does not cover unrelated records. Answer no if any relevant data remains, then measure that non-excluded scope; retain a record of the excluded categories.",
+    "cites": [
+     "pwc-us-va-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "va-data-excluded"
+     },
+     {
+      "label": "No",
+      "goto": "va-threshold"
+     },
+     {
+      "label": "Not sure",
+      "goto": "va-data-unknown"
+     }
+    ]
+   },
+   "va-data-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Virginia result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-va-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The data inventory, each claimed exemption, and evidence that its holder, purpose and handling conditions are satisfied",
+      "owner": "Privacy counsel and data owners",
+      "why": "An exemption for some records does not exclude all records or the whole organization."
+     }
+    ]
+   },
+   "va-threshold": {
+    "type": "question",
+    "q": "Does it control or process at least 100,000 consumers’ personal data during a calendar year; OR control or process at least 25,000 consumers’ personal data AND derive strictly more than 50% of gross revenue from selling personal data?",
+    "help": "Virginia consumers acting individually or as a household, excluding employment and commercial roles. No payment-only deduction in the 100,000 limb. 100,000 limb: during a calendar year. The 25,000-plus-sale limb does not separately state a measuring period. Use this state's sale definition and its exceptions; advertising disclosure or a vendor contract is not automatically a statutory sale.",
+    "cites": [
+     "pwc-us-va-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "va-covered"
+     },
+     {
+      "label": "No",
+      "goto": "va-below"
+     },
+     {
+      "label": "Not sure",
+      "goto": "va-threshold-unknown"
+     }
+    ]
+   },
+   "va-threshold-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Virginia result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-va-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "State-specific count, applicable measuring period, and any revenue or sale/share measure needed for: Does it control or process at least 100,000 consumers’ personal data during a calendar year; OR control or process at least 25,000 consumers’ personal data AND derive strictly more than 50% of gross revenue from selling personal data?",
+      "owner": "Finance, analytics/data owners and privacy counsel",
+      "why": "Exact counts, sale classification and strict versus inclusive comparisons determine whether this gate is met."
+     }
+    ]
+   },
+   "va-no-nexus": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "General territorial scope is not established",
+    "summary": "On these answers, the stated Virginia business/resident connection is absent. This result addresses only the general applicability route assessed here.",
+    "actions": [
+     "Keep the business and resident-reach evidence supporting this answer.",
+     "Reassess if targeting, delivery, corporate relationships or processing changes; check any separate recipient, sector or contractual duties."
+    ],
+    "cites": [
+     "pwc-us-va-scope"
+    ]
+   },
+   "va-entity-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "An entity exclusion was identified",
+    "summary": "The specific Virginia entity exclusion you confirmed removes the entity/activity within that exclusion's boundaries from this law's general scope.",
+    "actions": [
+     "Record the exact provision and evidence supporting the category and its conditions.",
+     "Keep unrelated entities, activities and separate statutory duties outside this result."
+    ],
+    "cites": [
+     "pwc-us-va-scope-exemptions"
+    ]
+   },
+   "va-data-excluded": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "The assessed dataset has an exclusion",
+    "summary": "You identified an applicable Virginia exclusion for every record in this assessed processing. The answer does not exempt the organization or other datasets.",
+    "actions": [
+     "Record the provision, covered records, handling conditions and owner.",
+     "Reassess any new or mixed data and any duties expressly preserved by the exemption."
+    ],
+    "cites": [
+     "pwc-us-va-scope-exemptions"
+    ]
+   },
+   "va-covered": {
+    "type": "outcome",
+    "tier": "required",
+    "title": "The general applicability gate is met",
+    "summary": "Your answers satisfy the Virginia scope gate for the non-excluded processing in this assessment. Specific obligations depend on the entity's actual controller, processor or other statutory role.",
+    "actions": [
+     "Save the nexus, exemption and threshold evidence with the assessment.",
+     "Assign the processing role and evaluate this state's notice, rights, consent, contracts and assessment duties.",
+     "Recheck when the entity, data, processing or law changes."
+    ],
+    "cites": [
+     "pwc-us-va-scope"
+    ]
+   },
+   "va-below": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "The general thresholds are not met",
+    "summary": "On the supplied facts, the Virginia general numeric/revenue scope gate is not met. This is limited to that gate and the stated measuring period.",
+    "actions": [
+     "Keep the counts, financial calculation and sale classification supporting this result.",
+     "Reassess growth and processing changes; assess separate sector, recipient and contractual duties where relevant."
+    ],
+    "cites": [
+     "pwc-us-va-scope"
+    ]
+   },
+   "ca-related": {
+    "type": "question",
+    "q": "Does it qualify through a covered related entity, qualifying joint venture/partnership, or voluntary certification?",
+    "help": "Answer yes if: it controls or is controlled by a qualifying business AND shares common branding AND the business shares consumers’ personal information with it; OR it is a joint venture/partnership composed of businesses each holding at least 40%; OR it does business in California and has voluntarily certified to the Agency that it agrees to comply.",
+    "cites": [
+     "pwc-us-ca-scope-related"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "ca-data"
+     },
+     {
+      "label": "No",
+      "goto": "ca-not-business"
+     },
+     {
+      "label": "Not sure",
+      "goto": "ca-related-unknown"
+     }
+    ]
+   },
+   "ca-related-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The California result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-ca-scope-related"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Control/ownership, common branding, direction of personal-information sharing, joint-venture interests or Agency certification",
+      "owner": "Corporate counsel, corporate secretary and privacy lead",
+      "why": "These separate routes can establish business status even when the direct monetary or volume thresholds fail."
+     }
+    ]
+   },
+   "ca-not-business": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "CCPA business status was not established",
+    "summary": "Neither the direct nor the related-entity, joint-venture or voluntary-certification route was established on these answers.",
+    "actions": [
+     "Retain the financial, relationship and certification checks.",
+     "Assess any duties arising from being a service provider, contractor or recipient of another business's data."
+    ],
+    "cites": [
+     "pwc-us-ca-scope",
+     "pwc-us-ca-scope-related"
+    ]
+   },
+   "co-biometric": {
+    "type": "question",
+    "q": "Does it control or process any biometric identifiers or biometric data?",
+    "help": "Current §6-1-1304 has a separate biometric scope route regardless of count. Separately assess employer biometrics under §6-1-1314 even when ordinary employment data is excluded.",
+    "cites": [
+     "pwc-us-co-scope-special"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "co-biometric-only"
+     },
+     {
+      "label": "No",
+      "goto": "co-minors"
+     },
+     {
+      "label": "Not sure",
+      "goto": "co-biometric-unknown"
+     }
+    ]
+   },
+   "co-biometric-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Colorado result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-co-scope-special"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Whether any processing uses statutory biometric identifiers or biometric data, including employee biometrics",
+      "owner": "Product/security data owners and privacy counsel",
+      "why": "Biometric processing can bring the relevant processing into scope below general consumer thresholds."
+     }
+    ]
+   },
+   "co-minors": {
+    "type": "question",
+    "q": "Does it offer an online service, product or feature to a consumer it actually knows, or willfully disregards, is a minor?",
+    "help": "The named minors provisions bypass the general consumer counts. Evaluate the particular offering and the controller's knowledge rather than treating low volume as an exemption.",
+    "cites": [
+     "pwc-us-co-scope-special"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "co-minors-duties"
+     },
+     {
+      "label": "No",
+      "goto": "co-below"
+     },
+     {
+      "label": "Not sure",
+      "goto": "co-minors-unknown"
+     }
+    ]
+   },
+   "co-minors-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Colorado result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-co-scope-special"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Age/knowledge evidence and the online services or features offered to minors",
+      "owner": "Product owner, trust and safety lead, and privacy counsel",
+      "why": "Separate minors duties can apply even when general scope thresholds are not met."
+     }
+    ]
+   },
+   "co-biometric-only": {
+    "type": "outcome",
+    "tier": "required",
+    "title": "Biometric processing has a separate scope route",
+    "summary": "Although the general volume gate was not met, the biometric processing you identified has a separate Colorado coverage route. Coverage through this route is limited to that biometric processing.",
+    "actions": [
+     "Map the biometric processing, including employer uses, and assess consent, notice, retention and permitted-use requirements.",
+     "Also check the minors provisions if the service is offered to known minors."
+    ],
+    "cites": [
+     "pwc-us-co-scope-special"
+    ]
+   },
+   "co-minors-duties": {
+    "type": "outcome",
+    "tier": "required",
+    "title": "Assess the duties for minors",
+    "summary": "The general counts are not met, but the Colorado minors provisions can govern the identified online offering.",
+    "actions": [
+     "Review the offering's duty of care, consent, retention, geolocation and assessment requirements.",
+     "Record the knowledge/age evidence and allocate controller/processor responsibilities."
+    ],
+    "cites": [
+     "pwc-us-co-scope-special"
+    ]
+   },
+   "mt-minors": {
+    "type": "question",
+    "q": "Does it offer an online service, product or feature to a consumer it actually knows, or willfully disregards, is a minor?",
+    "help": "Sections 30-14-2811,2818,2819 can apply below the general thresholds. Their scope includes controllers conducting Montana business or delivering intentionally targeted commercial products/services.",
+    "cites": [
+     "pwc-us-mt-scope",
+     "pwc-us-mt-scope-minors"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "mt-minors-duties"
+     },
+     {
+      "label": "No",
+      "goto": "mt-below"
+     },
+     {
+      "label": "Not sure",
+      "goto": "mt-minors-unknown"
+     }
+    ]
+   },
+   "mt-minors-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Montana result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-mt-scope",
+     "pwc-us-mt-scope-minors"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The online offering, resident reach and evidence of knowledge or willful disregard of minors' ages",
+      "owner": "Product owner, trust and safety lead, and privacy counsel",
+      "why": "The minors provisions have their own scope and can require safeguards and assessments despite low general counts."
+     }
+    ]
+   },
+   "mt-minors-duties": {
+    "type": "outcome",
+    "tier": "required",
+    "title": "Assess Montana's separate minors duties",
+    "summary": "The general thresholds were not met, but the identified offering requires a separate assessment under the minors provisions.",
+    "actions": [
+     "Assess duty of care, processing consent, retention, geolocation, design features and messaging safeguards.",
+     "Assess heightened-risk processing under §30-14-2819 and processor assistance/contracts under §30-14-2818."
+    ],
+    "cites": [
+     "pwc-us-mt-scope-minors",
+     "pwc-us-mt-scope-minors-assessment",
+     "pwc-us-mt-scope-minors-processor"
+    ]
+   },
+   "or-vehicle": {
+    "type": "question",
+    "q": "Is it a motor-vehicle manufacturer or an affiliate, processing any personal data obtained from a consumer’s use of a motor vehicle or component?",
+    "help": "Current §646A.572(1)(b) bypasses the general volume thresholds for this route, subject to the same statutory exemptions.",
+    "cites": [
+     "pwc-us-or-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "or-covered"
+     },
+     {
+      "label": "No",
+      "goto": "or-threshold"
+     },
+     {
+      "label": "Not sure",
+      "goto": "or-vehicle-unknown"
+     }
+    ]
+   },
+   "or-vehicle-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Oregon result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-or-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Manufacturer/affiliate status and whether data originates from consumer vehicle or component use",
+      "owner": "Corporate counsel and connected-product data owner",
+      "why": "This specific route can establish scope regardless of the general resident counts."
+     }
+    ]
+   },
+   "tx-small": {
+    "type": "question",
+    "q": "Does the entity qualify as a small business under the applicable US Small Business Administration definition?",
+    "help": "Use the applicable industry classification, revenue or employee-size standard, and affiliation rules. Being a startup, solo business or below $25 million is not by itself a determination.",
+    "cites": [
+     "pwc-us-tx-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "tx-sensitive-sale"
+     },
+     {
+      "label": "No",
+      "goto": "tx-covered"
+     },
+     {
+      "label": "Not sure",
+      "goto": "tx-small-unknown"
+     }
+    ]
+   },
+   "tx-small-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Texas result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-tx-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Applicable industry/NAICS code, SBA size standard, measured revenue or employee count, and affiliates",
+      "owner": "Finance and corporate counsel",
+      "why": "Small-business status changes general scope but preserves a separate sensitive-data-sale duty."
+     }
+    ]
+   },
+   "tx-sensitive-sale": {
+    "type": "question",
+    "q": "Does it sell any consumer's sensitive personal data?",
+    "help": "Apply this state's definitions of sensitive data and sale, including exceptions; sensitive data may include health, biometric, location or children's data depending on the state. A transfer is not a sale merely because data changes hands.",
+    "cites": [
+     "pwc-us-tx-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "tx-small-duty"
+     },
+     {
+      "label": "No",
+      "goto": "tx-small-limited"
+     },
+     {
+      "label": "Not sure",
+      "goto": "tx-sensitive-sale-unknown"
+     }
+    ]
+   },
+   "tx-sensitive-sale-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Texas result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-tx-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The sensitive-data inventory and whether any disclosure is a statutory sale",
+      "owner": "Privacy counsel and data-sharing owner",
+      "why": "A qualifying small business needs prior consumer consent before a sensitive-data sale."
+     }
+    ]
+   },
+   "tx-small-duty": {
+    "type": "outcome",
+    "tier": "required",
+    "title": "Prior consent is required for the sensitive-data sale",
+    "summary": "The small-business exception does not remove this state's prohibition on selling sensitive personal data without the consumer's prior consent.",
+    "actions": [
+     "Verify valid prior consent before proceeding with the identified sale.",
+     "Retain the SBA classification, data/sale analysis and consent evidence."
+    ],
+    "cites": [
+     "pwc-us-tx-scope"
+    ]
+   },
+   "tx-small-limited": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Small-business exception identified; no sensitive sale reported",
+    "summary": "The general small-business exception applies on the facts supplied, and you reported no sensitive-data sale. This result is limited to these scope and sale questions.",
+    "actions": [
+     "Keep the SBA classification and data-sharing evidence.",
+     "Reassess if size, affiliation, data categories or sale practices change; keep separate sector and contractual duties in view."
+    ],
+    "cites": [
+     "pwc-us-tx-scope"
+    ]
+   },
+   "ne-small": {
+    "type": "question",
+    "q": "Does the entity qualify as a small business under the applicable US Small Business Administration definition?",
+    "help": "Nebraska incorporates the federal definition as it existed January 1, 2024. Use the applicable industry classification, revenue or employee-size standard, and affiliation rules. Being a startup, solo business or below $25 million is not by itself a determination.",
+    "cites": [
+     "pwc-us-ne-scope",
+     "pwc-us-ne-scope-small-business"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "ne-sensitive-sale"
+     },
+     {
+      "label": "No",
+      "goto": "ne-covered"
+     },
+     {
+      "label": "Not sure",
+      "goto": "ne-small-unknown"
+     }
+    ]
+   },
+   "ne-small-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Nebraska result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-ne-scope",
+     "pwc-us-ne-scope-small-business"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Applicable industry/NAICS code, SBA size standard, measured revenue or employee count, and affiliates",
+      "owner": "Finance and corporate counsel",
+      "why": "Small-business status changes general scope but preserves a separate sensitive-data-sale duty."
+     }
+    ]
+   },
+   "ne-sensitive-sale": {
+    "type": "question",
+    "q": "Does it sell any consumer's sensitive personal data?",
+    "help": "Apply this state's definitions of sensitive data and sale, including exceptions; sensitive data may include health, biometric, location or children's data depending on the state. A transfer is not a sale merely because data changes hands.",
+    "cites": [
+     "pwc-us-ne-scope-small-business"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "ne-small-duty"
+     },
+     {
+      "label": "No",
+      "goto": "ne-small-limited"
+     },
+     {
+      "label": "Not sure",
+      "goto": "ne-sensitive-sale-unknown"
+     }
+    ]
+   },
+   "ne-sensitive-sale-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Nebraska result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-ne-scope-small-business"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The sensitive-data inventory and whether any disclosure is a statutory sale",
+      "owner": "Privacy counsel and data-sharing owner",
+      "why": "A qualifying small business needs prior consumer consent before a sensitive-data sale."
+     }
+    ]
+   },
+   "ne-small-duty": {
+    "type": "outcome",
+    "tier": "required",
+    "title": "Prior consent is required for the sensitive-data sale",
+    "summary": "The small-business exception does not remove this state's prohibition on selling sensitive personal data without the consumer's prior consent.",
+    "actions": [
+     "Verify valid prior consent before proceeding with the identified sale.",
+     "Retain the SBA classification, data/sale analysis and consent evidence."
+    ],
+    "cites": [
+     "pwc-us-ne-scope-small-business"
+    ]
+   },
+   "ne-small-limited": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Small-business exception identified; no sensitive sale reported",
+    "summary": "The general small-business exception applies on the facts supplied, and you reported no sensitive-data sale. This result is limited to these scope and sale questions.",
+    "actions": [
+     "Keep the SBA classification and data-sharing evidence.",
+     "Reassess if size, affiliation, data categories or sale practices change; keep separate sector and contractual duties in view."
+    ],
+    "cites": [
+     "pwc-us-ne-scope",
+     "pwc-us-ne-scope-small-business"
+    ]
+   },
+   "mn-small": {
+    "type": "question",
+    "q": "Does the entity qualify as a small business under the applicable US Small Business Administration definition?",
+    "help": "Use the applicable industry classification, revenue or employee-size standard, and affiliation rules. Being a startup, solo business or below $25 million is not by itself a determination.",
+    "cites": [
+     "pwc-us-mn-scope",
+     "pwc-us-mn-scope-small-business"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "mn-sensitive-sale"
+     },
+     {
+      "label": "No",
+      "goto": "mn-threshold"
+     },
+     {
+      "label": "Not sure",
+      "goto": "mn-small-unknown"
+     }
+    ]
+   },
+   "mn-small-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Minnesota result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-mn-scope",
+     "pwc-us-mn-scope-small-business"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Applicable industry/NAICS code, SBA size standard, measured revenue or employee count, and affiliates",
+      "owner": "Finance and corporate counsel",
+      "why": "Small-business status changes general scope but preserves a separate sensitive-data-sale duty."
+     }
+    ]
+   },
+   "mn-sensitive-sale": {
+    "type": "question",
+    "q": "Does it sell any consumer's sensitive personal data?",
+    "help": "Apply this state's definitions of sensitive data and sale, including exceptions; sensitive data may include health, biometric, location or children's data depending on the state. A transfer is not a sale merely because data changes hands.",
+    "cites": [
+     "pwc-us-mn-scope-small-business"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "mn-small-duty"
+     },
+     {
+      "label": "No",
+      "goto": "mn-small-limited"
+     },
+     {
+      "label": "Not sure",
+      "goto": "mn-sensitive-sale-unknown"
+     }
+    ]
+   },
+   "mn-sensitive-sale-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Minnesota result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-mn-scope-small-business"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The sensitive-data inventory and whether any disclosure is a statutory sale",
+      "owner": "Privacy counsel and data-sharing owner",
+      "why": "A qualifying small business needs prior consumer consent before a sensitive-data sale."
+     }
+    ]
+   },
+   "mn-small-duty": {
+    "type": "outcome",
+    "tier": "required",
+    "title": "Prior consent is required for the sensitive-data sale",
+    "summary": "The small-business exception does not remove this state's prohibition on selling sensitive personal data without the consumer's prior consent.",
+    "actions": [
+     "Verify valid prior consent before proceeding with the identified sale.",
+     "Retain the SBA classification, data/sale analysis and consent evidence."
+    ],
+    "cites": [
+     "pwc-us-mn-scope-small-business"
+    ]
+   },
+   "mn-small-limited": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Small-business exception identified; no sensitive sale reported",
+    "summary": "The general small-business exception applies on the facts supplied, and you reported no sensitive-data sale. This result is limited to these scope and sale questions.",
+    "actions": [
+     "Keep the SBA classification and data-sharing evidence.",
+     "Reassess if size, affiliation, data categories or sale practices change; keep separate sector and contractual duties in view."
+    ],
+    "cites": [
+     "pwc-us-mn-scope",
+     "pwc-us-mn-scope-small-business"
+    ]
+   },
+   "mn-deferral": {
+    "type": "question",
+    "q": "Is it a postsecondary institution regulated by Minnesota's Office of Higher Education?",
+    "help": "The statute delays required compliance for these institutions until July 31, 2029; this is a dated deferral, not a permanent higher-education exclusion.",
+    "cites": [
+     "pwc-us-mn-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "mn-deferred"
+     },
+     {
+      "label": "No",
+      "goto": "mn-data"
+     },
+     {
+      "label": "Not sure",
+      "goto": "mn-deferral-unknown"
+     }
+    ]
+   },
+   "mn-deferral-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Minnesota result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-mn-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Whether the institution is regulated by Minnesota's Office of Higher Education",
+      "owner": "Institutional regulatory counsel",
+      "why": "The statutory compliance date differs from the general July 31, 2025 start."
+     }
+    ]
+   },
+   "mn-deferred": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Compliance is deferred to July 31, 2029",
+    "summary": "The institution you identified falls within the stated higher-education compliance deferral.",
+    "actions": [
+     "Retain evidence of Office of Higher Education regulation.",
+     "Plan for the July 31, 2029 date and assess separate student-data, sector and contractual duties."
+    ],
+    "cites": [
+     "pwc-us-mn-scope"
+    ]
+   },
+   "fl-base": {
+    "type": "question",
+    "q": "Is it organized for profit or owners’ financial benefit, doing business in Florida, collecting personal data itself or on its behalf, AND determining processing purposes and means?",
+    "help": "All of §501.702(9)(a)'s basic controller criteria are required for the direct route; the revenue/business-model test follows.",
+    "cites": [
+     "pwc-us-fl-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "fl-threshold"
+     },
+     {
+      "label": "No",
+      "goto": "fl-related"
+     },
+     {
+      "label": "Not sure",
+      "goto": "fl-base-unknown"
+     }
+    ]
+   },
+   "fl-base-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Florida result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-fl-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Profit purpose, Florida business, collection arrangements and actual purpose/means decisions",
+      "owner": "Corporate counsel and processing owner",
+      "why": "These are cumulative conditions of the direct controller definition."
+     }
+    ]
+   },
+   "fl-related": {
+    "type": "question",
+    "q": "Does it control, or is it controlled by, a qualifying Florida controller?",
+    "help": "The definition includes such related entities. Confirm actual statutory control and that the other entity satisfies the full direct controller definition; sharing a brand alone is insufficient.",
+    "cites": [
+     "pwc-us-fl-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "fl-related-review"
+     },
+     {
+      "label": "No",
+      "goto": "fl-sale-base"
+     },
+     {
+      "label": "Not sure",
+      "goto": "fl-related-unknown"
+     }
+    ]
+   },
+   "fl-related-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Florida result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-fl-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Control relationship and the other entity's full §501.702(9)(a) controller qualification",
+      "owner": "Corporate counsel, finance and privacy lead",
+      "why": "A related entity may qualify even when its own billion-dollar or business-model gate fails."
+     }
+    ]
+   },
+   "fl-related-review": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Related-entity controller coverage identified",
+    "summary": "You identified a statutory control relationship with a qualifying controller. Confirm the separate §501.703 territorial scope and entity exclusions and §501.704 data exclusions for this related entity before recording a final scope result.",
+    "actions": [
+     "Document the qualifying controller and control relationship.",
+     "Check the related entity's Florida connection and any entity/data exclusions, then apply controller duties to non-excluded processing."
+    ],
+    "cites": [
+     "pwc-us-fl-scope",
+     "pwc-us-fl-scope-exemptions",
+     "pwc-us-fl-scope-data"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The related entity's §501.703 territorial scope and any §501.703/704 entity or data exclusions",
+      "owner": "Corporate counsel and privacy lead",
+      "why": "The definition's related-entity route does not itself settle every separate applicability exclusion."
+     }
+    ]
+   },
+   "fl-sale-base": {
+    "type": "question",
+    "q": "Is it organized for profit or owners’ financial benefit, conducting business in Florida, and collecting personal data itself or on its behalf?",
+    "help": "Section 501.715 uses §501.702(9)(a)1–3, without the billion-dollar, business-model or purpose/means criteria. Retain the statutory entity and data exclusions when assessing this remaining duty.",
+    "cites": [
+     "pwc-us-fl-scope-sensitive-sale",
+     "pwc-us-fl-scope"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "fl-sensitive-sale"
+     },
+     {
+      "label": "No",
+      "goto": "fl-below"
+     },
+     {
+      "label": "Not sure",
+      "goto": "fl-sale-base-unknown"
+     }
+    ]
+   },
+   "fl-sale-base-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Florida result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-fl-scope-sensitive-sale",
+     "pwc-us-fl-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The three basic for-profit, Florida-business and personal-data-collection conditions",
+      "owner": "Corporate counsel and business owner",
+      "why": "These criteria determine whether the separate sale duty reaches the entity."
+     }
+    ]
+   },
+   "fl-sensitive-sale": {
+    "type": "question",
+    "q": "Does it sell personal data that falls within Florida's sensitive-data definition, including a known child's data?",
+    "help": "Section 501.715 applies to sensitive-data sales and prescribes prior consent, a notice, and specific rules when the sensitive data belongs to a known child. The age and knowledge requirements are facts in this test.",
+    "cites": [
+     "pwc-us-fl-scope-sensitive-sale"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "fl-sale-duties"
+     },
+     {
+      "label": "No",
+      "goto": "fl-below"
+     },
+     {
+      "label": "Not sure",
+      "goto": "fl-sensitive-sale-unknown"
+     }
+    ]
+   },
+   "fl-sensitive-sale-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Florida result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-fl-scope-sensitive-sale"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Whether statutory sensitive data or a child's personal data is sold, plus age and consent evidence",
+      "owner": "Privacy counsel, data-sharing owner and trust/safety lead",
+      "why": "The specific sale protections can apply even where general controller status was not established."
+     }
+    ]
+   },
+   "fl-sale-duties": {
+    "type": "outcome",
+    "tier": "required",
+    "title": "Assess the separate sensitive or children's data sale duties",
+    "summary": "The billion-dollar/general controller gate was not established, but the identified sensitive-data sale falls within a separate Florida sale-protection screen.",
+    "actions": [
+     "Apply §501.715's prior-consent, age and notice requirements before the sale.",
+     "Confirm any claimed entity or data exclusion against §§501.703–704."
+    ],
+    "cites": [
+     "pwc-us-fl-scope-sensitive-sale",
+     "pwc-us-fl-scope-exemptions",
+     "pwc-us-fl-scope-data"
+    ]
+   },
+   "ri-website": {
+    "type": "question",
+    "q": "Does a commercial website or internet-service provider do business in Rhode Island, have Rhode Island customers, or otherwise fall under Rhode Island jurisdiction?",
+    "help": "Section 6-48.1-3(a) has a separate controller-designation and disclosure framework. The numeric thresholds in §6-48.1-4 do not automatically limit this section.",
+    "cites": [
+     "pwc-us-ri-scope-exemptions"
+    ],
+    "opts": [
+     {
+      "label": "Yes",
+      "goto": "ri-website-duties"
+     },
+     {
+      "label": "No",
+      "goto": "ri-below"
+     },
+     {
+      "label": "Not sure",
+      "goto": "ri-website-unknown"
+     }
+    ]
+   },
+   "ri-website-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Resolve this fact before deciding scope",
+    "summary": "The Rhode Island result is unresolved because this answer is not known.",
+    "actions": [
+     "Return to this question when the evidence is available."
+    ],
+    "cites": [
+     "pwc-us-ri-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Commercial website/ISP activity, Rhode Island customers/jurisdiction and collection/storage/sale or advertising practices",
+      "owner": "Website owner, marketing/data-sharing owner and privacy counsel",
+      "why": "Separate online duties may apply below the section4 consumer counts."
+     }
+    ]
+   },
+   "ri-website-duties": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Assess the separate website and online duties",
+    "summary": "The general section4 scope gate was not established, but the website/ISP facts you reported require a separate §6-48.1-3 assessment.",
+    "actions": [
+     "Designate the required controller and assess the disclosure rule for collecting, storing AND selling customers' personally identifiable information.",
+     "Check the sale/targeted-advertising disclosures and the section's entity/data exemptions."
+    ],
+    "cites": [
+     "pwc-us-ri-scope-exemptions"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Whether the service collects, stores AND sells personally identifiable information, and which controller sale/advertising disclosures and exclusions apply",
+      "owner": "Website owner and privacy counsel",
+      "why": "Section 3's duties depend on these practices, separately from section4's thresholds."
+     }
+    ]
+   },
+   "select-state": {
+    "type": "question",
+    "q": "Which state should this applicability check assess?",
+    "help": "Choose the relevant state or states. Each answer applies only to that state's assessed entity and processing. This candidate covers the twenty comprehensive-law routes effective by January 1, 2026, with later currently effective amendments checked through September 22, 2026; Florida has a narrow controller definition. Future effective laws require a separate refresh.",
+    "cites": [],
+    "opts": [
+     {
+      "label": "California",
+      "goto": "ca-nexus"
+     },
+     {
+      "label": "Colorado",
+      "goto": "co-nexus"
+     },
+     {
+      "label": "Connecticut",
+      "goto": "ct-nexus"
+     },
+     {
+      "label": "Delaware",
+      "goto": "de-nexus"
+     },
+     {
+      "label": "Florida",
+      "goto": "fl-nexus"
+     },
+     {
+      "label": "Indiana",
+      "goto": "in-nexus"
+     },
+     {
+      "label": "Iowa",
+      "goto": "ia-nexus"
+     },
+     {
+      "label": "Kentucky",
+      "goto": "ky-nexus"
+     },
+     {
+      "label": "Maryland",
+      "goto": "md-nexus"
+     },
+     {
+      "label": "Minnesota",
+      "goto": "mn-nexus"
+     },
+     {
+      "label": "Montana",
+      "goto": "mt-nexus"
+     },
+     {
+      "label": "Nebraska",
+      "goto": "ne-nexus"
+     },
+     {
+      "label": "New Hampshire",
+      "goto": "nh-nexus"
+     },
+     {
+      "label": "New Jersey",
+      "goto": "nj-nexus"
+     },
+     {
+      "label": "Oregon",
+      "goto": "or-nexus"
+     },
+     {
+      "label": "Rhode Island",
+      "goto": "ri-nexus"
+     },
+     {
+      "label": "Tennessee",
+      "goto": "tn-nexus"
+     },
+     {
+      "label": "Texas",
+      "goto": "tx-nexus"
+     },
+     {
+      "label": "Utah",
+      "goto": "ut-nexus"
+     },
+     {
+      "label": "Virginia",
+      "goto": "va-nexus"
+     }
+    ]
+   }
+  },
+  "verifiedAsOf": "2026-09-22 (automated primary-source check and independent adversarial cross-review; not practitioner-reviewed)"
+ },
+ "us-divergence": {
+  "title": "US state privacy: what changes for this use?",
+  "tag": "US STATE PRIVACY",
+  "q": "Compare sensitive data, advertising, rights, assessment and cure duties after coverage is confirmed.",
+  "icon": "layers",
+  "jurisdictions": [
+   "US-CA",
+   "US-CO",
+   "US-CT",
+   "US-DE",
+   "US-FL",
+   "US-IN",
+   "US-IA",
+   "US-KY",
+   "US-MD",
+   "US-MN",
+   "US-MT",
+   "US-NE",
+   "US-NH",
+   "US-NJ",
+   "US-OR",
+   "US-RI",
+   "US-TN",
+   "US-TX",
+   "US-UT",
+   "US-VA"
+  ],
+  "jurisdictionRoutes": [
+   {
+    "id": "US-CA",
+    "label": "California",
+    "start": "ca-coverage"
+   },
+   {
+    "id": "US-CO",
+    "label": "Colorado",
+    "start": "co-coverage"
+   },
+   {
+    "id": "US-CT",
+    "label": "Connecticut",
+    "start": "ct-coverage"
+   },
+   {
+    "id": "US-DE",
+    "label": "Delaware",
+    "start": "de-coverage"
+   },
+   {
+    "id": "US-FL",
+    "label": "Florida",
+    "start": "fl-coverage"
+   },
+   {
+    "id": "US-IN",
+    "label": "Indiana",
+    "start": "in-coverage"
+   },
+   {
+    "id": "US-IA",
+    "label": "Iowa",
+    "start": "ia-coverage"
+   },
+   {
+    "id": "US-KY",
+    "label": "Kentucky",
+    "start": "ky-coverage"
+   },
+   {
+    "id": "US-MD",
+    "label": "Maryland",
+    "start": "md-coverage"
+   },
+   {
+    "id": "US-MN",
+    "label": "Minnesota",
+    "start": "mn-coverage"
+   },
+   {
+    "id": "US-MT",
+    "label": "Montana",
+    "start": "mt-coverage"
+   },
+   {
+    "id": "US-NE",
+    "label": "Nebraska",
+    "start": "ne-coverage"
+   },
+   {
+    "id": "US-NH",
+    "label": "New Hampshire",
+    "start": "nh-coverage"
+   },
+   {
+    "id": "US-NJ",
+    "label": "New Jersey",
+    "start": "nj-coverage"
+   },
+   {
+    "id": "US-OR",
+    "label": "Oregon",
+    "start": "or-coverage"
+   },
+   {
+    "id": "US-RI",
+    "label": "Rhode Island",
+    "start": "ri-coverage"
+   },
+   {
+    "id": "US-TN",
+    "label": "Tennessee",
+    "start": "tn-coverage"
+   },
+   {
+    "id": "US-TX",
+    "label": "Texas",
+    "start": "tx-coverage"
+   },
+   {
+    "id": "US-UT",
+    "label": "Utah",
+    "start": "ut-coverage"
+   },
+   {
+    "id": "US-VA",
+    "label": "Virginia",
+    "start": "va-coverage"
+   }
+  ],
+  "start": "select-state",
+  "nodes": {
+   "ca-coverage": {
+    "type": "question",
+    "q": "Is full California coverage confirmed for this controller and these data?",
+    "help": "This path compares duties after applicability. Coverage is not imported from another result. A covered business and this data are in scope, including employee or business-contact data unless a specific exemption applies.",
+    "cites": [
+     "pwc-us-ca-duties-sensitive",
+     "pwc-us-ca-duties-ads",
+     "pwc-us-ca-duties-rights",
+     "pwc-us-ca-duties-assessment",
+     "pwc-us-ca-duties-scope"
+    ],
+    "opts": [
+     {
+      "label": "Full-law coverage is confirmed for this controller and these data",
+      "goto": "ca-use"
+     },
+     {
+      "label": "Full-law coverage is not established",
+      "goto": "ca-coverage-unknown"
+     },
+     {
+      "label": "Not sure whether full or limited coverage applies",
+      "goto": "ca-coverage-unknown"
+     }
+    ]
+   },
+   "ca-coverage-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "California: establish coverage before assigning duties",
+    "summary": "A full-law duties comparison needs a confirmed controller, covered data and current applicability basis. An unknown or limited basis cannot support an all-clear result.",
+    "actions": [
+     "The privacy owner should record California's state nexus, relevant measuring period and threshold, controller role, entity/data exemptions and any limited provision.",
+     "Use the separate applicability path or a written scope analysis, then return with that factual basis."
+    ],
+    "cites": [
+     "pwc-us-ca-duties-sensitive",
+     "pwc-us-ca-duties-ads",
+     "pwc-us-ca-duties-rights",
+     "pwc-us-ca-duties-assessment",
+     "pwc-us-ca-duties-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The current full-law or limited applicability basis for this controller and this processing.",
+      "owner": "Privacy owner, with finance and the data/system owner",
+      "why": "Different coverage routes impose different duties; state selection alone does not establish them."
+     }
+    ]
+   },
+   "ca-use": {
+    "type": "question",
+    "q": "Which California use is involved?",
+    "help": "Choose the processing or request you want to compare. Each result identifies the state-specific changes and preserves its conditions; it does not certify the whole activity.",
+    "cites": [
+     "pwc-us-ca-duties-sensitive",
+     "pwc-us-ca-duties-ads",
+     "pwc-us-ca-duties-rights",
+     "pwc-us-ca-duties-assessment",
+     "pwc-us-ca-duties-scope",
+     "pwc-us-ca-duties-enforcement"
+    ],
+    "opts": [
+     {
+      "label": "Sensitive data are involved",
+      "goto": "ca-sensitive"
+     },
+     {
+      "label": "Personal data are sold or used for targeted advertising",
+      "goto": "ca-ads"
+     },
+     {
+      "label": "A consumer rights request or rights process is involved",
+      "goto": "ca-rights"
+     },
+     {
+      "label": "A risk assessment for processing is being considered",
+      "goto": "ca-assessment"
+     },
+     {
+      "label": "A compliance concern or regulator notice is involved",
+      "goto": "ca-enforcement"
+     },
+     {
+      "label": "Several of these activities are involved",
+      "goto": "ca-overview"
+     },
+     {
+      "label": "Not sure which processing or request is involved",
+      "goto": "ca-use-unknown"
+     }
+    ]
+   },
+   "ca-use-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "California: identify the processing and data first",
+    "summary": "The appropriate duties depend on the actual data, use, people and request. No conclusion follows from an unknown use case.",
+    "actions": [
+     "The product and data owners should identify the data fields, purposes, recipients, ages/knowledge, and the request type or proposed processing start date.",
+     "Return with the sensitive-data, sale/advertising, rights or assessment use that is actually involved."
+    ],
+    "cites": [
+     "pwc-us-ca-duties-sensitive",
+     "pwc-us-ca-duties-ads",
+     "pwc-us-ca-duties-rights",
+     "pwc-us-ca-duties-assessment",
+     "pwc-us-ca-duties-scope"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Data categories, processing purpose, recipients, relevant ages, and request or activity dates.",
+      "owner": "Product/data owner with the privacy owner",
+      "why": "These facts change consent, prohibited-use, response-period and assessment duties."
+     }
+    ]
+   },
+   "ca-sensitive": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "California: sensitive data",
+    "summary": "On your confirmed full-law coverage basis: California uses a right to limit certain uses and disclosures of sensitive personal information, rather than a general prior-consent rule for every sensitive-data use.",
+    "actions": [
+     "Map the purpose against §1798.121(a) and the regulatory permitted uses; provide the limit notice and mechanism when required.",
+     "Apply minimization and notice-at-collection duties separately. Sector, biometric and child rules can impose additional conditions."
+    ],
+    "cites": [
+     "pwc-us-ca-duties-sensitive",
+     "pwc-us-ca-duties-ads",
+     "pwc-us-ca-duties-rights",
+     "pwc-us-ca-duties-assessment",
+     "pwc-us-ca-duties-scope"
+    ]
+   },
+   "ca-ads": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "California: sale and targeted advertising",
+    "summary": "On your confirmed full-law coverage basis: Sale and sharing for cross-context behavioral advertising trigger opt-out duties. Sharing can qualify without money changing hands.",
+    "actions": [
+     "Implement the required sale/sharing choices and honor qualifying opt-out preference signals.",
+     "For consumers known to be under 16, obtain the required opt-in before sale/sharing; the parent or guardian acts for children under 13."
+    ],
+    "cites": [
+     "pwc-us-ca-duties-sensitive",
+     "pwc-us-ca-duties-ads",
+     "pwc-us-ca-duties-rights",
+     "pwc-us-ca-duties-assessment",
+     "pwc-us-ca-duties-scope"
+    ]
+   },
+   "ca-rights": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "California: consumer rights",
+    "summary": "On your confirmed full-law coverage basis: Support access/knowledge, deletion, correction, portability and the distinct sale/sharing and sensitive-use choices. Employee and B2B exemptions expired after 2022.",
+    "actions": [
+     "For know/delete/correct requests, confirm receipt within 10 business days and respond within 45 calendar days; a necessary 45-day extension requires notice and reasons.",
+     "Sale/sharing opt-outs and limit requests require action as soon as feasible, no later than 15 business days. Do not apply the 45-day schedule to them.",
+     "General refusals do not create the Virginia-style internal appeal right. ADMT-specific rights have a separate January 1, 2027 compliance date."
+    ],
+    "cites": [
+     "pwc-us-ca-duties-sensitive",
+     "pwc-us-ca-duties-ads",
+     "pwc-us-ca-duties-rights",
+     "pwc-us-ca-duties-assessment",
+     "pwc-us-ca-duties-scope"
+    ]
+   },
+   "ca-assessment": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "California: risk assessments",
+    "summary": "On your confirmed full-law coverage basis: New covered processing from January 1, 2026 needs a prior risk assessment. The first regulator submission is later; that does not postpone the assessment.",
+    "actions": [
+     "Screen sale/sharing, sensitive information, significant-decision ADMT, specified systematic observation and model-training uses under §7150; check the narrow employee-administration exception.",
+     "For covered activity begun before 2026 and continuing afterward, complete the assessment by December 31, 2027. Submit required 2026–2027 assessment information by April 1, 2028.",
+     "ADMT consumer requirements apply by January 1, 2027. Keep that future date separate from the already-current risk-assessment duties."
+    ],
+    "cites": [
+     "pwc-us-ca-duties-sensitive",
+     "pwc-us-ca-duties-ads",
+     "pwc-us-ca-duties-rights",
+     "pwc-us-ca-duties-assessment",
+     "pwc-us-ca-duties-scope"
+    ]
+   },
+   "ca-overview": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "California: changes across the selected uses",
+    "summary": "On your confirmed full-law coverage basis, these are the main differences in CCPA. Conditions and future dates remain part of each item.",
+    "actions": [
+     "Sensitive data: California uses a right to limit certain uses and disclosures of sensitive personal information, rather than a general prior-consent rule for every sensitive-data use.",
+     "Sale and targeted advertising: Sale and sharing for cross-context behavioral advertising trigger opt-out duties. Sharing can qualify without money changing hands.",
+     "Consumer rights: Support access/knowledge, deletion, correction, portability and the distinct sale/sharing and sensitive-use choices. Employee and B2B exemptions expired after 2022.",
+     "Risk assessments: New covered processing from January 1, 2026 needs a prior risk assessment. The first regulator submission is later; that does not postpone the assessment.",
+     "Cure and enforcement: The CPPA and Attorney General enforce the CCPA. There is no mandatory general cure period; any CPPA opportunity is discretionary with no fixed statutory duration."
+    ],
+    "cites": [
+     "pwc-us-ca-duties-sensitive",
+     "pwc-us-ca-duties-ads",
+     "pwc-us-ca-duties-rights",
+     "pwc-us-ca-duties-assessment",
+     "pwc-us-ca-duties-scope",
+     "pwc-us-ca-duties-enforcement"
+    ]
+   },
+   "co-limited": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Colorado: the limited provision has its own duties",
+    "summary": "A below-threshold biometric or minor-specific provision does not establish full-law coverage.",
+    "actions": [
+     "Privacy counsel must identify whether the relevant biometric provisions or §§6-1-1308.5 and 6-1-1309.5 apply.",
+     "Document the biometric use, ages/knowledge, online service and exact scope before selecting a full-law duties comparison."
+    ],
+    "cites": [
+     "pwc-us-co-duties-limited"
+    ]
+   },
+   "co-coverage": {
+    "type": "question",
+    "q": "Is full Colorado coverage confirmed for this controller and these data?",
+    "help": "This path compares duties after applicability. Coverage is not imported from another result. A state nexus or threshold alone may not settle entity, data or processing exemptions.",
+    "cites": [
+     "pwc-us-co-duties-sensitive",
+     "pwc-us-co-duties-ads",
+     "pwc-us-co-duties-rights",
+     "pwc-us-co-duties-assessment",
+     "pwc-us-co-duties-limited"
+    ],
+    "opts": [
+     {
+      "label": "Full-law coverage is confirmed for this controller and these data",
+      "goto": "co-use"
+     },
+     {
+      "label": "Only a below-threshold biometric or minor provision applies",
+      "goto": "co-limited"
+     },
+     {
+      "label": "Full-law coverage is not established",
+      "goto": "co-coverage-unknown"
+     },
+     {
+      "label": "Not sure whether full or limited coverage applies",
+      "goto": "co-coverage-unknown"
+     }
+    ]
+   },
+   "co-coverage-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Colorado: establish coverage before assigning duties",
+    "summary": "A full-law duties comparison needs a confirmed controller, covered data and current applicability basis. An unknown or limited basis cannot support an all-clear result.",
+    "actions": [
+     "The privacy owner should record Colorado's state nexus, relevant measuring period and threshold, controller role, entity/data exemptions and any limited provision.",
+     "Use the separate applicability path or a written scope analysis, then return with that factual basis."
+    ],
+    "cites": [
+     "pwc-us-co-duties-sensitive",
+     "pwc-us-co-duties-ads",
+     "pwc-us-co-duties-rights",
+     "pwc-us-co-duties-assessment",
+     "pwc-us-co-duties-limited"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The current full-law or limited applicability basis for this controller and this processing.",
+      "owner": "Privacy owner, with finance and the data/system owner",
+      "why": "Different coverage routes impose different duties; state selection alone does not establish them."
+     }
+    ]
+   },
+   "co-use": {
+    "type": "question",
+    "q": "Which Colorado use is involved?",
+    "help": "Choose the processing or request you want to compare. Each result identifies the state-specific changes and preserves its conditions; it does not certify the whole activity.",
+    "cites": [
+     "pwc-us-co-duties-sensitive",
+     "pwc-us-co-duties-ads",
+     "pwc-us-co-duties-rights",
+     "pwc-us-co-duties-assessment",
+     "pwc-us-co-duties-limited",
+     "pwc-us-co-duties-enforcement"
+    ],
+    "opts": [
+     {
+      "label": "Sensitive data are involved",
+      "goto": "co-sensitive"
+     },
+     {
+      "label": "Personal data are sold or used for targeted advertising",
+      "goto": "co-ads"
+     },
+     {
+      "label": "A consumer rights request or rights process is involved",
+      "goto": "co-rights"
+     },
+     {
+      "label": "A risk assessment for processing is being considered",
+      "goto": "co-assessment"
+     },
+     {
+      "label": "A compliance concern or regulator notice is involved",
+      "goto": "co-enforcement"
+     },
+     {
+      "label": "Several of these activities are involved",
+      "goto": "co-overview"
+     },
+     {
+      "label": "Not sure which processing or request is involved",
+      "goto": "co-use-unknown"
+     }
+    ]
+   },
+   "co-use-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Colorado: identify the processing and data first",
+    "summary": "The appropriate duties depend on the actual data, use, people and request. No conclusion follows from an unknown use case.",
+    "actions": [
+     "The product and data owners should identify the data fields, purposes, recipients, ages/knowledge, and the request type or proposed processing start date.",
+     "Return with the sensitive-data, sale/advertising, rights or assessment use that is actually involved."
+    ],
+    "cites": [
+     "pwc-us-co-duties-sensitive",
+     "pwc-us-co-duties-ads",
+     "pwc-us-co-duties-rights",
+     "pwc-us-co-duties-assessment",
+     "pwc-us-co-duties-limited"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Data categories, processing purpose, recipients, relevant ages, and request or activity dates.",
+      "owner": "Product/data owner with the privacy owner",
+      "why": "These facts change consent, prohibited-use, response-period and assessment duties."
+     }
+    ]
+   },
+   "co-sensitive": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Colorado: sensitive data",
+    "summary": "On your confirmed full-law coverage basis: Obtain consent before processing or selling sensitive data. Known-child processing requires parent or guardian consent.",
+    "actions": [
+     "Verify the data category and valid consent before the sensitive use begins.",
+     "Biometric identifiers and online services for known or willfully disregarded minors have additional rules; route those uses to the privacy owner for a separate §1314 or §1308.5 review."
+    ],
+    "cites": [
+     "pwc-us-co-duties-sensitive",
+     "pwc-us-co-duties-ads",
+     "pwc-us-co-duties-rights",
+     "pwc-us-co-duties-assessment",
+     "pwc-us-co-duties-limited"
+    ]
+   },
+   "co-ads": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Colorado: sale and targeted advertising",
+    "summary": "On your confirmed full-law coverage basis: Consumers can opt out of sale, targeted advertising and significant-effect profiling. Qualifying universal opt-out mechanisms have been required for sale/targeted ads since July 1, 2024.",
+    "actions": [
+     "Apply the state definitions to vendor transfers and give a conspicuous opt-out outside the privacy notice.",
+     "Online services for known or willfully disregarded minors need the separate consent and care review under §1308.5, including age-appropriate parental consent."
+    ],
+    "cites": [
+     "pwc-us-co-duties-sensitive",
+     "pwc-us-co-duties-ads",
+     "pwc-us-co-duties-rights",
+     "pwc-us-co-duties-assessment",
+     "pwc-us-co-duties-limited"
+    ]
+   },
+   "co-rights": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Colorado: consumer rights",
+    "summary": "On your confirmed full-law coverage basis: Provide access, correction, deletion, portability and the specified opt-outs. Colorado's appeal schedule differs from the common 60-day model.",
+    "actions": [
+     "Respond within 45 days; one reasonably necessary 45-day extension requires notice and reasons within the initial period.",
+     "Decide an internal appeal within 45 days; a reasonably necessary additional 60 days requires timely notice and reasons."
+    ],
+    "cites": [
+     "pwc-us-co-duties-sensitive",
+     "pwc-us-co-duties-ads",
+     "pwc-us-co-duties-rights",
+     "pwc-us-co-duties-assessment",
+     "pwc-us-co-duties-limited"
+    ]
+   },
+   "co-assessment": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Colorado: risk assessments",
+    "summary": "On your confirmed full-law coverage basis: Assess covered heightened-risk processing before it begins, including targeted advertising, sale, sensitive data and qualifying risky profiling.",
+    "actions": [
+     "§1309 addresses personal data acquired on or after July 1, 2023. Document benefits, harms and safeguards.",
+     "For an online service used by known or willfully disregarded minors, separately check §1309.5 and the current Colorado rules."
+    ],
+    "cites": [
+     "pwc-us-co-duties-sensitive",
+     "pwc-us-co-duties-ads",
+     "pwc-us-co-duties-rights",
+     "pwc-us-co-duties-assessment",
+     "pwc-us-co-duties-limited"
+    ]
+   },
+   "co-overview": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Colorado: changes across the selected uses",
+    "summary": "On your confirmed full-law coverage basis, these are the main differences in Colorado Privacy Act. Conditions and future dates remain part of each item.",
+    "actions": [
+     "Sensitive data: Obtain consent before processing or selling sensitive data. Known-child processing requires parent or guardian consent.",
+     "Sale and targeted advertising: Consumers can opt out of sale, targeted advertising and significant-effect profiling. Qualifying universal opt-out mechanisms have been required for sale/targeted ads since July 1, 2024.",
+     "Consumer rights: Provide access, correction, deletion, portability and the specified opt-outs. Colorado's appeal schedule differs from the common 60-day model.",
+     "Risk assessments: Assess covered heightened-risk processing before it begins, including targeted advertising, sale, sensitive data and qualifying risky profiling.",
+     "Cure and enforcement: The Attorney General and district attorneys enforce the CPA. The general cure right expired, but a conditional 60-day right remains for three minors provisions until repeal effective December 31, 2026."
+    ],
+    "cites": [
+     "pwc-us-co-duties-sensitive",
+     "pwc-us-co-duties-ads",
+     "pwc-us-co-duties-rights",
+     "pwc-us-co-duties-assessment",
+     "pwc-us-co-duties-limited",
+     "pwc-us-co-duties-enforcement"
+    ]
+   },
+   "ct-coverage": {
+    "type": "question",
+    "q": "Is full Connecticut coverage confirmed for this controller and these data?",
+    "help": "This path compares duties after applicability. Coverage is not imported from another result. A state nexus or threshold alone may not settle entity, data or processing exemptions.",
+    "cites": [
+     "pwc-us-ct-duties-sensitive",
+     "pwc-us-ct-duties-ads",
+     "pwc-us-ct-duties-rights",
+     "pwc-us-ct-duties-assessment"
+    ],
+    "opts": [
+     {
+      "label": "Full-law coverage is confirmed for this controller and these data",
+      "goto": "ct-use"
+     },
+     {
+      "label": "Full-law coverage is not established",
+      "goto": "ct-coverage-unknown"
+     },
+     {
+      "label": "Not sure whether full or limited coverage applies",
+      "goto": "ct-coverage-unknown"
+     }
+    ]
+   },
+   "ct-coverage-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Connecticut: establish coverage before assigning duties",
+    "summary": "A full-law duties comparison needs a confirmed controller, covered data and current applicability basis. An unknown or limited basis cannot support an all-clear result.",
+    "actions": [
+     "The privacy owner should record Connecticut's state nexus, relevant measuring period and threshold, controller role, entity/data exemptions and any limited provision.",
+     "Use the separate applicability path or a written scope analysis, then return with that factual basis."
+    ],
+    "cites": [
+     "pwc-us-ct-duties-sensitive",
+     "pwc-us-ct-duties-ads",
+     "pwc-us-ct-duties-rights",
+     "pwc-us-ct-duties-assessment"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The current full-law or limited applicability basis for this controller and this processing.",
+      "owner": "Privacy owner, with finance and the data/system owner",
+      "why": "Different coverage routes impose different duties; state selection alone does not establish them."
+     }
+    ]
+   },
+   "ct-use": {
+    "type": "question",
+    "q": "Which Connecticut use is involved?",
+    "help": "Choose the processing or request you want to compare. Each result identifies the state-specific changes and preserves its conditions; it does not certify the whole activity.",
+    "cites": [
+     "pwc-us-ct-duties-sensitive",
+     "pwc-us-ct-duties-ads",
+     "pwc-us-ct-duties-rights",
+     "pwc-us-ct-duties-assessment",
+     "pwc-us-ct-duties-enforcement"
+    ],
+    "opts": [
+     {
+      "label": "Sensitive data are involved",
+      "goto": "ct-sensitive"
+     },
+     {
+      "label": "Personal data are sold or used for targeted advertising",
+      "goto": "ct-ads"
+     },
+     {
+      "label": "A consumer rights request or rights process is involved",
+      "goto": "ct-rights"
+     },
+     {
+      "label": "A risk assessment for processing is being considered",
+      "goto": "ct-assessment"
+     },
+     {
+      "label": "A compliance concern or regulator notice is involved",
+      "goto": "ct-enforcement"
+     },
+     {
+      "label": "Several of these activities are involved",
+      "goto": "ct-overview"
+     },
+     {
+      "label": "Not sure which processing or request is involved",
+      "goto": "ct-use-unknown"
+     }
+    ]
+   },
+   "ct-use-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Connecticut: identify the processing and data first",
+    "summary": "The appropriate duties depend on the actual data, use, people and request. No conclusion follows from an unknown use case.",
+    "actions": [
+     "The product and data owners should identify the data fields, purposes, recipients, ages/knowledge, and the request type or proposed processing start date.",
+     "Return with the sensitive-data, sale/advertising, rights or assessment use that is actually involved."
+    ],
+    "cites": [
+     "pwc-us-ct-duties-sensitive",
+     "pwc-us-ct-duties-ads",
+     "pwc-us-ct-duties-rights",
+     "pwc-us-ct-duties-assessment"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Data categories, processing purpose, recipients, relevant ages, and request or activity dates.",
+      "owner": "Product/data owner with the privacy owner",
+      "why": "These facts change consent, prohibited-use, response-period and assessment duties."
+     }
+    ]
+   },
+   "ct-sensitive": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Connecticut: sensitive data",
+    "summary": "On your confirmed full-law coverage basis: The July 2026 text requires both reasonable necessity for sensitive processing and consumer consent. Sensitive-data sale also requires consent.",
+    "actions": [
+     "Check the expanded sensitive-data definition and document why the processing is reasonably necessary.",
+     "Obtain valid consent, use COPPA-compliant treatment for known children, and implement the consent-revocation mechanism."
+    ],
+    "cites": [
+     "pwc-us-ct-duties-sensitive",
+     "pwc-us-ct-duties-ads",
+     "pwc-us-ct-duties-rights",
+     "pwc-us-ct-duties-assessment"
+    ]
+   },
+   "ct-ads": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Connecticut: sale and targeted advertising",
+    "summary": "On your confirmed full-law coverage basis: Sale/targeted advertising opt-outs and qualifying universal opt-out signals apply. The current text prohibits sale and targeted advertising for known or willfully disregarded consumers aged 13–17.",
+    "actions": [
+     "Do not carry forward the older teen-consent exception into the July 2026 version.",
+     "Map vendors, ages and the knowledge standard; apply the sensitive-data sale consent rule separately."
+    ],
+    "cites": [
+     "pwc-us-ct-duties-sensitive",
+     "pwc-us-ct-duties-ads",
+     "pwc-us-ct-duties-rights",
+     "pwc-us-ct-duties-assessment"
+    ]
+   },
+   "ct-rights": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Connecticut: consumer rights",
+    "summary": "On your confirmed full-law coverage basis: Alongside access, correction, deletion, portability and opt-outs, the July 2026 law adds access to inferences, third-party sale-recipient lists and specific profiling-review rights.",
+    "actions": [
+     "Provide the consumer-specific sale-recipient list or, if not maintained, all sale recipients, subject to the trade-secret limit.",
+     "For significant automated profiling, provide the feasible questioning, reasons and data-review rights. Housing decisions also have the specified correction and re-evaluation right.",
+     "Respond within 45 days, with a reasonably necessary 45-day extension on timely notice; decide an internal appeal within 60 days."
+    ],
+    "cites": [
+     "pwc-us-ct-duties-sensitive",
+     "pwc-us-ct-duties-ads",
+     "pwc-us-ct-duties-rights",
+     "pwc-us-ct-duties-assessment"
+    ]
+   },
+   "ct-assessment": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Connecticut: risk assessments",
+    "summary": "On your confirmed full-law coverage basis: In addition to data protection assessments for specified high-risk processing, significant-decision profiling has a separate impact-assessment requirement for activities created or generated on or after August 1, 2026.",
+    "actions": [
+     "Document the impact assessment elements in §42-522(c): purpose/context, risks and mitigations, inputs/outputs, relevant customization data, performance/limitations, transparency and post-deployment safeguards.",
+     "Keep the dates separate: data protection assessments cover activities created or generated after July 1, 2023; profiling impact assessments cover activities created or generated on or after August 1, 2026. Neither provision is retroactive."
+    ],
+    "cites": [
+     "pwc-us-ct-duties-sensitive",
+     "pwc-us-ct-duties-ads",
+     "pwc-us-ct-duties-rights",
+     "pwc-us-ct-duties-assessment"
+    ]
+   },
+   "ct-overview": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Connecticut: changes across the selected uses",
+    "summary": "On your confirmed full-law coverage basis, these are the main differences in CTDPA. Conditions and future dates remain part of each item.",
+    "actions": [
+     "Sensitive data: The July 2026 text requires both reasonable necessity for sensitive processing and consumer consent. Sensitive-data sale also requires consent.",
+     "Sale and targeted advertising: Sale/targeted advertising opt-outs and qualifying universal opt-out signals apply. The current text prohibits sale and targeted advertising for known or willfully disregarded consumers aged 13–17.",
+     "Consumer rights: Alongside access, correction, deletion, portability and opt-outs, the July 2026 law adds access to inferences, third-party sale-recipient lists and specific profiling-review rights.",
+     "Risk assessments: In addition to data protection assessments for specified high-risk processing, significant-decision profiling has a separate impact-assessment requirement for activities created or generated on or after August 1, 2026.",
+     "Cure and enforcement: The Attorney General enforces the act. Cure opportunities have been discretionary since January 1, 2025; current law does not guarantee the former 60-day window."
+    ],
+    "cites": [
+     "pwc-us-ct-duties-sensitive",
+     "pwc-us-ct-duties-ads",
+     "pwc-us-ct-duties-rights",
+     "pwc-us-ct-duties-assessment",
+     "pwc-us-ct-duties-enforcement"
+    ]
+   },
+   "de-coverage": {
+    "type": "question",
+    "q": "Is full Delaware coverage confirmed for this controller and these data?",
+    "help": "This path compares duties after applicability. Coverage is not imported from another result. A state nexus or threshold alone may not settle entity, data or processing exemptions.",
+    "cites": [
+     "pwc-us-de-duties-sensitive",
+     "pwc-us-de-duties-ads",
+     "pwc-us-de-duties-rights",
+     "pwc-us-de-duties-assessment"
+    ],
+    "opts": [
+     {
+      "label": "Full-law coverage is confirmed for this controller and these data",
+      "goto": "de-use"
+     },
+     {
+      "label": "Full-law coverage is not established",
+      "goto": "de-coverage-unknown"
+     },
+     {
+      "label": "Not sure whether full or limited coverage applies",
+      "goto": "de-coverage-unknown"
+     }
+    ]
+   },
+   "de-coverage-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Delaware: establish coverage before assigning duties",
+    "summary": "A full-law duties comparison needs a confirmed controller, covered data and current applicability basis. An unknown or limited basis cannot support an all-clear result.",
+    "actions": [
+     "The privacy owner should record Delaware's state nexus, relevant measuring period and threshold, controller role, entity/data exemptions and any limited provision.",
+     "Use the separate applicability path or a written scope analysis, then return with that factual basis."
+    ],
+    "cites": [
+     "pwc-us-de-duties-sensitive",
+     "pwc-us-de-duties-ads",
+     "pwc-us-de-duties-rights",
+     "pwc-us-de-duties-assessment"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The current full-law or limited applicability basis for this controller and this processing.",
+      "owner": "Privacy owner, with finance and the data/system owner",
+      "why": "Different coverage routes impose different duties; state selection alone does not establish them."
+     }
+    ]
+   },
+   "de-use": {
+    "type": "question",
+    "q": "Which Delaware use is involved?",
+    "help": "Choose the processing or request you want to compare. Each result identifies the state-specific changes and preserves its conditions; it does not certify the whole activity.",
+    "cites": [
+     "pwc-us-de-duties-sensitive",
+     "pwc-us-de-duties-ads",
+     "pwc-us-de-duties-rights",
+     "pwc-us-de-duties-assessment",
+     "pwc-us-de-duties-enforcement"
+    ],
+    "opts": [
+     {
+      "label": "Sensitive data are involved",
+      "goto": "de-sensitive"
+     },
+     {
+      "label": "Personal data are sold or used for targeted advertising",
+      "goto": "de-ads"
+     },
+     {
+      "label": "A consumer rights request or rights process is involved",
+      "goto": "de-rights"
+     },
+     {
+      "label": "A risk assessment for processing is being considered",
+      "goto": "de-assessment-threshold"
+     },
+     {
+      "label": "A compliance concern or regulator notice is involved",
+      "goto": "de-enforcement"
+     },
+     {
+      "label": "Several of these activities are involved",
+      "goto": "de-overview"
+     },
+     {
+      "label": "Not sure which processing or request is involved",
+      "goto": "de-use-unknown"
+     }
+    ]
+   },
+   "de-use-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Delaware: identify the processing and data first",
+    "summary": "The appropriate duties depend on the actual data, use, people and request. No conclusion follows from an unknown use case.",
+    "actions": [
+     "The product and data owners should identify the data fields, purposes, recipients, ages/knowledge, and the request type or proposed processing start date.",
+     "Return with the sensitive-data, sale/advertising, rights or assessment use that is actually involved."
+    ],
+    "cites": [
+     "pwc-us-de-duties-sensitive",
+     "pwc-us-de-duties-ads",
+     "pwc-us-de-duties-rights",
+     "pwc-us-de-duties-assessment"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Data categories, processing purpose, recipients, relevant ages, and request or activity dates.",
+      "owner": "Product/data owner with the privacy owner",
+      "why": "These facts change consent, prohibited-use, response-period and assessment duties."
+     }
+    ]
+   },
+   "de-sensitive": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Delaware: sensitive data",
+    "summary": "On your confirmed full-law coverage basis: Sensitive processing requires consent; known-child sensitive processing must comply with COPPA.",
+    "actions": [
+     "Match the actual data to Delaware's sensitive-data definition and obtain consent before processing.",
+     "Read the current version of §12D-106. The same official page also prints a different January 2027 version."
+    ],
+    "cites": [
+     "pwc-us-de-duties-sensitive",
+     "pwc-us-de-duties-ads",
+     "pwc-us-de-duties-rights",
+     "pwc-us-de-duties-assessment"
+    ]
+   },
+   "de-ads": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Delaware: sale and targeted advertising",
+    "summary": "On your confirmed full-law coverage basis: Sale, targeted advertising and qualifying profiling have opt-outs. Known or willfully disregarded consumers aged 13–17 require consent for sale or targeted advertising.",
+    "actions": [
+     "Honor qualifying universal opt-out mechanisms, required from January 1, 2026.",
+     "Apply the current 2026 version rather than importing January 2027 amendments."
+    ],
+    "cites": [
+     "pwc-us-de-duties-sensitive",
+     "pwc-us-de-duties-ads",
+     "pwc-us-de-duties-rights",
+     "pwc-us-de-duties-assessment"
+    ]
+   },
+   "de-rights": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Delaware: consumer rights",
+    "summary": "On your confirmed full-law coverage basis: Current rights include access, correction, deletion, portability and categories of third parties to which data was disclosed.",
+    "actions": [
+     "Respond within 45 days, with one reasonably necessary 45-day extension on timely notice; decide an appeal within 60 days.",
+     "The current right is a list of categories. Do not substitute the different future January 2027 third-party disclosure provision."
+    ],
+    "cites": [
+     "pwc-us-de-duties-sensitive",
+     "pwc-us-de-duties-ads",
+     "pwc-us-de-duties-rights",
+     "pwc-us-de-duties-assessment"
+    ]
+   },
+   "de-assessment": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Delaware: risk assessments",
+    "summary": "On your confirmed full-law coverage basis: Delaware has a separate assessment threshold: control or processing of at least 100,000 consumers' data, excluding solely payment-transaction data.",
+    "actions": [
+     "First confirm that separate assessment count; full-law coverage alone does not establish this duty.",
+     "If met, assess heightened-risk activities created or generated after July 1, 2025, including targeted ads, sale, sensitive data and qualifying profiling."
+    ],
+    "cites": [
+     "pwc-us-de-duties-sensitive",
+     "pwc-us-de-duties-ads",
+     "pwc-us-de-duties-rights",
+     "pwc-us-de-duties-assessment"
+    ]
+   },
+   "de-overview": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Delaware: changes across the selected uses",
+    "summary": "On your confirmed full-law coverage basis, these are the main differences in Delaware Personal Data Privacy Act. Conditions and future dates remain part of each item.",
+    "actions": [
+     "Sensitive data: Sensitive processing requires consent; known-child sensitive processing must comply with COPPA.",
+     "Sale and targeted advertising: Sale, targeted advertising and qualifying profiling have opt-outs. Known or willfully disregarded consumers aged 13–17 require consent for sale or targeted advertising.",
+     "Consumer rights: Current rights include access, correction, deletion, portability and categories of third parties to which data was disclosed.",
+     "Risk assessments: Delaware has a separate assessment threshold: control or processing of at least 100,000 consumers' data, excluding solely payment-transaction data.",
+     "Cure and enforcement: The Department of Justice enforces the act. Cure opportunities are discretionary from January 1, 2026; the former mandatory 60-day regime has expired."
+    ],
+    "cites": [
+     "pwc-us-de-duties-sensitive",
+     "pwc-us-de-duties-ads",
+     "pwc-us-de-duties-rights",
+     "pwc-us-de-duties-assessment",
+     "pwc-us-de-duties-enforcement"
+    ]
+   },
+   "de-assessment-threshold": {
+    "type": "question",
+    "q": "Does the controller control or process personal data of at least 100,000 Delaware consumers, excluding data processed solely to complete a payment transaction?",
+    "help": "Delaware sets a separate assessment threshold. Confirmed coverage under the rest of the law does not answer this count.",
+    "cites": [
+     "pwc-us-de-duties-sensitive",
+     "pwc-us-de-duties-ads",
+     "pwc-us-de-duties-rights",
+     "pwc-us-de-duties-assessment"
+    ],
+    "opts": [
+     {
+      "label": "At least 100,000 consumers on that basis",
+      "goto": "de-assessment"
+     },
+     {
+      "label": "Fewer than 100,000 consumers on that basis",
+      "goto": "de-assessment-below"
+     },
+     {
+      "label": "Not sure of this separate count",
+      "goto": "de-assessment-unknown"
+     }
+    ]
+   },
+   "de-assessment-below": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Delaware: the separate assessment threshold is not met",
+    "summary": "Your stated count is below the threshold in §12D-108(a). This does not remove other duties under the Act or another law.",
+    "actions": [
+     "Retain the counting basis and monitor material changes.",
+     "Continue the relevant consent, rights, notice and security work under your confirmed full-law coverage."
+    ],
+    "cites": [
+     "pwc-us-de-duties-sensitive",
+     "pwc-us-de-duties-ads",
+     "pwc-us-de-duties-rights",
+     "pwc-us-de-duties-assessment"
+    ]
+   },
+   "de-assessment-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Delaware: verify the separate assessment count",
+    "summary": "The assessment duty cannot be determined from general-law coverage or an unknown count.",
+    "actions": [
+     "The data owner should count Delaware consumers whose personal data are controlled or processed, excluding solely payment-transaction data.",
+     "The privacy owner should confirm the §12D-108(a) basis, then review the high-risk processing and July 1, 2025 activity-date boundary."
+    ],
+    "cites": [
+     "pwc-us-de-duties-sensitive",
+     "pwc-us-de-duties-ads",
+     "pwc-us-de-duties-rights",
+     "pwc-us-de-duties-assessment"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Whether the separate §12D-108(a) count reaches 100,000 consumers after the payment-only exclusion.",
+      "owner": "Data owner and privacy owner",
+      "why": "This additional threshold determines the Delaware assessment duty."
+     }
+    ]
+   },
+   "fl-limited": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Florida: the limited provision has its own duties",
+    "summary": "§501.715 has a separate sensitive-data sale rule for persons meeting §501.702(9)(a)1.–3.; full Digital Bill of Rights coverage is not the only relevant route.",
+    "actions": [
+     "Obtain the consumer's prior consent before selling sensitive data, with the statutory child authorization route.",
+     "Provide the exact website notice prescribed by §501.715(2). Have counsel verify this provision's own coverage conditions."
+    ],
+    "cites": [
+     "pwc-us-fl-duties-limited"
+    ]
+   },
+   "fl-coverage": {
+    "type": "question",
+    "q": "Is full Florida coverage confirmed for this controller and these data?",
+    "help": "This path compares duties after applicability. Coverage is not imported from another result. A state nexus or threshold alone may not settle entity, data or processing exemptions.",
+    "cites": [
+     "pwc-us-fl-duties-sensitive",
+     "pwc-us-fl-duties-ads",
+     "pwc-us-fl-duties-rights",
+     "pwc-us-fl-duties-assessment",
+     "pwc-us-fl-duties-appeals",
+     "pwc-us-fl-duties-limited"
+    ],
+    "opts": [
+     {
+      "label": "Full-law coverage is confirmed for this controller and these data",
+      "goto": "fl-use"
+     },
+     {
+      "label": "Only the separate sensitive-data sales rule applies",
+      "goto": "fl-limited"
+     },
+     {
+      "label": "Full-law coverage is not established",
+      "goto": "fl-coverage-unknown"
+     },
+     {
+      "label": "Not sure whether full or limited coverage applies",
+      "goto": "fl-coverage-unknown"
+     }
+    ]
+   },
+   "fl-coverage-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Florida: establish coverage before assigning duties",
+    "summary": "A full-law duties comparison needs a confirmed controller, covered data and current applicability basis. An unknown or limited basis cannot support an all-clear result.",
+    "actions": [
+     "The privacy owner should record Florida's state nexus, relevant measuring period and threshold, controller role, entity/data exemptions and any limited provision.",
+     "Use the separate applicability path or a written scope analysis, then return with that factual basis."
+    ],
+    "cites": [
+     "pwc-us-fl-duties-sensitive",
+     "pwc-us-fl-duties-ads",
+     "pwc-us-fl-duties-rights",
+     "pwc-us-fl-duties-assessment",
+     "pwc-us-fl-duties-appeals",
+     "pwc-us-fl-duties-limited"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The current full-law or limited applicability basis for this controller and this processing.",
+      "owner": "Privacy owner, with finance and the data/system owner",
+      "why": "Different coverage routes impose different duties; state selection alone does not establish them."
+     }
+    ]
+   },
+   "fl-use": {
+    "type": "question",
+    "q": "Which Florida use is involved?",
+    "help": "Choose the processing or request you want to compare. Each result identifies the state-specific changes and preserves its conditions; it does not certify the whole activity.",
+    "cites": [
+     "pwc-us-fl-duties-sensitive",
+     "pwc-us-fl-duties-ads",
+     "pwc-us-fl-duties-rights",
+     "pwc-us-fl-duties-assessment",
+     "pwc-us-fl-duties-appeals",
+     "pwc-us-fl-duties-limited",
+     "pwc-us-fl-duties-enforcement"
+    ],
+    "opts": [
+     {
+      "label": "Sensitive data are involved",
+      "goto": "fl-sensitive"
+     },
+     {
+      "label": "Personal data are sold or used for targeted advertising",
+      "goto": "fl-ads"
+     },
+     {
+      "label": "A consumer rights request or rights process is involved",
+      "goto": "fl-rights"
+     },
+     {
+      "label": "A risk assessment for processing is being considered",
+      "goto": "fl-assessment"
+     },
+     {
+      "label": "A compliance concern or regulator notice is involved",
+      "goto": "fl-enforcement"
+     },
+     {
+      "label": "Several of these activities are involved",
+      "goto": "fl-overview"
+     },
+     {
+      "label": "Not sure which processing or request is involved",
+      "goto": "fl-use-unknown"
+     }
+    ]
+   },
+   "fl-use-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Florida: identify the processing and data first",
+    "summary": "The appropriate duties depend on the actual data, use, people and request. No conclusion follows from an unknown use case.",
+    "actions": [
+     "The product and data owners should identify the data fields, purposes, recipients, ages/knowledge, and the request type or proposed processing start date.",
+     "Return with the sensitive-data, sale/advertising, rights or assessment use that is actually involved."
+    ],
+    "cites": [
+     "pwc-us-fl-duties-sensitive",
+     "pwc-us-fl-duties-ads",
+     "pwc-us-fl-duties-rights",
+     "pwc-us-fl-duties-assessment",
+     "pwc-us-fl-duties-appeals",
+     "pwc-us-fl-duties-limited"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Data categories, processing purpose, recipients, relevant ages, and request or activity dates.",
+      "owner": "Product/data owner with the privacy owner",
+      "why": "These facts change consent, prohibited-use, response-period and assessment duties."
+     }
+    ]
+   },
+   "fl-sensitive": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Florida: sensitive data",
+    "summary": "On your confirmed full-law coverage basis: Sensitive-data processing requires consent. The statute separately specifies authorization for known children aged 13–17 and COPPA treatment for children under 13.",
+    "actions": [
+     "Confirm valid consent and the applicable age route before processing.",
+     "Sensitive-data sales also require the separate §501.715 review, including its prescribed notice."
+    ],
+    "cites": [
+     "pwc-us-fl-duties-sensitive",
+     "pwc-us-fl-duties-ads",
+     "pwc-us-fl-duties-rights",
+     "pwc-us-fl-duties-assessment",
+     "pwc-us-fl-duties-appeals",
+     "pwc-us-fl-duties-limited"
+    ]
+   },
+   "fl-ads": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Florida: sale and targeted advertising",
+    "summary": "On your confirmed full-law coverage basis: The covered consumer can opt out of sale, targeted advertising and significant-effect profiling, with additional choices for sensitive-data collection and voice/facial-recognition collection.",
+    "actions": [
+     "Map these additional collection opt-outs to actual device and product flows.",
+     "Apply the separate sensitive-data consent and sales-notice provisions; a general marketing unsubscribe is insufficient."
+    ],
+    "cites": [
+     "pwc-us-fl-duties-sensitive",
+     "pwc-us-fl-duties-ads",
+     "pwc-us-fl-duties-rights",
+     "pwc-us-fl-duties-assessment",
+     "pwc-us-fl-duties-appeals",
+     "pwc-us-fl-duties-limited"
+    ]
+   },
+   "fl-rights": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Florida: consumer rights",
+    "summary": "On your confirmed full-law coverage basis: Access, correction, deletion and portability sit alongside Florida's broader collection opt-outs. The response extension is only 15 days.",
+    "actions": [
+     "Respond without undue delay and within 45 days; one reasonably necessary 15-day extension requires notice and reasons within the first 45 days.",
+     "Provide compliance notice within 60 days after receipt. Decide an internal appeal within 60 days."
+    ],
+    "cites": [
+     "pwc-us-fl-duties-sensitive",
+     "pwc-us-fl-duties-ads",
+     "pwc-us-fl-duties-rights",
+     "pwc-us-fl-duties-assessment",
+     "pwc-us-fl-duties-appeals",
+     "pwc-us-fl-duties-limited"
+    ]
+   },
+   "fl-assessment": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Florida: risk assessments",
+    "summary": "On your confirmed full-law coverage basis: Assess targeted advertising, sale, sensitive data, qualifying risky profiling and other heightened-risk processing.",
+    "actions": [
+     "The statutory assessment provision covers processing activities generated on or after July 1, 2023.",
+     "Document benefits, risks and safeguards. A comparable assessment for another law can qualify if its scope and effect are reasonably comparable."
+    ],
+    "cites": [
+     "pwc-us-fl-duties-sensitive",
+     "pwc-us-fl-duties-ads",
+     "pwc-us-fl-duties-rights",
+     "pwc-us-fl-duties-assessment",
+     "pwc-us-fl-duties-appeals",
+     "pwc-us-fl-duties-limited"
+    ]
+   },
+   "fl-overview": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Florida: changes across the selected uses",
+    "summary": "On your confirmed full-law coverage basis, these are the main differences in Florida Digital Bill of Rights. Conditions and future dates remain part of each item.",
+    "actions": [
+     "Sensitive data: Sensitive-data processing requires consent. The statute separately specifies authorization for known children aged 13–17 and COPPA treatment for children under 13.",
+     "Sale and targeted advertising: The covered consumer can opt out of sale, targeted advertising and significant-effect profiling, with additional choices for sensitive-data collection and voice/facial-recognition collection.",
+     "Consumer rights: Access, correction, deletion and portability sit alongside Florida's broader collection opt-outs. The response extension is only 15 days.",
+     "Risk assessments: Assess targeted advertising, sale, sensitive data, qualifying risky profiling and other heightened-risk processing.",
+     "Cure and enforcement: The Department of Legal Affairs may grant 45 calendar days after written notice to cure a violation. This is discretionary and unavailable for the statutory known-child cases."
+    ],
+    "cites": [
+     "pwc-us-fl-duties-sensitive",
+     "pwc-us-fl-duties-ads",
+     "pwc-us-fl-duties-rights",
+     "pwc-us-fl-duties-assessment",
+     "pwc-us-fl-duties-appeals",
+     "pwc-us-fl-duties-limited",
+     "pwc-us-fl-duties-enforcement"
+    ]
+   },
+   "in-coverage": {
+    "type": "question",
+    "q": "Is full Indiana coverage confirmed for this controller and these data?",
+    "help": "This path compares duties after applicability. Coverage is not imported from another result. A state nexus or threshold alone may not settle entity, data or processing exemptions.",
+    "cites": [
+     "pwc-us-in-duties-sensitive",
+     "pwc-us-in-duties-ads",
+     "pwc-us-in-duties-rights",
+     "pwc-us-in-duties-assessment"
+    ],
+    "opts": [
+     {
+      "label": "Full-law coverage is confirmed for this controller and these data",
+      "goto": "in-use"
+     },
+     {
+      "label": "Full-law coverage is not established",
+      "goto": "in-coverage-unknown"
+     },
+     {
+      "label": "Not sure whether full or limited coverage applies",
+      "goto": "in-coverage-unknown"
+     }
+    ]
+   },
+   "in-coverage-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Indiana: establish coverage before assigning duties",
+    "summary": "A full-law duties comparison needs a confirmed controller, covered data and current applicability basis. An unknown or limited basis cannot support an all-clear result.",
+    "actions": [
+     "The privacy owner should record Indiana's state nexus, relevant measuring period and threshold, controller role, entity/data exemptions and any limited provision.",
+     "Use the separate applicability path or a written scope analysis, then return with that factual basis."
+    ],
+    "cites": [
+     "pwc-us-in-duties-sensitive",
+     "pwc-us-in-duties-ads",
+     "pwc-us-in-duties-rights",
+     "pwc-us-in-duties-assessment"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The current full-law or limited applicability basis for this controller and this processing.",
+      "owner": "Privacy owner, with finance and the data/system owner",
+      "why": "Different coverage routes impose different duties; state selection alone does not establish them."
+     }
+    ]
+   },
+   "in-use": {
+    "type": "question",
+    "q": "Which Indiana use is involved?",
+    "help": "Choose the processing or request you want to compare. Each result identifies the state-specific changes and preserves its conditions; it does not certify the whole activity.",
+    "cites": [
+     "pwc-us-in-duties-sensitive",
+     "pwc-us-in-duties-ads",
+     "pwc-us-in-duties-rights",
+     "pwc-us-in-duties-assessment",
+     "pwc-us-in-duties-enforcement"
+    ],
+    "opts": [
+     {
+      "label": "Sensitive data are involved",
+      "goto": "in-sensitive"
+     },
+     {
+      "label": "Personal data are sold or used for targeted advertising",
+      "goto": "in-ads"
+     },
+     {
+      "label": "A consumer rights request or rights process is involved",
+      "goto": "in-rights"
+     },
+     {
+      "label": "A risk assessment for processing is being considered",
+      "goto": "in-assessment"
+     },
+     {
+      "label": "A compliance concern or regulator notice is involved",
+      "goto": "in-enforcement"
+     },
+     {
+      "label": "Several of these activities are involved",
+      "goto": "in-overview"
+     },
+     {
+      "label": "Not sure which processing or request is involved",
+      "goto": "in-use-unknown"
+     }
+    ]
+   },
+   "in-use-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Indiana: identify the processing and data first",
+    "summary": "The appropriate duties depend on the actual data, use, people and request. No conclusion follows from an unknown use case.",
+    "actions": [
+     "The product and data owners should identify the data fields, purposes, recipients, ages/knowledge, and the request type or proposed processing start date.",
+     "Return with the sensitive-data, sale/advertising, rights or assessment use that is actually involved."
+    ],
+    "cites": [
+     "pwc-us-in-duties-sensitive",
+     "pwc-us-in-duties-ads",
+     "pwc-us-in-duties-rights",
+     "pwc-us-in-duties-assessment"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Data categories, processing purpose, recipients, relevant ages, and request or activity dates.",
+      "owner": "Product/data owner with the privacy owner",
+      "why": "These facts change consent, prohibited-use, response-period and assessment duties."
+     }
+    ]
+   },
+   "in-sensitive": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Indiana: sensitive data",
+    "summary": "On your confirmed full-law coverage basis: Sensitive-data processing requires consumer consent, with COPPA treatment for known-child data.",
+    "actions": [
+     "Check the statutory sensitive categories and obtain consent for the specific processing.",
+     "Document the disclosed purpose and any separate consent for incompatible reuse."
+    ],
+    "cites": [
+     "pwc-us-in-duties-sensitive",
+     "pwc-us-in-duties-ads",
+     "pwc-us-in-duties-rights",
+     "pwc-us-in-duties-assessment"
+    ]
+   },
+   "in-ads": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Indiana: sale and targeted advertising",
+    "summary": "On your confirmed full-law coverage basis: Consumers can opt out of sale, targeted advertising and qualifying significant-effect profiling.",
+    "actions": [
+     "Classify each transfer under Indiana's own sale definition and exceptions.",
+     "Disclose sale or targeted advertising conspicuously and provide the statutory opt-out route."
+    ],
+    "cites": [
+     "pwc-us-in-duties-sensitive",
+     "pwc-us-in-duties-ads",
+     "pwc-us-in-duties-rights",
+     "pwc-us-in-duties-assessment"
+    ]
+   },
+   "in-rights": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Indiana: consumer rights",
+    "summary": "On your confirmed full-law coverage basis: Correction is limited to data the consumer previously provided. For the copy right, the controller may provide a representative summary instead of the data.",
+    "actions": [
+     "Do not promise a broader correction/copy entitlement on the basis of this statute alone; access and deletion have their own wording.",
+     "Respond within 45 days, with a reasonably necessary 45-day extension on timely notice; decide an appeal within 60 days."
+    ],
+    "cites": [
+     "pwc-us-in-duties-sensitive",
+     "pwc-us-in-duties-ads",
+     "pwc-us-in-duties-rights",
+     "pwc-us-in-duties-assessment"
+    ]
+   },
+   "in-assessment": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Indiana: risk assessments",
+    "summary": "On your confirmed full-law coverage basis: Assess sale, targeted advertising, sensitive data and qualifying high-risk activities created or generated after December 31, 2025.",
+    "actions": [
+     "Record the activity's creation date; the provision is not retroactive to pre-2026 activities.",
+     "Document the benefit/risk balance, safeguards and whether an existing assessment is reasonably comparable."
+    ],
+    "cites": [
+     "pwc-us-in-duties-sensitive",
+     "pwc-us-in-duties-ads",
+     "pwc-us-in-duties-rights",
+     "pwc-us-in-duties-assessment"
+    ]
+   },
+   "in-overview": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Indiana: changes across the selected uses",
+    "summary": "On your confirmed full-law coverage basis, these are the main differences in Indiana CDPA. Conditions and future dates remain part of each item.",
+    "actions": [
+     "Sensitive data: Sensitive-data processing requires consumer consent, with COPPA treatment for known-child data.",
+     "Sale and targeted advertising: Consumers can opt out of sale, targeted advertising and qualifying significant-effect profiling.",
+     "Consumer rights: Correction is limited to data the consumer previously provided. For the copy right, the controller may provide a representative summary instead of the data.",
+     "Risk assessments: Assess sale, targeted advertising, sensitive data and qualifying high-risk activities created or generated after December 31, 2025.",
+     "Cure and enforcement: The Attorney General must give 30 days' written notice before enforcement action. Cure plus the required written statement prevents that action, subject to continued violations or a breached statement."
+    ],
+    "cites": [
+     "pwc-us-in-duties-sensitive",
+     "pwc-us-in-duties-ads",
+     "pwc-us-in-duties-rights",
+     "pwc-us-in-duties-assessment",
+     "pwc-us-in-duties-enforcement"
+    ]
+   },
+   "ia-coverage": {
+    "type": "question",
+    "q": "Is full Iowa coverage confirmed for this controller and these data?",
+    "help": "This path compares duties after applicability. Coverage is not imported from another result. A state nexus or threshold alone may not settle entity, data or processing exemptions.",
+    "cites": [
+     "pwc-us-ia-duties-sensitive",
+     "pwc-us-ia-duties-ads",
+     "pwc-us-ia-duties-rights",
+     "pwc-us-ia-duties-assessment"
+    ],
+    "opts": [
+     {
+      "label": "Full-law coverage is confirmed for this controller and these data",
+      "goto": "ia-use"
+     },
+     {
+      "label": "Full-law coverage is not established",
+      "goto": "ia-coverage-unknown"
+     },
+     {
+      "label": "Not sure whether full or limited coverage applies",
+      "goto": "ia-coverage-unknown"
+     }
+    ]
+   },
+   "ia-coverage-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Iowa: establish coverage before assigning duties",
+    "summary": "A full-law duties comparison needs a confirmed controller, covered data and current applicability basis. An unknown or limited basis cannot support an all-clear result.",
+    "actions": [
+     "The privacy owner should record Iowa's state nexus, relevant measuring period and threshold, controller role, entity/data exemptions and any limited provision.",
+     "Use the separate applicability path or a written scope analysis, then return with that factual basis."
+    ],
+    "cites": [
+     "pwc-us-ia-duties-sensitive",
+     "pwc-us-ia-duties-ads",
+     "pwc-us-ia-duties-rights",
+     "pwc-us-ia-duties-assessment"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The current full-law or limited applicability basis for this controller and this processing.",
+      "owner": "Privacy owner, with finance and the data/system owner",
+      "why": "Different coverage routes impose different duties; state selection alone does not establish them."
+     }
+    ]
+   },
+   "ia-use": {
+    "type": "question",
+    "q": "Which Iowa use is involved?",
+    "help": "Choose the processing or request you want to compare. Each result identifies the state-specific changes and preserves its conditions; it does not certify the whole activity.",
+    "cites": [
+     "pwc-us-ia-duties-sensitive",
+     "pwc-us-ia-duties-ads",
+     "pwc-us-ia-duties-rights",
+     "pwc-us-ia-duties-assessment",
+     "pwc-us-ia-duties-enforcement"
+    ],
+    "opts": [
+     {
+      "label": "Sensitive data are involved",
+      "goto": "ia-sensitive"
+     },
+     {
+      "label": "Personal data are sold or used for targeted advertising",
+      "goto": "ia-ads"
+     },
+     {
+      "label": "A consumer rights request or rights process is involved",
+      "goto": "ia-rights"
+     },
+     {
+      "label": "A risk assessment for processing is being considered",
+      "goto": "ia-assessment"
+     },
+     {
+      "label": "A compliance concern or regulator notice is involved",
+      "goto": "ia-enforcement"
+     },
+     {
+      "label": "Several of these activities are involved",
+      "goto": "ia-overview"
+     },
+     {
+      "label": "Not sure which processing or request is involved",
+      "goto": "ia-use-unknown"
+     }
+    ]
+   },
+   "ia-use-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Iowa: identify the processing and data first",
+    "summary": "The appropriate duties depend on the actual data, use, people and request. No conclusion follows from an unknown use case.",
+    "actions": [
+     "The product and data owners should identify the data fields, purposes, recipients, ages/knowledge, and the request type or proposed processing start date.",
+     "Return with the sensitive-data, sale/advertising, rights or assessment use that is actually involved."
+    ],
+    "cites": [
+     "pwc-us-ia-duties-sensitive",
+     "pwc-us-ia-duties-ads",
+     "pwc-us-ia-duties-rights",
+     "pwc-us-ia-duties-assessment"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Data categories, processing purpose, recipients, relevant ages, and request or activity dates.",
+      "owner": "Product/data owner with the privacy owner",
+      "why": "These facts change consent, prohibited-use, response-period and assessment duties."
+     }
+    ]
+   },
+   "ia-sensitive": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Iowa: sensitive data",
+    "summary": "On your confirmed full-law coverage basis: For nonexempt sensitive-data processing, Iowa requires clear notice and an opportunity to opt out, rather than a general opt-in consent requirement.",
+    "actions": [
+     "Provide the notice and opt-out opportunity before the sensitive processing.",
+     "Apply COPPA for a known child's data and check sector-specific duties separately."
+    ],
+    "cites": [
+     "pwc-us-ia-duties-sensitive",
+     "pwc-us-ia-duties-ads",
+     "pwc-us-ia-duties-rights",
+     "pwc-us-ia-duties-assessment"
+    ]
+   },
+   "ia-ads": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Iowa: sale and targeted advertising",
+    "summary": "On your confirmed full-law coverage basis: The rights section expressly lists a sale opt-out, but not a targeted-advertising right. The controller-duty section nevertheless requires targeted-advertising disclosure and a manner to exercise an opt-out.",
+    "actions": [
+     "Provide the express sale opt-out.",
+     "For targeted advertising, ask privacy counsel to reconcile §715D.3 with §715D.4(5) and document the operational approach. Do not infer that targeted advertising needs no opt-out."
+    ],
+    "cites": [
+     "pwc-us-ia-duties-sensitive",
+     "pwc-us-ia-duties-ads",
+     "pwc-us-ia-duties-rights",
+     "pwc-us-ia-duties-assessment"
+    ],
+    "missingFacts": [
+     {
+      "fact": "How §715D.4(5)'s targeted-advertising opt-out disclosure is implemented for this processing.",
+      "owner": "Privacy counsel with the advertising product owner",
+      "why": "The provisions must be reconciled before omitting an operational opt-out."
+     }
+    ]
+   },
+   "ia-rights": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Iowa: consumer rights",
+    "summary": "On your confirmed full-law coverage basis: Iowa does not enumerate a correction right. Deletion and portability are narrower and concern data provided by the consumer, subject to statutory limits.",
+    "actions": [
+     "Support confirmation/access, the specified deletion/copy rights and sale opt-out.",
+     "Respond within 90 days; one reasonably necessary 45-day extension requires timely notice and reasons. Decide an internal appeal within 60 days."
+    ],
+    "cites": [
+     "pwc-us-ia-duties-sensitive",
+     "pwc-us-ia-duties-ads",
+     "pwc-us-ia-duties-rights",
+     "pwc-us-ia-duties-assessment"
+    ]
+   },
+   "ia-assessment": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Iowa: risk assessments",
+    "summary": "On your confirmed full-law coverage basis: This chapter does not impose a dedicated data protection assessment duty. That observation is limited to this statute and is not a conclusion that the activity is low risk.",
+    "actions": [
+     "Keep the required reasonable security and processor controls.",
+     "Ask the privacy owner to check other applicable sector, contractual and jurisdictional assessment duties for the same processing."
+    ],
+    "cites": [
+     "pwc-us-ia-duties-sensitive",
+     "pwc-us-ia-duties-ads",
+     "pwc-us-ia-duties-rights",
+     "pwc-us-ia-duties-assessment"
+    ]
+   },
+   "ia-overview": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Iowa: changes across the selected uses",
+    "summary": "On your confirmed full-law coverage basis, these are the main differences in Iowa Consumer Data Protection Act. Conditions and future dates remain part of each item.",
+    "actions": [
+     "Sensitive data: For nonexempt sensitive-data processing, Iowa requires clear notice and an opportunity to opt out, rather than a general opt-in consent requirement.",
+     "Sale and targeted advertising: The rights section expressly lists a sale opt-out, but not a targeted-advertising right. The controller-duty section nevertheless requires targeted-advertising disclosure and a manner to exercise an opt-out.",
+     "Consumer rights: Iowa does not enumerate a correction right. Deletion and portability are narrower and concern data provided by the consumer, subject to statutory limits.",
+     "Risk assessments: This chapter does not impose a dedicated data protection assessment duty. That observation is limited to this statute and is not a conclusion that the activity is low risk.",
+     "Cure and enforcement: The Attorney General must provide 90 days' written notice. Cure and the required written assurance prevent that action, unless violations continue or the assurance is breached."
+    ],
+    "cites": [
+     "pwc-us-ia-duties-sensitive",
+     "pwc-us-ia-duties-ads",
+     "pwc-us-ia-duties-rights",
+     "pwc-us-ia-duties-assessment",
+     "pwc-us-ia-duties-enforcement"
+    ],
+    "missingFacts": [
+     {
+      "fact": "How §715D.4(5)'s targeted-advertising opt-out disclosure is implemented for this processing.",
+      "owner": "Privacy counsel with the advertising product owner",
+      "why": "The rights and controller-duty provisions do not express the targeted-advertising opt-out in the same way."
+     }
+    ]
+   },
+   "ky-coverage": {
+    "type": "question",
+    "q": "Is full Kentucky coverage confirmed for this controller and these data?",
+    "help": "This path compares duties after applicability. Coverage is not imported from another result. A state nexus or threshold alone may not settle entity, data or processing exemptions.",
+    "cites": [
+     "pwc-us-ky-duties-sensitive",
+     "pwc-us-ky-duties-ads",
+     "pwc-us-ky-duties-rights",
+     "pwc-us-ky-duties-assessment"
+    ],
+    "opts": [
+     {
+      "label": "Full-law coverage is confirmed for this controller and these data",
+      "goto": "ky-use"
+     },
+     {
+      "label": "Full-law coverage is not established",
+      "goto": "ky-coverage-unknown"
+     },
+     {
+      "label": "Not sure whether full or limited coverage applies",
+      "goto": "ky-coverage-unknown"
+     }
+    ]
+   },
+   "ky-coverage-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Kentucky: establish coverage before assigning duties",
+    "summary": "A full-law duties comparison needs a confirmed controller, covered data and current applicability basis. An unknown or limited basis cannot support an all-clear result.",
+    "actions": [
+     "The privacy owner should record Kentucky's state nexus, relevant measuring period and threshold, controller role, entity/data exemptions and any limited provision.",
+     "Use the separate applicability path or a written scope analysis, then return with that factual basis."
+    ],
+    "cites": [
+     "pwc-us-ky-duties-sensitive",
+     "pwc-us-ky-duties-ads",
+     "pwc-us-ky-duties-rights",
+     "pwc-us-ky-duties-assessment"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The current full-law or limited applicability basis for this controller and this processing.",
+      "owner": "Privacy owner, with finance and the data/system owner",
+      "why": "Different coverage routes impose different duties; state selection alone does not establish them."
+     }
+    ]
+   },
+   "ky-use": {
+    "type": "question",
+    "q": "Which Kentucky use is involved?",
+    "help": "Choose the processing or request you want to compare. Each result identifies the state-specific changes and preserves its conditions; it does not certify the whole activity.",
+    "cites": [
+     "pwc-us-ky-duties-sensitive",
+     "pwc-us-ky-duties-ads",
+     "pwc-us-ky-duties-rights",
+     "pwc-us-ky-duties-assessment",
+     "pwc-us-ky-duties-enforcement"
+    ],
+    "opts": [
+     {
+      "label": "Sensitive data are involved",
+      "goto": "ky-sensitive"
+     },
+     {
+      "label": "Personal data are sold or used for targeted advertising",
+      "goto": "ky-ads"
+     },
+     {
+      "label": "A consumer rights request or rights process is involved",
+      "goto": "ky-rights"
+     },
+     {
+      "label": "A risk assessment for processing is being considered",
+      "goto": "ky-assessment"
+     },
+     {
+      "label": "A compliance concern or regulator notice is involved",
+      "goto": "ky-enforcement"
+     },
+     {
+      "label": "Several of these activities are involved",
+      "goto": "ky-overview"
+     },
+     {
+      "label": "Not sure which processing or request is involved",
+      "goto": "ky-use-unknown"
+     }
+    ]
+   },
+   "ky-use-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Kentucky: identify the processing and data first",
+    "summary": "The appropriate duties depend on the actual data, use, people and request. No conclusion follows from an unknown use case.",
+    "actions": [
+     "The product and data owners should identify the data fields, purposes, recipients, ages/knowledge, and the request type or proposed processing start date.",
+     "Return with the sensitive-data, sale/advertising, rights or assessment use that is actually involved."
+    ],
+    "cites": [
+     "pwc-us-ky-duties-sensitive",
+     "pwc-us-ky-duties-ads",
+     "pwc-us-ky-duties-rights",
+     "pwc-us-ky-duties-assessment"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Data categories, processing purpose, recipients, relevant ages, and request or activity dates.",
+      "owner": "Product/data owner with the privacy owner",
+      "why": "These facts change consent, prohibited-use, response-period and assessment duties."
+     }
+    ]
+   },
+   "ky-sensitive": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Kentucky: sensitive data",
+    "summary": "On your confirmed full-law coverage basis: Sensitive-data processing requires consent, with COPPA treatment for known-child data.",
+    "actions": [
+     "Obtain valid consent before the sensitive use and preserve the evidence.",
+     "Use the current controller duties; the chapter index also lists a future July 2027 version."
+    ],
+    "cites": [
+     "pwc-us-ky-duties-sensitive",
+     "pwc-us-ky-duties-ads",
+     "pwc-us-ky-duties-rights",
+     "pwc-us-ky-duties-assessment"
+    ]
+   },
+   "ky-ads": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Kentucky: sale and targeted advertising",
+    "summary": "On your confirmed full-law coverage basis: Consumers can opt out of sale, targeted advertising and profiling in furtherance of decisions producing legal or similarly significant effects.",
+    "actions": [
+     "Apply Kentucky's definitions to the transfer or advertising use.",
+     "Provide the required disclosure and opt-out route; separately check sensitive processing consent."
+    ],
+    "cites": [
+     "pwc-us-ky-duties-sensitive",
+     "pwc-us-ky-duties-ads",
+     "pwc-us-ky-duties-rights",
+     "pwc-us-ky-duties-assessment"
+    ]
+   },
+   "ky-rights": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Kentucky: consumer rights",
+    "summary": "On your confirmed full-law coverage basis: Provide confirmation/access, correction, deletion, portability of previously provided data and the statutory opt-outs.",
+    "actions": [
+     "Respond within 45 days; a reasonably necessary 45-day extension requires timely notice and reasons.",
+     "Provide an internal appeal and respond within 60 days, with an Attorney General complaint route if denied."
+    ],
+    "cites": [
+     "pwc-us-ky-duties-sensitive",
+     "pwc-us-ky-duties-ads",
+     "pwc-us-ky-duties-rights",
+     "pwc-us-ky-duties-assessment"
+    ]
+   },
+   "ky-assessment": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Kentucky: risk assessments",
+    "summary": "On your confirmed full-law coverage basis: The current assessment duty applies to processing activities created or generated on or after June 1, 2026.",
+    "actions": [
+     "Assess covered targeted advertising, sale, sensitive processing and other specified heightened-risk activities.",
+     "Record the June 1 activity-date boundary separately from the Act's January 1, 2026 effective date."
+    ],
+    "cites": [
+     "pwc-us-ky-duties-sensitive",
+     "pwc-us-ky-duties-ads",
+     "pwc-us-ky-duties-rights",
+     "pwc-us-ky-duties-assessment"
+    ]
+   },
+   "ky-overview": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Kentucky: changes across the selected uses",
+    "summary": "On your confirmed full-law coverage basis, these are the main differences in Kentucky CDPA. Conditions and future dates remain part of each item.",
+    "actions": [
+     "Sensitive data: Sensitive-data processing requires consent, with COPPA treatment for known-child data.",
+     "Sale and targeted advertising: Consumers can opt out of sale, targeted advertising and profiling in furtherance of decisions producing legal or similarly significant effects.",
+     "Consumer rights: Provide confirmation/access, correction, deletion, portability of previously provided data and the statutory opt-outs.",
+     "Risk assessments: The current assessment duty applies to processing activities created or generated on or after June 1, 2026.",
+     "Cure and enforcement: The Attorney General must give 30 days' written notice. Timely cure and a written assurance prevent the subsection (3) damages action, subject to recurrence or a breached assurance."
+    ],
+    "cites": [
+     "pwc-us-ky-duties-sensitive",
+     "pwc-us-ky-duties-ads",
+     "pwc-us-ky-duties-rights",
+     "pwc-us-ky-duties-assessment",
+     "pwc-us-ky-duties-enforcement"
+    ]
+   },
+   "md-coverage": {
+    "type": "question",
+    "q": "Is full Maryland coverage confirmed for this controller and these data?",
+    "help": "This path compares duties after applicability. Coverage is not imported from another result. A state nexus or threshold alone may not settle entity, data or processing exemptions.",
+    "cites": [
+     "pwc-us-md-duties-sensitive",
+     "pwc-us-md-duties-ads",
+     "pwc-us-md-duties-rights",
+     "pwc-us-md-duties-assessment",
+     "pwc-us-md-duties-2026-amendment"
+    ],
+    "opts": [
+     {
+      "label": "Full-law coverage is confirmed for this controller and these data",
+      "goto": "md-use"
+     },
+     {
+      "label": "Full-law coverage is not established",
+      "goto": "md-coverage-unknown"
+     },
+     {
+      "label": "Not sure whether full or limited coverage applies",
+      "goto": "md-coverage-unknown"
+     }
+    ]
+   },
+   "md-coverage-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Maryland: establish coverage before assigning duties",
+    "summary": "A full-law duties comparison needs a confirmed controller, covered data and current applicability basis. An unknown or limited basis cannot support an all-clear result.",
+    "actions": [
+     "The privacy owner should record Maryland's state nexus, relevant measuring period and threshold, controller role, entity/data exemptions and any limited provision.",
+     "Use the separate applicability path or a written scope analysis, then return with that factual basis."
+    ],
+    "cites": [
+     "pwc-us-md-duties-sensitive",
+     "pwc-us-md-duties-ads",
+     "pwc-us-md-duties-rights",
+     "pwc-us-md-duties-assessment",
+     "pwc-us-md-duties-2026-amendment"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The current full-law or limited applicability basis for this controller and this processing.",
+      "owner": "Privacy owner, with finance and the data/system owner",
+      "why": "Different coverage routes impose different duties; state selection alone does not establish them."
+     }
+    ]
+   },
+   "md-use": {
+    "type": "question",
+    "q": "Which Maryland use is involved?",
+    "help": "Choose the processing or request you want to compare. Each result identifies the state-specific changes and preserves its conditions; it does not certify the whole activity.",
+    "cites": [
+     "pwc-us-md-duties-sensitive",
+     "pwc-us-md-duties-ads",
+     "pwc-us-md-duties-rights",
+     "pwc-us-md-duties-assessment",
+     "pwc-us-md-duties-2026-amendment",
+     "pwc-us-md-duties-enforcement"
+    ],
+    "opts": [
+     {
+      "label": "Sensitive data are involved",
+      "goto": "md-sensitive"
+     },
+     {
+      "label": "Personal data are sold or used for targeted advertising",
+      "goto": "md-ads"
+     },
+     {
+      "label": "A consumer rights request or rights process is involved",
+      "goto": "md-rights"
+     },
+     {
+      "label": "A risk assessment for processing is being considered",
+      "goto": "md-assessment"
+     },
+     {
+      "label": "A compliance concern or regulator notice is involved",
+      "goto": "md-enforcement"
+     },
+     {
+      "label": "Several of these activities are involved",
+      "goto": "md-overview"
+     },
+     {
+      "label": "Not sure which processing or request is involved",
+      "goto": "md-use-unknown"
+     }
+    ]
+   },
+   "md-use-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Maryland: identify the processing and data first",
+    "summary": "The appropriate duties depend on the actual data, use, people and request. No conclusion follows from an unknown use case.",
+    "actions": [
+     "The product and data owners should identify the data fields, purposes, recipients, ages/knowledge, and the request type or proposed processing start date.",
+     "Return with the sensitive-data, sale/advertising, rights or assessment use that is actually involved."
+    ],
+    "cites": [
+     "pwc-us-md-duties-sensitive",
+     "pwc-us-md-duties-ads",
+     "pwc-us-md-duties-rights",
+     "pwc-us-md-duties-assessment",
+     "pwc-us-md-duties-2026-amendment"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Data categories, processing purpose, recipients, relevant ages, and request or activity dates.",
+      "owner": "Product/data owner with the privacy owner",
+      "why": "These facts change consent, prohibited-use, response-period and assessment duties."
+     }
+    ]
+   },
+   "md-sensitive": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Maryland: sensitive data",
+    "summary": "On your confirmed full-law coverage basis: Sensitive-data collection, processing and sharing must be strictly necessary for a specific product or service requested by the consumer. Selling sensitive data is prohibited.",
+    "actions": [
+     "Document strict necessity for the requested product. Consent does not cure unnecessary processing or the sensitive-data sale ban.",
+     "Use the expanded current sensitive/geolocation definitions in the July 1, 2026 amendment; include linked device and vehicle location in the review."
+    ],
+    "cites": [
+     "pwc-us-md-duties-sensitive",
+     "pwc-us-md-duties-ads",
+     "pwc-us-md-duties-rights",
+     "pwc-us-md-duties-assessment",
+     "pwc-us-md-duties-2026-amendment"
+    ]
+   },
+   "md-ads": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Maryland: sale and targeted advertising",
+    "summary": "On your confirmed full-law coverage basis: Sale and targeted advertising have opt-outs, but sensitive-data sales and sale/targeted advertising for consumers the controller knew or should have known are under 18 are prohibited.",
+    "actions": [
+     "Apply the statutory knew-or-should-have-known age test before treating an opt-out as enough.",
+     "For July 2026 onward, also screen the amendment's restrictions on sales connected to civil immigration enforcement; preserve its purchaser, knowledge and timing conditions."
+    ],
+    "cites": [
+     "pwc-us-md-duties-sensitive",
+     "pwc-us-md-duties-ads",
+     "pwc-us-md-duties-rights",
+     "pwc-us-md-duties-assessment",
+     "pwc-us-md-duties-2026-amendment"
+    ]
+   },
+   "md-rights": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Maryland: consumer rights",
+    "summary": "On your confirmed full-law coverage basis: Access, correction, deletion, portability and specified opt-outs include a right to categories of third parties receiving data.",
+    "actions": [
+     "Respond within 45 days; a reasonably necessary 45-day extension requires timely notice and reasons.",
+     "Decide an internal appeal within 60 days and provide the Division complaint route if denied."
+    ],
+    "cites": [
+     "pwc-us-md-duties-sensitive",
+     "pwc-us-md-duties-ads",
+     "pwc-us-md-duties-rights",
+     "pwc-us-md-duties-assessment",
+     "pwc-us-md-duties-2026-amendment"
+    ]
+   },
+   "md-assessment": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Maryland: risk assessments",
+    "summary": "On your confirmed full-law coverage basis: Regular assessments cover heightened-risk processing, including an assessment for each algorithm used. Necessity and proportionality are express factors.",
+    "actions": [
+     "Assess targeted advertising, sale, sensitive data and qualifying risky profiling; prohibited activity is not authorized by an assessment.",
+     "Record the statutory October 1, 2025 activity boundary and the Act's transitional application separately; confirm applicability before applying this duty."
+    ],
+    "cites": [
+     "pwc-us-md-duties-sensitive",
+     "pwc-us-md-duties-ads",
+     "pwc-us-md-duties-rights",
+     "pwc-us-md-duties-assessment",
+     "pwc-us-md-duties-2026-amendment"
+    ]
+   },
+   "md-overview": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Maryland: changes across the selected uses",
+    "summary": "On your confirmed full-law coverage basis, these are the main differences in MODPA. Conditions and future dates remain part of each item.",
+    "actions": [
+     "Sensitive data: Sensitive-data collection, processing and sharing must be strictly necessary for a specific product or service requested by the consumer. Selling sensitive data is prohibited.",
+     "Sale and targeted advertising: Sale and targeted advertising have opt-outs, but sensitive-data sales and sale/targeted advertising for consumers the controller knew or should have known are under 18 are prohibited.",
+     "Consumer rights: Access, correction, deletion, portability and specified opt-outs include a right to categories of third parties receiving data.",
+     "Risk assessments: Regular assessments cover heightened-risk processing, including an assessment for each algorithm used. Necessity and proportionality are express factors.",
+     "Cure and enforcement: The Consumer Protection Division may offer cure for violations occurring on or before April 1, 2027. If it gives notice, at least 60 days after receipt must be allowed."
+    ],
+    "cites": [
+     "pwc-us-md-duties-sensitive",
+     "pwc-us-md-duties-ads",
+     "pwc-us-md-duties-rights",
+     "pwc-us-md-duties-assessment",
+     "pwc-us-md-duties-2026-amendment",
+     "pwc-us-md-duties-enforcement"
+    ]
+   },
+   "mn-limited": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Minnesota: the limited provision has its own duties",
+    "summary": "An SBA-defined small business that conducts business in Minnesota or targets Minnesota residents must obtain prior consent before selling a consumer's sensitive data.",
+    "actions": [
+     "Confirm the SBA classification and state nexus with the business owner.",
+     "Obtain and retain consent before sensitive-data sales. This limited rule does not establish all other chapter duties."
+    ],
+    "cites": [
+     "pwc-us-mn-duties-limited"
+    ]
+   },
+   "mn-coverage": {
+    "type": "question",
+    "q": "Is full Minnesota coverage confirmed for this controller and these data?",
+    "help": "This path compares duties after applicability. Coverage is not imported from another result. A state nexus or threshold alone may not settle entity, data or processing exemptions.",
+    "cites": [
+     "pwc-us-mn-duties-sensitive",
+     "pwc-us-mn-duties-ads",
+     "pwc-us-mn-duties-rights",
+     "pwc-us-mn-duties-assessment",
+     "pwc-us-mn-duties-limited"
+    ],
+    "opts": [
+     {
+      "label": "Full-law coverage is confirmed for this controller and these data",
+      "goto": "mn-use"
+     },
+     {
+      "label": "Only the small-business sensitive-data sales rule applies",
+      "goto": "mn-limited"
+     },
+     {
+      "label": "Full-law coverage is not established",
+      "goto": "mn-coverage-unknown"
+     },
+     {
+      "label": "Not sure whether full or limited coverage applies",
+      "goto": "mn-coverage-unknown"
+     }
+    ]
+   },
+   "mn-coverage-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Minnesota: establish coverage before assigning duties",
+    "summary": "A full-law duties comparison needs a confirmed controller, covered data and current applicability basis. An unknown or limited basis cannot support an all-clear result.",
+    "actions": [
+     "The privacy owner should record Minnesota's state nexus, relevant measuring period and threshold, controller role, entity/data exemptions and any limited provision.",
+     "Use the separate applicability path or a written scope analysis, then return with that factual basis."
+    ],
+    "cites": [
+     "pwc-us-mn-duties-sensitive",
+     "pwc-us-mn-duties-ads",
+     "pwc-us-mn-duties-rights",
+     "pwc-us-mn-duties-assessment",
+     "pwc-us-mn-duties-limited"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The current full-law or limited applicability basis for this controller and this processing.",
+      "owner": "Privacy owner, with finance and the data/system owner",
+      "why": "Different coverage routes impose different duties; state selection alone does not establish them."
+     }
+    ]
+   },
+   "mn-use": {
+    "type": "question",
+    "q": "Which Minnesota use is involved?",
+    "help": "Choose the processing or request you want to compare. Each result identifies the state-specific changes and preserves its conditions; it does not certify the whole activity.",
+    "cites": [
+     "pwc-us-mn-duties-sensitive",
+     "pwc-us-mn-duties-ads",
+     "pwc-us-mn-duties-rights",
+     "pwc-us-mn-duties-assessment",
+     "pwc-us-mn-duties-limited",
+     "pwc-us-mn-duties-enforcement"
+    ],
+    "opts": [
+     {
+      "label": "Sensitive data are involved",
+      "goto": "mn-sensitive"
+     },
+     {
+      "label": "Personal data are sold or used for targeted advertising",
+      "goto": "mn-ads"
+     },
+     {
+      "label": "A consumer rights request or rights process is involved",
+      "goto": "mn-rights"
+     },
+     {
+      "label": "A risk assessment for processing is being considered",
+      "goto": "mn-assessment"
+     },
+     {
+      "label": "A compliance concern or regulator notice is involved",
+      "goto": "mn-enforcement"
+     },
+     {
+      "label": "Several of these activities are involved",
+      "goto": "mn-overview"
+     },
+     {
+      "label": "Not sure which processing or request is involved",
+      "goto": "mn-use-unknown"
+     }
+    ]
+   },
+   "mn-use-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Minnesota: identify the processing and data first",
+    "summary": "The appropriate duties depend on the actual data, use, people and request. No conclusion follows from an unknown use case.",
+    "actions": [
+     "The product and data owners should identify the data fields, purposes, recipients, ages/knowledge, and the request type or proposed processing start date.",
+     "Return with the sensitive-data, sale/advertising, rights or assessment use that is actually involved."
+    ],
+    "cites": [
+     "pwc-us-mn-duties-sensitive",
+     "pwc-us-mn-duties-ads",
+     "pwc-us-mn-duties-rights",
+     "pwc-us-mn-duties-assessment",
+     "pwc-us-mn-duties-limited"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Data categories, processing purpose, recipients, relevant ages, and request or activity dates.",
+      "owner": "Product/data owner with the privacy owner",
+      "why": "These facts change consent, prohibited-use, response-period and assessment duties."
+     }
+    ]
+   },
+   "mn-sensitive": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Minnesota: sensitive data",
+    "summary": "On your confirmed full-law coverage basis: Sensitive processing requires consumer consent; known-child processing uses parental consent under COPPA.",
+    "actions": [
+     "Obtain and record the applicable consent.",
+     "Provide an equally easy revocation mechanism and cease applicable processing as soon as practicable, no later than 15 days after revocation."
+    ],
+    "cites": [
+     "pwc-us-mn-duties-sensitive",
+     "pwc-us-mn-duties-ads",
+     "pwc-us-mn-duties-rights",
+     "pwc-us-mn-duties-assessment",
+     "pwc-us-mn-duties-limited"
+    ]
+   },
+   "mn-ads": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Minnesota: sale and targeted advertising",
+    "summary": "On your confirmed full-law coverage basis: Sale, targeted advertising and significant-effect profiling have opt-outs. Qualifying universal opt-out signals must be supported.",
+    "actions": [
+     "Implement the signal and accessible opt-out routes.",
+     "For consumers known to be 'between the ages of 13 and 16,' the statute requires consent for sale/targeted advertising. Preserve that statutory wording when setting the age rule."
+    ],
+    "cites": [
+     "pwc-us-mn-duties-sensitive",
+     "pwc-us-mn-duties-ads",
+     "pwc-us-mn-duties-rights",
+     "pwc-us-mn-duties-assessment",
+     "pwc-us-mn-duties-limited"
+    ]
+   },
+   "mn-rights": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Minnesota: consumer rights",
+    "summary": "On your confirmed full-law coverage basis: Minnesota adds specific third-party lists and a right to question significant profiling decisions, obtain reasons, review data and secure correction/re-evaluation when based on inaccurate data.",
+    "actions": [
+     "Build these additional rights alongside access to categories, correction, deletion and portability of previously provided data.",
+     "Generally respond within 45 days, with a reasonably necessary 45-day extension on timely notice; opt-outs must be implemented as soon as feasible, no later than 45 days.",
+     "Decide appeals within 45 days, with a reasonably necessary 60-day extension on timely notice; retain appeal records for at least 24 months."
+    ],
+    "cites": [
+     "pwc-us-mn-duties-sensitive",
+     "pwc-us-mn-duties-ads",
+     "pwc-us-mn-duties-rights",
+     "pwc-us-mn-duties-assessment",
+     "pwc-us-mn-duties-limited"
+    ]
+   },
+   "mn-assessment": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Minnesota: risk assessments",
+    "summary": "On your confirmed full-law coverage basis: Document privacy policies and the responsible privacy contact, maintain the data inventory, and assess specified heightened-risk activities.",
+    "actions": [
+     "Include targeted advertising, sale, sensitive processing and qualifying risky profiling in the assessment screen.",
+     "Assess against the documented privacy policies and controls, and preserve the benefit/risk analysis and safeguards."
+    ],
+    "cites": [
+     "pwc-us-mn-duties-sensitive",
+     "pwc-us-mn-duties-ads",
+     "pwc-us-mn-duties-rights",
+     "pwc-us-mn-duties-assessment",
+     "pwc-us-mn-duties-limited"
+    ]
+   },
+   "mn-overview": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Minnesota: changes across the selected uses",
+    "summary": "On your confirmed full-law coverage basis, these are the main differences in Minnesota CDPA. Conditions and future dates remain part of each item.",
+    "actions": [
+     "Sensitive data: Sensitive processing requires consumer consent; known-child processing uses parental consent under COPPA.",
+     "Sale and targeted advertising: Sale, targeted advertising and significant-effect profiling have opt-outs. Qualifying universal opt-out signals must be supported.",
+     "Consumer rights: Minnesota adds specific third-party lists and a right to question significant profiling decisions, obtain reasons, review data and secure correction/re-evaluation when based on inaccurate data.",
+     "Risk assessments: Document privacy policies and the responsible privacy contact, maintain the data inventory, and assess specified heightened-risk activities.",
+     "Cure and enforcement: The Attorney General enforces the act. The mandatory warning-letter and 30-day cure procedure expired January 31, 2026."
+    ],
+    "cites": [
+     "pwc-us-mn-duties-sensitive",
+     "pwc-us-mn-duties-ads",
+     "pwc-us-mn-duties-rights",
+     "pwc-us-mn-duties-assessment",
+     "pwc-us-mn-duties-limited",
+     "pwc-us-mn-duties-enforcement"
+    ]
+   },
+   "mt-limited": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Montana: the limited provision has its own duties",
+    "summary": "Specific online-minor provisions can apply outside full-law coverage. That limited route needs its own analysis.",
+    "actions": [
+     "Privacy counsel and the product owner must establish the user's age, the controller's knowledge and the online service or feature.",
+     "Review §2811's reasonable care, consent, retention, engagement-design and precise-location conditions, plus §§2818–2819. Do not infer full-law coverage."
+    ],
+    "cites": [
+     "pwc-us-mt-duties-limited"
+    ]
+   },
+   "mt-coverage": {
+    "type": "question",
+    "q": "Is full Montana coverage confirmed for this controller and these data?",
+    "help": "This path compares duties after applicability. Coverage is not imported from another result. A state nexus or threshold alone may not settle entity, data or processing exemptions.",
+    "cites": [
+     "pwc-us-mt-duties-sensitive",
+     "pwc-us-mt-duties-ads",
+     "pwc-us-mt-duties-rights",
+     "pwc-us-mt-duties-assessment",
+     "pwc-us-mt-duties-minor",
+     "pwc-us-mt-duties-limited"
+    ],
+    "opts": [
+     {
+      "label": "Full-law coverage is confirmed for this controller and these data",
+      "goto": "mt-use"
+     },
+     {
+      "label": "Only the below-threshold online-minor provisions apply",
+      "goto": "mt-limited"
+     },
+     {
+      "label": "Full-law coverage is not established",
+      "goto": "mt-coverage-unknown"
+     },
+     {
+      "label": "Not sure whether full or limited coverage applies",
+      "goto": "mt-coverage-unknown"
+     }
+    ]
+   },
+   "mt-coverage-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Montana: establish coverage before assigning duties",
+    "summary": "A full-law duties comparison needs a confirmed controller, covered data and current applicability basis. An unknown or limited basis cannot support an all-clear result.",
+    "actions": [
+     "The privacy owner should record Montana's state nexus, relevant measuring period and threshold, controller role, entity/data exemptions and any limited provision.",
+     "Use the separate applicability path or a written scope analysis, then return with that factual basis."
+    ],
+    "cites": [
+     "pwc-us-mt-duties-sensitive",
+     "pwc-us-mt-duties-ads",
+     "pwc-us-mt-duties-rights",
+     "pwc-us-mt-duties-assessment",
+     "pwc-us-mt-duties-minor",
+     "pwc-us-mt-duties-limited"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The current full-law or limited applicability basis for this controller and this processing.",
+      "owner": "Privacy owner, with finance and the data/system owner",
+      "why": "Different coverage routes impose different duties; state selection alone does not establish them."
+     }
+    ]
+   },
+   "mt-use": {
+    "type": "question",
+    "q": "Which Montana use is involved?",
+    "help": "Choose the processing or request you want to compare. Each result identifies the state-specific changes and preserves its conditions; it does not certify the whole activity.",
+    "cites": [
+     "pwc-us-mt-duties-sensitive",
+     "pwc-us-mt-duties-ads",
+     "pwc-us-mt-duties-rights",
+     "pwc-us-mt-duties-assessment",
+     "pwc-us-mt-duties-minor",
+     "pwc-us-mt-duties-limited",
+     "pwc-us-mt-duties-enforcement"
+    ],
+    "opts": [
+     {
+      "label": "Sensitive data are involved",
+      "goto": "mt-sensitive"
+     },
+     {
+      "label": "Personal data are sold or used for targeted advertising",
+      "goto": "mt-ads"
+     },
+     {
+      "label": "A consumer rights request or rights process is involved",
+      "goto": "mt-rights"
+     },
+     {
+      "label": "A risk assessment for processing is being considered",
+      "goto": "mt-assessment"
+     },
+     {
+      "label": "A compliance concern or regulator notice is involved",
+      "goto": "mt-enforcement"
+     },
+     {
+      "label": "Several of these activities are involved",
+      "goto": "mt-overview"
+     },
+     {
+      "label": "Not sure which processing or request is involved",
+      "goto": "mt-use-unknown"
+     }
+    ]
+   },
+   "mt-use-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Montana: identify the processing and data first",
+    "summary": "The appropriate duties depend on the actual data, use, people and request. No conclusion follows from an unknown use case.",
+    "actions": [
+     "The product and data owners should identify the data fields, purposes, recipients, ages/knowledge, and the request type or proposed processing start date.",
+     "Return with the sensitive-data, sale/advertising, rights or assessment use that is actually involved."
+    ],
+    "cites": [
+     "pwc-us-mt-duties-sensitive",
+     "pwc-us-mt-duties-ads",
+     "pwc-us-mt-duties-rights",
+     "pwc-us-mt-duties-assessment",
+     "pwc-us-mt-duties-minor",
+     "pwc-us-mt-duties-limited"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Data categories, processing purpose, recipients, relevant ages, and request or activity dates.",
+      "owner": "Product/data owner with the privacy owner",
+      "why": "These facts change consent, prohibited-use, response-period and assessment duties."
+     }
+    ]
+   },
+   "mt-sensitive": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Montana: sensitive data",
+    "summary": "On your confirmed full-law coverage basis: Sensitive processing requires consent; known-child sensitive data must be processed under COPPA.",
+    "actions": [
+     "Record the data category, specific purpose and consent.",
+     "The online-minor provisions in §30-14-2811 require a separate care, consent, design and location review where their conditions are met."
+    ],
+    "cites": [
+     "pwc-us-mt-duties-sensitive",
+     "pwc-us-mt-duties-ads",
+     "pwc-us-mt-duties-rights",
+     "pwc-us-mt-duties-assessment",
+     "pwc-us-mt-duties-minor",
+     "pwc-us-mt-duties-limited"
+    ]
+   },
+   "mt-ads": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Montana: sale and targeted advertising",
+    "summary": "On your confirmed full-law coverage basis: Sale, targeted advertising and qualifying profiling have opt-outs. The main controller rule requires consent for sale/targeted ads where consumers aged 13–15 are known or willfully disregarded.",
+    "actions": [
+     "Apply the additional online-minor rules in §2811 rather than relying on the narrower age band in §2812 alone.",
+     "Provide a conspicuous opt-out outside the notice and check qualifying universal opt-out signal handling under §2809."
+    ],
+    "cites": [
+     "pwc-us-mt-duties-sensitive",
+     "pwc-us-mt-duties-ads",
+     "pwc-us-mt-duties-rights",
+     "pwc-us-mt-duties-assessment",
+     "pwc-us-mt-duties-minor",
+     "pwc-us-mt-duties-limited"
+    ]
+   },
+   "mt-rights": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Montana: consumer rights",
+    "summary": "On your confirmed full-law coverage basis: Provide access, correction, deletion, a copy of provided data and specified opt-outs. Access responses must describe, rather than disclose, protected identifiers listed in the statute.",
+    "actions": [
+     "Keep Social Security/government ID numbers, account credentials and the other listed protected fields out of the actual access response.",
+     "Respond within 45 days, with a reasonably necessary 45-day extension on timely notice; decide an appeal within 60 days."
+    ],
+    "cites": [
+     "pwc-us-mt-duties-sensitive",
+     "pwc-us-mt-duties-ads",
+     "pwc-us-mt-duties-rights",
+     "pwc-us-mt-duties-assessment",
+     "pwc-us-mt-duties-minor",
+     "pwc-us-mt-duties-limited"
+    ]
+   },
+   "mt-assessment": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Montana: risk assessments",
+    "summary": "On your confirmed full-law coverage basis: Assess heightened-risk targeted advertising, sales, sensitive processing and qualifying profiling created or generated after January 1, 2025.",
+    "actions": [
+     "Document benefits, harms, safeguards and the activity's creation date.",
+     "Separately assess the online-minor regime when relevant; the general count threshold does not resolve every minor provision."
+    ],
+    "cites": [
+     "pwc-us-mt-duties-sensitive",
+     "pwc-us-mt-duties-ads",
+     "pwc-us-mt-duties-rights",
+     "pwc-us-mt-duties-assessment",
+     "pwc-us-mt-duties-minor",
+     "pwc-us-mt-duties-limited"
+    ]
+   },
+   "mt-overview": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Montana: changes across the selected uses",
+    "summary": "On your confirmed full-law coverage basis, these are the main differences in Montana CDPA. Conditions and future dates remain part of each item.",
+    "actions": [
+     "Sensitive data: Sensitive processing requires consent; known-child sensitive data must be processed under COPPA.",
+     "Sale and targeted advertising: Sale, targeted advertising and qualifying profiling have opt-outs. The main controller rule requires consent for sale/targeted ads where consumers aged 13–15 are known or willfully disregarded.",
+     "Consumer rights: Provide access, correction, deletion, a copy of provided data and specified opt-outs. Access responses must describe, rather than disclose, protected identifiers listed in the statute.",
+     "Risk assessments: Assess heightened-risk targeted advertising, sales, sensitive processing and qualifying profiling created or generated after January 1, 2025.",
+     "Cure and enforcement: Montana's Attorney General enforces the Act. Current §30-14-2817 does not provide a guaranteed pre-enforcement cure period; the former 60-day opportunity is not a current entitlement."
+    ],
+    "cites": [
+     "pwc-us-mt-duties-sensitive",
+     "pwc-us-mt-duties-ads",
+     "pwc-us-mt-duties-rights",
+     "pwc-us-mt-duties-assessment",
+     "pwc-us-mt-duties-minor",
+     "pwc-us-mt-duties-limited",
+     "pwc-us-mt-duties-enforcement"
+    ]
+   },
+   "ne-limited": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Nebraska: the limited provision has its own duties",
+    "summary": "An SBA small business covered by this limited provision must obtain prior consumer consent before selling sensitive data.",
+    "actions": [
+     "Confirm the small-business status and the provision's state/business scope.",
+     "Block sensitive-data sales until valid prior consent is recorded; do not import all full-law duties from this exception."
+    ],
+    "cites": [
+     "pwc-us-ne-duties-limited"
+    ]
+   },
+   "ne-coverage": {
+    "type": "question",
+    "q": "Is full Nebraska coverage confirmed for this controller and these data?",
+    "help": "This path compares duties after applicability. Coverage is not imported from another result. A state nexus or threshold alone may not settle entity, data or processing exemptions.",
+    "cites": [
+     "pwc-us-ne-duties-sensitive",
+     "pwc-us-ne-duties-ads",
+     "pwc-us-ne-duties-rights",
+     "pwc-us-ne-duties-assessment",
+     "pwc-us-ne-duties-limited"
+    ],
+    "opts": [
+     {
+      "label": "Full-law coverage is confirmed for this controller and these data",
+      "goto": "ne-use"
+     },
+     {
+      "label": "Only the small-business sensitive-data sales rule applies",
+      "goto": "ne-limited"
+     },
+     {
+      "label": "Full-law coverage is not established",
+      "goto": "ne-coverage-unknown"
+     },
+     {
+      "label": "Not sure whether full or limited coverage applies",
+      "goto": "ne-coverage-unknown"
+     }
+    ]
+   },
+   "ne-coverage-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Nebraska: establish coverage before assigning duties",
+    "summary": "A full-law duties comparison needs a confirmed controller, covered data and current applicability basis. An unknown or limited basis cannot support an all-clear result.",
+    "actions": [
+     "The privacy owner should record Nebraska's state nexus, relevant measuring period and threshold, controller role, entity/data exemptions and any limited provision.",
+     "Use the separate applicability path or a written scope analysis, then return with that factual basis."
+    ],
+    "cites": [
+     "pwc-us-ne-duties-sensitive",
+     "pwc-us-ne-duties-ads",
+     "pwc-us-ne-duties-rights",
+     "pwc-us-ne-duties-assessment",
+     "pwc-us-ne-duties-limited"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The current full-law or limited applicability basis for this controller and this processing.",
+      "owner": "Privacy owner, with finance and the data/system owner",
+      "why": "Different coverage routes impose different duties; state selection alone does not establish them."
+     }
+    ]
+   },
+   "ne-use": {
+    "type": "question",
+    "q": "Which Nebraska use is involved?",
+    "help": "Choose the processing or request you want to compare. Each result identifies the state-specific changes and preserves its conditions; it does not certify the whole activity.",
+    "cites": [
+     "pwc-us-ne-duties-sensitive",
+     "pwc-us-ne-duties-ads",
+     "pwc-us-ne-duties-rights",
+     "pwc-us-ne-duties-assessment",
+     "pwc-us-ne-duties-limited",
+     "pwc-us-ne-duties-enforcement"
+    ],
+    "opts": [
+     {
+      "label": "Sensitive data are involved",
+      "goto": "ne-sensitive"
+     },
+     {
+      "label": "Personal data are sold or used for targeted advertising",
+      "goto": "ne-ads"
+     },
+     {
+      "label": "A consumer rights request or rights process is involved",
+      "goto": "ne-rights"
+     },
+     {
+      "label": "A risk assessment for processing is being considered",
+      "goto": "ne-assessment"
+     },
+     {
+      "label": "A compliance concern or regulator notice is involved",
+      "goto": "ne-enforcement"
+     },
+     {
+      "label": "Several of these activities are involved",
+      "goto": "ne-overview"
+     },
+     {
+      "label": "Not sure which processing or request is involved",
+      "goto": "ne-use-unknown"
+     }
+    ]
+   },
+   "ne-use-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Nebraska: identify the processing and data first",
+    "summary": "The appropriate duties depend on the actual data, use, people and request. No conclusion follows from an unknown use case.",
+    "actions": [
+     "The product and data owners should identify the data fields, purposes, recipients, ages/knowledge, and the request type or proposed processing start date.",
+     "Return with the sensitive-data, sale/advertising, rights or assessment use that is actually involved."
+    ],
+    "cites": [
+     "pwc-us-ne-duties-sensitive",
+     "pwc-us-ne-duties-ads",
+     "pwc-us-ne-duties-rights",
+     "pwc-us-ne-duties-assessment",
+     "pwc-us-ne-duties-limited"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Data categories, processing purpose, recipients, relevant ages, and request or activity dates.",
+      "owner": "Product/data owner with the privacy owner",
+      "why": "These facts change consent, prohibited-use, response-period and assessment duties."
+     }
+    ]
+   },
+   "ne-sensitive": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Nebraska: sensitive data",
+    "summary": "On your confirmed full-law coverage basis: Full-law controllers need consent for sensitive-data processing, with COPPA treatment for a known child's data.",
+    "actions": [
+     "Confirm the sensitive category, disclosed purpose and valid consent.",
+     "For an SBA small business, use the separate sensitive-data sales route rather than assuming the entire Act applies."
+    ],
+    "cites": [
+     "pwc-us-ne-duties-sensitive",
+     "pwc-us-ne-duties-ads",
+     "pwc-us-ne-duties-rights",
+     "pwc-us-ne-duties-assessment",
+     "pwc-us-ne-duties-limited"
+    ]
+   },
+   "ne-ads": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Nebraska: sale and targeted advertising",
+    "summary": "On your confirmed full-law coverage basis: Sale, targeted advertising and significant-effect profiling have opt-outs. The Act provides an authorized-agent and qualifying technology route.",
+    "actions": [
+     "Classify sale under Nebraska's own definition, then implement conspicuous notice and the applicable opt-out method.",
+     "Check §87-1111's verification and technology conditions for delegated or signal-based requests."
+    ],
+    "cites": [
+     "pwc-us-ne-duties-sensitive",
+     "pwc-us-ne-duties-ads",
+     "pwc-us-ne-duties-rights",
+     "pwc-us-ne-duties-assessment",
+     "pwc-us-ne-duties-limited"
+    ]
+   },
+   "ne-rights": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Nebraska: consumer rights",
+    "summary": "On your confirmed full-law coverage basis: Support access, correction, deletion, portability of provided data and specified opt-outs.",
+    "actions": [
+     "Respond within 45 days; a reasonably necessary 45-day extension requires timely notice and reasons.",
+     "Decide an internal appeal within 60 days and provide the Attorney General complaint route if denied."
+    ],
+    "cites": [
+     "pwc-us-ne-duties-sensitive",
+     "pwc-us-ne-duties-ads",
+     "pwc-us-ne-duties-rights",
+     "pwc-us-ne-duties-assessment",
+     "pwc-us-ne-duties-limited"
+    ]
+   },
+   "ne-assessment": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Nebraska: risk assessments",
+    "summary": "On your confirmed full-law coverage basis: Assess targeted advertising, sale, sensitive data, qualifying risky profiling and other heightened-risk processing.",
+    "actions": [
+     "Document the benefits, risks, safeguards and reasonable consumer expectations.",
+     "A reasonably comparable assessment for another law may be used; record the comparison rather than assuming equivalence."
+    ],
+    "cites": [
+     "pwc-us-ne-duties-sensitive",
+     "pwc-us-ne-duties-ads",
+     "pwc-us-ne-duties-rights",
+     "pwc-us-ne-duties-assessment",
+     "pwc-us-ne-duties-limited"
+    ]
+   },
+   "ne-overview": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Nebraska: changes across the selected uses",
+    "summary": "On your confirmed full-law coverage basis, these are the main differences in Nebraska Data Privacy Act. Conditions and future dates remain part of each item.",
+    "actions": [
+     "Sensitive data: Full-law controllers need consent for sensitive-data processing, with COPPA treatment for a known child's data.",
+     "Sale and targeted advertising: Sale, targeted advertising and significant-effect profiling have opt-outs. The Act provides an authorized-agent and qualifying technology route.",
+     "Consumer rights: Support access, correction, deletion, portability of provided data and specified opt-outs.",
+     "Risk assessments: Assess targeted advertising, sale, sensitive data, qualifying risky profiling and other heightened-risk processing.",
+     "Cure and enforcement: Nebraska requires a 30-day pre-action notice and cure opportunity. Timely correction must be backed by written statements and supporting evidence; fixing the issue alone does not satisfy the statutory cure conditions."
+    ],
+    "cites": [
+     "pwc-us-ne-duties-sensitive",
+     "pwc-us-ne-duties-ads",
+     "pwc-us-ne-duties-rights",
+     "pwc-us-ne-duties-assessment",
+     "pwc-us-ne-duties-limited",
+     "pwc-us-ne-duties-enforcement"
+    ]
+   },
+   "nh-coverage": {
+    "type": "question",
+    "q": "Is full New Hampshire coverage confirmed for this controller and these data?",
+    "help": "This path compares duties after applicability. Coverage is not imported from another result. A state nexus or threshold alone may not settle entity, data or processing exemptions.",
+    "cites": [
+     "pwc-us-nh-duties-sensitive",
+     "pwc-us-nh-duties-ads",
+     "pwc-us-nh-duties-rights",
+     "pwc-us-nh-duties-assessment"
+    ],
+    "opts": [
+     {
+      "label": "Full-law coverage is confirmed for this controller and these data",
+      "goto": "nh-use"
+     },
+     {
+      "label": "Full-law coverage is not established",
+      "goto": "nh-coverage-unknown"
+     },
+     {
+      "label": "Not sure whether full or limited coverage applies",
+      "goto": "nh-coverage-unknown"
+     }
+    ]
+   },
+   "nh-coverage-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "New Hampshire: establish coverage before assigning duties",
+    "summary": "A full-law duties comparison needs a confirmed controller, covered data and current applicability basis. An unknown or limited basis cannot support an all-clear result.",
+    "actions": [
+     "The privacy owner should record New Hampshire's state nexus, relevant measuring period and threshold, controller role, entity/data exemptions and any limited provision.",
+     "Use the separate applicability path or a written scope analysis, then return with that factual basis."
+    ],
+    "cites": [
+     "pwc-us-nh-duties-sensitive",
+     "pwc-us-nh-duties-ads",
+     "pwc-us-nh-duties-rights",
+     "pwc-us-nh-duties-assessment"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The current full-law or limited applicability basis for this controller and this processing.",
+      "owner": "Privacy owner, with finance and the data/system owner",
+      "why": "Different coverage routes impose different duties; state selection alone does not establish them."
+     }
+    ]
+   },
+   "nh-use": {
+    "type": "question",
+    "q": "Which New Hampshire use is involved?",
+    "help": "Choose the processing or request you want to compare. Each result identifies the state-specific changes and preserves its conditions; it does not certify the whole activity.",
+    "cites": [
+     "pwc-us-nh-duties-sensitive",
+     "pwc-us-nh-duties-ads",
+     "pwc-us-nh-duties-rights",
+     "pwc-us-nh-duties-assessment",
+     "pwc-us-nh-duties-enforcement"
+    ],
+    "opts": [
+     {
+      "label": "Sensitive data are involved",
+      "goto": "nh-sensitive"
+     },
+     {
+      "label": "Personal data are sold or used for targeted advertising",
+      "goto": "nh-ads"
+     },
+     {
+      "label": "A consumer rights request or rights process is involved",
+      "goto": "nh-rights"
+     },
+     {
+      "label": "A risk assessment for processing is being considered",
+      "goto": "nh-assessment"
+     },
+     {
+      "label": "A compliance concern or regulator notice is involved",
+      "goto": "nh-enforcement"
+     },
+     {
+      "label": "Several of these activities are involved",
+      "goto": "nh-overview"
+     },
+     {
+      "label": "Not sure which processing or request is involved",
+      "goto": "nh-use-unknown"
+     }
+    ]
+   },
+   "nh-use-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "New Hampshire: identify the processing and data first",
+    "summary": "The appropriate duties depend on the actual data, use, people and request. No conclusion follows from an unknown use case.",
+    "actions": [
+     "The product and data owners should identify the data fields, purposes, recipients, ages/knowledge, and the request type or proposed processing start date.",
+     "Return with the sensitive-data, sale/advertising, rights or assessment use that is actually involved."
+    ],
+    "cites": [
+     "pwc-us-nh-duties-sensitive",
+     "pwc-us-nh-duties-ads",
+     "pwc-us-nh-duties-rights",
+     "pwc-us-nh-duties-assessment"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Data categories, processing purpose, recipients, relevant ages, and request or activity dates.",
+      "owner": "Product/data owner with the privacy owner",
+      "why": "These facts change consent, prohibited-use, response-period and assessment duties."
+     }
+    ]
+   },
+   "nh-sensitive": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "New Hampshire: sensitive data",
+    "summary": "On your confirmed full-law coverage basis: Sensitive processing requires consent; sensitive data concerning a known child must be processed under COPPA.",
+    "actions": [
+     "Record the data category, purpose and consent.",
+     "Provide the effective revocation mechanism and stop applicable processing as soon as practicable, no later than 15 days after revocation."
+    ],
+    "cites": [
+     "pwc-us-nh-duties-sensitive",
+     "pwc-us-nh-duties-ads",
+     "pwc-us-nh-duties-rights",
+     "pwc-us-nh-duties-assessment"
+    ]
+   },
+   "nh-ads": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "New Hampshire: sale and targeted advertising",
+    "summary": "On your confirmed full-law coverage basis: Sale, targeted advertising and qualifying solely automated profiling have opt-outs. Universal opt-out mechanisms have applied since January 1, 2025.",
+    "actions": [
+     "Apply the teen sale/advertising consent provision to the statutory 13–15 age band and preserve its knowledge wording.",
+     "The chapter also prints a child-sale provision effective January 1, 2027. Keep that future rule separate from the current determination."
+    ],
+    "cites": [
+     "pwc-us-nh-duties-sensitive",
+     "pwc-us-nh-duties-ads",
+     "pwc-us-nh-duties-rights",
+     "pwc-us-nh-duties-assessment"
+    ]
+   },
+   "nh-rights": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "New Hampshire: consumer rights",
+    "summary": "On your confirmed full-law coverage basis: Provide confirmation/access, correction, deletion, portability and the statutory opt-outs.",
+    "actions": [
+     "Respond within 45 days, with a reasonably necessary 45-day extension on timely notice and reasons.",
+     "Decide an internal appeal within 60 days and provide the Attorney General complaint route if denied."
+    ],
+    "cites": [
+     "pwc-us-nh-duties-sensitive",
+     "pwc-us-nh-duties-ads",
+     "pwc-us-nh-duties-rights",
+     "pwc-us-nh-duties-assessment"
+    ]
+   },
+   "nh-assessment": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "New Hampshire: risk assessments",
+    "summary": "On your confirmed full-law coverage basis: Assess targeted advertising, sale, sensitive processing and qualifying profiling created or generated after July 1, 2024.",
+    "actions": [
+     "Record the activity's creation date and the nonretroactive boundary.",
+     "Document the benefits, risks and safeguards; assess comparability before reusing another law's assessment."
+    ],
+    "cites": [
+     "pwc-us-nh-duties-sensitive",
+     "pwc-us-nh-duties-ads",
+     "pwc-us-nh-duties-rights",
+     "pwc-us-nh-duties-assessment"
+    ]
+   },
+   "nh-overview": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "New Hampshire: changes across the selected uses",
+    "summary": "On your confirmed full-law coverage basis, these are the main differences in New Hampshire privacy law. Conditions and future dates remain part of each item.",
+    "actions": [
+     "Sensitive data: Sensitive processing requires consent; sensitive data concerning a known child must be processed under COPPA.",
+     "Sale and targeted advertising: Sale, targeted advertising and qualifying solely automated profiling have opt-outs. Universal opt-out mechanisms have applied since January 1, 2025.",
+     "Consumer rights: Provide confirmation/access, correction, deletion, portability and the statutory opt-outs.",
+     "Risk assessments: Assess targeted advertising, sale, sensitive processing and qualifying profiling created or generated after July 1, 2024.",
+     "Cure and enforcement: New Hampshire's 60-day cure opportunity is discretionary from January 1, 2026. It is not an automatic grace period: the Attorney General must first grant the opportunity by issuing the relevant notice."
+    ],
+    "cites": [
+     "pwc-us-nh-duties-sensitive",
+     "pwc-us-nh-duties-ads",
+     "pwc-us-nh-duties-rights",
+     "pwc-us-nh-duties-assessment",
+     "pwc-us-nh-duties-enforcement"
+    ]
+   },
+   "nj-coverage": {
+    "type": "question",
+    "q": "Is full New Jersey coverage confirmed for this controller and these data?",
+    "help": "This path compares duties after applicability. Coverage is not imported from another result. A state nexus or threshold alone may not settle entity, data or processing exemptions.",
+    "cites": [
+     "pwc-us-nj-duties-sensitive",
+     "pwc-us-nj-duties-ads",
+     "pwc-us-nj-duties-rights",
+     "pwc-us-nj-duties-assessment"
+    ],
+    "opts": [
+     {
+      "label": "Full-law coverage is confirmed for this controller and these data",
+      "goto": "nj-use"
+     },
+     {
+      "label": "Full-law coverage is not established",
+      "goto": "nj-coverage-unknown"
+     },
+     {
+      "label": "Not sure whether full or limited coverage applies",
+      "goto": "nj-coverage-unknown"
+     }
+    ]
+   },
+   "nj-coverage-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "New Jersey: establish coverage before assigning duties",
+    "summary": "A full-law duties comparison needs a confirmed controller, covered data and current applicability basis. An unknown or limited basis cannot support an all-clear result.",
+    "actions": [
+     "The privacy owner should record New Jersey's state nexus, relevant measuring period and threshold, controller role, entity/data exemptions and any limited provision.",
+     "Use the separate applicability path or a written scope analysis, then return with that factual basis."
+    ],
+    "cites": [
+     "pwc-us-nj-duties-sensitive",
+     "pwc-us-nj-duties-ads",
+     "pwc-us-nj-duties-rights",
+     "pwc-us-nj-duties-assessment"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The current full-law or limited applicability basis for this controller and this processing.",
+      "owner": "Privacy owner, with finance and the data/system owner",
+      "why": "Different coverage routes impose different duties; state selection alone does not establish them."
+     }
+    ]
+   },
+   "nj-use": {
+    "type": "question",
+    "q": "Which New Jersey use is involved?",
+    "help": "Choose the processing or request you want to compare. Each result identifies the state-specific changes and preserves its conditions; it does not certify the whole activity.",
+    "cites": [
+     "pwc-us-nj-duties-sensitive",
+     "pwc-us-nj-duties-ads",
+     "pwc-us-nj-duties-rights",
+     "pwc-us-nj-duties-assessment",
+     "pwc-us-nj-duties-enforcement"
+    ],
+    "opts": [
+     {
+      "label": "Sensitive data are involved",
+      "goto": "nj-sensitive"
+     },
+     {
+      "label": "Personal data are sold or used for targeted advertising",
+      "goto": "nj-ads"
+     },
+     {
+      "label": "A consumer rights request or rights process is involved",
+      "goto": "nj-rights"
+     },
+     {
+      "label": "A risk assessment for processing is being considered",
+      "goto": "nj-assessment"
+     },
+     {
+      "label": "A compliance concern or regulator notice is involved",
+      "goto": "nj-enforcement"
+     },
+     {
+      "label": "Several of these activities are involved",
+      "goto": "nj-overview"
+     },
+     {
+      "label": "Not sure which processing or request is involved",
+      "goto": "nj-use-unknown"
+     }
+    ]
+   },
+   "nj-use-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "New Jersey: identify the processing and data first",
+    "summary": "The appropriate duties depend on the actual data, use, people and request. No conclusion follows from an unknown use case.",
+    "actions": [
+     "The product and data owners should identify the data fields, purposes, recipients, ages/knowledge, and the request type or proposed processing start date.",
+     "Return with the sensitive-data, sale/advertising, rights or assessment use that is actually involved."
+    ],
+    "cites": [
+     "pwc-us-nj-duties-sensitive",
+     "pwc-us-nj-duties-ads",
+     "pwc-us-nj-duties-rights",
+     "pwc-us-nj-duties-assessment"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Data categories, processing purpose, recipients, relevant ages, and request or activity dates.",
+      "owner": "Product/data owner with the privacy owner",
+      "why": "These facts change consent, prohibited-use, response-period and assessment duties."
+     }
+    ]
+   },
+   "nj-sensitive": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "New Jersey: sensitive data",
+    "summary": "On your confirmed full-law coverage basis: Sensitive-data processing requires consent; known-child sensitive data uses COPPA treatment.",
+    "actions": [
+     "Check New Jersey's sensitive categories, including the specified financial credentials, before processing.",
+     "Obtain valid consent and document the purpose and withdrawal process."
+    ],
+    "cites": [
+     "pwc-us-nj-duties-sensitive",
+     "pwc-us-nj-duties-ads",
+     "pwc-us-nj-duties-rights",
+     "pwc-us-nj-duties-assessment"
+    ]
+   },
+   "nj-ads": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "New Jersey: sale and targeted advertising",
+    "summary": "On your confirmed full-law coverage basis: Sale, targeted advertising and qualifying profiling have opt-outs. Known or willfully disregarded consumers aged 13–16 require consent for sale, targeted advertising and significant-effect profiling.",
+    "actions": [
+     "Do not reuse a 13–15 age gate from another state; New Jersey reaches under 17.",
+     "Support qualifying universal opt-out mechanisms, whose phased commencement has already passed."
+    ],
+    "cites": [
+     "pwc-us-nj-duties-sensitive",
+     "pwc-us-nj-duties-ads",
+     "pwc-us-nj-duties-rights",
+     "pwc-us-nj-duties-assessment"
+    ]
+   },
+   "nj-rights": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "New Jersey: consumer rights",
+    "summary": "On your confirmed full-law coverage basis: Support access, correction, deletion, portability and statutory opt-outs. New Jersey uses a 45-day internal appeal decision period.",
+    "actions": [
+     "Respond within 45 days; a reasonably necessary additional 45 days requires timely notice and reasons.",
+     "Decide an appeal within 45 days and provide the Division of Consumer Affairs complaint route if denied."
+    ],
+    "cites": [
+     "pwc-us-nj-duties-sensitive",
+     "pwc-us-nj-duties-ads",
+     "pwc-us-nj-duties-rights",
+     "pwc-us-nj-duties-assessment"
+    ]
+   },
+   "nj-assessment": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "New Jersey: risk assessments",
+    "summary": "On your confirmed full-law coverage basis: Conduct an assessment before covered heightened-risk processing involving personal data acquired on or after the law's effective date.",
+    "actions": [
+     "Screen targeted advertising, sale, sensitive processing and qualifying risky profiling.",
+     "Document benefits, harms and safeguards and preserve the current effective-date boundary."
+    ],
+    "cites": [
+     "pwc-us-nj-duties-sensitive",
+     "pwc-us-nj-duties-ads",
+     "pwc-us-nj-duties-rights",
+     "pwc-us-nj-duties-assessment"
+    ]
+   },
+   "nj-overview": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "New Jersey: changes across the selected uses",
+    "summary": "On your confirmed full-law coverage basis, these are the main differences in New Jersey privacy law. Conditions and future dates remain part of each item.",
+    "actions": [
+     "Sensitive data: Sensitive-data processing requires consent; known-child sensitive data uses COPPA treatment.",
+     "Sale and targeted advertising: Sale, targeted advertising and qualifying profiling have opt-outs. Known or willfully disregarded consumers aged 13–16 require consent for sale, targeted advertising and significant-effect profiling.",
+     "Consumer rights: Support access, correction, deletion, portability and statutory opt-outs. New Jersey uses a 45-day internal appeal decision period.",
+     "Risk assessments: Conduct an assessment before covered heightened-risk processing involving personal data acquired on or after the law's effective date.",
+     "Cure and enforcement: New Jersey's temporary 30-day cure opportunity has expired. The statute's month-based cutoff was July 1, 2026, so current enforcement should not assume an automatic cure notice."
+    ],
+    "cites": [
+     "pwc-us-nj-duties-sensitive",
+     "pwc-us-nj-duties-ads",
+     "pwc-us-nj-duties-rights",
+     "pwc-us-nj-duties-assessment",
+     "pwc-us-nj-duties-enforcement"
+    ]
+   },
+   "or-coverage": {
+    "type": "question",
+    "q": "Is full Oregon coverage confirmed for this controller and these data?",
+    "help": "This path compares duties after applicability. Coverage is not imported from another result. A state nexus or threshold alone may not settle entity, data or processing exemptions.",
+    "cites": [
+     "pwc-us-or-duties-sensitive",
+     "pwc-us-or-duties-ads",
+     "pwc-us-or-duties-rights",
+     "pwc-us-or-duties-assessment"
+    ],
+    "opts": [
+     {
+      "label": "Full-law coverage is confirmed for this controller and these data",
+      "goto": "or-use"
+     },
+     {
+      "label": "Full-law coverage is not established",
+      "goto": "or-coverage-unknown"
+     },
+     {
+      "label": "Not sure whether full or limited coverage applies",
+      "goto": "or-coverage-unknown"
+     }
+    ]
+   },
+   "or-coverage-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Oregon: establish coverage before assigning duties",
+    "summary": "A full-law duties comparison needs a confirmed controller, covered data and current applicability basis. An unknown or limited basis cannot support an all-clear result.",
+    "actions": [
+     "The privacy owner should record Oregon's state nexus, relevant measuring period and threshold, controller role, entity/data exemptions and any limited provision.",
+     "Use the separate applicability path or a written scope analysis, then return with that factual basis."
+    ],
+    "cites": [
+     "pwc-us-or-duties-sensitive",
+     "pwc-us-or-duties-ads",
+     "pwc-us-or-duties-rights",
+     "pwc-us-or-duties-assessment"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The current full-law or limited applicability basis for this controller and this processing.",
+      "owner": "Privacy owner, with finance and the data/system owner",
+      "why": "Different coverage routes impose different duties; state selection alone does not establish them."
+     }
+    ]
+   },
+   "or-use": {
+    "type": "question",
+    "q": "Which Oregon use is involved?",
+    "help": "Choose the processing or request you want to compare. Each result identifies the state-specific changes and preserves its conditions; it does not certify the whole activity.",
+    "cites": [
+     "pwc-us-or-duties-sensitive",
+     "pwc-us-or-duties-ads",
+     "pwc-us-or-duties-rights",
+     "pwc-us-or-duties-assessment",
+     "pwc-us-or-duties-enforcement"
+    ],
+    "opts": [
+     {
+      "label": "Sensitive data are involved",
+      "goto": "or-sensitive"
+     },
+     {
+      "label": "Personal data are sold or used for targeted advertising",
+      "goto": "or-ads"
+     },
+     {
+      "label": "A consumer rights request or rights process is involved",
+      "goto": "or-rights"
+     },
+     {
+      "label": "A risk assessment for processing is being considered",
+      "goto": "or-assessment"
+     },
+     {
+      "label": "A compliance concern or regulator notice is involved",
+      "goto": "or-enforcement"
+     },
+     {
+      "label": "Several of these activities are involved",
+      "goto": "or-overview"
+     },
+     {
+      "label": "Not sure which processing or request is involved",
+      "goto": "or-use-unknown"
+     }
+    ]
+   },
+   "or-use-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Oregon: identify the processing and data first",
+    "summary": "The appropriate duties depend on the actual data, use, people and request. No conclusion follows from an unknown use case.",
+    "actions": [
+     "The product and data owners should identify the data fields, purposes, recipients, ages/knowledge, and the request type or proposed processing start date.",
+     "Return with the sensitive-data, sale/advertising, rights or assessment use that is actually involved."
+    ],
+    "cites": [
+     "pwc-us-or-duties-sensitive",
+     "pwc-us-or-duties-ads",
+     "pwc-us-or-duties-rights",
+     "pwc-us-or-duties-assessment"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Data categories, processing purpose, recipients, relevant ages, and request or activity dates.",
+      "owner": "Product/data owner with the privacy owner",
+      "why": "These facts change consent, prohibited-use, response-period and assessment duties."
+     }
+    ]
+   },
+   "or-sensitive": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Oregon: sensitive data",
+    "summary": "On your confirmed full-law coverage basis: Sensitive processing requires prior consent. Current law separately prohibits sale of qualifying precise location data; consent does not override that sale ban.",
+    "actions": [
+     "Identify statutory sensitive categories and obtain consent, with COPPA treatment for a known child.",
+     "For location sales, apply the 1,750-foot present/past location test, linked-device coverage and the exact statutory exceptions."
+    ],
+    "cites": [
+     "pwc-us-or-duties-sensitive",
+     "pwc-us-or-duties-ads",
+     "pwc-us-or-duties-rights",
+     "pwc-us-or-duties-assessment"
+    ]
+   },
+   "or-ads": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Oregon: sale and targeted advertising",
+    "summary": "On your confirmed full-law coverage basis: From January 1, 2026, sale and targeted advertising/significant profiling are prohibited for consumers the controller knows or willfully disregards are under 16. Qualifying precise-location sales are also prohibited.",
+    "actions": [
+     "Do not offer consent as an override to these prohibitions.",
+     "For other covered sale/advertising activity, implement the opt-out and qualifying universal opt-out signal requirements, current from January 1, 2026."
+    ],
+    "cites": [
+     "pwc-us-or-duties-sensitive",
+     "pwc-us-or-duties-ads",
+     "pwc-us-or-duties-rights",
+     "pwc-us-or-duties-assessment"
+    ]
+   },
+   "or-rights": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Oregon: consumer rights",
+    "summary": "On your confirmed full-law coverage basis: Oregon includes specific third-party lists, correction and deletion including derived data, alongside access/copy and opt-out rights.",
+    "actions": [
+     "Provide the specific recipients list under the statute's consumer-specific or all-data option; categories alone are insufficient.",
+     "Respond within 45 days, with a reasonably necessary 45-day extension on timely notice; decide an appeal within 45 days."
+    ],
+    "cites": [
+     "pwc-us-or-duties-sensitive",
+     "pwc-us-or-duties-ads",
+     "pwc-us-or-duties-rights",
+     "pwc-us-or-duties-assessment"
+    ]
+   },
+   "or-assessment": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Oregon: risk assessments",
+    "summary": "On your confirmed full-law coverage basis: Assess heightened-risk targeted advertising, sale, sensitive processing and qualifying profiling. Retain assessments for at least five years.",
+    "actions": [
+     "The requirement applies to processing activities occurring on and after July 1, 2024, and is not retroactive.",
+     "Document benefits, risks, safeguards and any reasonably similar assessment reused from another law."
+    ],
+    "cites": [
+     "pwc-us-or-duties-sensitive",
+     "pwc-us-or-duties-ads",
+     "pwc-us-or-duties-rights",
+     "pwc-us-or-duties-assessment"
+    ]
+   },
+   "or-overview": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Oregon: changes across the selected uses",
+    "summary": "On your confirmed full-law coverage basis, these are the main differences in Oregon Consumer Privacy Act. Conditions and future dates remain part of each item.",
+    "actions": [
+     "Sensitive data: Sensitive processing requires prior consent. Current law separately prohibits sale of qualifying precise location data; consent does not override that sale ban.",
+     "Sale and targeted advertising: From January 1, 2026, sale and targeted advertising/significant profiling are prohibited for consumers the controller knows or willfully disregards are under 16. Qualifying precise-location sales are also prohibited.",
+     "Consumer rights: Oregon includes specific third-party lists, correction and deletion including derived data, alongside access/copy and opt-out rights.",
+     "Risk assessments: Assess heightened-risk targeted advertising, sale, sensitive processing and qualifying profiling. Retain assessments for at least five years.",
+     "Cure and enforcement: Oregon no longer guarantees the former 30-day cure opportunity. General protection ended at the start of 2026, and the narrow temporary broadcaster exception was repealed July 1, 2026."
+    ],
+    "cites": [
+     "pwc-us-or-duties-sensitive",
+     "pwc-us-or-duties-ads",
+     "pwc-us-or-duties-rights",
+     "pwc-us-or-duties-assessment",
+     "pwc-us-or-duties-enforcement"
+    ]
+   },
+   "ri-limited": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Rhode Island: the limited provision has its own duties",
+    "summary": "The commercial website/online-service information-sharing provision has separate scope from the full controller thresholds.",
+    "actions": [
+     "Use §6-48.1-3 to identify the required notice, sale-recipient and contact disclosures for the service.",
+     "Record why this limited notice duty applies; do not infer the full set of rights and assessment obligations."
+    ],
+    "cites": [
+     "pwc-us-ri-duties-limited"
+    ]
+   },
+   "ri-coverage": {
+    "type": "question",
+    "q": "Is full Rhode Island coverage confirmed for this controller and these data?",
+    "help": "This path compares duties after applicability. Coverage is not imported from another result. A state nexus or threshold alone may not settle entity, data or processing exemptions.",
+    "cites": [
+     "pwc-us-ri-duties-sensitive",
+     "pwc-us-ri-duties-ads",
+     "pwc-us-ri-duties-rights",
+     "pwc-us-ri-duties-assessment",
+     "pwc-us-ri-duties-limited"
+    ],
+    "opts": [
+     {
+      "label": "Full-law coverage is confirmed for this controller and these data",
+      "goto": "ri-use"
+     },
+     {
+      "label": "Only the website or online-service notice provision applies",
+      "goto": "ri-limited"
+     },
+     {
+      "label": "Full-law coverage is not established",
+      "goto": "ri-coverage-unknown"
+     },
+     {
+      "label": "Not sure whether full or limited coverage applies",
+      "goto": "ri-coverage-unknown"
+     }
+    ]
+   },
+   "ri-coverage-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Rhode Island: establish coverage before assigning duties",
+    "summary": "A full-law duties comparison needs a confirmed controller, covered data and current applicability basis. An unknown or limited basis cannot support an all-clear result.",
+    "actions": [
+     "The privacy owner should record Rhode Island's state nexus, relevant measuring period and threshold, controller role, entity/data exemptions and any limited provision.",
+     "Use the separate applicability path or a written scope analysis, then return with that factual basis."
+    ],
+    "cites": [
+     "pwc-us-ri-duties-sensitive",
+     "pwc-us-ri-duties-ads",
+     "pwc-us-ri-duties-rights",
+     "pwc-us-ri-duties-assessment",
+     "pwc-us-ri-duties-limited"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The current full-law or limited applicability basis for this controller and this processing.",
+      "owner": "Privacy owner, with finance and the data/system owner",
+      "why": "Different coverage routes impose different duties; state selection alone does not establish them."
+     }
+    ]
+   },
+   "ri-use": {
+    "type": "question",
+    "q": "Which Rhode Island use is involved?",
+    "help": "Choose the processing or request you want to compare. Each result identifies the state-specific changes and preserves its conditions; it does not certify the whole activity.",
+    "cites": [
+     "pwc-us-ri-duties-sensitive",
+     "pwc-us-ri-duties-ads",
+     "pwc-us-ri-duties-rights",
+     "pwc-us-ri-duties-assessment",
+     "pwc-us-ri-duties-limited",
+     "pwc-us-ri-duties-enforcement"
+    ],
+    "opts": [
+     {
+      "label": "Sensitive data are involved",
+      "goto": "ri-sensitive"
+     },
+     {
+      "label": "Personal data are sold or used for targeted advertising",
+      "goto": "ri-ads"
+     },
+     {
+      "label": "A consumer rights request or rights process is involved",
+      "goto": "ri-rights"
+     },
+     {
+      "label": "A risk assessment for processing is being considered",
+      "goto": "ri-assessment"
+     },
+     {
+      "label": "A compliance concern or regulator notice is involved",
+      "goto": "ri-enforcement"
+     },
+     {
+      "label": "Several of these activities are involved",
+      "goto": "ri-overview"
+     },
+     {
+      "label": "Not sure which processing or request is involved",
+      "goto": "ri-use-unknown"
+     }
+    ]
+   },
+   "ri-use-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Rhode Island: identify the processing and data first",
+    "summary": "The appropriate duties depend on the actual data, use, people and request. No conclusion follows from an unknown use case.",
+    "actions": [
+     "The product and data owners should identify the data fields, purposes, recipients, ages/knowledge, and the request type or proposed processing start date.",
+     "Return with the sensitive-data, sale/advertising, rights or assessment use that is actually involved."
+    ],
+    "cites": [
+     "pwc-us-ri-duties-sensitive",
+     "pwc-us-ri-duties-ads",
+     "pwc-us-ri-duties-rights",
+     "pwc-us-ri-duties-assessment",
+     "pwc-us-ri-duties-limited"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Data categories, processing purpose, recipients, relevant ages, and request or activity dates.",
+      "owner": "Product/data owner with the privacy owner",
+      "why": "These facts change consent, prohibited-use, response-period and assessment duties."
+     }
+    ]
+   },
+   "ri-sensitive": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Rhode Island: sensitive data",
+    "summary": "On your confirmed full-law coverage basis: Sensitive processing requires consent, including the statute's consent and COPPA requirements for known children.",
+    "actions": [
+     "Provide a mechanism to grant and revoke consent.",
+     "After revocation, suspend processing as soon as practicable and no later than 15 days."
+    ],
+    "cites": [
+     "pwc-us-ri-duties-sensitive",
+     "pwc-us-ri-duties-ads",
+     "pwc-us-ri-duties-rights",
+     "pwc-us-ri-duties-assessment",
+     "pwc-us-ri-duties-limited"
+    ]
+   },
+   "ri-ads": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Rhode Island: sale and targeted advertising",
+    "summary": "On your confirmed full-law coverage basis: Covered customers can opt out of sale, targeted advertising and profiling in furtherance of solely automated decisions with legal or similarly significant effects.",
+    "actions": [
+     "Implement the relevant opt-out route using Rhode Island's definitions.",
+     "Check the separate commercial website/online-service notice provision; meeting or missing full-law thresholds does not settle that provision."
+    ],
+    "cites": [
+     "pwc-us-ri-duties-sensitive",
+     "pwc-us-ri-duties-ads",
+     "pwc-us-ri-duties-rights",
+     "pwc-us-ri-duties-assessment",
+     "pwc-us-ri-duties-limited"
+    ]
+   },
+   "ri-rights": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Rhode Island: consumer rights",
+    "summary": "On your confirmed full-law coverage basis: Support confirmation/access, correction, deletion, portability and the statutory opt-outs.",
+    "actions": [
+     "Respond within 45 days, with a reasonably necessary 45-day extension on timely notice and reasons.",
+     "Decide an internal appeal within 60 days and give the Attorney General complaint route if denied."
+    ],
+    "cites": [
+     "pwc-us-ri-duties-sensitive",
+     "pwc-us-ri-duties-ads",
+     "pwc-us-ri-duties-rights",
+     "pwc-us-ri-duties-assessment",
+     "pwc-us-ri-duties-limited"
+    ]
+   },
+   "ri-assessment": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Rhode Island: risk assessments",
+    "summary": "On your confirmed full-law coverage basis: Assess heightened-risk sale, targeted advertising, sensitive processing and qualifying risky profiling created or generated after January 1, 2026.",
+    "actions": [
+     "Record the processing activity's creation date and the statutory nonretroactive boundary.",
+     "Document benefits, risks, safeguards and whether another assessment has reasonably comparable scope and effect."
+    ],
+    "cites": [
+     "pwc-us-ri-duties-sensitive",
+     "pwc-us-ri-duties-ads",
+     "pwc-us-ri-duties-rights",
+     "pwc-us-ri-duties-assessment",
+     "pwc-us-ri-duties-limited"
+    ]
+   },
+   "ri-overview": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Rhode Island: changes across the selected uses",
+    "summary": "On your confirmed full-law coverage basis, these are the main differences in Rhode Island Data Transparency and Privacy Protection Act. Conditions and future dates remain part of each item.",
+    "actions": [
+     "Sensitive data: Sensitive processing requires consent, including the statute's consent and COPPA requirements for known children.",
+     "Sale and targeted advertising: Covered customers can opt out of sale, targeted advertising and profiling in furtherance of solely automated decisions with legal or similarly significant effects.",
+     "Consumer rights: Support confirmation/access, correction, deletion, portability and the statutory opt-outs.",
+     "Risk assessments: Assess heightened-risk sale, targeted advertising, sensitive processing and qualifying risky profiling created or generated after January 1, 2026.",
+     "Cure and enforcement: Rhode Island's comprehensive privacy chapter gives the Attorney General sole enforcement authority and does not provide a guaranteed pre-enforcement cure period."
+    ],
+    "cites": [
+     "pwc-us-ri-duties-sensitive",
+     "pwc-us-ri-duties-ads",
+     "pwc-us-ri-duties-rights",
+     "pwc-us-ri-duties-assessment",
+     "pwc-us-ri-duties-limited",
+     "pwc-us-ri-duties-enforcement"
+    ]
+   },
+   "tn-coverage": {
+    "type": "question",
+    "q": "Is full Tennessee coverage confirmed for this controller and these data?",
+    "help": "This path compares duties after applicability. Coverage is not imported from another result. A state nexus or threshold alone may not settle entity, data or processing exemptions.",
+    "cites": [
+     "pwc-us-tn-duties-sensitive",
+     "pwc-us-tn-duties-ads",
+     "pwc-us-tn-duties-rights",
+     "pwc-us-tn-duties-assessment"
+    ],
+    "opts": [
+     {
+      "label": "Full-law coverage is confirmed for this controller and these data",
+      "goto": "tn-use"
+     },
+     {
+      "label": "Full-law coverage is not established",
+      "goto": "tn-coverage-unknown"
+     },
+     {
+      "label": "Not sure whether full or limited coverage applies",
+      "goto": "tn-coverage-unknown"
+     }
+    ]
+   },
+   "tn-coverage-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Tennessee: establish coverage before assigning duties",
+    "summary": "A full-law duties comparison needs a confirmed controller, covered data and current applicability basis. An unknown or limited basis cannot support an all-clear result.",
+    "actions": [
+     "The privacy owner should record Tennessee's state nexus, relevant measuring period and threshold, controller role, entity/data exemptions and any limited provision.",
+     "Use the separate applicability path or a written scope analysis, then return with that factual basis."
+    ],
+    "cites": [
+     "pwc-us-tn-duties-sensitive",
+     "pwc-us-tn-duties-ads",
+     "pwc-us-tn-duties-rights",
+     "pwc-us-tn-duties-assessment"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The current full-law or limited applicability basis for this controller and this processing.",
+      "owner": "Privacy owner, with finance and the data/system owner",
+      "why": "Different coverage routes impose different duties; state selection alone does not establish them."
+     }
+    ]
+   },
+   "tn-use": {
+    "type": "question",
+    "q": "Which Tennessee use is involved?",
+    "help": "Choose the processing or request you want to compare. Each result identifies the state-specific changes and preserves its conditions; it does not certify the whole activity.",
+    "cites": [
+     "pwc-us-tn-duties-sensitive",
+     "pwc-us-tn-duties-ads",
+     "pwc-us-tn-duties-rights",
+     "pwc-us-tn-duties-assessment",
+     "pwc-us-tn-duties-enforcement"
+    ],
+    "opts": [
+     {
+      "label": "Sensitive data are involved",
+      "goto": "tn-sensitive"
+     },
+     {
+      "label": "Personal data are sold or used for targeted advertising",
+      "goto": "tn-ads"
+     },
+     {
+      "label": "A consumer rights request or rights process is involved",
+      "goto": "tn-rights"
+     },
+     {
+      "label": "A risk assessment for processing is being considered",
+      "goto": "tn-assessment"
+     },
+     {
+      "label": "A compliance concern or regulator notice is involved",
+      "goto": "tn-enforcement"
+     },
+     {
+      "label": "Several of these activities are involved",
+      "goto": "tn-overview"
+     },
+     {
+      "label": "Not sure which processing or request is involved",
+      "goto": "tn-use-unknown"
+     }
+    ]
+   },
+   "tn-use-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Tennessee: identify the processing and data first",
+    "summary": "The appropriate duties depend on the actual data, use, people and request. No conclusion follows from an unknown use case.",
+    "actions": [
+     "The product and data owners should identify the data fields, purposes, recipients, ages/knowledge, and the request type or proposed processing start date.",
+     "Return with the sensitive-data, sale/advertising, rights or assessment use that is actually involved."
+    ],
+    "cites": [
+     "pwc-us-tn-duties-sensitive",
+     "pwc-us-tn-duties-ads",
+     "pwc-us-tn-duties-rights",
+     "pwc-us-tn-duties-assessment"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Data categories, processing purpose, recipients, relevant ages, and request or activity dates.",
+      "owner": "Product/data owner with the privacy owner",
+      "why": "These facts change consent, prohibited-use, response-period and assessment duties."
+     }
+    ]
+   },
+   "tn-sensitive": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Tennessee: sensitive data",
+    "summary": "On your confirmed full-law coverage basis: Sensitive processing requires consumer consent, with COPPA treatment for known-child sensitive data.",
+    "actions": [
+     "Identify the sensitive category and record valid consent before processing.",
+     "Keep purpose compatibility and separate consent for incompatible reuse in the processing record."
+    ],
+    "cites": [
+     "pwc-us-tn-duties-sensitive",
+     "pwc-us-tn-duties-ads",
+     "pwc-us-tn-duties-rights",
+     "pwc-us-tn-duties-assessment"
+    ]
+   },
+   "tn-ads": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Tennessee: sale and targeted advertising",
+    "summary": "On your confirmed full-law coverage basis: Consumers can opt out of sale, targeted advertising and qualifying significant-effect profiling.",
+    "actions": [
+     "Apply Tennessee's sale definition and exceptions to vendor transfers.",
+     "Disclose sale/targeted advertising and provide the statutory opt-out method; separately apply sensitive-data consent."
+    ],
+    "cites": [
+     "pwc-us-tn-duties-sensitive",
+     "pwc-us-tn-duties-ads",
+     "pwc-us-tn-duties-rights",
+     "pwc-us-tn-duties-assessment"
+    ]
+   },
+   "tn-rights": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Tennessee: consumer rights",
+    "summary": "On your confirmed full-law coverage basis: Support confirmation/access, correction, deletion, portability and statutory opt-outs, with an internal appeal.",
+    "actions": [
+     "Respond within 45 days, with a reasonably necessary 45-day extension on timely notice and reasons.",
+     "Decide an appeal within 60 days and provide the Attorney General complaint route if denied."
+    ],
+    "cites": [
+     "pwc-us-tn-duties-sensitive",
+     "pwc-us-tn-duties-ads",
+     "pwc-us-tn-duties-rights",
+     "pwc-us-tn-duties-assessment"
+    ]
+   },
+   "tn-assessment": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Tennessee: risk assessments",
+    "summary": "On your confirmed full-law coverage basis: Assess targeted advertising, sale, sensitive processing and specified heightened-risk activities. A voluntary privacy program may support an affirmative defense under separate conditions.",
+    "actions": [
+     "The assessment provision applies to processing created or generated on or after July 1, 2024.",
+     "Document the benefit/risk balance and safeguards. Do not treat a NIST-aligned program or certification as automatic compliance."
+    ],
+    "cites": [
+     "pwc-us-tn-duties-sensitive",
+     "pwc-us-tn-duties-ads",
+     "pwc-us-tn-duties-rights",
+     "pwc-us-tn-duties-assessment"
+    ]
+   },
+   "tn-overview": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Tennessee: changes across the selected uses",
+    "summary": "On your confirmed full-law coverage basis, these are the main differences in Tennessee Information Protection Act. Conditions and future dates remain part of each item.",
+    "actions": [
+     "Sensitive data: Sensitive processing requires consumer consent, with COPPA treatment for known-child sensitive data.",
+     "Sale and targeted advertising: Consumers can opt out of sale, targeted advertising and qualifying significant-effect profiling.",
+     "Consumer rights: Support confirmation/access, correction, deletion, portability and statutory opt-outs, with an internal appeal.",
+     "Risk assessments: Assess targeted advertising, sale, sensitive processing and specified heightened-risk activities. A voluntary privacy program may support an affirmative defense under separate conditions.",
+     "Cure and enforcement: Tennessee requires 60 days' written pre-action notice. The enforcement bar depends on timely cure and an express written assurance to the Attorney General and Reporter."
+    ],
+    "cites": [
+     "pwc-us-tn-duties-sensitive",
+     "pwc-us-tn-duties-ads",
+     "pwc-us-tn-duties-rights",
+     "pwc-us-tn-duties-assessment",
+     "pwc-us-tn-duties-enforcement"
+    ]
+   },
+   "tx-limited": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Texas: the limited provision has its own duties",
+    "summary": "An SBA small business covered by §541.107 must obtain prior consumer consent before selling sensitive data.",
+    "actions": [
+     "Confirm the small-business classification and applicable state/business scope.",
+     "Block sensitive-data sales without valid prior consent; do not infer the other full-law duties from this limited provision."
+    ],
+    "cites": [
+     "pwc-us-tx-duties-limited"
+    ]
+   },
+   "tx-coverage": {
+    "type": "question",
+    "q": "Is full Texas coverage confirmed for this controller and these data?",
+    "help": "This path compares duties after applicability. Coverage is not imported from another result. A state nexus or threshold alone may not settle entity, data or processing exemptions.",
+    "cites": [
+     "pwc-us-tx-duties-sensitive",
+     "pwc-us-tx-duties-ads",
+     "pwc-us-tx-duties-rights",
+     "pwc-us-tx-duties-assessment",
+     "pwc-us-tx-duties-limited"
+    ],
+    "opts": [
+     {
+      "label": "Full-law coverage is confirmed for this controller and these data",
+      "goto": "tx-use"
+     },
+     {
+      "label": "Only the small-business sensitive-data sales rule applies",
+      "goto": "tx-limited"
+     },
+     {
+      "label": "Full-law coverage is not established",
+      "goto": "tx-coverage-unknown"
+     },
+     {
+      "label": "Not sure whether full or limited coverage applies",
+      "goto": "tx-coverage-unknown"
+     }
+    ]
+   },
+   "tx-coverage-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Texas: establish coverage before assigning duties",
+    "summary": "A full-law duties comparison needs a confirmed controller, covered data and current applicability basis. An unknown or limited basis cannot support an all-clear result.",
+    "actions": [
+     "The privacy owner should record Texas's state nexus, relevant measuring period and threshold, controller role, entity/data exemptions and any limited provision.",
+     "Use the separate applicability path or a written scope analysis, then return with that factual basis."
+    ],
+    "cites": [
+     "pwc-us-tx-duties-sensitive",
+     "pwc-us-tx-duties-ads",
+     "pwc-us-tx-duties-rights",
+     "pwc-us-tx-duties-assessment",
+     "pwc-us-tx-duties-limited"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The current full-law or limited applicability basis for this controller and this processing.",
+      "owner": "Privacy owner, with finance and the data/system owner",
+      "why": "Different coverage routes impose different duties; state selection alone does not establish them."
+     }
+    ]
+   },
+   "tx-use": {
+    "type": "question",
+    "q": "Which Texas use is involved?",
+    "help": "Choose the processing or request you want to compare. Each result identifies the state-specific changes and preserves its conditions; it does not certify the whole activity.",
+    "cites": [
+     "pwc-us-tx-duties-sensitive",
+     "pwc-us-tx-duties-ads",
+     "pwc-us-tx-duties-rights",
+     "pwc-us-tx-duties-assessment",
+     "pwc-us-tx-duties-limited",
+     "pwc-us-tx-duties-enforcement"
+    ],
+    "opts": [
+     {
+      "label": "Sensitive data are involved",
+      "goto": "tx-sensitive"
+     },
+     {
+      "label": "Personal data are sold or used for targeted advertising",
+      "goto": "tx-ads"
+     },
+     {
+      "label": "A consumer rights request or rights process is involved",
+      "goto": "tx-rights"
+     },
+     {
+      "label": "A risk assessment for processing is being considered",
+      "goto": "tx-assessment"
+     },
+     {
+      "label": "A compliance concern or regulator notice is involved",
+      "goto": "tx-enforcement"
+     },
+     {
+      "label": "Several of these activities are involved",
+      "goto": "tx-overview"
+     },
+     {
+      "label": "Not sure which processing or request is involved",
+      "goto": "tx-use-unknown"
+     }
+    ]
+   },
+   "tx-use-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Texas: identify the processing and data first",
+    "summary": "The appropriate duties depend on the actual data, use, people and request. No conclusion follows from an unknown use case.",
+    "actions": [
+     "The product and data owners should identify the data fields, purposes, recipients, ages/knowledge, and the request type or proposed processing start date.",
+     "Return with the sensitive-data, sale/advertising, rights or assessment use that is actually involved."
+    ],
+    "cites": [
+     "pwc-us-tx-duties-sensitive",
+     "pwc-us-tx-duties-ads",
+     "pwc-us-tx-duties-rights",
+     "pwc-us-tx-duties-assessment",
+     "pwc-us-tx-duties-limited"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Data categories, processing purpose, recipients, relevant ages, and request or activity dates.",
+      "owner": "Product/data owner with the privacy owner",
+      "why": "These facts change consent, prohibited-use, response-period and assessment duties."
+     }
+    ]
+   },
+   "tx-sensitive": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Texas: sensitive data",
+    "summary": "On your confirmed full-law coverage basis: Full-law controllers need consent for sensitive processing, with COPPA treatment for known-child data.",
+    "actions": [
+     "Identify the sensitive category and obtain valid consent before processing.",
+     "If selling sensitive or biometric data, also satisfy the additional statutory notice requirements in §541.102."
+    ],
+    "cites": [
+     "pwc-us-tx-duties-sensitive",
+     "pwc-us-tx-duties-ads",
+     "pwc-us-tx-duties-rights",
+     "pwc-us-tx-duties-assessment",
+     "pwc-us-tx-duties-limited"
+    ]
+   },
+   "tx-ads": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Texas: sale and targeted advertising",
+    "summary": "On your confirmed full-law coverage basis: Sale, targeted advertising and qualifying significant-effect profiling have opt-outs. Sensitive/biometric data sales carry additional prominent notices.",
+    "actions": [
+     "Implement the consumer and authorized-agent opt-out routes, including qualifying technology under §541.055.",
+     "Use the exact applicable §541.102 notice text; an ordinary privacy-policy paragraph may not satisfy it."
+    ],
+    "cites": [
+     "pwc-us-tx-duties-sensitive",
+     "pwc-us-tx-duties-ads",
+     "pwc-us-tx-duties-rights",
+     "pwc-us-tx-duties-assessment",
+     "pwc-us-tx-duties-limited"
+    ]
+   },
+   "tx-rights": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Texas: consumer rights",
+    "summary": "On your confirmed full-law coverage basis: Support confirmation/access, correction, deletion, portability of provided data and statutory opt-outs.",
+    "actions": [
+     "Respond within 45 days, with a reasonably necessary 45-day extension on timely notice and reasons.",
+     "Decide an internal appeal within 60 days and provide the Attorney General complaint mechanism if denied."
+    ],
+    "cites": [
+     "pwc-us-tx-duties-sensitive",
+     "pwc-us-tx-duties-ads",
+     "pwc-us-tx-duties-rights",
+     "pwc-us-tx-duties-assessment",
+     "pwc-us-tx-duties-limited"
+    ]
+   },
+   "tx-assessment": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Texas: risk assessments",
+    "summary": "On your confirmed full-law coverage basis: Assess targeted advertising, sale, sensitive processing, qualifying risky profiling and other heightened-risk processing.",
+    "actions": [
+     "Document benefits, harms, safeguards, context and reasonable consumer expectations.",
+     "A reasonably comparable assessment for another law can qualify; the limited small-business sales rule alone does not impose this full-law assessment duty."
+    ],
+    "cites": [
+     "pwc-us-tx-duties-sensitive",
+     "pwc-us-tx-duties-ads",
+     "pwc-us-tx-duties-rights",
+     "pwc-us-tx-duties-assessment",
+     "pwc-us-tx-duties-limited"
+    ]
+   },
+   "tx-overview": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Texas: changes across the selected uses",
+    "summary": "On your confirmed full-law coverage basis, these are the main differences in Texas Data Privacy and Security Act. Conditions and future dates remain part of each item.",
+    "actions": [
+     "Sensitive data: Full-law controllers need consent for sensitive processing, with COPPA treatment for known-child data.",
+     "Sale and targeted advertising: Sale, targeted advertising and qualifying significant-effect profiling have opt-outs. Sensitive/biometric data sales carry additional prominent notices.",
+     "Consumer rights: Support confirmation/access, correction, deletion, portability of provided data and statutory opt-outs.",
+     "Risk assessments: Assess targeted advertising, sale, sensitive processing, qualifying risky profiling and other heightened-risk processing.",
+     "Cure and enforcement: Texas requires a 30-day pre-action cure opportunity, with a detailed written cure package. Consumer notification and supporting documentation are part of the statutory conditions."
+    ],
+    "cites": [
+     "pwc-us-tx-duties-sensitive",
+     "pwc-us-tx-duties-ads",
+     "pwc-us-tx-duties-rights",
+     "pwc-us-tx-duties-assessment",
+     "pwc-us-tx-duties-limited",
+     "pwc-us-tx-duties-enforcement"
+    ]
+   },
+   "ut-coverage": {
+    "type": "question",
+    "q": "Is full Utah coverage confirmed for this controller and these data?",
+    "help": "This path compares duties after applicability. Coverage is not imported from another result. A state nexus or threshold alone may not settle entity, data or processing exemptions.",
+    "cites": [
+     "pwc-us-ut-duties-sensitive",
+     "pwc-us-ut-duties-ads",
+     "pwc-us-ut-duties-rights",
+     "pwc-us-ut-duties-assessment"
+    ],
+    "opts": [
+     {
+      "label": "Full-law coverage is confirmed for this controller and these data",
+      "goto": "ut-use"
+     },
+     {
+      "label": "Full-law coverage is not established",
+      "goto": "ut-coverage-unknown"
+     },
+     {
+      "label": "Not sure whether full or limited coverage applies",
+      "goto": "ut-coverage-unknown"
+     }
+    ]
+   },
+   "ut-coverage-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Utah: establish coverage before assigning duties",
+    "summary": "A full-law duties comparison needs a confirmed controller, covered data and current applicability basis. An unknown or limited basis cannot support an all-clear result.",
+    "actions": [
+     "The privacy owner should record Utah's state nexus, relevant measuring period and threshold, controller role, entity/data exemptions and any limited provision.",
+     "Use the separate applicability path or a written scope analysis, then return with that factual basis."
+    ],
+    "cites": [
+     "pwc-us-ut-duties-sensitive",
+     "pwc-us-ut-duties-ads",
+     "pwc-us-ut-duties-rights",
+     "pwc-us-ut-duties-assessment"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The current full-law or limited applicability basis for this controller and this processing.",
+      "owner": "Privacy owner, with finance and the data/system owner",
+      "why": "Different coverage routes impose different duties; state selection alone does not establish them."
+     }
+    ]
+   },
+   "ut-use": {
+    "type": "question",
+    "q": "Which Utah use is involved?",
+    "help": "Choose the processing or request you want to compare. Each result identifies the state-specific changes and preserves its conditions; it does not certify the whole activity.",
+    "cites": [
+     "pwc-us-ut-duties-sensitive",
+     "pwc-us-ut-duties-ads",
+     "pwc-us-ut-duties-rights",
+     "pwc-us-ut-duties-assessment",
+     "pwc-us-ut-duties-enforcement"
+    ],
+    "opts": [
+     {
+      "label": "Sensitive data are involved",
+      "goto": "ut-sensitive"
+     },
+     {
+      "label": "Personal data are sold or used for targeted advertising",
+      "goto": "ut-ads"
+     },
+     {
+      "label": "A consumer rights request or rights process is involved",
+      "goto": "ut-rights"
+     },
+     {
+      "label": "A risk assessment for processing is being considered",
+      "goto": "ut-assessment"
+     },
+     {
+      "label": "A compliance concern or regulator notice is involved",
+      "goto": "ut-enforcement"
+     },
+     {
+      "label": "Several of these activities are involved",
+      "goto": "ut-overview"
+     },
+     {
+      "label": "Not sure which processing or request is involved",
+      "goto": "ut-use-unknown"
+     }
+    ]
+   },
+   "ut-use-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Utah: identify the processing and data first",
+    "summary": "The appropriate duties depend on the actual data, use, people and request. No conclusion follows from an unknown use case.",
+    "actions": [
+     "The product and data owners should identify the data fields, purposes, recipients, ages/knowledge, and the request type or proposed processing start date.",
+     "Return with the sensitive-data, sale/advertising, rights or assessment use that is actually involved."
+    ],
+    "cites": [
+     "pwc-us-ut-duties-sensitive",
+     "pwc-us-ut-duties-ads",
+     "pwc-us-ut-duties-rights",
+     "pwc-us-ut-duties-assessment"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Data categories, processing purpose, recipients, relevant ages, and request or activity dates.",
+      "owner": "Product/data owner with the privacy owner",
+      "why": "These facts change consent, prohibited-use, response-period and assessment duties."
+     }
+    ]
+   },
+   "ut-sensitive": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Utah: sensitive data",
+    "summary": "On your confirmed full-law coverage basis: Utah generally uses clear notice and an opportunity to opt out for sensitive processing, rather than a general prior opt-in requirement.",
+    "actions": [
+     "Give notice and the opt-out opportunity before processing the sensitive data.",
+     "Apply COPPA for a known child's personal data and separately check sector obligations."
+    ],
+    "cites": [
+     "pwc-us-ut-duties-sensitive",
+     "pwc-us-ut-duties-ads",
+     "pwc-us-ut-duties-rights",
+     "pwc-us-ut-duties-assessment"
+    ]
+   },
+   "ut-ads": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Utah: sale and targeted advertising",
+    "summary": "On your confirmed full-law coverage basis: Consumers have sale and targeted-advertising opt-outs. Utah does not enumerate the general significant-profiling opt-out used in many other states.",
+    "actions": [
+     "Apply Utah's sale and targeted-advertising definitions and disclose the processing and opt-out method.",
+     "Do not carry a broader profiling right or universal-signal mandate into Utah solely because another state has one."
+    ],
+    "cites": [
+     "pwc-us-ut-duties-sensitive",
+     "pwc-us-ut-duties-ads",
+     "pwc-us-ut-duties-rights",
+     "pwc-us-ut-duties-assessment"
+    ]
+   },
+   "ut-rights": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Utah: consumer rights",
+    "summary": "On your confirmed full-law coverage basis: Current Utah law includes correction. Older comparison charts saying Utah has no correction right are stale. Deletion and portability remain limited to provided data.",
+    "actions": [
+     "Support access, correction, specified deletion/copy rights and sale/targeted-advertising opt-outs.",
+     "Respond within 45 days, with a reasonably necessary 45-day extension on timely notice and reasons.",
+     "This chapter does not provide the general internal appeal process found in many other states; preserve the consumer complaint route separately."
+    ],
+    "cites": [
+     "pwc-us-ut-duties-sensitive",
+     "pwc-us-ut-duties-ads",
+     "pwc-us-ut-duties-rights",
+     "pwc-us-ut-duties-assessment"
+    ]
+   },
+   "ut-assessment": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Utah: risk assessments",
+    "summary": "On your confirmed full-law coverage basis: This chapter does not impose a dedicated data protection assessment duty. That is not a low-risk finding or a determination under other laws.",
+    "actions": [
+     "Maintain the required reasonable security and processor controls.",
+     "The official compilation also prints future January 2027 vehicle-related provisions. Keep those future duties separate and ask the privacy owner to check any other applicable assessment requirements."
+    ],
+    "cites": [
+     "pwc-us-ut-duties-sensitive",
+     "pwc-us-ut-duties-ads",
+     "pwc-us-ut-duties-rights",
+     "pwc-us-ut-duties-assessment"
+    ]
+   },
+   "ut-overview": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Utah: changes across the selected uses",
+    "summary": "On your confirmed full-law coverage basis, these are the main differences in Utah Consumer Privacy Act. Conditions and future dates remain part of each item.",
+    "actions": [
+     "Sensitive data: Utah generally uses clear notice and an opportunity to opt out for sensitive processing, rather than a general prior opt-in requirement.",
+     "Sale and targeted advertising: Consumers have sale and targeted-advertising opt-outs. Utah does not enumerate the general significant-profiling opt-out used in many other states.",
+     "Consumer rights: Current Utah law includes correction. Older comparison charts saying Utah has no correction right are stale. Deletion and portability remain limited to provided data.",
+     "Risk assessments: This chapter does not impose a dedicated data protection assessment duty. That is not a low-risk finding or a determination under other laws.",
+     "Cure and enforcement: Utah requires notice and a 30-day cure opportunity before the Attorney General's referred enforcement action. The deadline runs after receipt, and a written cure/nonrecurrence statement is also required."
+    ],
+    "cites": [
+     "pwc-us-ut-duties-sensitive",
+     "pwc-us-ut-duties-ads",
+     "pwc-us-ut-duties-rights",
+     "pwc-us-ut-duties-assessment",
+     "pwc-us-ut-duties-enforcement"
+    ]
+   },
+   "va-coverage": {
+    "type": "question",
+    "q": "Is full Virginia coverage confirmed for this controller and these data?",
+    "help": "This path compares duties after applicability. Coverage is not imported from another result. A state nexus or threshold alone may not settle entity, data or processing exemptions.",
+    "cites": [
+     "pwc-us-va-duties-sensitive",
+     "pwc-us-va-duties-ads",
+     "pwc-us-va-duties-rights",
+     "pwc-us-va-duties-assessment"
+    ],
+    "opts": [
+     {
+      "label": "Full-law coverage is confirmed for this controller and these data",
+      "goto": "va-use"
+     },
+     {
+      "label": "Full-law coverage is not established",
+      "goto": "va-coverage-unknown"
+     },
+     {
+      "label": "Not sure whether full or limited coverage applies",
+      "goto": "va-coverage-unknown"
+     }
+    ]
+   },
+   "va-coverage-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Virginia: establish coverage before assigning duties",
+    "summary": "A full-law duties comparison needs a confirmed controller, covered data and current applicability basis. An unknown or limited basis cannot support an all-clear result.",
+    "actions": [
+     "The privacy owner should record Virginia's state nexus, relevant measuring period and threshold, controller role, entity/data exemptions and any limited provision.",
+     "Use the separate applicability path or a written scope analysis, then return with that factual basis."
+    ],
+    "cites": [
+     "pwc-us-va-duties-sensitive",
+     "pwc-us-va-duties-ads",
+     "pwc-us-va-duties-rights",
+     "pwc-us-va-duties-assessment"
+    ],
+    "missingFacts": [
+     {
+      "fact": "The current full-law or limited applicability basis for this controller and this processing.",
+      "owner": "Privacy owner, with finance and the data/system owner",
+      "why": "Different coverage routes impose different duties; state selection alone does not establish them."
+     }
+    ]
+   },
+   "va-use": {
+    "type": "question",
+    "q": "Which Virginia use is involved?",
+    "help": "Choose the processing or request you want to compare. Each result identifies the state-specific changes and preserves its conditions; it does not certify the whole activity.",
+    "cites": [
+     "pwc-us-va-duties-sensitive",
+     "pwc-us-va-duties-ads",
+     "pwc-us-va-duties-rights",
+     "pwc-us-va-duties-assessment",
+     "pwc-us-va-duties-enforcement"
+    ],
+    "opts": [
+     {
+      "label": "Sensitive data are involved",
+      "goto": "va-sensitive"
+     },
+     {
+      "label": "Personal data are sold or used for targeted advertising",
+      "goto": "va-ads"
+     },
+     {
+      "label": "A consumer rights request or rights process is involved",
+      "goto": "va-rights"
+     },
+     {
+      "label": "A risk assessment for processing is being considered",
+      "goto": "va-assessment"
+     },
+     {
+      "label": "A compliance concern or regulator notice is involved",
+      "goto": "va-enforcement"
+     },
+     {
+      "label": "Several of these activities are involved",
+      "goto": "va-overview"
+     },
+     {
+      "label": "Not sure which processing or request is involved",
+      "goto": "va-use-unknown"
+     }
+    ]
+   },
+   "va-use-unknown": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Virginia: identify the processing and data first",
+    "summary": "The appropriate duties depend on the actual data, use, people and request. No conclusion follows from an unknown use case.",
+    "actions": [
+     "The product and data owners should identify the data fields, purposes, recipients, ages/knowledge, and the request type or proposed processing start date.",
+     "Return with the sensitive-data, sale/advertising, rights or assessment use that is actually involved."
+    ],
+    "cites": [
+     "pwc-us-va-duties-sensitive",
+     "pwc-us-va-duties-ads",
+     "pwc-us-va-duties-rights",
+     "pwc-us-va-duties-assessment"
+    ],
+    "missingFacts": [
+     {
+      "fact": "Data categories, processing purpose, recipients, relevant ages, and request or activity dates.",
+      "owner": "Product/data owner with the privacy owner",
+      "why": "These facts change consent, prohibited-use, response-period and assessment duties."
+     }
+    ]
+   },
+   "va-sensitive": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Virginia: sensitive data",
+    "summary": "On your confirmed full-law coverage basis: Sensitive processing requires consent; known-child data has COPPA and additional child-specific conditions in the current code.",
+    "actions": [
+     "Obtain the appropriate consent and document the specific processing purpose.",
+     "If the service is directed to known children, separately apply the current child-processing conditions rather than treating ordinary adult consent as sufficient."
+    ],
+    "cites": [
+     "pwc-us-va-duties-sensitive",
+     "pwc-us-va-duties-ads",
+     "pwc-us-va-duties-rights",
+     "pwc-us-va-duties-assessment"
+    ]
+   },
+   "va-ads": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Virginia: sale and targeted advertising",
+    "summary": "On your confirmed full-law coverage basis: Sale, targeted advertising and qualifying significant-effect profiling have opt-outs. Current child-specific provisions require their own review.",
+    "actions": [
+     "Classify the transfer under Virginia's sale definition and offer the required opt-out.",
+     "For children or a social-media product, have the privacy owner check the specific child provisions and any operative court order; this comparison does not decide those separate rules."
+    ],
+    "cites": [
+     "pwc-us-va-duties-sensitive",
+     "pwc-us-va-duties-ads",
+     "pwc-us-va-duties-rights",
+     "pwc-us-va-duties-assessment"
+    ]
+   },
+   "va-rights": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Virginia: consumer rights",
+    "summary": "On your confirmed full-law coverage basis: Support confirmation/access, correction, deletion, portability of provided data and the statutory opt-outs.",
+    "actions": [
+     "Respond within 45 days, with a reasonably necessary 45-day extension on timely notice and reasons.",
+     "Decide an internal appeal within 60 days and provide the Attorney General complaint route if denied."
+    ],
+    "cites": [
+     "pwc-us-va-duties-sensitive",
+     "pwc-us-va-duties-ads",
+     "pwc-us-va-duties-rights",
+     "pwc-us-va-duties-assessment"
+    ]
+   },
+   "va-assessment": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Virginia: risk assessments",
+    "summary": "On your confirmed full-law coverage basis: Assess targeted advertising, sale, sensitive processing and qualifying heightened-risk activities. Current law also specifies assessments for online services directed to known children.",
+    "actions": [
+     "Document benefits, harms, safeguards and the statutory activity-date boundary.",
+     "For a covered known-child service, record its purpose, categories of child data and processing purposes in the additional assessment."
+    ],
+    "cites": [
+     "pwc-us-va-duties-sensitive",
+     "pwc-us-va-duties-ads",
+     "pwc-us-va-duties-rights",
+     "pwc-us-va-duties-assessment"
+    ]
+   },
+   "va-overview": {
+    "type": "outcome",
+    "tier": "info",
+    "title": "Virginia: changes across the selected uses",
+    "summary": "On your confirmed full-law coverage basis, these are the main differences in Virginia CDPA. Conditions and future dates remain part of each item.",
+    "actions": [
+     "Sensitive data: Sensitive processing requires consent; known-child data has COPPA and additional child-specific conditions in the current code.",
+     "Sale and targeted advertising: Sale, targeted advertising and qualifying significant-effect profiling have opt-outs. Current child-specific provisions require their own review.",
+     "Consumer rights: Support confirmation/access, correction, deletion, portability of provided data and the statutory opt-outs.",
+     "Risk assessments: Assess targeted advertising, sale, sensitive processing and qualifying heightened-risk activities. Current law also specifies assessments for online services directed to known children.",
+     "Cure and enforcement: Virginia requires 30 days' written pre-action notice. Timely cure plus an express written statement to the Attorney General prevents the action under the stated statutory conditions."
+    ],
+    "cites": [
+     "pwc-us-va-duties-sensitive",
+     "pwc-us-va-duties-ads",
+     "pwc-us-va-duties-rights",
+     "pwc-us-va-duties-assessment",
+     "pwc-us-va-duties-enforcement"
+    ]
+   },
+   "select-state": {
+    "type": "question",
+    "q": "Which state's duties are you comparing?",
+    "help": "Select the states relevant to the activity. The current cohort contains 20 state laws in effect by September 22, 2026; future amendments remain labeled and are not treated as current duties.",
+    "cites": [],
+    "opts": [
+     {
+      "label": "California",
+      "goto": "ca-coverage"
+     },
+     {
+      "label": "Colorado",
+      "goto": "co-coverage"
+     },
+     {
+      "label": "Connecticut",
+      "goto": "ct-coverage"
+     },
+     {
+      "label": "Delaware",
+      "goto": "de-coverage"
+     },
+     {
+      "label": "Florida",
+      "goto": "fl-coverage"
+     },
+     {
+      "label": "Indiana",
+      "goto": "in-coverage"
+     },
+     {
+      "label": "Iowa",
+      "goto": "ia-coverage"
+     },
+     {
+      "label": "Kentucky",
+      "goto": "ky-coverage"
+     },
+     {
+      "label": "Maryland",
+      "goto": "md-coverage"
+     },
+     {
+      "label": "Minnesota",
+      "goto": "mn-coverage"
+     },
+     {
+      "label": "Montana",
+      "goto": "mt-coverage"
+     },
+     {
+      "label": "Nebraska",
+      "goto": "ne-coverage"
+     },
+     {
+      "label": "New Hampshire",
+      "goto": "nh-coverage"
+     },
+     {
+      "label": "New Jersey",
+      "goto": "nj-coverage"
+     },
+     {
+      "label": "Oregon",
+      "goto": "or-coverage"
+     },
+     {
+      "label": "Rhode Island",
+      "goto": "ri-coverage"
+     },
+     {
+      "label": "Tennessee",
+      "goto": "tn-coverage"
+     },
+     {
+      "label": "Texas",
+      "goto": "tx-coverage"
+     },
+     {
+      "label": "Utah",
+      "goto": "ut-coverage"
+     },
+     {
+      "label": "Virginia",
+      "goto": "va-coverage"
+     }
+    ]
+   },
+   "ca-enforcement": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "California: cure and enforcement",
+    "summary": "On your confirmed full-law coverage basis: The CPPA and Attorney General enforce the CCPA. There is no mandatory general cure period; any CPPA opportunity is discretionary with no fixed statutory duration.",
+    "actions": [
+     "Remediate without assuming a 30-day regulatory grace period; that general requirement ended January 1, 2023.",
+     "If the CPPA grants time to cure, follow its terms and preserve evidence of the remedial work. Keep the separate breach-claim notice rule distinct."
+    ],
+    "cites": [
+     "pwc-us-ca-duties-enforcement"
+    ]
+   },
+   "co-enforcement": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Colorado: cure and enforcement",
+    "summary": "On your confirmed full-law coverage basis: The Attorney General and district attorneys enforce the CPA. The general cure right expired, but a conditional 60-day right remains for three minors provisions until repeal effective December 31, 2026.",
+    "actions": [
+     "Identify the specific alleged provision. For §§6-1-1305.5, 1308.5 or 1309.5, a curable violation triggers notice and 60 days after receipt under the current rule.",
+     "For other CPA duties, do not assume a mandatory cure opportunity. Keep the minors-only repeal date separate from implementation deadlines."
+    ],
+    "cites": [
+     "pwc-us-co-duties-enforcement"
+    ]
+   },
+   "ct-enforcement": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Connecticut: cure and enforcement",
+    "summary": "On your confirmed full-law coverage basis: The Attorney General enforces the act. Cure opportunities have been discretionary since January 1, 2025; current law does not guarantee the former 60-day window.",
+    "actions": [
+     "Treat any cure opportunity and deadline as matters to establish with the Attorney General; do not assume that a notice automatically gives 60 days.",
+     "Preserve the alleged provisions, notice and remediation evidence. The expired cure regime does not postpone current statutory duties."
+    ],
+    "cites": [
+     "pwc-us-ct-duties-enforcement"
+    ]
+   },
+   "de-enforcement": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Delaware: cure and enforcement",
+    "summary": "On your confirmed full-law coverage basis: The Department of Justice enforces the act. Cure opportunities are discretionary from January 1, 2026; the former mandatory 60-day regime has expired.",
+    "actions": [
+     "Do not rely on the 2025 notice-and-cure entitlement. Establish any offered cure terms and deadline with the Department of Justice.",
+     "Record the notice, alleged provisions and completed remediation; the statute's current discretionary language does not guarantee 60 days."
+    ],
+    "cites": [
+     "pwc-us-de-duties-enforcement"
+    ]
+   },
+   "fl-enforcement": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Florida: cure and enforcement",
+    "summary": "On your confirmed full-law coverage basis: The Department of Legal Affairs may grant 45 calendar days after written notice to cure a violation. This is discretionary and unavailable for the statutory known-child cases.",
+    "actions": [
+     "For an offered cure period, complete remediation within the granted 45 calendar days and provide proof satisfactory to the Department.",
+     "Check whether the allegation involves a known child or guidance denies a future cure opportunity. Neither a consumer-response deadline nor the act's start date supplies extra cure time."
+    ],
+    "cites": [
+     "pwc-us-fl-duties-enforcement"
+    ]
+   },
+   "in-enforcement": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Indiana: cure and enforcement",
+    "summary": "On your confirmed full-law coverage basis: The Attorney General must give 30 days' written notice before enforcement action. Cure plus the required written statement prevents that action, subject to continued violations or a breached statement.",
+    "actions": [
+     "Calendar the 30-day period on the Attorney General's written notice and remediate each identified violation.",
+     "Provide the express written statement confirming cure and preventive actions; preserve evidence supporting it and monitor for recurrence."
+    ],
+    "cites": [
+     "pwc-us-in-duties-enforcement"
+    ]
+   },
+   "ia-enforcement": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Iowa: cure and enforcement",
+    "summary": "On your confirmed full-law coverage basis: The Attorney General must provide 90 days' written notice. Cure and the required written assurance prevent that action, unless violations continue or the assurance is breached.",
+    "actions": [
+     "Calendar the 90-day enforcement window from the Attorney General's written notice, separately from consumer-request clocks.",
+     "Complete the cure and provide an express written statement that the violations are cured and no further such violations will occur; retain supporting evidence."
+    ],
+    "cites": [
+     "pwc-us-ia-duties-enforcement"
+    ]
+   },
+   "ky-enforcement": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Kentucky: cure and enforcement",
+    "summary": "On your confirmed full-law coverage basis: The Attorney General must give 30 days' written notice. Timely cure and a written assurance prevent the subsection (3) damages action, subject to recurrence or a breached assurance.",
+    "actions": [
+     "Calendar 30 days on the Attorney General's written notice, cure the identified violation and supply the required express written assurance.",
+     "Preserve evidence of cure and prevent recurrence. Keep the statutory protection scoped to the damages action described in §367.3627(3)."
+    ],
+    "cites": [
+     "pwc-us-ky-duties-enforcement"
+    ]
+   },
+   "md-enforcement": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Maryland: cure and enforcement",
+    "summary": "On your confirmed full-law coverage basis: The Consumer Protection Division may offer cure for violations occurring on or before April 1, 2027. If it gives notice, at least 60 days after receipt must be allowed.",
+    "actions": [
+     "Record when the alleged violation occurred and whether the Division granted a cure opportunity; notice is discretionary.",
+     "If notice is granted, calendar its specified deadline, allowing at least 60 days after receipt, and document the completed cure."
+    ],
+    "cites": [
+     "pwc-us-md-duties-enforcement"
+    ]
+   },
+   "mn-enforcement": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Minnesota: cure and enforcement",
+    "summary": "On your confirmed full-law coverage basis: The Attorney General enforces the act. The mandatory warning-letter and 30-day cure procedure expired January 31, 2026.",
+    "actions": [
+     "Respond to enforcement without assuming the former 30-day warning period is available.",
+     "Keep any agreed remediation deadline separate from the act's implementation dates and preserve proof of completed corrective work."
+    ],
+    "cites": [
+     "pwc-us-mn-duties-enforcement"
+    ]
+   },
+   "mt-enforcement": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Montana: cure and enforcement",
+    "summary": "On your confirmed full-law coverage basis: Montana's Attorney General enforces the Act. Current §30-14-2817 does not provide a guaranteed pre-enforcement cure period; the former 60-day opportunity is not a current entitlement.",
+    "actions": [
+     "Route an allegation or investigative demand promptly to the legal owner and preserve the notice, allegations and response deadline.",
+     "Do not assume a fresh 60-day implementation period or delay correction while waiting for a cure notice."
+    ],
+    "cites": [
+     "pwc-us-mt-duties-enforcement"
+    ]
+   },
+   "ne-enforcement": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Nebraska: cure and enforcement",
+    "summary": "On your confirmed full-law coverage basis: Nebraska requires a 30-day pre-action notice and cure opportunity. Timely correction must be backed by written statements and supporting evidence; fixing the issue alone does not satisfy the statutory cure conditions.",
+    "actions": [
+     "Record the Attorney General's written notice, the identified provisions and the thirty-day period before the proposed action.",
+     "Within that period, cure the identified violation and provide the Attorney General a written cure statement with supportive documentation, plus an express written commitment not to commit such a violation after cure.",
+     "Keep this enforcement-cure period separate from consumer-request deadlines and the law's implementation date."
+    ],
+    "cites": [
+     "pwc-us-ne-duties-enforcement"
+    ]
+   },
+   "nh-enforcement": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "New Hampshire: cure and enforcement",
+    "summary": "On your confirmed full-law coverage basis: New Hampshire's 60-day cure opportunity is discretionary from January 1, 2026. It is not an automatic grace period: the Attorney General must first grant the opportunity by issuing the relevant notice.",
+    "actions": [
+     "Identify whether the Attorney General has issued a cure notice; if so, record receipt and the sixty-day cure deadline.",
+     "Address the alleged violation and document the factors relevant to the Attorney General's discretion: violation count, entity size/complexity, processing, public injury, safety, and human or technical error.",
+     "Do not apply the mandatory 2025 notice rule or confuse this period with consumer-response timing."
+    ],
+    "cites": [
+     "pwc-us-nh-duties-enforcement"
+    ]
+   },
+   "nj-enforcement": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "New Jersey: cure and enforcement",
+    "summary": "On your confirmed full-law coverage basis: New Jersey's temporary 30-day cure opportunity has expired. The statute's month-based cutoff was July 1, 2026, so current enforcement should not assume an automatic cure notice.",
+    "actions": [
+     "Route enforcement correspondence to the legal owner without assuming the former thirty-day cure protection.",
+     "If a matter involves a notice issued during the temporary window, preserve its receipt date and terms for counsel to assess; a historical notice is not a new implementation grace period.",
+     "Keep the statutory July 1, 2026 cutoff distinct from the Act's January 15, 2025 effective date."
+    ],
+    "cites": [
+     "pwc-us-nj-duties-enforcement"
+    ]
+   },
+   "or-enforcement": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Oregon: cure and enforcement",
+    "summary": "On your confirmed full-law coverage basis: Oregon no longer guarantees the former 30-day cure opportunity. General protection ended at the start of 2026, and the narrow temporary broadcaster exception was repealed July 1, 2026.",
+    "actions": [
+     "Treat current enforcement correspondence as requiring prompt legal review; do not assume a statutory thirty-day cure before an action.",
+     "For a historical matter, distinguish the former general rule from the January-to-June 2026 exception for the precisely defined noncommercial educational broadcasters.",
+     "Keep cure history separate from current substantive compliance and consumer-request deadlines."
+    ],
+    "cites": [
+     "pwc-us-or-duties-enforcement"
+    ]
+   },
+   "ri-enforcement": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Rhode Island: cure and enforcement",
+    "summary": "On your confirmed full-law coverage basis: Rhode Island's comprehensive privacy chapter gives the Attorney General sole enforcement authority and does not provide a guaranteed pre-enforcement cure period.",
+    "actions": [
+     "Route an alleged violation or enforcement notice to the legal owner promptly instead of applying another state's thirty- or sixty-day cure rule.",
+     "Assess the procedure actually invoked under §6-48.1-8 and the referenced commercial-law provisions; this entry does not determine separate procedural rights under another law.",
+     "Keep the January 1, 2026 implementation date separate from any deadline stated in actual enforcement correspondence."
+    ],
+    "cites": [
+     "pwc-us-ri-duties-enforcement"
+    ]
+   },
+   "tn-enforcement": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Tennessee: cure and enforcement",
+    "summary": "On your confirmed full-law coverage basis: Tennessee requires 60 days' written pre-action notice. The enforcement bar depends on timely cure and an express written assurance to the Attorney General and Reporter.",
+    "actions": [
+     "Record the written notice, specific allegations and sixty-day cure period.",
+     "Within the period, cure the noticed violation and provide an express written statement that the alleged violations are cured and no such further violations will occur.",
+     "Track the corrective controls: continued violations or breach of that statement can permit an action. This cure period is separate from implementation and consumer-response deadlines."
+    ],
+    "cites": [
+     "pwc-us-tn-duties-enforcement"
+    ]
+   },
+   "tx-enforcement": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Texas: cure and enforcement",
+    "summary": "On your confirmed full-law coverage basis: Texas requires a 30-day pre-action cure opportunity, with a detailed written cure package. Consumer notification and supporting documentation are part of the statutory conditions.",
+    "actions": [
+     "Record the Attorney General's written notice, alleged provisions and thirty-day period; cure the identified violation within that period.",
+     "Provide a written statement confirming cure; notification to the affected consumer if that consumer's contact information was made available to the person; supportive documentation showing cure; and necessary internal-policy changes to prevent such further violations.",
+     "Preserve proof of each condition. The cure process does not postpone ordinary compliance or consumer-response duties."
+    ],
+    "cites": [
+     "pwc-us-tx-duties-enforcement"
+    ]
+   },
+   "ut-enforcement": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Utah: cure and enforcement",
+    "summary": "On your confirmed full-law coverage basis: Utah requires notice and a 30-day cure opportunity before the Attorney General's referred enforcement action. The deadline runs after receipt, and a written cure/nonrecurrence statement is also required.",
+    "actions": [
+     "Preserve the Attorney General's notice and its explanation of each allegation; record when it was received.",
+     "Cure within thirty days after the day of receipt and provide an express written statement that the violation is cured and no further occurrence of the cured violation will happen.",
+     "Keep the Division referral, notice and proof of correction together. Continued violations after cure can permit enforcement; consumer-response and future implementation dates remain separate."
+    ],
+    "cites": [
+     "pwc-us-ut-duties-enforcement"
+    ]
+   },
+   "va-enforcement": {
+    "type": "outcome",
+    "tier": "warn",
+    "title": "Virginia: cure and enforcement",
+    "summary": "On your confirmed full-law coverage basis: Virginia requires 30 days' written pre-action notice. Timely cure plus an express written statement to the Attorney General prevents the action under the stated statutory conditions.",
+    "actions": [
+     "Record the Attorney General's written notice, the specific allegedly violated provisions and the thirty-day period.",
+     "Within the period, cure the noticed violation and provide an express written statement that the alleged violations are cured and no further violations will occur.",
+     "Maintain the corrective controls: a continued violation or breach of the statement can permit enforcement. This is an enforcement-cure period, not an implementation extension or consumer-response deadline."
+    ],
+    "cites": [
+     "pwc-us-va-duties-enforcement"
+    ]
+   }
+  },
+  "verifiedAsOf": "2026-09-22 (automated primary-source check and independent adversarial cross-review; not practitioner-reviewed)"
  }
 };
 
-export const REGISTRY_SHA256 = "a1cafbd97b46b0bd7fa2d6e717d7ae0898f3534bba65956918152f10936bacea";
+export const REGISTRY_SHA256 = "18697f33d32ad2e803192b09fdcd60fdcf90c3f8e9b935fbb33fa9546bdd1e20";

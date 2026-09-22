@@ -1,0 +1,22 @@
+{
+  "kind": "regulation",
+  "juris": "US-CA",
+  "label": "California: consumer rights",
+  "citation": "Civil Code §§1798.105–1798.135; 11 CCR §§7021, 7026–7027; CPPA business FAQ",
+  "provenance": "https://cppa.ca.gov/regulations/pdf/ccpa_statute_eff_20260101.pdf",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Support access/knowledge, deletion, correction, portability and the distinct sale/sharing and sensitive-use choices. Employee and B2B exemptions expired after 2022.</p>",
+    "<p>For know/delete/correct requests, confirm receipt within 10 business days and respond within 45 calendar days; a necessary 45-day extension requires notice and reasons.</p>",
+    "<p>Sale/sharing opt-outs and limit requests require action as soon as feasible, no later than 15 business days. Do not apply the 45-day schedule to them.</p>",
+    "<p>General refusals do not create the Virginia-style internal appeal right. ADMT-specific rights have a separate January 1, 2027 compliance date.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2026-01-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

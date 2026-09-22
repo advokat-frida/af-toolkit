@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-UT",
+  "label": "Utah: sensitive data",
+  "citation": "Utah Code §13-61-302(3)",
+  "provenance": "https://le.utah.gov/xcode/Title13/Chapter61/C13-61_2022050420231231.pdf",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Utah generally uses clear notice and an opportunity to opt out for sensitive processing, rather than a general prior opt-in requirement.</p>",
+    "<p>Give notice and the opt-out opportunity before processing the sensitive data.</p>",
+    "<p>Apply COPPA for a known child's personal data and separately check sector obligations.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

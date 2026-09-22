@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-NE",
+  "label": "Nebraska: sale and targeted advertising",
+  "citation": "Neb. Rev. Stat. §§87-1107, 87-1111, 87-1113",
+  "provenance": "https://nebraskalegislature.gov/laws/laws-index/chap87-full.html",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Sale, targeted advertising and significant-effect profiling have opt-outs. The Act provides an authorized-agent and qualifying technology route.</p>",
+    "<p>Classify sale under Nebraska's own definition, then implement conspicuous notice and the applicable opt-out method.</p>",
+    "<p>Check §87-1111's verification and technology conditions for delegated or signal-based requests.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2025-01-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

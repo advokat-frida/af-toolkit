@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-FL",
+  "label": "Florida: enforcement and cure",
+  "citation": "Fla. Stat. §501.72(1)–(3) (2026)",
+  "provenance": "https://www.flsenate.gov/Laws/Statutes/2026/501.72",
+  "note": "Editorial summary of the cited primary provisions, not a verbatim extract. Current-law check as of September 22, 2026; enforcement cure procedures do not postpone substantive compliance duties.",
+  "body": [
+    "<p>The Department of Legal Affairs alone enforces this part, on behalf of Florida consumers. After written notice of an alleged violation, it may grant a 45-calendar-day cure period and issue guidance. This is discretionary and has no stated sunset.</p>",
+    "<p>The cure opportunity is unavailable for the known-child violations in §501.72(1)(a); willful disregard of age counts as actual knowledge.</p>",
+    "<p>If the violation is cured to the Department's satisfaction and proof is supplied, it may not bring an action for that allegation. It may specify in guidance that future violations will receive no cure opportunity.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

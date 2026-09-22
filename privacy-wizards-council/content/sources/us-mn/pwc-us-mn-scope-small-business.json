@@ -1,0 +1,20 @@
+{
+  "kind": "statute",
+  "juris": "US-MN",
+  "label": "Minnesota: small-business sensitive-data sales",
+  "citation": "Minn. Stat. §325M.17",
+  "provenance": "https://www.revisor.mn.gov/statutes/cite/325M.17",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. SBA classification is an industry- and affiliation-specific factual inquiry.",
+  "body": [
+    "<p>A small business as defined by the US SBA under 13 CFR Part121 that conducts business in Minnesota or targets products/services to Minnesota residents must obtain a consumer's prior consent before selling the consumer's sensitive data. Section 325M.20 enforcement applies.</p>",
+    "<p>The provision took effect July 31, 2025; postsecondary institutions regulated by the Office of Higher Education are not required to comply until July 31, 2029.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2025-07-31",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

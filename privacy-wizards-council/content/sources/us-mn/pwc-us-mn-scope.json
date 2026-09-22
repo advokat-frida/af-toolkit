@@ -1,0 +1,22 @@
+{
+  "kind": "statute",
+  "juris": "US-MN",
+  "label": "Minnesota: applicability",
+  "citation": "Minn. Stat. § 325M.12",
+  "provenance": "https://www.revisor.mn.gov/statutes/cite/325M.12",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Postsecondary institutions regulated by the Office of Higher Education need not comply until July 31, 2029. Small businesses still face §325M.17 sensitive-data-sale consent duties.",
+  "body": [
+    "<p>Does the legal entity conduct business in Minnesota OR produce products or services targeted to Minnesota residents?</p>",
+    "<p>Does it control or process at least 100,000 consumers’ personal data during a calendar year (excluding payment-only data); OR control or process at least 25,000 consumers’ personal data AND derive strictly more than 25% of gross revenue from selling personal data?</p>",
+    "<p>Minnesota residents acting in an individual/household context, excluding commercial or employment roles. Deduct payment-only data from the 100,000 limb.</p>",
+    "<p>Measuring period: 100,000 limb: during a calendar year. The 25,000-plus-sale limb does not separately state a measuring period.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

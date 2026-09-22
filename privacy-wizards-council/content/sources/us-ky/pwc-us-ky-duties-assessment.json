@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-KY",
+  "label": "Kentucky: risk assessments",
+  "citation": "KRS §367.3621, as amended by 2025 Ky. Acts ch.13 §2",
+  "provenance": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=56649",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>The current assessment duty applies to processing activities created or generated on or after June 1, 2026.</p>",
+    "<p>Assess covered targeted advertising, sale, sensitive processing and other specified heightened-risk activities.</p>",
+    "<p>Record the June 1 activity-date boundary separately from the Act's January 1, 2026 effective date.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2026-01-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

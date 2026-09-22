@@ -1,0 +1,19 @@
+{
+  "kind": "guidance",
+  "juris": "US-CA",
+  "label": "California: scope",
+  "citation": "CPPA FAQ: employee and business-to-business exemptions",
+  "provenance": "https://cppa.ca.gov/faq.html",
+  "note": "Editorial summary of primary authority, not a verbatim extract. See the cited provision for all qualifiers.",
+  "body": [
+    "<p>The statutory exemptions for employment-related information and business-to-business transactions expired on December 31, 2022. This does not remove specific statutory data exemptions.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "kind": "statute",
+  "juris": "US-FL",
+  "label": "Florida: sale duties without the billion-dollar gate",
+  "citation": "Fla. Stat. §501.715",
+  "provenance": "https://www.flsenate.gov/Laws/Statutes/2025/501.715",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. A narrow surviving-duty screen; exemptions in the linked chapter still require their own analysis.",
+  "body": [
+    "<p>A person meeting §501.702(9)(a)1–3 must not sell sensitive personal data without prior consumer consent; this provision does not require the billion-dollar or specified business-model criteria.</p>",
+    "<p>The section prescribes a sensitive-data sale notice. If the sensitive data belongs to a known child, it requires affirmative authorization for a child between13 and18, or COPPA compliance for a known child under13. Check age, knowledge and the precise statutory sensitive-data definition.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

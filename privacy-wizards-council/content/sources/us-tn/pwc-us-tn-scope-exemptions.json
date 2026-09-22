@@ -1,0 +1,20 @@
+{
+  "kind": "statute",
+  "juris": "US-TN",
+  "label": "Tennessee: entity and data exclusions",
+  "citation": "Tenn. Code Ann. §47-18-3311",
+  "provenance": "https://www.capitol.tn.gov/Archives/Joint/publications/TNCodeBills/2025/TNCodeBill_Volume1_2025.pdf",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Entity status and record-level exclusions are separate decisions; the listed categories must satisfy the linked law's definitions and conditions.",
+  "body": [
+    "<p>§47-18-3311 excludes government bodies, qualifying GLBA financial institutions/affiliates, licensed insurance companies transacting insurance business, licensed insurance producers, HIPAA covered entities/business associates, nonprofits and higher-education institutions.</p>",
+    "<p>§47-18-3311 separately excludes specified health/research and limited-dataset information, regulated credit, GLBA, DPPA, FERPA, Farm Credit, employment-role, public/peer-reviewed scientific or statistical research, and listed-chemical data. Each category has its own holder, activity or handling conditions.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

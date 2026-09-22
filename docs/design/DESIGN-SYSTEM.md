@@ -42,6 +42,11 @@ per-tool accent bars are retired.) The one category use: the Wizards chooser col
 its group — Incidents red, Data use amber, Governance indigo, Rights and people teal, AI systems
 forest — so sixteen rows scan by kind (Ben, 2026-09-04); the titles stay ink.
 
+Ben's 2026-09-22 PWC result-section direction adds two scoped functional accents:
+forest-wash with a forest top rule identifies the Authority reference panel; indigo-soft
+with an indigo left rule identifies the Next determination navigation panel. These reuse
+the tool's existing tint tokens. They do not recolor tools, verdicts or checklist items.
+
 ## 2. Type
 
 Three families, self-hosted (`public/fonts/`), plus one system mono. Nothing else, no CDN.
@@ -109,7 +114,7 @@ Redactorium's first treatment).
 same padding and height floor, no shadow.
 
 **Text action.** Bare Archivo 13/700 ink link, padding `6px 8px`, 44px target. Utility links in
-headers, "Change file", "Browse all 16".
+headers, "Change file", "Reset finder".
 
 **Row control.** A control that lives inside a repeated row (SafeList's decisions, SafeSeed's
 column editor): the secondary button's look at `min-height: 40px`, padding
@@ -177,6 +182,32 @@ under the options is the help's first sentence, and the rest of the help sits be
 this question?` disclosure, so no sentence appears twice (Ben, 2026-09-13: the authored depth
 reaches the page).
 
+Ben's 2026-09-21 correction: answer subtext clarifies objective facts and examples only.
+Instructions, legal consequences and recommended actions belong in the final determination.
+When they depend on one answer, carry them with that answer to the result and remove them
+when the answer changes. Scope limitations and provisional findings must remain visible in
+the result, including in exports.
+
+Ben's 2026-09-21 state-flow correction: show selection in the controls themselves and
+one state-progress label. Do not add a selected-state recap, a second completion count,
+or an automated-check qualifier to the source-date line. Keep source review metadata in
+the source record and export. Leave a clear gap below validation/reset messages and between
+a heading and its explanation. Keep adjacent question disclosures together. Result spacing
+must be deliberate: compact verdict padding, no trailing paragraph margin inside a verdict,
+a small label-to-action gap, and consistent separation between state results. Do not repeat
+the state name in both its eyebrow and verdict title.
+
+Ben's 2026-09-22 finder correction: show every published PWC topic by default. Categories
+and the visible topic titles within each category sort alphabetically; search results do too.
+Do not put the full list behind a browse-all action. Source notices may use the available
+result-column width, and references to usable templates link directly to the official files.
+
+Ben's 2026-09-22 determination correction: group the required/next actions in one paper
+checklist card with a single hairline border, 16px padding (12px on phones), and no row
+dividers. Use native checkboxes with 44px targets beside the existing 15px body copy.
+Citations and resource links stay inline and separately operable. Checks are temporary
+reading aids, reset when leaving the result, and do not change the legal record or export.
+
 **Disclosure.** A native `<details>` whose summary is the text action (Archivo 13/700 ink,
 underlined, 44px target, no marker) and whose body is core reading at 15px ink, or helper copy
 at 13px `--soft` when it annotates rather than explains. The Toolkit's way of keeping authored
@@ -189,10 +220,26 @@ rail: the label (14px ink) over a dotted status label (7px square swatch + 13px 
 amber = automated check only, forest = practitioner reviewed, red = superseded or draft).
 Open: the formal citation (13px `--soft`), `Open the official text ↗` as a text action, and
 the included text at 14px ink with its paragraph breaks.
+Ben's 2026-09-22 segmentation correction wraps the complete Authority rail in a distinct
+reference panel: forest-wash background, 3px forest top rule, and 16px padding (12px on
+phones). The checklist stays paper with a hairline border. The reference panel fits its
+own content height, retains separators between sources, and has no trailing row divider.
+Keep the reasoning disclosure directly below the verdict with a 4px outer gap and its
+44px target intact. The checklist and Authority cards then begin on the same desktop row;
+use 12px after reasoning or 16px after a verdict without reasoning. Avoid accumulating
+section and disclosure margins. Use balanced verdict headings and pretty wrapping for
+result copy to reduce short orphaned final lines without forced line breaks.
+Question helper asides also use their available column width; do not reinstate a 70ch
+cap that strands a final citation. Balance the short helper sentence across its lines;
+pretty wrapping alone still left a citation orphaned in a narrow panel. Longer shared
+citation text uses pretty wrapping in every view.
 
 **Next determination.** A determination ends on one eyebrow, `Next determination`, and one
 chooser row (the finder's own row) naming the path most readers open next. Never more than
-two rows, never a card.
+two rows. Ben's 2026-09-22 correction gives these related paths their own indigo-soft panel
+with a 3px indigo left rule, 16px padding (12px on phones), and 24px separation from the
+preceding section. Keep row separators only between choices. Preserve category glyphs,
+ink titles, existing hover/focus behavior and the arrow beside the copy.
 
 **Inline citation** (Privacy Wizards, Ben 2026-09-14). Every article, section, guidance,
 case and defined-term mention in the authored text is a `<button class="cite">` that inherits

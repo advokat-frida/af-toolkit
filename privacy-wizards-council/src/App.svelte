@@ -16,6 +16,7 @@
     finderWizardIds,
     historyContext,
     motionNotes,
+    outcomeForState,
     parseWizardHash,
     publishedWizardIds,
     relatedWizardIds,
@@ -34,6 +35,8 @@
   import Mentions from './lib/Mentions.svelte';
   import { activeCite } from './lib/engine/cite-state.js';
   import WizardRow from './lib/WizardRow.svelte';
+  import JurisdictionRun from './lib/JurisdictionRun.svelte';
+  import ActionChecklist from './lib/ActionChecklist.svelte';
 
   // Lucide "search" (lucide-static 1.31.0, ISC) — the one non-wizard glyph on the finder.
   const searchIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>';
@@ -51,7 +54,6 @@
 
   let search = '';
   let activeCategory = null;
-  let showAll = false;
   let selectedWizardId = null;
   let currentNodeId = null;
   let outcomeId = null;
@@ -73,13 +75,13 @@
   $: wizard = selectedWizardId ? WIZARDS[selectedWizardId] : null;
   $: reviewState = selectedWizardId ? wizardReviewState(selectedWizardId) : null;
   $: currentNode = wizard && currentNodeId ? wizard.nodes[currentNodeId] : null;
-  $: outcome = wizard && outcomeId ? wizard.nodes[outcomeId] : null;
+  $: outcome = wizard && outcomeId ? outcomeForState(wizard, history, outcomeId) : null;
   $: currentOptions = currentNode ? eligibleOptions(currentNode, historyContext(history)) : [];
   $: usedSourceIds = wizard ? sourceIdsForState(wizard, history, currentNodeId, outcomeId) : [];
   $: usedSources = usedSourceIds.map((id) => ({ id, source: SOURCES[id], manifest: SOURCE_MANIFEST[id] })).filter((item) => item.source);
   $: calendarState = selectedWizardId && outcomeId ? calendarEligibility({ wizardId: selectedWizardId, outcomeId }) : null;
-  $: filteredWizardIds = finderWizardIds({ term: search, categoryId: activeCategory, showAll });
-  $: groupedLibrary = !search.trim() && !activeCategory && showAll ? finderGroups() : null;
+  $: filteredWizardIds = finderWizardIds({ term: search, categoryId: activeCategory });
+  $: groupedLibrary = !search.trim() && !activeCategory ? finderGroups() : null;
   $: questionsAhead = wizard && currentNodeId ? longestQuestionRun(wizard, currentNodeId) : 0;
   $: questionTotal = history.length + questionsAhead;
   // The aside and the verdict qualifier show the lead; a disclosure carries only what is
@@ -332,14 +334,12 @@
 
   function selectCategory(id) {
     activeCategory = activeCategory === id ? null : id;
-    showAll = false;
     search = '';
   }
 
   function resetFinder() {
     search = '';
     activeCategory = null;
-    showAll = false;
     tick().then(() => document.getElementById('finder')?.focus());
   }
 
@@ -404,12 +404,10 @@
         <div><span class="intro-step-n">03</span><strong>Read the determination</strong><span>Cited outcome and next steps.</span></div>
       </section>
       <label class="sr-only" for="finder">What are you trying to decide?</label>
-      <div class="search-wrap"><span class="search-glyph" aria-hidden="true">{@html searchIcon}</span><input id="finder" type="search" bind:value={search} on:input={() => { activeCategory = null; showAll = true; }} placeholder="Try breach, DPIA, cookies, AI risk…" /></div>
+      <div class="search-wrap"><span class="search-glyph" aria-hidden="true">{@html searchIcon}</span><input id="finder" type="search" bind:value={search} on:input={() => { activeCategory = null; }} placeholder="Try breach, DPIA, cookies, AI risk…" /></div>
       {#if search}<p class:empty={filteredWizardIds.length === 0} class="search-feedback" role="status">{filteredWizardIds.length ? `${filteredWizardIds.length} matching ${filteredWizardIds.length === 1 ? 'determination' : 'determinations'}.` : 'No matching determination. Try a shorter term or reset the finder.'}</p>{/if}
 
-      <div class="library-heading">
-        {#if search || activeCategory || showAll}<button type="button" class="text-button" on:click={resetFinder}>Reset finder</button>{:else}<button type="button" class="text-button" on:click={() => (showAll = true)}>Browse all {publishedIds.length}</button>{/if}
-      </div>
+      {#if search || activeCategory}<div class="library-heading"><button type="button" class="text-button" on:click={resetFinder}>Reset finder</button></div>{/if}
 
       <div class="wizard-list">
         {#if groupedLibrary}
@@ -441,7 +439,7 @@
       {:else}
       <header class="determination-header">
         <div class="title-cluster"><span class={`large-icon icon-${wizardIconColor(selectedWizardId)}`} aria-hidden="true">{@html wizardIcon(selectedWizardId)}</span><div><p class="step-label">{categoryForWizard(selectedWizardId)?.label}</p><h2 id="determination-heading" tabindex="-1">{wizard.title}</h2><p>{wizard.tag}</p></div></div>
-        <div class={`legal-status status-${reviewState.status}`}><span>{sourceStatusLabel(reviewState.status)}</span><small>{reviewState.practitionerReviewed ? `Legal sources reviewed through ${reviewState.reviewedThrough}` : 'Published aid · not counsel-reviewed'}</small></div>
+        {#if !wizard.jurisdictionRoutes}<div class={`legal-status status-${reviewState.status}`}><span>{sourceStatusLabel(reviewState.status)}</span><small>{reviewState.practitionerReviewed ? `Legal sources reviewed through ${reviewState.reviewedThrough}` : 'Published aid · not counsel-reviewed'}</small></div>{/if}
       </header>
       {/if}
 
@@ -456,6 +454,10 @@
           {#if reviewState.automatedCheckNote}<p class="automated-note"><strong>Legacy automated-check note:</strong> {reviewState.automatedCheckNote}</p>{/if}
           <div class="unavailable-actions"><button type="button" class="button primary" on:click={changeDetermination}>Choose another determination</button></div>
         </section>
+      {:else if wizard.jurisdictionRoutes}
+        {#key selectedWizardId}
+          <JurisdictionRun wizardId={selectedWizardId} onOpen={openWizard} />
+        {/key}
       {:else}
         <div class="run-grid">
           <section class="decision-stage">
@@ -464,7 +466,7 @@
               <!-- The heading holds citation cards, so the card and the answer group take the plain question as their name. -->
               <article class="question-card" aria-label={currentNode.q}>
                 <div class="question-progress">
-                  <p class="question-count">Question {history.length + 1} of {questionTotal}</p>
+                  <p class="question-count">Question {history.length + 1} of at most {questionTotal}</p>
                   <span class="progress-track" aria-hidden="true"><span class="progress-fill" style={`width:${Math.round(((history.length + 1) / Math.max(questionTotal, 1)) * 100)}%`}></span></span>
                 </div>
                 <h3 id="question-heading" tabindex="-1"><Mentions text={currentNode.q} context={citeState.context} /></h3>
@@ -496,19 +498,19 @@
                   <span class="verdict-sub"><Mentions text={outcome.clock || reasoningLead} context={citeState.context} scope={citeState.reasoning} /></span>
                 </div>
 
+                {#if reasoningRest}
+                  <details class="disclosure outcome-reasoning" bind:open={decisionExpanded}>
+                    <summary>{reasoningLabel}</summary>
+                    <p class="disclosure-body"><Mentions text={reasoningRest} context={citeState.context} scope={citeState.reasoning} /></p>
+                  </details>
+                {/if}
                 <div class="outcome-grid">
                   <div class="outcome-main">
-                    {#if reasoningRest}
-                      <details class="disclosure" bind:open={decisionExpanded}>
-                        <summary>{reasoningLabel}</summary>
-                        <p class="disclosure-body"><Mentions text={reasoningRest} context={citeState.context} scope={citeState.reasoning} /></p>
-                      </details>
-                    {/if}
                     {#if outcome.actions?.length}
-                      <section class="next-actions" aria-labelledby="actions-heading">
-                        <p class="field-label" id="actions-heading">What you must do</p>
-                        <ol>{#each outcome.actions as action}<li><Mentions text={action} context={citeState.context} scope={citeState.actions} /></li>{/each}</ol>
-                      </section>
+                      <ActionChecklist id="actions" wizardId={selectedWizardId} actions={outcome.actions} actionCites={outcome.actionCites} scope={citeState.actions} heading="What you must do" />
+                    {/if}
+                    {#if outcome.notes?.length}
+                      {#each outcome.notes as note, index}<p class="outcome-summary"><Mentions text={note} context={contextFor(selectedWizardId, { cites: outcome.noteCites[index] })} /></p>{/each}
                     {/if}
                     {#if motion.length}
                       <details class="disclosure" bind:open={motionExpanded}>

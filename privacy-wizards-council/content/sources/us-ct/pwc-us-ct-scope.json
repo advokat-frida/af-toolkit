@@ -1,0 +1,22 @@
+{
+  "kind": "statute",
+  "juris": "US-CT",
+  "label": "Connecticut: applicability",
+  "citation": "Conn. Gen. Stat. §§ 42-515 to 42-517 (effective July 1, 2026)",
+  "provenance": "https://cga.ct.gov/2026/sup/chap_743jj.htm",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. PA26-64 and PA26-100 contain changes taking effect October 1, 2026. They are future law at this September 22 checkpoint and require a refresh before that date.",
+  "body": [
+    "<p>Does the assessment involve personal data of Connecticut consumers?</p>",
+    "<p>Does ANY current route hold: it conducts business in Connecticut OR targets products/services to Connecticut residents, AND controlled or processed at least 35,000 consumers’ personal data in the preceding calendar year (excluding payment-only data); OR it controls or processes a consumer’s sensitive data (excluding payment-only data); OR it offers consumers’ personal data for sale in trade or commerce?</p>",
+    "<p>Connecticut residents in an individual or household context, excluding employment and commercial roles. The 35,000 limb and sensitive-data limb exclude processing solely to complete a payment transaction.</p>",
+    "<p>Measuring period: 35,000 route: preceding calendar year. Sensitive-data and offering-for-sale routes have no minimum count or revenue-share test.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

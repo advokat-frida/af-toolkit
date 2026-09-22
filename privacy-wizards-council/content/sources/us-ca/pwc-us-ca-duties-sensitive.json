@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-CA",
+  "label": "California: sensitive data",
+  "citation": "Civil Code §1798.121; 11 CCR §7027",
+  "provenance": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1798.121.&lawCode=CIV",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>California uses a right to limit certain uses and disclosures of sensitive personal information, rather than a general prior-consent rule for every sensitive-data use.</p>",
+    "<p>Map the purpose against §1798.121(a) and the regulatory permitted uses; provide the limit notice and mechanism when required.</p>",
+    "<p>Apply minimization and notice-at-collection duties separately. Sector, biometric and child rules can impose additional conditions.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

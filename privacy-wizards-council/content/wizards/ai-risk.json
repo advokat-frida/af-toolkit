@@ -25,7 +25,12 @@
         {
           "label": "A system built ON a general-purpose model (a chatbot, copilot or app on top of an LLM)",
           "goto": "q-prohibited",
-          "desc": "The system ladder applies to what you ship; the model's Ch. V duties stay with the model provider — though if you fine-tune or substantially modify the model itself, you may become its provider for the modification (a contested boundary; document your analysis)."
+          "resultNotes": [
+            "The system classification applies to what you ship. The model's Ch. V duties remain with its provider, although fine-tuning or substantially modifying the model itself may make you its provider for that modification; this boundary is contested."
+          ],
+          "resultActions": [
+            "If you fine-tune or substantially modify the model, document the provider-role analysis for that modification."
+          ]
         },
         {
           "label": "A general-purpose AI MODEL itself — trained weights others build on",
@@ -88,12 +93,16 @@
         {
           "label": "It sits in a product, but only for user assistance, performance, efficiency or quality control — no safety function, and failure would not endanger anyone",
           "goto": "q-annex3",
-          "desc": "Art. 6(1a)-(1b) as inserted 2026 — not a safety component; keep walking the ladder."
+          "resultNotes": [
+            "Art. 6(1a)-(1b) as inserted 2026 — not a safety component; The path also screened Annex III."
+          ]
         },
         {
           "label": "It IS a genuine safety component, but the product needs no third-party conformity assessment — or only for non-safety risks like radio spectrum",
           "goto": "q-annex3",
-          "desc": "Art. 6(1) needs BOTH conditions, and third-party assessment triggered solely by non-health-and-safety risks (spectrum, EMI) does not count (Art. 6(1c), inserted 2026). Keep walking; Annex III can still catch it."
+          "resultNotes": [
+            "Art. 6(1) needs BOTH conditions, and third-party assessment triggered solely by non-health-and-safety risks (spectrum, EMI) does not count (Art. 6(1c), inserted 2026). The path also screened Annex III."
+          ]
         },
         {
           "label": "No regulated-product angle at all",
@@ -149,12 +158,17 @@
         {
           "label": "It profiles natural persons — automated evaluation of personal aspects (performance, economic situation, health, preferences, behavior, location...)",
           "goto": "o-high-annex3",
-          "desc": "The profiling override forecloses the derogation."
+          "resultNotes": [
+            "The profiling override forecloses the derogation."
+          ]
         },
         {
           "label": "It only performs a narrow procedural task",
           "goto": "o-derogation",
-          "desc": "Art. 6(3)(a) — e.g. converting unstructured data to structured. Careful: classifying DOCUMENTS is not classifying PEOPLE — a system that scores, ranks or filters candidates, applicants or claimants is profiling them (pick the first option)."
+          "desc": "Art. 6(3)(a): for example, converting unstructured data to structured. Classifying documents is different from scoring, ranking or filtering people.",
+          "resultActions": [
+            "If the system actually scores, ranks or filters people, re-run the profiling route."
+          ]
         },
         {
           "label": "It only improves the result of a previously completed human activity",
@@ -174,7 +188,9 @@
         {
           "label": "None of these conditions fit",
           "goto": "o-high-annex3",
-          "desc": "The derogation fails when no condition fits — whether or not the system drives decisions."
+          "resultNotes": [
+            "The derogation fails when no condition fits — whether or not the system drives decisions."
+          ]
         }
       ]
     },
@@ -198,12 +214,17 @@
         {
           "label": "It is a biometric-categorization system (non-sensitive attributes, lawful context)",
           "goto": "o-transparency",
-          "desc": "Categorization by SENSITIVE attributes is Annex III point 1(b) high-risk — or prohibited (Art. 5(1)(g)) where it infers the listed traits."
+          "resultNotes": [
+            "Categorization by SENSITIVE attributes is Annex III point 1(b) high-risk — or prohibited (Art. 5(1)(g)) where it infers the listed traits."
+          ]
         },
         {
           "label": "It infers people's emotions or intentions from biometric data (face, voice, physiological signals)",
           "goto": "q-filter",
-          "desc": "Back to the high-risk branch: emotion recognition is Annex III point 1(c) wherever it lawfully runs — point 1 applies in so far as the use is permitted under Union/national law, and workplace/education emotion inference is prohibited outright (Art. 5(1)(f)). Text-only sentiment analysis is not emotion recognition under Art. 3(39) — that is not this option."
+          "desc": "This choice concerns biometric emotion inference. Text-only sentiment analysis is not emotion recognition under Art. 3(39).",
+          "resultNotes": [
+            "Emotion recognition is Annex III point 1(c) where it lawfully runs. Annex III point 1 applies only so far as the use is permitted under Union or national law; workplace and education emotion inference is prohibited under Art. 5(1)(f). This path also screened the high-risk branch."
+          ]
         },
         {
           "label": "It generates or manipulates deepfakes, or publishes AI-written text informing the public",

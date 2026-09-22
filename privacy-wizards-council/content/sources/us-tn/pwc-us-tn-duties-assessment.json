@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-TN",
+  "label": "Tennessee: risk assessments",
+  "citation": "Tenn. Code Ann. §§47-18-3307, 47-18-3314",
+  "provenance": "https://www.capitol.tn.gov/Archives/Joint/publications/TNCodeBills/2025/TNCodeBill_Volume1_2025.pdf",
+  "note": "Editorial summary of the current codification in the official 2025 Tennessee Code Bill, pages 1096-1107, checked against the enacted 2023 chapter. Not a verbatim extract.",
+  "body": [
+    "<p>Assess targeted advertising, sale, sensitive processing and specified heightened-risk activities. A voluntary privacy program may support an affirmative defense under separate conditions.</p>",
+    "<p>The assessment provision applies to processing created or generated on or after July 1, 2024.</p>",
+    "<p>Document the benefit/risk balance and safeguards. Do not treat a NIST-aligned program or certification as automatic compliance.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2025-07-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

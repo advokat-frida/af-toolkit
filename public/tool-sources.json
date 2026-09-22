@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "product": "The Advokat Frida Toolkit",
-  "generatedAt": "2026-09-15T04:44:04.110Z",
+  "generatedAt": "2026-09-22T23:10:25.319Z",
   "releaseBoundary": "private-source-control-only",
   "layout": "one repository; each tool is a top-level source folder and its committed build artifact is staged here",
   "tools": [
@@ -41,9 +41,9 @@
       "id": "privacy-wizards-council",
       "sourceFolder": "privacy-wizards-council",
       "sourceArtifact": "privacy-wizards-council/dist/wizards.html",
-      "sourceSha256": "ebe2caa9337679203c36a97a8db87a475c423665028089e215d157e0c2b52984",
+      "sourceSha256": "684bff2d7765255380de84917f10984002a91998e50f22908677d08067f800b4",
       "toolkitArtifact": "tools/privacy-wizards-council.html",
-      "toolkitSha256": "ebe2caa9337679203c36a97a8db87a475c423665028089e215d157e0c2b52984",
+      "toolkitSha256": "684bff2d7765255380de84917f10984002a91998e50f22908677d08067f800b4",
       "license": "MIT",
       "licenseFile": "licenses/privacy-wizards-council.txt"
     }

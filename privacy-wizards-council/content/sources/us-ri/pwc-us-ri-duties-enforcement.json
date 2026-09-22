@@ -1,0 +1,20 @@
+{
+  "kind": "statute",
+  "juris": "US-RI",
+  "label": "Rhode Island: enforcement and cure opportunity",
+  "citation": "R.I. Gen. Laws §6-48.1-8(a)–(b)",
+  "provenance": "https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-8.htm",
+  "note": "Editorial summary of the cited current primary law, not a verbatim statutory extract. Cure/enforcement checkpoint: September 22, 2026. Independent content review and practitioner review are separate. This card addresses the comprehensive privacy law's cure opportunity and enforcement actor, not a complete remedies schedule.",
+  "body": [
+    "<p>Section 6-48.1-8 gives the Attorney General sole enforcement authority for this chapter and permits enforcement through its stated commercial-law and deceptive-trade-practice provisions.</p>",
+    "<p>The comprehensive privacy chapter does not state a mandatory pre-enforcement cure notice or cure period. This summary does not resolve distinct procedures under the other commercial-law provisions referenced by the section.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2026-01-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "kind": "statute",
+  "juris": "US-CT",
+  "label": "Connecticut: entity and data exclusions",
+  "citation": "Conn. Gen. Stat. §§ 42-515 to 42-517 (effective July 1, 2026)",
+  "provenance": "https://cga.ct.gov/2026/sup/chap_743jj.htm",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Entity status and record-level exclusions are separate decisions; the listed categories must satisfy the linked law's definitions and conditions.",
+  "body": [
+    "<p>The July 1, 2026 version lists government bodies; specified government contractors processing consumer health data on their behalf; nonprofits; political committees; higher education; national securities associations; HIPAA covered entities/business associates; tribal government; air carriers; insurance entities; qualifying banks/credit unions and affiliates subject to the stated financial-activity, examination and privacy-program conditions; and specified regulated securities entities. GLBA status alone no longer creates a universal entity exemption.</p>",
+    "<p>Use the July 1, 2026 §42-517(b), plus PA26-76 §72. Listed health/research, FCRA-regulated activity, DPPA, FERPA, Farm Credit, employment-role, airline and GLBA data remain conditional data exemptions. PA26-76 adds narrowly defined deidentified or aggregated DOT transportation geolocation data.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

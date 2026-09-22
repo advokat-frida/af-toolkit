@@ -1,0 +1,22 @@
+{
+  "kind": "statute",
+  "juris": "US-MT",
+  "label": "Montana: applicability",
+  "citation": "MCA § 30-14-2803",
+  "provenance": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0030/0300-0140-0280-0030.html",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Current 25,000/15,000 thresholds replaced 50,000/25,000 on October 1, 2025. Sections 2811,2818,2819 can apply below the general thresholds.",
+  "body": [
+    "<p>Does it conduct business in Montana OR produce products or services targeted to Montana residents?</p>",
+    "<p>Does it control or process personal data of at least 25,000 consumers (excluding payment-only data); OR at least 15,000 consumers AND derive strictly more than 25% of gross revenue from selling personal data?</p>",
+    "<p>Montana residents acting individually or as a household, excluding commercial and employment roles. Deduct payment-only data from the 25,000 limb.</p>",
+    "<p>Measuring period: §30-14-2803 does not state an annual or preceding-calendar-year period. Do not manufacture one; confirm counting methodology with the legal owner.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

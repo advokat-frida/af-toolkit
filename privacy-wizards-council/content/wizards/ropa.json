@@ -66,7 +66,7 @@
         "If mixed-role (SaaS): maintain both Art. 30(1) and Art. 30(2) records",
         "Update when processing changes — treat ROPA as a living register, not a one-time exercise",
         "Under-250 organizations caught by an Art. 30(5) exception: the mandatory record covers only the processing activities meeting the exception conditions (e.g. the non-occasional HR processing) per the WP29 Position Paper on Art. 30(5) (19 April 2018) — a complete register of all processing remains best practice",
-        "ICO and CNIL both publish ROPA templates"
+        "ROPA templates: ICO [controller template (XLSX)](https://ico.org.uk/media2/for-organisations/documents/2172937/gdpr-documentation-controller-template.xlsx) and [processor template (XLSX)](https://ico.org.uk/media2/for-organisations/documents/2172936/gdpr-documentation-processor-template.xlsx); CNIL [simplified register (ODS, French)](https://www.cnil.fr/sites/default/files/atoms/files/registre-traitement-simplifie.ods)."
       ],
       "cites": [
         "gdpr-art-30",

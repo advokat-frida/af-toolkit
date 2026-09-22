@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-IA",
+  "label": "Iowa: sensitive data",
+  "citation": "Iowa Code §715D.4(2)",
+  "provenance": "https://www.legis.iowa.gov/docs/code/715D.pdf",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>For nonexempt sensitive-data processing, Iowa requires clear notice and an opportunity to opt out, rather than a general opt-in consent requirement.</p>",
+    "<p>Provide the notice and opt-out opportunity before the sensitive processing.</p>",
+    "<p>Apply COPPA for a known child's data and check sector-specific duties separately.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2025-01-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

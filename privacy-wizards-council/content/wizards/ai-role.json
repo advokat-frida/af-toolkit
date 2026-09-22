@@ -28,12 +28,17 @@
         {
           "label": "It is exclusively for military, defense or national-security purposes",
           "goto": "o-excluded",
-          "desc": "Art. 2(3) — excluded regardless of the type of entity."
+          "resultNotes": [
+            "Art. 2(3) — excluded regardless of the type of entity."
+          ]
         },
         {
           "label": "It exists solely for scientific research and development, or is still in pre-market R&D and testing",
           "goto": "o-excluded",
-          "desc": "Art. 2(6) and 2(8) — but testing in real-world conditions is NOT covered by the exclusion."
+          "desc": "This choice does not include testing in real-world conditions.",
+          "resultNotes": [
+            "Art. 2(6) and 2(8) — but testing in real-world conditions is NOT covered by the exclusion."
+          ]
         },
         {
           "label": "No EU market, no EU establishment, and its output is not used in the EU",
@@ -52,17 +57,25 @@
         {
           "label": "We developed it — or commissioned it — and we place it on the market or put it into service under OUR name or trademark",
           "goto": "o-provider",
-          "desc": "Supplied to customers or third parties. Built it only for your own use? Take the next option instead."
+          "desc": "Supplied to customers or third parties.",
+          "resultActions": [
+            "If this system is only for your own use, re-run the wizard using the own-use-build option."
+          ]
         },
         {
           "label": "We built it (or commissioned it) for our OWN use — we do not supply it to anyone else",
           "goto": "o-inhouse",
-          "desc": "The classic miss: 'putting into service' includes first use for your own purposes (Art. 3(11)) — in-house builds carry BOTH the provider and the deployer hats."
+          "desc": "'Putting into service' includes first use for your own purposes (Art. 3(11)).",
+          "resultNotes": [
+            "An in-house build carries both the provider and deployer roles."
+          ]
         },
         {
           "label": "We use a system someone else supplies, in our operations, under our authority",
           "goto": "q-deployer-trap",
-          "desc": "Likely a deployer — but check the Art. 25 traps first."
+          "resultNotes": [
+            "This path checked whether using a supplied system leaves you as a deployer or triggers provider obligations under Art. 25."
+          ]
         },
         {
           "label": "We are located or established in the EU and we place on the EU market a system carrying the name or trademark of a company or person based outside the EU (a 'third country')",
@@ -83,7 +96,9 @@
         {
           "label": "We integrate someone else's general-purpose AI model into a system we supply — or use ourselves",
           "goto": "o-downstream",
-          "desc": "Integrating purely for internal use? The own-use-build option above is the same doorway — both hats land either way."
+          "resultNotes": [
+            "Integrating a model into a system solely for internal use follows the own-use-build analysis: provider and deployer roles can both apply."
+          ]
         },
         {
           "label": "We provide a general-purpose AI MODEL itself (weights or API for others to build on), not a system",
@@ -102,7 +117,13 @@
         {
           "label": "We put our own name or trademark on a high-risk system already on the market",
           "goto": "o-flip",
-          "desc": "White-labeling — Art. 25(1)(a). Contractual allocation of the obligations can change the answer; check your agreement."
+          "desc": "White-labeling — Art. 25(1)(a).",
+          "resultNotes": [
+            "Contractual allocation of the obligations can change the white-labeling analysis."
+          ],
+          "resultActions": [
+            "Check the agreement that allocates obligations between the original and new provider."
+          ]
         },
         {
           "label": "We substantially modified a high-risk system (and it stays high-risk)",
@@ -144,12 +165,20 @@
         {
           "label": "We market or position a non-high-risk system for a different, high-risk use than the provider intended",
           "goto": "o-flip",
-          "desc": "Art. 25(1)(c) — the flip that needs no code change."
+          "desc": "This positioning change can occur without a code change.",
+          "resultNotes": [
+            "Art. 25(1)(c) can change the provider role when the intended purpose changes to a high-risk use."
+          ]
         },
         {
           "label": "We sell a system that is NOT high-risk under OUR name or trademark",
           "goto": "o-provider",
-          "desc": "Below high-risk, Art. 25(1) does not bite — but supplying under your own name fits the Art. 3(3) provider definition; the live exposure is the provider-side Art. 50 transparency set, not the Art. 16 stack. Fact-specific — document the analysis."
+          "resultNotes": [
+            "Below high-risk, Art. 25(1) does not apply, but supplying under your own name fits the Art. 3(3) provider definition. The provider-side Art. 50 transparency obligations remain relevant rather than the Art. 16 high-risk obligations. This is fact-specific."
+          ],
+          "resultActions": [
+            "Document the provider-role analysis."
+          ]
         }
       ]
     },
@@ -173,7 +202,10 @@
         {
           "label": "We substantially modify a HIGH-RISK system before placing it",
           "goto": "o-flip",
-          "desc": "Localizing or retraining CAN qualify — test against Art. 3(23): a change not foreseen in the provider's conformity assessment that affects compliance or changes the intended purpose. Changes within the provider's foreseen regime are not substantial."
+          "desc": "Art. 3(23): a change not foreseen in the provider's conformity assessment that affects compliance or changes the intended purpose. Changes within the provider's foreseen regime are not substantial.",
+          "resultActions": [
+            "Assess localization or retraining against the Art. 3(23) substantial-modification definition."
+          ]
         },
         {
           "label": "We reposition a non-high-risk system for a high-risk use",
@@ -182,7 +214,9 @@
         {
           "label": "We place a system that is NOT high-risk on the market under OUR name or trademark",
           "goto": "o-provider",
-          "desc": "Below high-risk, Art. 25(1) does not bite — but supplying under your own name fits the Art. 3(3) provider definition; the live exposure is the provider-side Art. 50 transparency set, not the Art. 16 stack."
+          "resultNotes": [
+            "Below high-risk, Art. 25(1) does not bite — but supplying under your own name fits the Art. 3(3) provider definition; the live exposure is the provider-side Art. 50 transparency set, not the Art. 16 stack."
+          ]
         }
       ]
     },

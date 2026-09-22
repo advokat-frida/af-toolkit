@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-MD",
+  "label": "Maryland: sensitive data",
+  "citation": "Md. Code, Commercial Law §14-4707(a)(1)–(2); 2026 Md. Laws ch.874",
+  "provenance": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&enactments=false&section=14-4707",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Sensitive-data collection, processing and sharing must be strictly necessary for a specific product or service requested by the consumer. Selling sensitive data is prohibited.</p>",
+    "<p>Document strict necessity for the requested product. Consent does not cure unnecessary processing or the sensitive-data sale ban.</p>",
+    "<p>Use the expanded current sensitive/geolocation definitions in the July 1, 2026 amendment; include linked device and vehicle location in the review.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

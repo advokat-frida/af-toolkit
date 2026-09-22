@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-RI",
+  "label": "Rhode Island: sale and targeted advertising",
+  "citation": "R.I. Gen. Laws §6-48.1-5(a)(5)",
+  "provenance": "https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-5.htm",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Covered customers can opt out of sale, targeted advertising and profiling in furtherance of solely automated decisions with legal or similarly significant effects.</p>",
+    "<p>Implement the relevant opt-out route using Rhode Island's definitions.</p>",
+    "<p>Check the separate commercial website/online-service notice provision; meeting or missing full-law thresholds does not settle that provision.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2026-01-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

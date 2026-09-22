@@ -56,7 +56,9 @@
         {
           "label": "Another party decides the essential means (data types, retention, recipients)",
           "goto": "o-joint",
-          "desc": "You determine purposes; deciding essential means is itself controller-level influence (EDPB 07/2020). Two parties each exerting controller-level influence over the same processing points to joint controllership — not a controller-processor relationship."
+          "resultNotes": [
+            "You determine purposes; deciding essential means is itself controller-level influence (EDPB 07/2020). Two parties each exerting controller-level influence over the same processing points to joint controllership — not a controller-processor relationship."
+          ]
         }
       ]
     },

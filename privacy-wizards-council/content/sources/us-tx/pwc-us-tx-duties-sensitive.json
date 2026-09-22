@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-TX",
+  "label": "Texas: sensitive data",
+  "citation": "Tex. Bus. & Com. Code §541.101(b)(4)",
+  "provenance": "https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Full-law controllers need consent for sensitive processing, with COPPA treatment for known-child data.</p>",
+    "<p>Identify the sensitive category and obtain valid consent before processing.</p>",
+    "<p>If selling sensitive or biometric data, also satisfy the additional statutory notice requirements in §541.102.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2024-07-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

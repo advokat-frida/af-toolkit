@@ -1,7 +1,7 @@
 {
   "juris": "EU",
   "label": "EU AI Act Art. 6 — Classification rules for high-risk AI systems",
-  "citation": "Regulation (EU) 2024/1689, Art. 6 (paras 1a-1c inserted by the Digital Omnibus on AI, 2026)",
+  "citation": "Regulation (EU) 2024/1689, Art. 6, as amended by Regulation (EU) 2026/1744, Art. 1(8) (paragraphs 1a-1c inserted)",
   "body": [
     "1. [An] AI system shall be considered to be high-risk where both of the following conditions are fulfilled: (a) the AI system is intended to be used as a safety component of a product, or the AI system is itself a product, covered by the Union harmonisation legislation listed in Annex I; (b) the product whose safety component pursuant to point (a) is the AI system, or the AI system itself as a product, is required to undergo a third-party conformity assessment, with a view to the placing on the market or the putting into service of that product pursuant to the Union harmonisation legislation listed in Annex I.",
     "",
@@ -17,11 +17,11 @@
     "4. A provider who considers that an AI system referred to in Annex III is not high-risk shall document its assessment before that system is placed on the market or put into service. Such provider shall be subject to the registration obligation set out in Article 49(2). Upon request of national competent authorities, the provider shall provide the documentation of the assessment."
   ],
   "kind": "statute",
-  "provenance": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R1689",
+  "provenance": "https://eur-lex.europa.eu/eli/reg/2024/1689/2026-07-27/eng",
   "review": {
     "status": "automated-check-only",
-    "retrievedDate": null,
-    "effectiveOrPublicationDate": null,
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2026-07-27",
     "reviewDate": null,
     "reviewer": null,
     "reviewerRole": null

@@ -1,0 +1,22 @@
+{
+  "kind": "statute",
+  "juris": "US-TX",
+  "label": "Texas: applicability",
+  "citation": "Tex. Bus. & Com. Code §§ 541.001 to 541.003, 541.107",
+  "provenance": "https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. §541.107 still prohibits a qualifying small business from selling sensitive personal data without prior consumer consent.",
+  "body": [
+    "<p>Does it conduct business in Texas OR produce a product or service consumed by Texas residents, AND process or engage in the sale of personal data?</p>",
+    "<p>General scope has no fixed consumer-volume or universal revenue cutoff. The small-business exception is assessed separately.</p>",
+    "<p>Texas consumers acting individually or as a household, excluding employment and commercial roles. No fixed consumer-volume or universal revenue test applies.</p>",
+    "<p>Measuring period: No fixed annual consumer-volume test. SBA classification depends on the applicable industry, size measure and affiliation rules.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

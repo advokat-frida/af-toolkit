@@ -4,6 +4,8 @@
 
 **The other PWC — the one that hands you an answer before an invoice.**
 
+[Changelog](CHANGELOG.md)
+
 Guided determinations for the privacy questions that eat your afternoon: is this a notifiable breach, does it need a DPIA, which lawful basis, can this data leave the EU. Answer plainly, click through, and leave with the determination, the statutes and case law behind it, and a dated record you can file.
 
 No backend, no accounts, and no telemetry. The authored vNext uses Svelte and Vite, then builds to

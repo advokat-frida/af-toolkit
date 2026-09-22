@@ -1,5 +1,35 @@
 # HANDOFF
 
+## 2026-09-22 - PWC US state expansion approved for release
+
+Ben completed practitioner review and approved the current version, explicitly requesting Tuck
+and deployment. The approved PWC artifact remains byte-identical at SHA-256
+`684bff2d7765255380de84917f10984002a91998e50f22908677d08067f800b4` (1,716,596 bytes).
+The subsequent changelog request adds the September 22 entry to the Toolkit Home and a linked
+`privacy-wizards-council/CHANGELOG.md`; it does not modify the approved tool artifact.
+
+Two new US paths cover applicability and duties for the twenty-state comprehensive-law cohort.
+Independent histories, unknown-fact results, combined records and the requested finder, answer,
+checklist, Authority, Next determination and wrapping changes are detailed in
+`docs/review/pwc-us-state-review.md`, alongside source and independent-review receipts.
+Per-source provenance remains as authored; version-level practitioner approval does not silently
+change every source's status or enable calendar export.
+
+The tool gate passes 75 tests plus registry/style/build/artifact checks. The Toolkit gate passes
+128 static checks, four viewport checks, 16 state proofs and the style census. Release follows
+the existing Cloudflare Workers Builds connection from `main`, not a Ghost theme upload.
+
+Notion AF-9 is the release task. Follow-on work is now split into
+[breach notifications](https://app.notion.com/p/3e30f293ed9d81ff95b9dd4ab5ccd5d0) and
+[DPIA/assessments](https://app.notion.com/p/3e30f293ed9d81e9b9bded87615a63b4) as Backlog,
+with [remaining shared usability](https://app.notion.com/p/3e30f293ed9d817bba7ccf0d02eaf3c7)
+as Idea. The original expansion research links to these and is labeled historical.
+No schema or status choices changed. Other Toolkit tasks remain parked pending Ben's check-in.
+
+Release completion, commit and live verification are appended here after deployment.
+
+---
+
 ## 2026-09-14 - Privacy Wizards: the build reads content/ (W1.0 part 2)
 
 Tucked on Ben's word through a pull request from `wizards-registry-switchover`, because it

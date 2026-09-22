@@ -48,28 +48,28 @@
       "opts": [
         {
           "label": "Negligible (Very Low) — minimal or no adverse impact",
-          "desc": "Individuals experience little to no adverse effect; any inconvenience is trivial and easily overcome, with no meaningful loss of control over their data. No regulatory or material consequence for the organization.",
-          "goto": "q-lik-1"
+          "goto": "q-lik-1",
+          "desc": "Individuals experience little to no adverse effect; any inconvenience is trivial and easily overcome, with no meaningful loss of control over their data."
         },
         {
           "label": "Minor (Low) — limited, short-term impact",
-          "desc": "Individuals face minor, short-term inconvenience they can overcome without difficulty (re-entering data, minor annoyance). Isolated complaints or minor cost; no regulatory interest.",
-          "goto": "q-lik-2"
+          "goto": "q-lik-2",
+          "desc": "Individuals face minor, short-term inconvenience they can overcome without difficulty (re-entering data, minor annoyance)."
         },
         {
           "label": "Moderate (Moderate) — noticeable but recoverable",
-          "desc": "Individuals face real but recoverable harm — stress, lost time, minor financial loss, or limited loss of control over their personal data. Moderate cost, a possible regulatory inquiry, or limited reputational damage.",
-          "goto": "q-lik-3"
+          "goto": "q-lik-3",
+          "desc": "Individuals face real but recoverable harm — stress, lost time, minor financial loss, or limited loss of control over their personal data."
         },
         {
           "label": "Major (High) — significant, lasting impact",
-          "desc": "Individuals face significant harm that is difficult to overcome — material financial loss, discrimination, damage to reputation, or loss of confidentiality of protected data. Significant fines, regulatory action, or material reputational harm.",
-          "goto": "q-lik-4"
+          "goto": "q-lik-4",
+          "desc": "Individuals face significant harm that is difficult to overcome — material financial loss, discrimination, damage to reputation, or loss of confidentiality of protected data."
         },
         {
           "label": "Severe (Very High) — critical, potentially irreversible",
-          "desc": "Individuals face severe or irreversible harm to their fundamental rights — identity theft or fraud, physical or safety risk, financial ruin, or being unable to exercise control over their data. Maximum penalties, enforcement, litigation, or existential reputational damage.",
-          "goto": "q-lik-5"
+          "goto": "q-lik-5",
+          "desc": "Individuals face severe or irreversible harm to their fundamental rights — identity theft or fraud, physical or safety risk, financial ruin, or being unable to exercise control over their data."
         }
       ]
     },
@@ -109,8 +109,13 @@
         },
         {
           "label": "Cannot yet be assessed — access or exfiltration cannot be ruled out",
-          "desc": "The honest mid-incident answer. Graded conservatively at the 'Likely' column until forensics say otherwise, in line with EDPB 9/2022's worked examples — the outcome describes the band you provisionally occupy, not an established finding; re-run this wizard as facts land.",
-          "goto": "o-low"
+          "goto": "o-low",
+          "resultNotes": [
+            "Likelihood has not been established. This result provisionally uses the rubric's Likely column until the investigation resolves access or exfiltration; it is not an established finding."
+          ],
+          "resultActions": [
+            "Re-run this wizard when the investigation establishes the likelihood of harm."
+          ]
         }
       ]
     },
@@ -150,8 +155,13 @@
         },
         {
           "label": "Cannot yet be assessed — access or exfiltration cannot be ruled out",
-          "desc": "The honest mid-incident answer. Graded conservatively at the 'Likely' column until forensics say otherwise, in line with EDPB 9/2022's worked examples — the outcome describes the band you provisionally occupy, not an established finding; re-run this wizard as facts land.",
-          "goto": "o-medium"
+          "goto": "o-medium",
+          "resultNotes": [
+            "Likelihood has not been established. This result provisionally uses the rubric's Likely column until the investigation resolves access or exfiltration; it is not an established finding."
+          ],
+          "resultActions": [
+            "Re-run this wizard when the investigation establishes the likelihood of harm."
+          ]
         }
       ]
     },
@@ -191,8 +201,13 @@
         },
         {
           "label": "Cannot yet be assessed — access or exfiltration cannot be ruled out",
-          "desc": "The honest mid-incident answer. Graded conservatively at the 'Likely' column until forensics say otherwise, in line with EDPB 9/2022's worked examples — the outcome describes the band you provisionally occupy, not an established finding; re-run this wizard as facts land.",
-          "goto": "o-high"
+          "goto": "o-high",
+          "resultNotes": [
+            "Likelihood has not been established. This result provisionally uses the rubric's Likely column until the investigation resolves access or exfiltration; it is not an established finding."
+          ],
+          "resultActions": [
+            "Re-run this wizard when the investigation establishes the likelihood of harm."
+          ]
         }
       ]
     },
@@ -232,8 +247,13 @@
         },
         {
           "label": "Cannot yet be assessed — access or exfiltration cannot be ruled out",
-          "desc": "The honest mid-incident answer. Graded conservatively at the 'Likely' column until forensics say otherwise, in line with EDPB 9/2022's worked examples — the outcome describes the band you provisionally occupy, not an established finding; re-run this wizard as facts land.",
-          "goto": "o-critical"
+          "goto": "o-critical",
+          "resultNotes": [
+            "Likelihood has not been established. This result provisionally uses the rubric's Likely column until the investigation resolves access or exfiltration; it is not an established finding."
+          ],
+          "resultActions": [
+            "Re-run this wizard when the investigation establishes the likelihood of harm."
+          ]
         }
       ]
     },
@@ -273,8 +293,13 @@
         },
         {
           "label": "Cannot yet be assessed — access or exfiltration cannot be ruled out",
-          "desc": "The honest mid-incident answer. Graded conservatively at the 'Likely' column until forensics say otherwise, in line with EDPB 9/2022's worked examples — the outcome describes the band you provisionally occupy, not an established finding; re-run this wizard as facts land.",
-          "goto": "o-critical"
+          "goto": "o-critical",
+          "resultNotes": [
+            "Likelihood has not been established. This result provisionally uses the rubric's Likely column until the investigation resolves access or exfiltration; it is not an established finding."
+          ],
+          "resultActions": [
+            "Re-run this wizard when the investigation establishes the likelihood of harm."
+          ]
         }
       ]
     },

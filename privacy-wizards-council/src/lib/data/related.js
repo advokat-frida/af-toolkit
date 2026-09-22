@@ -3,6 +3,8 @@
 // shares no jurisdiction with the law it cites (relatedWizardIds), so a second id serves the
 // readers the first one does not.
 export const RELATED = {
+  'us-applicability': ['us-divergence'],
+  'us-divergence': ['us-applicability', 'dsar'],
   breach: ['severity'],
   severity: ['breach'],
   'sale-share': ['cookies', 'dsar'],

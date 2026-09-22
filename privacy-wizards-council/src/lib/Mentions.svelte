@@ -5,7 +5,7 @@
   import { onDestroy, tick } from 'svelte';
   import { get } from 'svelte/store';
   import { SOURCE_MANIFEST, sourceStatusLabel } from './engine/council.js';
-  import { mentionCard, tokenize } from './engine/mentions.js';
+  import { mentionCard, tokenizeWithLinks } from './engine/mentions.js';
   import { activeCite } from './engine/cite-state.js';
 
   export let text = '';
@@ -25,7 +25,7 @@
   // Returning focus to the mention after a close must not reopen the card.
   let quietFocus = false;
 
-  $: segments = tokenize(text, context || undefined, scope || undefined);
+  $: segments = tokenizeWithLinks(text, context || undefined, scope || undefined);
   // The same block is reused when the reader moves on; an open card would then point at
   // words that are no longer there.
   $: blockKey = `${context?.wizardId || ''}|${context?.uk ? 'uk' : ''}|${text}`;
@@ -169,6 +169,7 @@
   <span class="cite-card-head"><span class="cite-card-label">{card.label}</span><button type="button" class="cite-close" aria-label="Close" on:click={() => close(true)}>×</button></span>
   <span class="cite-card-cite">{card.citation}</span>
   <span class="status-line"><span class={`status-dot dot-${status}`} aria-hidden="true"></span>{sourceStatusLabel(status)}</span>
+  {#if card.note}<span class="cite-card-cite">{card.note}</span>{/if}
   <span class="cite-card-text">{showFull ? card.full : card.focus}</span>
   <span class="cite-card-actions">{#if card.focus && !showFull}<button type="button" class="text-button" on:click={showWhole}>Show the whole text</button>{/if}{#if card.provenance}<a class="official-link" href={card.provenance} target="_blank" rel="noopener noreferrer">Open the official text ↗</a>{/if}</span>
-</span>{/if}{:else}{segment.text}{/if}{/each}</span>
+</span>{/if}{:else if segment.href}<a class="resource-link" href={segment.href} target="_blank" rel="noopener noreferrer">{segment.text}</a>{:else}{segment.text}{/if}{/each}</span>

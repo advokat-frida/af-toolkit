@@ -1,0 +1,20 @@
+{
+  "kind": "statute",
+  "juris": "US-MN",
+  "label": "Minnesota: entity and data exclusions",
+  "citation": "Minn. Stat. § 325M.12",
+  "provenance": "https://www.revisor.mn.gov/statutes/cite/325M.12",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Entity status and record-level exclusions are separate decisions; the listed categories must satisfy the linked law's definitions and conditions.",
+  "body": [
+    "<p>Government and tribal bodies, qualifying banks/credit unions and financial affiliates, insurance entities/financial affiliates, and nonprofits established to prevent insurance fraud have specific exclusions. General nonprofit and HIPAA-entity exemptions do not exist. SBA small businesses and deferred higher-education compliance are checked separately.</p>",
+    "<p>§325M.12 lists protected health and research information, same-manner provider records, compliant limited datasets, GLBA and regulated credit data, and other specific exclusions. Check conditions by record. Student technology-provider obligations under §13.32 are not cleared by this route.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

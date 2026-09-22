@@ -32,7 +32,9 @@
         {
           "label": "Indirectly — we produce a score or output that a third party draws strongly on for a significant decision",
           "goto": "q-significant",
-          "desc": "SCHUFA (C-634/21): the score itself is an Art. 22(1) decision where the recipient draws strongly on it (EU authority; persuasive only in the UK)."
+          "resultNotes": [
+            "Under SCHUFA (C-634/21), a score can itself fall within Art. 22(1) when a recipient draws strongly on it for a decision with legal or similarly significant effects. This is EU authority and persuasive only in the UK."
+          ]
         },
         {
           "label": "No — meaningful human review of every individual decision",
@@ -116,7 +118,12 @@
         {
           "label": "Both — EU and UK operations",
           "goto": "q-22-2",
-          "desc": "Complete the EU path first, then re-run this wizard for the UK branch."
+          "resultNotes": [
+            "This result covers the EU path. The UK branch remains a separate determination."
+          ],
+          "resultActions": [
+            "Re-run this wizard for the UK branch."
+          ]
         }
       ]
     },
@@ -199,7 +206,7 @@
           "goto": "o-22-2-c"
         },
         {
-          "label": "None — the decision is unlawful as designed",
+          "label": "None of these exceptions applies",
           "goto": "o-22-unlawful"
         }
       ]
