@@ -71,6 +71,11 @@ body {
   background-size: auto, 32px 32px, 32px 32px, auto;
 }
 
+body:has(main.is-embed) {
+  min-height: 0;
+  display: flow-root;
+}
+
 button,
 input,
 textarea,
@@ -1231,7 +1236,7 @@ h4 {
 
 .source-layer.open {
   min-width: 0;
-  max-height: calc(100vh - 40px);
+  max-height: calc(var(--toolkit-viewport-height, 100vh) - 40px);
   padding: 18px;
   position: sticky;
   top: 18px;

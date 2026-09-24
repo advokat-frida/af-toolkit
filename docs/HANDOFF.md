@@ -1,5 +1,73 @@
 # HANDOFF
 
+## 2026-09-23 - AF-16 approved for release
+
+Ben reviewed the final scrolling correction below and approved: **looks great.
+tuck please**. This supersedes the local-only boundary and authorizes commit,
+push, merge, deployment and live verification for Toolkit and Survival Guide.
+Task: [AF-16](https://app.notion.com/p/3e50f293ed9d814caef8de144b3d880c).
+
+Independent review caught Redactorium notifications falling below the outer
+viewport after its iframe grew. The shell now supplies the visible viewport
+inset; embedded Sonner positioning accounts for the existing desktop zoom and
+phone offsets. Standalone notifications remain unchanged. Independent recheck
+found no remaining blockers; desktop and 390px geometry was verified. The
+four-width regression check also requires the notification inside the viewport.
+Mobile results use cards, so that check does not wait for the hidden desktop table.
+
+Release evidence follows after deployment. The unrelated untracked .claude/
+directory remains untouched. Main website, shop, Ghost, DNS and analytics are
+outside this release.
+
+## 2026-09-23 - Shared footer ready locally for Ben's review
+
+Ben requested a publication footer on every Toolkit route, consistent with the main
+site and Survival Guide. The shell now supplies an ink-band footer with a larger
+Advokat Frida nameplate and About, Contact, Privacy and RSS links. It is outside
+all tool frames. The final scrolling correction below also updates the tools'
+embed layouts, rebuilt artifacts and provenance manifest.
+
+Design, syntax, unit, static, four-viewport and 16 state checks passed. The only
+initial gate failure was four new footer type/control tuples; the exact additions
+were reviewed, documented in DESIGN-SYSTEM.md, and added to style-baseline.json.
+The style census then passed. After the final scrolling correction below,
+the complete gate was rerun successfully and the proofs were regenerated.
+
+**Local review only.** Ben explicitly selected Keep local for review for this batch.
+Do not commit, push or deploy it without his next release instruction. Preview:
+http://127.0.0.1:4177/#home . The sibling Guide preview is on port 4193. The existing
+untracked .claude directory is unrelated and remains untouched.
+
+Ben's review correction: the footer must follow the document, not stay pinned
+while an expanded changelog scrolls. The shell now grows with Home content, the
+desktop sidebar stays sticky, and the footer follows the entire changelog or
+tool viewport. Route changes reset the outer document scroll to the top. This
+correction remains local under the same AF-16 review boundary. Design, syntax,
+unit and fresh four-viewport rendered checks pass. The expanded-changelog scroll,
+footer after the last entry, and tool-switch scroll reset were verified directly.
+The sidebar's height also accounts for the existing large-display zoom steps.
+
+**Final scrolling correction.** The first correction gave the page and each
+tool their own scrollbar. The next attempt fit the footer beneath a fixed tool
+viewport, and Ben correctly rejected it as floating again. Both approaches are
+superseded: the outer page now owns scrolling on every route. A ResizeObserver
+fits each same-origin iframe to its body's natural height, including shrinking
+back after a long result. Each tool's embed CSS removes its viewport-height
+minimum; bounded data previews use a parent-viewport variable to avoid resize
+feedback. Footer positioning is ordinary page flow after the complete content.
+Tool logic, copy and artwork are unchanged; the layout CSS was rebuilt in each
+source folder and staged through build-tools, including new provenance hashes.
+
+Direct browser review confirmed SafeSeed's footer below the initial viewport,
+moving into view only at the bottom, and following an added/removed column
+(frame 1000 -> 1057 -> 1000px at the review width). Redactorium's sample results
+grow its frame from 626 to 1104px and push the footer below the screen. Phone
+and result-state proofs were inspected. Tool-folder checks/builds pass; the
+full Toolkit gate passes, including design, syntax, 128 static checks, four
+viewports, 16 states and style census. Rendered checks now assert content-fitting
+frames and the footer after content. Still local review only: no commit, push
+or deployment.
+
 ## 2026-09-22 - PWC US state expansion approved for release
 
 Ben completed practitioner review and approved the current version, explicitly requesting Tuck

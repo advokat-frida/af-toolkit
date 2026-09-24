@@ -197,6 +197,17 @@ async function main() {
         // Park the pointer on empty rail: a proof shows the drawn state, not the hover of the last click.
         await page.mouse.move(12, 780);
         await page.waitForTimeout(500);
+        // A long result must grow its frame; changing back to a short form must
+        // shrink it again. The page owns scrolling and the footer follows it.
+        const flow = await page.evaluate(() => {
+          const frame = document.querySelector('[data-view]:not([hidden]) iframe');
+          if (!frame) return true;
+          const doc = frame.contentDocument;
+          return doc.documentElement.scrollHeight - doc.documentElement.clientHeight <= 1 &&
+            Math.abs(frame.clientHeight - doc.body.getBoundingClientRect().height) <= 1 &&
+            document.querySelector('.toolkit-footer').getBoundingClientRect().top >= frame.getBoundingClientRect().bottom;
+        });
+        if (!flow) throw new Error('Tool frame must fit its content, with the footer after it');
         await page.screenshot({ path: join(proofsRoot, `${name}.png`) });
         process.stdout.write(`PASS  ${name}\n`);
       } catch (error) {

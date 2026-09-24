@@ -21,8 +21,8 @@ const embedBody = body.replace(/[ \t]*<!-- sl:standalone-start -->[\s\S]*?<!-- s
 
 const embedCss = `
   /* Toolkit embed: the shell provides the frame; this page is only the stage. */
-  html,body{height:100%}
-  .wrap{width:100%;max-width:1130px;margin:0 auto;min-height:100%;display:flex;flex-direction:column;padding:0 32px}
+  body{display:flow-root}
+  .wrap{width:100%;max-width:1130px;margin:0 auto;display:flex;flex-direction:column;padding:0 32px}
   .wrap>main{flex:1 1 auto;display:flex;flex-direction:column}
   .sl-stage{margin:26px 0 30px}
   @media(max-width:640px){.wrap{padding:0 10px}.sl-stage{margin:12px 0 18px}}

@@ -962,6 +962,18 @@ html:has([data-toolkit-embedded="true"]) body {
    nothing changes, which is the laptop view already signed off.
 
    The embed flag lives on the App div, not on body - target it directly. */
-@media (min-width: 1252px) { [data-toolkit-embedded="true"] { zoom: 1.08; } }
-@media (min-width: 1528px) { [data-toolkit-embedded="true"] { zoom: 1.18; } }
-@media (min-width: 1900px) { [data-toolkit-embedded="true"] { zoom: 1.30; } }
+@media (min-width: 1252px) { [data-toolkit-embedded="true"] { zoom: 1.08; --toolkit-embed-scale: 1.08; } }
+@media (min-width: 1528px) { [data-toolkit-embedded="true"] { zoom: 1.18; --toolkit-embed-scale: 1.18; } }
+@media (min-width: 1900px) { [data-toolkit-embedded="true"] { zoom: 1.30; --toolkit-embed-scale: 1.30; } }
+
+/* The Toolkit iframe grows with this page. Keep notifications in the visible
+   outer viewport, accounting for the composition's existing desktop scale. */
+[data-toolkit-embedded="true"] [data-sonner-toaster][data-y-position="bottom"] {
+    --toolkit-toast-offset: var(--offset-bottom);
+    bottom: calc(var(--toolkit-bottom-inset, 0px) / var(--toolkit-embed-scale, 1) + var(--toolkit-toast-offset));
+}
+@media (max-width: 600px) {
+    [data-toolkit-embedded="true"] [data-sonner-toaster][data-y-position="bottom"] {
+        --toolkit-toast-offset: var(--mobile-offset-bottom);
+    }
+}

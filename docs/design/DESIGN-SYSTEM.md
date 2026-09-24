@@ -368,6 +368,22 @@ Retired or banned, with the deciding turn of the design package in parentheses:
 
 ## 7. Change control
 
+Ben's 2026-09-23 shared-footer instruction adds a shell-owned colophon to Home
+and every Toolkit route. It follows the main publication's ink band and the
+Guide's brand-plus-links anatomy: Anton 21px/400 uppercase nameplate in paper,
+`--lh-display` and `.02em` tracking; Archivo 13px/400 paper links at `--lh-label`
+with 44px targets. Desktop padding is 12px 32px, mobile 12px 20px. The footer
+sits outside tool frames, wraps naturally, and carries About, Contact, Privacy
+and RSS without extra explanatory copy. The sidebar spans both content and
+footer rows. On every route it follows the full document, including the
+expanded changelog or the complete tool content. It must never stay pinned
+below a scrolling tool viewport. The same-origin tool frames grow and shrink
+with their natural content height; the outer page owns vertical scrolling.
+Embed layouts have no viewport-height minimums. Bounded data tables retain
+their own scrolling and use the parent viewport height for their size limit,
+so growing the iframe cannot repeatedly enlarge the table. The desktop sidebar
+remains sticky. These are layout changes only, with no changes to tool logic.
+
 - This file changes only with an approved design decision (a reviewed design-package turn or
   Ben's explicit call). Code never drifts ahead of it.
 - New tools adopt the system **at the source** — the shell's embed adapter may hide standalone

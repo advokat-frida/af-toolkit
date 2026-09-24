@@ -137,6 +137,9 @@ a:hover {
   flex-direction: column;
 }
 
+/* In the Toolkit the outer page, including its footer, owns scrolling. */
+.page-shell.is-embed { min-height: 0; }
+
 .site {
   width: min(980px, calc(100% - 32px));
   max-width: none;
@@ -787,7 +790,7 @@ a:hover {
 .gen-table-wrap {
   margin-top: 18px;
   /* Grows with the viewport; 440px is the floor, not the shape. */
-  max-height: max(440px, calc(100dvh - 320px));
+  max-height: max(440px, calc(var(--toolkit-viewport-height, 100dvh) - 320px));
   overflow: auto;
   border-bottom: 1px solid var(--hair);
 }

@@ -15,6 +15,49 @@ const closeButton = document.querySelector(".nav-close");
 const sidebar = document.querySelector(".toolkit-sidebar");
 const scrim = document.querySelector(".nav-scrim");
 let menuReturnTarget = null;
+const frameLayouts = new Map();
+
+// Each same-origin tool has a natural-height embed layout. Observe its body,
+// not its viewport/scrollHeight (which cannot shrink after a long result).
+// The outer document owns scrolling, so the footer follows the whole tool.
+function trackFrameHeight(frame) {
+  frameLayouts.get(frame)?.disconnect();
+  const doc = frame.contentDocument;
+  if (!doc?.body) return;
+  let pending = 0;
+  const syncViewport = () => {
+    if (!frame.getClientRects().length) return;
+    // Embedded notifications must stay in the visible part of a long frame.
+    doc.documentElement.style.setProperty("--toolkit-bottom-inset", `${Math.max(0, frame.getBoundingClientRect().bottom - window.innerHeight)}px`);
+  };
+  const sync = () => {
+    pending = 0;
+    if (!frame.getClientRects().length) return;
+    const headerHeight = document.querySelector(".mobile-bar").getBoundingClientRect().height;
+    const toolHeadHeight = frame.closest(".tool-view").querySelector(".tool-head").getBoundingClientRect().height;
+    // Bounded data previews still use the browser viewport, not the expanding
+    // iframe height. Otherwise each resize would make them grow again.
+    doc.documentElement.style.setProperty("--toolkit-viewport-height", `${Math.max(1, window.innerHeight - headerHeight - toolHeadHeight)}px`);
+    const height = Math.ceil(doc.body.getBoundingClientRect().height);
+    if (height > 0 && frame.style.height !== `${height}px`) frame.style.height = `${height}px`;
+    syncViewport();
+  };
+  const schedule = () => {
+    if (!pending) pending = requestAnimationFrame(sync);
+  };
+  const observer = new ResizeObserver(schedule);
+  observer.observe(doc.body);
+  frameLayouts.set(frame, {
+    schedule,
+    syncViewport,
+    disconnect() {
+      observer.disconnect();
+      cancelAnimationFrame(pending);
+    }
+  });
+  doc.fonts.ready.then(schedule);
+  sync();
+}
 
 function hashValue() {
   try {
@@ -34,6 +77,7 @@ function ensureFrame(route) {
   const frame = frames.get(route);
   if (!frame || frame.src) return;
   frame.addEventListener("load", () => {
+    trackFrameHeight(frame);
     frame.closest(".frame-stage")?.classList.add("is-loaded");
   });
   frame.src = frame.dataset.src;
@@ -56,6 +100,7 @@ function showRoute({ focus = true } = {}) {
   document.body.dataset.route = route;
   document.title = `${routeMeta[route].title} · AF Toolkit`;
   ensureFrame(route);
+  frameLayouts.get(frames.get(route))?.schedule();
   closeMenu({ restoreFocus: false });
 
   requestAnimationFrame(() => {
@@ -63,7 +108,7 @@ function showRoute({ focus = true } = {}) {
       document.getElementById(subAnchor)?.scrollIntoView({ block: "start" });
       return;
     }
-    if (route === "home") views.get("home")?.scrollTo({ top: 0, behavior: "auto" });
+    window.scrollTo({ top: 0, behavior: "auto" });
     if (focus) views.get(route)?.querySelector("h1")?.focus({ preventScroll: true });
   });
 }
@@ -146,7 +191,11 @@ for (const link of navLinks) {
 }
 
 window.addEventListener("hashchange", () => showRoute());
+window.addEventListener("scroll", () => {
+  frameLayouts.get(frames.get(activeRoute()))?.syncViewport();
+}, { passive: true });
 window.addEventListener("resize", () => {
+  frameLayouts.get(frames.get(activeRoute()))?.schedule();
   if (window.matchMedia("(min-width: 821px)").matches) closeMenu({ restoreFocus: false });
 });
 

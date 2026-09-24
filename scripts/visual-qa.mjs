@@ -114,6 +114,14 @@ async function main() {
       for (const route of Object.keys(TOOL_ANCHORS)) {
         await openRoute(page, base, route);
         await noHorizontalScroll(page, `${viewport.name} ${route}`);
+        const toolDocument = page.frames().find((f) => f.url().includes("/tools/"));
+        const innerScroll = await toolDocument.evaluate(() => document.documentElement.scrollHeight - document.documentElement.clientHeight);
+        assert(innerScroll <= 1, `${viewport.name} ${route}: tool fits its frame without a second scrollbar (overflow ${innerScroll}px)`);
+        const footerFollowsTool = await page.evaluate((route) =>
+          document.querySelector(".toolkit-footer").getBoundingClientRect().top >=
+          document.querySelector(`[data-view="${route}"] iframe`).getBoundingClientRect().bottom,
+        route);
+        assert(footerFollowsTool, `${viewport.name} ${route}: footer follows the complete tool`);
         if (desktop) {
           const head = await page.locator(`[data-view="${route}"] .tool-head`).boundingBox();
           assert(head && Math.abs(head.height - 56) <= 1, `${viewport.name} ${route}: 56px breadcrumb header (${head?.height})`);
@@ -132,6 +140,18 @@ async function main() {
         if (true) {
           await page.screenshot({ path: join(proofsRoot, `${viewport.name}-${route}.png`), fullPage: false });
         }
+        if (route === "redactorium") {
+          await frame.locator("[data-testid='use-sample-btn']").click();
+          await page.waitForFunction(() => {
+            const iframe = document.querySelector('[data-tool-frame="redactorium"]');
+            const toast = iframe.contentDocument.querySelector('[data-sonner-toast]');
+            if (!toast) return false;
+            const rect = toast.getBoundingClientRect();
+            const top = iframe.getBoundingClientRect().top;
+            return rect.height > 0 && top + rect.top >= 0 && top + rect.bottom <= window.innerHeight + 1;
+          }, null, { timeout: 3000 });
+          assert(true, `${viewport.name} redactorium: notification stays in the visible outer viewport`);
+        }
       }
 
       if (viewport.name === "desktop-1440") {
@@ -140,6 +160,11 @@ async function main() {
         await page.locator(".changelog-card summary").click();
         await page.waitForTimeout(200);
         assert(await page.locator(".changelog-body").isVisible(), "desktop-1440 home: changelog opens");
+        const footerFollowsChangelog = await page.evaluate(() =>
+          document.querySelector(".toolkit-footer").getBoundingClientRect().top >=
+          document.querySelector(".changelog-body").getBoundingClientRect().bottom
+        );
+        assert(footerFollowsChangelog, "desktop-1440 home: footer follows the expanded changelog");
         await page.screenshot({ path: join(proofsRoot, "desktop-1440-home-changelog-open.png"), fullPage: true });
 
         // Keyboard: skip link first, focus lands on the active view heading after switching.
