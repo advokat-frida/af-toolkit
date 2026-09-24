@@ -15,9 +15,30 @@ found no remaining blockers; desktop and 390px geometry was verified. The
 four-width regression check also requires the notification inside the viewport.
 Mobile results use cards, so that check does not wait for the hidden desktop table.
 
-Release evidence follows after deployment. The unrelated untracked .claude/
+**Released and verified.** Runtime commit `3cde3424bd71c531c0cfb58c196bb371ec45895e`
+was fast-forwarded and pushed to main. Cloudflare production build
+`294a9a60-0cfb-4e10-aa47-9f301ac86483` succeeded, releasing Worker version
+`c373290d-5b1b-4866-9b11-39f5793549b2` at https://toolkit.advokatfrida.com/.
+GitHub CI `35942755400`, CodeQL `35942755272`, SafeSeed `35942755397`,
+Redactorium `35942755222`, SafeList `35942755266` and PWC `35942755206` passed.
+The complete local gate passed, including notification visibility at 1440,
+1034, 390 and 320px, 16 state proofs and the style census.
+
+At `2026-09-24T01:25:50.821Z`, 28 served files matched their committed bytes:
+shell, manifest, all four tool entrypoints and Redactorium's complete asset tree.
+Only the observed hidden Cloudflare /cdn-cgi/content anchor is removed from HTML
+for comparison. Live browser inspection confirmed the footer's document position
+stays constant while the expanded changelog scrolls, then appears after its final
+entry. SafeSeed and Redactorium have zero inner page overflow; sample results grow
+Redactorium's frame and keep the notification visible. Desktop/phone proofs were
+inspected. The sibling Guide release `4806965` is also live and verified.
+
+Rollback version: `3ac7f2bb-8039-450c-901b-783fdbe624f6`. The following closeout
+commit changes documentation only; a resulting connected Cloudflare build serves
+the same public bytes. AF-16 holds the final closeout and branch-pruning receipt.
+No implementation work remains for AF-16. The unrelated untracked .claude/
 directory remains untouched. Main website, shop, Ghost, DNS and analytics are
-outside this release.
+outside this release. Earlier local-only notes below are historical.
 
 ## 2026-09-23 - Shared footer ready locally for Ben's review
 
