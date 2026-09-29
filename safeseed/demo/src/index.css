@@ -320,18 +320,19 @@ h4 {
   .bar-nav a{font-size:10px;letter-spacing:0}
 }
 
-.site-colophon{width:100%;background:var(--ink);margin:3rem 0 0;line-height:1.5}
-.site-colophon-inner{width:min(1180px,100%);margin:0 auto;padding:1.5rem clamp(16px,4vw,56px);display:grid;grid-template-columns:1fr auto;gap:34px;align-items:center}
-.site-colophon-brand{min-width:0}
-.site-colophon-name{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.02em;color:#fff;margin:0 0 8px;font-size:26px;font-weight:400;line-height:1}
-.site-colophon-desc{font-family:var(--font-chrome);color:rgba(255,255,255,.82);max-width:520px;margin:0;font-size:13px;line-height:1.55}
-.site-colophon-nav{flex-direction:column;align-items:flex-end;gap:7px;margin:0;padding:0;line-height:1.5;list-style:none;display:flex}
-.site-colophon-nav a{font-family:var(--font-label);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.82);font-size:11px;font-weight:400;line-height:1.5;text-decoration:none;white-space:nowrap}
-.site-colophon-nav a:hover{color:#fff;text-decoration:none}
+/* The publication colophon: one row, the Toolkit shell's footer (public/toolkit.css .toolkit-footer) on this page's tokens. */
+.site-colophon{width:100%;display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:8px 32px;margin:3rem 0 0;padding:12px 32px;background:var(--ink);color:var(--paper)}
+.site-colophon a{color:var(--paper);text-decoration:none}
+.site-colophon a:hover{text-decoration:underline}
+.site-colophon a:focus-visible{outline-color:var(--paper)}
+.site-colophon-brand{display:inline-flex;align-items:center;min-height:44px;font-family:var(--font-display);font-size:21px;font-weight:400;line-height:1.1;letter-spacing:.02em;text-transform:uppercase}
+.site-colophon nav{display:flex;flex-wrap:wrap;gap:0 20px}
+.site-colophon nav a{display:inline-flex;align-items:center;min-height:44px;font-family:var(--font-label);font-size:13px;font-weight:400;line-height:1.4}
+@media(max-width:820px){
+  .site-colophon{padding:12px 20px;gap:0 24px}
+}
 @media(max-width:560px){
   .site-bar{padding-left:16px;padding-right:16px}
-  .site-colophon-inner{grid-template-columns:1fr;gap:16px;padding:24px 16px}
-  .site-colophon-nav{align-items:flex-start;flex-direction:row;flex-wrap:wrap;gap:10px 20px}
 }
 
 /* ============================================================

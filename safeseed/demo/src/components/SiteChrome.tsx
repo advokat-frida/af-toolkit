@@ -16,23 +16,18 @@ export function SiteHeader() {
   );
 }
 
+// The publication colophon: one row, the Toolkit shell's footer verbatim
+// (public/index.html + public/toolkit.css .toolkit-footer). No description line.
 export function SiteFooter() {
   return (
     <footer className="site-colophon">
-      <div className="site-colophon-inner">
-        <div className="site-colophon-brand">
-          <p className="site-colophon-name">Advokat Frida</p>
-          <p className="site-colophon-desc">Privacy and AI governance, by design and in practice.<br />Analytics by Plausible, cookieless and aggregate, no ad-tech.</p>
-        </div>
-        <nav aria-label="Footer">
-          <ul className="site-colophon-nav">
-            <li><a href="https://advokatfrida.com/about/">About</a></li>
-            <li><a href="mailto:hello@advokatfrida.com">Contact us</a></li>
-            <li><a href="https://advokatfrida.com/privacy/">Privacy</a></li>
-            <li><a href="https://advokatfrida.com/rss/">RSS</a></li>
-          </ul>
-        </nav>
-      </div>
+      <a className="site-colophon-brand" href="https://advokatfrida.com/">Advokat Frida</a>
+      <nav aria-label="Footer">
+        <a href="https://advokatfrida.com/about/">About</a>
+        <a href="mailto:hello@advokatfrida.com">Contact</a>
+        <a href="https://advokatfrida.com/privacy/">Privacy</a>
+        <a href="https://advokatfrida.com/rss/">RSS</a>
+      </nav>
     </footer>
   );
 }

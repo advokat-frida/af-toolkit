@@ -3,19 +3,27 @@ import { resolve } from 'node:path';
 
 const artifacts = ['safeseed-demo.html', 'safeseed-generator.html'];
 const required = [
-  'Privacy and AI governance, by design and in practice.',
-  'Analytics by Plausible, cookieless and aggregate, no ad-tech.',
   'https://advokatfrida.com/#/portal/signup',
   'https://advokatfrida.com/tag/field-guides/',
   'https://advokatfrida.com/tag/toolkit/',
   'https://shop.advokatfrida.com',
   'The Mercantile',
+  // The one-row colophon is the Toolkit shell's footer: a brand link home, then About,
+  // Contact, Privacy, RSS. No description line.
+  'https://advokatfrida.com/about/',
   'mailto:hello@advokatfrida.com',
-  'Contact us',
   'https://advokatfrida.com/privacy/',
+  'https://advokatfrida.com/rss/',
   'Privacy',
 ];
+// Footer link labels, matched in both the no-JS markup (>Label</a>) and the compiled JSX
+// (children:`Label`, whichever quote the bundler picks), so "Contact us" cannot pass as "Contact".
+const footerLabels = ['About', 'Contact', 'Privacy', 'RSS'];
+const footerLabelPattern = (label) => new RegExp(`(?:>|children:\\s*[\`"'])${label}(?:</a>|[\`"'])`);
+const footerBrandLink = /(?:class|className)(?:=|:)\s*[`"']site-colophon-brand[`"'],?\s*href(?:=|:)\s*[`"']https:\/\/advokatfrida\.com\/[`"']/;
 const banned = [
+  /Analytics by Plausible/i,
+  /site-colophon-desc/,
   /Runs in this browser/i,
   /No accounts, analytics, cookies/i,
   /Guided practitioner aid/i,
@@ -105,34 +113,49 @@ for (const artifact of artifacts) {
       !/\.bar-nav ul\s*\{[^}]*min-height:\s*24px/i.test(html)) {
     problems.push(`${artifact}: masthead geometry has drifted from the shared tool header`);
   }
-  if (!/\.site-colophon\s*\{[^}]*(?=[^}]*width:\s*100%)(?=[^}]*line-height:\s*1\.5)/i.test(html)) {
-    problems.push(`${artifact}: footer width or base line-height has drifted from the shared tool footer`);
+  // The footer is the Toolkit shell's one-row colophon (public/toolkit.css .toolkit-footer):
+  // an edge-to-edge ink band, brand link + four links, 44px hit targets, no description.
+  for (const label of footerLabels) {
+    if (!footerLabelPattern(label).test(html)) problems.push(`${artifact}: footer link label ${JSON.stringify(label)} is missing`);
   }
-  const footerNameRules = [...html.matchAll(/\.site-colophon-name\s*\{([^}]*)\}/gi)].map((match) => match[1]);
-  const footerDescRules = [...html.matchAll(/\.site-colophon-desc\s*\{([^}]*)\}/gi)].map((match) => match[1]);
-  const footerNavRules = [...html.matchAll(/\.site-colophon-nav\s*\{([^}]*)\}/gi)].map((match) => match[1]);
-  const footerLinkRules = [...html.matchAll(/\.site-colophon-nav a\s*\{([^}]*)\}/gi)].map((match) => match[1]);
-  if (!footerNameRules.some((rule) =>
-    /font-size:\s*26px/i.test(rule) &&
+  if (!footerBrandLink.test(html)) {
+    problems.push(`${artifact}: footer brand is not a link to https://advokatfrida.com/`);
+  }
+  const footerRules = [...html.matchAll(/\.site-colophon\s*\{([^}]*)\}/gi)].map((match) => match[1]);
+  const footerBrandRules = [...html.matchAll(/\.site-colophon-brand\s*\{([^}]*)\}/gi)].map((match) => match[1]);
+  const footerNavRules = [...html.matchAll(/\.site-colophon nav\s*\{([^}]*)\}/gi)].map((match) => match[1]);
+  const footerLinkRules = [...html.matchAll(/\.site-colophon nav a\s*\{([^}]*)\}/gi)].map((match) => match[1]);
+  if (!footerRules.some((rule) =>
+    /width:\s*100%/i.test(rule) &&
+    /display:\s*flex/i.test(rule) &&
+    /flex-wrap:\s*wrap/i.test(rule) &&
+    /align-items:\s*center/i.test(rule) &&
+    /gap:\s*8px\s+32px/i.test(rule) &&
+    /padding:\s*12px\s+32px/i.test(rule) &&
+    /background(?:-color)?:\s*var\(--ink\)/i.test(rule) &&
+    /(?:^|[;\s])color:\s*var\(--paper\)/i.test(rule))) {
+    problems.push(`${artifact}: footer band has drifted from the Toolkit shell footer (one row, padding 12px 32px, gap 8px 32px, ink on paper)`);
+  }
+  if (!footerRules.some((rule) => /padding:\s*12px\s+20px/i.test(rule) && /gap:\s*0\s+24px/i.test(rule))) {
+    problems.push(`${artifact}: footer mobile geometry has drifted from the Toolkit shell footer (padding 12px 20px, gap 0 24px)`);
+  }
+  if (!footerBrandRules.some((rule) =>
+    /font-family:\s*var\(--font-display\)/i.test(rule) &&
+    /font-size:\s*21px/i.test(rule) &&
     /font-weight:\s*400/i.test(rule) &&
-    /line-height:\s*1(?:;|\s|$)/i.test(rule))) {
-    problems.push(`${artifact}: footer name typography has drifted from the shared tool footer`);
+    /text-transform:\s*uppercase/i.test(rule) &&
+    /min-height:\s*44px/i.test(rule))) {
+    problems.push(`${artifact}: footer brand typography has drifted from the Toolkit shell footer (21px/400 uppercase display face, 44px hit target)`);
   }
-  if (!footerDescRules.some((rule) =>
-    /max-width:\s*520px/i.test(rule) &&
-    /font-size:\s*13px/i.test(rule) &&
-    /line-height:\s*1\.55/i.test(rule))) {
-    problems.push(`${artifact}: footer description typography has drifted from the shared tool footer`);
+  if (!footerNavRules.some((rule) => /display:\s*flex/i.test(rule) && /gap:\s*0\s+20px/i.test(rule))) {
+    problems.push(`${artifact}: footer navigation row has drifted from the Toolkit shell footer (gap 0 20px)`);
   }
   if (!footerLinkRules.some((rule) =>
-    /font-size:\s*11px/i.test(rule) &&
+    /font-family:\s*var\(--font-label\)/i.test(rule) &&
+    /font-size:\s*13px/i.test(rule) &&
     /font-weight:\s*400/i.test(rule) &&
-    /letter-spacing:\s*0?\.1em/i.test(rule) &&
-    /line-height:\s*1\.5/i.test(rule))) {
-    problems.push(`${artifact}: footer link typography has drifted from the shared tool footer`);
-  }
-  if (!footerNavRules.some((rule) => /line-height:\s*1\.5/i.test(rule))) {
-    problems.push(`${artifact}: footer navigation line box has drifted from the shared tool footer`);
+    /min-height:\s*44px/i.test(rule))) {
+    problems.push(`${artifact}: footer link typography has drifted from the Toolkit shell footer (13px/400 label face, 44px hit target)`);
   }
   const siteRules = [...html.matchAll(/\.site\s*\{([^}]*)\}/gi)].map((match) => match[1]);
   if (!siteRules.some((rule) =>

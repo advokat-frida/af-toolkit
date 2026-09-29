@@ -577,19 +577,12 @@
 
 {#if !EMBED}
 <footer class="colophon">
-  <div class="colophon-inner">
-    <div class="colophon-brand">
-      <p class="colophon-name">Advokat Frida</p>
-      <p class="colophon-desc">Privacy and AI governance, by design and in practice.<br />Analytics by Plausible, cookieless and aggregate, no ad-tech.</p>
-    </div>
-    <nav class="colophon-nav" aria-label="Footer">
-      <ul>
-        <li><a href="https://advokatfrida.com/about/">About</a></li>
-        <li><a href="mailto:hello@advokatfrida.com">Contact us</a></li>
-        <li><a href="https://advokatfrida.com/privacy/">Privacy</a></li>
-        <li><a href="https://advokatfrida.com/rss/">RSS</a></li>
-      </ul>
-    </nav>
-  </div>
+  <a class="colophon-brand" href="https://advokatfrida.com/">Advokat Frida</a>
+  <nav class="colophon-nav" aria-label="Footer">
+    <a href="https://advokatfrida.com/about/">About</a>
+    <a href="mailto:hello@advokatfrida.com">Contact</a>
+    <a href="https://advokatfrida.com/privacy/">Privacy</a>
+    <a href="https://advokatfrida.com/rss/">RSS</a>
+  </nav>
 </footer>
 {/if}
