@@ -185,14 +185,44 @@ export function scanText(text, { extra = [] } = {}) {
       found.push({ start: m.index, end: m.index + m[0].length, detectorId: rule.id, value: m[0], score: rule.base ?? 0.85 });
     }
   }
-  // Strongest claims first; keep a span only if it does not overlap one already kept.
-  found.sort((a, b) => b.score - a.score || (b.end - b.start) - (a.end - a.start) || a.start - b.start);
+  return resolveOverlaps(found);
+}
+
+/**
+ * Resolve overlapping candidates: the strongest claim wins (higher score, then the longer
+ * match, then the earlier start), and a candidate is kept only if it overlaps nothing already
+ * kept. Candidates are first grouped into runs of touching spans, because a span can only
+ * conflict with spans in its own run: the greedy pass then stays linear over a whole log.
+ * Comparing every candidate with every kept span was quadratic, and a 2 MB log with 40,000
+ * matches took seconds (5.5 s on a shared CI runner).
+ */
+export function resolveOverlaps(found) {
+  const byStart = found.slice().sort((a, b) => a.start - b.start || a.end - b.end);
+  const strongestFirst = (a, b) => b.score - a.score || (b.end - b.start) - (a.end - a.start) || a.start - b.start;
   const kept = [];
-  for (const f of found) {
-    if (kept.some((k) => f.start < k.end && k.start < f.end)) continue;
-    kept.push(f);
+  let run = [];
+  let runEnd = -Infinity;
+  const flush = () => {
+    if (run.length === 1) {
+      kept.push(run[0]);
+    } else if (run.length > 1) {
+      run.sort(strongestFirst);
+      const local = [];
+      for (const f of run) {
+        if (local.some((k) => f.start < k.end && k.start < f.end)) continue;
+        local.push(f);
+      }
+      kept.push(...local);
+    }
+    run = [];
+  };
+  for (const f of byStart) {
+    if (f.start >= runEnd) flush();
+    run.push(f);
+    if (f.end > runEnd) runEnd = f.end;
   }
-  return kept.sort((a, b) => a.start - b.start);
+  flush();
+  return kept.sort((a, b) => a.start - b.start || strongestFirst(a, b));
 }
 
 /**

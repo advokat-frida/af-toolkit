@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { scanText, summarizeSpans, rewriteSpans, TEXT_PATTERNS } from "../src/redactorium/lib/textScan.js";
+import { scanText, summarizeSpans, rewriteSpans, TEXT_PATTERNS, resolveOverlaps } from "../src/redactorium/lib/textScan.js";
 
 const kinds = (text, opts) => scanText(text, opts).map((s) => `${s.detectorId}=${s.value}`);
 
@@ -110,4 +110,33 @@ test("large text scans in reasonable time", () => {
   const ms = Date.now() - t0;
   assert.equal(spans.length, 40000);
   assert.ok(ms < 5000, `scan took ${ms}ms`);
+});
+
+// The reference rule, one candidate at a time against everything kept so far. resolveOverlaps
+// must give the same answer while staying linear over a whole log.
+function resolveOneByOne(found) {
+  const sorted = found.slice().sort((a, b) => b.score - a.score || (b.end - b.start) - (a.end - a.start) || a.start - b.start);
+  const kept = [];
+  for (const f of sorted) {
+    if (kept.some((k) => f.start < k.end && k.start < f.end)) continue;
+    kept.push(f);
+  }
+  return kept.sort((a, b) => a.start - b.start);
+}
+
+test("resolveOverlaps matches the one-by-one rule on random overlapping spans", () => {
+  let seed = 20260928;
+  const rand = (n) => { seed = (seed * 1103515245 + 12345) & 0x7fffffff; return seed % n; };
+  const scores = [0.5, 0.7, 0.85, 0.95];
+  for (let trial = 0; trial < 300; trial++) {
+    const found = [];
+    const count = 1 + rand(60);
+    for (let i = 0; i < count; i++) {
+      const start = rand(200);
+      const end = start + rand(12); // zero-length spans included on purpose
+      found.push({ start, end, detectorId: `d${rand(5)}`, value: "", score: scores[rand(4)] });
+    }
+    assert.deepEqual(resolveOverlaps(found), resolveOneByOne(found), `trial ${trial}`);
+  }
+  assert.deepEqual(resolveOverlaps([]), []);
 });
