@@ -1,5 +1,31 @@
 # HANDOFF
 
+## 2026-09-28 (tuck complete for code) - AF-22 live; actual-resume acceptance still open
+
+[PR #20](https://github.com/advokat-frida/af-toolkit/pull/20) merged reviewed source `db52d50`
+as `9998a196dc78aac837120eeb91d471170506a96b` after all five PR checks passed. Cloudflare
+production build `17c13a37-ae52-4192-b62c-0b81078fdead` released Worker version
+`a859786f-fb64-46fa-873c-ed7a3fddc0e2`. All 29 checked live files matched the committed bytes,
+with only the known Cloudflare hidden-link injection normalized. The production synthetic
+PDF workflow passed at 1440, 1034, 390 and 320 pixels, including downloaded PDF and record
+checks. Desktop and phone captures were directly inspected. Full review, tests and release
+evidence: [AF-22 review](review/af22-document-identity.md); local receipts in
+`.local-working/af22/live-verification.json` and `.local-working/af22/live/`.
+
+Only merged `codex/af22-document-identity` was deleted locally and remotely. Untracked
+`.claude/` and unrelated sibling work remain untouched. This closeout changes documentation
+only, with the same public tree as the verified merge.
+
+**Next:** Ben's actual resume through the live tool must show Name, Place, Email and Phone,
+with those matched values absent from the clean PDF. AF-22 stays In Progress until that
+acceptance succeeds; synthetic QA is not a substitute. Employers, schools and free-form
+regions still need manual review. The tracker has the independent review and release evidence.
+
+**Post boundary:** Ghost still reports draft, `published_at: null`, `email: null`; latest
+observed user edit `2026-09-29T04:10:35.000Z`. Do not publish or send. Approved article copy
+edits are saved in Ghost, and later manual edits are preserved. Pre-existing newsletter
+button-pair markers and the tool legend's wording remain separate follow-ups.
+
 ## 2026-09-28 (tuck) - AF-22 reviewed release candidate; Ghost remains draft
 
 Ben authorized tuck, explicitly excluding post publication. The reviewed candidate is on

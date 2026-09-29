@@ -45,3 +45,28 @@ PDF must remove those matches, before AF-22 is Done. Synthetic QA is not that ac
 The article remains a Ghost draft. Its accepted scope/copy edits are saved separately in Ghost;
 this release neither publishes nor sends it. The pre-existing legend wording and newsletter
 button-pair markers are separate follow-ups, not included code changes.
+
+## Release and live verification
+
+[PR #20](https://github.com/advokat-frida/af-toolkit/pull/20) merged reviewed source
+`db52d5050d07f203772da9dbc799a78fe6b45610` as `9998a196dc78aac837120eeb91d471170506a96b`.
+All five PR checks passed: Toolkit Gate, Redactorium CI, CodeQL analysis and its alert check,
+and Workers Builds. Production build `17c13a37-ae52-4192-b62c-0b81078fdead` succeeded with
+Worker version `a859786f-fb64-46fa-873c-ed7a3fddc0e2`.
+The merge's main-branch Gate, CodeQL, Redactorium CI and Workers Builds also passed.
+Verified public tree: `13033198a65e703f1206b8103f1a4b19e2f67644`.
+
+At `2026-09-29T04:16:18.709Z`, all 29 checked live files matched committed source: shell,
+manifest, the four tool entrypoints and the complete Redactorium asset tree. Comparison
+removes only the observed hidden Cloudflare `/cdn-cgi/content` anchor from HTML. Full hashes
+are in ignored `.local-working/af22/live-verification.json`.
+
+The synthetic resume PDF workflow then passed on production at all four widths. All six
+matches (two names, two places, email and phone) were removed from the downloaded PDF; counts
+were correct and matched values absent from the record. There were no page errors, external
+requests or horizontal overflow. Desktop findings, 320px findings and 390px results were
+directly inspected. Live JSON, screenshots and PDFs are in `.local-working/af22/live/`.
+
+Only the merged AF-22 branch was pruned, locally and remotely. AF-22 remains In Progress for
+Ben's actual-resume acceptance. Ghost readback confirmed draft, no publication date and no
+email object; the latest observed user edit timestamp was `2026-09-29T04:10:35.000Z`.
