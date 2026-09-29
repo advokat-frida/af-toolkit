@@ -1,5 +1,25 @@
 # HANDOFF
 
+## 2026-09-28 (actual resume correction) - PDF header geometry swallowed the name
+
+Ben supplied the exact resume after reporting the name still missing. Reproduction found
+the PDF parser joining independently positioned region and name fields when PDF.js omitted
+`hasEOL`. This was a parser defect, not a non-PII classification. The correction separates
+baselines and large column gaps in either direction while preserving ordinary text runs.
+An independent reviewer found the reverse-column variant, then cleared its tested fix.
+
+82 engine tests, lint/build and the actual-resume browser workflow at four widths passed.
+The local candidate finds one name, two places, one email and one phone, and removes those
+five matched values from the PDF. See [review and remaining limits](review/af22-pdf-text-separation.md).
+Input, private screenshots, downloads and receipts stay in ignored `.local-working/af22-resume/`.
+Only synthetic geometry/text appears in the committed tests. Release evidence follows below
+once the final gate and corrective deployment are complete.
+
+Schools, qualifications and certifications still need manual review. The actual file also
+exposed retained identifying filenames and the unchanged PDF exporter's garbled Unicode
+bullets. Those are documented follow-ups, not fixes silently included in this parser change.
+Keep AF-22 In Progress for Ben's final verdict; keep the Ghost post draft and unsent.
+
 ## 2026-09-28 (tuck complete for code) - AF-22 live; actual-resume acceptance still open
 
 [PR #20](https://github.com/advokat-frida/af-toolkit/pull/20) merged reviewed source `db52d50`

@@ -64,6 +64,7 @@ The detectors live in [`frontend/src/redactorium/lib/`](frontend/src/redactorium
 | `customRules.js` | Your own patterns, for the identifiers only your organization uses |
 | `transformers.js` | The treatments: keep, redact, replace with a code (keyed hash), make less exact, swap for fakes |
 | `parsers.js` | Turning each supported format into rows and text |
+| `pdfText.js` | Separating PDF text items by line and column geometry |
 | `docxHandler.js` | Word files: every text part, the cleaning, and a write-back that keeps formatting |
 | `exporters.js` | The clean file and the record |
 
@@ -81,6 +82,8 @@ Nothing is changed until you apply the treatments, and every treatment can be ch
   an invisible scan layer) is extracted with the rest and becomes ordinary visible text; the page
   says so. A scanned PDF with no text layer has nothing to read, and the page says that instead of
   returning an empty file.
+  Text items on separate baselines or across large column gaps are read as separate lines even
+  when the PDF omits a line-break marker, so a header name is not joined to a neighboring field.
 - **Spreadsheets:** the first visible sheet is read, and the clean file contains only that sheet;
   the page names the sheets left out. A first row that holds data rather than column names is
   treated as data.
