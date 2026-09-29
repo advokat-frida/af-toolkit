@@ -1,6 +1,94 @@
 # HANDOFF
 
-## 2026-09-28 (evening) - Tool addresses, direct-visit redirects, one footer for all four: ready for the tuck
+## 2026-09-28 (night) - The tuck: PR #19, what CI and two reviews caught, live
+
+Everything in the evening entry and the AF-20 entry below shipped as advokat-frida/af-toolkit#19
+(`6ba17c5` Redactorium release, `70cde32` SafeList, `824e438` SafeSeed + Wizards chrome,
+`5d4f0eb` tool addresses, then the two fixes below), fast-forwarded to `main` at `fa8c9ef`,
+deployed by Workers Builds and verified live (end of this entry). AF-20 and AF-21 are Done.
+
+**What CI caught.** Redactorium's engine tests failed on the shared runner: "large text scans in
+reasonable time" took 5.5 s (1.4 s here). Not a slow runner: the overlap pass in `scanText`
+compared every candidate with every span already kept, quadratic in the number of matches (a
+2 MB log has 40,000), and would hang the browser on a bigger file. `resolveOverlaps` groups the
+candidates into runs of touching spans and applies the same strongest-first rule inside each run
+(a span can only conflict with spans in its own run): linear, same answer, proven against the
+one-by-one rule on 300 random sets in the suite (2,000 in a scratch probe). 80 ms now. `991580d`.
+
+**What the reviews caught.** Two independent read-only reviewers read the branch (routing, shell
+and chrome; the Redactorium engine and SafeList). Both verdicts: safe to merge after fixing one
+thing. The one thing and every should-fix are in `fa8c9ef`, each with a test:
+- *Engine, the blocker.* A card or IBAN that starts inside a rejected candidate was never found:
+  the scanner resumed after the whole rejected span, so "415 555 0134 4111 1111 1111 1111" (a
+  phone beside a card, the row shape PDF extraction produces) kept the full card with no finding.
+  It resumes one character in now.
+- *Engine.* An international phone ran greedily into the date, time or ordinal after it and was
+  lost or mangled; a `refine` step on the pattern drops trailing groups until the phone ends where
+  the phone ends. Ten digits failing the NHS check digit scored 0.2 and put a code on order-ID
+  columns by default (0 now). Phone headers in other languages and shorthand (telefon, tél, handy,
+  msisdn, whatsapp, mob, ph) count, and the phone citation says digits alone count only under such
+  a header. A headerless file of names, dates of birth and addresses kept the first person as the
+  header row: a date, street or postcode shape in row one, with the column below sharing the
+  shape, marks the row as data (a timesheet whose column names are dates keeps its header). A
+  header narrower than its rows dropped the extra columns; a trailing delimiter adds none. Replace
+  with a code hashed the raw string, so "Ada@Example.org" and "ada@example.org" (or a spaced
+  SSN) got different codes: values are trimmed, case-folded and, for digit kinds, stripped of
+  separators first. Swap for fakes merged people once a pool ran out (100 names, one NHS number):
+  900 name combinations with a middle initial past that, streets and companies take a suffix, NHS
+  fakes come from the 999 test range with a valid check digit, and the record's limits name any
+  kind whose published pool (test cards, test IBANs) had to repeat. Sixteen-digit numbers kept in
+  Excel go back as text so Excel shows every digit. Word: building blocks (glossary) are read and
+  treated; hover text and simple-field instructions are treated; table cell revisions are removed;
+  the headings list, the attached-template path (a user name on disk) and the page thumbnail are
+  removed and listed; SmartArt is declared unread; a redacted mailto link becomes
+  `mailto:redacted@example.invalid` so Word does not offer a repair. The PDF writer imports jsPDF
+  by name, so the PDF path runs under Node and has a test.
+- *SafeList.* A broken address inside a multi-entry cell ("ada@example.com; grace@example") was
+  dropped from the suppression set without a trace; it is reported as invalid.
+- *Shell and edge.* The SafeList frame carries `?embed=1` like the other three: a browser that
+  sends no `Sec-Fetch-Dest` (Safari 16.3 and older) could otherwise get the shell inside its own
+  frame; a test reads every frame source and checks the Worker leaves it alone. `tests/worker.test.mjs`
+  runs the edge handler against a stub asset host (rewritten shell, stripped conditional headers,
+  HEAD, the 302 no-store, frame and curl passthrough, the 301, 404s), and a shell without its
+  anchors is served as it is instead of a 500. The edge names the route on `<body>` and
+  `toolkit.css` shows that view before `toolkit.js` runs, so a direct visit never shows the Home
+  while the script loads; the no-script note links to the Home view. `popstate` from a fragment
+  jump no longer re-routes. The three tool workflows rebuild on a change to `public/favicon-32.png`.
+  ARCHITECTURE says how the `_headers` rules reach the Worker-served addresses.
+
+**The re-test that gates the article.** Ben ran his own resume through the tool that was live (the pre-release build: one "Job title" row from a column heuristic, nothing from the text) and asked how it could be published. On the released build the resume yields the email address and the phone number, and not the name at the top, the place lines ("City, ST") or the employers. In free text a name is only found after a label, and there is no place kind. AF-22 (Not Started, spec on the task): a headline-name rule for the first lines of a document, repeats of a found name, and a City, ST kind. Organizations stay out of reach for a pattern tool, and the article should say so.
+
+**Left for Ben** (review notes not done tonight, heaviest first):
+1. Bare-digit columns with no phone-like header get no row at all (main flagged them as phones at
+   0.72; the ID-column fix traded that away). A low-confidence "Digits: a phone number or an ID,
+   check it" row when 35% or more of a column is 8 to 15 bare digits would keep the quiet default
+   honest. Needs UI copy.
+2. The fixed default fake seed means two separate runs draw the same fake stream, so two files
+   cleaned separately hand unrelated people the same first fake (batch mode salts by count). Say so
+   in the seed help, or default to a random seed written to the record.
+3. The Code key field is a plain text input; a password toggle would suit a key reused across files.
+4. The input sheet name is reused for the output sheet and lands in the record.
+5. PDF: annotations and form-field values are neither scanned nor carried (dropped, not leaked);
+   non-Latin names render as garbage in the clean PDF (standard Courier); pdf.js cannot fetch cMaps
+   under the CSP, so some CJK PDFs fail extraction with an error rather than a leak.
+6. Pin wrangler in devDependencies so Workers Builds deploys with the version the branch was
+   verified against (4.143.0 tonight); Dependabot keeps it moving.
+7. With JavaScript off, a tool address shows the tool's empty frame stage plus the note linking
+   Home (the tools need JavaScript anyway).
+8. A custom rule stops at 10,000 matches per text, silently.
+9. Numbers of 17 to 19 digits stored as numbers in XLSX are rounded by the parser (a JS double)
+   before anything sees them; only text cells carry them exactly, and Excel itself keeps 15.
+
+**Verified on the final tree.** `npm run gate` exit 0 (264 checks; of the proofs only
+`states/4a-redactorium-findings.png` changed, the phone citation wraps to three lines; a 28% diff
+in `4f-wizards-determination` was a one-off capture flake, two fresh captures byte-identical to
+the committed file); root `npm test` 16/16 (routes, worker, the rest); Redactorium 60/60 engine
+tests, lint, build; SafeList 26/26 and build; the AF-20 end-to-end harness 58/58 (its "no emails
+left" check now allows `redacted@example.invalid`); on `wrangler dev`, the routing suite 30/30 and
+8/8 direct-visit screenshots with the footer and the frame right on every address. CI on the final
+head: 11 of 11 green (Gate, CodeQL, SafeSeed CI with the Action contract on three runners, Redactorium CI, SafeList CI, Wizards CI, Workers Builds). Live after the deploy: 27 curl probes OK (200 on the four addresses and the Home with their own title, canonical link and data-route; 302 no-store for page visits to all nine artifact paths; 200 for frames and curl; 301 for trailing slashes with the query kept; 404 for unknown paths); 8/8 direct-visit screenshots (footer and frame right on every address, a direct visit to /tools/safeseed and /tools/safelist lands in the shell); the browser routing suite 1 of NaN on production, the miss being Cloudflare's AI Labyrinth, not the router: the zone injects a hidden /cdn-cgi/content decoy link into pages served to suspected bots (curl sees it too), so the Tab-then-Enter skip-link check landed on a decoy page; humans never see it, and all 30 pass on wrangler dev. Ben's own resume through the live build: Email address and Phone number found inside the text (the old build found nothing), his name, the place lines and the employers not..
+
+## 2026-09-28 (evening) - Tool addresses, direct-visit redirects, one footer for all four: shipped in PR #19
 
 Ben's calls after finding SafeSeed's standalone page (`/tools/safeseed`) live with an old stacked
 footer and a false "Analytics by Plausible" line: (1) forward direct visits to the shell,
