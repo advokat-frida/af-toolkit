@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 import {
   DEFAULT_RULES, STALE_AFTER_HOURS, applyDecisions, buildRecord, checkOne, detectEmailColumns, detectHeader,
   findDuplicates, findMatches, loadList, nameColumns, normalizeEmail, parseCSV, parseSuppression, recordText, reviewItems,
-  shortHash, staleness, stamp, toCSV
+  shortHash, staleness, stamp, toCSV, pastedList
 } from "../src/core.js";
 
 const sample = (name) => readFileSync(fileURLToPath(new URL(`../samples/${name}`, import.meta.url)), "utf8");
@@ -76,6 +76,29 @@ test("a headerless pasted column of addresses works as a suppression list", () =
   const suppression = parseSuppression(list);
   assert.equal(suppression.count, 2);
   assert.equal(suppression.domainCount, 1);
+});
+
+test("a pasted suppression list takes commas, semicolons, tabs, new lines and Outlook To lines", () => {
+  const pasted = [
+    "a@example.com, b@example.com",
+    "c@example.com; d@example.com\te@example.com",
+    '"Lovelace, Ada" <ada@example.org>; Grace Hopper <grace@example.org>',
+    "@gone.example.net",
+  ].join("\n");
+  const suppression = parseSuppression(loadList(pasted));
+  assert.deepEqual([...suppression.emails].sort(), ["a@example.com", "ada@example.org", "b@example.com", "c@example.com", "d@example.com", "e@example.com", "grace@example.org"]);
+  assert.deepEqual([...suppression.domains], ["gone.example.net"]);
+  assert.deepEqual(suppression.invalid, [], "a display name split at its comma is not reported as a bad entry");
+  assert.deepEqual(parseSuppression(loadList("a@example.com\nnot an address\n")).invalid, ["not an address"]);
+});
+
+test("a send list pasted on one line becomes one contact per address; a CSV stays a CSV", () => {
+  assert.equal(pastedList("a@example.com, b@example.com; c@example.com"), "a@example.com\nb@example.com\nc@example.com");
+  const list = loadList(pastedList("a@example.com, b@example.com"));
+  assert.equal(list.rows.length, 2);
+  const csv = "email,name\na@example.com,Ada\n";
+  assert.equal(pastedList(csv), csv);
+  assert.equal(pastedList("email,name"), "email,name", "a lone header row is left alone");
 });
 
 test("findMatches catches every variant in the samples and names the reason", () => {

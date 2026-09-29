@@ -1,6 +1,9 @@
-  /* ===== SHARED ASSET TEMPLATE — current Build-A-Prompt family chrome =====
-     Selectors used by SafeList are copied from the shipped flagship.
-     Product-specific components live in src/page.css. */
+  /* ===== SHARED ASSET TEMPLATE: the family chrome, maintained here since 2026-09-28 =====
+     This began as a byte-exact copy of the family chrome (the website's standalone /assets/
+     pages, Build-A-Prompt lineage). That family was deleted on 2026-09-10 and no source for
+     it exists any more, so this file is edited in place. Its colophon follows the Toolkit
+     shell footer (public/toolkit.css .toolkit-footer; docs/design/DESIGN-SYSTEM.md §7, the
+     2026-09-23 shared footer). Product-specific components live in src/page.css. */
   :root{
     --ink:#16140f; --ink-soft:#4a463d; --paper:#fffdf8; --ground:#f6f4ef; --forest:#1f4e32;
     --teal:#12666a; --indigo:#3a3a8c; --amber:#9e5415; --red:#c83232; --terracotta:#c83232; --line:#16140f; --amber-wash:#fbf4ea;
@@ -53,14 +56,18 @@
   /* ---- fine print + colophon ---- */
   .offline-note{font-size:13.5px;color:var(--ink-soft);margin:12px 0 0}
   .finelegal{margin-top:var(--s6);font-size:15px;color:var(--ink-soft);border-left:4px solid var(--ink-soft);padding:10px 14px;background:var(--paper);border-radius:4px}
-  .site-colophon{background:var(--ink);margin:3rem calc(clamp(24px,3vw,56px) * -1) 0}
-  .site-colophon-inner{padding:1.6rem clamp(24px,3vw,56px);display:grid;grid-template-columns:1fr auto;gap:34px;align-items:center}
-  .site-colophon-brand{min-width:0}
-  .site-colophon-name{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.02em;color:#fff;margin:0 0 8px;font-size:1.6rem;font-weight:400;line-height:1}
-  .site-colophon-desc{font-family:var(--font);color:rgba(255,255,255,.82);max-width:34rem;margin:0;font-size:.82rem;line-height:1.55}
-  .site-colophon-nav{flex-direction:column;align-items:flex-end;gap:7px;margin:0;padding:0;list-style:none;display:flex}
-  .site-colophon-nav a{font-family:var(--font-label);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.82);font-size:11px;font-weight:400;text-decoration:none;white-space:nowrap}
-  .site-colophon-nav a:hover{color:#fff}
+  /* The colophon is the Toolkit shell footer (public/toolkit.css .toolkit-footer): one ink row, the
+     nameplate then four links. The negative margins escape the .wrap padding so the band spans the page. */
+  .site-colophon{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:8px 32px;margin:3rem calc(clamp(24px,3vw,56px) * -1) 0;padding:12px 32px;background:var(--ink);color:var(--paper)}
+  .site-colophon a{color:var(--paper);text-decoration:none}
+  .site-colophon a:hover{text-decoration:underline}
+  .site-colophon a:focus-visible{outline-color:var(--paper)}
+  .site-colophon-brand{display:inline-flex;align-items:center;min-height:44px;font-family:var(--font-display);font-size:21px;font-weight:400;line-height:var(--lh-display);letter-spacing:.02em;text-transform:uppercase}
+  .site-colophon nav{display:flex;flex-wrap:wrap;gap:0 20px}
+  .site-colophon nav a{display:inline-flex;align-items:center;min-height:44px;font-family:var(--font-label);font-size:13px;font-weight:400;line-height:var(--lh-label)}
+  @media(max-width:820px){
+    .site-colophon{padding:12px 20px;gap:0 24px}
+  }
 
   @media(max-width:600px){
     .wrap{padding-left:18px;padding-right:18px}
@@ -69,8 +76,6 @@
     .bar-nav::-webkit-scrollbar{display:none}
     .bar-nav ul{flex-wrap:nowrap;gap:1rem}
     .bar-nav a{font-size:10px;letter-spacing:.04em}
-    .site-colophon-inner{grid-template-columns:1fr;gap:16px;padding:1.4rem 18px}
-    .site-colophon-nav{align-items:flex-start;flex-direction:row;flex-wrap:wrap;gap:10px 20px}
   }
 
   .chip-subscribe{order:3;padding:8px 13px;color:#fff;background:var(--forest);font-family:var(--font-label);font-size:11px;font-weight:700;letter-spacing:.08em;text-decoration:none;text-transform:uppercase;white-space:nowrap}

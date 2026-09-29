@@ -36,12 +36,28 @@ checked list and a record out. What is deliberately not built yet is listed unde
   second copy of the suppression list.
 - **Check one address** against the loaded suppression list, for the one-off email.
 
+## Later
+
+Not built yet, and what a user meets instead (checked 2026-09-28, from a real deletion-request
+job where a team keeps its data in spreadsheets):
+
+- **Excel files.** Both lists load as CSV or text only; an .xlsx has to be saved as CSV first.
+- **Matching on something other than email.** A phone number, customer ID or name column cannot
+  be the match key.
+- **Deletion lists that are not a daily export.** The 24-hour rule blocks an older file with no
+  override. That fits marketing opt-outs; a list of deletion requests can be days old and still
+  be the right list. (A pasted list is dated now, so pasting gets past it.)
+- **Keeping the row but removing the person.** SafeList removes whole rows. When a record must
+  stay (an invoice, a ticket) and only the person's details should go, that is Redactorium's
+  job today, and it treats a whole column, not just the listed people.
+
 ## Layout
 
 - `src/core.js` — the engine (CSV, normalization, detection, matching, decisions, record). Pure
   functions; every rule lives here.
 - `src/app.js`, `src/page-body.html`, `src/page.css` — the page. Rendering only.
-- `chrome/` — `fonts.css` + `shared.css`, byte-exact copies of the family chrome (do not edit).
+- `chrome/` — `fonts.css` + `shared.css`, the page chrome, maintained here since 2026-09-28 (the
+  family it was copied from is gone); the footer follows the Toolkit shell footer.
 - `samples/` — the mock lists: `cadence-audience.csv` (before), `suppression-list.csv`, and the
   generated `cadence-audience.checked.csv` (after) with `safelist-record.json` / `.txt`.
 - `tools/build.mjs` — assembles `dist/safelist.html` (standalone) and `dist/safelist-embed.html`
