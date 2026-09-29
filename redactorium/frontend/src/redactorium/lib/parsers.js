@@ -8,6 +8,7 @@ import Papa from "papaparse";
 import * as XLSX from "xlsx";
 import { parseDOCXStructured } from "./docxHandler.js";
 import { DETECTORS } from "./piiPatterns.js";
+import { pdfTextLines } from "./pdfText.js";
 
 // The browser build (xlsx.mjs) exports SSF by name; Node loads the CommonJS build, where it
 // sits on the default export. The tests run in Node, the page in the browser.
@@ -159,19 +160,7 @@ export async function parsePDF(file) {
     const page = await doc.getPage(p);
     const content = await page.getTextContent();
     pageStarts.push(lines.length);
-    let line = "";
-    let lastEnd = null;
-    for (const item of content.items) {
-      if (typeof item.str !== "string") continue;
-      // Words drawn as separate items with a gap between them get a space, or "Name:" and
-      // "Ada" would run together and the label would be lost.
-      const x = Array.isArray(item.transform) ? item.transform[4] : null;
-      if (line && lastEnd !== null && x !== null && x - lastEnd > 1 && !/\s$/.test(line) && !/^\s/.test(item.str)) line += " ";
-      line += item.str;
-      lastEnd = x !== null ? x + (item.width || 0) : null;
-      if (item.hasEOL) { lines.push(line.trimEnd()); line = ""; lastEnd = null; }
-    }
-    if (line.trim()) lines.push(line.trimEnd());
+    for (const line of pdfTextLines(content.items)) lines.push(line);
   }
   if (!lines.some((l) => l.trim())) {
     throw new Error("This PDF has no text Redactorium can read. It is probably a scan, which is a picture of text.");
