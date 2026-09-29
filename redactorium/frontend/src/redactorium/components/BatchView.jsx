@@ -82,7 +82,7 @@ export default function BatchView({ compiledCustom, salt, seed, customRulesPanel
         const { parsed, plan, detection, file, custom } = it;
         const startedAt = new Date().toISOString();
         const inputHash = await bytesSha256(new Uint8Array(await file.arrayBuffer()));
-        const { headers, rows, stats, edits, hashKey } = await applyTransformations(parsed, plan, {
+        const { headers, rows, stats, edits, hashKey, reused } = await applyTransformations(parsed, plan, {
           hasher, fakes, seed, extra: custom.filter((d) => d.find),
         });
         const output = await buildOutput({ ...parsed, headers, rows }, edits);
@@ -90,7 +90,7 @@ export default function BatchView({ compiledCustom, salt, seed, customRulesPanel
         const log = buildLogJSON({
           inputFile: file, format: parsed.format, columnPlan: plan, stats, detectionResults: detection,
           inputHash, outputHash, hashKey, seed, startedAt, finishedAt: new Date().toISOString(),
-          meta: parsed.meta, customDetectors: custom,
+          meta: parsed.meta, customDetectors: custom, reused,
         });
 
         const base = cleanBaseName(file.name, custom.filter((d) => d.find));

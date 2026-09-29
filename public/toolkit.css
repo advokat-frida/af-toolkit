@@ -95,6 +95,19 @@ a:hover { color: var(--red); }
 .view { height: auto; }
 .view[hidden] { display: none; }
 
+/* The edge names the route on <body> before any script runs (worker.mjs); show that view first,
+   so a direct visit to a tool address never shows the Home while toolkit.js is still loading.
+   toolkit.js sets the same attribute on every switch, so these rules and the hidden attribute
+   always agree. */
+body[data-route="safeseed"] .view[data-view="home"],
+body[data-route="safelist"] .view[data-view="home"],
+body[data-route="redactorium"] .view[data-view="home"],
+body[data-route="privacy-wizards"] .view[data-view="home"] { display: none; }
+body[data-route="safeseed"] .view[data-view="safeseed"][hidden],
+body[data-route="safelist"] .view[data-view="safelist"][hidden],
+body[data-route="redactorium"] .view[data-view="redactorium"][hidden],
+body[data-route="privacy-wizards"] .view[data-view="privacy-wizards"][hidden] { display: flex; }
+
 /* ---------- Sidebar ---------- */
 
 .toolkit-sidebar {

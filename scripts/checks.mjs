@@ -142,9 +142,10 @@ export async function runStaticChecks() {
     if (tool.licenseFile) results.push(check(existsSync(join(publicRoot, tool.licenseFile)), `license copied: ${tool.id}`));
   }
 
-  // Embed contract: the shell frames each embed-mode tool with its flag, at the artifact's
-  // canonical (extensionless) address so the asset host answers in one hop.
-  for (const framed of ["/tools/redactorium/?embed=1", "/tools/safeseed?embed=1", "/tools/safelist", "/tools/privacy-wizards-council?embed=1"]) {
+  // Embed contract: the shell frames every tool with the embed flag (the Worker leaves a flagged
+  // request alone whatever the browser sends), at the artifact's canonical (extensionless)
+  // address so the asset host answers in one hop.
+  for (const framed of ["/tools/redactorium/?embed=1", "/tools/safeseed?embed=1", "/tools/safelist?embed=1", "/tools/privacy-wizards-council?embed=1"]) {
     results.push(check(index.includes(`data-src="${framed}`), `frame source wired: ${framed}`));
   }
 

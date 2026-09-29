@@ -292,3 +292,9 @@ test("nameColumns prefers the exact column over a looser match", () => {
   assert.equal(nameColumns(["Surname", "Given"]).last, 0);
   assert.deepEqual(nameColumns(["Email"]), { first: -1, last: -1, full: -1, company: -1 });
 });
+
+test("a broken address inside a multi-entry cell is reported, not dropped from the suppression set", () => {
+  const suppression = parseSuppression(loadList('email\n"ada@example.com; grace@example"\n'));
+  assert.deepEqual([...suppression.emails], ["ada@example.com"]);
+  assert.deepEqual(suppression.invalid, ["grace@example"]);
+});

@@ -73,6 +73,27 @@ export const TEXT_PATTERNS = [
     re: /(^|[^0-9+\w])(\+\d{1,3}(?:[ .-]?\(?\d{1,5}\)?){2,6})(?![0-9])/g,
     score: 0.9,
     valid: (v) => { const n = v.replace(/\D/g, "").length; return n >= 8 && n <= 15; },
+    // The match is greedy and runs into whatever number follows ("+44 7700 900123 2026-09-28",
+    // "... 10:30", "... 1st floor"). Trailing groups are dropped while the digit count is over
+    // 15, then while the text right after the value carries on as a date (-09-28, /09/2026,
+    // .09.2026), a time (:30) or an ordinal (1st), so the phone ends where the phone ends.
+    refine: (value, text, start) => {
+      const m = value.match(/^(\+\d{1,3})((?:[ .-]?\(?\d{1,5}\)?)+)$/);
+      if (!m) return value;
+      const groups = m[2].split(/(?=[ .-])/).filter(Boolean);
+      const digits = (v) => v.replace(/\D/g, "").length;
+      let v = value;
+      while (groups.length > 1) {
+        const after = text.slice(start + v.length, start + v.length + 12);
+        if (digits(v) > 15 || /^[-/.]\d{1,2}[-/.]\d{2,4}|^:\d{2}|^(?:st|nd|rd|th)\b/i.test(after)) {
+          groups.pop();
+          v = m[1] + groups.join("");
+          continue;
+        }
+        break;
+      }
+      return v;
+    },
   },
   {
     id: "phone",
@@ -162,17 +183,23 @@ export function scanText(text, { extra = [] } = {}) {
     p.re.lastIndex = 0;
     let m;
     while ((m = p.re.exec(s)) !== null) {
-      const value = m[2];
       const start = m.index + m[1].length;
+      // A pattern may hand back a shorter value (a phone that ran into a date), never a longer one.
+      const value = p.refine ? p.refine(m[2], s, start) : m[2];
       const end = start + value.length;
+      const accepted = value !== ""
+        && (!p.valid || p.valid(value))
+        && (!p.validAt || p.validAt(value, s, start))
+        && (!p.context || p.context.test(s.slice(Math.max(0, start - CONTEXT_WINDOW), start)));
+      if (!accepted) {
+        // Resume just past the value's first character, not past its end: a real card or IBAN can
+        // start inside a rejected candidate ("0134 4111 1111 1111 1111" fails the check digit,
+        // "4111 1111 1111 1111" inside it passes), and the scanner must get to try it.
+        p.re.lastIndex = start + 1;
+        continue;
+      }
       // Step back to the value's end so an adjacent match can reuse the boundary character.
       p.re.lastIndex = end > m.index ? end : m.index + 1;
-      if (p.valid && !p.valid(value)) continue;
-      if (p.validAt && !p.validAt(value, s, start)) continue;
-      if (p.context) {
-        const before = s.slice(Math.max(0, start - CONTEXT_WINDOW), start);
-        if (!p.context.test(before)) continue;
-      }
       found.push({ start, end, detectorId: p.id, value, score: p.score });
     }
   }

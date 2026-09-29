@@ -124,7 +124,7 @@ export default function Redactorium({ embedded = false }) {
       const inputBytes = await file.arrayBuffer();
       const inputHash = await bytesSha256(new Uint8Array(inputBytes));
       const hasher = await makeHasher(salt);
-      const { headers, rows, stats, edits, hashKey } = await applyTransformations(parsed, columnPlan, {
+      const { headers, rows, stats, edits, hashKey, reused } = await applyTransformations(parsed, columnPlan, {
         hasher, seed, extra: detCustom.filter((d) => d.find),
       });
 
@@ -136,7 +136,7 @@ export default function Redactorium({ embedded = false }) {
       const log = buildLogJSON({
         inputFile: file, format: parsed.format, columnPlan, stats,
         detectionResults: detection, inputHash, outputHash,
-        hashKey, seed, startedAt, finishedAt, meta: parsed.meta, customDetectors: detCustom,
+        hashKey, seed, startedAt, finishedAt, meta: parsed.meta, customDetectors: detCustom, reused,
       });
 
       focusTarget.current = "record";

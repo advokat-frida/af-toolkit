@@ -33,12 +33,20 @@ export function hashSeed(str) {
 // the key is random for this run and never stored: the same value still gets the same code
 // everywhere in the file (and across a batch), but nobody can rebuild the codes from guesses.
 // A key the user supplies makes the codes repeatable across runs; the record never holds it.
+// One person, one code: case and spacing must not split a code ("Ada@Example.org" and
+// "ada@example.org", "123-45-6789" and "123 45 6789"), so the value is normalized before it is
+// keyed. Digit kinds lose their separators; everything is trimmed and lower-cased.
+const DIGIT_KINDS = new Set(["ssn", "credit_card", "iban", "nhs", "aadhaar", "phone"]);
+export function canonical(value, detectorId) {
+  const v = String(value).trim().toLowerCase();
+  return DIGIT_KINDS.has(detectorId) ? v.replace(/[\s().-]/g, "") : v;
+}
 export async function makeHasher(userKey = "") {
   const keyBytes = userKey ? new TextEncoder().encode(String(userKey)) : crypto.getRandomValues(new Uint8Array(32));
   const key = await crypto.subtle.importKey("raw", keyBytes, { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
   const cache = new Map();
-  const hash = async (value) => {
-    const v = String(value);
+  const hash = async (value, detectorId) => {
+    const v = canonical(value, detectorId);
     if (cache.has(v)) return cache.get(v);
     const sig = await crypto.subtle.sign("HMAC", key, new TextEncoder().encode(v));
     const hex = Array.from(new Uint8Array(sig)).map((b) => b.toString(16).padStart(2, "0")).join("").slice(0, 16);
@@ -52,8 +60,8 @@ export async function makeHasher(userKey = "") {
 // ---------- Reserved / catalog data pools (SafeSeed-style) ----------
 const RESERVED_EMAIL_LOCALS = ["ada", "grace", "leibniz", "curie", "turing", "boole", "lovelace", "hopper", "erdos", "shannon"];
 const RESERVED_EMAIL_DOMAINS = ["example.com", "example.org", "example.net"]; // RFC 2606
-const RESERVED_NAMES_FIRST  = ["Alex", "Sam", "Robin", "Jamie", "Chris", "Taylor", "Morgan", "Casey", "Riley", "Reese"];
-const RESERVED_NAMES_LAST   = ["Testerson", "Sample", "Fixture", "Placeholder", "Draft", "Notreal", "Faux", "Nominal", "Redact", "Void"];
+const RESERVED_NAMES_FIRST  = ["Alex", "Sam", "Robin", "Jamie", "Chris", "Taylor", "Morgan", "Casey", "Riley", "Reese", "Avery", "Blake", "Cameron", "Dakota", "Devon", "Emerson", "Finley", "Harper", "Hayden", "Jordan", "Kendall", "Logan", "Parker", "Quinn", "Rowan", "Sawyer", "Skyler", "Spencer", "Tatum", "Wren"];
+const RESERVED_NAMES_LAST   = ["Testerson", "Sample", "Fixture", "Placeholder", "Draft", "Notreal", "Faux", "Nominal", "Redact", "Void", "Example", "Specimen", "Mockford", "Dummyson", "Stubbs", "Template", "Filler", "Proxy", "Standin", "Sandbox", "Blank", "Cipher", "Nullsen", "Fauxwell", "Mockington", "Sampleton", "Fixtor", "Draftwood", "Stubbington", "Ersatz"];
 const RESERVED_COMPANIES    = ["ACME Test Co.", "Example Holdings Ltd", "Placeholder Industries Inc.", "Sample Group AB", "Fixture Systems GmbH", "Not-Real Partners LLC"];
 const RESERVED_JOB_TITLES   = ["Test Analyst", "Sample Coordinator", "Placeholder Manager", "Fixture Designer", "Draft Specialist", "Notional Consultant"];
 const RESERVED_STREETS      = ["100 Example Way", "200 Sample Street", "300 Placeholder Rd", "400 Fixture Ave", "500 Notreal Ln"];
@@ -63,6 +71,19 @@ const DOC_V4_BASES = ["192.0.2.", "198.51.100.", "203.0.113."];
 const DOC_V6_PREFIX = "2001:db8::";
 // ISO/IEC test PANs (Stripe-published test cards — designated-test-only)
 const TEST_CARDS = ["4242424242424242", "4000056655665556", "5555555555554444", "378282246310005", "6011111111111117"];
+// 999 000 0000 to 999 999 9999 is the NHS test range, so a generated number with a valid check
+// digit is never a real person's, and a file of many patients gets many distinct fakes.
+function nhsTestNumber(rng) {
+  for (;;) {
+    const body = "999" + String(Math.floor(rng() * 1e6)).padStart(6, "0");
+    let sum = 0;
+    for (let i = 0; i < 9; i++) sum += Number(body[i]) * (10 - i);
+    let check = 11 - (sum % 11);
+    if (check === 11) check = 0;
+    if (check === 10) continue;
+    return body + check;
+  }
+}
 // NANPA sets 555-0100 to 555-0199 aside for fiction in every area code, so the area code can
 // vary freely: about 70,000 distinct fakes instead of 100.
 const FICTITIOUS_PHONE = (rng) => {
@@ -113,7 +134,7 @@ export function synthetic(detectorId, rng) {
     // Zero-led numbers no issuing authority uses, so a fake cannot collide with a real document.
     case "passport": return `X0000${String(Math.floor(rng() * 1e4)).padStart(4, "0")}`;
     case "us_dl":    return `Z000${String(Math.floor(rng() * 1e4)).padStart(4, "0")}`;
-    case "nhs":      return "9990000018"; // NHS test-only synthetic number
+    case "nhs":      return nhsTestNumber(rng);
     case "aadhaar":  return "0000 0000 0000";
     // 00001-00099: the lowest ZIP in use is 00501, so nothing below it can be real.
     case "postal_us": return `000${String(10 + Math.floor(rng() * 90))}`;
@@ -221,11 +242,28 @@ export function redact(value, style = "block") {
 // them, so a clash is redrawn. A few kinds come from a short published list (test cards, test
 // IBANs, the one NHS test number) and repeat once the list runs out.
 const REDRAWS = 64;
+// Kinds whose fake can take a suffix and still read as one of its kind: a name gets a middle
+// initial, the others a number. So two people never share a fake however long the file.
+const SUFFIXED = new Set(["person_name", "company", "job_title", "address_street"]);
 function freshFake(detectorId, ctx) {
   let used = ctx.used.get(detectorId);
   if (!used) { used = new Set(); ctx.used.set(detectorId, used); }
   let fake = synthetic(detectorId, ctx.rng);
   for (let i = 0; i < REDRAWS && used.has(fake); i++) fake = synthetic(detectorId, ctx.rng);
+  if (used.has(fake)) {
+    if (SUFFIXED.has(detectorId)) {
+      const base = fake;
+      for (let n = 1; used.has(fake); n++) {
+        fake = detectorId === "person_name" && n <= 26 && base.includes(" ")
+          ? base.replace(" ", ` ${String.fromCharCode(64 + n)}. `)
+          : `${base} ${n + 1}`;
+      }
+    } else {
+      // The published pools (test cards, test IBANs) are what they are; the record says so.
+      if (!ctx.reused) ctx.reused = new Set();
+      ctx.reused.add(detectorId);
+    }
+  }
   used.add(fake);
   return fake;
 }
@@ -233,7 +271,7 @@ function freshFake(detectorId, ctx) {
 // ---------- One value, one treatment ----------
 async function treat(value, detectorId, plan, ctx) {
   switch (plan.transform) {
-    case "hash": return ctx.hash(value);
+    case "hash": return ctx.hash(value, detectorId);
     case "redact": return redact(value, plan.redactStyle || "block");
     case "generalize": return generalize(value, detectorId);
     case "synthetic": {
@@ -272,7 +310,7 @@ export async function applyTransformations(parsed, columnPlan, options = {}) {
     if (!used.has(id)) used.set(id, new Set());
     used.get(id).add(fake);
   }
-  const ctx = { hash, rng, fakes, used };
+  const ctx = { hash, rng, fakes, used, reused: new Set() };
 
   const outRows = rows.map((r) => [...r]);
   const stats = columnPlan.map((c) => ({
@@ -329,5 +367,5 @@ export async function applyTransformations(parsed, columnPlan, options = {}) {
     }
   }
 
-  return { headers: [...headers], rows: outRows, stats, edits, hashKey: hash.keyMode };
+  return { headers: [...headers], rows: outRows, stats, edits, hashKey: hash.keyMode, reused: [...ctx.reused].sort() };
 }

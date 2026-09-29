@@ -127,7 +127,7 @@ export const DETECTORS = [
     category: "contact",
     tier: "format",
     base: 0.75,
-    citation: "Shaped like a phone number (E.164, North American)",
+    citation: "Shaped like a phone number (E.164, North American); digits alone count only under a phone-like header",
     test: (v) => {
       const s = String(v).trim();
       // A date or a timestamp is not a phone number, however many digits it has.
@@ -138,7 +138,7 @@ export const DETECTORS = [
       }
       return 0;
     },
-    columnHint: /(phone|mobile|\btel\b|telephone|\bcell\b|contact[\s_-]*number)/i,
+    columnHint: /(phone|mobile|\btel\b|\bt[ée]l\b|telefon|telephone|\bcell\b|handy|msisdn|whatsapp|\bmob\b|\bph\b|contact[\s_-]*number)/i,
     // Digits with no +, spaces, dashes or brackets look the same as IDs and order numbers.
     hintOnly: (v) => /^\d+$/.test(String(v).trim()),
   },
@@ -350,7 +350,9 @@ export const DETECTORS = [
       let check = 11 - (sum % 11);
       if (check === 11) check = 0;
       if (check === 10) return 0;
-      return check === parseInt(s[9], 10) ? 0.96 : 0.2;
+      // Ten digits that fail the check digit are an order, invoice or account number, not a
+      // mistyped NHS number: scoring them at all put a code on ID columns by default.
+      return check === parseInt(s[9], 10) ? 0.96 : 0;
     },
     columnHint: /(nhs)/i,
   },

@@ -47,7 +47,7 @@ test("a browser that opens a staged artifact as a page is sent to the tool's add
 test("the shell's frames, curl and a tool's own assets are left alone", () => {
   assert.equal(redirectFor(at("/tools/safeseed?embed=1"), browser("iframe")), null);
   assert.equal(redirectFor(at("/tools/safeseed.html?embed=1"), browser("iframe")), null);
-  assert.equal(redirectFor(at("/tools/safelist"), browser("iframe")), null, "SafeList frames without the flag");
+  assert.equal(redirectFor(at("/tools/safelist?embed=1"), browser("iframe")), null);
   assert.equal(redirectFor(at("/tools/redactorium/?embed=1"), browser("iframe")), null);
   assert.equal(redirectFor(at("/tools/safeseed"), curl), null, "curl asks for */*");
   assert.equal(redirectFor(at("/tools/safeseed.html"), curl), null);
@@ -80,4 +80,14 @@ test("the shell is named for the tool it opens, and only there", async () => {
     assert.equal(named.split("<title>").length, 2, `${route} has one title`);
   }
   assert.throws(() => shellForRoute("<title>Something else</title>", "safeseed"), /anchor missing/);
+});
+
+test("every frame in the shell is left alone, even by a browser that sends no Sec-Fetch headers", async () => {
+  const index = await readFile(new URL("../public/index.html", import.meta.url), "utf8");
+  const sources = [...index.matchAll(/data-src="([^"]+)"/g)].map((m) => m[1]);
+  assert.equal(sources.length, 4, "one frame per tool");
+  for (const src of sources) {
+    assert.equal(redirectFor(at(src), browser("iframe")), null, src);
+    assert.equal(redirectFor(at(src), browser()), null, `${src} from a browser without Sec-Fetch-Dest`);
+  }
 });

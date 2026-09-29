@@ -140,3 +140,22 @@ test("resolveOverlaps matches the one-by-one rule on random overlapping spans", 
   }
   assert.deepEqual(resolveOverlaps([]), []);
 });
+
+test("a card or IBAN that starts inside a rejected candidate is still found", () => {
+  const byKind = (text) => Object.fromEntries(scanText(text).map((s) => [s.detectorId, s.value]));
+  const card = byKind("Phone 415 555 0134 4111 1111 1111 1111 exp 12/26");
+  assert.equal(card.phone, "415 555 0134");
+  assert.equal(card.credit_card, "4111 1111 1111 1111", "the card after a rejected 0134 4111... candidate");
+  const iban = byKind("Ref AB12 3456 7890 IBAN GB82 WEST 1234 5698 7654 32");
+  assert.equal(iban.iban, "GB82 WEST 1234 5698 7654 32", "the IBAN after a rejected AB12... candidate");
+});
+
+test("an international phone ends where the phone ends, not at the date, time or ordinal after it", () => {
+  const phones = (text) => scanText(text).filter((s) => s.detectorId === "phone").map((s) => s.value);
+  assert.deepEqual(phones("Tel +44 7700 900123 2026-09-28 follow-up"), ["+44 7700 900123"]);
+  assert.deepEqual(phones("Tel +44 7700 900123 1st floor"), ["+44 7700 900123"]);
+  assert.deepEqual(phones("Call +1 415 555 0134 2024-01-15 10:30"), ["+1 415 555 0134"]);
+  assert.deepEqual(phones("Meet at +1 415 555 0134 10:30 sharp"), ["+1 415 555 0134"]);
+  assert.deepEqual(phones("Paris +33 1 23 45 67 89, Berlin +49-30-1234-5678."), ["+33 1 23 45 67 89", "+49-30-1234-5678"]);
+  assert.deepEqual(phones("UK 28.09.2026 +44 20 7946 0958 28.09.2026"), ["+44 20 7946 0958"]);
+});

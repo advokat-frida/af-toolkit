@@ -105,6 +105,8 @@ function ensureFrame(route) {
   frame.src = frame.dataset.src;
 }
 
+let shownPath = null;
+
 function showRoute({ focus = true } = {}) {
   const route = activeRoute();
   const raw = hashValue();
@@ -120,6 +122,7 @@ function showRoute({ focus = true } = {}) {
   }
 
   document.body.dataset.route = route;
+  shownPath = window.location.pathname;
   document.title = `${routeMeta[route].title} · AF Toolkit`;
   ensureFrame(route);
   frameLayouts.get(frames.get(route))?.schedule();
@@ -226,7 +229,10 @@ document.addEventListener("click", (event) => {
   showRoute();
 });
 
-window.addEventListener("popstate", () => showRoute({ focus: false }));
+// A fragment jump fires popstate too; only a path change is a route change.
+window.addEventListener("popstate", () => {
+  if (window.location.pathname !== shownPath) showRoute({ focus: false });
+});
 window.addEventListener("hashchange", () => {
   if (adoptLegacyHash() || homeAnchors.has(hashValue())) showRoute();
 });

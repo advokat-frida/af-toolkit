@@ -94,9 +94,12 @@ If a missing file returned the shell with a 200, that HTML would be cached under
 asset's key and a broken deploy would look healthy. Better to 404 loudly; the script serves the
 shell for the four tool addresses and nothing else.
 
-`public/_headers` sets `nosniff`, `no-referrer`, and `same-origin` everywhere, `no-store` on the
-staged tools and the manifest so a release is never held stale, and a long immutable cache on
-fonts, whose filenames change when their contents do.
+`public/_headers` sets `nosniff`, `no-referrer`, and `same-origin` on every file the asset host
+serves, `no-store` on the staged tools and the manifest so a release is never held stale, and a
+long immutable cache on fonts, whose filenames change when their contents do. The rewritten shell
+inherits those headers because `worker.mjs` copies them from the asset host's own answer for `/`
+(checked on wrangler dev, 2026-09-28); the Worker's redirects carry only `Location` and
+`Cache-Control`, which is all a bodiless redirect needs.
 
 Deploys are git-connected: push to `main`, Cloudflare builds and ships. There is no build command,
 because `public/` is already the verified snapshot; `npx wrangler deploy` bundles `worker.mjs`

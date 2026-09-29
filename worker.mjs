@@ -24,7 +24,17 @@ export default {
       headers.delete("if-modified-since");
       const shell = await env.ASSETS.fetch(new Request(new URL("/", url), { headers }));
       if (!shell.ok) return shell;
-      const body = shellForRoute(await shell.text(), route);
+      const text = await shell.text();
+      let body;
+      try {
+        body = shellForRoute(text, route);
+      } catch (error) {
+        // A shell without its anchors is a gate failure that should never deploy. If it does,
+        // serve the document as it is under the tool address instead of an error page:
+        // toolkit.js still switches to the right tool on load.
+        console.error(`shell rewrite failed for /${route}: ${error.message}`);
+        body = text;
+      }
       const out = new Headers(shell.headers);
       out.delete("etag");
       out.delete("content-length");

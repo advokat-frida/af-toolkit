@@ -9,11 +9,13 @@ on:
     paths:
       - "privacy-wizards-council/**"
       - ".github/workflows/wizards-ci.yml"
+      - "public/favicon-32.png"
   pull_request:
     branches: [main]
     paths:
       - "privacy-wizards-council/**"
       - ".github/workflows/wizards-ci.yml"
+      - "public/favicon-32.png"
 
 permissions:
   contents: read

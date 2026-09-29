@@ -25,8 +25,10 @@
 
 import JSZip from "jszip";
 
-const TEXT_PARTS = /^word\/(document|header\d*|footer\d*|footnotes|endnotes)\.xml$/;
-const RELS_PARTS = /^word\/_rels\/(document|header\d*|footer\d*|footnotes|endnotes)\.xml\.rels$/;
+// The glossary part holds building blocks (AutoText, a saved signature block) in the same
+// WordprocessingML as the body, so it is read and treated the same way.
+const TEXT_PARTS = /^word\/(document|glossary\/document|header\d*|footer\d*|footnotes|endnotes)\.xml$/;
+const RELS_PARTS = /^word\/(?:glossary\/)?_rels\/(document|header\d*|footer\d*|footnotes|endnotes)\.xml\.rels$/;
 const CORE_TEXT_TAGS = ["dc:title", "dc:subject", "dc:description", "cp:keywords"];
 // A token is a paragraph boundary, a tab or line break (kept as a separator the scanner can
 // see), or a text element whose content we read and may rewrite.
@@ -47,7 +49,7 @@ const encodeAttr = (s) => encodeText(s).replace(/"/g, "&quot;");
 
 // ---------- cleaning ----------
 const count = (xml, re) => (xml.match(re) || []).length;
-const REVISION_TAGS = "rPrChange|pPrChange|sectPrChange|tblPrChange|tblGridChange|tcPrChange|trPrChange|numberingChange";
+const REVISION_TAGS = "rPrChange|pPrChange|sectPrChange|tblPrChange|tblGridChange|tcPrChange|trPrChange|numberingChange|cellIns|cellDel|cellMerge";
 
 export function cleanPartXml(xml, cleaned) {
   let x = xml;
@@ -127,6 +129,44 @@ async function cleanPackage(zip) {
   };
   await blank("docProps/core.xml", ["dc:creator", "cp:lastModifiedBy"], ["author", "last modified by"]);
   await blank("docProps/app.xml", ["Company", "Manager"], ["company", "manager"]);
+  // The application properties list every heading in the document (TitlesOfParts).
+  if (zip.file("docProps/app.xml")) {
+    const app = await zip.file("docProps/app.xml").async("string");
+    if (/<TitlesOfParts>[\s\S]*?<\/TitlesOfParts>/.test(app)) {
+      cleaned.propertiesCleared.push("headings list");
+      zip.file("docProps/app.xml", app.replace(/<HeadingPairs>[\s\S]*?<\/HeadingPairs>/, "").replace(/<TitlesOfParts>[\s\S]*?<\/TitlesOfParts>/, ""));
+    }
+  }
+  // The attached template is a path on the author's machine, user name included.
+  if (zip.file("word/settings.xml")) {
+    const settings = await zip.file("word/settings.xml").async("string");
+    if (/<w:attachedTemplate\b/.test(settings)) {
+      cleaned.propertiesCleared.push("attached template path");
+      zip.file("word/settings.xml", settings.replace(/<w:attachedTemplate\b[^>]*\/>/g, ""));
+      const relsPath = "word/_rels/settings.xml.rels";
+      if (zip.file(relsPath)) {
+        const rels = await zip.file(relsPath).async("string");
+        zip.file(relsPath, rels.replace(/<Relationship\b[^>]*Type="[^"]*\/attachedTemplate"[^>]*\/>/g, ""));
+      }
+    }
+  }
+  // A page thumbnail is a picture of page one, saved by default by Word for Mac.
+  const thumbnails = Object.keys(zip.files).filter((p) => /^docProps\/thumbnail\./i.test(p) && !zip.files[p].dir);
+  if (thumbnails.length) {
+    cleaned.propertiesCleared.push("page thumbnail");
+    for (const p of thumbnails) zip.remove(p);
+    if (zip.file("_rels/.rels")) {
+      const rels = await zip.file("_rels/.rels").async("string");
+      zip.file("_rels/.rels", rels.replace(/<Relationship\b[^>]*Type="[^"]*\/metadata\/thumbnail"[^>]*\/>/g, ""));
+    }
+    if (zip.file("[Content_Types].xml")) {
+      const ct = await zip.file("[Content_Types].xml").async("string");
+      zip.file("[Content_Types].xml", ct.replace(/<Override\b[^>]*PartName="\/docProps\/thumbnail\.[^"]*"[^>]*\/>/gi, ""));
+    }
+  }
+  // SmartArt (an org chart, a process diagram) keeps its text in a drawing part this reader
+  // does not open; it stays as it is, and the page says so.
+  if (Object.keys(zip.files).some((p) => /^word\/diagrams\//.test(p) && !zip.files[p].dir)) cleaned.unread.push("SmartArt");
   return cleaned;
 }
 
@@ -157,14 +197,16 @@ function segmentBody(path, xml) {
   return segments;
 }
 
-// Image alt text and titles live in attributes (<wp:docPr descr="..."> and <pic:cNvPr>).
+// Text that lives in attributes: image alt text and titles (<wp:docPr descr="..."> and
+// <pic:cNvPr>), a hyperlink's hover text (<w:hyperlink w:tooltip="...">) and a simple field's
+// instruction (<w:fldSimple w:instr=" HYPERLINK &quot;mailto:...&quot; ">).
 function segmentAltText(path, xml) {
   const segments = [];
-  const re = /<(?:wp:docPr|pic:cNvPr)\b[^>]*>/g;
+  const re = /<(?:wp:docPr|pic:cNvPr|w:hyperlink|w:fldSimple)\b[^>]*>/g;
   let m;
   while ((m = re.exec(xml)) !== null) {
     const tag = m[0];
-    const attr = /\b(descr|title)="([^"]*)"/g;
+    const attr = /\b(descr|title|w:tooltip|w:instr)="([^"]*)"/g;
     let a;
     while ((a = attr.exec(tag)) !== null) {
       if (!a[2].trim()) continue;
@@ -270,7 +312,11 @@ export async function buildDOCX(parsed, newRows, edits) {
       const t = texts[r];
       if (t === seg.text.slice(run.start, run.end)) return;
       if (run.attr) {
-        byPart.get(seg.path).push({ start: run.valueStart, end: run.valueEnd, replacement: encodeAttr(t) });
+        // A hyperlink address must stay an address: a redaction mark inside "mailto:" is not one,
+        // and Word would offer to repair the file.
+        const original = seg.text.slice(run.start, run.end);
+        const value = /^mailto:/i.test(original) && /[\s[\]<>"]/.test(t) ? "mailto:redacted@example.invalid" : t;
+        byPart.get(seg.path).push({ start: run.valueStart, end: run.valueEnd, replacement: encodeAttr(value) });
         return;
       }
       const preserve = /^\s|\s$/.test(t) && !/xml:space=/.test(run.openTag);

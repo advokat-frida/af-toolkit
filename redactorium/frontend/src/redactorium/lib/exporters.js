@@ -6,7 +6,7 @@
 
 import Papa from "papaparse";
 import * as XLSX from "xlsx";
-import jsPDF from "jspdf";
+import { jsPDF } from "jspdf";
 import { buildDOCX } from "./docxHandler.js";
 import { DETECTORS } from "./piiPatterns.js";
 import { scanText } from "./textScan.js";
@@ -56,7 +56,11 @@ export async function buildOutput(parsed, edits = null) {
     // Excel's General format turns a whole number of twelve digits or more into 3.78282E+14, so a
     // card, account or customer number kept as it was would come back unreadable. Show it in full.
     for (const [addr, cell] of Object.entries(ws)) {
-      if (addr[0] !== "!" && cell.t === "n" && Number.isInteger(cell.v) && Math.abs(cell.v) >= 1e11) cell.z = "0";
+      if (addr[0] === "!" || cell.t !== "n" || !Number.isInteger(cell.v) || Math.abs(cell.v) < 1e11) continue;
+      // Excel shows at most 15 significant digits, so a 16-digit card written back as a number
+      // would display as ...1110: sixteen digits and up go back as text, in full.
+      if (Math.abs(cell.v) >= 1e15) { cell.t = "s"; cell.v = String(cell.v); delete cell.z; }
+      else cell.z = "0";
     }
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, meta?.sheetName || "Sheet1");
@@ -107,7 +111,7 @@ export async function buildOutput(parsed, edits = null) {
 // ---- The record (JSON) ----
 // What ran, what it found, what the reader chose, and fingerprints of the file before and
 // after. It never holds the personal data itself: no matched values, no examples, no hash key.
-export function buildLogJSON({ inputFile, format, columnPlan, stats, detectionResults, inputHash, outputHash, hashKey, seed, startedAt, finishedAt, meta, customDetectors = [] }) {
+export function buildLogJSON({ inputFile, format, columnPlan, stats, detectionResults, inputHash, outputHash, hashKey, seed, startedAt, finishedAt, meta, customDetectors = [], reused = [] }) {
   const where = (mode) => (mode === "text" ? "text" : "column");
   const log = {
     tool: "Redactorium",
@@ -166,6 +170,7 @@ export function buildLogJSON({ inputFile, format, columnPlan, stats, detectionRe
       reviewer_note: p.note && p.note.trim() ? p.note.trim() : null,
     })),
     limits: [
+      ...(reused.length ? [`The fakes for ${reused.join(", ")} come from a short published list of test values and repeated once it ran out, so two different values may share one fake.`] : []),
       "This record comes from a client-side tool and is not signed. It documents what was done; it is not a cryptographic proof of who did it.",
       "Detection is pattern matching. 'Nothing found' means nothing matched the patterns, not that the file holds no personal data.",
     ],

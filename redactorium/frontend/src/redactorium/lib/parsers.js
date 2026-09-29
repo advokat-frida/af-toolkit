@@ -18,19 +18,32 @@ const SSF = XLSX.SSF || (XLSX.default && XLSX.default.SSF);
 // card number, an SSN or the like, it is data, and treating it as names would copy it into the
 // clean file untouched. Then every row is data and the columns are numbered instead.
 const DATA_SHAPED = new Set(["email", "phone", "ssn", "credit_card", "iban", "ipv4", "ipv6", "mac", "url"]);
-export function firstRowIsData(row) {
-  return row.some((cell) => {
+// Shapes a column name never has but a person's row does: a date (of birth), a street address, a
+// postcode. They count only when the column below shares the shape, so a timesheet whose
+// column names are dates (with hours below them) keeps its header.
+const ROW_SHAPED = new Set(["dob", "address_street", "postal_us", "postal_uk"]);
+const ROW_SHAPE_MIN = 0.5;
+const shaped = (v, ids, min) => v !== "" && DETECTORS.some((d) => ids.has(d.id) && d.test(v) >= min);
+export function firstRowIsData(row, rest = []) {
+  return row.some((cell, i) => {
     const v = String(cell ?? "").trim();
-    return v !== "" && DETECTORS.some((d) => DATA_SHAPED.has(d.id) && d.test(v) >= 0.9);
+    if (shaped(v, DATA_SHAPED, 0.9)) return true;
+    if (!shaped(v, ROW_SHAPED, ROW_SHAPE_MIN)) return false;
+    const below = rest.map((r) => String(r[i] ?? "").trim()).filter((x) => x !== "");
+    return below.length > 0 && below.filter((x) => shaped(x, ROW_SHAPED, ROW_SHAPE_MIN)).length >= Math.ceil(below.length * 0.35);
   });
 }
+// A row's width stops at its last non-empty cell, so a trailing delimiter adds no column.
+const filledWidth = (r) => { let n = r.length; while (n > 0 && String(r[n - 1] ?? "").trim() === "") n--; return n; };
 function tableFrom(data, format, meta) {
-  if (firstRowIsData(data[0])) {
-    const width = Math.max(...data.map((r) => r.length));
+  const width = data.reduce((w, r) => Math.max(w, filledWidth(r)), data[0].length);
+  if (firstRowIsData(data[0], data.slice(1))) {
     const headers = Array.from({ length: width }, (_, i) => `column_${i + 1}`);
     return { kind: "table", format, headers, rows: data.map((r) => headers.map((_, i) => r[i] ?? "")), meta: { ...meta, headerless: true } };
   }
-  const headers = data[0].map((h) => String(h ?? ""));
+  // A header row narrower than the rows below it names what it names; the extra columns keep
+  // their data under a numbered name instead of being dropped from the clean file.
+  const headers = Array.from({ length: width }, (_, i) => (i < data[0].length ? String(data[0][i] ?? "") : `column_${i + 1}`));
   return { kind: "table", format, headers, rows: data.slice(1).map((r) => headers.map((_, i) => r[i] ?? "")), meta };
 }
 

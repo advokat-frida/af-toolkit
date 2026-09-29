@@ -142,11 +142,13 @@ export function nameColumns(header) {
 
 // One cell can hold several entries: a line pasted with commas, semicolons or tabs, or an
 // Outlook To line with display names ("Lovelace, Ada" <ada@example.com>; grace@example.org).
-// The pieces that are addresses or @domain rules are the entries; a display name split at its
-// comma is not an entry. A cell with no address at all comes back whole, to be reported.
+// The pieces that are addresses or @domain rules are the entries; a piece with an @ that is
+// neither is a broken entry and is kept so it gets reported, not dropped from the suppression
+// set; a display name split at its comma is not an entry. A cell with no address at all comes
+// back whole, to be reported.
 export function cellEntries(raw) {
   const parts = String(raw).split(/[;,\t]+/).map((part) => part.trim()).filter(Boolean);
-  const entries = parts.filter((part) => looksLikeEmail(part) || domainRule(part));
+  const entries = parts.filter((part) => looksLikeEmail(part) || domainRule(part) || part.includes("@"));
   return entries.length ? entries : [String(raw).trim()];
 }
 

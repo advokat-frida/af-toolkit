@@ -246,3 +246,46 @@ test("an Aadhaar number needs its Verhoeff check digit and a column named for it
   const unnamed = await run(new File(["reference\n2341 2341 2346\n999941057058\n"], "b.csv"));
   assert.notEqual(unnamed.detection[0].top?.detectorId, "aadhaar");
 });
+
+// 2026-09-28, evening: the independent review of the release.
+test("ten digits that fail the NHS check digit are an ID, not a mistyped NHS number", async () => {
+  const ids = await run(new File(["order_id\n1000000001\n1000000002\n1000000003\n"], "o.csv"), "keep");
+  assert.equal(ids.detection[0].top, null);
+  const nhs = await run(new File(["nhs_number\n9434765919\n4010232137\n"], "n.csv"), "keep");
+  assert.equal(nhs.detection[0].top?.detectorId, "nhs");
+});
+
+test("a phone column named in another language or in shorthand counts as a phone column", async () => {
+  for (const header of ["telefon", "msisdn", "mob", "handy"]) {
+    const { detection } = await run(new File([`${header}\n4155550134\n2125550100\n6175550182\n`], "p.csv"), "keep");
+    assert.equal(detection[0].top?.detectorId, "phone", header);
+  }
+});
+
+test("a headerless file of names, dates of birth and addresses is data from its first row", async () => {
+  const csv = "Ada Lovelace,1985-12-10,12 Example Street,94107\nGrace Hopper,1906-12-09,34 Sample Road,10001\nMary Jackson,1921-04-09,56 Fixture Avenue,23669\n";
+  const { parsed } = await run(new File([csv], "people.csv"), "keep");
+  assert.equal(parsed.meta.headerless, true);
+  assert.deepEqual(parsed.headers, ["column_1", "column_2", "column_3", "column_4"]);
+  assert.equal(parsed.rows.length, 3);
+  const sheet = await run(new File(["name,2026-09-01,2026-09-02\nAda,8,7.5\nGrace,7,8\n"], "hours.csv"), "keep");
+  assert.notEqual(sheet.parsed.meta.headerless, true, "a timesheet's date columns are a header: the cells below are hours");
+  assert.deepEqual(sheet.parsed.headers, ["name", "2026-09-01", "2026-09-02"]);
+});
+
+test("a header row narrower than the data keeps the extra columns; a trailing comma adds none", async () => {
+  const wide = await run(new File(["a,b\n1,2,ada@example.org\n3,4,grace@example.org\n"], "w.csv"), "keep");
+  assert.deepEqual(wide.parsed.headers, ["a", "b", "column_3"]);
+  assert.equal(wide.parsed.rows[0][2], "ada@example.org");
+  assert.equal(wide.detection.find((r) => r.index === 2)?.top?.detectorId, "email");
+  const trailing = await run(new File(["a,b\n1,2,\n3,4,\n"], "t.csv"), "keep");
+  assert.deepEqual(trailing.parsed.headers, ["a", "b"]);
+});
+
+test("a sixteen-digit number kept in an Excel file goes back as text, so Excel shows every digit", async () => {
+  const file = await workbook([["card_number"], [4111111111111111]]);
+  const { output } = await run(file, "keep");
+  const ws = await cellsOf(output);
+  assert.equal(ws.A2.t, "s");
+  assert.equal(ws.A2.v, "4111111111111111");
+});
