@@ -21,7 +21,7 @@ const DATA_SHAPED = new Set(["email", "phone", "ssn", "credit_card", "iban", "ip
 // Shapes a column name never has but a person's row does: a date (of birth), a street address, a
 // postcode. They count only when the column below shares the shape, so a timesheet whose
 // column names are dates (with hours below them) keeps its header.
-const ROW_SHAPED = new Set(["dob", "address_street", "postal_us", "postal_uk"]);
+const ROW_SHAPED = new Set(["dob", "address_street", "place_us", "postal_us", "postal_uk"]);
 const ROW_SHAPE_MIN = 0.5;
 const shaped = (v, ids, min) => v !== "" && DETECTORS.some((d) => ids.has(d.id) && d.test(v) >= min);
 export function firstRowIsData(row, rest = []) {

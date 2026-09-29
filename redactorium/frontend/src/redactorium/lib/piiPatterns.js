@@ -8,6 +8,8 @@
  * patterns (checksum-validated) start at 0.9+; heuristics stay <=0.7.
  */
 
+import { isUSPlace } from "./places.js";
+
 // ---------- helpers ----------
 export const luhnCheck = (num) => {
   const digits = String(num).replace(/\D/g, "");
@@ -296,7 +298,7 @@ export const DETECTORS = [
     category: "demographic",
     tier: "heuristic",
     base: 0.4,
-    citation: "Two or more capitalized words. Often wrong, so check it.",
+    citation: "A name-like column, labeled name, short opening line or exact repeat. Check it.",
     test: (v) => {
       const s = String(v).trim();
       // Any script's letters (José Núñez, Zoë O'Brien-Smith, McKenzie), and "Last, First".
@@ -306,6 +308,16 @@ export const DETECTORS = [
     },
     columnHint: /((^|[^a-z])(full[_ ]?|first[_ ]?|last[_ ]?|customer[_ ]?|patient[_ ]?|employee[_ ]?|contact[_ ]?|client[_ ]?|given[_ ]?|family[_ ]?)?name([^a-z]|$)|surname|given)/i,
     columnHintBoost: 0.35,
+  },
+  {
+    id: "place_us",
+    name: "Place",
+    category: "address",
+    tier: "heuristic",
+    base: 0.65,
+    citation: "A capitalized city followed by a US state name or abbreviation. Check it.",
+    test: (v) => isUSPlace(v) ? 0.7 : 0,
+    columnHint: /(^|[^a-z])(city|place|location|city[_ -]?state)([^a-z]|$)/i,
   },
   {
     id: "company",

@@ -18,6 +18,7 @@
  */
 
 import { luhnCheck, ssnValid, ibanValid, nhsValid, aadhaarValid } from "./piiPatterns.js";
+import { PLACE_SOURCE } from "./places.js";
 
 const CONTEXT_WINDOW = 32; // characters before a value that a context label may occupy
 
@@ -28,6 +29,11 @@ const STREET_WORDS = "(?:Street|St|Road|Rd|Avenue|Ave|Boulevard|Blvd|Lane|Ln|Dri
 // regex whose group 1 is the value (group 0 may include one consumed boundary character), a
 // score, and optional `valid(value)` and `context` gates.
 export const TEXT_PATTERNS = [
+  {
+    id: "place_us",
+    re: new RegExp(`(^|[^\\p{L}\\p{M}\\p{N}_])(${PLACE_SOURCE})`, "gu"),
+    score: 0.65,
+  },
   {
     id: "email",
     re: /(^|[^A-Za-z0-9._%+-])([A-Za-z0-9][A-Za-z0-9._%+-]{0,63}@[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?(?:\.[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?)*\.[A-Za-z]{2,24})(?![A-Za-z0-9-])/g,
@@ -175,7 +181,7 @@ export const TEXT_PATTERNS = [
  * Returns spans sorted by start: { start, end, detectorId, value, score }. Overlaps are
  * resolved in favor of the stronger claim (higher score, then the longer match).
  */
-export function scanText(text, { extra = [] } = {}) {
+export function scanText(text, { extra = [], knownNames = null } = {}) {
   const s = String(text ?? "");
   if (!s) return [];
   const found = [];
@@ -212,7 +218,65 @@ export function scanText(text, { extra = [] } = {}) {
       found.push({ start: m.index, end: m.index + m[0].length, detectorId: rule.id, value: m[0], score: rule.base ?? 0.85 });
     }
   }
+  if (knownNames) {
+    // A label may recognize only a prefix before an initial ("Name: Ada M. Lovelace").
+    // Give the known full name that label's score so the longer match wins the tie.
+    const nameScores = new Map();
+    for (const span of found) {
+      if (span.detectorId === "person_name") {
+        nameScores.set(span.start, Math.max(span.score, nameScores.get(span.start) || 0));
+      }
+    }
+    knownNames.re.lastIndex = 0;
+    let m;
+    while ((m = knownNames.re.exec(s)) !== null) {
+      const start = m.index + m[1].length;
+      const value = m[2];
+      const score = Math.max(knownNames.scores.get(value), nameScores.get(start) || 0);
+      found.push({ start, end: start + value.length, detectorId: "person_name", value, score });
+    }
+  }
   return resolveOverlaps(found);
+}
+
+const OPENING_LINES = 5;
+const NAME_LINE = /^\p{Lu}[\p{L}\p{M}'’-]*\.?(?:[ \t]+\p{Lu}[\p{L}\p{M}'’-]*\.?){1,3}$/u;
+// Exclude obvious headings, roles, organizations and regions. This remains a low-score
+// candidate rule, not a promise to distinguish every person's name from every title.
+const NOT_NAME = /\b(?:area|greater|region|city|county|state|street|road|avenue|manager|director|engineer|developer|analyst|consultant|officer|president|executive|assistant|coordinator|specialist|architect|designer|lead|head|chief|senior|junior|vp|ceo|cto|cfo|partner|attorney|nurse|doctor|legal|counsel|inc|ltd|llc|corp|company|group|holdings|university|college|school|department|institute|resume|curriculum|vitae|experience|education|skills|summary|profile|project|hours|timesheet|weekly|monthly|quarterly|annual|report|review|overview|sales|customer|support|protection|monday|tuesday|wednesday|thursday|friday|saturday|sunday)\b/i;
+const escapeRegex = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+/**
+ * Build context once for one document, shared by detection and treatment. A name found
+ * after a label or in the opening five non-empty body lines seeds exact whole-name
+ * repeats throughout that document, including Word headers and footers. Nothing is
+ * learned from another file, a spreadsheet column, or a saved preset.
+ */
+export function documentScanOptions(parsed, extra = []) {
+  if (parsed.kind !== "text" && parsed.kind !== "docx-structured") return { extra };
+  const scores = new Map();
+  const remember = (value, score) => scores.set(value, Math.max(score, scores.get(value) || 0));
+  let opening = 0;
+  parsed.rows.forEach((row, i) => {
+    const text = String(row[0] ?? "");
+    for (const sp of scanText(text, { extra })) {
+      if (sp.detectorId === "person_name") remember(sp.value, sp.score);
+    }
+    const seg = parsed.meta?.segments?.[i];
+    const body = parsed.kind !== "docx-structured"
+      || (seg?.path === "word/document.xml" && !seg.runs.some((r) => r.attr));
+    if (!body || opening >= OPENING_LINES) return;
+    for (const line of text.split(/\r?\n/)) {
+      const name = line.trim();
+      if (!name) continue;
+      if (opening++ >= OPENING_LINES) break;
+      if (name.length <= 40 && NAME_LINE.test(name) && !NOT_NAME.test(name)) remember(name, 0.45);
+    }
+  });
+  if (!scores.size) return { extra };
+  const names = [...scores.keys()].sort((a, b) => b.length - a.length).map(escapeRegex).join("|");
+  const re = new RegExp(`(^|[^\\p{L}\\p{M}\\p{N}_-])(${names})(?![\\p{L}\\p{M}\\p{N}_-])`, "gu");
+  return { extra, knownNames: { re, scores } };
 }
 
 /**

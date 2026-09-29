@@ -33,8 +33,21 @@ Two ways, and the findings table says which one produced each row.
 
 Inside text, card numbers, IBANs and NHS numbers must pass their checksums, and never-issued SSNs
 are rejected. Kinds that only mean something next to a label (a date is a date of birth after "born" or
-"DOB"; a name after "Name:" or "Dear") need the label. Unlabeled names in prose are not found; check
-the clean file before it goes out.
+"DOB") need the label. Names are candidates after a label such as "Name:" or "Dear", or on
+a short line of two to four capitalized words among a document's first five non-empty body lines.
+The opening-line rule rejects common headings, roles and region words and carries a lower score;
+it can still mistake a title for a name. Every exact, case-sensitive whole-name repeat of a found
+name is then checked across that document, including Word headers and footers. Other names in
+prose are not found. The rule does not learn names from another file or a spreadsheet.
+
+**Place** finds shapes such as "Redlands, CA" or "Los Angeles, California", on their own or inside
+a sentence. It checks the state against the 50 US states and DC, not the city against a directory.
+The suggested treatment removes the whole place; Make less exact keeps only the state. Swap for
+fakes uses named placeholders ending in `ZZ`, which is not a US state abbreviation. Free-form
+regions such as "Greater Los Angeles Area" are outside this rule.
+
+These patterns do not identify employers, schools or other organizations in running text.
+Redactorium does not make a resume anonymous by itself; read the clean file before it goes out.
 
 In a spreadsheet, three weak shapes count only in a column named for them: five digits in a ZIP
 column, and six to nine letters and digits in a passport or driver's license column. Customer,
@@ -46,6 +59,7 @@ The detectors live in [`frontend/src/redactorium/lib/`](frontend/src/redactorium
 |---|---|
 | `piiPatterns.js` | The whole-cell detectors: name, pattern, checksum, and the plain rule shown in the table |
 | `textScan.js` | The in-text patterns: where each kind sits inside a sentence, as exact character ranges |
+| `places.js` | US city/state shapes, state extraction and fictional place placeholders |
 | `detector.js` | Turns a parsed file into findings rows, whole-cell or in-text |
 | `customRules.js` | Your own patterns, for the identifiers only your organization uses |
 | `transformers.js` | The treatments: keep, redact, replace with a code (keyed hash), make less exact, swap for fakes |

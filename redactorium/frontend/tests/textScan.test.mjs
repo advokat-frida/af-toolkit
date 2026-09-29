@@ -50,7 +50,7 @@ test("context-gated kinds need their label", () => {
   assert.deepEqual(kinds("DOB: 1985-03-12"), ["dob=1985-03-12"]);
   assert.deepEqual(kinds("Passport: X1234567"), ["passport=X1234567"]);
   assert.deepEqual(kinds("Model X1234567"), []);
-  assert.deepEqual(kinds("Springfield, IL 62704"), ["postal_us=62704"]);
+  assert.deepEqual(kinds("Springfield, IL 62704"), ["place_us=Springfield, IL", "postal_us=62704"]);
   assert.deepEqual(kinds("Batch 62704 shipped"), []);
 });
 

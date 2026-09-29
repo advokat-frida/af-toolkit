@@ -1,5 +1,5 @@
 import { DETECTORS } from "./piiPatterns.js";
-import { summarizeSpans } from "./textScan.js";
+import { summarizeSpans, documentScanOptions } from "./textScan.js";
 
 /**
  * detectColumns
@@ -24,6 +24,7 @@ export function detectColumns(parsed, opts = {}) {
   const custom = opts.customDetectors || [];
   const allDetectors = [...DETECTORS, ...custom];
   const extra = custom.filter((d) => d.find);
+  const scanOptions = documentScanOptions(parsed, extra);
   const byId = new Map(allDetectors.map((d) => [d.id, d]));
   const out = [];
 
@@ -40,7 +41,7 @@ export function detectColumns(parsed, opts = {}) {
     // still a kind the reader must decide about, and an undecided kind would pass through.
     const texts = rows.map((r) => (r[idx] === undefined || r[idx] === null ? "" : String(r[idx])));
     const nonEmpty = texts.filter((t) => t.trim() !== "").length;
-    const kinds = summarizeSpans(texts, { extra });
+    const kinds = summarizeSpans(texts, scanOptions);
     if (kinds.length) {
       for (const k of kinds) {
         const det = byId.get(k.detectorId) || {};
@@ -169,6 +170,7 @@ function defaultTransformFor(finding) {
     case "ipv6":
       return "generalize";
     case "address_street":
+    case "place_us":
       return "redact";
     case "company":
     case "job_title":
