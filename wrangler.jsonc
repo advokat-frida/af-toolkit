@@ -1,25 +1,46 @@
 {
-  // The Toolkit is served as a static-assets-only Worker: no server code, no
-  // build step. `public/` is the committed, staged snapshot that
-  // `scripts/build-tools.mjs` produces, so Cloudflare uploads exactly the bytes
-  // the gate proved.
+  // The Toolkit is a static-assets Worker with one small script. `public/` is the
+  // committed, staged snapshot that `scripts/build-tools.mjs` produces, so Cloudflare
+  // uploads exactly the bytes the gate proved; `worker.mjs` adds the tool addresses
+  // (`/safeseed` and the rest) on top of it and sends a browser that opens a staged
+  // artifact directly to the tool's address. The rules live in `routes.mjs`, which
+  // `server.mjs` applies locally, so a local run and the edge agree.
   //
   // Workers Builds must be configured with the repository root as its root
   // directory and an EMPTY build command; otherwise it auto-detects one of the
   // tool folders (it picked privacy-wizards-council on 2026-09-03) and serves
-  // unbuilt source.
+  // unbuilt source. The deploy command stays `npx wrangler deploy`, which bundles
+  // worker.mjs itself.
   // The Worker resource keeps its original name. Renaming it would mean creating a
   // new Worker and rebinding the custom domain and the git connection, for a value
   // no visitor ever sees: the public address is toolkit.advokatfrida.com. The
   // repository is advokat-frida/af-toolkit.
   "name": "the-toolkit",
+  "main": "worker.mjs",
   "compatibility_date": "2026-09-03",
   "assets": {
     "directory": "./public/",
-    // Every route in the shell is a hash route, so every path that reaches the
-    // edge is a real file. A missing file must 404 rather than silently serving
-    // the shell: an HTML 200 fallback gets edge-cached under the asset's key and
-    // hides a broken deploy.
+    "binding": "ASSETS",
+    // Every file in public/ is served by Cloudflare before the script runs, except the
+    // staged artifacts' entry documents below: the script sees those first, so that a
+    // browser opening one as a page is sent to the tool's address while the shell's
+    // frames (`?embed=1`) and command-line fetches get the file. Keep this list equal
+    // to WORKER_FIRST_PATHS in routes.mjs; tests/routes.test.mjs checks it.
+    "run_worker_first": [
+      "/tools/safeseed",
+      "/tools/safeseed.html",
+      "/tools/safelist",
+      "/tools/safelist.html",
+      "/tools/privacy-wizards-council",
+      "/tools/privacy-wizards-council.html",
+      "/tools/redactorium",
+      "/tools/redactorium/",
+      "/tools/redactorium/index.html"
+    ],
+    // A path with no file behind it reaches the script, which serves the shell for the
+    // four tool addresses and nothing else. A missing file must still 404 rather than
+    // silently serving the shell: an HTML 200 fallback gets edge-cached under the
+    // asset's key and hides a broken deploy.
     "not_found_handling": "none"
   }
 }

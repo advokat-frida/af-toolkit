@@ -1,5 +1,253 @@
 # HANDOFF
 
+## 2026-09-28 (evening) - Tool addresses, direct-visit redirects, one footer for all four: ready for the tuck
+
+Ben's calls after finding SafeSeed's standalone page (`/tools/safeseed`) live with an old stacked
+footer and a false "Analytics by Plausible" line: (1) forward direct visits to the shell,
+(2) give every tool its own address, `toolkit.advokatfrida.com/safeseed`, `/safelist`,
+`/redactorium`, `/privacy-wizards` (no `/tools`), (3) fix the footer on all four standalone
+pages, (4) the tab icon too. All in this working tree, on top of the AF-20 work below (one tuck).
+The side worktree `.claude/worktrees/safeseed-analytics-line` from the first SafeSeed fix was
+superseded by this and has been removed, branch included.
+
+**How it works.**
+- `routes.mjs` (new, repo root): the one list of routes, artifact entry paths, titles and
+  descriptions; `redirectFor()`, `redirectResponse()` and `shellForRoute()`. `worker.mjs` (new)
+  is the edge script: a browser opening an artifact as a page (`Sec-Fetch-Dest: document`, or
+  `Accept: text/html` with no Sec-Fetch headers) without `?embed=1` gets a 302 marked
+  `no-store` to the tool's address (a bare 301 was the first cut; Chromium cached it per URL and
+  then applied it to the shell's own frame request for `/tools/safelist`, loading the shell
+  inside itself: caught by the browser suite on wrangler dev, never by the local server, which
+  sends `no-store` on everything); `/<tool>/` 301s to `/<tool>`; `/<tool>` is answered with
+  `index.html` rewritten (title, description, canonical, `body[data-route]`); everything else
+  goes to the asset host, so a missing file still 404s. `wrangler.jsonc` gains `main`,
+  `binding: ASSETS` and `run_worker_first` for the nine artifact entry paths
+  (tests/routes.test.mjs checks the list).
+- `server.mjs` applies the same rules locally plus the asset host's `auto-trailing-slash`
+  behavior (`/x.html` 307s to `/x`; `/dir/index.html` to `/dir/`), exports
+  `createToolkitHandler`, and `scripts/visual-qa.mjs` + `scripts/state-proofs.mjs` (and so
+  `style-census`) now serve through it instead of their own mini servers.
+- `public/toolkit.js`: path routing (rail and cards link to `/<tool>`, in-place switching with
+  `pushState`, `popstate`, per-route title); old `/#<tool>` and `/#home` links are adopted onto
+  the path with their query; the skip link and the changelog anchor are left to the browser (the
+  skip link used to flip the view to Home: fixed). `public/index.html`: hrefs, a canonical link,
+  and the frames load the extensionless artifact addresses (one hop instead of two).
+- Standalone footers: SafeSeed (`demo/src/components/SiteChrome.tsx`, `generator.html`,
+  both CSS files, `verify-chrome.mjs`), the Wizards (`App.svelte`, `app.css`,
+  `verify-artifact.mjs`, `build-singlefile.mjs`), SafeList (`page-body.html`,
+  `chrome/shared.css`, `tools/build.mjs`, its CLAUDE.md and README) and Redactorium
+  (`Footer.jsx`, `index.css`, `vite.config.mjs`) now carry the shell footer: one row, the
+  nameplate as a link, About / Contact / Privacy / RSS, no description line, the Plausible line
+  banned in the contracts. Each build inlines the shell's `public/favicon-32.png` as a data
+  URI for the tab icon (SafeSeed's teal `fox.svg` retired). Canon: DESIGN-SYSTEM §7.
+- Docs: ARCHITECTURE (Hosting), README, VERIFYING (curl still gets the file), REVIEW-GATE step 3.
+- The Ghost draft for the Redactorium article now links `https://toolkit.advokatfrida.com/redactorium`,
+  which is a 404 until this deploys: publish the article only after the Toolkit release.
+
+**Verified.** Each tool's own gate on the new chrome: SafeSeed `release:check` (127 tests, CLI
+6/6, Action 5/5) and `build:standalone:all` with `verify:chrome` (`safeseed-proof.html`/`.js`
+changed by one inert CSS span each, because they inline `src/index.css`); the Wizards
+`npm run check` (75 tests, style audit, artifact contract); SafeList `npm run check` (25 tests);
+Redactorium lint, 47 tests, build. Every standalone footer measured identical to the shell's at
+1440 and 390 (screenshots in the scratchpad `footers/`, looked at). All four restaged. Root:
+`npm test` (7, incl. `tests/routes.test.mjs`), syntax check over 16 files, `npm run gate` exit 0
+twice on the restaged tree (264 checks, the rendered QA now going through `server.mjs`, style
+census unchanged), the AF-20 end-to-end harness 58/58. Routing: `npx wrangler dev` (the real
+Workers runtime) answered every case as designed with curl (302 `no-store` for page visits to
+all nine artifact paths, 200 for frames and for curl, 307 `.html` to extensionless, 200 with the
+right title/canonical/route on all four addresses, 301 for trailing slashes with the query kept,
+404 for `/nope` and `/tools/nope`, `no-cache` and no ETag on the rewritten shell), and a
+Playwright suite of 30 browser checks (scratchpad `routes-browser.mjs`: addresses, hash adoption
+with the query kept, rail and card switching, back/forward, the skip link, direct visits landing
+in the shell, every frame's first control, no nested shell after a direct visit, 404, tab icon)
+passes in full on wrangler dev and on `server.mjs`. Proofs reviewed: Home (the auto-fit grid,
+three across at 1034), Redactorium and SafeList changed as intended; three that differed only by
+noise were restored.
+
+**Left for Ben.**
+1. The tuck. Workers Builds must keep the empty build command and plain `npx wrangler deploy`
+   (it bundles `worker.mjs`). After the deploy: `curl -sI https://toolkit.advokatfrida.com/tools/safeseed`
+   (200) and the same with `-H "Sec-Fetch-Dest: document" -H "Accept: text/html"` (302 to
+   `/safeseed`, `Cache-Control: no-store`); open `/tools/safeseed` in a browser and land on
+   `/safeseed` in the shell; `/nope` still 404.
+2. Publish the Redactorium article only after that deploy (its links now point at `/redactorium`).
+3. Optional, later: `safelist/shots/*.png` still show the old footer (SafeList's own harness
+   output, not the gate's); the standalone masthead (Subscribe chip, old nav) is the same vintage
+   the footer was, now only seen at `file://` and by no-script visitors; search consolidation of
+   `/tools/*` onto the tool addresses (a canonical link in each artifact) belongs with the parked
+   SEO direction.
+
+## 2026-09-28 - Fixes from a real deletion-request job (AF-20): same working tree, still waiting for the tuck
+
+Ben used SafeList and Redactorium on a real data subject deletion job (a list of email addresses
+to remove from a team's spreadsheets) and reported five things. Everything below sits in the same
+uncommitted working tree as the 2026-09-24 review.
+
+- **A 15-digit card came back as 3.78282E+14.** Excel stores a typed Amex as a number; kept as it
+  was, the clean workbook wrote it back with the General format, which shows any whole number of
+  12 or more digits in scientific notation. `exporters.js` now gives those numbers the `0` format:
+  they show in full and stay numbers. The repro found a worse neighbor: a number shown through a
+  digit mask (ZIP `00000`, SSN `000-00-0000`, Excel's Phone format) was read as its raw value, so a
+  formatted SSN (78051120) hid from detection and a ZIP lost its leading zero. `parsers.js` now
+  reads those cells as the text a person sees (`isDigitMask`).
+- **False alarms on ID columns** (also from the repro). Any 12 digits read as an Aadhaar number (no
+  check digit was ever tested), any bare run of 8+ digits as a phone number, and any 12 to 19
+  digits that fail the card check as a weak card. Aadhaar now needs its Verhoeff check digit, a
+  first digit of 2 to 9, and a column named for it. A bare digit run counts as a phone only in a
+  phone column (a +, spaces or dashes still count anywhere), and a failed card check only in a card
+  column (the new `hintOnly` detector field).
+- **SafeList paste separators.** The suppression paste already split on commas by accident (it is
+  read as CSV) but said "one address per line", and semicolons (Outlook's To line) failed. It now
+  takes commas, semicolons, tabs, new lines and display names (`cellEntries`), and a send list
+  pasted on one line becomes one contact per address (`pastedList`). The hints say so. The README's
+  missing "Later" section now exists and lists what the deletion job ran into.
+- **"Synthetic swap" was jargon.** The pending release already renames the options (Swap for fakes,
+  Replace with a code, Make less exact). Ben asked for "anonymize": it now names the job (the Home
+  card, the page description, the legend's title) rather than one option, because every option is
+  a way to anonymize and swapping in fakes alone does not make a file anonymous in law. The Home
+  card's pinned copy in `scripts/checks.mjs` moved with it.
+- **People could not tell the options apart.** A legend card above the findings (single file and
+  batch) shows the four treatments on one phone number, from `lib/legend.js`; `tests/legend.test.mjs`
+  holds every example to the real function.
+- **Home cards were very wide on a large display.** The grid now fits cards of at least 240px:
+  unchanged at 1440 (297px), 298px at 1920 (was 507), 336px at 2560 (was 690).
+
+Design canon: DESIGN-SYSTEM §3 (Home tool card, the treatment legend) and §7 record both as Ben's
+2026-09-28 calls.
+
+**Verification.** Redactorium 47/47 tests, lint and build clean; SafeList 25/25 and its check;
+root gate exit 0 (style census unchanged: the legend reuses existing roles); end to end 58/58;
+the legend at 1440, 1034 and 390 and Home at 390 to 2560 looked at, right edges matching. Proofs
+that differed only by a scroll offset or a caret were restored. Staged hashes: Redactorium
+`7ce7199ad6495b4b670a2bfaeef6057677297c3c0aee7c4530e749299334dbdc`, SafeList
+`3472a4c5049d1d1a5e3ac134724a423428e67240b9808c88792880278fe27504`.
+
+**Open, Ben's call.** The "anonymize" wording; SafeList's "Later" list (Excel input, other match
+keys, the 24-hour rule for deletion lists, anonymizing a listed person's rows instead of deleting
+them); the tool review and research on the Toolkit's product page in Notion.
+
+## 2026-09-24 - Redactorium release review (AF-20): ready locally, waiting for Ben's tuck
+
+Ben asked for a full review of Redactorium to make it ready for release, plus its newsletter
+article as a Ghost draft. Task: [AF-20](https://app.notion.com/p/3e50f293ed9d811b92f6cb0e578a7f8a).
+Three independent reviewers (engine correctness, UX and copy, security/dependencies/docs) worked
+against main `2e91b15`, whose served Redactorium tree was byte-identical to the repo.
+
+**What they found.** All fixed below unless listed under Open.
+- P1: personal data inside text was never found. Every detector matched a whole cell, so PDF,
+  Word, text and log files came back unchanged (or wiped line by line if a treatment was forced),
+  and a notes column kept its emails, phones and SSNs.
+- P1: Hash was plain SHA-256 cut to 16 hex characters, unsalted by default (the salt field started
+  as `""` and `??` never fell back). An SSN column reversed in under a second. The intro strip and
+  the Home card said "Anonymize".
+- P1: Word output kept headers, footers, footnotes, comments with their authors, tracked-deletion
+  text, hyperlink targets, field codes, document properties and customXml. Single-file mode wrote
+  a DOCX out as .txt (it did not pass `kind`).
+- P1: a CSV or XLSX without a header row kept its first row verbatim; Generalize on an IP column
+  passed IPv6 and anything unexpected through unchanged; the result band said "Signed: SHA-256"
+  although the record calls itself unsigned.
+- P1 UX: batch mode ignored dropped files, the findings table clipped its selects from 768 to
+  1073px, paired buttons had unequal widths, the record had no way back to the treatments, load
+  errors were four-second toasts, and the standalone footer claimed Plausible analytics.
+- Security and docs: xlsx 0.18.5 on the parse path (CVE-2023-30533, CVE-2024-22363; Dependabot #8,
+  #10); the CSP allowed `unsafe-eval`, which nothing needs; THIRD-PARTY-NOTICES said Redactorium had
+  no license and pointed at a CRA path, and pdf.js and SheetJS (Apache-2.0) shipped without their
+  license text; "five tools" in five places; README's `file://` claim; VERIFYING's lazy-fetch,
+  offline and rebuild steps; SECURITY's clipboard-write and secret-scanning lines.
+- Confirmed sound: no request left the site in any flow (local and live), record hashes are right,
+  the record holds no sample values, fakes never derive from the originals.
+
+**What changed** (working tree on `main` `2e91b15`, nothing committed):
+- Engine (`redactorium/frontend/src/redactorium/lib/`): `textScan.js` finds kinds inside text as
+  exact spans (no lookbehind; checksums for cards, IBANs, NHS; label-gated DOB, names, passports,
+  licenses, bare SSNs, ZIPs). `detector.js` returns rows: a whole-cell column, or one row per kind
+  found in text, scanning every row. `transformers.js` rewrites only matched spans; hashing is
+  HMAC-SHA-256 with a random key per run unless the user enters one; fakes are consistent per
+  value; fake ZIPs sit below 00501, fake passports and licenses are zero-led; IP generalizing
+  handles IPv4 with ports and compressed IPv6 and redacts anything else; short card and IBAN values
+  are masked whole. `parsers.js`: a first row that is data is treated as data; an unclosed CSV quote
+  is refused; BOM, delimiter and line endings survive; the first visible sheet is read with dates as
+  dates; PDFs keep lines and page breaks, a scan says so, pdf.js runs with `isEvalSupported:false`.
+  `docxHandler.js` is rewritten: every text part, alt text, hyperlink targets and the title are
+  treated; comments, tracked changes, author/company/manager, customXml, custom properties and
+  document variables are removed; embedded files and charts are named as unread; replacements are
+  spliced into runs, so untouched text keeps its formatting. `exporters.js`: record v0.2.0
+  (`detectors_run`, `found_in`, `document_cleaning`, `sheets`, `limits`), file names cleaned of
+  detected values, PDF creation date in UTC, `.md` and `.log` keep their extension. Plain citations
+  and names in `piiPatterns.js`; ZIP needs a ZIP column or label; custom rules drop `g`/`y`.
+- UI: the shared `FindingsTable` (single file and batch) with in-text rows and a count line; plain
+  treatment names (Keep, Redact, Replace with a code, Make less exact, Swap for fakes); cards below a
+  1074px frame; one boundary aside per file; an empty-document state; load errors under the drop
+  zone; Back to treatments; equal button pairs; a two-column Advanced; a rebuilt custom-rules panel;
+  batch with drag and drop and one zip of clean files, records and a manifest; focus management;
+  16px phone controls; sample values from reserved ranges.
+- Build: xlsx 0.20.3 from the SheetJS CDN (the reviewer's verified patch 1), 49 unused
+  dependencies and 72 unreachable files removed (patch 5b), `THIRD-PARTY-LICENSES.txt` written from
+  the bundle by a plugin in `vite.config.mjs`, a CSP with no `unsafe-eval` and `connect-src 'none'`,
+  41 engine tests (`npm test`, node:test, no new dependencies) added to `redactorium-ci.yml`.
+- Shell and docs: the Redactorium Home card (its pinned copy in `scripts/checks.mjs` updated), the
+  meta description, a changelog entry dated September 25, 2026, README, SECURITY, VERIFYING,
+  ARCHITECTURE, MANIFEST, THIRD-PARTY-NOTICES, both Redactorium READMEs, and DESIGN-SYSTEM §3 plus a
+  §7 note marking the design changes as proposed until the tuck.
+
+**After the article's reader panel (same night).** Four simulated readers of the Ghost draft
+(subagent personas: a support lead, an operations coordinator, a software engineer, privacy
+counsel) asked questions that led to five tool fixes, made before the article describes the
+behavior:
+- Swap for fakes could hand two different people the same fake (6 area codes x 100 numbers for
+  phones, so a clash was likely by about 30 people; a later batch file replayed the first file's
+  draws and clashed on every value). Now a clash is redrawn, a later batch file draws a fresh
+  stream, fake phones use any valid area code (555-0100 to 555-0199 is fiction in all of them),
+  and fake emails carry six digits. Kinds with a short published list (test cards, IBANs, the NHS
+  test number) still repeat, as the README says.
+- Make less exact kept a phone number's last four digits, the part that identifies the line (and
+  a common identity check). It now keeps the country and area code and masks the last seven.
+- Word pictures (`word/media/`) passed through without a word. They are now listed as not read,
+  on the page and in the record's `not_read_and_left_as_is`.
+- The PDF notice said hidden text stays behind. It does not: pdf.js extracts white text, text
+  under a black box and invisible scan layers, and the clean PDF prints them as ordinary text
+  (proved with a hand-built PDF). The notice now says so.
+- Timing a 200,000-row export showed its `customer_id` column (C100000 style) labeled "Passport
+  number": any six to nine letters and digits passed, and so did the driver's license shape. Both
+  now need a column named for them, as ZIP codes already did.
+
+**Verification** (rerun on the final build, after the reader-panel fixes).
+- `redactorium/frontend`: 41/41 tests, lint clean, build clean and reproducible (two rebuilds,
+  byte-identical).
+- Root `npm run gate`: exit 0 (design gate, typecheck, tests, 128 static checks, rendered checks at
+  four widths, 16 states, style census unchanged).
+- End to end in the staged Toolkit (headless Chromium, local server): 58/58. The sample flow and
+  both downloads; twelve of the reviewers' fixtures (text, log, two PDFs, two Word files, notes and
+  patients CSVs, a headerless CSV, two workbooks, IPv6) with no email or SSN left in any clean file;
+  corrupt DOCX and PDF, a malformed CSV, an empty file and an unsupported type; a batch zip with
+  three records and a manifest; 1034, 390 and 320px with no overflow; zero console errors and zero
+  requests off the local origin.
+- A hand-built PDF with white text, text under a black box and invisible text: all three come out
+  as visible text in the clean PDF, and the page's notice says so.
+- Size: a 21 MB export of 200,000 rows took 1.8s from drop to download, and a 50 MB log 6.6s (this
+  desktop, headless Chromium), with no real email left in either. The export's `customer_id` column
+  is no longer read as passports.
+- Proofs 3a, 4a, 4b, Home and changelog inspected. Unrelated proofs that re-render on this rig
+  (pixel-identical, a 0.4% caret difference, a 28px scroll offset) were restored. Staged
+  Redactorium hash `0472be9b26bfd9b47bf9843a9c00bdf0be9a3dcff7065e13ddca315c7ca50c0a`.
+
+**Open, Ben's call.**
+1. The tuck: commit, push, deploy. Workers Builds deploys `main`, so a pull request first (as with
+   the Vite migration) gets Redactorium CI and a preview build before the release. Update the
+   changelog date if the release lands after September 25.
+2. Copy to approve: the Home card line, the intro strip, the treatment names, the plain citations.
+3. Not done: workbooks beyond the first visible sheet (the page says so); unlabeled names in prose
+   (the article says so); one treatment covers every match of a kind in a document, and a custom
+   rule loses an overlap to a built-in one (score 0.85 against up to 0.98), so nobody can keep their
+   own support address while treating the customers' (letting custom rules win would allow it);
+   Make less exact still keeps an SSN's last four (the IRS truncation display), your call; a user's own catastrophic regex can still freeze their tab; third-party
+   license files for SafeSeed, SafeList and the Wizards; `_headers` hardening (frame-ancestors,
+   HSTS: first confirm no advokatfrida.com page frames the Toolkit); Cloudflare's injected hidden
+   link (the first tab stop and the one CSP console error on the shell) is a Cloudflare setting;
+   `tool-sources.json` still says `private-source-control-only` and BRIEF/MANIFEST call the repo
+   private; the `verify-log/` redirect stub; sonner style hashes would let the CSP drop
+   `'unsafe-inline'`.
+
 ## 2026-09-23 - AF-16 approved for release
 
 Ben reviewed the final scrolling correction below and approved: **looks great.

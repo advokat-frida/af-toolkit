@@ -1,8 +1,9 @@
 # How the Toolkit is put together
 
-Short version: five independent tools, each built to a single self-contained file, staged into one
-folder, served as static files by a Worker that runs no code of ours. There is no backend anywhere
-in this picture, and that is the entire design.
+Short version: four independent tools, three built to a single self-contained file and one
+(Redactorium) to a small folder, staged into one folder, served as static files by a Worker whose
+only code is a routing script of a few dozen lines. There is no backend anywhere in this picture,
+and that is the entire design.
 
 ## The shape
 
@@ -68,20 +69,38 @@ written or hashed, and the gate asserts no staged text file contains a carriage 
 ## Hosting
 
 A Cloudflare Worker configured in [`wrangler.jsonc`](../wrangler.jsonc) with `assets.directory`
-pointing at `public/` and no `main` script. There is no server code. Cloudflare serves the files
-and nothing else.
+pointing at `public/` and one script, [`worker.mjs`](../worker.mjs). Cloudflare serves the files;
+the script adds the addresses that are not files and applies the rules in
+[`routes.mjs`](../routes.mjs), which [`server.mjs`](../server.mjs) applies locally too, so a
+local run and the edge agree.
 
-`not_found_handling` is `none` on purpose. Every route in the shell is a hash route, so every path
-that reaches the edge is a real file. If a missing file returned the shell with a 200, that HTML
-would be cached under the missing asset's key and a broken deploy would look healthy. Better to
-404 loudly.
+- The Home is `/` and each tool has its own address: `/safeseed`, `/safelist`, `/redactorium`,
+  `/privacy-wizards` (Ben, 2026-09-28). No file exists at those paths, so the request reaches the
+  script, which answers with the shell named for that tool (title, description, canonical
+  address) and the shell's script opens it. A trailing slash redirects to the address without it.
+- The staged artifacts stay under `/tools/` for the shell's frames (`?embed=1`) and for
+  verification by hand. A browser that opens one directly, as a page, is sent to the tool's
+  address, so the only chrome a visitor sees is the shell's. The script tells a page load from
+  a frame or a command-line fetch by the request's `Sec-Fetch-Dest` header, or by its `Accept`
+  when there is none; `run_worker_first` in `wrangler.jsonc` names the artifact entry documents
+  so the script sees those requests before the asset host serves the file. That redirect is a
+  302 marked `no-store`, never a 301: a browser reuses a cached 301 for the same address
+  whatever the request, and the same address answers the shell's frame with the file.
+- Old links that name the tool in the hash (`/#redactorium`) still work: the shell moves them
+  onto the path on load, query string and all.
+
+`not_found_handling` is `none` on purpose. Every other path that reaches the edge is a real file.
+If a missing file returned the shell with a 200, that HTML would be cached under the missing
+asset's key and a broken deploy would look healthy. Better to 404 loudly; the script serves the
+shell for the four tool addresses and nothing else.
 
 `public/_headers` sets `nosniff`, `no-referrer`, and `same-origin` everywhere, `no-store` on the
 staged tools and the manifest so a release is never held stale, and a long immutable cache on
 fonts, whose filenames change when their contents do.
 
 Deploys are git-connected: push to `main`, Cloudflare builds and ships. There is no build command,
-because `public/` is already the verified snapshot.
+because `public/` is already the verified snapshot; `npx wrangler deploy` bundles `worker.mjs`
+itself. `npx wrangler dev` runs the same routing on the real Workers runtime locally.
 
 ## The gate
 

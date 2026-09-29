@@ -5,7 +5,9 @@ import { fileURLToPath } from "node:url";
 
 const repositoryRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const roots = [
+  join(repositoryRoot, "routes.mjs"),
   join(repositoryRoot, "server.mjs"),
+  join(repositoryRoot, "worker.mjs"),
   join(repositoryRoot, "public", "toolkit.js"),
   join(repositoryRoot, "scripts"),
   join(repositoryRoot, "tests")

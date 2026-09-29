@@ -78,8 +78,10 @@ Review the actual rendered screens at literal size, every state, before signing 
 2. It adopts the design system at the source and ships a portable artifact its folder's own
    gate verifies.
 3. `scripts/build-tools.mjs` gains its stage entry (artifact path, license, embed adapter if it
-   needs chrome hidden); `public/index.html` gains its route, nav entry, and Home card — inside
-   the group where it belongs (`Manage data` / `Decide`, or a new group that earns its name).
+   needs chrome hidden); `routes.mjs` gains its address and its artifact's entry paths (which
+   `wrangler.jsonc` lists under `run_worker_first`); `public/index.html` gains its view, nav
+   entry, and Home card — inside the group where it belongs (`Manage data` / `Decide`, or a new
+   group that earns its name) — and `public/toolkit.js` its route.
 4. The full gate above runs; the reviewer walks the judgment checklists against the rendered
    screens.
 5. `public/tool-sources.json` records the artifact hash and provenance; the changelog gains one

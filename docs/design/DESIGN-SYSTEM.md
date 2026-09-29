@@ -132,7 +132,9 @@ Segments size to their labels.
 `16px 16px 18px`; a 38px icon plate (`1px solid var(--hairline)`, `--ground`, 22px Lucide at
 stroke 1.75 in `--forest`); title 17/700; one-line job description 14px `--soft`. Hover: border
 turns `--ink`, shadow `4px 4px 0 var(--ink)`, translate `-1px,-1px`. No numbers, no accent bars,
-no status pills, no card buttons.
+no status pills, no card buttons. The grid fits as many cards as the row holds, none narrower
+than 240px (`repeat(auto-fill, minmax(240px, 1fr))`), one column on a phone: three across at a
+laptop width, five or six on a large display (Ben, 2026-09-28).
 
 **Sidebar.** 230px, `--paper`, `2px solid var(--ink)` right edge. Brand cap: 40px fox mark +
 `ADVOKAT FRIDA` (Anton 21) on its own — the `TOOLKIT` sub-line went on 2026-09-04, the rail already
@@ -286,6 +288,20 @@ interface; three steps, no icons, no fourth step.
 **Findings table** (Redactorium). Exactly five columns — `Column` (mono), `Detected`,
 `Confidence` (mono, two decimals), `Citation` (`--soft`), `Treatment` (a 200px, 44px select) —
 in 62px rows. Confidence and citation are the evidence; nothing else lives in the row.
+A kind found inside text (a document, or a spreadsheet column of free text) is its own row:
+`Column` names the column (`text` or `line` for a document), and `Detected` carries the kind with
+one 14px `--soft` line under it, `N matches in the text`. The citation is the plain rule with the
+standard in parentheses (`Shaped like an email address (RFC 5322)`). Treatment names are plain:
+Keep, Redact, Replace with a code, Make less exact, Swap for fakes. Below a 1074px frame the rows
+render as cards with a full-width select, so no select is ever clipped. One **treatment legend**
+sits between the file heading and the findings (Ben, 2026-09-28): a hairline card on `--paper`
+with the eyebrow `Four ways to anonymize a value`, one 14px `--soft` line naming the example
+value, then one entry per treatment that changes a value: its menu name (16/700), what it does to
+that value (mono 14), and one 14px `--soft` sentence. Four columns in a frame that holds the full
+table, two below it, one on a phone. The examples come from `lib/legend.js`, and a test holds each
+one to the real function. A file whose clean copy
+drops something (a Word file's comments), or holds a part Redactorium cannot read, gets one
+boundary aside under the table.
 
 **Record block.** The shape every tool that produces a receipt or record ends on: the output's
 name as the task heading (19/700), a stat band only when it carries numbers the surface does not
@@ -368,6 +384,17 @@ Retired or banned, with the deciding turn of the design package in parentheses:
 
 ## 7. Change control
 
+Redactorium release review, 2026-09-24 (proposed; canon with Ben's tuck of AF-20). The findings
+table gains in-text rows and the card breakpoint described in §3. Redactorium's record band reads
+Rows / Columns changed / Cells changed / Columns kept for a spreadsheet and Kinds of data / Matches
+found / Changed / Kept for a document; the hash line is prefixed `SHA-256`; the retired `Signed`
+cell is gone because the record is not signed. The record's one text action is `Back to
+treatments` (the findings screen keeps `Change file`). Paired buttons in the drop zone and the
+record take the wider one's width. Load errors sit under the drop zone as the boundary aside,
+not a toast. Batch mode uses the same findings table per file, a drop zone that accepts dropped
+files, and no pills, notes or percentages. No new type, color, radius or shadow tuple: the census
+passed unchanged.
+
 Ben's 2026-09-23 shared-footer instruction adds a shell-owned colophon to Home
 and every Toolkit route. It follows the main publication's ink band and the
 Guide's brand-plus-links anatomy: Anton 21px/400 uppercase nameplate in paper,
@@ -383,6 +410,21 @@ Embed layouts have no viewport-height minimums. Bounded data tables retain
 their own scrolling and use the parent viewport height for their size limit,
 so growing the iframe cannot repeatedly enlarge the table. The desktop sidebar
 remains sticky. These are layout changes only, with no changes to tool logic.
+
+Ben's 2026-09-28 calls: the Home grid fits cards of at least 240px instead of three stretched
+across the column (they reached 690px at 2560), and Redactorium gains the treatment legend in
+§3, because people could not tell Redact, Replace with a code, Make less exact and Swap for fakes
+apart. Both reuse existing type, colour and border roles.
+
+Ben's 2026-09-28 address and chrome calls. Every tool has its own address on the Toolkit's
+subdomain (`/safeseed`, `/safelist`, `/redactorium`, `/privacy-wizards`; the Home stays `/`),
+served as the shell with that tool open; a browser that opens a staged artifact under `/tools/`
+directly is sent to the tool's address, so the only chrome a visitor sees is the shell's. Old
+`/#<tool>` links are adopted onto the path. The four standalone pages keep their own chrome for
+`file://` use and no-script visitors, and its footer is now the shell footer above (one row:
+the nameplate as a link, then About, Contact, Privacy, RSS; no description line), with the
+shell's fox badge as the tab icon. The old stacked colophon, and its "Analytics by Plausible"
+line, are retired: the Toolkit runs no analytics.
 
 - This file changes only with an approved design decision (a reviewed design-package turn or
   Ben's explicit call). Code never drifts ahead of it.

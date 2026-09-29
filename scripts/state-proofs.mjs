@@ -10,52 +10,21 @@
 // `states` and `startServer` are exported so scripts/style-census.mjs drives the
 // same states; there is one list of what the canvas draws.
 import { createServer } from "node:http";
-import { createReadStream, existsSync, statSync } from "node:fs";
 import { mkdir } from "node:fs/promises";
 import { tmpdir } from "node:os";
-import { dirname, extname, join, normalize, relative, resolve } from "node:path";
+import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { chromium } from "playwright";
+import { createToolkitHandler } from "../server.mjs";
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const publicRoot = join(repoRoot, "public");
 const proofsRoot = join(repoRoot, "proofs", "states");
 const only = process.argv[2];
 
-const types = new Map([
-  [".css", "text/css; charset=utf-8"],
-  [".html", "text/html; charset=utf-8"],
-  [".js", "text/javascript; charset=utf-8"],
-  [".json", "application/json; charset=utf-8"],
-  [".mjs", "text/javascript; charset=utf-8"],
-  [".png", "image/png"],
-  [".svg", "image/svg+xml"],
-  [".woff2", "font/woff2"]
-]);
-
+// The same server `npm start` runs: the edge's routes (routes.mjs) over public/.
 export function startServer() {
-  const server = createServer((request, response) => {
-    let pathname;
-    try {
-      pathname = decodeURIComponent(new URL(request.url || "/", "http://qa").pathname);
-    } catch {
-      response.writeHead(400).end();
-      return;
-    }
-    const requested = pathname === "/" ? "/index.html" : pathname;
-    const candidate = resolve(publicRoot, `.${normalize(requested)}`);
-    if (relative(publicRoot, candidate).startsWith("..") || !existsSync(candidate)) {
-      response.writeHead(404).end("not found");
-      return;
-    }
-    const path = statSync(candidate).isDirectory() ? join(candidate, "index.html") : candidate;
-    if (!existsSync(path)) {
-      response.writeHead(404).end("not found");
-      return;
-    }
-    response.writeHead(200, { "Content-Type": types.get(extname(path).toLowerCase()) || "application/octet-stream" });
-    createReadStream(path).pipe(response);
-  });
+  const server = createServer(createToolkitHandler({ root: publicRoot }));
   return new Promise((resolvePromise) => {
     server.listen(0, "127.0.0.1", () => resolvePromise({ server, port: server.address().port }));
   });
@@ -64,7 +33,7 @@ export function startServer() {
 // Each state names the canvas artboard it proves.
 export function states(page, base) {
   async function open(route) {
-    await page.goto(`${base}/?s=${Date.now()}#${route}`, { waitUntil: "networkidle" });
+    await page.goto(`${base}${route === "home" ? "/" : `/${route}`}?s=${Date.now()}`, { waitUntil: "networkidle" });
     await page.waitForTimeout(400);
     if (route !== "home") {
       await page.waitForSelector(`[data-view="${route}"]:not([hidden]) .frame-stage.is-loaded`, { timeout: 20000 });

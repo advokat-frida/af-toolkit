@@ -68,7 +68,7 @@ export async function runStaticChecks() {
   // Manage data reads in working order, not alphabetical (Ben, 2026-09-02).
   const navOrder = ["safeseed", "safelist", "redactorium"].map((route) => index.indexOf(`data-route-link="${route}"`));
   results.push(check(navOrder.every((position, i) => position > 0 && (i === 0 || position > navOrder[i - 1])), "Manage data navigation reads SafeSeed, SafeList, Redactorium"));
-  const cardOrder = ["safeseed", "safelist", "redactorium"].map((route) => index.indexOf(`<a class="tool-card" href="#${route}">`));
+  const cardOrder = ["safeseed", "safelist", "redactorium"].map((route) => index.indexOf(`<a class="tool-card" href="/${route}">`));
   results.push(check(cardOrder.every((position, i) => position > 0 && (i === 0 || position > cardOrder[i - 1])), "Manage data Home cards follow the same order"));
   results.push(check(index.includes('<h1 id="home-title" tabindex="-1">AF Toolkit</h1>'), "Home nameplate is the approved AF Toolkit (Ben, 2026-09-04)"));
   results.push(check(index.includes(`<p class="home-lede">The privacy practitioner's Swiss Army knife.</p>`), "Home lede uses the approved practitioner promise (Ben, 2026-09-04)"));
@@ -76,7 +76,9 @@ export async function runStaticChecks() {
   results.push(check(index.includes('data-context-title="Privacy Wizards Council"'), "Privacy Wizards breadcrumb accepts tool context"));
 
   for (const copy of [
-    "Anonymize, hash, generalize, redact, or transform personal information.",
+    // Ben, 2026-09-28: meet people in their own words. "Anonymize" names the job people search
+    // for; the four treatments keep their plain names. Proposed with AF-20, approved at the tuck.
+    "Anonymize a spreadsheet or document: find the personal data, then remove or replace it.",
     "Generate fake personal information and generate a tamper-evident receipt.",
     "Remove opted-out contacts from a send list and keep a record of the check.",
     "Get quick and citable answers for commonly recurring privacy questions."
@@ -140,10 +142,23 @@ export async function runStaticChecks() {
     if (tool.licenseFile) results.push(check(existsSync(join(publicRoot, tool.licenseFile)), `license copied: ${tool.id}`));
   }
 
-  // Embed contract: the shell frames each embed-mode tool with its flag.
-  for (const framed of ["/tools/redactorium/index.html?embed=1", "/tools/safeseed.html?embed=1", "/tools/safelist.html", "/tools/privacy-wizards-council.html?embed=1"]) {
+  // Embed contract: the shell frames each embed-mode tool with its flag, at the artifact's
+  // canonical (extensionless) address so the asset host answers in one hop.
+  for (const framed of ["/tools/redactorium/?embed=1", "/tools/safeseed?embed=1", "/tools/safelist", "/tools/privacy-wizards-council?embed=1"]) {
     results.push(check(index.includes(`data-src="${framed}`), `frame source wired: ${framed}`));
   }
+
+  // Routes are paths (Ben, 2026-09-28): the rail and the Home cards link to `/<route>`, the
+  // Home carries its canonical address, and the script still adopts an old `/#<route>` link.
+  for (const route of ["safeseed", "safelist", "redactorium", "privacy-wizards"]) {
+    results.push(check(index.includes(`href="/${route}" data-route-link="${route}"`), `rail links to the tool address: /${route}`));
+  }
+  results.push(check(index.includes('href="/" data-route-link="home"'), "rail links Home to /"));
+  results.push(check(!/href="#(?:home|safeseed|safelist|redactorium|privacy-wizards)"/.test(index), "no hash route links remain in the shell"));
+  results.push(check(index.includes('<link rel="canonical" href="https://toolkit.advokatfrida.com/" />'), "Home carries its canonical address"));
+  results.push(check(js.includes("adoptLegacyHash") && js.includes("replaceState") && js.includes("popstate"), "script adopts legacy hash links and handles history"));
+  const wrangler = await readFile(join(candidateRoot, "wrangler.jsonc"), "utf8");
+  results.push(check(wrangler.includes('"main": "worker.mjs"') && wrangler.includes('"binding": "ASSETS"') && wrangler.includes('"not_found_handling": "none"'), "the edge script is configured beside the assets, and a missing file still 404s"));
 
   // Fonts: committed in-repo, present, and recorded.
   const fontNames = [
