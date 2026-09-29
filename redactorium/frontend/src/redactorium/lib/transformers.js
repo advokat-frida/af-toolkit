@@ -7,8 +7,9 @@
  * (SafeSeed's approach) so outputs are auditable and provably fake.
  */
 
-import { scanText } from "./textScan.js";
+import { scanText, documentScanOptions } from "./textScan.js";
 import { isIPv6, dateYear } from "./piiPatterns.js";
+import { placeState, FICTIONAL_PLACES } from "./places.js";
 
 // ---------- deterministic PRNG (mulberry32) ----------
 export function makeRng(seed) {
@@ -112,6 +113,7 @@ export function synthetic(detectorId, rng) {
     case "company":  return RESERVED_COMPANIES[Math.floor(rng() * RESERVED_COMPANIES.length)];
     case "job_title":return RESERVED_JOB_TITLES[Math.floor(rng() * RESERVED_JOB_TITLES.length)];
     case "address_street": return RESERVED_STREETS[Math.floor(rng() * RESERVED_STREETS.length)];
+    case "place_us": return FICTIONAL_PLACES[Math.floor(rng() * FICTIONAL_PLACES.length)];
     case "ipv4": return DOC_V4_BASES[Math.floor(rng() * 3)] + (1 + Math.floor(rng() * 253));
     case "ipv6": return DOC_V6_PREFIX + Math.floor(rng() * 65535).toString(16);
     case "mac":  {
@@ -151,6 +153,7 @@ export function synthetic(detectorId, rng) {
 export function generalize(value, detectorId) {
   const v = String(value ?? "");
   switch (detectorId) {
+    case "place_us": return placeState(v) || redact(v);
     case "dob": {
       const year = dateYear(v) || (v.match(/\b(1[89]\d\d|20\d\d)\b/) || [])[1];
       return year ? String(year) : redact(v);
@@ -244,7 +247,7 @@ export function redact(value, style = "block") {
 const REDRAWS = 64;
 // Kinds whose fake can take a suffix and still read as one of its kind: a name gets a middle
 // initial, the others a number. So two people never share a fake however long the file.
-const SUFFIXED = new Set(["person_name", "company", "job_title", "address_street"]);
+const SUFFIXED = new Set(["person_name", "company", "job_title", "address_street", "place_us"]);
 function freshFake(detectorId, ctx) {
   let used = ctx.used.get(detectorId);
   if (!used) { used = new Set(); ctx.used.set(detectorId, used); }
@@ -254,7 +257,8 @@ function freshFake(detectorId, ctx) {
     if (SUFFIXED.has(detectorId)) {
       const base = fake;
       for (let n = 1; used.has(fake); n++) {
-        fake = detectorId === "person_name" && n <= 26 && base.includes(" ")
+        fake = detectorId === "place_us" ? base.replace(",", ` ${n + 1},`)
+          : detectorId === "person_name" && n <= 26 && base.includes(" ")
           ? base.replace(" ", ` ${String.fromCharCode(64 + n)}. `)
           : `${base} ${n + 1}`;
       }
@@ -299,6 +303,7 @@ export async function applyTransformations(parsed, columnPlan, options = {}) {
   const { headers, rows } = parsed;
   const hash = options.hasher || await makeHasher(options.salt || "");
   const extra = options.extra || [];
+  const scanOptions = documentScanOptions(parsed, extra);
   const fakes = options.fakes || new Map();
   // A later file of a batch must not replay the first file's draws (every one of them would
   // clash), so its stream also depends on how many fakes the batch has handed out so far.
@@ -347,7 +352,7 @@ export async function applyTransformations(parsed, columnPlan, options = {}) {
       if (cell === undefined || cell === null || cell === "") continue;
       const text = String(cell);
       const replacements = [];
-      for (const span of scanText(text, { extra })) {
+      for (const span of scanText(text, scanOptions)) {
         const i = byKind.get(span.detectorId);
         if (i === undefined) continue; // detection scanned every row with the same rules
         stats[i].sampled++;

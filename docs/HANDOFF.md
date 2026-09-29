@@ -1,5 +1,72 @@
 # HANDOFF
 
+## 2026-09-28 (tuck) - AF-22 reviewed release candidate; Ghost remains draft
+
+Ben authorized tuck, explicitly excluding post publication. The reviewed candidate is on
+`codex/af22-document-identity`, based on `a21a34d`. Independent review found and resolved a
+partial-name leak for a labeled name with a middle initial; the regression failed before the
+fix and passes now. The reviewer reran 31 focused tests and found no remaining blockers.
+All 73 engine tests, lint, build, final tool staging and the complete Toolkit gate passed.
+The synthetic PDF workflow also passed at 1440, 1034, 390 and 320 pixels, including downloaded
+PDF and record checks. See [review evidence](review/af22-document-identity.md).
+
+Final staged Redactorium SHA-256:
+`8f0a730d94fe4fb0fdd32d3aa19a8cb1277bc1406f8a665cbb03d8ee94cef9db`.
+Other tools are unchanged. Only the intended findings proof is included; unrelated capture
+noise and the pre-existing untracked `.claude/` work are excluded.
+
+AF-22 is now In Progress. Ben's actual resume still needs the specified live acceptance test
+after deployment; synthetic QA does not close that requirement. The later accepted article
+section order and wording edits were saved to Ghost at `2026-09-29T03:57:43.000Z`. The post
+remains a draft and must not be published or sent. The prior entry below describes an earlier
+checkpoint; its no-Ghost-edits and untouched-tracker statements no longer describe current state.
+The pre-existing newsletter button-pair markers and remaining tool legend wording are separate
+follow-ups. Release/CI/deployment results will be recorded in the closeout entry.
+
+## 2026-09-28 (later night) - AF-22 local candidate, article review only
+
+Ben asked Codex to pick up Fable's Redactorium handoff, update the stale `advokat` skill, and
+proofread the latest Ghost draft as a suggestions table for Ben to edit manually. Read the live
+AF-22 spec (Not Started) and this handoff before implementing. Starting HEAD was
+`a21a34dd3ccccac8ce74946b9031e2ff519c4ec5`; tracked files were clean. The existing untracked
+`.claude/` files were preserved. This entry and the candidate are local and uncommitted.
+
+**Implemented the three AF-22 rules.** A short two-to-four-word capitalized line among a
+document's first five nonempty body lines becomes a lower-score name candidate (0.45), with
+common headings, roles and region words excluded. Names found there or after an existing label
+seed exact, case-sensitive whole-name repeats inside that same document, including Word headers
+and footers. A new Place kind recognizes capitalized city + US state abbreviation/full name;
+Make less exact retains the state, and fake places are explicit placeholders ending in `ZZ`.
+Detection and treatment share the same document context. No cross-file name learning, model,
+network lookup, employer/school recognition or free-form region recognition was added.
+
+**Verified.** Redactorium's 72 engine tests, lint and production build passed. The new tests cover
+resume/letter/timesheet boundaries, exact repeats, accented names, Word runs/headers/footers,
+all place treatments, Keep, headerless rows, records without matched values and a large log.
+`npm run build:tools` and the complete root `npm run gate` passed; other tool artifact hashes
+were unchanged. Staged Redactorium SHA-256:
+`e4a6ed7a02ee7e7ee34702e4f57da1cc18c3c0ba2664dbe5041a2341bc5c36e1`.
+
+Browser QA used a synthetic resume PDF at widths 1440, 1034, 390 and 320. Each produced Name,
+Place, Email address and Phone number rows; both name and both place occurrences were removed
+from the downloaded PDF. The record counted the changes without copying the values. Controls
+fit, there was no horizontal overflow, no page errors and no external requests. Direct visual
+inspection covered findings and result views, including mobile wrapping and the lower-confidence
+name citation. Evidence and the reusable QA script are in ignored `.local-working/af22/`, with
+`browser-results.json`, `gate.log`, findings/result screenshots and clean PDFs. Kept the updated
+`proofs/states/4a-redactorium-findings.png` citation proof. Restored unrelated SafeSeed/Wizards
+capture hover/focus/scroll noise and the record screenshot's random fingerprint-only difference
+to their exact starting bytes after comparison.
+
+**Still open.** This is a local candidate, not a live fix or an AF-22 closeout. Ben's actual resume
+still needs the specified live retest after a separately authorized release. Employers, schools,
+free-form regions and unknown names can remain; a resume is not anonymous just because these
+four rows are treated. The latest Ghost draft was read at `2026-09-29T03:31:07.000Z`; no Ghost
+content was changed. Copy suggestions are in the chat, including the scope mismatch, Code/Fake
+guarantees, format exceptions, and the non-ASCII hyphen in the custom-rule example. Existing
+tool legend copy repeats some of those overclaims and needs a separately scoped wording pass.
+No commit, push, deploy, publication or Notion mutation was performed. AF-22 remains untouched.
+
 ## 2026-09-28 (night) - The tuck: PR #19, what CI and two reviews caught, live
 
 Everything in the evening entry and the AF-20 entry below shipped as advokat-frida/af-toolkit#19
