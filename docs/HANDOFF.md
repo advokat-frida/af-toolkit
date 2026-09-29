@@ -12,8 +12,16 @@ An independent reviewer found the reverse-column variant, then cleared its teste
 The local candidate finds one name, two places, one email and one phone, and removes those
 five matched values from the PDF. See [review and remaining limits](review/af22-pdf-text-separation.md).
 Input, private screenshots, downloads and receipts stay in ignored `.local-working/af22-resume/`.
-Only synthetic geometry/text appears in the committed tests. Release evidence follows below
-once the final gate and corrective deployment are complete.
+Only synthetic geometry/text appears in the committed tests. The final Toolkit gate passed.
+
+**Released and verified with the actual file.** [PR #21](https://github.com/advokat-frida/af-toolkit/pull/21)
+merged `c0d8f7c` as `cfc5b08f63752b2fc00d250b405f68986c567108` after all five PR checks passed.
+Production build `6f6ea431-a2a9-4e2f-ba8e-bf02cb629f57` released Worker
+`8365da47-2498-445c-b57c-e38588f00a0d`. All 29 checked live files match committed bytes, with
+only the known Cloudflare hidden-link injection normalized. The exact input also passed
+all four production widths and downloaded-output checks, including removal of its name.
+The original input is unchanged. Only the merged corrective branch was pruned. This closeout
+changes documentation only; public tree `164030557eb6d65ca7217aeef3300ea57d27f2a8` is unchanged.
 
 Schools, qualifications and certifications still need manual review. The actual file also
 exposed retained identifying filenames and the unchanged PDF exporter's garbled Unicode

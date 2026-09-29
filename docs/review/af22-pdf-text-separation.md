@@ -55,3 +55,24 @@ The reviewer's 100,000-item probe completed in about 32 ms.
 
 These limits are recorded rather than silently expanded into this parser correction. Do not
 describe this output as an anonymous resume. AF-22 remains active for Ben's final verdict.
+
+## Corrective release and exact-file live result
+
+[PR #21](https://github.com/advokat-frida/af-toolkit/pull/21) merged source
+`c0d8f7c9ecf9932c179fdf209c82869489e3b922` as `cfc5b08f63752b2fc00d250b405f68986c567108`
+after all five PR checks passed. Production build `6f6ea431-a2a9-4e2f-ba8e-bf02cb629f57`
+released Worker version `8365da47-2498-445c-b57c-e38588f00a0d`.
+
+At `2026-09-29T04:48:14.269Z`, all 29 checked production files matched the committed bytes,
+allowing only the previously observed Cloudflare hidden `/cdn-cgi/content` link in HTML.
+Verified public tree: `164030557eb6d65ca7217aeef3300ea57d27f2a8`.
+
+The exact supplied resume then passed the production browser/download checks at all four
+widths: one name, two places, one email and one phone, with the five matched values absent
+from the PDF and correct treatment counts. Desktop and phone findings were directly viewed;
+the downloaded PDF was also rendered. The unchanged limitations above were confirmed again,
+including visible education/qualification retention. The input's SHA-256 is unchanged.
+Private receipts are in `.local-working/af22-resume/live/` and `live-verification.json`.
+
+Only the merged corrective branch was pruned locally and remotely. Ghost readback remains
+draft, with no publication date or email object; no post content was changed during this repair.
