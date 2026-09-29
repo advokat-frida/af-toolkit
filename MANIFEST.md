@@ -5,7 +5,7 @@ Status: consolidated single-repository build, redesigned to the approved design 
 
 ## Product files
 
-- `public/index.html` — the shell: grouped sidebar with the fox brand cap, Home, five breadcrumb
+- `public/index.html` — the shell: grouped sidebar with the fox brand cap, Home, four breadcrumb
   tool views.
 - `public/toolkit.css` — the design-system stylesheet (tokens in `:root`).
 - `public/toolkit.js` — routing, persistent tool frames, focus management, mobile chooser, and the
@@ -35,7 +35,7 @@ Regenerate with `npm.cmd run build:tools` (or `build:tools:full`). Do not hand-e
   breadcrumbs, retired chrome), the Manage data working order (SafeSeed, SafeList, Redactorium),
   provenance hashes, embed wiring, font presence, Redactorium bundle hygiene, SafeList's chrome-free
   embed and kill-switch.
-- Rendered QA: passes at 1440×1000, 1034×917, 390×844, and 320×700 — five cards in two groups on
+- Rendered QA: passes at 1440×1000, 1034×917, 390×844, and 320×700 — four cards in two groups on
   Home, 230px rail, 56px tool headers, first useful control visible on open, no document or
   embedded horizontal scroll, skip-link first, focus lands on the active tool heading, mobile
   chooser traps focus and closes on Escape. Fresh screenshots in `proofs/`.

@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
-import { Plus, Trash2, Save, TestTube2 } from "lucide-react";
 import { toast } from "sonner";
 import { loadCustomRules, saveCustomRules } from "@/redactorium/lib/customRules";
 
 const uid = () => Math.random().toString(36).slice(2, 10);
+const blank = () => ({ id: uid(), name: "", pattern: "", flags: "", columnHint: "", category: "custom", base: 0.85 });
 
+// The page opens this panel from its "Custom rules" text action, so the panel has no toggle
+// of its own: one disclosure, not two.
 export default function CustomRulesPanel({ onRulesChange }) {
   const [rules, setRules] = useState([]);
-  const [open, setOpen] = useState(false);
-  const [draft, setDraft] = useState({ id: uid(), name: "", pattern: "", flags: "", columnHint: "", category: "custom", base: 0.85 });
+  const [draft, setDraft] = useState(blank);
   const [testValue, setTestValue] = useState("");
   const [testResult, setTestResult] = useState(null);
 
@@ -18,171 +19,89 @@ export default function CustomRulesPanel({ onRulesChange }) {
   const persist = (next) => { setRules(next); saveCustomRules(next); };
 
   const addRule = () => {
-    if (!draft.name || !draft.pattern) { toast.error("Name and pattern are required"); return; }
+    if (!draft.name.trim() || !draft.pattern) { toast.error("Give the rule a name and a pattern."); return; }
     try { new RegExp(draft.pattern, draft.flags || ""); }
-    catch (e) { toast.error("Invalid regex: " + e.message); return; }
-    const next = [...rules, { ...draft }];
-    persist(next);
-    setDraft({ id: uid(), name: "", pattern: "", flags: "", columnHint: "", category: "custom", base: 0.85 });
-    setTestResult(null); setTestValue("");
-    toast.success(`Added "${next[next.length - 1].name}"`);
+    catch (e) { toast.error(`That pattern has a typo: ${e.message.replace(/^Invalid regular expression: /, "")}`); return; }
+    persist([...rules, { ...draft, name: draft.name.trim() }]);
+    setDraft(blank()); setTestResult(null); setTestValue("");
   };
 
-  const deleteRule = (id) => { persist(rules.filter(r => r.id !== id)); };
+  const deleteRule = (id) => { persist(rules.filter((r) => r.id !== id)); };
 
   const runTest = () => {
-    try {
-      const re = new RegExp(draft.pattern, draft.flags || "");
-      setTestResult(re.test(testValue));
-    } catch (e) {
-      setTestResult(null); toast.error(e.message);
-    }
+    try { setTestResult(new RegExp(draft.pattern, (draft.flags || "").replace(/[gy]/g, "")).test(testValue)); }
+    catch (e) { setTestResult(null); toast.error(`That pattern has a typo: ${e.message.replace(/^Invalid regular expression: /, "")}`); }
   };
 
   return (
-    <section className="max-w-6xl mx-auto px-4 md:px-6 mt-4">
-      <div className="paper-card--soft">
-        <button
-          data-testid="toggle-custom-rules"
-          onClick={() => setOpen(o => !o)}
-          className="w-full flex items-center justify-between p-4 text-left hover:bg-[hsl(var(--paper-2))] transition"
-        >
-          <div>
-            <p className="eyebrow tag-guides">Custom rules · jurisdiction IDs, internal formats</p>
-            <p className="text-sm text-[hsl(var(--ink-muted))] mt-1">
-              {rules.length === 0
-                ? "No custom rules yet. Add one to detect patterns the built-in set doesn't cover."
-                : `${rules.length} custom rule${rules.length === 1 ? "" : "s"} active · saved in this browser.`}
-            </p>
-          </div>
-          <span className="pill">{open ? "close" : "open"}</span>
-        </button>
+    <div className="red-rules" data-testid="custom-rules-panel">
+      <p className="red-rules-intro">
+        For identifiers only your organization uses, like employee or ticket numbers. Rules are saved in this browser and run on every file.
+      </p>
 
-        {open && (
-          <div className="border-t border-[hsl(var(--rule))] p-5 space-y-6">
-            {rules.length > 0 && (
-              <div>
-                <p className="eyebrow tag-desk mb-2">Saved rules</p>
-                <ul className="space-y-2">
-                  {rules.map(r => (
-                    <li key={r.id} data-testid={`custom-rule-${r.id}`} className="flex items-center gap-3 p-3 border border-[hsl(var(--rule))] bg-[hsl(var(--paper))]">
-                      <div className="flex-1">
-                        <div className="font-semibold text-sm">{r.name} <span className="pill pill-plum ml-2">{r.category}</span></div>
-                        <div className="text-xs mono text-[hsl(var(--ink-muted))]">/{r.pattern}/{r.flags || ""} {r.columnHint && `· hint: /${r.columnHint}/`}</div>
-                      </div>
-                      <button
-                        data-testid={`delete-rule-${r.id}`}
-                        className="p-2 hover:bg-[hsl(var(--paper-2))]"
-                        onClick={() => deleteRule(r.id)}
-                        aria-label="Delete rule"
-                      >
-                        <Trash2 className="w-4 h-4" />
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+      {rules.length > 0 && (
+        <ul className="red-rules-list" aria-label="Saved rules">
+          {rules.map((r) => (
+            <li key={r.id} data-testid={`custom-rule-${r.id}`}>
+              <span className="red-rules-name">{r.name}</span>
+              <span className="mono red-muted">{r.pattern}{r.flags && r.flags.includes("i") ? " (any case)" : ""}</span>
+              <button
+                type="button"
+                data-testid={`delete-rule-${r.id}`}
+                className="text-action"
+                onClick={() => deleteRule(r.id)}
+                aria-label={`Delete the rule ${r.name}`}
+              >
+                Delete
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
 
-            <div>
-              <p className="eyebrow tag-toolkit mb-2">Add a rule</p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div>
-                  <label className="text-xs font-semibold">Name</label>
-                  <input
-                    data-testid="rule-name"
-                    className="w-full px-3 py-2 border border-[hsl(var(--ink))] bg-[hsl(var(--paper))] text-sm mt-1"
-                    placeholder="Employee ID"
-                    value={draft.name}
-                    onChange={(e) => setDraft(d => ({ ...d, name: e.target.value }))}
-                  />
-                </div>
-                <div>
-                  <label className="text-xs font-semibold">Category</label>
-                  <input
-                    data-testid="rule-category"
-                    className="w-full px-3 py-2 border border-[hsl(var(--ink))] bg-[hsl(var(--paper))] text-sm mt-1"
-                    placeholder="employee-id"
-                    value={draft.category}
-                    onChange={(e) => setDraft(d => ({ ...d, category: e.target.value }))}
-                  />
-                </div>
-                <div>
-                  <label className="text-xs font-semibold">Pattern (regex source)</label>
-                  <input
-                    data-testid="rule-pattern"
-                    className="w-full px-3 py-2 border border-[hsl(var(--ink))] bg-[hsl(var(--paper))] text-sm mono mt-1"
-                    placeholder="^EMP-\\d{6}$"
-                    value={draft.pattern}
-                    onChange={(e) => setDraft(d => ({ ...d, pattern: e.target.value }))}
-                  />
-                </div>
-                <div>
-                  <label className="text-xs font-semibold">Flags</label>
-                  <input
-                    data-testid="rule-flags"
-                    className="w-full px-3 py-2 border border-[hsl(var(--ink))] bg-[hsl(var(--paper))] text-sm mono mt-1"
-                    placeholder="i"
-                    value={draft.flags}
-                    onChange={(e) => setDraft(d => ({ ...d, flags: e.target.value }))}
-                  />
-                </div>
-                <div>
-                  <label className="text-xs font-semibold">Column-name hint (regex, optional)</label>
-                  <input
-                    data-testid="rule-hint"
-                    className="w-full px-3 py-2 border border-[hsl(var(--ink))] bg-[hsl(var(--paper))] text-sm mono mt-1"
-                    placeholder="(employee|emp)[ _-]?id"
-                    value={draft.columnHint}
-                    onChange={(e) => setDraft(d => ({ ...d, columnHint: e.target.value }))}
-                  />
-                </div>
-                <div>
-                  <label className="text-xs font-semibold">Base confidence (0–1)</label>
-                  <input
-                    data-testid="rule-base"
-                    type="number" step="0.05" min="0" max="1"
-                    className="w-full px-3 py-2 border border-[hsl(var(--ink))] bg-[hsl(var(--paper))] text-sm mt-1"
-                    value={draft.base}
-                    onChange={(e) => setDraft(d => ({ ...d, base: parseFloat(e.target.value) || 0.85 }))}
-                  />
-                </div>
-              </div>
-
-              <div className="mt-4 p-3 border border-dashed border-[hsl(var(--ink))] bg-[hsl(var(--paper-2))] flex items-center gap-3">
-                <TestTube2 className="w-4 h-4" />
-                <input
-                  data-testid="rule-test-value"
-                  className="flex-1 px-2 py-1 bg-[hsl(var(--paper))] border border-[hsl(var(--rule))] text-sm mono"
-                  placeholder="test a sample value against the pattern…"
-                  value={testValue}
-                  onChange={(e) => setTestValue(e.target.value)}
-                />
-                <button
-                  data-testid="rule-run-test"
-                  onClick={runTest}
-                  className="btn-ghost-ink text-xs px-3 py-1"
-                >Test</button>
-                {testResult !== null && (
-                  <span className={`pill ${testResult ? "pill-forest" : "pill-brick"}`}>
-                    {testResult ? "match" : "no match"}
-                  </span>
-                )}
-              </div>
-
-              <div className="mt-4 flex justify-end gap-2">
-                <button
-                  data-testid="add-custom-rule-btn"
-                  onClick={addRule}
-                  className="btn-forest flex items-center gap-2"
-                >
-                  <Plus className="w-4 h-4" /> Save rule
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
+      <div className="red-rules-grid">
+        <div className="red-rules-field">
+          <label className="field-label" htmlFor="rule-name">Name</label>
+          <input id="rule-name" data-testid="rule-name" className="red-adv-input red-adv-text" placeholder="Employee ID"
+            value={draft.name} onChange={(e) => setDraft((d) => ({ ...d, name: e.target.value }))} />
+        </div>
+        <div className="red-rules-field">
+          <label className="field-label" htmlFor="rule-pattern">Pattern (regular expression)</label>
+          <input id="rule-pattern" data-testid="rule-pattern" className="red-adv-input" placeholder={"EMP-\\d{6}"}
+            value={draft.pattern} spellCheck={false} autoComplete="off"
+            onChange={(e) => setDraft((d) => ({ ...d, pattern: e.target.value }))} />
+        </div>
+        <div className="red-rules-field">
+          <label className="field-label" htmlFor="rule-hint">Column names to look for (optional)</label>
+          <input id="rule-hint" data-testid="rule-hint" className="red-adv-input" placeholder="employee|emp_id"
+            value={draft.columnHint} spellCheck={false} autoComplete="off"
+            onChange={(e) => setDraft((d) => ({ ...d, columnHint: e.target.value }))} />
+        </div>
+        <div className="red-rules-field red-rules-check">
+          <label htmlFor="rule-case">
+            <input id="rule-case" data-testid="rule-flags" type="checkbox"
+              checked={(draft.flags || "").includes("i")}
+              onChange={(e) => setDraft((d) => ({ ...d, flags: e.target.checked ? "i" : "" }))} />
+            Ignore upper and lower case
+          </label>
+        </div>
       </div>
-    </section>
+
+      <div className="red-rules-test">
+        <label className="field-label" htmlFor="rule-test-value">Try it on a value</label>
+        <div className="red-rules-test-row">
+          <input id="rule-test-value" data-testid="rule-test-value" className="red-adv-input" placeholder="EMP-004211"
+            value={testValue} spellCheck={false} autoComplete="off" onChange={(e) => setTestValue(e.target.value)} />
+          <button type="button" data-testid="rule-run-test" onClick={runTest} className="btn-ghost-ink">Test</button>
+          {testResult !== null && (
+            <span className="red-rules-result" role="status">{testResult ? "Matches" : "No match"}</span>
+          )}
+        </div>
+      </div>
+
+      <div className="red-rules-save">
+        <button type="button" data-testid="add-custom-rule-btn" onClick={addRule} className="btn-forest">Save rule</button>
+      </div>
+    </div>
   );
 }

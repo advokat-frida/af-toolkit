@@ -9,10 +9,10 @@ telemetry. Every served tool file is hash-recorded in `public/tool-sources.json`
 
 ## Integration trust boundary
 
-The five tools run as reviewed, same-origin frames so their local storage, downloads,
+The four tools run as reviewed, same-origin frames so their local storage, downloads,
 and browser APIs continue to work. Those frames are application composition, not security
-isolation: a staged tool is trusted code inside the Toolkit origin. Only the three tools that
-actually copy output receive `clipboard-write` permission.
+isolation: a staged tool is trusted code inside the Toolkit origin. Clipboard access follows
+from that shared origin too, so it is not a boundary either.
 
 This boundary was reviewed again for the public, hosted release on 2026-09-04 and holds because
 every tool's source lives in this repository and passes the same gate before it is staged. It stops
@@ -28,6 +28,7 @@ problem.
 
 ## Release checks
 
-Every staged artifact is hashed and recorded in `public/tool-sources.json`. The release gate scans for secrets,
-requires local-only runtime behavior with no unexpected external requests, and verifies the exact
-rendered application before push. Public release or deployment requires a separate review.
+Every staged artifact is hashed and recorded in `public/tool-sources.json`. GitHub secret scanning
+and push protection watch the repository for secrets. The release gate requires local-only runtime
+behavior with no unexpected external requests, and verifies the exact rendered application before
+push. Public release or deployment requires a separate review.

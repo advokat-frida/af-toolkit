@@ -758,62 +758,47 @@ html:has([data-toolkit-embedded="true"]) body {
 }
 .af-subscribe:hover { filter: brightness(0.94); }
 
+/* The shell's footer (DESIGN-SYSTEM §7, the 2026-09-23 shared footer): one row, the nameplate
+   and four links, on ink. Same numbers as public/toolkit.css .toolkit-footer. */
 .af-colophon {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px 32px;
     width: 100%;
     margin: 48px 0 0;
+    padding: 12px 32px;
     background: hsl(var(--ink));
-    line-height: 1.5;
-}
-.af-colophon-inner {
-    width: min(1180px, 100%);
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    gap: 34px;
-    padding: 24px clamp(16px, 4vw, 56px);
-}
-.af-colophon-name {
-    margin: 0 0 8px;
     color: hsl(var(--paper));
+}
+.af-colophon a { color: hsl(var(--paper)); text-decoration: none; }
+.af-colophon a:hover { text-decoration: underline; }
+.af-colophon a:focus-visible { outline-color: hsl(var(--paper)); }
+.af-colophon-brand {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
     font-family: "Anton", Impact, sans-serif;
-    font-size: 26px;
+    font-size: 21px;
     font-weight: 400;
     letter-spacing: 0.02em;
-    line-height: 1;
+    line-height: var(--lh-display);
     text-transform: uppercase;
 }
-.af-colophon-desc {
-    max-width: 520px;
-    margin: 0;
-    color: hsl(var(--paper) / 0.82);
-    font-size: 13px;
-    line-height: 1.55;
-}
-.af-colophon-nav {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 7px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-.af-colophon-nav a {
-    color: hsl(var(--paper) / 0.82);
+.af-colophon nav { display: flex; flex-wrap: wrap; gap: 0 20px; }
+.af-colophon nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
     font-family: "Archivo", system-ui, sans-serif;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 400;
-    letter-spacing: 0.1em;
-    text-decoration: none;
-    text-transform: uppercase;
-  line-height: var(--lh-label);
+    line-height: var(--lh-label);
 }
-.af-colophon-nav a:hover { color: hsl(var(--paper)); }
 
-@media (max-width: 760px) {
-    .af-colophon-inner { grid-template-columns: 1fr; gap: 18px; }
-    .af-colophon-nav { align-items: flex-start; }
+@media (max-width: 820px) {
+    .af-colophon { padding: 12px 20px; gap: 0 24px; }
 }
 
 /* ===== Canvas fidelity (Toolkit - Redesign 3A, 4A, 4B) ===== */
@@ -836,6 +821,17 @@ html:has([data-toolkit-embedded="true"]) body {
 .editorial-table thead th { padding: 10px 12px; }
 .editorial-table td.mono, .editorial-table td .mono { font-size: 14px; }
 .red-muted { color: hsl(var(--ink-muted)); }
+/* A document with nothing found: one plain line where the findings table would be. */
+.red-empty-line { margin: 18px 0 0; font-size: 16px; line-height: var(--lh-body); }
+/* Boundary aside (DESIGN-SYSTEM §3): at most one per surface, beside the action it changes. */
+.red-boundary {
+    margin: 18px 0 0;
+    padding-left: 12px;
+    border-left: 3px solid hsl(var(--ochre));
+    color: hsl(var(--ink-muted));
+    font-size: 13px;
+    line-height: var(--lh-helper);
+}
 .red-treatment { position: relative; width: 200px; }
 .red-treatment select {
     width: 100%;
@@ -976,4 +972,132 @@ html:has([data-toolkit-embedded="true"]) body {
     [data-toolkit-embedded="true"] [data-sonner-toaster][data-y-position="bottom"] {
         --toolkit-toast-offset: var(--mobile-offset-bottom);
     }
+}
+
+/* ---- Release review, 2026-09-24 -------------------------------------------------------- */
+
+/* Paired buttons take the wider one's width (DESIGN-PRINCIPLES #5): the pair is an inline
+   grid of equal columns, so neither button stretches past the longer label. */
+.red-pair {
+    display: inline-grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    gap: 12px;
+}
+.red-pair > button { width: 100%; justify-content: center; }
+.red-upload-actions.red-pair { display: inline-grid; }
+@media (max-width: 480px) {
+    .red-pair { grid-auto-flow: row; width: 100%; }
+}
+
+/* The findings table needs a 1074px frame to show all five columns without clipping a
+   treatment select; below that the same rows render as cards. */
+.red-table { display: none; }
+@media (min-width: 1074px) {
+    .red-cards { display: none; }
+    .red-table { display: block; }
+}
+
+/* Advanced: two fields, two columns, and the preset input as wide as they are. */
+.red-advanced-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.red-presets-row input { width: auto; flex: 1 1 0; min-width: 0; }
+.red-presets-row { max-width: calc(50% - 8px); }
+.red-adv-help { font-size: 13px; }
+@media (max-width: 760px) {
+    .red-presets-row { max-width: none; flex-wrap: wrap; }
+    .red-presets-row > button { flex: 1 1 auto; }
+}
+
+/* Custom rules: one panel under the drop zone's own disclosure. */
+.red-rules { display: flex; flex-direction: column; gap: 16px; padding: 4px 0 8px; }
+.red-rules-intro { margin: 0; color: hsl(var(--ink-muted)); font-size: 14px; line-height: var(--lh-helper); }
+.red-rules-list { display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; border-top: 1px solid hsl(var(--ink) / 0.17); }
+.red-rules-list li { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; padding: 6px 0; border-bottom: 1px solid hsl(var(--ink) / 0.17); }
+.red-rules-name { font-weight: 700; }
+.red-rules-list li .text-action { margin-left: auto; }
+.red-rules-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 16px; }
+.red-rules-field { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.red-rules-check { justify-content: flex-end; }
+.red-rules-check label { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font-size: 15px; cursor: pointer; }
+.red-rules-check input { width: 20px; height: 20px; accent-color: hsl(var(--forest)); }
+.red-rules-test { display: flex; flex-direction: column; gap: 4px; }
+.red-rules-test-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.red-rules-test-row input { flex: 1 1 220px; min-width: 0; }
+.red-rules-result { font-size: 14px; color: hsl(var(--ink-muted)); }
+.red-rules-save { display: flex; justify-content: flex-start; }
+@media (max-width: 760px) {
+    .red-rules-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Batch: each file is a section with its own findings, like the single-file view. */
+.red-batch-drop { margin-top: 14px; border: 1px dashed hsl(var(--ink) / 0.45); background: hsl(var(--paper)); }
+.red-batch-item { margin-top: 28px; padding-top: 18px; border-top: 1px solid hsl(var(--ink) / 0.17); }
+.red-batch-name {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: var(--lh-heading);
+    overflow-wrap: anywhere;
+}
+.red-batch-apply { margin-top: 28px; }
+
+/* Phones: editable controls at 16px, or iOS zooms the page when one is tapped. */
+@media (max-width: 760px) {
+    .red-treatment select,
+    .red-adv-input,
+    .red-rules input:not([type="checkbox"]) { font-size: 16px; }
+}
+/* The hash line breaks inside the hash, never inside the timestamp. */
+.red-hash-line { word-break: normal; overflow-wrap: anywhere; }
+.red-record-actions .text-action { margin-left: 0; }
+/* A kind found inside text: the count sits under the kind's name, quietly. */
+.red-count { display: block; color: hsl(var(--ink-muted)); font-size: 14px; line-height: var(--lh-helper); }
+.red-finding-card-line .red-count { display: inline; }
+.red-finding-card-line .red-count::before { content: " · "; }
+.red-card-citation::before { content: "· "; }
+/* In the phone cards the select spans the card, so the longest treatment name fits at 16px. */
+.red-cards .red-treatment { width: 100%; }
+/* A rule's name is ordinary text, not an identifier: body face, not mono. */
+.red-adv-input.red-adv-text { font-family: inherit; }
+
+/* Treatment legend (Ben, 2026-09-28): one card above the findings, the four treatments shown on
+   the same phone number. Roles reuse DESIGN-SYSTEM §2: the column-header eyebrow, a 14px helper
+   line, 16/700 names, mono data, 14px descriptions. Four columns in a frame that holds the full
+   table, two below it, one on a phone. */
+.red-legend {
+    margin-top: 18px;
+    padding: 16px 18px;
+    border: 1px solid hsl(var(--ink) / 0.17);
+    background: hsl(var(--paper));
+}
+.red-legend-title {
+    margin: 0;
+    color: hsl(var(--ink-muted));
+    font-family: "Archivo", system-ui, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    line-height: var(--lh-label);
+}
+.red-legend-example { margin: 4px 0 0; color: hsl(var(--ink-muted)); font-size: 14px; line-height: var(--lh-helper); }
+.red-legend-example .mono { color: hsl(var(--ink)); font-size: 14px; }
+.red-legend-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 20px;
+    margin: 14px 0 0;
+}
+@media (min-width: 1074px) { .red-legend-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .red-legend-grid { grid-template-columns: minmax(0, 1fr); } }
+.red-legend-item { min-width: 0; }
+.red-legend-item dt { font-size: 16px; font-weight: 700; line-height: var(--lh-heading); }
+.red-legend-item dd { margin: 0; }
+.red-legend-after { margin-top: 4px; font-size: 14px; overflow-wrap: anywhere; }
+.red-legend-what { margin-top: 4px; color: hsl(var(--ink-muted)); font-size: 14px; line-height: var(--lh-helper); }
+/* The embedded h3 rule outranks the class; the legend title is an eyebrow, not a heading size. */
+[data-toolkit-embedded="true"] .red-legend-title {
+    font-family: "Archivo", system-ui, sans-serif;
+    font-size: 11px;
+    line-height: var(--lh-label);
 }

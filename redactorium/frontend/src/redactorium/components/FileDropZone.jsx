@@ -1,9 +1,9 @@
 import { useCallback, useRef, useState } from "react";
 import { TID } from "@/redactorium/constants/testIds";
 
-const ACCEPT = ".csv,.xlsx,.xls,.pdf,.docx,.txt,.md,.log";
+export const ACCEPT = ".csv,.xlsx,.xls,.pdf,.docx,.txt,.md,.log";
 
-export default function FileDropZone({ onFile, onSample, customRulesPanel = null }) {
+export default function FileDropZone({ onFile, onSample, error = "", customRulesPanel = null }) {
   const [drag, setDrag] = useState(false);
   const [panel, setPanel] = useState(null);
   const inputRef = useRef(null);
@@ -29,9 +29,13 @@ export default function FileDropZone({ onFile, onSample, customRulesPanel = null
         className={`red-drop-card dropzone cursor-pointer ${drag ? "is-drag" : ""}`}
       >
         <h2 className="red-drop-title">Drop a file here</h2>
-        <p className="red-drop-formats">CSV · XLSX · PDF · DOCX · TXT · Markdown · log files.</p>
-        <div className="red-upload-actions">
-          <button className="btn-forest" onClick={(e) => { e.stopPropagation(); inputRef.current?.click(); }}>
+        <p className="red-drop-formats">CSV · Excel · Word · PDF · text · Markdown · log files</p>
+        <div className="red-upload-actions red-pair">
+          <button
+            data-testid="choose-file-btn"
+            className="btn-forest"
+            onClick={(e) => { e.stopPropagation(); inputRef.current?.click(); }}
+          >
             Choose a file
           </button>
           <button
@@ -48,9 +52,11 @@ export default function FileDropZone({ onFile, onSample, customRulesPanel = null
           type="file"
           className="hidden"
           accept={ACCEPT}
-          onChange={(e) => e.target.files?.[0] && onFile(e.target.files[0])}
+          onChange={(e) => { const f = e.target.files?.[0]; e.target.value = ""; if (f) onFile(f); }}
         />
       </div>
+
+      {error && <p className="red-boundary" role="alert" data-testid="load-error">{error}</p>}
 
       {customRulesPanel && (
         <div className="red-under-zone">

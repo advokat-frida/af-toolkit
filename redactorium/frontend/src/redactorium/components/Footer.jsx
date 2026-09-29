@@ -1,23 +1,16 @@
+// The standalone page's footer: the Toolkit shell's footer (docs/design/DESIGN-SYSTEM.md §7,
+// the 2026-09-23 shared footer), so a visitor who reaches the page directly sees the same
+// band as everywhere else. Hidden in embed mode, where the shell's own footer follows the tool.
 export default function Footer() {
   return (
     <footer className="af-colophon">
-      <div className="af-colophon-inner">
-        <div>
-          <p className="af-colophon-name">Advokat Frida</p>
-          <p className="af-colophon-desc">
-            Privacy and AI governance, by design and in practice.<br />
-            Analytics by Plausible, cookieless and aggregate, no ad-tech.
-          </p>
-        </div>
-        <nav aria-label="Footer">
-          <ul className="af-colophon-nav">
-            <li><a href="https://advokatfrida.com/about/">About</a></li>
-            <li><a href="mailto:hello@advokatfrida.com">Contact us</a></li>
-            <li><a href="https://advokatfrida.com/privacy/">Privacy</a></li>
-            <li><a href="https://advokatfrida.com/rss/">RSS</a></li>
-          </ul>
-        </nav>
-      </div>
+      <a className="af-colophon-brand" href="https://advokatfrida.com/">Advokat Frida</a>
+      <nav aria-label="Footer">
+        <a href="https://advokatfrida.com/about/">About</a>
+        <a href="mailto:hello@advokatfrida.com">Contact</a>
+        <a href="https://advokatfrida.com/privacy/">Privacy</a>
+        <a href="https://advokatfrida.com/rss/">RSS</a>
+      </nav>
     </footer>
   );
 }
