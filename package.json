@@ -33,6 +33,7 @@
     "node": ">=22"
   },
   "devDependencies": {
-    "playwright": "1.62.1"
+    "parse5": "8.0.1",
+    "playwright": "1.63.0"
   }
 }

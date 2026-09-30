@@ -76,7 +76,7 @@ export const TEXT_PATTERNS = [
   {
     id: "phone",
     // International: +CC then 2 to 5 groups. The digit count is checked after matching.
-    re: /(^|[^0-9+\w])(\+\d{1,3}(?:[ .-]?\(?\d{1,5}\)?){2,6})(?![0-9])/g,
+    re: /(^|[^\w+])(\+\d{1,3}(?:[ .-]?\(?\d{1,5}\)?){2,6})(?![0-9])/g,
     score: 0.9,
     valid: (v) => { const n = v.replace(/\D/g, "").length; return n >= 8 && n <= 15; },
     // The match is greedy and runs into whatever number follows ("+44 7700 900123 2026-09-28",
@@ -104,7 +104,7 @@ export const TEXT_PATTERNS = [
   {
     id: "phone",
     // North American: (415) 555-0134, 415-555-0134, 415.555.0134, 415 555 0134.
-    re: /(^|[^0-9+\w-])(\(\d{3}\) ?\d{3}[ .-]\d{4}|\d{3}([ .-])\d{3}\3\d{4})(?![0-9-]*[0-9])/g,
+    re: /(^|[^\w+-])(\(\d{3}\) ?\d{3}[ .-]\d{4}|\d{3}([ .-])\d{3}\3\d{4})(?![0-9-]*[0-9])/g,
     score: 0.85,
   },
   {

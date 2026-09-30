@@ -63,6 +63,9 @@ export function createToolkitHandler({ root = defaultRoot } = {}) {
     try {
       url = new URL(request.url || "/", `http://${host}`);
       url.pathname = decodeURIComponent(url.pathname);
+      // A decoded leading slash or backslash can turn an asset redirect into
+      // a network-path reference (//host/path), which leaves this local server.
+      if (url.pathname.startsWith("//")) throw new Error("Network-path reference");
     } catch {
       response.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" });
       response.end("Not found");
