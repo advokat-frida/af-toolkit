@@ -1682,11 +1682,6 @@ main.is-embed {
   margin: 0 auto;
   padding: 26px 32px 30px;
 }
-/* Column cap steps with the scale above; see the note at the end of this file.
-   Breakpoints are the frame width, not the window. */
-@media (min-width: 1252px) { main.is-embed { max-width: 1240px; } }
-@media (min-width: 1528px) { main.is-embed { max-width: 1320px; } }
-@media (min-width: 1900px) { main.is-embed { max-width: 1400px; } }
 
 
 .finder-stage,
@@ -2220,11 +2215,14 @@ textarea {
 
 .outcome-main { min-width: 0; }
 
-/* ---- Large-display scale (Ben, 2026-09-04) -------------------------------
+/* ---- Large-display scale (Ben, 2026-09-04; AF-18, 2026-09-29) --------------
    At 2560px this surface used 44% of the width and the type read small. The fix
    is to scale the composition, not stretch it: `zoom` steps the whole surface at
    once - type, spacing, rules - so every proportion the design system defines
-   survives, and the column cap steps with it so prose keeps a sane measure.
+   survives. The column cap does NOT step with it (AF-18: stepping it to 1400px
+   spread the content and opened wide gaps between table columns). It stays at
+   1130px, which the zoom enlarges, so a wide screen shows the laptop composition
+   at a larger size, centered.
 
    These breakpoints are the width of THIS FRAME, not the window. Embedded, the
    frame is the window minus the Toolkit rail, so 1252/1528/1900 here land on the

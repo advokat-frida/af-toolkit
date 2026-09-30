@@ -216,6 +216,9 @@
   .sl-preview-table th{line-height:var(--lh-row);position:sticky;top:0;z-index:1;padding:0 14px 8px 0;background:var(--ground);border-bottom:0;box-shadow:inset 0 -1px 0 var(--ink);color:var(--ink-soft);font-family:var(--mono);font-size:12px;font-weight:400;letter-spacing:0;text-transform:none;text-align:left;white-space:nowrap}
   .sl-preview-table td{line-height:var(--lh-row);padding:10px 14px 10px 0;border-bottom:1px solid var(--hair);font-family:var(--mono);font-size:13px;white-space:nowrap}
   .sl-preview-table td.sl-mono{font-size:13px}
+  /* Columns fit their values (AF-18), as in SafeSeed: each column but the last shrinks to its widest
+     cell plus a gutter, and the last takes the rest, so the rules still run the full width. */
+  .sl-preview-table th:not(:last-child),.sl-preview-table td:not(:last-child){width:1%;padding-right:var(--s5)}
 
   /* The record block. */
   .sl-record{margin-top:30px}
@@ -249,13 +252,14 @@
   .sl-stage{margin:26px 0 30px}
   @media(max-width:640px){.wrap{padding:0 10px}.sl-stage{margin:12px 0 18px}}
 
-  /* Large-display scale (Ben, 2026-09-04): on a desktop monitor, scale the whole
-     composition rather than stretch it. Breakpoints are the width of THIS FRAME,
+  /* Large-display scale (Ben, 2026-09-04; AF-18, 2026-09-29): on a desktop monitor,
+     scale the whole composition rather than stretch it. The 1130px column cap holds
+     at every step; the zoom enlarges it. Breakpoints are the width of THIS FRAME,
      not the window - embedded, the frame is the window minus the Toolkit rail,
      so these land on the same windows as 1500/1800/2200 in public/toolkit.css. */
-  @media(min-width:1252px){.wrap{max-width:1240px}body{zoom:1.08}}
-  @media(min-width:1528px){.wrap{max-width:1320px}body{zoom:1.18}}
-  @media(min-width:1900px){.wrap{max-width:1400px}body{zoom:1.30}}
+  @media(min-width:1252px){body{zoom:1.08}}
+  @media(min-width:1528px){body{zoom:1.18}}
+  @media(min-width:1900px){body{zoom:1.30}}
 
 </style>
 </head>
