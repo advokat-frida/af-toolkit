@@ -149,6 +149,8 @@ when current.
 
 **Tool header.** One 56px bar: `--paper`, hairline bottom border. Left: group eyebrow (Archivo
 11/700 caps `--soft`) + `/` in `--faint` + tool name (Anton 21). Right: at most one text action.
+Ben's 2026-09-29 direction adds `Read the article ↗` to Redactorium's top-right corner,
+using SafeSeed's existing action style and new-tab behavior for the published article.
 The shell owns this bar; a tool never repeats its own name, tagline, or nameplate inside the
 workspace. Two same-origin messages connect the shell and a tool: a tool may post
 `{toolkit: "context", title}` to name its active task in the breadcrumb (Privacy Wizards names

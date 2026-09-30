@@ -52,6 +52,16 @@ function resolveAsset(root, pathname, search) {
   return null;
 }
 
+// Validate the final Location as well as the decoded request path. Relative
+// asset redirects must resolve against this fixed origin without leaving it.
+function isLocalAssetRedirect(location) {
+  try {
+    return new URL(location, "http://127.0.0.1").origin === "http://127.0.0.1";
+  } catch {
+    return false;
+  }
+}
+
 export function createToolkitHandler({ root = defaultRoot } = {}) {
   return (request, response) => {
     if (request.method !== "GET" && request.method !== "HEAD") {
@@ -89,8 +99,14 @@ export function createToolkitHandler({ root = defaultRoot } = {}) {
     }
 
     const asset = resolveAsset(root, url.pathname === "/" ? "/index.html" : url.pathname, url.search);
-    if (asset?.redirect && url.pathname !== "/") {
-      response.writeHead(307, { ...baseHeaders, Location: asset.redirect });
+    const location = asset?.redirect;
+    if (location && url.pathname !== "/") {
+      if (!isLocalAssetRedirect(location)) {
+        response.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" });
+        response.end("Not found");
+        return;
+      }
+      response.writeHead(307, { ...baseHeaders, Location: location });
       response.end();
       return;
     }

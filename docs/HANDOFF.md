@@ -1,5 +1,21 @@
 # HANDOFF
 
+## 2026-09-29 - Redactorium article link and final redirect validation
+
+Ben requested the same top-right article link on Redactorium that SafeSeed has.
+The shell header now links to the published `https://advokatfrida.com/redactorium/`
+article, using the existing `head-action` style, label and new-tab behavior. The
+destination returns 200 with the matching canonical URL and article title.
+Ben's dated direction is recorded in the design system; all seven affected
+Redactorium proof images were refreshed and directly reviewed.
+
+The full Toolkit gate passed for the combined candidate. Focused browser checks
+at 1440, 1034, 390 and 320 pixels verified matching SafeSeed styles, the 44px target,
+no overlap or overflow, keyboard focus and opening the actual article in a new tab.
+Independent review cleared both this link and the final local redirect validation
+described below. No generated tool artifact changed for this follow-up. Private
+browser receipts are in `.local-working/maintenance/article-link-local/`.
+
 ## 2026-09-29 - Toolkit maintenance after the live release
 
 Ben confirmed that both the post and tool are live, then authorized the repo-audit
@@ -32,8 +48,28 @@ Two abandoned Claude worktrees and the obsolete README stash were retired after 
 archives, Git snapshots and bundle verification. Exact safety-kit working bytes and the
 unique XLSX commit are preserved. The clean PWC worktree remains available for reuse.
 Private recovery receipts and restoration commands are in
-`.local-working/recovery/2026-09-29-maintenance/`. Release checks and alert closure will
-be verified on the merged candidate; no alerts have been dismissed.
+`.local-working/recovery/2026-09-29-maintenance/`.
+
+[PR #22](https://github.com/advokat-frida/af-toolkit/pull/22) merged reviewed commit
+`145c9b0` as `e937917d401c16303c63139121bda6680a0d7700` after all five PR checks passed.
+Main CI passed, Cloudflare production build `54f6a5a9-1ac3-4f67-ad4f-1249f6a46b0e`
+succeeded, and all 29 checked production files match the merge (normalizing only the
+known Cloudflare hidden-link injection). Superseded PRs #10, #17 and #18 are closed.
+CodeQL automatically marked #1, #2, #7 and #8 fixed; #9 remained open despite the
+input guard and passing adversarial probes. The follow-up validates the final asset
+`Location` against a fixed origin as well. Independent review cleared that change,
+including both server regressions and 127 HTTP probes with no off-origin redirects
+or request failures. The full Toolkit gate passed again. Fresh proof captures match
+the previously reviewed candidate apart from the randomized record hash, which was
+directly inspected. The final CodeQL closure still requires a fresh analysis; no
+alerts have been dismissed.
+
+Two new updates appeared during this maintenance and are separate follow-ups:
+[PR #23](https://github.com/advokat-frida/af-toolkit/pull/23) patches a newly surfaced
+moderate brace-expansion advisory in ESLint's development-only dependency chain;
+[PR #24](https://github.com/advokat-frida/af-toolkit/pull/24) updates both CodeQL actions
+to v4.38.2 together, confirming the new grouping. Both remain open for separate
+review. The deployed browser tool does not use brace-expansion.
 
 ## 2026-09-28 (actual resume correction) - PDF header geometry swallowed the name
 
