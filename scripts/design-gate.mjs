@@ -5,6 +5,7 @@ import { readFile, readdir } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { dirname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { htmlCopyText } from "./html-copy-text.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const publicRoot = join(root, "public");
@@ -94,15 +95,6 @@ async function walk(dir) {
   return out;
 }
 
-function visibleText(html) {
-  return html
-    .replace(/<script[\s\S]*?<\/script>/gi, " ")
-    .replace(/<style[\s\S]*?<\/style>/gi, " ")
-    .replace(/<!--[\s\S]*?-->/g, " ")
-    .replace(/<[^>]+>/g, " ")
-    .replace(/&[a-z#0-9]+;/gi, " ");
-}
-
 // rgb()/rgba() forms of the tokens above. A translucent hairline is a token too:
 // the rendered census found rgba(31,29,24,.16) in three tools, a hairline mixed
 // from an ink that is not ours, which no hex scan could see.
@@ -139,7 +131,7 @@ function auditFonts(rel, content) {
 }
 
 function auditPhrases(rel, content, isHtml) {
-  const text = (isHtml ? visibleText(content) : content).toLowerCase();
+  const text = (isHtml ? htmlCopyText(content) : content).toLowerCase();
   for (const phrase of BANNED_PHRASES) {
     const index = text.indexOf(phrase);
     if (index >= 0) {

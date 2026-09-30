@@ -1,5 +1,40 @@
 # HANDOFF
 
+## 2026-09-29 - Toolkit maintenance after the live release
+
+Ben confirmed that both the post and tool are live, then authorized the repo-audit
+recommendations. This supersedes the older draft-status notes below. This maintenance
+is scoped to Toolkit; it makes no Ghost or website changes.
+
+CodeQL init and analyze now use the same pinned v4.38.1 commit, with Dependabot grouping
+to keep later updates together. The separate updates in PRs #17 and #18 caused their
+version-mismatch failures. Playwright is updated to 1.63.0, incorporating PR #10; its
+refreshed branch also passed every check before the combined candidate was tested.
+
+The five open CodeQL findings were investigated and corrected. The two HTML-stripping
+alerts concern offline QA, not a production sanitizer, but malformed script end tags
+could hide visible copy from the checks. Both checks now share a parse5 text extractor.
+Two redundant phone-pattern character classes were simplified without changing matching.
+The local preview server now rejects decoded network-path references before redirecting;
+the production Worker uses a separate handler. Six regression tests cover the parser and
+redirect cases, including an HTTP regression that failed before the fix.
+
+An independent reviewer cleared the candidate with no blocking findings, including 121
+HTTP redirect probes. All 82 Redactorium tests, lint and production build passed, followed
+by tool staging and the full Toolkit gate (including 137 static checks, four-width rendered
+QA, state proofs and the style census). Changed proof captures were directly inspected;
+only hover/focus and randomized-record noise changed. Fresh captures and logs are retained
+in ignored `.local-working/maintenance/`; committed visual baselines remain unchanged.
+Only the generated Redactorium artifact changed; its SHA-256 is
+`2daf7b2d3ec22c49518fd26369fea79decb6235338d33df53fafbfce4a4d37b5`.
+
+Two abandoned Claude worktrees and the obsolete README stash were retired after recovery
+archives, Git snapshots and bundle verification. Exact safety-kit working bytes and the
+unique XLSX commit are preserved. The clean PWC worktree remains available for reuse.
+Private recovery receipts and restoration commands are in
+`.local-working/recovery/2026-09-29-maintenance/`. Release checks and alert closure will
+be verified on the merged candidate; no alerts have been dismissed.
+
 ## 2026-09-28 (actual resume correction) - PDF header geometry swallowed the name
 
 Ben supplied the exact resume after reporting the name still missing. Reproduction found

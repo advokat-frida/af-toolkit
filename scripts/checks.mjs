@@ -4,6 +4,7 @@ import { readFile, readdir } from "node:fs/promises";
 import { dirname, extname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { canonicalBytes } from "./canonical.mjs";
+import { htmlCopyText } from "./html-copy-text.mjs";
 
 const scriptDir = dirname(fileURLToPath(import.meta.url));
 export const candidateRoot = resolve(scriptDir, "..");
@@ -224,7 +225,7 @@ export async function runStaticChecks() {
   const safelist = await readFile(join(publicRoot, "tools", "safelist.html"), "utf8");
   results.push(check(!safelist.includes('class="site-bar"') && !safelist.includes('class="site-colophon"') && !safelist.includes('class="pageintro"'), "SafeList embed artifact carries no standalone chrome"));
   results.push(check(safelist.includes("__safelistNetViolations"), "SafeList network kill-switch is present"));
-  results.push(check(!/safe to send/i.test(safelist.replace(/<script[\s\S]*?<\/script>/gi, " ")), "SafeList never renders safe as a status"));
+  results.push(check(!/safe to send/i.test(htmlCopyText(safelist)), "SafeList never renders safe as a status"));
 
   // Provenance depends on the staged bytes being identical on every machine, so no
   // staged text artifact may carry a carriage return.
