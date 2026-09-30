@@ -1,5 +1,38 @@
 # HANDOFF
 
+## 2026-09-29 - AF-18: a denser layout on large monitors (branch, not merged)
+
+Ben (AF-18): the Toolkit's main content was too spread out on wide screens, and a generated
+SafeSeed list with five columns left large gaps between columns. Cause: since the 2026-09-04
+large-display scale, every surface stepped its column cap (1130 to 1240/1320/1400px, Home 1000 to
+1240/1460/1700px) on top of the `zoom` step, so the column grew 1.6x on a 2560 screen while the
+type grew only 1.3x, and the file-preview tables spread the spare width across their columns.
+
+- The zoom steps stay (type and spacing still scale). The caps no longer step: tools hold 1130px
+  and Home 1000px at every scale, so a wide screen shows the signed-off laptop composition,
+  larger and centered (Home stays left-aligned, as on a laptop). Edited in SafeSeed
+  (`generator.css`), SafeList (`tools/build.mjs`), Redactorium (`index.css`), the Wizards
+  (`app.css`) and the shell (`toolkit.css`).
+- SafeSeed's generated preview and SafeList's checked list fit each column to its values: every
+  column but the last takes `width: 1%` plus a 24px gutter (`--s5`), and the last takes the rest,
+  so the rules still run the full column.
+- DESIGN-SYSTEM.md §3 (file preview) and §4 (layout) record both rules. Changelog entry added.
+
+Measured (`.local-working/af18/`): at 1920 the tool column is 1333px, not 1558px; at 2560 it is
+1469px, not 1820px; no horizontal page overflow at 1440, 1920 or 2560 on any tool or Home. The
+five-column SafeSeed preset (UK contacts) went from gaps of 110-167px at 1920 to an even 28px. The
+right edges of heading, table, note and actions still match at every width and preset.
+Trade-off, accepted: a file wider than the column scrolls sideways inside its preview, as it
+already did on a laptop. SafeList's eight-column sample now scrolls 183px at 1440 (was 113px with
+the old 14px gutter), and at 1920 it scrolls where the wider column used to fit it. The two
+hash-heavy SafeSeed presets scrolled before and still do.
+
+Checks: each tool's own check (SafeList `check`, Wizards `check`, SafeSeed `verify:chrome`,
+Redactorium `lint`), `npm run build:tools:full`, and the full `npm run gate` passed (137 static
+checks, rendered QA, every canvas state, style census). Changed proofs were inspected at literal
+size: 4C and 5D show the new gutters; the other differences are hover/focus noise and
+Redactorium's random record hash.
+
 ## 2026-09-29 - Redactorium article link and final redirect validation
 
 Ben requested the same top-right article link on Redactorium that SafeSeed has.

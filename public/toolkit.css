@@ -197,10 +197,6 @@ body[data-route="privacy-wizards"] .view[data-view="privacy-wizards"][hidden] { 
   width: min(100%, 1000px);
   padding: 44px 40px 40px;
 }
-/* Column cap steps with the scale defined at the end of this file. */
-@media (min-width: 1500px) { .home-wrap { width: min(100%, 1240px); } }
-@media (min-width: 1800px) { .home-wrap { width: min(100%, 1460px); } }
-@media (min-width: 2200px) { .home-wrap { width: min(100%, 1700px); } }
 
 
 .home-hero {
@@ -589,11 +585,12 @@ body[data-route="privacy-wizards"] .view[data-view="privacy-wizards"][hidden] { 
 .nav-return:hover { color: var(--forest); background: var(--forest-wash); text-decoration: none; }
 .nav-return .nav-icon { color: currentColor; }
 
-/* ---- Large-display scale (Ben, 2026-09-04) -------------------------------
+/* ---- Large-display scale (Ben, 2026-09-04; AF-18, 2026-09-29) --------------
    At 2560px the Toolkit used 44% of the width and the type read small. The fix
    is to scale the composition, not stretch it: `zoom` steps the whole surface
    at once - type, spacing, rules - so every proportion the design system defines
-   survives, and the home column cap steps with it so prose keeps a sane measure.
+   survives. The home column cap does NOT step with it (AF-18: stepping it to
+   1700px spread the content); it holds at 1000px, which the zoom enlarges.
    The rail widens in step, or its nav labels wrap. Each tool carries the same
    steps keyed to its own frame width. Nothing changes below 1500px, which is the
    laptop view already signed off. */
