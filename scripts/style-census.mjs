@@ -61,7 +61,7 @@ function routeOf(stateName) {
   if (/redactorium/.test(stateName)) return "redactorium";
   if (/safeseed/.test(stateName)) return "safeseed";
   if (/safelist/.test(stateName)) return "safelist";
-  if (/wizards/.test(stateName)) return "privacy-wizards";
+  if (/wizards/.test(stateName)) return "wizards";
   return null;
 }
 

@@ -23,7 +23,7 @@ Everyone knows the requirements; almost nobody has been handed the thing to do i
 | **SafeSeed** | Generates fake personal data that is fake by construction, with a receipt proving it | Anyone who needs a realistic test dataset | ![SafeSeed](proofs/desktop-1440-safeseed.png) |
 | **SafeList** | Checks a send list against your opt-outs, one decision per match, with a record | Whoever is about to email a few thousand people on Thursday | ![SafeList](proofs/desktop-1440-safelist.png) |
 | **Redactorium** | Finds personal data in a spreadsheet or document, inside the text too, and lets you redact it, replace it with a code, make it less exact, or swap in fakes | Anyone sharing a spreadsheet, a log, or a PDF outside the team | ![Redactorium](proofs/desktop-1440-redactorium.png) |
-| **Privacy Wizards Council** | Sixteen guided determinations that cite their sources at every step | The person who has to answer "does this need a DPIA?" today | ![Privacy Wizards Council](proofs/desktop-1440-privacy-wizards.png) |
+| **Privacy Wizards Council** | Sixteen guided determinations that cite their sources at every step | The person who has to answer "does this need a DPIA?" today | ![Privacy Wizards Council](proofs/desktop-1440-wizards.png) |
 
 ## Run it yourself
 
@@ -36,7 +36,7 @@ npm start
 
 Open `http://127.0.0.1:4177/` which serves the committed snapshot in `public/`. Each tool has its
 own address, locally as on the site: `/safeseed`, `/safelist`, `/redactorium` and
-`/privacy-wizards`. The staged artifacts sit under `/tools/`; open one directly in a browser and
+`/wizards` (the old `/privacy-wizards` address redirects there). The staged artifacts sit under `/tools/`; open one directly in a browser and
 you are sent to the tool's address.
 
 SafeSeed, SafeList and the Privacy Wizards Council are single HTML files by design, and they work from `file://` with no server at all. Redactorium is a small folder of files, and browsers refuse its scripts from `file://`, so it needs the server above.

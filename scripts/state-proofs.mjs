@@ -121,9 +121,9 @@ export function states(page, base) {
       await frame.locator("#view-done:not(.hidden)").waitFor({ timeout: 20000 });
       await page.waitForTimeout(400);
     },
-    "3c-wizards-finder": async () => { await open("privacy-wizards"); },
+    "3c-wizards-finder": async () => { await open("wizards"); },
     "4e-wizards-question": async () => {
-      const frame = await open("privacy-wizards");
+      const frame = await open("wizards");
       await frame.getByRole("button", { name: /^Breach notification / }).click();
       await frame.locator(".answer-card").first().waitFor({ timeout: 20000 });
       await frame.locator(".answer-card").first().click();
@@ -133,7 +133,7 @@ export function states(page, base) {
       await page.waitForTimeout(400);
     },
     "4f-wizards-determination": async () => {
-      const frame = await open("privacy-wizards");
+      const frame = await open("wizards");
       await frame.getByRole("button", { name: /^Breach notification / }).click();
       for (let step = 0; step < 14; step += 1) {
         if (await frame.locator(".verdict-block").count()) break;

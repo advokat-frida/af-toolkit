@@ -419,7 +419,7 @@ across the column (they reached 690px at 2560), and Redactorium gains the treatm
 apart. Both reuse existing type, colour and border roles.
 
 Ben's 2026-09-28 address and chrome calls. Every tool has its own address on the Toolkit's
-subdomain (`/safeseed`, `/safelist`, `/redactorium`, `/privacy-wizards`; the Home stays `/`),
+subdomain (`/safeseed`, `/safelist`, `/redactorium`, `/wizards`; the Home stays `/`),
 served as the shell with that tool open; a browser that opens a staged artifact under `/tools/`
 directly is sent to the tool's address, so the only chrome a visitor sees is the shell's. Old
 `/#<tool>` links are adopted onto the path. The four standalone pages keep their own chrome for

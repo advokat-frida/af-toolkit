@@ -1,5 +1,30 @@
 # HANDOFF
 
+## 2026-09-29 - The Wizards move to /wizards (branch, not merged)
+
+Ben: "change the URL for /privacy-wizards to just /wizards". The route is renamed everywhere
+the shell and its checks name it (routes.mjs, toolkit.js, index.html, toolkit.css, the QA
+scripts, the route tests, README, ARCHITECTURE, DESIGN-SYSTEM). The artifact keeps its file name
+(`/tools/privacy-wizards-council`), so `tool-sources.json` and every staged hash are unchanged.
+
+Old links keep working. `routes.mjs` now has `FORMER_ROUTES` (`privacy-wizards` → `wizards`):
+`/privacy-wizards` and `/privacy-wizards/` answer every request with a 301 to `/wizards`, query
+kept. It is request-independent, so the no-store 302 rule for artifact redirects does not apply.
+`toolkit.js` maps an old `/#privacy-wizards` hash the same way. The website theme's `post.hbs`
+has 16 `https://toolkit.advokatfrida.com/#privacy-wizards` links; they still land on the Wizards
+through that hash mapping and can move to `/wizards` with the next theme deploy.
+
+If this is ever reverted: browsers cache the 301, so serve both addresses without a redirect
+rather than pointing `/wizards` back at `/privacy-wizards`, or cached visitors loop.
+
+Checks: route tests (8, one new), the full `npm run gate`, and on `wrangler dev` (the Workers
+runtime; this rig runs the cached `wrangler` 4.144.0 from the npx cache): curl probes for
+`/wizards` (200, canonical `/wizards`, `data-route="wizards"`), `/privacy-wizards[/]` (301, query
+kept), the artifact (302 no-store for a page, 200 for the frame), then a browser run through
+`/wizards`, `/privacy-wizards?ref=…`, `/#privacy-wizards`, a direct artifact visit followed by the
+rail link (no shell inside its own frame), and Back from SafeSeed. The four Wizards proofs are
+renamed `*-wizards.png`; they match the old ones apart from the known hover noise.
+
 ## 2026-09-29 - Redactorium article link and final redirect validation
 
 Ben requested the same top-right article link on Redactorium that SafeSeed has.

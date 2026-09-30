@@ -8,8 +8,12 @@ const routeMeta = {
   redactorium: { title: "Redactorium", path: "/redactorium" },
   safeseed: { title: "SafeSeed", path: "/safeseed" },
   safelist: { title: "SafeList", path: "/safelist" },
-  "privacy-wizards": { title: "Privacy Wizards Council", path: "/privacy-wizards" }
+  wizards: { title: "Privacy Wizards Council", path: "/wizards" }
 };
+
+// Former tool names (routes.mjs FORMER_ROUTES): an old `/#privacy-wizards` link opens the
+// Wizards at their current address.
+const formerRoutes = { "privacy-wizards": "wizards" };
 
 const homeAnchors = new Set(["tool-grid", "toolkit-changelog"]);
 const views = new Map([...document.querySelectorAll("[data-view]")].map((node) => [node.dataset.view, node]));
@@ -87,7 +91,7 @@ function activeRoute() {
 // An old link names the tool in the hash. Put it on the path once, keeping the query, and
 // say whether the address changed. `#home` is the old Home; in-page anchors are left alone.
 function adoptLegacyHash() {
-  const value = hashValue();
+  const value = formerRoutes[hashValue()] || hashValue();
   if (!value || homeAnchors.has(value)) return false;
   const path = value === "home" ? routeMeta.home.path : routeMeta[value]?.path;
   if (!path) return false;

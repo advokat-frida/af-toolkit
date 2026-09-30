@@ -10,7 +10,7 @@ const permanent = (location) => ({ location, permanent: true });
 const perRequest = (location) => ({ location, permanent: false });
 
 test("the four tools and the Home are the only routes", () => {
-  assert.deepEqual(Object.keys(TOOLS), ["safeseed", "safelist", "redactorium", "privacy-wizards"]);
+  assert.deepEqual(Object.keys(TOOLS), ["safeseed", "safelist", "redactorium", "wizards"]);
   assert.equal(routeForPath("/"), "home");
   for (const route of Object.keys(TOOLS)) assert.equal(routeForPath(`/${route}`), route);
   for (const path of ["/tools", "/tools/safeseed", "/index.html", "/SafeSeed", "/nope"]) assert.equal(routeForPath(path), null, path);
@@ -18,10 +18,21 @@ test("the four tools and the Home are the only routes", () => {
 
 test("a tool address with a trailing slash goes to the tool address, query kept, for good", () => {
   assert.deepEqual(redirectFor(at("/safeseed/"), browser("document")), permanent("/safeseed"));
-  assert.deepEqual(redirectFor(at("/privacy-wizards/?ref=advokatfrida.com"), curl), permanent("/privacy-wizards?ref=advokatfrida.com"));
+  assert.deepEqual(redirectFor(at("/wizards/?ref=advokatfrida.com"), curl), permanent("/wizards?ref=advokatfrida.com"));
   assert.equal(redirectFor(at("/safeseed"), browser("document")), null);
   assert.equal(redirectFor(at("/"), browser("document")), null);
   assert.deepEqual(redirectResponse(permanent("/safeseed"), at("/safeseed/")), { status: 301, headers: { Location: `${ORIGIN}/safeseed` } });
+});
+
+test("the Wizards' former address sends every request to /wizards, query kept, for good", () => {
+  for (const path of ["/privacy-wizards", "/privacy-wizards/"]) {
+    assert.deepEqual(redirectFor(at(path), browser("document")), permanent("/wizards"), path);
+    assert.deepEqual(redirectFor(at(path), browser("iframe")), permanent("/wizards"), `${path} in a frame`);
+    assert.deepEqual(redirectFor(at(path), curl), permanent("/wizards"), `${path} for curl`);
+  }
+  assert.deepEqual(redirectFor(at("/privacy-wizards?ref=advokatfrida.com"), browser("document")), permanent("/wizards?ref=advokatfrida.com"));
+  assert.equal(routeForPath("/privacy-wizards"), null);
+  assert.deepEqual(redirectResponse(permanent("/wizards"), at("/privacy-wizards")), { status: 301, headers: { Location: `${ORIGIN}/wizards` } });
 });
 
 test("a browser that opens a staged artifact as a page is sent to the tool's address, and that answer is never cached", () => {
@@ -32,8 +43,8 @@ test("a browser that opens a staged artifact as a page is sent to the tool's add
     ["/tools/safeseed.html", "safeseed"],
     ["/tools/safelist", "safelist"],
     ["/tools/safelist.html", "safelist"],
-    ["/tools/privacy-wizards-council", "privacy-wizards"],
-    ["/tools/privacy-wizards-council.html", "privacy-wizards"],
+    ["/tools/privacy-wizards-council", "wizards"],
+    ["/tools/privacy-wizards-council.html", "wizards"],
     ["/tools/redactorium", "redactorium"],
     ["/tools/redactorium/", "redactorium"],
     ["/tools/redactorium/index.html", "redactorium"]
