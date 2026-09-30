@@ -1,0 +1,20 @@
+{
+  "kind": "statute",
+  "juris": "US-VA",
+  "label": "Virginia: entity and data exclusions",
+  "citation": "Va. Code § 59.1-576",
+  "provenance": "https://law.lis.virginia.gov/vacode/title59.1/chapter53/section59.1-576/",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Entity status and record-level exclusions are separate decisions; the listed categories must satisfy the linked law's definitions and conditions.",
+  "body": [
+    "<p>Government bodies, qualifying GLBA financial institutions, HIPAA covered entities/business associates, statutory nonprofit organizations and higher-education institutions are excluded. Verify the Act's nonprofit definition rather than assuming every entity with a nonprofit label qualifies.</p>",
+    "<p>§59.1-576 separately excludes GLBA data, specified health/research, regulated credit, DPPA, FERPA, Farm Credit and employment-role, emergency-contact and benefits records. A partial data exclusion does not cover unrelated records.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

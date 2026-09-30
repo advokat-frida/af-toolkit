@@ -42,6 +42,11 @@ per-tool accent bars are retired.) The one category use: the Wizards chooser col
 its group — Incidents red, Data use amber, Governance indigo, Rights and people teal, AI systems
 forest — so sixteen rows scan by kind (Ben, 2026-09-04); the titles stay ink.
 
+Ben's 2026-09-22 PWC result-section direction adds two scoped functional accents:
+forest-wash with a forest top rule identifies the Authority reference panel; indigo-soft
+with an indigo left rule identifies the Next determination navigation panel. These reuse
+the tool's existing tint tokens. They do not recolor tools, verdicts or checklist items.
+
 ## 2. Type
 
 Three families, self-hosted (`public/fonts/`), plus one system mono. Nothing else, no CDN.
@@ -109,7 +114,7 @@ Redactorium's first treatment).
 same padding and height floor, no shadow.
 
 **Text action.** Bare Archivo 13/700 ink link, padding `6px 8px`, 44px target. Utility links in
-headers, "Change file", "Browse all 16".
+headers, "Change file", "Reset finder".
 
 **Row control.** A control that lives inside a repeated row (SafeList's decisions, SafeSeed's
 column editor): the secondary button's look at `min-height: 40px`, padding
@@ -127,7 +132,9 @@ Segments size to their labels.
 `16px 16px 18px`; a 38px icon plate (`1px solid var(--hairline)`, `--ground`, 22px Lucide at
 stroke 1.75 in `--forest`); title 17/700; one-line job description 14px `--soft`. Hover: border
 turns `--ink`, shadow `4px 4px 0 var(--ink)`, translate `-1px,-1px`. No numbers, no accent bars,
-no status pills, no card buttons.
+no status pills, no card buttons. The grid fits as many cards as the row holds, none narrower
+than 240px (`repeat(auto-fill, minmax(240px, 1fr))`), one column on a phone: three across at a
+laptop width, five or six on a large display (Ben, 2026-09-28).
 
 **Sidebar.** 230px, `--paper`, `2px solid var(--ink)` right edge. Brand cap: 40px fox mark +
 `ADVOKAT FRIDA` (Anton 21) on its own — the `TOOLKIT` sub-line went on 2026-09-04, the rail already
@@ -158,7 +165,10 @@ Each cell: Archivo 11 caps `--soft` label over a 19px/700 value.
 
 **Verdict block.** `2px` border — `--forest` for a clear/positive determination, `--amber` for
 caution — on `--paper`, padding `20px 22px`: Anton 28–32 uppercase headline + one 15px `--soft`
-qualifier line. The same block shape in every tool that rules on something.
+qualifier line. The same block shape in every tool that rules on something. When the authored reasoning is
+longer than the qualifier line, the rest of it sits behind a `Read the rest of the reasoning`
+disclosure directly under the block; when a clock line takes the qualifier's place, the
+whole reasoning sits behind `Read the reasoning`.
 
 **Boundary aside.** `3px solid var(--amber)` left border, `padding-left: 12px`, 13px/1.45
 `--soft`. At most one per surface, and only where it changes the next action.
@@ -169,6 +179,95 @@ with `--forest` fill. Question at 24/700. Options: full-width rows, `min-height:
 var(--forest)` + 700 weight. One question per screen. Selection is explicit: choosing an option
 highlights it; `Next` (primary, bottom-left) commits it and `Back` beside it is a text action.
 The progress label counts the longest run of questions still ahead, so it can only shrink.
+An option carries one 13px `--soft` sub-line when the authored option has a note; the aside
+under the options is the help's first sentence, and the rest of the help sits behind a `Why
+this question?` disclosure, so no sentence appears twice (Ben, 2026-09-13: the authored depth
+reaches the page).
+
+Ben's 2026-09-21 correction: answer subtext clarifies objective facts and examples only.
+Instructions, legal consequences and recommended actions belong in the final determination.
+When they depend on one answer, carry them with that answer to the result and remove them
+when the answer changes. Scope limitations and provisional findings must remain visible in
+the result, including in exports.
+
+Ben's 2026-09-21 state-flow correction: show selection in the controls themselves and
+one state-progress label. Do not add a selected-state recap, a second completion count,
+or an automated-check qualifier to the source-date line. Keep source review metadata in
+the source record and export. Leave a clear gap below validation/reset messages and between
+a heading and its explanation. Keep adjacent question disclosures together. Result spacing
+must be deliberate: compact verdict padding, no trailing paragraph margin inside a verdict,
+a small label-to-action gap, and consistent separation between state results. Do not repeat
+the state name in both its eyebrow and verdict title.
+
+Ben's 2026-09-22 finder correction: show every published PWC topic by default. Categories
+and the visible topic titles within each category sort alphabetically; search results do too.
+Do not put the full list behind a browse-all action. Source notices may use the available
+result-column width, and references to usable templates link directly to the official files.
+
+Ben's 2026-09-22 determination correction: group the required/next actions in one paper
+checklist card with a single hairline border, 16px padding (12px on phones), and no row
+dividers. Use native checkboxes with 44px targets beside the existing 15px body copy.
+Citations and resource links stay inline and separately operable. Checks are temporary
+reading aids, reset when leaving the result, and do not change the legal record or export.
+
+**Disclosure.** A native `<details>` whose summary is the text action (Archivo 13/700 ink,
+underlined, 44px target, no marker) and whose body is core reading at 15px ink, or helper copy
+at 13px `--soft` when it annotates rather than explains. The Toolkit's way of keeping authored
+depth off the drawn area without deleting it: a wizard's full help, its full reasoning, the
+pending-law notes under `What may change`, and each authority's included text. A disclosure
+closes again whenever the question or outcome changes.
+
+**Authority row** (Privacy Wizards). One disclosure per cited authority in the determination's
+rail: the label (14px ink) over a dotted status label (7px square swatch + 13px `--soft`;
+amber = automated check only, forest = practitioner reviewed, red = superseded or draft).
+Open: the formal citation (13px `--soft`), `Open the official text ↗` as a text action, and
+the included text at 14px ink with its paragraph breaks.
+Ben's 2026-09-22 segmentation correction wraps the complete Authority rail in a distinct
+reference panel: forest-wash background, 3px forest top rule, and 16px padding (12px on
+phones). The checklist stays paper with a hairline border. The reference panel fits its
+own content height, retains separators between sources, and has no trailing row divider.
+Keep the reasoning disclosure directly below the verdict with a 4px outer gap and its
+44px target intact. The checklist and Authority cards then begin on the same desktop row;
+use 12px after reasoning or 16px after a verdict without reasoning. Avoid accumulating
+section and disclosure margins. Use balanced verdict headings and pretty wrapping for
+result copy to reduce short orphaned final lines without forced line breaks.
+Question helper asides also use their available column width; do not reinstate a 70ch
+cap that strands a final citation. Balance the short helper sentence across its lines;
+pretty wrapping alone still left a citation orphaned in a narrow panel. Longer shared
+citation text uses pretty wrapping in every view.
+
+**Next determination.** A determination ends on one eyebrow, `Next determination`, and one
+chooser row (the finder's own row) naming the path most readers open next. Never more than
+two rows. Ben's 2026-09-22 correction gives these related paths their own indigo-soft panel
+with a 3px indigo left rule, 16px padding (12px on phones), and 24px separation from the
+preceding section. Keep row separators only between choices. Preserve category glyphs,
+ink titles, existing hover/focus behavior and the arrow beside the copy.
+
+**Inline citation** (Privacy Wizards, Ben 2026-09-14). Every article, section, guidance,
+case and defined-term mention in the authored text is a `<button class="cite">` that inherits
+the run it sits in (size, weight, line-height, letter-spacing) in `--forest` with a dotted
+underline; hover and the open state turn `--red`. Resolution is conservative: a mention that
+does not map to exactly one registry source stays plain text, so a wrong card never appears.
+A defined term (controller, processor, personal data breach, provider, deployer…) links once
+per block group, not on every occurrence. Options inside answer rows carry no citations,
+because a button cannot hold a button. A heading that holds citations never names a control:
+the answer group takes the plain question as its label, so an open card is never read as part
+of the group's name. A mention also stays plain when its source holds only other paragraphs of
+the provision, when it names a lettered article the registry lacks, when a short instrument
+name (PECR) stands for a provision the path does not cite, or when a defined term belongs to a
+jurisdiction the node does not cite.
+
+**Citation card.** The small surface a citation opens, positioned under the mention (above it
+when the frame has no room below), `min(440px, block width)` wide: `--paper`, `1px solid
+var(--ink)`, the `4px 4px 0` ink shadow, padding `14px 16px 12px`. Inside: the source label
+(14/700), the × close (Archivo 16, `--soft`, 40px target), the formal citation (13px
+`--soft`), the dotted status label, then the cited paragraph at 14px ink when the mention
+names one, otherwise the whole text in a 260px scroll region; `Show the whole text` as a text
+action and `Open the official text ↗` as the same text-action link the authority row uses.
+Hover opens after 140ms and closes 220ms after the pointer leaves the mention or the card;
+click pins; focus opens; `Show the whole text` pins the card and moves focus into it. Escape,
+the ×, a click elsewhere, or moving to another step closes; Escape hands focus back to the
+mention only when focus was in the card or on the mention. One card open at a time.
 
 **Chooser row** (Privacy Wizards pattern). Grid: 20px Lucide icon in `--forest` / content / `→`
 in `--soft`. Title 16/700; one sub-line 14px `--soft` — `question · jurisdictions`. Rows separated
@@ -189,6 +288,20 @@ interface; three steps, no icons, no fourth step.
 **Findings table** (Redactorium). Exactly five columns — `Column` (mono), `Detected`,
 `Confidence` (mono, two decimals), `Citation` (`--soft`), `Treatment` (a 200px, 44px select) —
 in 62px rows. Confidence and citation are the evidence; nothing else lives in the row.
+A kind found inside text (a document, or a spreadsheet column of free text) is its own row:
+`Column` names the column (`text` or `line` for a document), and `Detected` carries the kind with
+one 14px `--soft` line under it, `N matches in the text`. The citation is the plain rule with the
+standard in parentheses (`Shaped like an email address (RFC 5322)`). Treatment names are plain:
+Keep, Redact, Replace with a code, Make less exact, Swap for fakes. Below a 1074px frame the rows
+render as cards with a full-width select, so no select is ever clipped. One **treatment legend**
+sits between the file heading and the findings (Ben, 2026-09-28): a hairline card on `--paper`
+with the eyebrow `Four ways to anonymize a value`, one 14px `--soft` line naming the example
+value, then one entry per treatment that changes a value: its menu name (16/700), what it does to
+that value (mono 14), and one 14px `--soft` sentence. Four columns in a frame that holds the full
+table, two below it, one on a phone. The examples come from `lib/legend.js`, and a test holds each
+one to the real function. A file whose clean copy
+drops something (a Word file's comments), or holds a part Redactorium cannot read, gets one
+boundary aside under the table.
 
 **Record block.** The shape every tool that produces a receipt or record ends on: the output's
 name as the task heading (19/700), a stat band only when it carries numbers the surface does not
@@ -263,11 +376,55 @@ Retired or banned, with the deciding turn of the design package in parentheses:
   (Turn 4 — "confidence and citation kept; those are the evidence").
 - Second and third record formats (PDF, evidence ZIP) beside the record; one record (Turn 4).
 - A selected-facts summary and a sources panel on the question view; `Copy outcome` and
-  `Run again` beside a determination (Turn 4).
+  `Run again` beside a determination (Turn 4). The question view still shows no sources;
+  since 2026-09-13 the determination's authority rows carry their included text behind a
+  disclosure (§3, Authority row), which is a different surface.
 - Preview hints ("First 12 of 100 rows", "keep the CSV and its receipt together") and rows/seed
   explainers (Turn 3).
 
 ## 7. Change control
+
+Redactorium release review, 2026-09-24 (proposed; canon with Ben's tuck of AF-20). The findings
+table gains in-text rows and the card breakpoint described in §3. Redactorium's record band reads
+Rows / Columns changed / Cells changed / Columns kept for a spreadsheet and Kinds of data / Matches
+found / Changed / Kept for a document; the hash line is prefixed `SHA-256`; the retired `Signed`
+cell is gone because the record is not signed. The record's one text action is `Back to
+treatments` (the findings screen keeps `Change file`). Paired buttons in the drop zone and the
+record take the wider one's width. Load errors sit under the drop zone as the boundary aside,
+not a toast. Batch mode uses the same findings table per file, a drop zone that accepts dropped
+files, and no pills, notes or percentages. No new type, color, radius or shadow tuple: the census
+passed unchanged.
+
+Ben's 2026-09-23 shared-footer instruction adds a shell-owned colophon to Home
+and every Toolkit route. It follows the main publication's ink band and the
+Guide's brand-plus-links anatomy: Anton 21px/400 uppercase nameplate in paper,
+`--lh-display` and `.02em` tracking; Archivo 13px/400 paper links at `--lh-label`
+with 44px targets. Desktop padding is 12px 32px, mobile 12px 20px. The footer
+sits outside tool frames, wraps naturally, and carries About, Contact, Privacy
+and RSS without extra explanatory copy. The sidebar spans both content and
+footer rows. On every route it follows the full document, including the
+expanded changelog or the complete tool content. It must never stay pinned
+below a scrolling tool viewport. The same-origin tool frames grow and shrink
+with their natural content height; the outer page owns vertical scrolling.
+Embed layouts have no viewport-height minimums. Bounded data tables retain
+their own scrolling and use the parent viewport height for their size limit,
+so growing the iframe cannot repeatedly enlarge the table. The desktop sidebar
+remains sticky. These are layout changes only, with no changes to tool logic.
+
+Ben's 2026-09-28 calls: the Home grid fits cards of at least 240px instead of three stretched
+across the column (they reached 690px at 2560), and Redactorium gains the treatment legend in
+§3, because people could not tell Redact, Replace with a code, Make less exact and Swap for fakes
+apart. Both reuse existing type, colour and border roles.
+
+Ben's 2026-09-28 address and chrome calls. Every tool has its own address on the Toolkit's
+subdomain (`/safeseed`, `/safelist`, `/redactorium`, `/privacy-wizards`; the Home stays `/`),
+served as the shell with that tool open; a browser that opens a staged artifact under `/tools/`
+directly is sent to the tool's address, so the only chrome a visitor sees is the shell's. Old
+`/#<tool>` links are adopted onto the path. The four standalone pages keep their own chrome for
+`file://` use and no-script visitors, and its footer is now the shell footer above (one row:
+the nameplate as a link, then About, Contact, Privacy, RSS; no description line), with the
+shell's fox badge as the tab icon. The old stacked colophon, and its "Analytics by Plausible"
+line, are retired: the Toolkit runs no analytics.
 
 - This file changes only with an approved design decision (a reviewed design-package turn or
   Ben's explicit call). Code never drifts ahead of it.

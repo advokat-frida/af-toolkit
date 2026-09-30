@@ -1,0 +1,22 @@
+{
+  "kind": "statute",
+  "juris": "US-CO",
+  "label": "Colorado: applicability",
+  "citation": "C.R.S. § 6-1-1304",
+  "provenance": "https://olls.info/crs/crs2026-title-06.htm",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Current 2026 codification includes biometric coverage effective July 1, 2025 and minors provisions effective October 1, 2025; these bypass general volume thresholds.",
+  "body": [
+    "<p>Does the controller conduct business in Colorado OR produce or deliver commercial products or services intentionally targeted to Colorado residents?</p>",
+    "<p>During a calendar year, does it control or process personal data of at least 100,000 consumers; OR does it control or process at least 25,000 consumers’ personal data AND derive any revenue or receive any discount from selling personal data?</p>",
+    "<p>Colorado residents acting individually or as a household; ordinary consumer counts exclude commercial and employment roles. Biometric and minors provisions require separate checks.</p>",
+    "<p>Measuring period: 100,000 limb: during a calendar year. The 25,000-plus-sale limb does not separately state a lookback; do not silently substitute preceding calendar year.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

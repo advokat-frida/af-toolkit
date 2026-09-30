@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-NE",
+  "label": "Nebraska: limited duties",
+  "citation": "Neb. Rev. Stat. §87-1118",
+  "provenance": "https://nebraskalegislature.gov/laws/statutes.php?statute=87-1118",
+  "note": "Editorial summary of the limited provision. This is not a conclusion that full-law duties apply.",
+  "body": [
+    "<p>An SBA small business covered by this limited provision must obtain prior consumer consent before selling sensitive data.</p>",
+    "<p>Confirm the small-business status and the provision's state/business scope.</p>",
+    "<p>Block sensitive-data sales until valid prior consent is recorded; do not import all full-law duties from this exception.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2025-01-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

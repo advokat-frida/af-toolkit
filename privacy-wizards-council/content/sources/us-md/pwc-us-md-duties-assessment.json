@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-MD",
+  "label": "Maryland: risk assessments",
+  "citation": "Md. Code, Commercial Law §14-4710",
+  "provenance": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&enactments=false&section=14-4710",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Regular assessments cover heightened-risk processing, including an assessment for each algorithm used. Necessity and proportionality are express factors.</p>",
+    "<p>Assess targeted advertising, sale, sensitive data and qualifying risky profiling; prohibited activity is not authorized by an assessment.</p>",
+    "<p>Record the statutory October 1, 2025 activity boundary and the Act's transitional application separately; confirm applicability before applying this duty.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

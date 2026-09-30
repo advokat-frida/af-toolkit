@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-CO",
+  "label": "Colorado: consumer rights",
+  "citation": "C.R.S. §6-1-1306(1)–(3)",
+  "provenance": "https://olls.info/crs/crs2026-title-06.htm",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Provide access, correction, deletion, portability and the specified opt-outs. Colorado's appeal schedule differs from the common 60-day model.</p>",
+    "<p>Respond within 45 days; one reasonably necessary 45-day extension requires notice and reasons within the initial period.</p>",
+    "<p>Decide an internal appeal within 45 days; a reasonably necessary additional 60 days requires timely notice and reasons.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

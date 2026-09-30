@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-FL",
+  "label": "Florida: limited duties",
+  "citation": "Fla. Stat. §501.715; §501.702(9)(a)1.–3.",
+  "provenance": "https://www.flsenate.gov/Laws/Statutes/2025/501.715",
+  "note": "Editorial summary of the limited provision. This is not a conclusion that full-law duties apply.",
+  "body": [
+    "<p>§501.715 has a separate sensitive-data sale rule for persons meeting §501.702(9)(a)1.–3.; full Digital Bill of Rights coverage is not the only relevant route.</p>",
+    "<p>Obtain the consumer's prior consent before selling sensitive data, with the statutory child authorization route.</p>",
+    "<p>Provide the exact website notice prescribed by §501.715(2). Have counsel verify this provision's own coverage conditions.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2024-07-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-RI",
+  "label": "Rhode Island: limited duties",
+  "citation": "R.I. Gen. Laws §6-48.1-3",
+  "provenance": "https://webserver.rilegislature.gov/Statutes/TITLE6/6-48.1/6-48.1-3.htm",
+  "note": "Editorial summary of the limited provision. This is not a conclusion that full-law duties apply.",
+  "body": [
+    "<p>The commercial website/online-service information-sharing provision has separate scope from the full controller thresholds.</p>",
+    "<p>Use §6-48.1-3 to identify the required notice, sale-recipient and contact disclosures for the service.</p>",
+    "<p>Record why this limited notice duty applies; do not infer the full set of rights and assessment obligations.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2026-01-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

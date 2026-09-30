@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-MT",
+  "label": "Montana: consumer rights",
+  "citation": "Mont. Code Ann. §30-14-2808",
+  "provenance": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0080/0300-0140-0280-0080.html",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Provide access, correction, deletion, a copy of provided data and specified opt-outs. Access responses must describe, rather than disclose, protected identifiers listed in the statute.</p>",
+    "<p>Keep Social Security/government ID numbers, account credentials and the other listed protected fields out of the actual access response.</p>",
+    "<p>Respond within 45 days, with a reasonably necessary 45-day extension on timely notice; decide an appeal within 60 days.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

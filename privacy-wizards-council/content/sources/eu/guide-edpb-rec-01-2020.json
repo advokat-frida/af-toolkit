@@ -1,0 +1,25 @@
+{
+  "kind": "guidance",
+  "juris": "EU",
+  "label": "EDPB Recommendations 01/2020 — Transfer Impact Assessment (TIA)",
+  "citation": "EDPB Recommendations 01/2020, version 2.0 (18 June 2021)",
+  "provenance": "https://www.edpb.europa.eu/system/files/2021-06/edpb_recommendations_202001vo.2.0_supplementarymeasurestransferstools_en.pdf",
+  "body": [
+    "<p><b>Six-step TIA methodology</b> (post-Schrems II):</p>",
+    "  <p><b>1. Know your transfers.</b> Map all flows of personal data — origin, destination, importer, data categories, purpose. Apply to onward transfers too.</p>",
+    "  <p><b>2. Identify the Article 46 transfer tool.</b> SCCs, BCRs, code of conduct, certification, or Art. 49 derogation if exceptional.</p>",
+    "  <p><b>3. Assess the third-country law and practice.</b> Public-authority access regime, surveillance laws (FISA §702, EO 12333, equivalents), redress mechanisms, rule of law indicators. EDPB references on essential guarantees (WP237 + supplementary).</p>",
+    "  <p><b>4. Identify and adopt supplementary measures</b> if step 3 reveals gaps. Three categories: (a) <b>technical</b> — strong encryption with EU-held keys, split-key pseudonymisation, EU-hosted intermediaries; (b) <b>contractual</b> — Schrems II-aligned commitments, transparency on requests, audit rights; (c) <b>organisational</b> — internal policies, training, dedicated personnel, transparency reports.</p>",
+    "  <p><b>5. Procedural steps.</b> Where supplementary measures address the gaps, proceed with the transfer; otherwise, suspend the transfer.</p>",
+    "  <p><b>6. Re-evaluate at appropriate intervals.</b> When law in the third country changes, or when scope of transfers expands.</p>",
+    "  <p>Annex 2 lists encryption and pseudonymisation use-cases the EDPB has explicitly accepted; Use Cases 6 + 7 (cloud service provider with US importer holding keys) remain rejected.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

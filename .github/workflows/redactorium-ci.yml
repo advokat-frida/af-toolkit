@@ -1,6 +1,6 @@
 name: Redactorium CI
 
-# Redactorium's lint and build, run when its folder changes. Vite since 2026-09-11 (it
+# Redactorium's tests, lint and build, run when its folder changes. Vite since 2026-09-11 (it
 # replaced Create React App); the Toolkit gate (ci.yml) covers the staged artifact.
 
 on:
@@ -33,10 +33,11 @@ jobs:
           node-version: 22
           cache: npm
           cache-dependency-path: redactorium/frontend/package-lock.json
-      # The scaffold pins date-fns 4 beside react-day-picker 8, which peers on date-fns 2/3,
-      # so the tree only resolves with legacy peer resolution. That lives in frontend/.npmrc,
-      # where Dependabot and a human install read it too.
+      # Legacy peer resolution lives in frontend/.npmrc, where Dependabot and a human install
+      # read it too. xlsx installs from the SheetJS CDN tarball the lock pins by sha512.
       - run: npm ci --no-audit --no-fund
+      - name: Engine tests (detection, treatments, Word cleaning, the record)
+        run: npm test
       - name: Lint (the React hooks rules the CRA build used to enforce)
         run: npm run lint
       - name: Build

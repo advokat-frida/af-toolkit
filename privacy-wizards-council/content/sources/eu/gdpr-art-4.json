@@ -1,0 +1,25 @@
+{
+  "kind": "statute",
+  "juris": "EU",
+  "label": "GDPR Art. 4 — Definitions",
+  "citation": "Regulation (EU) 2016/679, Art. 4",
+  "provenance": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504#art_4",
+  "body": [
+    "<p>For the purposes of this Regulation:</p>",
+    "  <p><span class=\"num\">(1)</span> 'personal data' means any information relating to an identified or identifiable natural person ('data subject'); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person;</p>",
+    "  <p><span class=\"num\">(2)</span> 'processing' means any operation or set of operations which is performed on personal data … such as collection, recording, organisation, structuring, storage, adaptation or alteration, retrieval, consultation, use, disclosure by transmission, dissemination or otherwise making available, alignment or combination, restriction, erasure or destruction;</p>",
+    "  <p><span class=\"num\">(7)</span> 'controller' means the natural or legal person … which, alone or jointly with others, determines the purposes and means of the processing of personal data;</p>",
+    "  <p><span class=\"num\">(8)</span> 'processor' means a natural or legal person … which processes personal data on behalf of the controller;</p>",
+    "  <p><span class=\"num\">(11)</span> 'consent' of the data subject means any freely given, specific, informed and unambiguous indication of the data subject's wishes by which he or she, by a statement or by a clear affirmative action, signifies agreement to the processing of personal data relating to him or her;</p>",
+    "  <p><span class=\"num\">(12)</span> 'personal data breach' means a breach of security leading to the accidental or unlawful destruction, loss, alteration, unauthorised disclosure of, or access to, personal data transmitted, stored or otherwise processed;</p>",
+    "  <p><span class=\"num\">(14)</span> 'biometric data' means personal data resulting from specific technical processing relating to the physical, physiological or behavioural characteristics of a natural person, which allow or confirm the unique identification of that natural person …</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

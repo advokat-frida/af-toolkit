@@ -81,7 +81,8 @@ a:hover { color: var(--red); }
 .toolkit-shell {
   display: grid;
   grid-template-columns: 230px minmax(0, 1fr);
-  height: 100dvh;
+  grid-template-rows: minmax(0, 1fr) auto;
+  min-height: 100dvh;
 }
 
 .toolkit-main {
@@ -91,12 +92,30 @@ a:hover { color: var(--red); }
 }
 .toolkit-main:focus { outline: none; }
 
-.view { height: 100%; }
+.view { height: auto; }
 .view[hidden] { display: none; }
+
+/* The edge names the route on <body> before any script runs (worker.mjs); show that view first,
+   so a direct visit to a tool address never shows the Home while toolkit.js is still loading.
+   toolkit.js sets the same attribute on every switch, so these rules and the hidden attribute
+   always agree. */
+body[data-route="safeseed"] .view[data-view="home"],
+body[data-route="safelist"] .view[data-view="home"],
+body[data-route="redactorium"] .view[data-view="home"],
+body[data-route="privacy-wizards"] .view[data-view="home"] { display: none; }
+body[data-route="safeseed"] .view[data-view="safeseed"][hidden],
+body[data-route="safelist"] .view[data-view="safelist"][hidden],
+body[data-route="redactorium"] .view[data-view="redactorium"][hidden],
+body[data-route="privacy-wizards"] .view[data-view="privacy-wizards"][hidden] { display: flex; }
 
 /* ---------- Sidebar ---------- */
 
 .toolkit-sidebar {
+  grid-row: 1 / -1;
+  position: sticky;
+  top: 0;
+  align-self: start;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   min-height: 0;
@@ -172,7 +191,7 @@ a:hover { color: var(--red); }
 
 /* ---------- Home ---------- */
 
-.home-view { overflow-y: auto; scrollbar-gutter: stable; }
+.home-view { height: auto; }
 
 .home-wrap {
   width: min(100%, 1000px);
@@ -218,9 +237,12 @@ a:hover { color: var(--red); }
   line-height: var(--lh-label);
 }
 
+/* As many cards as the row holds, none narrower than 240px (Ben, 2026-09-28: half the width).
+   Three across at a laptop width, five or six on a large display, instead of three stretched
+   to 500-700px. A short group leaves the rest of its row empty rather than widening its cards. */
 .tool-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 14px;
 }
 
@@ -359,13 +381,13 @@ a:hover { color: var(--red); }
 
 .frame-stage {
   position: relative;
-  flex: 1 1 auto;
   min-height: 0;
 }
 .frame-stage iframe {
   display: block;
   width: 100%;
-  height: 100%;
+  /* The shell replaces this loading height with the tool's natural height. */
+  height: 70dvh;
   border: 0;
   background: var(--ground);
 }
@@ -386,6 +408,43 @@ a:hover { color: var(--red); }
 
 /* ---------- Mobile ---------- */
 
+/* The common publication colophon is shell-owned, outside every tool frame. */
+.toolkit-footer {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px 32px;
+  padding: 12px 32px;
+  background: var(--ink);
+  color: var(--paper);
+}
+.toolkit-footer a { color: var(--paper); text-decoration: none; }
+.toolkit-footer a:hover { text-decoration: underline; }
+.toolkit-footer a:focus-visible { outline-color: var(--paper); }
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 400;
+  line-height: var(--lh-display);
+  letter-spacing: .02em;
+  text-transform: uppercase;
+}
+.toolkit-footer nav { display: flex; flex-wrap: wrap; gap: 0 20px; }
+.toolkit-footer nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-family: var(--font-label);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: var(--lh-label);
+}
+
 .mobile-bar { display: none; }
 .nav-scrim { display: none; }
 
@@ -395,6 +454,7 @@ a:hover { color: var(--red); }
     height: auto;
     min-height: 100dvh;
   }
+  .toolkit-footer { grid-column: 1; padding: 12px 20px; gap: 0 24px; }
 
   .mobile-bar {
     position: sticky;
@@ -482,16 +542,13 @@ a:hover { color: var(--red); }
   .home-hero h1 { font-size: 26px; }
   .tool-grid { grid-template-columns: minmax(0, 1fr); }
 
-  .tool-view { min-height: calc(100dvh - 62px); }
   .tool-head { gap: 12px; padding: 0 14px; }
   .crumb-group { display: none; }
   .crumb-sep { display: none; }
   .crumb-tool { font-size: 19px; white-space: normal; }
-  .frame-stage { min-height: 70dvh; }
 }
 
 @media (min-width: 821px) and (max-width: 1100px) {
-  .tool-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .home-wrap { padding: 32px 26px 32px; }
 }
 
@@ -547,7 +604,10 @@ a:hover { color: var(--red); }
    every tool keys on. */
 @media (min-width: 1482px) { .toolkit-shell { grid-template-columns: 248px minmax(0, 1fr); } }
 @media (min-width: 1500px) { .toolkit-sidebar, .tool-head, .home-wrap { zoom: 1.08; } }
+@media (min-width: 1500px) { .toolkit-sidebar { height: calc(100dvh / 1.08); } }
 @media (min-width: 1776px) { .toolkit-shell { grid-template-columns: 272px minmax(0, 1fr); } }
 @media (min-width: 1800px) { .toolkit-sidebar, .tool-head, .home-wrap { zoom: 1.18; } }
+@media (min-width: 1800px) { .toolkit-sidebar { height: calc(100dvh / 1.18); } }
 @media (min-width: 2172px) { .toolkit-shell { grid-template-columns: 300px minmax(0, 1fr); } }
 @media (min-width: 2200px) { .toolkit-sidebar, .tool-head, .home-wrap { zoom: 1.30; } }
+@media (min-width: 2200px) { .toolkit-sidebar { height: calc(100dvh / 1.30); } }

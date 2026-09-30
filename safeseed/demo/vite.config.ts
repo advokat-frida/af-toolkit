@@ -8,23 +8,25 @@ import { readFileSync } from "node:fs";
 // `import { generate } from "safeseed"` resolves to the package's dist build.
 const safeseedEntry = fileURLToPath(new URL("../dist/index.js", import.meta.url));
 
-// Inline the favicon as a data URI at build time. Otherwise the <link rel="icon"
-// href="/fox.svg"> stays an external request, which the single-file artifact opened
+// The tab icon is the Toolkit shell's fox badge, read from its single source
+// (../../public/favicon-32.png; a copy in this folder would be a byte-duplicate the
+// workspace hygiene gate deletes) and inlined as a data URI. Otherwise the
+// <link rel="icon"> stays an external request, which the single-file artifact opened
 // from disk (file://) can't resolve and the strict `img-src data:` CSP blocks — a
 // blocked request in the network tab would obscure the no-data-upload boundary.
-// Normalised to LF so a Windows checkout (CRLF) and a Linux runner inline the same bytes.
-const faviconSvg = readFileSync(fileURLToPath(new URL("./public/fox.svg", import.meta.url)), "utf8").replace(/\r\n/g, "\n");
-const faviconDataUri = `data:image/svg+xml,${encodeURIComponent(faviconSvg)}`;
+// The templates carry a placeholder href with no file behind it; this hook swaps it
+// before Vite's own asset pass (order: pre), in dev and in every page build, so
+// nothing ever tries to resolve /favicon-32.png.
+const faviconPng = readFileSync(fileURLToPath(new URL("../../public/favicon-32.png", import.meta.url)));
+const faviconDataUri = `data:image/png;base64,${faviconPng.toString("base64")}`;
 
-function inlineFaviconOnBuild() {
+function inlineFavicon() {
   return {
-    name: "inline-favicon-on-build",
-    apply: "build" as const,
-    // Run post so we replace whatever Vite's asset rewrite left (/fox.svg, ./fox.svg, …).
+    name: "inline-favicon",
     transformIndexHtml: {
-      order: "post" as const,
+      order: "pre" as const,
       handler(html: string) {
-        return html.replace(/href="[^"]*fox\.svg"/, `href="${faviconDataUri}"`);
+        return html.replace(/href="[^"]*favicon-32\.png"/, `href="${faviconDataUri}"`);
       },
     },
   };
@@ -147,7 +149,7 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [
       react(),
-      inlineFaviconOnBuild(),
+      inlineFavicon(),
       strictCspOnBuild(standalone ? STANDALONE_CSP : HOSTED_CSP),
       ...(standalone ? [markStandaloneOnBuild()] : []),
       ...(standalone ? [viteSingleFile()] : []),

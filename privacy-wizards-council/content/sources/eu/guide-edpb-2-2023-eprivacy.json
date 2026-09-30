@@ -1,0 +1,23 @@
+{
+  "kind": "guidance",
+  "juris": "EU",
+  "label": "EDPB Guidelines 2/2023 — Technical Scope of Art. 5(3) ePrivacy (EU only — no legal status in the UK)",
+  "citation": "EDPB Guidelines 2/2023, version 2.0 (7 October 2024)",
+  "provenance": "https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-22023-technical-scope-art-53-eprivacy-directive_en",
+  "body": [
+    "<p><b>Key positions:</b></p>",
+    "  <p>• Art. 5(3) is <b>technology-neutral</b>. The four cumulative criteria: information; terminal equipment of subscriber/user; public communications network; gaining access OR storing information.</p>",
+    "  <p>• Use cases <b>caught</b> by Art. 5(3) (consent required unless strictly necessary): URL/pixel tracking; tracking-only HTTP referer or fingerprinting via JS that reads device characteristics; local processing where the result is sent back to the server; intermittent and mediated IoT reporting; unique identifiers in headers (e.g. operator-injected unique header).</p>",
+    "  <p>• <b>IP-only tracking</b>: even passive IP collection can engage Art. 5(3) where there is \"instruction to terminal equipment\" to send identifying data (e.g. CDN with persistent cookies).</p>",
+    "  <p>• <b>Local processing</b>: even if no data leaves the device, if the processor instructs the terminal to perform a specific computation that wouldn't otherwise occur, Art. 5(3) may apply.</p>",
+    "  <p>• Strictly-necessary exemption applies only to: <b>(i)</b> sole purpose of transmission, or <b>(ii)</b> strictly necessary for an information society service <i>explicitly requested by the user</i> — narrow.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

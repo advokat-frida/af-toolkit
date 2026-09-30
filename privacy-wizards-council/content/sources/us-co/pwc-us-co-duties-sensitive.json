@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-CO",
+  "label": "Colorado: sensitive data",
+  "citation": "C.R.S. §6-1-1308(7), §§6-1-1308.5, 6-1-1314",
+  "provenance": "https://olls.info/crs/crs2026-title-06.htm",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Obtain consent before processing or selling sensitive data. Known-child processing requires parent or guardian consent.</p>",
+    "<p>Verify the data category and valid consent before the sensitive use begins.</p>",
+    "<p>Biometric identifiers and online services for known or willfully disregarded minors have additional rules; route those uses to the privacy owner for a separate §1314 or §1308.5 review.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

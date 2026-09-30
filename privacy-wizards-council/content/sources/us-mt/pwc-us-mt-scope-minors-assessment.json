@@ -1,0 +1,19 @@
+{
+  "kind": "statute",
+  "juris": "US-MT",
+  "label": "Montana: minors assessments and processor role",
+  "citation": "MCA §30-14-2819",
+  "provenance": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0190/0300-0140-0280-0190.html",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Processor assistance and contractual duties are separately governed by §30-14-2818; this candidate flags that role for follow-up.",
+  "body": [
+    "<p>From October 1, 2025, the specified online offerings to known minors require a documented data-protection assessment when they pose heightened risk, plus review for material change and a risk-mitigation plan when the assessment identifies that risk. This applies to processing activities created or generated after October 1, 2025.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2025-10-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

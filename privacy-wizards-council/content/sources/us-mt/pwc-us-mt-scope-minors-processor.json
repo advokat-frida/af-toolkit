@@ -1,0 +1,19 @@
+{
+  "kind": "statute",
+  "juris": "US-MT",
+  "label": "Montana: processors handling minors data",
+  "citation": "MCA §30-14-2818",
+  "provenance": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0180/0300-0140-0280-0180.html",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate.",
+  "body": [
+    "<p>A processor must follow the controller's instructions and assist with the duties and assessments in §§30-14-2811 and2819. The contract must meet §30-14-2813(2). Actual conduct, including deciding purposes and means, determines whether the person is a controller or processor.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

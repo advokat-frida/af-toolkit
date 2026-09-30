@@ -1,0 +1,22 @@
+{
+  "kind": "regulation",
+  "juris": "US-CA",
+  "label": "California: risk assessments",
+  "citation": "11 CCR §§7150, 7155, 7157, 7200",
+  "provenance": "https://cppa.ca.gov/regulations/pdf/ccpa_statute_eff_20260101.pdf",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>New covered processing from January 1, 2026 needs a prior risk assessment. The first regulator submission is later; that does not postpone the assessment.</p>",
+    "<p>Screen sale/sharing, sensitive information, significant-decision ADMT, specified systematic observation and model-training uses under §7150; check the narrow employee-administration exception.</p>",
+    "<p>For covered activity begun before 2026 and continuing afterward, complete the assessment by December 31, 2027. Submit required 2026–2027 assessment information by April 1, 2028.</p>",
+    "<p>ADMT consumer requirements apply by January 1, 2027. Keep that future date separate from the already-current risk-assessment duties.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2026-01-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

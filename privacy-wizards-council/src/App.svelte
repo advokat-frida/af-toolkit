@@ -1,7 +1,6 @@
 <script>
   import { onMount, tick } from 'svelte';
   import {
-    ENABLED_WIZARDS,
     MANIFEST_SHA256,
     MANIFEST_VERSION,
     SOURCE_MANIFEST,
@@ -10,19 +9,34 @@
     answerQuestion,
     buildRecord,
     calendarEligibility,
+    decisionLead,
     editAnswer,
     eligibleOptions,
+    finderGroups,
+    finderWizardIds,
     historyContext,
+    motionNotes,
+    outcomeForState,
     parseWizardHash,
+    publishedWizardIds,
+    relatedWizardIds,
     sourceIdsForState,
     sourceStatusLabel,
+    sourceTextPlain,
     tierLabel,
     validateGraph,
+    verifiedDate,
     wizardReviewState
   } from './lib/engine/council.js';
-  import { categories, categoryForWizard, commonWizardIds } from './lib/data/categories.js';
+  import { categoryForWizard } from './lib/data/categories.js';
   import { changelog, formatChangelogDate, newestChangelogDate } from './lib/data/changelog.js';
   import { wizardIcon, wizardIconColor } from './lib/icons.js';
+  import { contextFor } from './lib/engine/mentions.js';
+  import Mentions from './lib/Mentions.svelte';
+  import { activeCite } from './lib/engine/cite-state.js';
+  import WizardRow from './lib/WizardRow.svelte';
+  import JurisdictionRun from './lib/JurisdictionRun.svelte';
+  import ActionChecklist from './lib/ActionChecklist.svelte';
 
   // Lucide "search" (lucide-static 1.31.0, ISC) — the one non-wizard glyph on the finder.
   const searchIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>';
@@ -40,15 +54,13 @@
 
   let search = '';
   let activeCategory = null;
-  let showAll = false;
   let selectedWizardId = null;
   let currentNodeId = null;
   let outcomeId = null;
-  let outcomeSection = 'decision';
   let decisionExpanded = false;
+  let helpExpanded = false;
+  let motionExpanded = false;
   let history = [];
-  let sourceLayerOpen = false;
-  let sourceTrigger;
   let libraryMessage = '';
   let runMessage = '';
   let copyMessage = '';
@@ -56,19 +68,43 @@
   let pendingIndex = null;
 
   const graph = validateGraph();
+  // Only published paths are offered, named as a next determination, or opened by link.
+  const publishedIds = publishedWizardIds();
 
   $: changelogDate = newestChangelogDate(changelog);
   $: wizard = selectedWizardId ? WIZARDS[selectedWizardId] : null;
   $: reviewState = selectedWizardId ? wizardReviewState(selectedWizardId) : null;
   $: currentNode = wizard && currentNodeId ? wizard.nodes[currentNodeId] : null;
-  $: outcome = wizard && outcomeId ? wizard.nodes[outcomeId] : null;
+  $: outcome = wizard && outcomeId ? outcomeForState(wizard, history, outcomeId) : null;
   $: currentOptions = currentNode ? eligibleOptions(currentNode, historyContext(history)) : [];
   $: usedSourceIds = wizard ? sourceIdsForState(wizard, history, currentNodeId, outcomeId) : [];
   $: usedSources = usedSourceIds.map((id) => ({ id, source: SOURCES[id], manifest: SOURCE_MANIFEST[id] })).filter((item) => item.source);
   $: calendarState = selectedWizardId && outcomeId ? calendarEligibility({ wizardId: selectedWizardId, outcomeId }) : null;
-  $: filteredWizardIds = filterWizardIds(search, activeCategory, showAll);
+  $: filteredWizardIds = finderWizardIds({ term: search, categoryId: activeCategory });
+  $: groupedLibrary = !search.trim() && !activeCategory ? finderGroups() : null;
   $: questionsAhead = wizard && currentNodeId ? longestQuestionRun(wizard, currentNodeId) : 0;
   $: questionTotal = history.length + questionsAhead;
+  // The aside and the verdict qualifier show the lead; a disclosure carries only what is
+  // left, so no sentence appears twice. A clocked outcome shows no lead, so its disclosure
+  // carries the whole reasoning.
+  $: helpLead = currentNode?.help ? decisionLead(currentNode.help) : '';
+  $: helpRest = currentNode?.help ? restAfterLead(currentNode.help, helpLead) : '';
+  $: reasoningLead = outcome ? decisionLead(outcome.summary) : '';
+  $: reasoningRest = outcome ? (outcome.clock ? String(outcome.summary || '').trim() : restAfterLead(outcome.summary, reasoningLead)) : '';
+  $: reasoningLabel = outcome?.clock ? 'Read the reasoning' : 'Read the rest of the reasoning';
+  $: motion = selectedWizardId && outcomeId ? motionNotes(selectedWizardId, outcomeId) : [];
+  $: related = selectedWizardId ? relatedWizardIds(selectedWizardId, outcomeId) : [];
+  $: checkedDate = wizard ? verifiedDate(wizard) : null;
+  // Inline citations: one context per node, and one shared term scope per group of blocks
+  // (the help's lead and rest; the verdict line and the reasoning; the actions), recreated
+  // together so a defined term links once per group.
+  $: citeState = {
+    node: currentNodeId || outcomeId,
+    context: contextFor(selectedWizardId, currentNode || outcome),
+    help: new Set(),
+    reasoning: new Set(),
+    actions: new Set()
+  };
 
   onMount(() => {
     handleHash(location.hash || '');
@@ -91,6 +127,22 @@
     return 1 + deepest;
   }
 
+  function restAfterLead(text, lead) {
+    const value = String(text || '').trim();
+    if (!lead || lead === value) return '';
+    // A lead that was cut mid-sentence ends in an ellipsis; then the rest is the whole text.
+    if (lead.endsWith('…')) return value;
+    return value.slice(lead.length).trim();
+  }
+
+  // A step change closes what the last step had open, the citation card included.
+  function closeDisclosures() {
+    decisionExpanded = false;
+    helpExpanded = false;
+    motionExpanded = false;
+    activeCite.set(null);
+  }
+
   function selectAnswer(index) {
     pendingIndex = index;
   }
@@ -109,20 +161,6 @@
     pendingIndex = null;
     if (history.length) goBack();
     else changeDetermination();
-  }
-
-  function filterWizardIds(currentSearch, currentCategory, currentShowAll) {
-    const term = currentSearch.trim().toLowerCase();
-    if (term) {
-      return Object.entries(WIZARDS)
-        .filter(([id, item]) => {
-          const category = categoryForWizard(id)?.label || '';
-          return [id, item.title, item.q, item.tag, category, ...(item.jurisdictions || [])].join(' ').toLowerCase().includes(term);
-        })
-        .map(([id]) => id);
-    }
-    if (currentCategory) return categories.find((category) => category.id === currentCategory)?.wizardIds || [];
-    return currentShowAll ? Object.keys(WIZARDS) : commonWizardIds;
   }
 
   function handleHash(hash) {
@@ -160,15 +198,13 @@
   }
 
   function openWizard(id, updateHash = true) {
+    if (!publishedIds.includes(id)) return;
     const next = WIZARDS[id];
-    if (!next) return;
     selectedWizardId = id;
     currentNodeId = next.start;
     outcomeId = null;
-    outcomeSection = 'decision';
-    decisionExpanded = false;
+    closeDisclosures();
     history = [];
-    sourceLayerOpen = false;
     runMessage = '';
     copyMessage = '';
     fallback = null;
@@ -184,10 +220,8 @@
     selectedWizardId = null;
     currentNodeId = null;
     outcomeId = null;
-    outcomeSection = 'decision';
-    decisionExpanded = false;
+    closeDisclosures();
     history = [];
-    sourceLayerOpen = false;
     try {
       historyReplaceBase();
     } catch {
@@ -204,10 +238,8 @@
     if (!wizard) return;
     currentNodeId = wizard.start;
     outcomeId = null;
-    outcomeSection = 'decision';
-    decisionExpanded = false;
+    closeDisclosures();
     history = [];
-    sourceLayerOpen = false;
     pendingIndex = null;
     runMessage = 'Current answers cleared. The determination link still contains only the wizard ID.';
     focusTask();
@@ -223,11 +255,7 @@
     pendingIndex = null;
     currentNodeId = result.currentNodeId;
     outcomeId = result.outcomeId;
-    if (outcomeId) {
-      outcomeSection = 'decision';
-      decisionExpanded = false;
-    }
-    sourceLayerOpen = false;
+    closeDisclosures();
     runMessage = '';
     focusTask(outcomeId ? 'outcome-heading' : 'question-heading');
   }
@@ -239,9 +267,7 @@
     pendingIndex = null;
     currentNodeId = entry.nodeId;
     outcomeId = null;
-    outcomeSection = 'decision';
-    decisionExpanded = false;
-    sourceLayerOpen = false;
+    closeDisclosures();
     runMessage = 'The later answer was removed.';
     focusTask();
   }
@@ -253,43 +279,9 @@
     pendingIndex = null;
     currentNodeId = result.currentNodeId;
     outcomeId = null;
-    outcomeSection = 'decision';
-    decisionExpanded = false;
-    sourceLayerOpen = false;
+    closeDisclosures();
     runMessage = `${result.removed} selected answer${result.removed === 1 ? '' : 's'} removed so the path can be rebuilt from that question.`;
     focusTask();
-  }
-
-  function openSources(event) {
-    sourceTrigger = event.currentTarget;
-    sourceLayerOpen = true;
-    tick().then(() => document.getElementById('sources-heading')?.focus());
-  }
-
-  function closeSources() {
-    sourceLayerOpen = false;
-    tick().then(() => sourceTrigger?.focus());
-  }
-
-  function plainText(html) {
-    const holder = document.createElement('div');
-    holder.innerHTML = html || '';
-    return holder.textContent || '';
-  }
-
-  function sourcePlainText(html) {
-    const holder = document.createElement('div');
-    holder.innerHTML = html || '';
-    for (const br of holder.querySelectorAll('br')) br.replaceWith(document.createTextNode('\n'));
-    for (const block of holder.querySelectorAll('p, blockquote, li, h1, h2, h3, h4, h5, h6')) block.append(document.createTextNode('\n\n'));
-    return (holder.textContent || '').replace(/[ \t]+\n/g, '\n').replace(/\n{3,}/g, '\n\n').trim();
-  }
-
-  function decisionLead(text) {
-    const value = String(text || '').trim();
-    if (value.length <= 340) return value;
-    const boundary = value.match(/[.!?](?=\s+[A-Z])/);
-    return boundary?.index !== undefined ? value.slice(0, boundary.index + 1) : `${value.slice(0, 337).trimEnd()}…`;
   }
 
   function fallbackCopy(text, label) {
@@ -342,14 +334,12 @@
 
   function selectCategory(id) {
     activeCategory = activeCategory === id ? null : id;
-    showAll = false;
     search = '';
   }
 
   function resetFinder() {
     search = '';
     activeCategory = null;
-    showAll = false;
     tick().then(() => document.getElementById('finder')?.focus());
   }
 
@@ -414,24 +404,26 @@
         <div><span class="intro-step-n">03</span><strong>Read the determination</strong><span>Cited outcome and next steps.</span></div>
       </section>
       <label class="sr-only" for="finder">What are you trying to decide?</label>
-      <div class="search-wrap"><span class="search-glyph" aria-hidden="true">{@html searchIcon}</span><input id="finder" type="search" bind:value={search} on:input={() => { activeCategory = null; showAll = true; }} placeholder="Try breach, DPIA, cookies, AI risk…" /></div>
+      <div class="search-wrap"><span class="search-glyph" aria-hidden="true">{@html searchIcon}</span><input id="finder" type="search" bind:value={search} on:input={() => { activeCategory = null; }} placeholder="Try breach, DPIA, cookies, AI risk…" /></div>
       {#if search}<p class:empty={filteredWizardIds.length === 0} class="search-feedback" role="status">{filteredWizardIds.length ? `${filteredWizardIds.length} matching ${filteredWizardIds.length === 1 ? 'determination' : 'determinations'}.` : 'No matching determination. Try a shorter term or reset the finder.'}</p>{/if}
 
-      <div class="library-heading">
-        {#if search || activeCategory || showAll}<button type="button" class="text-button" on:click={resetFinder}>Reset finder</button>{:else}<button type="button" class="text-button" on:click={() => (showAll = true)}>Browse all {Object.keys(WIZARDS).length}</button>{/if}
-      </div>
+      {#if search || activeCategory}<div class="library-heading"><button type="button" class="text-button" on:click={resetFinder}>Reset finder</button></div>{/if}
 
       <div class="wizard-list">
-        {#each filteredWizardIds as id}
-          {@const item = WIZARDS[id]}
-          <button type="button" class="wizard-row" on:click={() => openWizard(id)}>
-            <span class={`wizard-glyph icon-${wizardIconColor(id)}`} aria-hidden="true">{@html wizardIcon(id)}</span>
-            <span class="wizard-copy"><strong>{item.title}</strong><small>{item.q || item.tag} · {(item.jurisdictions || []).join(' / ')}</small></span>
-            <span class="card-arrow" aria-hidden="true">→</span>
-          </button>
+        {#if groupedLibrary}
+          {#each groupedLibrary as group (group.id)}
+            <p class="group-label">{group.label}</p>
+            {#each group.ids as id (id)}
+              <WizardRow {id} onOpen={openWizard} />
+            {/each}
+          {/each}
         {:else}
-          <div class="empty-state"><h3>No determination matches that search.</h3><p>Try a shorter term or reset the finder.</p><button type="button" class="button secondary" on:click={resetFinder}>Reset finder</button></div>
-        {/each}
+          {#each filteredWizardIds as id (id)}
+            <WizardRow {id} onOpen={openWizard} />
+          {:else}
+            <div class="empty-state"><h3>No determination matches that search.</h3><p>Try a shorter term or reset the finder.</p><button type="button" class="button secondary" on:click={resetFinder}>Reset finder</button></div>
+          {/each}
+        {/if}
       </div>
     </section>
   {:else}
@@ -447,7 +439,7 @@
       {:else}
       <header class="determination-header">
         <div class="title-cluster"><span class={`large-icon icon-${wizardIconColor(selectedWizardId)}`} aria-hidden="true">{@html wizardIcon(selectedWizardId)}</span><div><p class="step-label">{categoryForWizard(selectedWizardId)?.label}</p><h2 id="determination-heading" tabindex="-1">{wizard.title}</h2><p>{wizard.tag}</p></div></div>
-        <div class={`legal-status status-${reviewState.status}`}><span>{sourceStatusLabel(reviewState.status)}</span><small>{reviewState.practitionerReviewed ? `Legal sources reviewed through ${reviewState.reviewedThrough}` : 'Published aid · not counsel-reviewed'}</small></div>
+        {#if !wizard.jurisdictionRoutes}<div class={`legal-status status-${reviewState.status}`}><span>{sourceStatusLabel(reviewState.status)}</span><small>{reviewState.practitionerReviewed ? `Legal sources reviewed through ${reviewState.reviewedThrough}` : 'Published aid · not counsel-reviewed'}</small></div>{/if}
       </header>
       {/if}
 
@@ -462,25 +454,38 @@
           {#if reviewState.automatedCheckNote}<p class="automated-note"><strong>Legacy automated-check note:</strong> {reviewState.automatedCheckNote}</p>{/if}
           <div class="unavailable-actions"><button type="button" class="button primary" on:click={changeDetermination}>Choose another determination</button></div>
         </section>
+      {:else if wizard.jurisdictionRoutes}
+        {#key selectedWizardId}
+          <JurisdictionRun wizardId={selectedWizardId} onOpen={openWizard} />
+        {/key}
       {:else}
         <div class="run-grid">
           <section class="decision-stage">
 
             {#if currentNode}
-              <article class="question-card" aria-labelledby="question-heading">
+              <!-- The heading holds citation cards, so the card and the answer group take the plain question as their name. -->
+              <article class="question-card" aria-label={currentNode.q}>
                 <div class="question-progress">
-                  <p class="question-count">Question {history.length + 1} of {questionTotal}</p>
+                  <p class="question-count">Question {history.length + 1} of at most {questionTotal}</p>
                   <span class="progress-track" aria-hidden="true"><span class="progress-fill" style={`width:${Math.round(((history.length + 1) / Math.max(questionTotal, 1)) * 100)}%`}></span></span>
                 </div>
-                <h3 id="question-heading" tabindex="-1">{currentNode.q}</h3>
-                <div class="answer-list" role="radiogroup" aria-labelledby="question-heading">
+                <h3 id="question-heading" tabindex="-1"><Mentions text={currentNode.q} context={citeState.context} /></h3>
+                <div class="answer-list" role="radiogroup" aria-label={currentNode.q}>
                   {#each currentOptions as option, index}
                     <button type="button" class="answer-card" class:selected={pendingIndex === index} role="radio" aria-checked={pendingIndex === index} on:click={() => selectAnswer(index)}>
-                      <span><strong>{option.label}</strong></span>
+                      <span><strong>{option.label}</strong>{#if option.desc}<small>{option.desc}</small>{/if}</span>
                     </button>
                   {/each}
                 </div>
-                {#if currentNode.help}<p class="question-aside">{decisionLead(currentNode.help)}</p>{/if}
+                {#if currentNode.help}
+                  <p class="question-aside"><Mentions text={helpLead} context={citeState.context} scope={citeState.help} /></p>
+                  {#if helpRest}
+                    <details class="disclosure" bind:open={helpExpanded}>
+                      <summary>Why this question?</summary>
+                      <p class="disclosure-body"><Mentions text={helpRest} context={citeState.context} scope={citeState.help} /></p>
+                    </details>
+                  {/if}
+                {/if}
                 <div class="question-actions">
                   <button type="button" class="button primary" on:click={commitAnswer}>Next</button>
                   <button type="button" class="text-button" on:click={stepBack}>Back</button>
@@ -490,37 +495,72 @@
               <article class={`outcome-card tier-${outcome.tier}`} aria-labelledby="outcome-heading">
                 <div class="verdict-block">
                   <strong class="verdict-title" id="outcome-heading" tabindex="-1">{outcome.title}</strong>
-                  <span class="verdict-sub">{outcome.clock || decisionLead(outcome.summary)}</span>
+                  <span class="verdict-sub"><Mentions text={outcome.clock || reasoningLead} context={citeState.context} scope={citeState.reasoning} /></span>
                 </div>
 
+                {#if reasoningRest}
+                  <details class="disclosure outcome-reasoning" bind:open={decisionExpanded}>
+                    <summary>{reasoningLabel}</summary>
+                    <p class="disclosure-body"><Mentions text={reasoningRest} context={citeState.context} scope={citeState.reasoning} /></p>
+                  </details>
+                {/if}
                 <div class="outcome-grid">
                   <div class="outcome-main">
-                  {#if outcome.actions?.length}
-                    <section class="next-actions" aria-labelledby="actions-heading">
-                      <p class="field-label" id="actions-heading">What you must do</p>
-                      <ol>{#each outcome.actions as action}<li>{action}</li>{/each}</ol>
-                    </section>
-                  {/if}
-                <p class="outcome-aside">{reviewState.practitionerReviewed ? `Legal sources reviewed through ${reviewState.reviewedThrough}. Verify the cited official text before filing.` : 'Automated source check. Verify the cited official text before filing.'}</p>
-                {#if reviewState.available}
-                  <div class="exit-actions"><button type="button" class="button primary" on:click={downloadRecord}>Download determination</button><button type="button" class="text-button" on:click={goBack}>Change an answer</button></div>
-                {:else}
-                  <div class="blocked-exits"><p><strong>Exports locked.</strong> This path contains a draft, missing, or superseded source record.</p></div>
-                {/if}
+                    {#if outcome.actions?.length}
+                      <ActionChecklist id="actions" wizardId={selectedWizardId} actions={outcome.actions} actionCites={outcome.actionCites} scope={citeState.actions} heading="What you must do" />
+                    {/if}
+                    {#if outcome.notes?.length}
+                      {#each outcome.notes as note, index}<p class="outcome-summary"><Mentions text={note} context={contextFor(selectedWizardId, { cites: outcome.noteCites[index] })} /></p>{/each}
+                    {/if}
+                    {#if motion.length}
+                      <details class="disclosure" bind:open={motionExpanded}>
+                        <summary>What may change</summary>
+                        {#each motion as note (note.id)}
+                          <p class="disclosure-body motion"><Mentions text={`${note.text} Checked ${note.checked}.`} context={citeState.context} /></p>
+                          <a class="motion-source" href={note.source.url} target="_blank" rel="noopener noreferrer">{note.source.label} ↗</a>
+                        {/each}
+                      </details>
+                    {/if}
+                    <p class="outcome-aside">{reviewState.practitionerReviewed ? `Legal sources reviewed through ${reviewState.reviewedThrough}. Verify the cited official text before filing.` : `Automated source check${checkedDate ? `, sources last checked ${checkedDate}` : ''}. Verify the cited official text before filing.`}</p>
+                    {#if reviewState.available}
+                      <div class="exit-actions"><button type="button" class="button primary" on:click={downloadRecord}>Download determination</button><button type="button" class="text-button" on:click={goBack}>Change an answer</button></div>
+                    {:else}
+                      <div class="blocked-exits"><p><strong>Exports locked.</strong> This path contains a draft, missing, or superseded source record.</p></div>
+                    {/if}
+                    {#if related.length}
+                      <section class="next-determination" aria-labelledby="next-heading">
+                        <p class="field-label" id="next-heading">Next determination</p>
+                        <div class="wizard-list">
+                          {#each related as id (id)}
+                            <WizardRow {id} onOpen={openWizard} />
+                          {/each}
+                        </div>
+                      </section>
+                    {/if}
                   </div>
                   {#if usedSources.length}
                     <section class="authority-list" aria-labelledby="authority-heading">
                       <p class="field-label" id="authority-heading">Authority</p>
                       <ul>
-                        {#each usedSources as item}
-                          <li>{#if item.source.provenance}<a href={item.source.provenance} target="_blank" rel="noopener noreferrer">{item.source.label} ↗</a>{:else}<span>{item.source.label}</span>{/if}</li>
+                        {#each usedSources as item (item.id)}
+                          <li>
+                            <details class="authority-row">
+                              <summary>
+                                <span class="authority-label">{item.source.label}</span>
+                                <span class="status-line"><span class={`status-dot dot-${item.manifest?.status || 'draft'}`} aria-hidden="true"></span>{sourceStatusLabel(item.manifest?.status || 'draft')}</span>
+                              </summary>
+                              <div class="authority-body">
+                                <p class="citation">{item.source.citation}</p>
+                                {#if item.source.provenance || item.source.url}<a class="official-link" href={item.source.provenance || item.source.url} target="_blank" rel="noopener noreferrer">Open the official text ↗</a>{/if}
+                                {#if item.source.body}<p class="source-body">{sourceTextPlain(item.source.body)}</p>{/if}
+                              </div>
+                            </details>
+                          </li>
                         {/each}
                       </ul>
                     </section>
                   {/if}
                 </div>
-
-
               </article>
             {/if}
 
@@ -529,26 +569,6 @@
             {/if}
 
           </section>
-
-          <aside class:open={sourceLayerOpen} class="source-layer" aria-labelledby="sources-heading">
-            {#if sourceLayerOpen}
-              <div class="source-head"><div><p class="step-label">Contextual authority</p><h3 id="sources-heading" tabindex="-1">Sources used so far</h3></div><button type="button" class="icon-button" aria-label="Close sources" on:click={closeSources}>×</button></div>
-              <p class="source-intro">These sources are cited by the current question and completed path. Their review status is shown separately from the changelog.</p>
-              <div class="source-list">
-                {#each usedSources as item}
-                  <article class="source-card">
-                    <div class="source-meta"><span>{item.source.kind || 'authority'} · {item.source.juris || 'scope not recorded'}</span><span class={`source-status status-${item.manifest?.status}`}>{sourceStatusLabel(item.manifest?.status || 'draft')}</span></div>
-                    <h4>{item.source.label}</h4>
-                    <p class="citation">{item.source.citation}</p>
-                    <p class="why-source">Why it matters here: this authority is cited by the current question, a selected fact, or the draft outcome.</p>
-                    {#if item.source.provenance}<a class="official-link" href={item.source.provenance} target="_blank" rel="noopener noreferrer">Open official text ↗</a>{/if}
-                    <details class="source-text"><summary>Read included source text</summary><div class="source-body">{sourcePlainText(item.source.body)}</div></details>
-                  </article>
-                {/each}
-              </div>
-              <button type="button" class="button secondary close-sources" on:click={closeSources}>Close sources</button>
-            {/if}
-          </aside>
         </div>
       {/if}
     </section>
@@ -557,19 +577,12 @@
 
 {#if !EMBED}
 <footer class="colophon">
-  <div class="colophon-inner">
-    <div class="colophon-brand">
-      <p class="colophon-name">Advokat Frida</p>
-      <p class="colophon-desc">Privacy and AI governance, by design and in practice.<br />Analytics by Plausible, cookieless and aggregate, no ad-tech.</p>
-    </div>
-    <nav class="colophon-nav" aria-label="Footer">
-      <ul>
-        <li><a href="https://advokatfrida.com/about/">About</a></li>
-        <li><a href="mailto:hello@advokatfrida.com">Contact us</a></li>
-        <li><a href="https://advokatfrida.com/privacy/">Privacy</a></li>
-        <li><a href="https://advokatfrida.com/rss/">RSS</a></li>
-      </ul>
-    </nav>
-  </div>
+  <a class="colophon-brand" href="https://advokatfrida.com/">Advokat Frida</a>
+  <nav class="colophon-nav" aria-label="Footer">
+    <a href="https://advokatfrida.com/about/">About</a>
+    <a href="mailto:hello@advokatfrida.com">Contact</a>
+    <a href="https://advokatfrida.com/privacy/">Privacy</a>
+    <a href="https://advokatfrida.com/rss/">RSS</a>
+  </nav>
 </footer>
 {/if}

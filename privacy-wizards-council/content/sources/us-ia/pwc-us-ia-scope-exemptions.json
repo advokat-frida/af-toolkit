@@ -1,0 +1,20 @@
+{
+  "kind": "statute",
+  "juris": "US-IA",
+  "label": "Iowa: entity and data exclusions",
+  "citation": "Iowa Code § 715D.2",
+  "provenance": "https://www.legis.iowa.gov/docs/code/715D.2.pdf",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Entity status and record-level exclusions are separate decisions; the listed categories must satisfy the linked law's definitions and conditions.",
+  "body": [
+    "<p>Government bodies, qualifying GLBA financial institutions/affiliates, persons subject to and complying with HIPAA/HITECH regulations, nonprofits and higher-education institutions are excluded. Satisfy the named statutory conditions, including HIPAA compliance, rather than relying on an industry label.</p>",
+    "<p>§715D.2 separately excludes specified health/research, regulated credit, DPPA, FERPA, Farm Credit and employment-role, emergency-contact and benefits data. A partial exemption does not remove unrelated consumer data.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

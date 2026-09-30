@@ -1,0 +1,20 @@
+{
+  "kind": "statute",
+  "juris": "US-OR",
+  "label": "Oregon: entity and data exclusions",
+  "citation": "ORS 646A.570, 646A.572",
+  "provenance": "https://www.oregonlegislature.gov/bills_laws/ors/ors646a.html",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Entity status and record-level exclusions are separate decisions; the listed categories must satisfy the linked law's definitions and conditions.",
+  "body": [
+    "<p>§646A.572 excludes public bodies/corporations; qualifying banks and directly financial affiliates/subsidiaries; insurers (not mere self-insurance), insurance producers/consultants and licensed third-party administrators; and insurance-fraud nonprofits. Noncommercial publishing/news activity has a separate activity exclusion. There is no general nonprofit or HIPAA-entity exemption.</p>",
+    "<p>Specified HIPAA, health/research, Part2, patient-safety, same-manner records, employment/contract-role, FCRA, GLBA, DPPA, FERPA and preempted airline data are excluded subject to conditions. §646A.572(3) permitted-purpose processing is limited by necessity, proportionality, security and burden-of-proof requirements; it is not a blanket entity exemption.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

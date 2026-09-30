@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-DE",
+  "label": "Delaware: consumer rights",
+  "citation": "6 Del. C. §12D-104, version effective until January 1, 2027",
+  "provenance": "https://www.delcode.delaware.gov/title6/c012d/index.html",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Current rights include access, correction, deletion, portability and categories of third parties to which data was disclosed.</p>",
+    "<p>Respond within 45 days, with one reasonably necessary 45-day extension on timely notice; decide an appeal within 60 days.</p>",
+    "<p>The current right is a list of categories. Do not substitute the different future January 2027 third-party disclosure provision.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

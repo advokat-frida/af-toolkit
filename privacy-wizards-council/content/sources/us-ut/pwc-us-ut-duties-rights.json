@@ -1,0 +1,22 @@
+{
+  "kind": "statute",
+  "juris": "US-UT",
+  "label": "Utah: consumer rights",
+  "citation": "Utah Code §§13-61-201, 13-61-203, current version including 2025 ch.468",
+  "provenance": "https://le.utah.gov/xcode/Title13/Chapter61/C13-61_2022050420231231.pdf",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Current Utah law includes correction. Older comparison charts saying Utah has no correction right are stale. Deletion and portability remain limited to provided data.</p>",
+    "<p>Support access, correction, specified deletion/copy rights and sale/targeted-advertising opt-outs.</p>",
+    "<p>Respond within 45 days, with a reasonably necessary 45-day extension on timely notice and reasons.</p>",
+    "<p>This chapter does not provide the general internal appeal process found in many other states; preserve the consumer complaint route separately.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

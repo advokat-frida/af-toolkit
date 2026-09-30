@@ -1,0 +1,22 @@
+{
+  "kind": "statute",
+  "juris": "US-FL",
+  "label": "Florida: applicability",
+  "citation": "Fla. Stat. § 501.702(9)",
+  "provenance": "https://www.flsenate.gov/Laws/Statutes/2025/501.702",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Separate §501.715 sale-of-sensitive-data duties can apply without the $1 billion or business-model criteria.",
+  "body": [
+    "<p>Does it conduct business in Florida OR produce a product or service used by Florida residents, AND process or engage in the sale of personal data?</p>",
+    "<p>Does it have strictly more than $1 billion in global gross annual revenue AND at least one of these: at least 50% of global gross annual revenue from online advertising; operation of the qualifying cloud-connected hands-free virtual-assistant smart speaker; or an app store/digital distribution platform offering at least 250,000 different software applications?</p>",
+    "<p>Florida residents or domiciliaries acting in an individual or household context; not commercial or employment roles. General controller coverage is not a resident-volume test.</p>",
+    "<p>Measuring period: Global gross annual revenue; no numeric resident-count limb.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

@@ -1,4 +1,4 @@
-import { LEGACY_REGISTRY_SHA256, SOURCES, WIZARDS } from '../data/legacy.generated.js';
+import { REGISTRY_SHA256, SOURCES, WIZARDS } from '../data/registry.generated.js';
 import {
   AUTOMATED_CHECK_NOTES,
   ENABLED_WIZARDS,
@@ -6,8 +6,133 @@ import {
   MANIFEST_VERSION,
   SOURCE_MANIFEST
 } from '../data/manifest.generated.js';
+import { categories, categoryForWizard } from '../data/categories.js';
+import { MOTION } from '../data/motion.js';
+import { RELATED } from '../data/related.js';
+import { SEARCH_ALIASES } from '../data/search.js';
 
 export const LEGAL_STATUSES = ['draft', 'automated-check-only', 'practitioner-reviewed', 'superseded'];
+
+// The ISO date at the front of a wizard's authored `verifiedAsOf` stamp, or null.
+export function verifiedDate(wizard) {
+  const match = String(wizard?.verifiedAsOf || '').match(/^\d{4}-\d{2}-\d{2}/);
+  return match ? match[0] : null;
+}
+
+const own = (object, key) => Object.prototype.hasOwnProperty.call(object, key);
+
+// Abbreviations the authored text follows with a capital ("Cal. Civ. Code", "Ch. V",
+// "e.g. Google"): their full stop does not end a sentence.
+const ABBREVIATIONS = new Set(['cal', 'civ', 'ch', 'gen', 'bus', 'cf', 'e.g', 'i.e', 'u.s', 'u.s.c', 'n.y', 'c.f.r', 'fed', 'eff', 'dept', 'inc', 'ltd', 'corp', 'jan', 'feb', 'apr', 'jun', 'jul', 'aug', 'sep', 'sept', 'oct', 'nov', 'dec']);
+
+// The index just past each sentence end: a . ! or ? before a space and a capital, where a
+// full stop does not close one of those abbreviations.
+export function sentenceBreaks(text) {
+  const value = String(text || '');
+  const breaks = [];
+  for (const match of value.matchAll(/[.!?](?=\s+[("'“‘]?[A-Z])/g)) {
+    if (match[0] === '.') {
+      const word = (value.slice(Math.max(0, match.index - 12), match.index).match(/[A-Za-z.]+$/) || [''])[0].toLowerCase();
+      if (ABBREVIATIONS.has(word)) continue;
+    }
+    breaks.push(match.index + 1);
+  }
+  return breaks;
+}
+
+// The first sentence of a long text, for the one-line aside and the verdict qualifier.
+// Short text comes back whole; the full text always stays reachable behind a disclosure.
+export function decisionLead(text) {
+  const value = String(text || '').trim();
+  if (value.length <= 340) return value;
+  const [first] = sentenceBreaks(value);
+  return first !== undefined ? value.slice(0, first) : `${value.slice(0, 337).trimEnd()}…`;
+}
+
+// The included source text as plain paragraphs. Source bodies are authored with p, span,
+// blockquote, b and i only; anything else is stripped the same way.
+const ENTITIES = { nbsp: ' ', amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", '#39': "'" };
+
+export function sourceTextPlain(html) {
+  let text = String(html || '')
+    .replace(/\r/g, '')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/(?:p|div|li|blockquote|h[1-6]|tr)>/gi, '\n\n')
+    .replace(/<li[^>]*>/gi, '• ');
+  // Strip tag-shaped markup until none is left; a bare "<" in the prose is text and stays.
+  let previous;
+  do {
+    previous = text;
+    text = text.replace(/<\/?[A-Za-z][^<>]*>/g, '');
+  } while (text !== previous);
+  // Entities decode in one pass, so an escaped "&amp;lt;" reads "&lt;", not "<".
+  return text
+    .replace(/&(nbsp|amp|lt|gt|quot|apos|#39);/g, (entity, name) => ENTITIES[name])
+    .replace(/[ \t]+\n/g, '\n')
+    .replace(/\n[ \t]+/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
+// The paths the finder offers: every published path, in registry order (content/registry.json).
+export function publishedWizardIds(enabled = ENABLED_WIZARDS) {
+  return Object.keys(WIZARDS).filter((id) => enabled.includes(id));
+}
+
+// Natural browsing always offers every published topic, alphabetized by its visible title.
+const alphabetically = (a, b) => a.localeCompare(b, 'en', { sensitivity: 'base', ignorePunctuation: true });
+const byTitle = (a, b) => alphabetically(WIZARDS[a].title, WIZARDS[b].title);
+
+export function finderWizardIds({ term = '', categoryId = null, enabled = ENABLED_WIZARDS } = {}) {
+  const published = publishedWizardIds(enabled).sort(byTitle);
+  const query = String(term || '').trim().toLowerCase();
+  if (query) return published.filter((id) => searchText(id, WIZARDS[id], categoryForWizard(id)?.label || '').includes(query));
+  const ids = categoryId ? categories.find((category) => category.id === categoryId)?.wizardIds || [] : published;
+  return ids.filter((id) => published.includes(id)).sort(byTitle);
+}
+
+// Alphabetical categories and topics, with no heading for an empty category.
+export function finderGroups(enabled = ENABLED_WIZARDS) {
+  const published = publishedWizardIds(enabled);
+  return categories
+    .map((category) => ({ ...category, ids: category.wizardIds.filter((id) => published.includes(id)).sort(byTitle) }))
+    .filter((group) => group.ids.length)
+    .sort((a, b) => alphabetically(a.label, b.label));
+}
+
+// The path most readers open after this one (data/related.js), only published paths. Given
+// an outcome, only paths that share a jurisdiction with the law the outcome cites: a
+// California answer is not sent to an EU-only path. INTL sources and paths are neutral.
+export function relatedWizardIds(id, outcomeId = null, enabled = ENABLED_WIZARDS) {
+  if (!own(RELATED, id)) return [];
+  const outcome = outcomeId && own(WIZARDS, id) && own(WIZARDS[id].nodes || {}, outcomeId) ? WIZARDS[id].nodes[outcomeId] : null;
+  const juris = new Set((outcome?.cites || []).map((sourceId) => SOURCES[sourceId]?.juris).filter((value) => value && value !== 'INTL'));
+  return RELATED[id].filter((other) => {
+    if (other === id || !own(WIZARDS, other) || !enabled.includes(other)) return false;
+    return !juris.size || (WIZARDS[other].jurisdictions || []).some((value) => value === 'INTL' || juris.has(value));
+  });
+}
+
+// Everything the finder matches a query against, lower-cased: the id, the authored
+// title, question and tag, the category, the jurisdictions, and the synonyms.
+export function searchText(id, wizard, categoryLabel = '') {
+  return [id, wizard?.title, wizard?.q, wizard?.tag, categoryLabel, ...(wizard?.jurisdictions || []), ...(SEARCH_ALIASES[id] || [])]
+    .filter(Boolean)
+    .join(' ')
+    .toLowerCase();
+}
+
+// Pending-law notes that touch this outcome (data/motion.js). Annotations only. A scoped
+// note shows only where the outcome cites law of that jurisdiction: an EU proposal says
+// nothing about an answer that rests on UK law alone.
+export function motionNotes(wizardId, outcomeId) {
+  const nodes = own(WIZARDS, wizardId) ? WIZARDS[wizardId].nodes || {} : {};
+  const outcome = own(nodes, outcomeId) ? nodes[outcomeId] : null;
+  const juris = new Set((outcome?.cites || []).map((id) => SOURCES[id]?.juris));
+  return MOTION.filter((note) => note.wizardIds.includes(wizardId)
+    && (!note.outcomeIds || note.outcomeIds.includes(outcomeId))
+    && (!note.scope || juris.has(note.scope)));
+}
 
 export function wizardSourceIds(wizard) {
   const ids = new Set();
@@ -110,11 +235,12 @@ export function validateGraph({ wizards = WIZARDS, sources = SOURCES, manifest =
   return { ok: errors.length === 0, errors, warnings, stats };
 }
 
-export function parseWizardHash(hash) {
+// A link names one published path. An unpublished path's link opens nothing, like an unknown one.
+export function parseWizardHash(hash, enabled = ENABLED_WIZARDS) {
   if (!hash || hash === '#') return { status: 'empty' };
   if (!/^#[a-z0-9-]{1,64}$/.test(hash)) return { status: 'invalid' };
   const id = hash.slice(1);
-  return WIZARDS[id] ? { status: 'ok', id } : { status: 'unknown' };
+  return own(WIZARDS, id) && enabled.includes(id) ? { status: 'ok', id } : { status: 'unknown' };
 }
 
 export function sourceIdsForState(wizard, history = [], currentNodeId = null, outcomeId = null) {
@@ -147,6 +273,9 @@ export function answerQuestion(wizard, nodeId, optionIndex, history = []) {
     question: node.q,
     optionIndex,
     answer: option.label,
+    answerNote: option.desc || '',
+    resultActions: option.resultActions || [],
+    resultNotes: option.resultNotes || [],
     optionCites: option.cites || [],
     goto: option.goto
   };
@@ -177,9 +306,31 @@ function localDate(date = new Date()) {
   return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
 }
 
+// Answer rows describe facts. Selected branch guidance joins only the final result.
+export function outcomeForState(wizard, history, outcomeId) {
+  const outcome = wizard?.nodes?.[outcomeId];
+  if (outcome?.type !== 'outcome') return null;
+  const actions = new Map((outcome.actions || []).map(text => [text, outcome.cites || []]));
+  const notes = new Map((outcome.notes || []).map(text => [text, outcome.cites || []]));
+  for (const entry of history) {
+    const cites = [...new Set([...(wizard.nodes[entry.nodeId]?.cites || []), ...(entry.optionCites || [])])];
+    for (const text of entry.resultActions || []) if (!actions.has(text)) actions.set(text, cites);
+    for (const text of entry.resultNotes || []) if (!notes.has(text)) notes.set(text, cites);
+  }
+  return {
+    ...outcome,
+    actions: [...actions.keys()],
+    notes: [...notes.keys()],
+    // Keep each passage's jurisdiction context. The full history source union belongs
+    // in the authority list/export, not in the outcome's inline citation resolver.
+    actionCites: [...actions.values()],
+    noteCites: [...notes.values()]
+  };
+}
+
 export function buildRecord({ wizardId, history, outcomeId, date = new Date(), manifest = SOURCE_MANIFEST, enabled = ENABLED_WIZARDS }) {
   const wizard = WIZARDS[wizardId];
-  const outcome = wizard?.nodes?.[outcomeId];
+  const outcome = outcomeForState(wizard, history, outcomeId);
   if (!wizard || !outcome || outcome.type !== 'outcome') throw new Error('A complete outcome is required.');
   const review = wizardReviewState(wizardId, { manifest, enabled });
   const sourceIds = sourceIdsForState(wizard, history, null, outcomeId);
@@ -192,28 +343,44 @@ export function buildRecord({ wizardId, history, outcomeId, date = new Date(), m
     `Generated locally: ${localDate(date)}`,
     `Wizard ID: ${wizardId}`,
     statusLine,
+    `Sources checked: ${wizard.verifiedAsOf || 'not recorded'}`,
     `Source manifest: ${MANIFEST_VERSION}`,
     `Source manifest SHA-256: ${MANIFEST_SHA256}`,
-    `Legacy registry SHA-256: ${LEGACY_REGISTRY_SHA256}`,
+    `Registry SHA-256: ${REGISTRY_SHA256}`,
     '',
     '## Selected facts',
     ''
   ];
   for (const entry of history) {
     lines.push(`- **${entry.question}**`, `  - ${entry.answer}`);
+    if (entry.answerNote) lines.push(`    - ${entry.answerNote}`);
   }
   lines.push('', '## Outcome', '', `**${outcome.title}**`, '', outcome.summary, '');
+  if (outcome.notes?.length) lines.push('## Reasoning from selected facts', '', ...outcome.notes.map(note => `- ${note}`), '');
   if (outcome.actions?.length) {
     lines.push('## What to do next', '');
     for (const action of outcome.actions) lines.push(`- ${action}`);
     lines.push('');
   }
   if (outcome.clock) lines.push('## Authored clock note', '', outcome.clock, '', 'No calendar reminder is generated unless the clock rule receives separate practitioner review.', '');
+  const pending = motionNotes(wizardId, outcomeId);
+  if (pending.length) {
+    lines.push('## What may change', '');
+    for (const note of pending) lines.push(`- ${note.text}`, `  - Checked ${note.checked}. Source: ${note.source.label} — ${note.source.url}`);
+    lines.push('');
+  }
   lines.push('## Sources', '');
   for (const id of sourceIds) {
     const source = SOURCES[id];
     const manifestEntry = manifest[id];
     lines.push(`- **${source?.label || id}** — ${source?.citation || 'Citation unavailable'}`, `  - Status: ${manifestEntry?.status || 'draft'}`, `  - Official text: ${source?.provenance || source?.url || 'No official URL recorded'}`);
+    if (source?.note) lines.push(`  - Source note: ${sourceTextPlain(source.note)}`);
+    const text = sourceTextPlain(source?.body);
+    if (text) {
+      lines.push('  - Included text:', '');
+      for (const line of text.split('\n')) lines.push(line ? `    > ${line}` : '    >');
+      lines.push('');
+    }
   }
   return lines.join('\n');
 }
@@ -246,4 +413,4 @@ export function sourceStatusLabel(status) {
   );
 }
 
-export { AUTOMATED_CHECK_NOTES, ENABLED_WIZARDS, LEGACY_REGISTRY_SHA256, MANIFEST_SHA256, MANIFEST_VERSION, SOURCE_MANIFEST, SOURCES, WIZARDS };
+export { AUTOMATED_CHECK_NOTES, ENABLED_WIZARDS, MANIFEST_SHA256, MANIFEST_VERSION, REGISTRY_SHA256, SOURCE_MANIFEST, SOURCES, WIZARDS };

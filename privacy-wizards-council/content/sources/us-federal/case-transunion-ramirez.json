@@ -1,0 +1,20 @@
+{
+  "kind": "case",
+  "juris": "US (federal)",
+  "label": "US Sup. Ct. — TransUnion v Ramirez (concrete-injury refined)",
+  "citation": "141 S. Ct. 2190 (2021)",
+  "provenance": "https://www.law.cornell.edu/supremecourt/text/20-297",
+  "body": [
+    "<p><b>Holding:</b> Of 8,185 class members whose TransUnion files were marked as potential matches to a Treasury watchlist, <b>only the 1,853 whose reports had actually been disseminated</b> to a third-party business had Article III standing. A label in a database the consumer never sees and that no one ever requests is <b>not a concrete harm</b>.</p>",
+    "  <p><b>\"No concrete harm, no standing.\"</b> Risk of future harm without materialisation is generally insufficient for damages standing in federal court.</p>",
+    "  <p><b>Why it matters:</b> Sets the federal-court standing bar for privacy-statute claims — pure procedural violations without downstream dissemination/use struggle. Implication for CCPA § 1798.150 class actions: still alive in CA state court (Spokeo doesn't bind state-court standing), but federal removals face a higher bar.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-CA",
+  "label": "California: enforcement and cure",
+  "citation": "Civil Code §§1798.155, 1798.199.45(a), 1798.199.90; §1798.150(b) (separate breach provision)",
+  "provenance": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.199.45.",
+  "note": "Editorial summary of the cited primary provisions, not a verbatim extract. Current-law check as of September 22, 2026; enforcement cure procedures do not postpone substantive compliance duties.",
+  "body": [
+    "<p>General CCPA enforcement has no mandatory notice-and-cure entitlement. The former 30-day regulatory cure requirement ended January 1, 2023. The CPPA conducts administrative enforcement; the Attorney General may bring civil enforcement.</p>",
+    "<p>The CPPA may give a business time to cure under §1798.199.45(a), considering lack of intent and voluntary remediation before agency notice. That provision fixes no number of days and grants no automatic right.</p>",
+    "<p>The separate 30-day notice rule in §1798.150(b) concerns specified private breach claims for statutory damages. It is not a general regulatory cure period.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

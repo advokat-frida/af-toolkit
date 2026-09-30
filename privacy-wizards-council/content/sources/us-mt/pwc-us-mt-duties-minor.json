@@ -1,0 +1,19 @@
+{
+  "kind": "statute",
+  "juris": "US-MT",
+  "label": "Montana: minor",
+  "citation": "Mont. Code Ann. §30-14-2811",
+  "provenance": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0110/0300-0140-0280-0110.html",
+  "note": "Editorial summary of primary authority, not a verbatim extract. See the cited provision for all qualifiers.",
+  "body": [
+    "<p>Online services, products and features for known or willfully disregarded minors have additional reasonable-care and consent conditions, including targeted advertising, sale, significant profiling, purpose, retention, engagement design and precise geolocation. Child consent uses the parent or guardian.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "kind": "guidance",
+  "juris": "UK",
+  "label": "ICO DPIA guidance + Art. 35(4) examples list",
+  "citation": "ICO, 'Data protection impact assessments' guidance and 'Examples of processing likely to result in high risk' (UK GDPR Art. 35(4) list) — verify current version: guidance may be reissued by the Information Commission under the Data (Use and Access) Act 2025",
+  "body": [
+    "ICO detailed guidance on Data Protection Impact Assessments (DPIAs) under UK GDPR Art. 35, aimed at DPOs and larger organisations, structured as: what a DPIA is, when one is needed, how to do one, prior consultation with the ICO, and the Art. 35(4) examples list. A DPIA is required before any processing 'likely to result in high risk', and the guidance unpacks the key concepts (innovative technologies, systematic and extensive, significantly affect, invisible processing, vulnerable individual, large scale) and the limited exemptions. The 'how' section sets out a step process: decide whether a DPIA is needed; describe the processing; consult individuals and others; assess necessity and proportionality; identify and assess risks; identify mitigating measures; conclude and sign off - with prior consultation of the ICO required where residual high risk remains. The guidance was revised to adopt the EDPB's Opinion 22/2018 on the ICO's list of processing operations requiring a DPIA, and it states that the European resources it draws on remain relevant post-Brexit. The companion page 'Examples of processing likely to result in high risk' is the ICO's Art. 35(4) list, based on EDPB guidelines WP248rev01, of ten operation types for which the ICO requires a DPIA: innovative technology (including AI), denial of service (access decisions based on automated decision-making/profiling or special category data), large-scale profiling, biometric data for unique identification, genetic data, data matching, invisible processing (reliance on Art. 14(5)(b)), tracking (geolocation or behaviour), targeting of children or other vulnerable individuals for marketing/profiling/automated decisions or offering online services directly to children, and processing where a breach could risk physical harm. Several of these (innovative technology, biometrics, genetic data, invisible processing, tracking) trigger the requirement only when combined with another WP248rev01 criterion. The list is expressly non-exhaustive, does not displace the overriding Art. 35(1) obligation to assess any proposed processing, and the ICO considers it best practice to do a DPIA whether or not the processing is likely to result in high risk."
+  ],
+  "provenance": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/accountability-and-governance/data-protection-impact-assessments-dpias/",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "kind": "regulation",
+  "juris": "US-NY",
+  "label": "23 NYCRR § 500.17 — Notices to superintendent (DFS 72-hour cybersecurity-event notice)",
+  "citation": "23 NYCRR § 500.17",
+  "body": [
+    "<p><span class=\"num\">500.17(a)</span> <b>Notice of cybersecurity incident.</b> (1) Each covered entity shall notify the superintendent electronically in the form set forth on the department's website <b>as promptly as possible but in no event later than 72 hours</b> after determining that a <b>cybersecurity incident</b> has occurred at the covered entity, its affiliates, or a third-party service provider. (2) Each covered entity shall promptly provide to the superintendent any information requested regarding such incident. Covered entities shall have a continuing obligation to update the superintendent with material changes or new information previously unavailable.</p>",
+    "  <p><span class=\"num\">500.17(b)</span> <b>Notice of compliance.</b> [...]</p>",
+    "  <p><span class=\"num\">500.17(c)</span> <b>Notice and explanation of extortion payment.</b> Each covered entity, in the event of an extortion payment made in connection with a cybersecurity event involving the covered entity, shall provide the superintendent electronically, in the form set forth on the department's website, with the following: (1) within <b>24 hours</b> of the extortion payment, notice of the payment; and (2) within <b>30 days</b> of the extortion payment, a written description of the reasons payment was necessary, a description of alternatives to payment considered, all diligence performed to find alternatives to payment and all diligence performed to ensure compliance with applicable rules and regulations including those of the Office of Foreign Assets Control.</p>",
+    "  <p><span class=\"num\">500.1(g)</span> [definitional context] <b>Cybersecurity incident</b> means a cybersecurity event that has occurred at the covered entity, its affiliates, or a third-party service provider that: (1) impacts the covered entity and requires the covered entity to notify any government body, self-regulatory agency or any other supervisory body; (2) has a reasonable likelihood of materially harming any material part of the normal operation(s) of the covered entity; or (3) results in the deployment of <b>ransomware</b> within a material part of the covered entity's information systems.</p>"
+  ],
+  "provenance": "https://www.dfs.ny.gov/industry_guidance/regulations/final_adoptions_fs/rf_fs_2amend23NYCRR500_text_20231101_alt",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

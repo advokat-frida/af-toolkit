@@ -132,7 +132,8 @@
       const key = button.dataset.pasteLoad;
       const zone = zones[key];
       if (!zone.textarea.value.trim()) { zone.textarea.focus(); announce("Paste something first."); return; }
-      loadInto(key, zone.textarea.value, key === "send" ? "pasted-send-list.csv" : "pasted-suppression-list.csv", new Date());
+      const pasted = key === "send" ? pastedList(zone.textarea.value) : zone.textarea.value;
+      loadInto(key, pasted, key === "send" ? "pasted-send-list.csv" : "pasted-suppression-list.csv", new Date());
       zone.textarea.value = "";
     });
   });

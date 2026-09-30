@@ -12,6 +12,7 @@ import { existsSync } from "node:fs";
 import { cp, mkdir, readFile, readdir, rm, stat, writeFile } from "node:fs/promises";
 import { dirname, extname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { canonicalBytes, isTextFile, normalizeText } from "./canonical.mjs";
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const publicRoot = join(repoRoot, "public");
@@ -92,27 +93,8 @@ async function treeHash(root) {
   return hash.digest("hex");
 }
 
-// Text artifacts are normalized to LF before they are written or hashed.
-// .gitattributes stores this repository as LF, so a Windows working copy that staged
-// CRLF produced manifest hashes that matched locally and nowhere else: not in CI, not
-// on the edge. Provenance is the whole product, so the bytes have to be identical
-// everywhere.
-const TEXT_EXTENSIONS = new Set([".css", ".html", ".js", ".json", ".mjs", ".txt", ".map", ".svg"]);
-
-function isTextFile(path) {
-  return TEXT_EXTENSIONS.has(extname(path).toLowerCase());
-}
-
-// The bytes every other machine sees: LF for text, untouched for binary.
-async function canonicalBytes(path) {
-  const raw = await readFile(path);
-  if (!isTextFile(path)) return raw;
-  return Buffer.from(normalizeText(raw.toString("utf8")), "utf8");
-}
-
-function normalizeText(value) {
-  return value.replace(/\r\n/g, "\n").replace(/[ \t]+$/gm, "").replace(/\n+$/, "\n");
-}
+// Text artifacts are normalized to LF before they are written or hashed (scripts/canonical.mjs),
+// and the Toolkit gate hashes the committed artifacts the same way.
 
 async function pruneSourceMaps(root) {
   for (const file of await walkFiles(root)) {

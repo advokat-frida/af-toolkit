@@ -1,0 +1,29 @@
+{
+  "juris": "US-CA",
+  "label": "CCPA § 1798.140 — Definitions (sell, share, sensitive)",
+  "citation": "Cal. Civ. Code § 1798.140",
+  "provenance": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.140.",
+  "body": [
+    "<p><b>(d) \"Business\"</b> means … a legal entity … that does business in the State of California, and that satisfies one or more of the following thresholds:</p>",
+    "  <blockquote>(A) annual gross revenues in excess of <b>$25,000,000</b> in the preceding calendar year …;</blockquote>",
+    "  <blockquote>(B) annually buys, sells, or shares the personal information of <b>100,000 or more consumers or households</b>;</blockquote>",
+    "  <blockquote>(C) derives <b>50% or more</b> of its annual revenues from selling or sharing consumers' personal information.</blockquote>",
+    "  <p><b>(ad)(1) \"Sell,\" \"selling,\" \"sale,\" or \"sold\"</b> means selling, renting, releasing, disclosing, disseminating, making available, transferring, or otherwise communicating … a consumer's personal information by the business to a <b>third party for monetary or other valuable consideration</b>.</p>",
+    "  <p>(2) A business does <b>not</b> sell personal information when:</p>",
+    "  <blockquote>(A) a consumer uses or directs the business to intentionally disclose personal information or interact with one or more third parties;</blockquote>",
+    "  <blockquote>(B) the business uses or shares an identifier for a consumer who has opted out … for the purposes of alerting persons that the consumer has opted out …;</blockquote>",
+    "  <blockquote>(C) the business transfers to a third party the personal information of a consumer as an asset that is part of a <b>merger, acquisition, bankruptcy, or other transaction</b> in which the third party assumes control of all or part of the business …</blockquote>",
+    "  <p><b>(ah)(1) \"Share,\" \"shared,\" or \"sharing\"</b> means … communicating a consumer's personal information by the business to a third party <b>for cross-context behavioral advertising</b>, whether or not for monetary or other valuable consideration, including transactions between a business and a third party for cross-context behavioral advertising for the benefit of a business in which no money is exchanged.</p>",
+    "  <p><b>(ae) \"Sensitive personal information\"</b> means personal information that reveals: SSN/driver's license/passport; account log-in or financial account with security code; precise geolocation; racial or ethnic origin, citizenship or immigration status, religious or philosophical beliefs, union membership; contents of mail/email/text (unless business is intended recipient); genetic data; <b>neural data</b>; biometric information for unique identification; health information; sex life or sexual orientation.</p>",
+    "  <p><b>(ag) \"Service provider\"</b> = processes PI on behalf of business under written contract that <b>prohibits selling/sharing</b> and retention/use/disclosure outside the contracted business purpose. <b>(j) \"Contractor\"</b> = similar contractually-restricted recipient. <b>(ai) \"Third party\"</b> = anyone who is <b>not</b> the business, a service provider, or a contractor.</p>"
+  ],
+  "kind": "statute",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

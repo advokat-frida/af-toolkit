@@ -1,0 +1,28 @@
+{
+  "juris": "EU",
+  "label": "Germany — BDSG § 38 (DPO designation by private bodies)",
+  "citation": "Bundesdatenschutzgesetz (BDSG), § 38",
+  "body": [
+    "§ 38 Datenschutzbeauftragte nichtöffentlicher Stellen",
+    "",
+    "(1) Ergänzend zu Artikel 37 Absatz 1 Buchstabe b und c der Verordnung (EU) 2016/679 benennen der Verantwortliche und der Auftragsverarbeiter eine Datenschutzbeauftragte oder einen Datenschutzbeauftragten, soweit sie in der Regel mindestens 20 Personen ständig mit der automatisierten Verarbeitung personenbezogener Daten beschäftigen. Nehmen der Verantwortliche oder der Auftragsverarbeiter Verarbeitungen vor, die einer Datenschutz-Folgenabschätzung nach Artikel 35 der Verordnung (EU) 2016/679 unterliegen, oder verarbeiten sie personenbezogene Daten geschäftsmäßig zum Zweck der Übermittlung, der anonymisierten Übermittlung oder für Zwecke der Markt- oder Meinungsforschung, haben sie unabhängig von der Anzahl der mit der Verarbeitung beschäftigten Personen eine Datenschutzbeauftragte oder einen Datenschutzbeauftragten zu benennen.",
+    "",
+    "(2) § 6 Absatz 4, 5 Satz 2 und Absatz 6 finden Anwendung, § 6 Absatz 4 jedoch nur, wenn die Benennung einer oder eines Datenschutzbeauftragten verpflichtend ist.",
+    "",
+    "[Unofficial English rendering - not an official translation; prepared for this tool from the German text above:]",
+    "",
+    "(1) In addition to Article 37(1)(b) and (c) of Regulation (EU) 2016/679, the controller and the processor shall designate a data protection officer where they, as a rule, permanently employ at least 20 persons in the automated processing of personal data. Where the controller or the processor carries out processing operations that are subject to a data protection impact assessment under Article 35 of Regulation (EU) 2016/679, or where they process personal data on a commercial basis for the purpose of transfer, of anonymised transfer, or for purposes of market or opinion research, they must designate a data protection officer irrespective of the number of persons employed in the processing.",
+    "",
+    "(2) Section 6(4), Section 6(5) second sentence and Section 6(6) apply; Section 6(4), however, applies only where the designation of a data protection officer is mandatory."
+  ],
+  "kind": "statute",
+  "provenance": "https://www.gesetze-im-internet.de/bdsg_2018/__38.html",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-NH",
+  "label": "New Hampshire: enforcement and cure opportunity",
+  "citation": "RSA 507-H:11(I)–(III), (V)",
+  "provenance": "https://gc.nh.gov/rsa/html/LII/507-H/507-H-11.htm",
+  "note": "Editorial summary of the cited current primary law, not a verbatim statutory extract. Cure/enforcement checkpoint: September 22, 2026. Independent content review and practitioner review are separate. This card addresses the comprehensive privacy law's cure opportunity and enforcement actor, not a complete remedies schedule.",
+  "body": [
+    "<p>The Attorney General has exclusive enforcement authority. During 2025 it had to give a pre-action violation notice if it determined cure was possible; after that period it may do so.</p>",
+    "<p>Where the notice is issued, the controller has sixty days after receipt to cure before the Attorney General may bring the stated action.</p>",
+    "<p>From January 1, 2026 the Attorney General may consider violation count, size/complexity, processing, likelihood of public injury, safety and human/technical error when deciding whether to allow cure.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2025-01-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

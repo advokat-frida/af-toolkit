@@ -1,0 +1,24 @@
+{
+  "juris": "US-IL",
+  "label": "IL BIPA Sec. 15 — Retention; collection; disclosure",
+  "citation": "740 ILCS 14/15",
+  "provenance": "https://www.ilga.gov/Legislation/ILCS/Articles?ActID=3004&ChapterID=57",
+  "body": [
+    "<p><span class=\"num\">(a)</span> A private entity in possession of biometric identifiers or biometric information must develop a <b>written policy, made available to the public</b>, establishing a retention schedule and guidelines for permanently destroying biometric identifiers and biometric information when the initial purpose for collecting … has been satisfied or within <b>3 years of the individual's last interaction</b>, whichever occurs first.</p>",
+    "  <p><span class=\"num\">(b)</span> No private entity may collect, capture, purchase, receive through trade, or otherwise obtain a person's or a customer's biometric identifier or biometric information, unless it first:</p>",
+    "  <blockquote>(1) informs the subject … <b>in writing</b> that a biometric identifier or biometric information is being collected or stored;</blockquote>",
+    "  <blockquote>(2) informs the subject … in writing of the <b>specific purpose and length of term</b> for which it is being collected, stored, and used;</blockquote>",
+    "  <blockquote>(3) receives a <b>written release</b> executed by the subject or the subject's legally authorized representative.</blockquote>",
+    "  <p><span class=\"num\">(c)</span> No private entity in possession of biometric data may <b>sell, lease, trade, or otherwise profit</b> from it.</p>",
+    "  <p><span class=\"num\">(d)</span> No disclosure unless: subject consents; required to complete a financial transaction the subject authorized; required by law or municipal ordinance; or pursuant to a valid warrant or subpoena.</p>"
+  ],
+  "kind": "statute",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

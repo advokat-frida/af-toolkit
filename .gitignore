@@ -10,3 +10,6 @@ npm-debug.log*
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# wrangler dev state (local only)
+.wrangler/

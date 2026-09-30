@@ -1,0 +1,28 @@
+{
+  "juris": "EU",
+  "label": "EU AI Act Art. 113 — Entry into force and application (the date ladder)",
+  "citation": "Regulation (EU) 2024/1689, Art. 113 (third paragraph points (a) and (c) as amended, and point (d) added, by the Digital Omnibus on AI, 2026)",
+  "body": [
+    "This Regulation entered into force on 1 August 2024 (the twentieth day following its publication in the Official Journal on 12 July 2024). It applies from 2 August 2026. However:",
+    "",
+    "(a) (as amended 2026) Chapters I and II [general provisions, AI literacy, prohibited practices] apply from 2 February 2025, with the exception of Article 5(1), first subparagraph, points (ba) and (bb), and Article 5(1a) and (1b) [the non-consensual intimate imagery and CSAM prohibitions], which apply from 2 December 2026;",
+    "",
+    "(b) Chapter III Section 4 [notifying authorities and notified bodies], Chapter V [general-purpose AI models], Chapter VII [governance], Chapter XII [penalties] and Article 78 apply from 2 August 2025, with the exception of Article 101;",
+    "",
+    "(c) (as amended 2026) Chapter III, Sections 1, 2, and 3 [high-risk classification, requirements, and obligations of providers, deployers and other parties], with the exception of Article 6(5), apply from: (i) 2 December 2027 as regards AI systems classified as high-risk pursuant to Article 6(2) and Annex III; and (ii) 2 August 2028 as regards AI systems classified as high-risk pursuant to Article 6(1) and Annex I;",
+    "",
+    "(d) (added 2026) Articles 102 to 110 apply from the date of entry into force of the amending Regulation.",
+    "",
+    "Everything not covered by an exception — including the Article 50 transparency obligations and Chapter III Section 5 [standards, conformity assessment, certificates, registration] — applies from 2 August 2026."
+  ],
+  "kind": "statute",
+  "provenance": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R1689",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

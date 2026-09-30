@@ -4,6 +4,8 @@
 
 **The other PWC — the one that hands you an answer before an invoice.**
 
+[Changelog](CHANGELOG.md)
+
 Guided determinations for the privacy questions that eat your afternoon: is this a notifiable breach, does it need a DPIA, which lawful basis, can this data leave the EU. Answer plainly, click through, and leave with the determination, the statutes and case law behind it, and a dated record you can file.
 
 No backend, no accounts, and no telemetry. The authored vNext uses Svelte and Vite, then builds to
@@ -25,8 +27,9 @@ That isn't a bug, it's the whole design. The Council was never meant to be compr
 
 - **Fork the shipped baseline.** [`wizards.html`](wizards.html) remains the untouched legacy
   artifact.
-- **Change the maintainable source.** The local redesign lives in [`src/`](src/) with graph,
-  legal-state, URL, export, and privacy tests under [`tests/`](tests/).
+- **Change the maintainable source.** The paths and sources live in [`content/`](content/), one
+  file each; the interface lives in [`src/`](src/), with graph, legal-state, URL, export, and
+  privacy tests under [`tests/`](tests/).
 - **Carry one file.** `npm run build` produces `dist/wizards.html`; the built artifact has no runtime
   server or third-party dependency.
 

@@ -1,0 +1,22 @@
+{
+  "juris": "US-CA",
+  "label": "CCPA § 1798.150 — Personal Information Security Breaches",
+  "citation": "Cal. Civ. Code § 1798.150",
+  "provenance": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.150.",
+  "body": [
+    "<p><span class=\"num\">(a)(1)</span> Any consumer whose nonencrypted and nonredacted personal information … or whose email address in combination with a password or security question and answer that would permit access to the account is subject to an <b>unauthorized access and exfiltration, theft, or disclosure</b> as a result of the business' violation of the duty to implement and maintain <b>reasonable security procedures and practices</b> … may institute a civil action for:</p>",
+    "  <blockquote>(A) damages in an amount not less than $100 and not greater than $750 per consumer per incident or actual damages, whichever is greater;</blockquote>",
+    "  <blockquote>(B) injunctive or declaratory relief;</blockquote>",
+    "  <blockquote>(C) any other relief the court deems proper.</blockquote>",
+    "  <p><span class=\"num\">(b)</span> A consumer must provide a business <b>30 days' written notice</b> identifying the specific provisions … alleged to have been violated. If the business actually cures the noticed violation within 30 days and provides an express written statement … no action for statutory damages may be initiated. <b>The implementation and maintenance of reasonable security procedures and practices following a breach does not constitute a cure with respect to that breach.</b></p>"
+  ],
+  "kind": "statute",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

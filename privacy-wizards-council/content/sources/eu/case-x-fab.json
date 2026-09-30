@@ -1,0 +1,20 @@
+{
+  "kind": "case",
+  "juris": "EU",
+  "label": "CJEU C-453/21 — X-FAB Dresden (DPO conflict of interest) — EU-authoritative; persuasive only in the UK",
+  "citation": "CJEU (Sixth Chamber), 9 February 2023, ECLI:EU:C:2023:79",
+  "provenance": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:62021CJ0453",
+  "body": [
+    "<p><b>Operative part:</b></p>",
+    "  <p><span class=\"num\">2.</span> A \"<b>conflict of interests</b>\" under Art. 38(6) may exist where a DPO is entrusted with other tasks that would result in them <b>determining the objectives and methods</b> of processing on the part of the controller/processor. Determined case by case by national courts, taking the organisational structure and applicable rules into account.</p>",
+    "  <p><b>Why it matters:</b> A DPO who also holds roles that set processing purposes/means is structurally at risk of conflict — assessed case by case, not per se. Enforcement signal: the Belgian DPA fined a company €50,000 (28 April 2020) where the DPO was dual-hatted as head of compliance, audit and risk; the EDPB ran a coordinated enforcement framework action on DPOs in 2023 (report January 2024). UK note: X-FAB post-dates the Brexit transition period, so it is persuasive but not binding in the UK.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

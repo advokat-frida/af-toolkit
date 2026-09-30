@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-FL",
+  "label": "Florida: entity and data exclusions",
+  "citation": "Fla. Stat. § 501.703",
+  "provenance": "https://www.flsenate.gov/Laws/Statutes/2025/501.703",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Entity status and record-level exclusions are separate decisions; the listed categories must satisfy the linked law's definitions and conditions.",
+  "body": [
+    "<p>Section 501.703 applies this part to a person conducting business in Florida or producing a product/service used by Florida residents, and processing or engaging in the sale of personal data, subject to its exemptions.</p>",
+    "<p>§501.703 excludes government entities, qualifying GLBA financial institutions, HIPAA covered entities/business associates, nonprofits, and postsecondary institutions. Section 501.703 also excludes purely personal/household processing and specified ad-measurement-only processing.</p>",
+    "<p>GLBA data is separately excluded in §501.703. Further specific data exemptions are in §501.704, which has its own source card in this candidate.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

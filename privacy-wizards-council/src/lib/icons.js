@@ -20,6 +20,8 @@ const ICONS = Object.freeze({
 });
 
 const WIZARD_ICON_NAMES = Object.freeze({
+  'us-applicability': 'globe',
+  'us-divergence': 'layers',
   breach: 'siren',
   dpia: 'clipboard',
   'legal-basis': 'scale',

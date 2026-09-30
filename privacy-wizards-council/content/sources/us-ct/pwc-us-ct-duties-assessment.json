@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-CT",
+  "label": "Connecticut: risk assessments",
+  "citation": "Conn. Gen. Stat. §42-522",
+  "provenance": "https://www.cga.ct.gov/2026/sup/chap_743jj.htm",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>In addition to data protection assessments for specified high-risk processing, significant-decision profiling has a separate impact-assessment requirement for activities created or generated on or after August 1, 2026.</p>",
+    "<p>Document the impact assessment elements in §42-522(c): purpose/context, risks and mitigations, inputs/outputs, relevant customization data, performance/limitations, transparency and post-deployment safeguards.</p>",
+    "<p>Keep the dates separate: data protection assessments cover activities created or generated after July 1, 2023; profiling impact assessments cover activities created or generated on or after August 1, 2026. Neither provision is retroactive.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2026-07-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

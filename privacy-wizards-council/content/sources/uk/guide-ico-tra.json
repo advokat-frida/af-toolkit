@@ -1,0 +1,18 @@
+{
+  "kind": "guidance",
+  "juris": "UK",
+  "label": "ICO — Transfer Risk Assessments (TRA) guidance and TRA tool",
+  "citation": "ICO, International transfers guidance: Transfer risk assessments (2022, as updated)",
+  "body": [
+    "ICO 'Completing a transfer risk assessment' - detailed guidance, last updated 15 January 2026, when the ICO broke its previous Guide to international transfers into specific detailed guides and updated this one for the Data (Use and Access) Act: a TRA is now referred to in UK legislation as the 'data protection test', requiring the transferor to decide, acting reasonably and proportionately, that the standard of protection for people's information is 'not materially lower' than in the UK after transfer (the ICO keeps using the term TRA but has aligned the guidance to the new statutory wording, and a pre-DUAA TRA that concluded protection was sufficient is treated as meeting the data protection test). A TRA is required whenever a restricted transfer relies on an Art. 46 appropriate safeguard (not where UK adequacy regulations or an exception apply), and the chosen safeguard only becomes 'appropriate safeguards' once the TRA is completed, any extra steps and protections it identifies are in place, and the safeguard is executed; if protection remains insufficient and cannot be supplemented, the transfer must not be made on that safeguard. The TRA considers two broad risk types: risks from third parties (including governments and public bodies) in the destination country accessing the information without being bound by the safeguard, and risks from difficulties enforcing the safeguard. Three approaches are permitted: Option 1, the ICO's TRA tool - a risk-of-harm approach comparing people's position if the information stays in the UK against the position after transfer, focused on any increase in risk to privacy and other human rights and on enforceability, via a six-question template (specific circumstances; level of risk in the information, using an appendix of typical data categories with initial harm risk scores of low/moderate/high; reasonable and proportionate level of investigation; whether the transfer significantly increases the risk of a human rights breach; enforceability of the safeguard in the UK and destination; and whether exceptions cover any 'significant risk data'). Option 2 is the EDPB's approach of comparing the laws and practices of the UK with those of the destination country, and the ICO expressly states that a transfer impact assessment (TIA) already completed for Art. 46 safeguards under the EU GDPR can be used to inform the UK TRA. Option 3 is relying on the UK government's published adequacy-style analysis, currently only the DSIT Analysis of the UK Extension to the EU-US Data Privacy Framework for US transfers. The organisation initiating the restricted transfer (controller or processor) must complete the TRA; onward transfers by the receiver do not require the transferor's own TRA, one TRA can cover a series of similar transfers, and ongoing transfers must be reassessed regularly - an annual check is proportionate for most."
+  ],
+  "provenance": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/international-transfers/completing-a-transfer-risk-assessment/",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

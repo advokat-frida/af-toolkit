@@ -1,0 +1,20 @@
+{
+  "kind": "statute",
+  "juris": "US-NH",
+  "label": "New Hampshire: entity and data exclusions",
+  "citation": "RSA 507-H:3",
+  "provenance": "https://gc.nh.gov/rsa/html/LII/507-H/507-H-3.htm",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Entity status and record-level exclusions are separate decisions; the listed categories must satisfy the linked law's definitions and conditions.",
+  "body": [
+    "<p>§507-H:3 excludes government bodies, nonprofits, higher education, specified national securities associations, qualifying GLBA financial institutions and HIPAA covered entities/business associates.</p>",
+    "<p>§507-H:3 separately excludes GLBA data, health/research and limited datasets, regulated credit, DPPA, FERPA, Farm Credit, employment-role, specified airline and listed-chemical information. Each exclusion has conditions and is not a general data-industry exemption.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

@@ -13,14 +13,17 @@ download the result.
 
 You should see the page load and then nothing. No requests while you work. No beacon on close.
 The tools do not lazily fetch anything, because there is nothing to fetch — fonts, icons and data
-are all inside the file.
+are all inside the file. One exception: the first PDF you open in Redactorium loads its PDF reader
+(`assets/pdf-….js` and `pdf.worker.min.mjs`) from the same site. That is code arriving, not your
+file leaving, and nothing goes to any other host.
 
 This takes thirty seconds and it is the check that actually matters.
 
 ## 2. Pull the plug
 
 Load a tool, then turn off your network — properly, not just offline mode — and keep using it.
-Everything still works.
+Everything still works, except that Redactorium can only read a PDF offline if it already loaded
+its PDF reader while you were online.
 
 Several of the single-file tools can be saved to disk and opened from `file://` with no server at
 all. A tool that runs from a local file cannot be talking to anyone.
@@ -39,6 +42,11 @@ Same for `safelist` and `privacy-wizards-council`. Redactorium is a directory
 rather than a single file, so its entry records a hash over the whole tree; `scripts/checks.mjs`
 recomputes it the same way.
 
+`curl` gets the file. A browser that opens the same address as a page is sent to the tool's
+address in the Toolkit (`/safeseed`), which is the shell framing that same file; the edge tells
+the two apart by the request's `Sec-Fetch-Dest` header. To look at the bytes in a browser, save
+the `curl` output and open that.
+
 **One honest caveat.** Cloudflare currently injects a small hidden anchor into every HTML response
 for bot detection. It is inert — no script, no data about you — but it does mean a raw `curl` of an
 HTML page differs from the repository by that one tag. Strip it and the bytes match exactly. We
@@ -51,6 +59,8 @@ what the site served you.
 
 ```bash
 npm ci
+# each tool builds with its own dependencies
+(cd safeseed && npm ci) && (cd safelist && npm ci) && (cd privacy-wizards-council && npm ci) && (cd redactorium/frontend && npm ci)
 npm run build:tools:full   # runs each tool's own build first
 git diff --stat public/
 ```

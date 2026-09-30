@@ -1,0 +1,25 @@
+{
+  "juris": "EU",
+  "label": "EU AI Act Art. 22 — Authorised representatives",
+  "citation": "Regulation (EU) 2024/1689, Art. 22 (Art. 54 is the parallel duty for providers of general-purpose AI models)",
+  "body": [
+    "1. Prior to making their high-risk AI systems available on the Union market, providers established in third countries shall, by written mandate, appoint an authorised representative which is established in the Union.",
+    "",
+    "3. The authorised representative shall perform the tasks specified in the mandate received from the provider. [...] the mandate shall empower the authorised representative to carry out the following tasks: (a) verify that the EU declaration of conformity (Article 47) and the technical documentation (Article 11) have been drawn up and that an appropriate conformity assessment procedure has been carried out by the provider; (b) keep at the disposal of the competent authorities, for a period of 10 years after the high-risk AI system has been placed on the market or put into service, the contact details of the provider, a copy of the EU declaration of conformity, the technical documentation and, if applicable, the certificate issued by the notified body; (c) provide a competent authority, upon a reasoned request, with all the information and documentation necessary to demonstrate conformity, including access to the logs; (d) cooperate with competent authorities in any action they take in relation to the high-risk AI system, in particular to reduce and mitigate its risks; (e) where applicable, comply with the registration obligations referred to in Article 49(1) [...].",
+    "The mandate shall empower the authorised representative to be addressed, in addition to or instead of the provider, by the competent authorities, on all issues related to ensuring compliance.",
+    "",
+    "4. The authorised representative shall terminate the mandate if it considers or has reason to consider the provider to be acting contrary to its obligations pursuant to this Regulation, and shall immediately inform the relevant market surveillance authority and, where applicable, the relevant notified body.",
+    "",
+    "Article 54 imposes the same appointment duty, with equivalent mandate tasks, on third-country providers of general-purpose AI models prior to placing such a model on the Union market."
+  ],
+  "kind": "statute",
+  "provenance": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R1689",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

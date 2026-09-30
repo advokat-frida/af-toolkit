@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-IA",
+  "label": "Iowa: consumer rights",
+  "citation": "Iowa Code §715D.3",
+  "provenance": "https://www.legis.iowa.gov/docs/code/715D.pdf",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Iowa does not enumerate a correction right. Deletion and portability are narrower and concern data provided by the consumer, subject to statutory limits.</p>",
+    "<p>Support confirmation/access, the specified deletion/copy rights and sale opt-out.</p>",
+    "<p>Respond within 90 days; one reasonably necessary 45-day extension requires timely notice and reasons. Decide an internal appeal within 60 days.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2025-01-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

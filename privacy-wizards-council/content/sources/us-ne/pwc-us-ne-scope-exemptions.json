@@ -1,0 +1,20 @@
+{
+  "kind": "statute",
+  "juris": "US-NE",
+  "label": "Nebraska: entity and data exclusions",
+  "citation": "Neb. Rev. Stat. § 87-1104",
+  "provenance": "https://nebraskalegislature.gov/laws/statutes.php?statute=87-1104",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Entity status and record-level exclusions are separate decisions; the listed categories must satisfy the linked law's definitions and conditions.",
+  "body": [
+    "<p>Government entities, qualifying GLBA financial institutions and affiliates, HIPAA covered entities/business associates, nonprofits, higher education and the listed electricity/natural-gas utilities are excluded. SBA small-business status is a separate check, with a surviving consent duty.</p>",
+    "<p>§87-1104 separately excludes specified health/research, regulated credit, DPPA, FERPA, Farm Credit and employment-role information. GLBA data is independently excluded in §87-1103.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

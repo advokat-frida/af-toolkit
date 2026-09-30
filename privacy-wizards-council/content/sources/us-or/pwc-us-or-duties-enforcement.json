@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-OR",
+  "label": "Oregon: enforcement and cure opportunity",
+  "citation": "ORS 646A.589(4), (7); 2025 Or. Laws ch. 417 §§4–6 (note following §646A.589)",
+  "provenance": "https://www.oregonlegislature.gov/bills_laws/ors/ors646a.html",
+  "note": "Editorial summary of the cited current primary law, not a verbatim statutory extract. Cure/enforcement checkpoint: September 22, 2026. Independent content review and practitioner review are separate. This card addresses the comprehensive privacy law's cure opportunity and enforcement actor, not a complete remedies schedule.",
+  "body": [
+    "<p>The Attorney General has exclusive enforcement authority under ORS 646A.589(7).</p>",
+    "<p>The temporary rule in 2025 chapter 417 §5 required notice when the Attorney General determined cure was possible, with thirty days after receipt. From January 1, 2026 it applied only to the defined noncommercial educational broadcasters meeting the funding/emergency-entry and free-journalism conditions.</p>",
+    "<p>Section 6 repealed that remaining rule on July 1, 2026. Thus neither the general opportunity nor that temporary broadcaster exception guarantees cure at the September 22, 2026 checkpoint.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-OR",
+  "label": "Oregon: risk assessments",
+  "citation": "ORS §646A.586",
+  "provenance": "https://www.oregonlegislature.gov/bills_laws/ors/ors646A.html",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Assess heightened-risk targeted advertising, sale, sensitive processing and qualifying profiling. Retain assessments for at least five years.</p>",
+    "<p>The requirement applies to processing activities occurring on and after July 1, 2024, and is not retroactive.</p>",
+    "<p>Document benefits, risks, safeguards and any reasonably similar assessment reused from another law.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

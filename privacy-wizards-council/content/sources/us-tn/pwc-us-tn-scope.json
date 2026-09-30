@@ -1,0 +1,22 @@
+{
+  "kind": "statute",
+  "juris": "US-TN",
+  "label": "Tennessee: applicability",
+  "citation": "Tenn. Code Ann. §§ 47-18-3303, 47-18-3311",
+  "provenance": "https://www.capitol.tn.gov/Archives/Joint/publications/TNCodeBills/2025/TNCodeBill_Volume1_2025.pdf",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Current recodification is Part33, §47-18-3303. The AG paraphrases the nexus with OR; this draft retains the statute's narrower wording and sends ambiguity to legal review.",
+  "body": [
+    "<p>Does it conduct business in Tennessee producing products or services that target Tennessee residents?</p>",
+    "<p>Does its revenue strictly exceed $25 million AND does at least one limb hold: it controls or processes at least 25,000 consumers’ personal data AND derives strictly more than 50% of gross revenue from selling personal data; OR it controls or processes at least 175,000 consumers’ personal data during a calendar year?</p>",
+    "<p>Tennessee consumers acting individually or as a household, excluding commercial and employment roles. Do not substitute total global database records.</p>",
+    "<p>Measuring period: 175,000 limb: during a calendar year. §47-18-3303 states >$25m revenue and >50% gross revenue without separately naming a period; AG describes the general gate as annual.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

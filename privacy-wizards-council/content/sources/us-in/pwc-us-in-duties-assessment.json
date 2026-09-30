@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-IN",
+  "label": "Indiana: risk assessments",
+  "citation": "Ind. Code §24-15-6-1",
+  "provenance": "https://iga.in.gov/ic/2026/Title_24/Article_15.pdf",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Assess sale, targeted advertising, sensitive data and qualifying high-risk activities created or generated after December 31, 2025.</p>",
+    "<p>Record the activity's creation date; the provision is not retroactive to pre-2026 activities.</p>",
+    "<p>Document the benefit/risk balance, safeguards and whether an existing assessment is reasonably comparable.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2026-01-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

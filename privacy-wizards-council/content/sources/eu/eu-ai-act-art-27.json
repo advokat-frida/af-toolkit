@@ -1,0 +1,24 @@
+{
+  "juris": "EU",
+  "label": "EU AI Act Art. 27 — Fundamental rights impact assessment (FRIA)",
+  "citation": "Regulation (EU) 2024/1689, Art. 27 (paras 4-5 as amended by the Digital Omnibus on AI, 2026)",
+  "body": [
+    "1. Prior to deploying a high-risk AI system referred to in Article 6(2) [Annex III], with the exception of systems intended to be used in the area listed in point 2 of Annex III [critical infrastructure], deployers that are bodies governed by public law, or are private entities providing public services, and deployers of high-risk AI systems referred to in points 5(b) and (c) of Annex III [creditworthiness/credit scoring; life and health insurance risk assessment and pricing], shall perform an assessment of the impact on fundamental rights that the use of such system may produce — covering the deployer's processes, the period and frequency of use, the categories of natural persons and groups likely to be affected, the specific risks of harm to them, the human oversight measures, and the measures to be taken if risks materialise.",
+    "",
+    "3. The deployer shall notify the market surveillance authority of the results of the assessment.",
+    "",
+    "4. (as amended 2026) If any of these obligations is already met through the data protection impact assessment conducted pursuant to Article 35 of Regulation (EU) 2016/679 or Article 27 of Directive (EU) 2016/680, the deployer may include cross-references to the relevant sections of that DPIA or include relevant parts thereof in the fundamental rights impact assessment.",
+    "",
+    "5. (as amended 2026) The AI Office shall develop a template questionnaire, including through an automated tool, to facilitate compliance in a simplified manner."
+  ],
+  "kind": "statute",
+  "provenance": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R1689",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

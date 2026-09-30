@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-CO",
+  "label": "Colorado: enforcement and cure",
+  "citation": "C.R.S. §6-1-1311(1)(a), (c), (d)(I)–(II), and editor's note (2026 code)",
+  "provenance": "https://olls.info/crs/crs2026-title-06.htm",
+  "note": "Editorial summary of the cited primary provisions, not a verbatim extract. Current-law check as of September 22, 2026; enforcement cure procedures do not postpone substantive compliance duties.",
+  "body": [
+    "<p>The Attorney General and district attorneys enforce the Colorado Privacy Act. The general cure provision was repealed effective January 1, 2025.</p>",
+    "<p>A narrower current provision covers enforcement of the minors sections 6-1-1305.5, 6-1-1308.5 and 6-1-1309.5. If a cure is deemed possible, the enforcer must notify the controller before bringing the action; failure to cure within 60 days after receipt permits enforcement.</p>",
+    "<p>That minors-specific cure subsection is repealed effective December 31, 2026. It does not provide a general 60-day cure right for other CPA duties.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

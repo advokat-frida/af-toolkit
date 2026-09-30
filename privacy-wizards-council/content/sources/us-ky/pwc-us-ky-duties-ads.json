@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-KY",
+  "label": "Kentucky: sale and targeted advertising",
+  "citation": "KRS §§367.3615(1)(e), 367.3617(4)",
+  "provenance": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=55838",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Consumers can opt out of sale, targeted advertising and profiling in furtherance of decisions producing legal or similarly significant effects.</p>",
+    "<p>Apply Kentucky's definitions to the transfer or advertising use.</p>",
+    "<p>Provide the required disclosure and opt-out route; separately check sensitive processing consent.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2026-01-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

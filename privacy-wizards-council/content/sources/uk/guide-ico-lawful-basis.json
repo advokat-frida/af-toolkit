@@ -1,0 +1,18 @@
+{
+  "kind": "guidance",
+  "juris": "UK",
+  "label": "ICO — Lawful basis guidance (contract necessity; legitimate interests)",
+  "citation": "ICO Guide to the UK GDPR, lawful basis section — verify current version against post-DUAA updates",
+  "body": [
+    "ICO 'A guide to lawful basis' (Guide to the UK GDPR), updated 02 April 2026 to reflect amendments introduced by the Data (Use and Access) Act. It now lists seven lawful bases under Art. 6 UK GDPR, adding the DUAA's Art. 6(1)(ea) 'recognised legitimate interest' for pre-approved purposes (safeguarding vulnerable people; responding to emergencies; preventing or investigating crime; national security, public security and defence; and sharing personal information with an organisation that needs it for its public task or function, at its request), a basis unavailable to public authorities performing their official tasks. Core positions: no basis is 'better' than another; 'necessary' means a targeted and proportionate way of achieving a specific purpose that cannot reasonably be achieved by less intrusive means, and it is not enough that processing is part of your chosen business methods; the basis must be determined and documented before processing starts, disclosed in privacy information, and cannot generally be swapped later (especially not from consent); the chosen basis affects which individual rights apply. On contract (Art. 6(1)(b)), the ICO's position is that the basis covers processing needed to deliver a contractual service to the individual or to take pre-contract steps at their request; necessity must be integral to delivering that service - it does not cover reusing customer data for the controller's own business purposes even if permitted by standard terms, and profiling of interests and preferences for targeted advertising is not necessary for performance of the contract, so another basis (e.g. legitimate interests) is needed. On legitimate interests (Art. 6(1)(f), subpage updated 23 March 2026 for the DUAA), the ICO describes it as the most flexible basis, subject to the three-part test: purpose (a legitimate interest, which can include the controller's own or third-party commercial interests and wider societal benefits), necessity, and balancing against the individual's interests, rights and freedoms, with the individual's interests likely to override where processing is outside reasonable expectations or causes unjustified harm. The UK GDPR names IT security, direct marketing and intra-group transmissions for internal administrative purposes as potential legitimate interests, but the three-part test must still be done, direct marketing remains subject to PECR consent requirements, and a documented legitimate interests assessment (LIA) is expected; public authorities cannot rely on it for their public tasks, and the guidance distinguishes ordinary legitimate interests from the new recognised-legitimate-interest basis."
+  ],
+  "provenance": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/lawful-basis/a-guide-to-lawful-basis/",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

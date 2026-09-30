@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-MT",
+  "label": "Montana: sensitive data",
+  "citation": "Mont. Code Ann. §30-14-2812(2)(b)",
+  "provenance": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0120/0300-0140-0280-0120.html",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Sensitive processing requires consent; known-child sensitive data must be processed under COPPA.</p>",
+    "<p>Record the data category, specific purpose and consent.</p>",
+    "<p>The online-minor provisions in §30-14-2811 require a separate care, consent, design and location review where their conditions are met.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

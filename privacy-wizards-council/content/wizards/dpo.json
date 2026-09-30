@@ -1,0 +1,184 @@
+{
+  "title": "DPO required?",
+  "tag": "GDPR Art. 37: do you need to designate a Data Protection Officer?",
+  "q": "Do you have to appoint a data protection officer?",
+  "icon": "👤",
+  "jurisdictions": [
+    "EU",
+    "UK"
+  ],
+  "start": "q-public",
+  "nodes": {
+    "q-public": {
+      "type": "question",
+      "q": "Is your organization a public authority or body?",
+      "help": "Art. 37(1)(a) makes DPO designation mandatory for public authorities/bodies except courts acting judicially. National law may extend this (e.g. Germany's BDSG § 38 sets thresholds for private entities too).",
+      "cites": [
+        "gdpr-art-37"
+      ],
+      "opts": [
+        {
+          "label": "Yes — public authority or body",
+          "goto": "o-public-yes"
+        },
+        {
+          "label": "Yes — court acting in judicial capacity",
+          "goto": "o-court"
+        },
+        {
+          "label": "No — private entity",
+          "goto": "q-monitoring"
+        }
+      ]
+    },
+    "o-public-yes": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "DPO required — Art. 37(1)(a)",
+      "summary": "Public authorities and bodies must designate a DPO. A group of public bodies may designate a single DPO if organizationally feasible (Art. 37(3)).",
+      "actions": [
+        "Designate a DPO with expert knowledge of data protection law (Art. 37(5))",
+        "DPO may be staff or external on service contract (Art. 37(6))",
+        "Publish DPO contact details and notify the supervisory authority (Art. 37(7))",
+        "Ensure DPO is independent and reports to the highest level (Art. 38(3))",
+        "Resource the DPO with sufficient time, budget, training, and access (Art. 38(2))"
+      ],
+      "cites": [
+        "gdpr-art-37",
+        "gdpr-art-38"
+      ]
+    },
+    "o-court": {
+      "type": "outcome",
+      "tier": "info",
+      "title": "Courts acting judicially are exempt from Art. 37(1)(a)",
+      "summary": "Art. 37(1)(a) carves out courts in their judicial capacity, recognizing judicial independence. Court administrative functions are not exempt — there a DPO is still required.",
+      "actions": [
+        "Separate judicial vs administrative functions",
+        "Designate a DPO for administrative processing",
+        "Local law may impose other oversight for judicial processing"
+      ],
+      "cites": [
+        "gdpr-art-37"
+      ]
+    },
+    "q-monitoring": {
+      "type": "question",
+      "q": "Is regular and systematic monitoring of people, on a large scale, one of your core activities?",
+      "help": "Art. 37(1)(b). 'Core activities' = key operations needed to achieve the controller's goals (not ancillary, like internal HR). 'Regular and systematic monitoring' includes tracking and profiling. 'Large scale' considers number of subjects, volume, duration, geographic extent (WP243). Examples: location tracking by mobile apps, behavioral advertising, loyalty programs, CCTV in public spaces.",
+      "cites": [
+        "gdpr-art-37",
+        "guide-wp29-wp243-dpo"
+      ],
+      "opts": [
+        {
+          "label": "Yes — that's a core activity",
+          "goto": "o-dpo-req"
+        },
+        {
+          "label": "No",
+          "goto": "q-special-large"
+        }
+      ]
+    },
+    "q-special-large": {
+      "type": "question",
+      "q": "Is large-scale processing of special category data (Art. 9) or criminal-conviction data (Art. 10) one of your core activities?",
+      "help": "Art. 37(1)(c). Hospitals, insurers, large research institutions are classic examples. WP243 gives factors for 'large scale': number of subjects (absolute or as a proportion), volume of data, duration, geographic reach.",
+      "cites": [
+        "gdpr-art-37",
+        "gdpr-art-9",
+        "guide-wp29-wp243-dpo"
+      ],
+      "opts": [
+        {
+          "label": "Yes — we're a hospital, insurer, or similar",
+          "goto": "o-dpo-req"
+        },
+        {
+          "label": "No",
+          "goto": "q-local-law"
+        }
+      ]
+    },
+    "q-local-law": {
+      "type": "question",
+      "q": "Does national law (Art. 37(4)) require a DPO for your sector or above some size threshold?",
+      "help": "Several Member States have set additional thresholds under Art. 37(4). Germany (BDSG § 38(1)): a DPO is required if, as a rule, at least 20 persons (check the current BDSG § 38 threshold — it has moved before) are constantly engaged in automated processing of personal data; and regardless of headcount, if the processing is subject to a data protection impact assessment (DPIA) under Art. 35, or if personal data are processed commercially ('geschäftsmäßig') for the purpose of transfer, anonymised transfer, or for market or opinion research. UK: no UK legislation currently extends Art. 37(4)-style thresholds — the UK GDPR Art. 37(1) triggers stand alone (verify current ICO guidance).",
+      "cites": [
+        "gdpr-art-37",
+        "bdsg-38",
+        "uk-gdpr-art-37"
+      ],
+      "opts": [
+        {
+          "label": "Yes — local law requires a DPO",
+          "goto": "o-dpo-req"
+        },
+        {
+          "label": "No — but we'd like to designate one voluntarily",
+          "goto": "o-voluntary"
+        },
+        {
+          "label": "No — and we don't need one",
+          "goto": "o-no-dpo"
+        }
+      ]
+    },
+    "o-dpo-req": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "DPO required",
+      "summary": "Designate a DPO with the expert knowledge Art. 37(5) requires, plus Art. 38–39 independence and tasks (informing and advising, monitoring compliance, advising on data protection impact assessments (DPIAs), cooperating with the supervisory authority (SA), and acting as contact point for data subjects). WP243 rev.01 supplies the working definitions for 'core activities', 'large scale', and 'regular and systematic monitoring'. EU: CJEU C-453/21 X-FAB Dresden is the authoritative reading of the Art. 38(6) conflict-of-interest standard. UK: UK GDPR Art. 38(6) applies as domestic law; X-FAB (C-453/21), decided February 2023 after the Brexit transition period, is persuasive only, not binding — the ICO's DPO guidance takes the same substantive position on conflicts of interest (verify current ICO guidance).",
+      "actions": [
+        "Designate based on expert knowledge of data protection law and practices (Art. 37(5))",
+        "Internal staff or external service contract — both are permitted (Art. 37(6))",
+        "Publish contact details and notify the SA (Art. 37(7)) — the ICO for UK entities",
+        "Check for conflict of interest — under X-FAB (C-453/21), a conflict may exist where the DPO's other tasks involve determining the purposes and means of processing; assessed case by case. Roles frequently found conflicted in practice: CIO, head of HR, head of compliance",
+        "Resource adequately: time, budget, access, training (Art. 38(2))",
+        "Highest-level reporting line (Art. 38(3))",
+        "Don't instruct the DPO on how to do their tasks, and don't dismiss or penalize them for doing them (both Art. 38(3))"
+      ],
+      "cites": [
+        "gdpr-art-37",
+        "gdpr-art-38",
+        "case-x-fab",
+        "guide-wp29-wp243-dpo",
+        "uk-gdpr-art-37",
+        "guide-ico-dpo"
+      ]
+    },
+    "o-voluntary": {
+      "type": "outcome",
+      "tier": "info",
+      "title": "Voluntary DPO — same Art. 38–39 obligations attach",
+      "summary": "WP243 confirms: a voluntarily designated DPO is subject to the same Art. 38–39 framework. If you call them 'DPO', the rules apply. If you want a privacy officer without those obligations, call them something else (e.g. 'privacy lead', 'head of privacy') and don't formally designate.",
+      "actions": [
+        "Decide: a formal DPO with the Art. 38–39 framework, or an informal privacy lead",
+        "If formal: publish contact details and notify the supervisory authority",
+        "If informal: avoid the 'DPO' title to prevent inadvertent application of Art. 38–39"
+      ],
+      "cites": [
+        "gdpr-art-37",
+        "guide-wp29-wp243-dpo"
+      ]
+    },
+    "o-no-dpo": {
+      "type": "outcome",
+      "tier": "ok",
+      "title": "No DPO duty arises",
+      "summary": "Even without an Art. 37 designation, the controller must still be able to demonstrate compliance (Art. 5(2), Art. 24) — an entity-level obligation, not a duty to appoint anyone.",
+      "actions": [
+        "Document the 'no DPO required' analysis",
+        "Re-assess if processing scope expands (new product line, expansion into health data, etc.)",
+        "Assigning an internal privacy lead remains best practice — without the Art. 38–39 burden"
+      ],
+      "cites": [
+        "gdpr-art-37",
+        "gdpr-art-5",
+        "gdpr-art-24"
+      ]
+    }
+  },
+  "verifiedAsOf": "2026-07-02 (automated cross-check against official source texts; not yet reviewed by counsel)"
+}

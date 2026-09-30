@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-TN",
+  "label": "Tennessee: consumer rights",
+  "citation": "Tenn. Code Ann. §47-18-3304",
+  "provenance": "https://www.capitol.tn.gov/Archives/Joint/publications/TNCodeBills/2025/TNCodeBill_Volume1_2025.pdf",
+  "note": "Editorial summary of the current codification in the official 2025 Tennessee Code Bill, pages 1096-1107, checked against the enacted 2023 chapter. Not a verbatim extract.",
+  "body": [
+    "<p>Support confirmation/access, correction, deletion, portability and statutory opt-outs, with an internal appeal.</p>",
+    "<p>Respond within 45 days, with a reasonably necessary 45-day extension on timely notice and reasons.</p>",
+    "<p>Decide an appeal within 60 days and provide the Attorney General complaint route if denied.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2025-07-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

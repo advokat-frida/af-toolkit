@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "slug": "pwc-us-state-expansion",
+  "workingTitle": "US state privacy applicability and material differences",
+  "family": "standalone-shell",
+  "readerJob": "Select the states relevant to a data use, resolve the facts that change coverage, and carry a cited result for each state into practitioner review.",
+  "contentScope": "new-body",
+  "styleBible": {
+    "inventorySource": "style-bible/src/lib/styleBible.js",
+    "inventorySha256": "760caefe9112cf84b94515e1c694ab98aa5bfd6024d7dda4c45e39e1302b1ae3",
+    "auditSource": "style-bible/AUDIT.md",
+    "auditSha256": "0837224b2bc1fdef16fe35151b05cfd5c15a4574ab17465f276fc2f1cbf1278a",
+    "readAt": "2026-09-22"
+  },
+  "patterns": [
+    {"id":"step-flow","useBecause":"Ask one legally consequential question at a time, with the current state named.","avoidWhen":"A single state-selection step needs ordinary checkboxes, not an artificial interview."},
+    {"id":"semantic-card","useBecause":"Each selected jurisdiction needs an equally weighted, explicit result and next action.","avoidWhen":"Repeated decorative cards would obscure the active question."},
+    {"id":"zippy","useBecause":"Keep reasoning, selected facts and source text available without crowding the decision.","avoidWhen":"The current result and unknown fact must remain visible."},
+    {"id":"outcome-receipt","useBecause":"The downloadable record carries every selected state's answers, authority and review status.","avoidWhen":"No practitioner approval may be inferred from a completed interview."}
+  ],
+  "liveReferences": [{"url":"https://advokatfrida.com/wizards/","inspectedAt":"2026-09-22","observed":"Inspected actual desktop and 390px screenshots: paper ground, forest action, Anton heading, spacious single-column phone layout.","boundary":"Reference inspection only. Toolkit tool canvas retains its existing shell and question typography; the live article and art are unchanged."}],
+  "email": {
+    "mode": "web-only",
+    "counterpartPlan": "Interactive tool paths; no article or email body is being drafted."
+  },
+  "responsive": {
+    "desktop": "Use existing Toolkit canvas width. State checkboxes form a compact responsive grid; active questions and completed state results stack in reading order. Check 1440 and 1034 pixels.",
+    "mobile": "Collapse choices to one column when needed. Keep tap targets at least 44 pixels, long citations wrapping, and results readable at 390 and 320 pixels."
+  },
+  "accessibility": {
+    "keyboard": "Native checkboxes and radio inputs, visible focus, Next and Back buttons; focus the next question or result heading after transitions.",
+    "semantics": "Fieldsets and legends label jurisdiction and answer groups. Each state result has a heading, actions and a details disclosure for its facts and sources. Status is written in text.",
+    "contrast": "Reuse the Toolkit ink, paper, forest and semantic status tokens. Do not introduce raw colors or use color as the only status cue."
+  },
+  "javascript": {
+    "decision": "earned",
+    "reason": "Client-side branching, independent state histories and a local downloadable determination require interaction. Inputs stay in memory; wizard links carry only the path ID."
+  },
+  "conflicts": ["The publication bible's article size guidance is subordinate to the existing Toolkit embedded-tool typography in docs/design/DESIGN-SYSTEM.md for this canvas. No article, artwork or shared shell changes are needed."],
+  "decisions": ["Reuse existing PWC question, disclosure, authority and outcome treatments.","A maximum remaining-question count is labeled as a maximum, not a promised fixed path length.","No answer state enters URLs, persistent browser storage or network calls.","All selected states receive equal stacked results; unknown facts have an owner and next action.","Ben's September 22 correction groups each determination's actions in one checklist card. Native checkboxes are temporary reading aids; links remain separately operable and check state is not exported or persisted."],
+  "releaseBoundary": "Ben completed practitioner review and approved this exact version on September 22, 2026, then explicitly authorized Tuck and deployment. Release only this PWC candidate plus its requested changelog and release records. Other Toolkit work remains parked."
+}

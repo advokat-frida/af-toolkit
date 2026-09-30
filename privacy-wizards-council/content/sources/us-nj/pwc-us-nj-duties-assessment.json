@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-NJ",
+  "label": "New Jersey: risk assessments",
+  "citation": "P.L.2023, c.266 §9(b)",
+  "provenance": "https://pub.njleg.gov/Bills/2022/AL23/266_.HTM",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Conduct an assessment before covered heightened-risk processing involving personal data acquired on or after the law's effective date.</p>",
+    "<p>Screen targeted advertising, sale, sensitive processing and qualifying risky profiling.</p>",
+    "<p>Document benefits, harms and safeguards and preserve the current effective-date boundary.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2025-01-15",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

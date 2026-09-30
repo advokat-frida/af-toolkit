@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-DE",
+  "label": "Delaware: enforcement and cure",
+  "citation": "6 Del. C. §12D-111(a)–(c), (e), version effective until January 1, 2027",
+  "provenance": "https://www.delcode.delaware.gov/title6/c012d/index.html#12D-111",
+  "note": "Editorial summary of the cited primary provisions, not a verbatim extract. Current-law check as of September 22, 2026; enforcement cure procedures do not postpone substantive compliance duties.",
+  "body": [
+    "<p>The Department of Justice exclusively enforces the Delaware Personal Data Privacy Act. In 2025, it had to notify a controller before action if cure was possible, with 60 days from receipt.</p>",
+    "<p>That mandatory regime ended December 31, 2025. Since January 1, 2026, granting a controller or processor an opportunity to cure is discretionary, taking account of violations, organizational size and processing, likely injury, safety, error and past conduct.</p>",
+    "<p>Current subsection (c) specifies no guaranteed duration. The January 1, 2027 version preserves this cure structure; it does not renew the expired mandatory period.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

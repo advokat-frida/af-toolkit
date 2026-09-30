@@ -1,0 +1,26 @@
+{
+  "kind": "guidance",
+  "juris": "EU",
+  "label": "EDPB Guidelines 01/2022 — Right of Access (Art. 15)",
+  "citation": "EDPB Guidelines 01/2022, version 2.0 (28 March 2023)",
+  "provenance": "https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-012022-data-subject-rights-right-access_en",
+  "body": [
+    "<p><b>Key positions:</b></p>",
+    "  <p>• Access is a <b>broad default</b>: provide all data, all categories, all recipients. Restrictions are exceptional and must be specifically justified.</p>",
+    "  <p>• Identity verification (Art. 12(6)): <b>proportionate to risk</b> — don't demand more ID than needed. Re-use existing authentication where possible.</p>",
+    "  <p>• \"Copy\" of personal data under Art. 15(3) is a <b>full and accurate reproduction</b> — not a summary, not aggregated.</p>",
+    "  <p>• Multiple requests / \"abusive\" claims (Art. 12(5)): high bar — controller bears the burden of demonstrating manifestly unfounded or excessive character.</p>",
+    "  <p>• Third-party data protection (Art. 15(4)): narrow exception — redaction is preferred over withholding the response. Don't refuse the entire request because some data implicates third parties.</p>",
+    "  <p>• Format: <b>commonly used electronic form</b> when the request is electronic, unless subject requests otherwise.</p>",
+    "  <p>• Layered approach: a structured summary + the underlying data + Art. 15(1) information is the best practice format.</p>",
+    "  <p><b>Scope note:</b> EDPB guidance adopted after Brexit has no status under the UK GDPR — for UK SARs, use the ICO Right of Access guidance.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

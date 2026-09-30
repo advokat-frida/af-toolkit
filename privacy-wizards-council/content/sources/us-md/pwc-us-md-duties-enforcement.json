@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-MD",
+  "label": "Maryland: enforcement and cure",
+  "citation": "Md. Code, Commercial Law §§13-201, 14-4713, 14-4714(a)–(d)",
+  "provenance": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gcl&enactments=false&section=14-4714",
+  "note": "Editorial summary of the cited primary provisions, not a verbatim extract. Current-law check as of September 22, 2026; enforcement cure procedures do not postpone substantive compliance duties.",
+  "body": [
+    "<p>The Office of the Attorney General's Division of Consumer Protection enforces MODPA through the applicable Title 13 framework. For alleged violations occurring on or before April 1, 2027, the Division may give a controller or processor notice before action if it determines cure is possible.</p>",
+    "<p>Granting notice is discretionary. If granted, the recipient has at least 60 days after receipt to cure; the Division specifies the actual period. Failure within that period permits enforcement.</p>",
+    "<p>The April 1, 2027 boundary concerns when the alleged violation occurs, not simply when enforcement is filed. This is distinct from MODPA's implementation and processing-date provisions.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2025-10-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

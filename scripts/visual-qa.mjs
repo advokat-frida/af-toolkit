@@ -3,54 +3,25 @@
 // sizes, asserts the structural contract, and writes the proof screenshots the
 // human review inspects at full size.
 import { createServer } from "node:http";
-import { createReadStream, existsSync, statSync } from "node:fs";
 import { mkdir } from "node:fs/promises";
-import { extname, join, normalize, relative, resolve, dirname } from "node:path";
+import { join, resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { chromium } from "playwright";
+import { createToolkitHandler } from "../server.mjs";
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const publicRoot = join(repoRoot, "public");
 const proofsRoot = join(repoRoot, "proofs");
 
-const types = new Map([
-  [".css", "text/css; charset=utf-8"],
-  [".html", "text/html; charset=utf-8"],
-  [".js", "text/javascript; charset=utf-8"],
-  [".json", "application/json; charset=utf-8"],
-  [".mjs", "text/javascript; charset=utf-8"],
-  [".png", "image/png"],
-  [".svg", "image/svg+xml"],
-  [".woff2", "font/woff2"]
-]);
-
+// The same server `npm start` runs: the edge's routes (routes.mjs) over public/.
 function startServer() {
-  const server = createServer((request, response) => {
-    let pathname;
-    try {
-      pathname = decodeURIComponent(new URL(request.url || "/", "http://qa").pathname);
-    } catch {
-      response.writeHead(400).end();
-      return;
-    }
-    const requested = pathname === "/" ? "/index.html" : pathname;
-    const candidate = resolve(publicRoot, `.${normalize(requested)}`);
-    if (relative(publicRoot, candidate).startsWith("..") || !existsSync(candidate)) {
-      response.writeHead(404).end("not found");
-      return;
-    }
-    const path = statSync(candidate).isDirectory() ? join(candidate, "index.html") : candidate;
-    if (!existsSync(path)) {
-      response.writeHead(404).end("not found");
-      return;
-    }
-    response.writeHead(200, { "Content-Type": types.get(extname(path).toLowerCase()) || "application/octet-stream" });
-    createReadStream(path).pipe(response);
-  });
+  const server = createServer(createToolkitHandler({ root: publicRoot }));
   return new Promise((resolvePromise) => {
     server.listen(0, "127.0.0.1", () => resolvePromise({ server, port: server.address().port }));
   });
 }
+
+const routePath = (route) => (route === "home" ? "/" : `/${route}`);
 
 const VIEWPORTS = [
   { name: "desktop-1440", width: 1440, height: 1000 },
@@ -79,7 +50,7 @@ async function noHorizontalScroll(page, label) {
 }
 
 async function openRoute(page, base, route) {
-  await page.goto(`${base}/#${route}`, { waitUntil: "networkidle" });
+  await page.goto(`${base}${routePath(route)}`, { waitUntil: "networkidle" });
   await page.waitForTimeout(400);
   if (route !== "home") {
     await page.waitForSelector(`[data-view="${route}"]:not([hidden]) .frame-stage.is-loaded`, { timeout: 20000 });
@@ -114,6 +85,14 @@ async function main() {
       for (const route of Object.keys(TOOL_ANCHORS)) {
         await openRoute(page, base, route);
         await noHorizontalScroll(page, `${viewport.name} ${route}`);
+        const toolDocument = page.frames().find((f) => f.url().includes("/tools/"));
+        const innerScroll = await toolDocument.evaluate(() => document.documentElement.scrollHeight - document.documentElement.clientHeight);
+        assert(innerScroll <= 1, `${viewport.name} ${route}: tool fits its frame without a second scrollbar (overflow ${innerScroll}px)`);
+        const footerFollowsTool = await page.evaluate((route) =>
+          document.querySelector(".toolkit-footer").getBoundingClientRect().top >=
+          document.querySelector(`[data-view="${route}"] iframe`).getBoundingClientRect().bottom,
+        route);
+        assert(footerFollowsTool, `${viewport.name} ${route}: footer follows the complete tool`);
         if (desktop) {
           const head = await page.locator(`[data-view="${route}"] .tool-head`).boundingBox();
           assert(head && Math.abs(head.height - 56) <= 1, `${viewport.name} ${route}: 56px breadcrumb header (${head?.height})`);
@@ -132,6 +111,18 @@ async function main() {
         if (true) {
           await page.screenshot({ path: join(proofsRoot, `${viewport.name}-${route}.png`), fullPage: false });
         }
+        if (route === "redactorium") {
+          await frame.locator("[data-testid='use-sample-btn']").click();
+          await page.waitForFunction(() => {
+            const iframe = document.querySelector('[data-tool-frame="redactorium"]');
+            const toast = iframe.contentDocument.querySelector('[data-sonner-toast]');
+            if (!toast) return false;
+            const rect = toast.getBoundingClientRect();
+            const top = iframe.getBoundingClientRect().top;
+            return rect.height > 0 && top + rect.top >= 0 && top + rect.bottom <= window.innerHeight + 1;
+          }, null, { timeout: 3000 });
+          assert(true, `${viewport.name} redactorium: notification stays in the visible outer viewport`);
+        }
       }
 
       if (viewport.name === "desktop-1440") {
@@ -140,10 +131,17 @@ async function main() {
         await page.locator(".changelog-card summary").click();
         await page.waitForTimeout(200);
         assert(await page.locator(".changelog-body").isVisible(), "desktop-1440 home: changelog opens");
+        const footerFollowsChangelog = await page.evaluate(() =>
+          document.querySelector(".toolkit-footer").getBoundingClientRect().top >=
+          document.querySelector(".changelog-body").getBoundingClientRect().bottom
+        );
+        assert(footerFollowsChangelog, "desktop-1440 home: footer follows the expanded changelog");
         await page.screenshot({ path: join(proofsRoot, "desktop-1440-home-changelog-open.png"), fullPage: true });
 
         // Keyboard: skip link first, focus lands on the active view heading after switching.
+        // The switch uses an old-style hash link, which the shell adopts onto the path.
         await page.goto(`${base}/?kbd=1#home`, { waitUntil: "networkidle" });
+        assert(await page.evaluate(() => window.location.pathname + window.location.search === "/?kbd=1" && !window.location.hash), "legacy #home lands on / with its query");
         await page.keyboard.press("Tab");
         assert(await page.evaluate(() => document.activeElement?.classList.contains("skip-link")), "keyboard: skip link is first");
         await page.evaluate(() => { window.location.hash = "#safeseed"; });
@@ -152,6 +150,14 @@ async function main() {
           await page.evaluate(() => document.activeElement?.id === "safeseed-title"),
           "keyboard: focus lands on the tool heading after switching"
         );
+        assert(await page.evaluate(() => window.location.pathname + window.location.search === "/safeseed?kbd=1"), "legacy #safeseed lands on /safeseed with its query");
+        // The rail switches tools in place and the address follows.
+        await page.locator('[data-route-link="safelist"]').click();
+        await page.waitForSelector('[data-view="safelist"]:not([hidden])', { timeout: 20000 });
+        assert(await page.evaluate(() => window.location.pathname === "/safelist" && document.title === "SafeList · AF Toolkit"), "rail: the address and title follow the tool");
+        await page.goBack();
+        await page.waitForSelector('[data-view="safeseed"]:not([hidden])', { timeout: 20000 });
+        assert(await page.evaluate(() => window.location.pathname === "/safeseed"), "history: back returns to the previous tool");
       }
 
       if (viewport.name === "mobile-390") {

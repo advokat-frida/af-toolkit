@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-UT",
+  "label": "Utah: risk assessments",
+  "citation": "Utah Code chapter 13-61",
+  "provenance": "https://le.utah.gov/xcode/Title13/Chapter61/C13-61_2022050420231231.pdf",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>This chapter does not impose a dedicated data protection assessment duty. That is not a low-risk finding or a determination under other laws.</p>",
+    "<p>Maintain the required reasonable security and processor controls.</p>",
+    "<p>The official compilation also prints future January 2027 vehicle-related provisions. Keep those future duties separate and ask the privacy owner to check any other applicable assessment requirements.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

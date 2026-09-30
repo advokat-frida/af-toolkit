@@ -1,0 +1,26 @@
+{
+  "kind": "guidance",
+  "juris": "EU",
+  "label": "EDPB Guidelines 9/2022 on Personal Data Breach Notification",
+  "citation": "EDPB Guidelines 9/2022 (replacing WP250 rev.01 / Guidelines 1/2021)",
+  "provenance": "https://www.edpb.europa.eu/system/files/2023-04/edpb_guidelines_202209_personal_data_breach_notification_v2.0_en.pdf",
+  "body": [
+    "<p><b>Key positions:</b></p>",
+    "  <p>• Three breach categories: <b>confidentiality</b> (unauthorised disclosure/access), <b>integrity</b> (unauthorised alteration), <b>availability</b> (loss of access or destruction). Each demands its own risk analysis.</p>",
+    "  <p>• \"Awareness\" under Art. 33(1) means having a <b>reasonable degree of certainty</b> that a security incident has occurred which led to personal data being compromised — not awaiting a full forensic report.</p>",
+    "  <p>• Risk-assessment factors (carried over from WP250): type of breach; nature, sensitivity and volume of data; ease of identification of individuals; severity of consequences; special characteristics of the individuals and of the controller; number of affected individuals.</p>",
+    "  <p>• Encrypted-data + uncompromised keys + working backups = often no SA notification; <b>document the analysis</b> in the breach register either way.</p>",
+    "  <p>• Ransomware that only encrypts data (no exfiltration) is generally an <b>availability</b> breach; high-risk if it delays delivery of essential services (e.g. hospital).</p>",
+    "  <p>• Processor must notify controller \"<b>without undue delay</b>\" (Art. 33(2)) — interpreted as immediately on becoming aware; the controller's 72h runs from controller awareness, which is normally triggered by the processor's notification.</p>",
+    "  <p>• Cross-border breaches: an EU-established controller engaged in cross-border processing notifies the <b>lead SA</b> (Art. 56 one-stop-shop). A controller <b>without an EU establishment</b> cannot use the one-stop-shop — the presence of an Art. 27 representative does not create a lead SA — and must notify the SA of <b>every member state</b> where affected data subjects reside (the central revision 9/2022 made to WP250).</p>",
+    "  <p>• Worked examples covering: stolen encrypted backup; misdirected email; ransomware on hospital; exfiltration of customer database; insider human-risk; social engineering. Each example walks through risk assessment + notification decision + records.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

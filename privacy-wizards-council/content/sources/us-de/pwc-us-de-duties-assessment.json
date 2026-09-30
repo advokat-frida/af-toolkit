@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-DE",
+  "label": "Delaware: risk assessments",
+  "citation": "6 Del. C. §12D-108(a), (f)",
+  "provenance": "https://www.delcode.delaware.gov/title6/c012d/index.html",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Delaware has a separate assessment threshold: control or processing of at least 100,000 consumers' data, excluding solely payment-transaction data.</p>",
+    "<p>First confirm that separate assessment count; full-law coverage alone does not establish this duty.</p>",
+    "<p>If met, assess heightened-risk activities created or generated after July 1, 2025, including targeted ads, sale, sensitive data and qualifying profiling.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

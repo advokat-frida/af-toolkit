@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-NE",
+  "label": "Nebraska: consumer rights",
+  "citation": "Neb. Rev. Stat. §§87-1107–87-1109",
+  "provenance": "https://nebraskalegislature.gov/laws/laws-index/chap87-full.html",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Support access, correction, deletion, portability of provided data and specified opt-outs.</p>",
+    "<p>Respond within 45 days; a reasonably necessary 45-day extension requires timely notice and reasons.</p>",
+    "<p>Decide an internal appeal within 60 days and provide the Attorney General complaint route if denied.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2025-01-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

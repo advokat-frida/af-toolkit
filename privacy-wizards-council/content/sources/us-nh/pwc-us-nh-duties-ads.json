@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-NH",
+  "label": "New Hampshire: sale and targeted advertising",
+  "citation": "RSA §§507-H:4, I(f), 507-H:6, I(g), V",
+  "provenance": "https://www.gc.nh.gov/rsa/html/LII/507-H/507-H-mrg.htm",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Sale, targeted advertising and qualifying solely automated profiling have opt-outs. Universal opt-out mechanisms have applied since January 1, 2025.</p>",
+    "<p>Apply the teen sale/advertising consent provision to the statutory 13–15 age band and preserve its knowledge wording.</p>",
+    "<p>The chapter also prints a child-sale provision effective January 1, 2027. Keep that future rule separate from the current determination.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2025-01-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

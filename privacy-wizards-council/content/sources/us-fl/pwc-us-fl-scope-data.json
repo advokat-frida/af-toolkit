@@ -1,0 +1,19 @@
+{
+  "kind": "statute",
+  "juris": "US-FL",
+  "label": "Florida: excluded data",
+  "citation": "Fla. Stat. §501.704",
+  "provenance": "https://www.flsenate.gov/Laws/Statutes/2025/501.704",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate.",
+  "body": [
+    "<p>Section 501.704 exempts specified protected-health, health-research, patient-safety, regulated credit, DPPA, FERPA, Farm Credit, employment-role and other listed data subject to their statutory conditions. An exemption for some data does not extend to unrelated data or every activity of the holder.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

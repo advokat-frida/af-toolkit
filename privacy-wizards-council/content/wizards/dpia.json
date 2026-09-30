@@ -1,0 +1,209 @@
+{
+  "title": "DPIA required?",
+  "tag": "GDPR & UK GDPR Art. 35: should you do a data protection impact assessment (DPIA) before this processing?",
+  "q": "Does this project need an impact assessment first?",
+  "icon": "🔍",
+  "jurisdictions": [
+    "EU",
+    "UK"
+  ],
+  "start": "q-role",
+  "nodes": {
+    "q-role": {
+      "type": "question",
+      "q": "Is your organization acting as a controller for this processing?",
+      "help": "DPIA obligations attach to controllers (Art. 35(1)). Processors can be involved but the duty sits with the controller. The same allocation applies under the UK GDPR.",
+      "cites": [
+        "gdpr-art-4",
+        "gdpr-art-28",
+        "gdpr-art-35",
+        "uk-gdpr-art-35"
+      ],
+      "opts": [
+        {
+          "label": "Yes — controller (or joint controller)",
+          "goto": "q-types"
+        },
+        {
+          "label": "No — pure processor",
+          "goto": "o-processor"
+        }
+      ]
+    },
+    "o-processor": {
+      "type": "outcome",
+      "tier": "info",
+      "title": "Not your DPIA duty — but you must help the controller",
+      "summary": "Art. 28(3)(f) requires processors to help the controller meet its Articles 32–36 obligations — including the Art. 35–36 DPIA and prior-consultation duties — to the extent the nature of the processing and the information you hold allow.",
+      "actions": [
+        "Maintain technical documentation the controller will need (data flows, security measures, retention)",
+        "Be prepared to provide written assistance during the controller's DPIA",
+        "Confirm Art. 28(3) DPA contract language commits you to this support"
+      ],
+      "cites": [
+        "gdpr-art-28",
+        "gdpr-art-35",
+        "uk-gdpr-art-35"
+      ]
+    },
+    "q-types": {
+      "type": "question",
+      "q": "Does the processing match any Art. 35(3) high-risk category?",
+      "help": "Art. 35(3) (GDPR and UK GDPR alike) lists three pre-defined high-risk categories that require a DPIA. Supervisory authorities (SAs) also publish 'mandatory DPIA' lists under Art. 35(4) (e.g. CNIL in France; the ICO's 'examples of processing likely to result in high risk' list in the UK).",
+      "cites": [
+        "gdpr-art-35",
+        "uk-gdpr-art-35",
+        "guide-ico-dpia"
+      ],
+      "opts": [
+        {
+          "label": "(a) Systematic and extensive evaluation based on automated processing/profiling, with legal or similarly significant effects",
+          "goto": "o-dpia-required"
+        },
+        {
+          "label": "(b) Large-scale processing of special categories (Art. 9) or criminal-conviction data (Art. 10)",
+          "goto": "o-dpia-required"
+        },
+        {
+          "label": "(c) Systematic monitoring of a publicly accessible area on a large scale",
+          "goto": "o-dpia-required"
+        },
+        {
+          "label": "None of the above",
+          "goto": "q-other-risk"
+        }
+      ]
+    },
+    "q-other-risk": {
+      "type": "question",
+      "q": "How many of the nine high-risk indicators from the EU regulators' DPIA guidelines (WP248) apply?",
+      "help": "The Article 29 Working Party (WP29) Guidelines on DPIA (WP248 rev.01), endorsed by the European Data Protection Board (EDPB), list nine criteria; meeting 2+ typically warrants a DPIA, and WP248 itself cautions that in some cases a single criterion can be enough: (1) evaluation/scoring; (2) automated decision-making with significant effects; (3) systematic monitoring; (4) sensitive or highly personal data; (5) large scale; (6) matched/combined datasets; (7) vulnerable data subjects; (8) innovative use of tech; (9) data preventing rights exercise. UK note: post-Brexit, WP248 is persuasive only — the governing UK trigger authority is the ICO's own DPIA guidance and its Art. 35(4) examples list (some ICO items apply standalone, others only in combination with a criterion).",
+      "cites": [
+        "gdpr-art-35",
+        "guide-wp29-wp248-dpia",
+        "uk-gdpr-art-35",
+        "guide-ico-dpia"
+      ],
+      "opts": [
+        {
+          "label": "Two or more WP248 criteria apply",
+          "goto": "o-dpia-presumed"
+        },
+        {
+          "label": "Exactly one criterion applies",
+          "goto": "q-sa-list"
+        },
+        {
+          "label": "None apply",
+          "goto": "q-sa-list"
+        }
+      ]
+    },
+    "q-sa-list": {
+      "type": "question",
+      "q": "Is the activity on the supervisory authority's Art. 35(4) mandatory-DPIA list (in the UK, the ICO's 'examples of processing likely to result in high risk' list)?",
+      "help": "SAs publish Art. 35(4) lists of operations that always require a DPIA. Several entries apply to a single activity type regardless of how many WP248 criteria are met — e.g. the ICO's list includes data matching / combining datasets and the targeting of children or other vulnerable individuals as standalone triggers, and several EU SA lists (CNIL, DSK members) have comparable items. The lists change — check the current local SA list and the ICO's DPIA guidance before relying on this answer.",
+      "cites": [
+        "gdpr-art-35",
+        "uk-gdpr-art-35",
+        "guide-ico-dpia"
+      ],
+      "opts": [
+        {
+          "label": "Yes — the activity appears on the applicable mandatory list",
+          "goto": "o-dpia-required"
+        },
+        {
+          "label": "No — and exactly one WP248 criterion applied",
+          "goto": "o-dpia-recommended"
+        },
+        {
+          "label": "No — and no WP248 criteria applied",
+          "goto": "o-dpia-not-required"
+        }
+      ]
+    },
+    "o-dpia-required": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "DPIA required before processing begins",
+      "summary": "Carry out the assessment under Art. 35(7): describe the processing and purposes; assess necessity and proportionality; assess risks to rights and freedoms; describe measures to address risks. Seek the advice of the DPO, where one is designated (Art. 35(2)). If high residual risk remains after mitigation, prior consultation with the supervisory authority is required (Art. 36). The Article 29 Working Party's DPIA guidelines (WP248 rev.01) supply the structure for EU processing; in the UK, follow the ICO's DPIA guidance — WP248 is persuasive only post-Brexit. Many SAs (CNIL, BfDI) and the ICO publish Art. 35(4) 'mandatory DPIA' lists that extend the trigger; those lists change, so re-verify the current version.",
+      "actions": [
+        "Build the DPIA template covering Art. 35(7)(a)–(d)",
+        "Consult the DPO, where one is designated (Art. 35(2))",
+        "Where appropriate, seek the views of data subjects or representatives (Art. 35(9))",
+        "Identify, mitigate, and document residual risks",
+        "If residual high risk remains: file Art. 36 prior consultation with the competent supervisory authority (the lead SA only in EU cross-border cases; the ICO in the UK). The SA has up to 8 weeks — extendable by 6 more for complex cases — to give written advice if it considers the processing would infringe the GDPR",
+        "Review periodically — at least when processing changes materially (Art. 35(11))",
+        "Record which WP248 (or ICO-list) trigger criteria were met, to evidence the DPIA decision; conduct the risk assessment itself under Art. 35(7)(c)–(d)"
+      ],
+      "cites": [
+        "gdpr-art-35",
+        "gdpr-art-36",
+        "guide-wp29-wp248-dpia",
+        "uk-gdpr-art-35",
+        "uk-gdpr-art-36",
+        "guide-ico-dpia"
+      ]
+    },
+    "o-dpia-presumed": {
+      "type": "outcome",
+      "tier": "warn",
+      "title": "DPIA presumptively required — do one unless you can document otherwise",
+      "summary": "Meeting two or more WP248 criteria means the processing typically requires a DPIA under Art. 35(1) — but this is a rebuttable guidance presumption, not the hard Art. 35(3) statutory trigger. WP248 itself contemplates that a controller may conclude no DPIA is required despite meeting the criteria, provided the reasoning is documented (Art. 5(2) accountability). In practice: do the DPIA unless you can clearly explain in writing why it isn't needed. Separately, check the SA's Art. 35(4) mandatory list — a list hit makes the DPIA mandatory outright, removing the discretion. UK: apply the ICO's DPIA guidance and Art. 35(4) examples list; WP248 is persuasive only post-Brexit.",
+      "actions": [
+        "Carry out the DPIA under Art. 35(7) unless you can document, per Art. 5(2), why the processing is nevertheless not likely to be high-risk",
+        "Check the local SA's / ICO's Art. 35(4) mandatory list — a hit removes the discretion entirely (the lists change; check the current version)",
+        "Record which WP248 criteria were met, to evidence the trigger decision",
+        "Consult the DPO, where one is designated (Art. 35(2))",
+        "If you carry out the DPIA and high residual risk remains after mitigation, Art. 36 prior consultation applies"
+      ],
+      "cites": [
+        "gdpr-art-35",
+        "gdpr-art-36",
+        "gdpr-art-5",
+        "guide-wp29-wp248-dpia",
+        "uk-gdpr-art-35",
+        "guide-ico-dpia"
+      ]
+    },
+    "o-dpia-recommended": {
+      "type": "outcome",
+      "tier": "warn",
+      "title": "DPIA not strictly mandatory, but strongly recommended",
+      "summary": "Processing meeting a single WP248 criterion is not automatically high-risk under Art. 35 — though WP248 itself cautions that in some cases one criterion can be enough, and this outcome assumes you have confirmed the activity is not on the SA's / ICO's Art. 35(4) mandatory list. A DPIA remains good practice and helps demonstrate compliance under Art. 5(2) (accountability) and Art. 24.",
+      "actions": [
+        "Confirm — and periodically re-confirm — that the activity is not on the local SA's / ICO's Art. 35(4) mandatory list (the lists change; check the current versions)",
+        "Document the risk assessment whether or not you call it a DPIA",
+        "Use the Art. 35(7) structure as your template — it is the accepted benchmark even where a DPIA is not mandatory",
+        "Consult the DPO if you have one",
+        "Re-assess if scope expands"
+      ],
+      "cites": [
+        "gdpr-art-35",
+        "gdpr-art-5",
+        "guide-wp29-wp248-dpia",
+        "uk-gdpr-art-35",
+        "guide-ico-dpia"
+      ]
+    },
+    "o-dpia-not-required": {
+      "type": "outcome",
+      "tier": "ok",
+      "title": "DPIA not required — but record the analysis",
+      "summary": "Under the Art. 5(2) accountability principle (see also Art. 24, responsibility of the controller), you should still document why you concluded no DPIA was needed. Check whether your SA has published an optional Art. 35(5) 'no-DPIA' list.",
+      "actions": [
+        "Record the no-DPIA analysis (factors considered, why each falls below high-risk)",
+        "Check the local SA's Art. 35(4) mandatory list and, where the SA has published one, the Art. 35(5) optional 'no-DPIA' list (several EU SAs have; the ICO has not)",
+        "Re-check if processing changes — and re-verify the current SA and ICO lists, which change over time"
+      ],
+      "cites": [
+        "gdpr-art-35",
+        "gdpr-art-5",
+        "uk-gdpr-art-35",
+        "guide-ico-dpia"
+      ]
+    }
+  },
+  "verifiedAsOf": "2026-07-02 (automated cross-check against official source texts; not yet reviewed by counsel)"
+}

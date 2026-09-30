@@ -1,0 +1,18 @@
+{
+  "kind": "guidance",
+  "juris": "UK",
+  "label": "ICO — Video surveillance guidance",
+  "citation": "ICO, Guidance on video surveillance (including CCTV)",
+  "body": [
+    "ICO 'Video surveillance (including guidance for organisations using CCTV)' - guidance for public and private sector organisations using video surveillance systems to process personal data under the UK GDPR and DPA 2018, also relevant to law enforcement authorities where they use surveillance for UK GDPR (non-Part 3) purposes. The introduction notes that traditional CCTV is evolving into more complex AI-based surveillance processing more sensitive categories of personal data, and that uses such as connected ANPR databases and facial recognition technology in public spaces can be particularly intrusive, especially where processing happens without individuals' knowledge. The ICO's framing position is that public trust requires surveillance use to be lawful, fair and transparent, and that surveillance should not be seen as a cure-all but as a supporting tool deployed only where lawful, necessary and proportionate in the circumstances. The guidance covers accountability responsibilities and how to comply with the data protection principles when using surveillance systems, then sets out additional considerations for technologies beyond fixed CCTV: Automatic Number Plate Recognition (ANPR), Body Worn Video (BWV), unmanned aerial systems/drones, Facial Recognition Technology (FRT) and surveillance, commercial-use smart doorbells, surveillance in vehicles, and action cameras and other portable surveillance technologies. It closes with post-deployment governance, a checklist for limited CCTV systems, and a case study on North Ayrshire Council schools' use of facial recognition technology."
+  ],
+  "provenance": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/cctv-and-video-surveillance/guidance-on-video-surveillance-including-cctv/",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

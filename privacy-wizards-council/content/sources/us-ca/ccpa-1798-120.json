@@ -1,0 +1,20 @@
+{
+  "juris": "US-CA",
+  "label": "CCPA § 1798.120 — Right to opt out of sale or sharing",
+  "citation": "Cal. Civ. Code § 1798.120",
+  "provenance": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.120.",
+  "body": [
+    "<p><span class=\"num\">(a)(1)</span> A consumer shall have the right, at any time, to direct a business that sells or shares personal information about the consumer to third parties <b>not to sell or share</b> the consumer's personal information.</p>",
+    "  <p><span class=\"num\">(b)</span> A business that sells or shares … shall provide notice to consumers … that this information may be sold or shared and that consumers have the \"<b>right to opt out</b>\" …</p>",
+    "  <p><span class=\"num\">(c)</span> A business shall <b>not sell or share</b> the personal information of consumers if the business has <b>actual knowledge</b> that the consumer is <b>less than 16 years of age</b>, unless: (i) the consumer, if 13–15, has affirmatively authorized; or (ii) the consumer's parent or guardian, if under 13, has affirmatively authorized. A business that <b>willfully disregards</b> the consumer's age shall be deemed to have had actual knowledge.</p>"
+  ],
+  "kind": "statute",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-IA",
+  "label": "Iowa: sale and targeted advertising",
+  "citation": "Iowa Code §§715D.3(1)(d), 715D.4(5)",
+  "provenance": "https://www.legis.iowa.gov/docs/code/715D.pdf",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>The rights section expressly lists a sale opt-out, but not a targeted-advertising right. The controller-duty section nevertheless requires targeted-advertising disclosure and a manner to exercise an opt-out.</p>",
+    "<p>Provide the express sale opt-out.</p>",
+    "<p>For targeted advertising, ask privacy counsel to reconcile §715D.3 with §715D.4(5) and document the operational approach. Do not infer that targeted advertising needs no opt-out.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2025-01-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

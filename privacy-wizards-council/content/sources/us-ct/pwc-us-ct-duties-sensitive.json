@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-CT",
+  "label": "Connecticut: sensitive data",
+  "citation": "Conn. Gen. Stat. §42-520(a)(1)(D), (H), effective July 1, 2026",
+  "provenance": "https://www.cga.ct.gov/2026/sup/chap_743jj.htm",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>The July 2026 text requires both reasonable necessity for sensitive processing and consumer consent. Sensitive-data sale also requires consent.</p>",
+    "<p>Check the expanded sensitive-data definition and document why the processing is reasonably necessary.</p>",
+    "<p>Obtain valid consent, use COPPA-compliant treatment for known children, and implement the consent-revocation mechanism.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

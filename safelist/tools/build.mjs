@@ -15,14 +15,20 @@ const samples = JSON.stringify({
   supp: { name: 'suppression-list.csv', text: read('samples/suppression-list.csv') }
 }).replace(/<\//g, '<\\/');
 
+// The tab icon is the Toolkit shell's fox badge, read from its one home at the repository
+// root (public/favicon-32.png) and inlined as a data URI, which is all the page CSP's
+// img-src allows. It is never copied into this folder: the workspace hygiene gate deletes
+// byte-duplicate files.
+const favicon = `data:image/png;base64,${readFileSync(root('../public/favicon-32.png')).toString('base64')}`;
+
 // The embed body drops every standalone-only block (site bar, page intro,
 // colophon); the Toolkit shell owns that chrome.
 const embedBody = body.replace(/[ \t]*<!-- sl:standalone-start -->[\s\S]*?<!-- sl:standalone-end -->\r?\n?/g, '');
 
 const embedCss = `
   /* Toolkit embed: the shell provides the frame; this page is only the stage. */
-  html,body{height:100%}
-  .wrap{width:100%;max-width:1130px;margin:0 auto;min-height:100%;display:flex;flex-direction:column;padding:0 32px}
+  body{display:flow-root}
+  .wrap{width:100%;max-width:1130px;margin:0 auto;display:flex;flex-direction:column;padding:0 32px}
   .wrap>main{flex:1 1 auto;display:flex;flex-direction:column}
   .sl-stage{margin:26px 0 30px}
   @media(max-width:640px){.wrap{padding:0 10px}.sl-stage{margin:12px 0 18px}}
@@ -59,6 +65,7 @@ function page({ bodyHtml, extraCss = '' }) {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'none'; img-src data:; font-src data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<link rel="icon" type="image/png" sizes="32x32" href="${favicon}">
 <title>SafeList | Advokat Frida</title>
 <style>
 ${fonts}

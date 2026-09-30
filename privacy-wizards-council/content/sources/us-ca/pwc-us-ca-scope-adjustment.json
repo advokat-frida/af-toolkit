@@ -1,0 +1,19 @@
+{
+  "kind": "guidance",
+  "juris": "US-CA",
+  "label": "California: 2025–2026 revenue adjustment",
+  "citation": "CPPA 2025 CCPA monetary adjustments; Civ. Code §1798.185(a)(5)",
+  "provenance": "https://cppa.ca.gov/announcements/2024/20241217.html",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Use the statute for the comparison operator, and this official notice for the adjusted amount.",
+  "body": [
+    "<p>Effective January 1, 2025, the adjusted annual-gross-revenue amount in the business definition is $26,625,000. The statute uses a strict greater-than comparison; equality does not satisfy that revenue limb. The adjustment does not change the 100,000-consumer/household or 50%-sale/share limbs.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2025-01-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

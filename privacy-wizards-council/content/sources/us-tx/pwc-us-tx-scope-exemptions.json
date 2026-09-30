@@ -1,0 +1,20 @@
+{
+  "kind": "statute",
+  "juris": "US-TX",
+  "label": "Texas: entity and data exclusions",
+  "citation": "Tex. Bus. & Com. Code §§ 541.001 to 541.003, 541.107",
+  "provenance": "https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Entity status and record-level exclusions are separate decisions; the listed categories must satisfy the linked law's definitions and conditions.",
+  "body": [
+    "<p>§541.002 excludes government entities, qualifying GLBA financial institutions, HIPAA covered entities/business associates, nonprofits, higher education and specified electric-utility, power-generation and retail-electric entities. Do not assume every affiliate is itself a qualifying financial institution.</p>",
+    "<p>§541.003 separately excludes specified health/research, regulated credit, DPPA, FERPA, Farm Credit and employment-role information; §541.002 separately excludes GLBA data. Check the exact conditions before excluding records.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

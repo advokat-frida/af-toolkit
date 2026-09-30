@@ -1,0 +1,300 @@
+{
+  "title": "Special category data (Art. 9)",
+  "tag": "Decide whether your processing of sensitive data is permitted, and under which Art. 9(2) exception.",
+  "q": "Can you touch health, biometric, or other sensitive data?",
+  "icon": "🧬",
+  "jurisdictions": [
+    "EU",
+    "UK"
+  ],
+  "start": "q-type",
+  "nodes": {
+    "q-type": {
+      "type": "question",
+      "q": "Does the data you process fall within Art. 9(1)'s special categories?",
+      "help": "Art. 9(1) prohibits processing of: racial or ethnic origin; political opinions; religious or philosophical beliefs; trade-union membership; genetic data; biometric data for unique identification; health data; sex life or sexual orientation. UK note: the Data (Use and Access) Act 2025 gives the Secretary of State power to amend the UK special-category framework by regulations, so the UK list is no longer structurally guaranteed to match the EU list — verify against regulations in force and current ICO guidance.",
+      "cites": [
+        "gdpr-art-9",
+        "gdpr-art-4",
+        "uk-duaa-2025"
+      ],
+      "opts": [
+        {
+          "label": "Yes — health data",
+          "goto": "q-health-context"
+        },
+        {
+          "label": "Yes — biometric for unique identification (face recognition, fingerprint for ID)",
+          "goto": "q-other-9"
+        },
+        {
+          "label": "Yes — racial/ethnic, political, religious, philosophical, union",
+          "goto": "q-other-9"
+        },
+        {
+          "label": "Yes — sex life or sexual orientation",
+          "goto": "q-other-9"
+        },
+        {
+          "label": "Yes — genetic data",
+          "goto": "q-other-9"
+        },
+        {
+          "label": "No — ordinary personal data only",
+          "goto": "o-not-special"
+        },
+        {
+          "label": "Photos / video where face is captured but not used for identification",
+          "goto": "o-photo"
+        }
+      ]
+    },
+    "o-not-special": {
+      "type": "outcome",
+      "tier": "ok",
+      "title": "Not Art. 9 — but Art. 6 still applies",
+      "summary": "If the data isn't within Art. 9(1), only Art. 6 lawful-basis analysis applies. Watch for inferences though — combining ordinary data can reveal Art. 9 attributes (e.g. supermarket loyalty data inferring health/diet/religion).",
+      "actions": [
+        "Run the Legal Basis wizard for Art. 6",
+        "Watch for inference risks: profiling + sensitive proxies can flip the analysis"
+      ],
+      "cites": [
+        "gdpr-art-6",
+        "gdpr-art-9"
+      ]
+    },
+    "o-photo": {
+      "type": "outcome",
+      "tier": "info",
+      "title": "Photos/video are ordinary personal data — biometric only on identification use",
+      "summary": "Per Recital 51 + EDPB Guidelines 3/2019 on Video Devices: photos count as biometric data under Art. 9(1) only when processed through a specific technical means allowing unique identification (e.g. facial-recognition templating). Plain photos in an HR file are ordinary personal data. The same image becomes Art. 9 special category data once you run it through face-matching. UK note: EDPB guidance is EU-only post-Brexit — the operative UK authorities are the ICO's biometric data guidance (first phase published February 2024) and its video surveillance guidance, which take the same substantive position.",
+      "actions": [
+        "If you're not running face-recognition / template extraction, treat as ordinary personal data under Art. 6",
+        "If you are planning to extract biometric templates, then Art. 9 applies — return to the wizard with that flow",
+        "Document the analysis in the record of processing activities (ROPA) — auditors look for this distinction",
+        "CCTV in publicly accessible areas at scale: a data protection impact assessment (DPIA) is required under Art. 35(3)(c); EDPB 3/2019 (EU) and the ICO video surveillance guidance (UK) have detailed guidance on signage, retention, subject rights"
+      ],
+      "cites": [
+        "gdpr-art-9",
+        "gdpr-art-4",
+        "guide-edpb-3-2019-video",
+        "guide-ico-biometric",
+        "guide-ico-video"
+      ]
+    },
+    "q-health-context": {
+      "type": "question",
+      "q": "What's the context for health-data processing?",
+      "help": "Art. 9(2)(h) is the standard medical-care/health-system route. Art. 9(2)(i) covers public-health emergencies. (a) explicit consent usually works — but not always: Union/Member State law (EU) or domestic law (UK) may provide that the prohibition cannot be lifted by consent (Art. 9(2)(a) proviso). (j) covers research with safeguards.",
+      "cites": [
+        "gdpr-art-9"
+      ],
+      "opts": [
+        {
+          "label": "Direct medical care, diagnosis, treatment",
+          "goto": "o-9-2-h"
+        },
+        {
+          "label": "Public health threat (e.g. pandemic, cross-border health emergency)",
+          "goto": "o-9-2-i"
+        },
+        {
+          "label": "Research (subject to Art. 89 safeguards)",
+          "goto": "o-9-2-j"
+        },
+        {
+          "label": "Employment-context health (sick-leave, occupational health)",
+          "goto": "o-9-2-b"
+        },
+        {
+          "label": "None of the above — discretionary use (insurance underwriting, marketing)",
+          "goto": "q-other-9"
+        }
+      ]
+    },
+    "o-9-2-h": {
+      "type": "outcome",
+      "tier": "ok",
+      "title": "Art. 9(2)(h) — Medical care / health system",
+      "summary": "Processing necessary for preventive or occupational medicine, assessing working capacity, medical diagnosis, provision of health/social care, or management of health/social care systems and services. Art. 9(3) adds a gate: the data must be handled by — or under the responsibility of — a professional bound by professional secrecy under Union/MS law or rules established by national competent bodies, or by another person bound by a secrecy obligation under that law or those rules. UK: the route runs UK GDPR Art. 9(2)(h) + DPA 2018 s.10 and Sch 1 Part 1 para 2 (health or social care purposes), with the secrecy requirement implemented by DPA 2018 s.11(1) (processing under the responsibility of a health professional or social work professional, or by a person owing an equivalent duty of confidentiality).",
+      "actions": [
+        "Confirm the secrecy/confidentiality obligation on the person processing the data (Art. 9(3))",
+        "Identify the parallel Art. 6 basis — usually 6(1)(c) (medical-law compliance) or 6(1)(e) (public-task) for state-run systems",
+        "Document the chain — EU: Union/MS law authorizing the processing + Art. 9(3) professional secrecy; UK: DPA 2018 Sch 1 Part 1 para 2 + s.11 health/social work professional responsibility (or an equivalent duty of confidentiality)",
+        "Watch for secondary uses (research, claims): they need their own analysis"
+      ],
+      "cites": [
+        "gdpr-art-9",
+        "gdpr-art-6",
+        "uk-dpa-2018-s10-sch1"
+      ]
+    },
+    "o-9-2-i": {
+      "type": "outcome",
+      "tier": "warn",
+      "title": "Art. 9(2)(i) — Public-health interest",
+      "summary": "Reasons of public interest in the area of public health — protecting against serious cross-border threats or ensuring high standards of healthcare quality. EU: requires Union/MS law with suitable safeguards, in particular professional secrecy. UK: the operative condition is DPA 2018 s.10 + Sch 1 Part 1 para 3 (public health) — processing must be carried out by or under the responsibility of a health professional, or by another person who owes a duty of confidentiality under an enactment or rule of law.",
+      "actions": [
+        "Identify the legal basis — EU: Union/MS law; UK: DPA 2018 Sch 1 Part 1 para 3 (including the requirement that a health professional is responsible or a duty of confidentiality applies)",
+        "Document the proportionality and necessity",
+        "Apply data minimisation aggressively — public health is high stakes but doesn't override minimum-necessary",
+        "If your processing scope expands meaningfully, re-run the data protection impact assessment (DPIA); if it shows high risk that cannot be mitigated, prior consultation with the supervisory authority (SA) is required (Art. 36)"
+      ],
+      "cites": [
+        "gdpr-art-9",
+        "gdpr-art-6",
+        "gdpr-art-35",
+        "gdpr-art-36",
+        "uk-dpa-2018-s10-sch1"
+      ]
+    },
+    "o-9-2-j": {
+      "type": "outcome",
+      "tier": "warn",
+      "title": "Art. 9(2)(j) — Research, archiving, statistics (Art. 89 safeguards required)",
+      "summary": "Archiving in the public interest, scientific or historical research, or statistical purposes. EU: on the basis of Union/MS law with Art. 89 safeguards (technical and organizational measures, pseudonymisation where feasible). UK: the condition is DPA 2018 s.10 + Sch 1 Part 1 para 4 (research etc.), and the rights exemptions for UK research are in DPA 2018 Sch 2 Part 6 — not Art. 89(2)–(3) derogations. Note also that the Data (Use and Access) Act 2025 rewrote the UK research framework: it defines 'scientific research' by statute (expressly including commercial research), codifies a 'broad consent' mechanism, and restructures the research-safeguards provisions that replace the retained Art. 89 wording — check the commencement status of the relevant DUAA provisions and current ICO guidance before relying on this.",
+      "actions": [
+        "Identify the legal basis — EU: the Union/MS law authorizing research-purpose processing; UK: DPA 2018 Sch 1 Part 1 para 4",
+        "Document the safeguards — EU: Art. 89(1) technical/organizational measures, pseudonymisation, anonymisation where feasible; UK: the equivalent UK research safeguards as amended by DUAA 2025",
+        "Rights derogations — EU: research/statistics may modify Arts. 15, 16, 18, 21 (Art. 89(2)); archiving in the public interest may additionally modify Arts. 19 and 20 (Art. 89(3)). UK: the rights exemptions are in DPA 2018 Sch 2 Part 6",
+        "Data protection impact assessment (DPIA) threshold likely triggered (large-scale special category) — Art. 35(3)(b)"
+      ],
+      "cites": [
+        "gdpr-art-9",
+        "gdpr-art-35",
+        "gdpr-art-89",
+        "uk-dpa-2018-s10-sch1",
+        "uk-dpa-2018-sch2",
+        "uk-duaa-2025"
+      ]
+    },
+    "o-9-2-b": {
+      "type": "outcome",
+      "tier": "ok",
+      "title": "Art. 9(2)(b) — Employment / social-security / social-protection law",
+      "summary": "Processing necessary to carry out obligations or exercise specific rights in employment and social-security/social-protection law, where authorized by Union/MS law (EU) or domestic law (UK) or a collective agreement providing appropriate safeguards. UK: the domestic authorization runs through DPA 2018 s.10(1) + Sch 1 Part 1 para 1 (employment, social security and social protection condition), which additionally requires an appropriate policy document (APD) under Sch 1 Part 4 and carries extended record-keeping obligations.",
+      "actions": [
+        "Cite the specific employment-law authority (e.g. national sick-leave statute)",
+        "UK: put the appropriate policy document (DPA 2018 Sch 1 Part 4) in place before processing, retain it for the required period, and keep the extended record of processing activities (ROPA) entries",
+        "Apply data minimisation — collect only what the law requires",
+        "Don't bleed health data into HR systems where it's not needed",
+        "Document the parallel Art. 6 basis — usually Art. 6(1)(c) (legal obligation)"
+      ],
+      "cites": [
+        "gdpr-art-9",
+        "gdpr-art-6",
+        "uk-dpa-2018-s10-sch1"
+      ]
+    },
+    "q-other-9": {
+      "type": "question",
+      "q": "Which Art. 9(2) exception applies?",
+      "help": "For discretionary processing of sensitive data, Art. 9(2)(a) explicit consent is the default. (e) covers data manifestly made public by the subject. (f) covers legal claims.",
+      "cites": [
+        "gdpr-art-9"
+      ],
+      "opts": [
+        {
+          "label": "Explicit consent — Art. 9(2)(a)",
+          "goto": "o-9-2-a"
+        },
+        {
+          "label": "Data manifestly made public by the subject — Art. 9(2)(e)",
+          "goto": "o-9-2-e"
+        },
+        {
+          "label": "Establishment, exercise, or defense of legal claims — Art. 9(2)(f)",
+          "goto": "o-9-2-f"
+        },
+        {
+          "label": "Substantial public interest under Union/MS law — Art. 9(2)(g)",
+          "goto": "o-9-2-g"
+        },
+        {
+          "label": "None of the above",
+          "goto": "o-prohibited"
+        }
+      ]
+    },
+    "o-9-2-a": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Art. 9(2)(a) — Explicit consent",
+      "summary": "'Explicit consent' is a higher bar than normal Art. 6(1)(a) consent — requires an express statement of consent (e.g. a signed declaration or a two-step affirmative confirmation). Union/MS law (EU) or domestic law (UK) may forbid lifting the Art. 9(1) prohibition even by consent.",
+      "actions": [
+        "Use an unambiguous, separate, opt-in statement (text + checkbox or signature) specifically referencing the sensitive nature",
+        "Document who/when/what",
+        "Provide easy withdrawal (Art. 7(3))",
+        "Verify Union/MS law (EU) or domestic law (UK) doesn't override consent — some jurisdictions (e.g. employment context, France genetic data) restrict consent as a basis",
+        "Also identify the Art. 6 basis — usually 6(1)(a)"
+      ],
+      "cites": [
+        "gdpr-art-9",
+        "gdpr-art-6"
+      ]
+    },
+    "o-9-2-e": {
+      "type": "outcome",
+      "tier": "warn",
+      "title": "Art. 9(2)(e) — Data manifestly made public by the subject",
+      "summary": "Narrow exception. CJEU C-252/21 Meta Platforms v Bundeskartellamt: data passively collected via cookies from third-party sites is not 'manifestly made public' — the subject must have explicitly chosen, with full knowledge, to make the data accessible to an unlimited number of persons. OT (C-184/20) separately confirms that data liable to indirectly reveal special-category attributes (e.g. a spouse's name revealing sexual orientation) falls within Art. 9(1). Public social-media posts only count where the subject actively published without privacy restrictions.",
+      "actions": [
+        "Confirm active publication, not aggregation/inference",
+        "Document the public source and date",
+        "Don't apply to data inferred from public data — only the data literally made public",
+        "Profile-driven inferences about Art. 9 attributes from non-Art. 9 inputs trigger Art. 9 (Meta Platforms (C-252/21), operative part 2; see also OT (C-184/20) on indirectly-revealing data)",
+        "Run an Art. 6 basis analysis in parallel"
+      ],
+      "cites": [
+        "gdpr-art-9",
+        "case-meta-bka",
+        "case-ot-c184-20"
+      ]
+    },
+    "o-9-2-f": {
+      "type": "outcome",
+      "tier": "ok",
+      "title": "Art. 9(2)(f) — Legal claims",
+      "summary": "Necessary for the establishment, exercise, or defense of legal claims, or whenever courts are acting in their judicial capacity. Often the right basis for litigation document review or regulatory investigations.",
+      "actions": [
+        "Narrow the scope to the claims-relevant data only",
+        "Apply privilege protections in parallel",
+        "Document under Art. 30 — claim/case reference, scope"
+      ],
+      "cites": [
+        "gdpr-art-9"
+      ]
+    },
+    "o-9-2-g": {
+      "type": "outcome",
+      "tier": "warn",
+      "title": "Art. 9(2)(g) — Substantial public interest",
+      "summary": "Processing necessary for reasons of substantial public interest, on the basis of Union or MS law which is proportionate to the aim, respects the essence of the right, and provides suitable and specific safeguards. UK DPA 2018 Schedule 1 Part 2 sets out the substantial-public-interest conditions — the list can be amended by regulations under DUAA 2025 powers, so verify the Schedule as currently in force; EU MS laws vary.",
+      "actions": [
+        "Identify the specific Union/MS legal authority (EU) or the applicable DPA 2018 Sch 1 Part 2 condition (UK)",
+        "Document the safeguards required by that authority (often a written 'appropriate policy document')",
+        "Apply data minimisation aggressively"
+      ],
+      "cites": [
+        "gdpr-art-9",
+        "uk-dpa-2018-s10-sch1",
+        "uk-duaa-2025"
+      ]
+    },
+    "o-prohibited": {
+      "type": "outcome",
+      "tier": "required",
+      "title": "Art. 9(1) prohibition stands — processing is unlawful as proposed",
+      "summary": "If none of the Art. 9(2)(a)–(j) exceptions applies, the Art. 9(1) prohibition is absolute. Re-scope: obtain explicit consent, redirect to a different basis, or stop.",
+      "actions": [
+        "Re-scope: can you avoid processing the sensitive attribute? (Minimisation is often the answer.)",
+        "Seek explicit consent under Art. 9(2)(a) if practical and the consent will be genuinely free",
+        "If processing is already happening: stop until you have a valid basis"
+      ],
+      "cites": [
+        "gdpr-art-9"
+      ]
+    }
+  },
+  "verifiedAsOf": "2026-07-02 (automated cross-check against official source texts; not yet reviewed by counsel)"
+}

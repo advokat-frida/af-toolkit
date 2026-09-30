@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-CT",
+  "label": "Connecticut: enforcement and cure",
+  "citation": "Conn. Gen. Stat. §42-525(a)–(c), (e)",
+  "provenance": "https://www.cga.ct.gov/current/pub/chap_743jj.htm#sec_42-525",
+  "note": "Editorial summary of the cited primary provisions, not a verbatim extract. Current-law check as of September 22, 2026; enforcement cure procedures do not postpone substantive compliance duties.",
+  "body": [
+    "<p>The Attorney General has exclusive enforcement authority for the comprehensive act. The mandatory notice and 60-day cure regime ended December 31, 2024.</p>",
+    "<p>Since January 1, 2025, an opportunity to cure is discretionary. The Attorney General may weigh the number of violations, organizational size and complexity, processing, likely public injury, safety, human or technical error, and data sensitivity.</p>",
+    "<p>Current subsection (c) does not prescribe a fixed cure length. Its discretion is not a guaranteed continuation of the expired 60-day regime.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

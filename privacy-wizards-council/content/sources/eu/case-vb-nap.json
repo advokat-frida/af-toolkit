@@ -1,0 +1,23 @@
+{
+  "kind": "case",
+  "juris": "EU",
+  "label": "CJEU C-340/21 — VB v NAP (breach, fear-of-misuse damage)",
+  "citation": "CJEU (Third Chamber), 14 December 2023, ECLI:EU:C:2023:986",
+  "provenance": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:62021CJ0340",
+  "body": [
+    "<p><b>Operative part (selected):</b></p>",
+    "  <p><span class=\"num\">1.</span> Unauthorised disclosure of, or access to, personal data by a third party is <b>not, in itself, sufficient</b> to conclude that Art. 24/32 technical and organisational measures were inappropriate. Appropriateness is assessed concretely against the risks.</p>",
+    "  <p><span class=\"num\">3.</span> In an Art. 82 action, the <b>controller bears the burden of proving</b> its security measures were appropriate under Art. 32.</p>",
+    "  <p><span class=\"num\">5.</span> The controller is <b>not exempt</b> from Art. 82 compensation merely because the damage resulted from third-party unauthorised access; the controller must prove it is \"in no way responsible\".</p>",
+    "  <p><span class=\"num\">6.</span> <b>Fear of possible misuse</b> by third parties following an infringement can in itself constitute <b>non-material damage</b> under Art. 82(1).</p>",
+    "  <p><b>Why it matters:</b> Breaches expose the controller to damages claims even without proven misuse. Plaintiffs only need a well-founded fear. Aggressive Art. 32 documentation is the only defence.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

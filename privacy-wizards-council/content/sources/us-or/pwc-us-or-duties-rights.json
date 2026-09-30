@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-OR",
+  "label": "Oregon: consumer rights",
+  "citation": "ORS §§646A.574–646A.576",
+  "provenance": "https://www.oregonlegislature.gov/bills_laws/ors/ors646A.html",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Oregon includes specific third-party lists, correction and deletion including derived data, alongside access/copy and opt-out rights.</p>",
+    "<p>Provide the specific recipients list under the statute's consumer-specific or all-data option; categories alone are insufficient.</p>",
+    "<p>Respond within 45 days, with a reasonably necessary 45-day extension on timely notice; decide an appeal within 45 days.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

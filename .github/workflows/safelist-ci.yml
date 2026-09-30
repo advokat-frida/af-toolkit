@@ -9,11 +9,13 @@ on:
     paths:
       - "safelist/**"
       - ".github/workflows/safelist-ci.yml"
+      - "public/favicon-32.png"
   pull_request:
     branches: [main]
     paths:
       - "safelist/**"
       - ".github/workflows/safelist-ci.yml"
+      - "public/favicon-32.png"
 
 permissions:
   contents: read

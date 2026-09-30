@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-MT",
+  "label": "Montana: limited duties",
+  "citation": "Mont. Code Ann. §§30-14-2802, 30-14-2811, 30-14-2818–2819",
+  "provenance": "https://mca.legmt.gov/bills/mca/title_0300/chapter_0140/part_0280/section_0110/0300-0140-0280-0110.html",
+  "note": "Editorial summary of the limited provision. This is not a conclusion that full-law duties apply.",
+  "body": [
+    "<p>Specific online-minor provisions can apply outside full-law coverage. That limited route needs its own analysis.</p>",
+    "<p>Privacy counsel and the product owner must establish the user's age, the controller's knowledge and the online service or feature.</p>",
+    "<p>Review §2811's reasonable care, consent, retention, engagement-design and precise-location conditions, plus §§2818–2819. Do not infer full-law coverage.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "juris": "UK",
+  "label": "ICO Age Appropriate Design Code (Children's code) — 15 standards",
+  "citation": "ICO statutory code of practice under DPA 2018 s.123 (in force 2 Sept 2020; conformance from 2 Sept 2021)",
+  "body": [
+    "ICO 'Age appropriate design: a code of practice for online services' (the Children's code) - statutory code under s.123 DPA 2018, in force 2 September 2020 with the maximum 12-month transition period (conformance expected from 2 September 2021). Scope: it applies to 'relevant information society services which are likely to be accessed by children' in the UK; a child is anyone under 18 (per the UNCRC), and the code covers apps, games, connected toys and devices, search engines, social media platforms, streaming services, news or educational websites and sites selling goods or services - not just services aimed at children. The ICO reads 'likely to be accessed' as meaning the possibility 'needs to be more probable than not', judged by the nature and content of the service and its appeal to children and by the way it is accessed and any measures preventing child access; if you conclude children are not likely to access your service you should document and support that decision, and revisit it if evidence emerges that significant numbers of children are in fact using it. The code comprises 15 flexible standards: 1 Best interests of the child; 2 Data protection impact assessments; 3 Age appropriate application; 4 Transparency; 5 Detrimental use of data; 6 Policies and community standards; 7 Default settings; 8 Data minimisation; 9 Data sharing; 10 Geolocation; 11 Parental controls; 12 Profiling; 13 Nudge techniques; 14 Connected toys and devices; 15 Online tools. Headline requirements: settings must be 'high privacy' by default unless there is a compelling reason otherwise, only the minimum amount of personal data collected and retained, children's data not usually shared, geolocation off by default, and no nudge techniques encouraging children to provide unnecessary personal data or weaken their privacy settings. The code is not a new law but sets standards and explains how the GDPR applies in the context of children using digital services; organisations that do not conform risk regulatory action, and annexes cover a scope flowchart, age and developmental stages, lawful bases and a DPIA template."
+  ],
+  "kind": "guidance",
+  "provenance": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/childrens-information/childrens-code-guidance-and-resources/age-appropriate-design-a-code-of-practice-for-online-services/",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

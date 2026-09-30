@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-OR",
+  "label": "Oregon: sale and targeted advertising",
+  "citation": "ORS §§646A.574, 646A.578(2)(c)–(d), (5); HB2008 (2025)",
+  "provenance": "https://www.oregonlegislature.gov/bills_laws/ors/ors646A.html",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>From January 1, 2026, sale and targeted advertising/significant profiling are prohibited for consumers the controller knows or willfully disregards are under 16. Qualifying precise-location sales are also prohibited.</p>",
+    "<p>Do not offer consent as an override to these prohibitions.</p>",
+    "<p>For other covered sale/advertising activity, implement the opt-out and qualifying universal opt-out signal requirements, current from January 1, 2026.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

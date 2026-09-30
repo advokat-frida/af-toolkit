@@ -1,0 +1,24 @@
+{
+  "kind": "guidance",
+  "juris": "EU",
+  "label": "WP29 Guidelines on Data Protection Officers (WP243 rev.01) — EU-authoritative; persuasive only in the UK (ICO guidance is aligned)",
+  "citation": "Article 29 Working Party WP243 rev.01 (5 April 2017), endorsed by EDPB",
+  "provenance": "https://ec.europa.eu/newsroom/article29/items/612048",
+  "body": [
+    "<p><b>Key positions:</b></p>",
+    "  <p>• \"<b>Core activities</b>\" = key operations to achieve the controller's goals, not ancillary functions (HR, payroll, IT support).</p>",
+    "  <p>• \"<b>Large scale</b>\" considered against: (i) number of subjects (absolute or as a share of population), (ii) volume of data + scope, (iii) duration / permanence of processing, (iv) geographic extent.</p>",
+    "  <p>• \"<b>Regular and systematic monitoring</b>\" — explicitly includes <b>all forms of tracking and profiling on the internet</b>, including for behavioural-advertising purposes. Online behavioural advertisers will almost always meet this test.</p>",
+    "  <p>• Examples: hospital (large-scale special category) → DPO required; insurance/banks → DPO required; loyalty programme operators → likely required; small clinic → not required.</p>",
+    "  <p>• DPO independence: no instructions; reports to highest management level; cannot be dismissed for performing tasks; no conflict of interest (codified by CJEU C-453/21 X-FAB).</p>",
+    "  <p>• Voluntary DPO designations are still subject to Arts. 38–39 — call them something else if you want to avoid the framework.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

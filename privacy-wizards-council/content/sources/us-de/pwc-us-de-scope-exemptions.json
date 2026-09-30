@@ -1,0 +1,20 @@
+{
+  "kind": "statute",
+  "juris": "US-DE",
+  "label": "Delaware: entity and data exclusions",
+  "citation": "6 Del. C. §§ 12D-102, 12D-103 (effective until January 1, 2027)",
+  "provenance": "https://www.delcode.delaware.gov/title6/c012d/index.html",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Entity status and record-level exclusions are separate decisions; the listed categories must satisfy the linked law's definitions and conditions.",
+  "body": [
+    "<p>Government bodies are excluded but institutions of higher education are carved out of that exclusion. Qualifying GLBA financial institutions and affiliates, specified national securities/futures associations, and nonprofits dedicated exclusively to insurance-crime prevention are excluded. There is no general nonprofit, higher-education or HIPAA-entity exemption.</p>",
+    "<p>§12D-103(c) excludes specified health/research, regulated credit, DPPA, FERPA, Farm Credit and employment-role data. A HIPAA relationship does not exclude unrelated records. Document why each claimed category meets the statutory conditions.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

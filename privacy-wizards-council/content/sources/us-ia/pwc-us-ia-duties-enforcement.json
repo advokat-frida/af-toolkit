@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-IA",
+  "label": "Iowa: enforcement and cure",
+  "citation": "Iowa Code §715D.8(1)–(3) (2026)",
+  "provenance": "https://www.legis.iowa.gov/docs/code/715D.pdf",
+  "note": "Editorial summary of the cited primary provisions, not a verbatim extract. Current-law check as of September 22, 2026; enforcement cure procedures do not postpone substantive compliance duties.",
+  "body": [
+    "<p>The Attorney General exclusively enforces chapter 715D and must provide a controller or processor 90 days' written notice identifying specific alleged violations before initiating an action.</p>",
+    "<p>Cure within that period plus an express written statement that the violations have been cured and no further such violations will occur bars initiation of the action. Continuing violations or breach of the statement permit enforcement.</p>",
+    "<p>No sunset appears in this provision. The 90-day enforcement cure is triggered by the Attorney General's notice; it is separate from the consumer-request response period.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2025-01-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

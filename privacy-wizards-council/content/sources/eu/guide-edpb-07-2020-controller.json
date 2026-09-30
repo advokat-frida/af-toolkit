@@ -1,0 +1,27 @@
+{
+  "kind": "guidance",
+  "juris": "EU",
+  "label": "EDPB Guidelines 07/2020 on Controller and Processor",
+  "citation": "EDPB Guidelines 07/2020, adopted 7 July 2021",
+  "body": [
+    "<p><b>Key positions:</b></p>",
+    "  <p>• \"Controller\" = whoever <b>actually exerts</b> decisive influence over purposes and essential means. Designation in a contract is not determinative — factual control trumps paper labels.</p>",
+    "  <p>• \"<b>Essential means</b>\" (data types, retention, recipients, who has access) are always controller-level. \"<b>Non-essential means</b>\" (technical tools, server choices) can be delegated to a processor.</p>",
+    "  <p>• Joint controllership requires <b>convergent decisions</b> on purposes and means — but equal participation is NOT required. Endorses CJEU C-210/16 / C-25/17 / C-40/17 trio.</p>",
+    "  <p>• Processor that determines its own purposes/means becomes a <b>controller</b> for that processing (codifies GDPR Art. 28(10)).</p>",
+    "  <p>• Art. 28(3) DPA must include all eight required clauses; \"<b>copy-paste of Art. 28(3)</b>\" is not enough — the DPA must elaborate on each specific to the engagement.</p>",
+    "  <p>• Joint-controller arrangement: must determine respective responsibilities for subject-rights handling, transparency, security, breach response. The \"essence\" must be made available to subjects (Art. 26(2)).</p>",
+    "  <p><b>Verbatim (para. 12):</b> \"The concepts of controller and processor are functional concepts: they aim to allocate responsibilities according to the actual roles of the parties. This implies that the legal status of an actor as either a \"controller\" or a \"processor\" must in principle be determined by its actual activities in a specific situation, rather than upon the formal designation of an actor as being either a \"controller\" or \"processor\" (e.g. in a contract). This means that the allocation of the roles usually should stem from an analysis of the factual elements or circumstances of the case and as such is not negotiable.\"</p>",
+    "  <p><b>Verbatim (para. 26):</b> \"The need for factual assessment also means that the role of a controller does not stem from the nature of an entity that is processing data but from its concrete activities in a specific context. In other words, the same entity may act at the same time as controller for certain processing operations and as processor for others, and the qualification as controller or processor has to be assessed with regard to each specific data processing activity.\"</p>",
+    "  <p><b>UK status:</b> Adopted after the end of the Brexit transition period; EDPB guidance does not bind the ICO. The UK reference is the ICO's 'Controllers and processors' guidance, which broadly mirrors the essential/non-essential means analysis.</p>"
+  ],
+  "provenance": "https://www.edpb.europa.eu/system/files/documents/2023-10/EDPB_guidelines_202007_controllerprocessor_final_en.pdf",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

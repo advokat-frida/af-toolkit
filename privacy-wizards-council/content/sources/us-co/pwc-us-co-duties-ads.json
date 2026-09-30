@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-CO",
+  "label": "Colorado: sale and targeted advertising",
+  "citation": "C.R.S. §§6-1-1306(1)(a), 6-1-1308.5",
+  "provenance": "https://olls.info/crs/crs2026-title-06.htm",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Consumers can opt out of sale, targeted advertising and significant-effect profiling. Qualifying universal opt-out mechanisms have been required for sale/targeted ads since July 1, 2024.</p>",
+    "<p>Apply the state definitions to vendor transfers and give a conspicuous opt-out outside the privacy notice.</p>",
+    "<p>Online services for known or willfully disregarded minors need the separate consent and care review under §1308.5, including age-appropriate parental consent.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

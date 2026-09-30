@@ -1,0 +1,23 @@
+{
+  "kind": "guidance",
+  "juris": "EU",
+  "label": "EDPB Guidelines 1/2024 — Art. 6(1)(f) legitimate interests",
+  "citation": "EDPB Guidelines 1/2024 on processing of personal data based on Article 6(1)(f) GDPR, version 1.0 adopted for public consultation 8 October 2024 — verify final adopted version",
+  "body": [
+    "<p><b>EDPB Guidelines 1/2024 on processing of personal data based on Article 6(1)(f) GDPR — Version 1.0, adopted 8 October 2024 (version for public consultation).</b> Consultation closed 20 November 2024; as of 1 July 2026 the EDPB register still lists only Version 1.0 — no final post-consultation version has been published, so the positions remain formally draft.</p>",
+    "  <p>• Three cumulative conditions for Art. 6(1)(f): (1) pursuit of a legitimate interest by the controller or a third party; (2) necessity of the processing for that interest; (3) the interests or fundamental rights and freedoms of the data subjects do not take precedence (balancing exercise). Controllers must assess and document all three BEFORE the processing starts.</p>",
+    "  <p>• Only interests that are \"lawful, precisely articulated and present\" may be invoked; Art. 6(1)(f) is neither a \"last resort\" for when other bases fail nor a less-constraining default.</p>",
+    "  <p>• Necessity fails where the interest can \"reasonably be achieved just as effectively by other means less restrictive of the fundamental rights and freedoms of data subjects\" (read with the Art. 5(1) principles).</p>",
+    "  <p>• Balancing factors: nature and source of the legitimate interest, impact of the processing on the data subject, the data subject's reasonable expectations, and additional safeguards that could limit undue impact.</p>",
+    "  <p>• Takes into consideration CJEU C-621/22 (KNLTB, 4 October 2024) — commercial interests can be legitimate interests. Applies the framework to specific contexts (e.g. fraud prevention, direct marketing, information security) and explains the relationship between Art. 6(1)(f) and data subject rights.</p>"
+  ],
+  "provenance": "https://www.edpb.europa.eu/system/files/2024-10/edpb_guidelines_202401_legitimateinterest_en.pdf",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

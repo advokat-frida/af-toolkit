@@ -1,0 +1,24 @@
+{
+  "juris": "EU",
+  "label": "EU AI Act Art. 99 — Penalties",
+  "citation": "Regulation (EU) 2024/1689, Art. 99 (as amended by the Digital Omnibus on AI, 2026: SMC fine caps and Art. 25(2)/(4) added to the fineable list)",
+  "body": [
+    "3. Non-compliance with the prohibition of the AI practices referred to in Article 5 shall be subject to administrative fines of up to EUR 35 000 000 or, if the offender is an undertaking, up to 7 % of its total worldwide annual turnover for the preceding financial year, whichever is higher.",
+    "",
+    "4. Non-compliance with any of the following provisions related to operators or notified bodies, other than those laid down in Article 5, shall be subject to administrative fines of up to EUR 15 000 000 or, if the offender is an undertaking, up to 3 % of its total worldwide annual turnover for the preceding financial year, whichever is higher: (a) obligations of providers pursuant to Article 16; (b) obligations of authorised representatives pursuant to Article 22; (c) obligations of importers pursuant to Article 23; (d) obligations of distributors pursuant to Article 24; (da) (inserted 2026) obligations of providers and operators pursuant to Article 25(2) and (4); (e) obligations of deployers pursuant to Article 26; (g) transparency obligations for providers and deployers pursuant to Article 50.",
+    "",
+    "5. The supply of incorrect, incomplete or misleading information to notified bodies or national competent authorities in reply to a request shall be subject to administrative fines of up to EUR 7 500 000 or, if the offender is an undertaking, up to 1 % of its total worldwide annual turnover, whichever is higher.",
+    "",
+    "6. In the case of SMEs, including start-ups, each fine shall be up to the percentages or amount referred to in paragraphs 3, 4 and 5, whichever thereof is lower. 6a. (inserted 2026) In the case of SMCs (small mid-cap enterprises), each fine referred to in paragraphs 4 and 5 shall be up to the percentages or amount referred therein, whichever is lower."
+  ],
+  "kind": "statute",
+  "provenance": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R1689",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

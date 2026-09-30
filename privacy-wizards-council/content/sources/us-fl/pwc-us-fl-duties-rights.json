@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-FL",
+  "label": "Florida: consumer rights",
+  "citation": "Fla. Stat. §§501.705–501.707",
+  "provenance": "https://www.flsenate.gov/Laws/Statutes/2025/501.706",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Access, correction, deletion and portability sit alongside Florida's broader collection opt-outs. The response extension is only 15 days.</p>",
+    "<p>Respond without undue delay and within 45 days; one reasonably necessary 15-day extension requires notice and reasons within the first 45 days.</p>",
+    "<p>Provide compliance notice within 60 days after receipt. Decide an internal appeal within 60 days.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2024-07-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

@@ -83,3 +83,86 @@ it does not convert any source or path into a practitioner-reviewed determinatio
   injects extracted source markup through an unescaped HTML rendering path.
 - Search feedback is reactively derived from the current term; nonsense input visibly produces zero
   results and a recovery instruction.
+
+## PWC-NEXT-006 — The authored depth reaches the page (2026-09-13)
+
+- Legacy (Toolkit 0.4.x): the question aside showed the help's first sentence with no way to
+  the rest; the verdict qualifier showed the reasoning's first sentence, or the clock line
+  instead of any reasoning; option notes never rendered; the sources layer had no trigger, so
+  the included source texts were unreachable; the per-path `verifiedAsOf` stamp was not shown.
+- vNext: the same content behind disclosures (Why this question?, Read the full reasoning),
+  option notes as the row sub-line, each authority row opening to its citation, official link
+  and included text, and the check date on the outcome aside and in the record. The record
+  also carries the answer notes and the included texts.
+- Next determination: one or two paths from `src/lib/data/related.js`. An outcome drops a path
+  that shares no jurisdiction with the law it cites, so a New York breach answer is not sent to
+  the EU and UK severity path.
+- Reason: a reader should not have to leave the tool to understand it (DESIGN-PRINCIPLES
+  nitpick 7; ADVO-189).
+- Compatibility: no decision node, option, citation, or source record changed; the registry
+  hash is unchanged.
+- Evidence: unit tests over the lead, the plain-text conversion, the record; the Toolkit gate.
+- Ben approval: the Wave 0 unlock, on Ben's word, 2026-09-13.
+
+## PWC-NEXT-007 — Pending-law notes are annotations, never outcomes (2026-09-13)
+
+- vNext: `src/lib/data/motion.js` carries dated notes about a pending instrument that would
+  change an outcome if adopted (today: four notes on the Commission's Digital Omnibus
+  proposal, each citing the EDPB-EDPS Joint Opinion 2/2026). They render under `What may
+  change` on the outcomes they touch and in the record.
+- Boundary: a note never alters a determination and always says the cited law applies until
+  an amending act is adopted and applies. Every note carries the date it was checked and an
+  official document. A note without both fails the unit tests. A note scoped to a jurisdiction
+  shows only on outcomes that cite law of that jurisdiction, so the EU cookies note stays off
+  the UK-only cookies outcomes.
+- Review: the notes describe a proposal, not the law the paths decide on; they still deserve
+  Ben's read before deploy, and a stale note is removed rather than left to age.
+
+## PWC-NEXT-008 — Inline citations open the cited text in place (2026-09-14)
+
+- vNext: `src/lib/engine/mentions.js` turns the article, section, guidance, case and
+  defined-term mentions inside the authored text into citations that open a card with the
+  cited paragraph (or the whole text), the formal citation, the review status and the official
+  link. Curated aliases and defined terms live in `src/lib/data/mentions.js`.
+- Boundary: resolution is conservative. A mention resolves only when it maps to exactly one
+  registry source within the wizard's regime family; anything else stays plain text (Art. 55
+  and Art. 56 of the GDPR, Annex I, WP242 and the like have no registry source and are not
+  linked). An explicit "UK GDPR Art. N" never opens the EU text. A bare article opens the EU or
+  UK provision the node cites; where the node cites both, the clause decides when it names
+  only one regime, and the node's UK reading decides otherwise. A lettered article (Arts.
+  45A–45B), a paragraph an excerpt source does not hold (AI Act Art. 3(1)), a short instrument
+  name for a provision the path does not cite (PECR in the breach path) and a defined term of
+  another jurisdiction (the GDPR's "biometric data" in the Illinois outcome) stay plain.
+- Compatibility: no decision content, citation or source record changed; the registry hash is
+  unchanged. The Authority rail keeps the full list.
+- Evidence: unit tests over the rules and over every text block of every wizard (every
+  resolved mention points at an existing source of a plausible family); the Toolkit gate; the
+  behaviour rig (hover, pin, keyboard, Escape, ×, frame-width fit) at 1440 and 390.
+- Ben approval: asked for on 2026-09-14 ("hover over each mention of an article… a small popup
+  card"), built the same day.
+
+## PWC-NEXT-009 — The registry is authored content, not extracted HTML (2026-09-14)
+
+- Legacy: the build extracted `SOURCES` and `WIZARDS` from `wizards.html`, with the manifest
+  version, the published allowlist and every source's status hardcoded in the extraction script.
+- vNext: the build generates the registry modules from `content/`: one file per path, one per
+  source, and a review block per source. Published flags live in `registry.json` and review status
+  in each source file. A file that does not validate stops the build.
+- Publication: an unpublished path (`published: false`) is left out of the finder and the next
+  determinations, and its link opens nothing; the legacy tool listed every extracted path. Only a
+  literal `true` publishes: any value but `true` or `false` fails validation. A published path that
+  cites a draft or superseded source fails validation too, and such a source never opens from the
+  text of any path. The
+  tests read publication and review status from the files instead of requiring every path
+  published and every source `automated-check-only`. The sixteen baseline paths must stay
+  published.
+- Record: the "Legacy registry SHA-256" line becomes "Registry SHA-256", the hash of the content
+  registry. The manifest version moves to `af-pwc-vnext-2026-09-14`, and the manifest hash changes
+  with it and because sources are now ordered by id.
+- Build output: CI regenerates the modules and rebuilds `dist/wizards.html`, and fails when the
+  committed copies differ. The Toolkit gate fails when a staged copy was not staged from the
+  committed artifact.
+- Compatibility: no path, source, text, citation or status changed. At the switch-over the files
+  equalled the legacy extraction byte for byte, and every citation in every path resolved the same.
+- Evidence: the equivalence test before the switch, the generated-module test after it, the before
+  and after resolution of every citation, and the Toolkit gate.

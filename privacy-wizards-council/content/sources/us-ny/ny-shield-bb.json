@@ -1,0 +1,23 @@
+{
+  "juris": "US-NY",
+  "label": "NY SHIELD § 899-bb — Reasonable security",
+  "citation": "N.Y. Gen. Bus. Law § 899-bb",
+  "provenance": "https://www.nysenate.gov/legislation/laws/GBS/899-BB",
+  "body": [
+    "<p><span class=\"num\">2.(a)</span> Any person or business that owns or licenses computerized data which includes private information of a resident of New York shall develop, implement and maintain <b>reasonable safeguards</b> to protect the security, confidentiality and integrity of the private information including, but not limited to, disposal of data.</p>",
+    "  <p><span class=\"num\">2.(b)(ii)</span> A program is reasonable if it includes:</p>",
+    "  <blockquote><b>(A) Administrative safeguards</b> — designate employee(s) to coordinate; identify foreseeable risks; assess sufficiency of safeguards; train employees; select service providers capable of maintaining appropriate safeguards (require by contract); adjust the program for business changes.</blockquote>",
+    "  <blockquote><b>(B) Technical safeguards</b> — assess risks in network/software design, in info processing/transmission/storage; detect/prevent/respond to attacks; regularly test and monitor controls.</blockquote>",
+    "  <blockquote><b>(C) Physical safeguards</b> — assess risks of storage/disposal; detect/prevent intrusions; protect against unauthorized access; dispose of private information so it cannot be read or reconstructed.</blockquote>",
+    "  <p><span class=\"num\">2.(c)</span> A <b>small business</b> (fewer than 50 employees; <$3M revenue last three years; or <$5M assets) complies if its program contains safeguards appropriate for size, complexity, scope, and sensitivity.</p>"
+  ],
+  "kind": "statute",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

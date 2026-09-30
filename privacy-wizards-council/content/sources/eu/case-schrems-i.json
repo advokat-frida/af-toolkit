@@ -1,0 +1,21 @@
+{
+  "kind": "case",
+  "juris": "EU",
+  "label": "CJEU C-362/14 — Schrems v Data Protection Commissioner (Schrems I)",
+  "citation": "CJEU (Grand Chamber), 6 October 2015, ECLI:EU:C:2015:650",
+  "provenance": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:62014CJ0362",
+  "body": [
+    "<p><b>Operative part:</b></p>",
+    "  <p><span class=\"num\">1.</span> An adequacy decision adopted by the Commission does not prevent a national supervisory authority from examining a complaint that a third country does not ensure an adequate level of protection. National SAs retain competence; only the Court of Justice can declare a Commission decision invalid.</p>",
+    "  <p><span class=\"num\">2.</span> Commission Decision 2000/520 (the <b>US-EU Safe Harbor</b>) is <b>invalid</b>.</p>",
+    "  <p><b>Why it matters:</b> Established the \"essentially equivalent\" standard for third-country protection and the principle that national SAs are independent gatekeepers. Set the stage for Schrems II.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

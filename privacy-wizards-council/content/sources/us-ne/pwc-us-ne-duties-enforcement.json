@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-NE",
+  "label": "Nebraska: enforcement and cure opportunity",
+  "citation": "Neb. Rev. Stat. §§87-1119, 87-1122, 87-1124",
+  "provenance": "https://nebraskalegislature.gov/laws/laws-index/chap87-full.html",
+  "note": "Editorial summary of the cited current primary law, not a verbatim statutory extract. Cure/enforcement checkpoint: September 22, 2026. Independent content review and practitioner review are separate. This card addresses the comprehensive privacy law's cure opportunity and enforcement actor, not a complete remedies schedule.",
+  "body": [
+    "<p>The Attorney General has exclusive enforcement authority under §87-1119. Before an action under §87-1124, §87-1122 requires written notice to the controller or processor at least thirty days beforehand, identifying the specific allegedly violated provisions.</p>",
+    "<p>The Attorney General may not bring the action if the violation is cured within that thirty-day period and the controller or processor provides a written statement of cure with supportive documentation and an express written statement that it will not commit such a violation after cure.</p>",
+    "<p>Continued violations or breach of the statutory written statement can support enforcement. No cure sunset is stated in these current provisions.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

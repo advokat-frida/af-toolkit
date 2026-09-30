@@ -1,0 +1,28 @@
+{
+  "juris": "EU",
+  "label": "EU AI Act Ch. V — General-purpose AI models (Arts. 51-55)",
+  "citation": "Regulation (EU) 2024/1689, Arts. 51-55 (in application since 2 August 2025; models placed on the market before that date must comply by 2 August 2027, Art. 111(3))",
+  "body": [
+    "Art. 51(1): A general-purpose AI model shall be classified as a general-purpose AI model with systemic risk if it has high impact capabilities evaluated on the basis of appropriate technical tools and methodologies, or based on a decision of the Commission (ex officio or following a qualified alert from the scientific panel).",
+    "Art. 51(2): A general-purpose AI model shall be presumed to have high impact capabilities when the cumulative amount of computation used for its training measured in floating point operations is greater than 10^25.",
+    "",
+    "Art. 52(1): Where a model meets the Art. 51(1)(a) condition, the provider shall notify the Commission without delay and in any event within two weeks after that requirement is met or it becomes known that it will be met. The provider may present arguments that the model exceptionally does not present systemic risks (52(2)); the Commission maintains a published list of models with systemic risk (52(6)).",
+    "",
+    "Art. 53(1): Providers of general-purpose AI models shall: (a) draw up and keep up-to-date technical documentation of the model (Annex XI minimum) for the AI Office and national competent authorities; (b) draw up, keep up-to-date and make available information and documentation to providers of AI systems who intend to integrate the model (Annex XII minimum); (c) put in place a policy to comply with Union law on copyright and related rights, in particular to identify and comply with a reservation of rights expressed pursuant to Article 4(3) of Directive (EU) 2019/790; (d) draw up and make publicly available a sufficiently detailed summary about the content used for training, according to the AI Office template.",
+    "Art. 53(2): Obligations (a) and (b) do not apply to providers of AI models released under a free and open-source licence with publicly available parameters, weights, architecture and usage information — unless the model is a general-purpose AI model with systemic risk.",
+    "",
+    "Art. 54: Third-country providers of general-purpose AI models shall, prior to placing them on the Union market, appoint by written mandate an authorised representative established in the Union.",
+    "",
+    "Art. 55(1): Providers of general-purpose AI models with systemic risk shall additionally: (a) perform model evaluation in accordance with standardised protocols and tools reflecting the state of the art, including adversarial testing; (b) assess and mitigate possible systemic risks at Union level; (c) keep track of, document, and report serious incidents and possible corrective measures to the AI Office and, as appropriate, national competent authorities, without undue delay; (d) ensure an adequate level of cybersecurity protection for the model and its physical infrastructure."
+  ],
+  "kind": "statute",
+  "provenance": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32024R1689",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

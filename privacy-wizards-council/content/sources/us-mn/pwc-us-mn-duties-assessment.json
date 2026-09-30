@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-MN",
+  "label": "Minnesota: risk assessments",
+  "citation": "Minn. Stat. §§325M.16, subd.2(c); 325M.18",
+  "provenance": "https://www.revisor.mn.gov/statutes/cite/325M.18",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Document privacy policies and the responsible privacy contact, maintain the data inventory, and assess specified heightened-risk activities.</p>",
+    "<p>Include targeted advertising, sale, sensitive processing and qualifying risky profiling in the assessment screen.</p>",
+    "<p>Assess against the documented privacy policies and controls, and preserve the benefit/risk analysis and safeguards.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2025-07-31",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "kind": "statute",
+  "juris": "US-KY",
+  "label": "Kentucky: entity and data exclusions",
+  "citation": "KRS 367.3613",
+  "provenance": "https://apps.legislature.ky.gov/law/Statutes/statute.aspx?id=56648",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Entity status and record-level exclusions are separate decisions; the listed categories must satisfy the linked law's definitions and conditions.",
+  "body": [
+    "<p>Government bodies, qualifying GLBA financial institutions/affiliates, HIPAA covered entities/business associates, nonprofits and higher education are excluded. Additional narrowly defined exclusions cover specified insurance-fraud/first-responder nonprofits and small telephone/Tier III wireless/municipal-utility entities that do not sell or share data with third parties.</p>",
+    "<p>KRS367.3613 separately excludes GLBA data, specified health/research, regulated credit, DPPA, FERPA, Farm Credit and employment-role data. The current section includes the 2025 amendment for same-manner provider information and compliant limited datasets.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

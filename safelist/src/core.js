@@ -140,6 +140,18 @@ export function nameColumns(header) {
   };
 }
 
+// One cell can hold several entries: a line pasted with commas, semicolons or tabs, or an
+// Outlook To line with display names ("Lovelace, Ada" <ada@example.com>; grace@example.org).
+// The pieces that are addresses or @domain rules are the entries; a piece with an @ that is
+// neither is a broken entry and is kept so it gets reported, not dropped from the suppression
+// set; a display name split at its comma is not an entry. A cell with no address at all comes
+// back whole, to be reported.
+export function cellEntries(raw) {
+  const parts = String(raw).split(/[;,\t]+/).map((part) => part.trim()).filter(Boolean);
+  const entries = parts.filter((part) => looksLikeEmail(part) || domainRule(part) || part.includes("@"));
+  return entries.length ? entries : [String(raw).trim()];
+}
+
 export function parseSuppression(list, rules = DEFAULT_RULES) {
   const emails = new Set();
   const domains = new Set();
@@ -147,15 +159,27 @@ export function parseSuppression(list, rules = DEFAULT_RULES) {
   const columns = list.emailColumns.length ? list.emailColumns.map((column) => column.index) : list.header.map((_, index) => index);
   for (const cells of list.rows) {
     for (const index of columns) {
-      const raw = (cells[index] || "").trim();
-      if (!raw) continue;
-      const rule = domainRule(raw);
-      if (rule) { if (rules.domainRules) domains.add(rule); continue; }
-      const normalized = normalizeEmail(raw, rules);
-      if (normalized) emails.add(normalized); else invalid.push(raw);
+      const cell = (cells[index] || "").trim();
+      if (!cell) continue;
+      for (const raw of cellEntries(cell)) {
+        const rule = domainRule(raw);
+        if (rule) { if (rules.domainRules) domains.add(rule); continue; }
+        const normalized = normalizeEmail(raw, rules);
+        if (normalized) emails.add(normalized); else invalid.push(raw);
+      }
     }
   }
   return { emails, domains, count: emails.size, domainCount: domains.size, invalid };
+}
+
+// A pasted send list on a single line ("a@example.com, b@example.org") is a list of contacts,
+// not one contact with many email columns: give each address its own row. Anything with more
+// than one line is a CSV and is read as one.
+export function pastedList(text) {
+  const value = String(text || "").trim();
+  if (/[\r\n]/.test(value)) return text;
+  const parts = value.split(/[;,\t]+/).map((part) => part.trim()).filter(Boolean);
+  return parts.length > 1 && parts.every((part) => looksLikeEmail(part)) ? parts.join("\n") : text;
 }
 
 /* ---------- matching ---------- */

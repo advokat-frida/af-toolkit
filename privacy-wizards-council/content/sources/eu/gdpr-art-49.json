@@ -1,0 +1,26 @@
+{
+  "juris": "EU",
+  "label": "GDPR Art. 49 — Derogations for specific situations",
+  "citation": "Regulation (EU) 2016/679, Art. 49",
+  "provenance": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504#art_49",
+  "body": [
+    "<p><span class=\"num\">1.</span> In the absence of an adequacy decision pursuant to Article 45, or of appropriate safeguards pursuant to Article 46 … a transfer or a set of transfers of personal data to a third country or an international organisation shall take place only on one of the following conditions:</p>",
+    "  <blockquote>(a) the data subject has <b>explicitly consented</b> to the proposed transfer, after having been informed of the possible risks …;</blockquote>",
+    "  <blockquote>(b) the transfer is necessary for the performance of a contract between the data subject and the controller or the implementation of pre-contractual measures …;</blockquote>",
+    "  <blockquote>(c) the transfer is necessary for the conclusion or performance of a contract concluded in the interest of the data subject between the controller and another natural or legal person;</blockquote>",
+    "  <blockquote>(d) the transfer is necessary for important reasons of public interest;</blockquote>",
+    "  <blockquote>(e) the transfer is necessary for the establishment, exercise or defence of legal claims;</blockquote>",
+    "  <blockquote>(f) the transfer is necessary in order to protect the vital interests of the data subject or of other persons, where the data subject is physically or legally incapable of giving consent;</blockquote>",
+    "  <blockquote>(g) the transfer is made from a register which according to Union or Member State law is intended to provide information to the public …</blockquote>",
+    "  <p>Where a transfer could not be based on a provision in Article 45 or 46 … a transfer to a third country or an international organisation may take place only if the transfer is <b>not repetitive</b>, concerns only a <b>limited number</b> of data subjects, is necessary for the purposes of <b>compelling legitimate interests</b> pursued by the controller … and the controller has assessed all the circumstances surrounding the data transfer and has on the basis of that assessment provided suitable safeguards.</p>"
+  ],
+  "kind": "statute",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

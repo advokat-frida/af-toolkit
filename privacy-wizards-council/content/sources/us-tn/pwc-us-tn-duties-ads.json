@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-TN",
+  "label": "Tennessee: sale and targeted advertising",
+  "citation": "Tenn. Code Ann. §§47-18-3304(a)(2)(E), 47-18-3305(d)",
+  "provenance": "https://www.capitol.tn.gov/Archives/Joint/publications/TNCodeBills/2025/TNCodeBill_Volume1_2025.pdf",
+  "note": "Editorial summary of the current codification in the official 2025 Tennessee Code Bill, pages 1096-1107, checked against the enacted 2023 chapter. Not a verbatim extract.",
+  "body": [
+    "<p>Consumers can opt out of sale, targeted advertising and qualifying significant-effect profiling.</p>",
+    "<p>Apply Tennessee's sale definition and exceptions to vendor transfers.</p>",
+    "<p>Disclose sale/targeted advertising and provide the statutory opt-out method; separately apply sensitive-data consent.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2025-07-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

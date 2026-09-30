@@ -1,0 +1,19 @@
+{
+  "kind": "statute",
+  "juris": "US-CT",
+  "label": "Connecticut: current transportation-data exemption",
+  "citation": "PA26-76 §72; Conn. Gen. Stat. §42-517(b)(19)",
+  "provenance": "https://www.cga.ct.gov/2026/act/Pa/pdf/2026PA-00076-R00SB-00477-PA.PDF",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. This enacted amendment overlays the 2026 statutory supplement.",
+  "body": [
+    "<p>Effective July 1, 2026, a narrow exemption covers precise geolocation data deidentified or aggregated from personal data and collected, used, processed, shared or transferred by or to the Department of Transportation for the listed transportation-planning, traffic, highway-safety, infrastructure or public-sector-research purposes. It is not an exemption for identifiable location data generally.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2026-07-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

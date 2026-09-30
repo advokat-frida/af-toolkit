@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-TX",
+  "label": "Texas: risk assessments",
+  "citation": "Tex. Bus. & Com. Code §541.105",
+  "provenance": "https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Assess targeted advertising, sale, sensitive processing, qualifying risky profiling and other heightened-risk processing.</p>",
+    "<p>Document benefits, harms, safeguards, context and reasonable consumer expectations.</p>",
+    "<p>A reasonably comparable assessment for another law can qualify; the limited small-business sales rule alone does not impose this full-law assessment duty.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2024-07-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

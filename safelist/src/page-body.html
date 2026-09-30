@@ -44,7 +44,7 @@
             <input type="file" accept=".csv,.txt,text/csv,text/plain" hidden data-file="send" aria-label="Choose the send list file">
             <div class="sl-paste hidden" data-paste-box="send">
               <label class="sr-only" for="paste-send">Paste the send list</label>
-              <textarea id="paste-send" rows="6" spellcheck="false" placeholder="One address per line, or the whole CSV"></textarea>
+              <textarea id="paste-send" rows="6" spellcheck="false" placeholder="Addresses separated by commas or new lines, or the whole CSV"></textarea>
               <div class="sl-zone-actions">
                 <button class="btn primary" type="button" data-paste-load="send">Use pasted list</button>
                 <button class="sl-text-action" type="button" data-paste-cancel="send">Cancel</button>
@@ -60,7 +60,7 @@
           <section class="sl-zone" id="zone-supp" data-loaded="false" aria-labelledby="zone-supp-title">
             <span class="sl-glyph" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 13V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12c0 1.1.9 2 2 2h9" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /><path d="m17 17 4 4" /><path d="m21 17-4 4" /></svg></span>
             <h2 class="sl-zone-title" id="zone-supp-title">Suppression list</h2>
-            <p class="sl-zone-hint">Today's export of the opt-outs. CSV, or paste one address per line.</p>
+            <p class="sl-zone-hint">Today's export of the opt-outs. CSV, or paste the addresses.</p>
             <div class="sl-zone-actions sl-empty-only">
               <button class="btn primary" type="button" data-pick="supp">Choose file</button>
               <button class="btn secondary" type="button" data-paste="supp">Paste addresses</button>
@@ -68,7 +68,7 @@
             <input type="file" accept=".csv,.txt,text/csv,text/plain" hidden data-file="supp" aria-label="Choose the suppression list file">
             <div class="sl-paste hidden" data-paste-box="supp">
               <label class="sr-only" for="paste-supp">Paste the suppression list</label>
-              <textarea id="paste-supp" rows="6" spellcheck="false" placeholder="One address per line. @domain.com suppresses a whole company."></textarea>
+              <textarea id="paste-supp" rows="6" spellcheck="false" placeholder="Separate addresses with commas, semicolons or new lines. @domain.com suppresses a whole company."></textarea>
               <div class="sl-zone-actions">
                 <button class="btn primary" type="button" data-paste-load="supp">Use pasted list</button>
                 <button class="sl-text-action" type="button" data-paste-cancel="supp">Cancel</button>
@@ -169,18 +169,13 @@
 
   <!-- sl:standalone-start -->
   <footer class="site-colophon">
-    <div class="site-colophon-inner">
-      <div class="site-colophon-brand">
-        <p class="site-colophon-name">Advokat Frida</p>
-        <p class="site-colophon-desc">Privacy and AI governance, by design and in practice.<br>Analytics by Plausible, cookieless and aggregate, no ad-tech.</p>
-      </div>
-      <nav aria-label="Footer"><ul class="site-colophon-nav">
-        <li><a href="https://advokatfrida.com/about/">About</a></li>
-        <li><a href="mailto:hello@advokatfrida.com">Contact us</a></li>
-        <li><a href="https://advokatfrida.com/privacy/">Privacy</a></li>
-        <li><a href="https://advokatfrida.com/rss/">RSS</a></li>
-      </ul></nav>
-    </div>
+    <a class="site-colophon-brand" href="https://advokatfrida.com/">Advokat Frida</a>
+    <nav aria-label="Footer">
+      <a href="https://advokatfrida.com/about/">About</a>
+      <a href="mailto:hello@advokatfrida.com">Contact</a>
+      <a href="https://advokatfrida.com/privacy/">Privacy</a>
+      <a href="https://advokatfrida.com/rss/">RSS</a>
+    </nav>
   </footer>
   <!-- sl:standalone-end -->
 </div>

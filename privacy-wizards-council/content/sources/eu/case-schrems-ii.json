@@ -1,0 +1,24 @@
+{
+  "kind": "case",
+  "juris": "EU",
+  "label": "CJEU C-311/18 — Data Protection Commissioner v Facebook Ireland (Schrems II)",
+  "citation": "CJEU (Grand Chamber), 16 July 2020, ECLI:EU:C:2020:559",
+  "provenance": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:62018CJ0311",
+  "body": [
+    "<p><b>Operative part:</b></p>",
+    "  <p><span class=\"num\">1.</span> The GDPR applies to a commercial transfer of personal data to a third country, irrespective of whether that data is liable to be processed there by public authorities for national-security purposes.</p>",
+    "  <p><span class=\"num\">2.</span> Art. 46 SCCs require that subjects be afforded a level of protection \"<b>essentially equivalent</b>\" to that guaranteed within the EU by the GDPR read with the Charter. Assessment must take into account both the SCCs themselves AND <b>any access by third-country public authorities</b> to the data transferred.</p>",
+    "  <p><span class=\"num\">3.</span> Where SCCs cannot be complied with in the third country and protection cannot be ensured by other means, the competent SA is <b>required to suspend or prohibit</b> the transfer if the controller/processor hasn't done so itself.</p>",
+    "  <p><span class=\"num\">4.</span> The 2010/87 SCCs are <b>valid</b> in principle.</p>",
+    "  <p><span class=\"num\">5.</span> Commission Implementing Decision 2016/1250 (<b>EU-US Privacy Shield</b>) is <b>invalid</b>: US surveillance under FISA §702 and EO 12333 fails the essentially-equivalent test; there are no actionable redress rights for EU subjects.</p>",
+    "  <p><b>Why it matters:</b> Killed Privacy Shield and made the TIA (transfer impact assessment) mandatory. Drove the 2021 SCC modernisation. Schrems III pending on the DPF.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

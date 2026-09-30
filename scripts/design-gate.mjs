@@ -114,7 +114,8 @@ const CANONICAL_RGB = new Set(
 
 function auditHexes(rel, content) {
   const extras = HEX_EXCEPTIONS[rel] ?? new Set();
-  for (const match of content.matchAll(/#[0-9a-fA-F]{3,8}\b/g)) {
+  // A statutory URL fragment such as #12D-111 is an identifier, not a CSS color.
+  for (const match of content.matchAll(/#[0-9a-fA-F]{3,8}(?![\w-])/g)) {
     const hex = match[0].toLowerCase();
     if (/^#[0-9a-f]{3}$|^#[0-9a-f]{6}$/.test(hex) && !CANONICAL_HEX.has(hex) && !extras.has(hex)) {
       fail(rel, "palette", `non-canonical color ${hex}`);

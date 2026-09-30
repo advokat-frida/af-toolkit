@@ -9,35 +9,35 @@ export default function PresetsBar({ columnPlan, detection, onPlanChange }) {
   const persist = (next) => { setPresets(next); savePresets(next); };
 
   const savePreset = () => {
-    if (!name.trim()) { toast.error("Give the preset a name"); return; }
+    if (!name.trim()) { toast.error("Give the preset a name."); return; }
     const p = makePresetFromPlan(name.trim(), columnPlan, detection);
-    const next = [...presets, p];
-    persist(next); setName("");
-    toast.success(`Saved preset "${p.name}" (${Object.keys(p.byHeader).length} columns)`);
+    persist([...presets, p]);
+    setName("");
   };
 
   const applyPreset = (p) => {
     const { plan, matches } = applyPresetToPlan(p, columnPlan, detection);
     onPlanChange(plan);
-    toast.success(matches > 0 ? `Applied "${p.name}" · ${matches} column${matches === 1 ? "" : "s"} updated` : `Applied "${p.name}" · nothing to update on this file`);
+    toast.success(matches > 0 ? `“${p.name}” changed ${matches} treatment${matches === 1 ? "" : "s"}` : `“${p.name}” matches nothing in this file`);
   };
 
   const deletePreset = (id) => persist(presets.filter((p) => p.id !== id));
 
   return (
     <div className="red-presets">
-      <label className="field-label" htmlFor="red-preset-name">Save this plan as a preset</label>
+      <label className="field-label" htmlFor="red-preset-name">Save these choices as a preset</label>
       <div className="red-presets-row">
         <input
           id="red-preset-name"
           data-testid="preset-name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="e.g. HR-export-EU"
+          placeholder="e.g. HR export"
           className="red-adv-input"
+          autoComplete="off"
         />
         <button data-testid="save-preset-btn" onClick={savePreset} className="btn-ghost-ink">
-          Save current plan
+          Save preset
         </button>
       </div>
 
@@ -49,7 +49,7 @@ export default function PresetsBar({ columnPlan, detection, onPlanChange }) {
                 data-testid={`apply-preset-${p.id}`}
                 onClick={() => applyPreset(p)}
                 className="text-action"
-                title={`Header rules: ${Object.keys(p.byHeader).length} · detector rules: ${Object.keys(p.byDetector).length}`}
+                aria-label={`Use the preset ${p.name}`}
               >
                 {p.name}
               </button>
@@ -57,7 +57,7 @@ export default function PresetsBar({ columnPlan, detection, onPlanChange }) {
                 data-testid={`delete-preset-${p.id}`}
                 onClick={() => deletePreset(p.id)}
                 className="red-preset-delete"
-                aria-label={`Delete preset ${p.name}`}
+                aria-label={`Delete the preset ${p.name}`}
               >
                 ×
               </button>

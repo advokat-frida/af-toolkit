@@ -1,0 +1,23 @@
+{
+  "kind": "guidance",
+  "juris": "EU",
+  "label": "Article 29 WP Opinion 04/2012 on Cookie Consent Exemption (WP194)",
+  "citation": "Article 29 Data Protection Working Party, Opinion 04/2012 on Cookie Consent Exemption, WP194, 7 June 2012",
+  "body": [
+    "<p><b>Article 29 Working Party Opinion 04/2012 on Cookie Consent Exemption (WP194, 00879/12/EN), adopted 7 June 2012.</b> Analyses the two consent-exemption criteria of Art. 5(3) ePrivacy Directive (as amended by Directive 2009/136/EC): CRITERION A — the cookie is used \"for the sole purpose of carrying out the transmission of a communication over an electronic communications network\"; CRITERION B — the cookie is \"strictly necessary in order for the provider of an information society service explicitly requested by the subscriber or user to provide the service\".</p>",
+    "  <p><b>Verbatim — Section 5, Summary and guidelines:</b> \"This analysis has shown that the following cookies can be exempted from informed consent under certain conditions if they are not used for additional purposes: 1) User input cookies (session-id), for the duration of a session or persistent cookies limited to a few hours in some cases. 2) Authentication cookies, used for authenticated services, for the duration of a session. 3) User centric security cookies, used to detect authentication abuses, for a limited persistent duration. 4) Multimedia content player session cookies, such as flash player cookies, for the duration of a session. 5) Load balancing session cookies, for the duration of session. 6) UI customization persistent cookies, for the duration of a session (or slightly more). 7) Third party social plug-in content sharing cookies, for logged in members of a social network.\"</p>",
+    "  <p><b>Multi-purpose rule (verbatim, guideline 2):</b> \"If a cookie is used for several purposes, it can only benefit from an exemption to informed consent if each distinct purpose individually benefits from such an exemption.\"</p>",
+    "  <p>• Third-party advertising cookies cannot be exempted — including \"operational\" advertising purposes such as frequency capping, financial logging, ad affiliation, click fraud detection, research and market analysis, product improvement and debugging.</p>",
+    "  <p>• Social plug-in cookies used for purposes other than a functionality explicitly requested by the network's own members require consent, notably cross-site tracking. First-party analytics cookies are NOT exempt, but the WP29 regards them as posing limited privacy risks where safeguards apply (adequate information, easy opt-out, comprehensive anonymisation).</p>"
+  ],
+  "note": "Source of the classic strictly-necessary examples (user-input/session cookies, authentication, security tokens, load balancing, UI customisation within the exemption's limits). This — not EDPB Guidelines 2/2023, which address only the technical scope of Art. 5(3) — is the authority for the exemption example list.",
+  "provenance": "https://ec.europa.eu/justice/article-29/documentation/opinion-recommendation/files/2012/wp194_en.pdf",
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

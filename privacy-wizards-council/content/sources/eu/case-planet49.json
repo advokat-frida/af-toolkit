@@ -1,0 +1,22 @@
+{
+  "kind": "case",
+  "juris": "EU",
+  "label": "CJEU C-673/17 — Planet49 (cookie consent)",
+  "citation": "CJEU (Grand Chamber), 1 October 2019, ECLI:EU:C:2019:801",
+  "provenance": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:62017CJ0673",
+  "body": [
+    "<p><b>Operative part:</b></p>",
+    "  <p><span class=\"num\">1.</span> Consent under Art. 5(3) ePrivacy + Art. 4(11)/6(1)(a) GDPR is <b>not validly constituted</b> if cookie storage/access is permitted by way of a <b>pre-checked checkbox</b> which the user must deselect to refuse.</p>",
+    "  <p><span class=\"num\">2.</span> The consent requirement applies <b>regardless of whether</b> the information stored or accessed is personal data — Art. 5(3) protects the user's private sphere either way.</p>",
+    "  <p><span class=\"num\">3.</span> The information that must be provided to the user under Art. 5(3) includes the <b>duration of the operation</b> of cookies and <b>whether third parties may have access</b> to them.</p>",
+    "  <p><b>Why it matters:</b> Foundational case for cookie banners. Pre-ticked = invalid; active behaviour required; cookie disclosures must cover duration + recipients. Pre-2021 CJEU authority — assimilated/retained EU case law in the UK (departable by UK appellate courts).</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

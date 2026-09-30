@@ -8,6 +8,8 @@
  * patterns (checksum-validated) start at 0.9+; heuristics stay <=0.7.
  */
 
+import { isUSPlace } from "./places.js";
+
 // ---------- helpers ----------
 export const luhnCheck = (num) => {
   const digits = String(num).replace(/\D/g, "");
@@ -21,7 +23,7 @@ export const luhnCheck = (num) => {
   return sum % 10 === 0;
 };
 
-const ibanMod97 = (iban) => {
+export const ibanValid = (iban) => {
   const s = iban.replace(/\s+/g, "").toUpperCase();
   if (!/^[A-Z]{2}\d{2}[A-Z0-9]{10,30}$/.test(s)) return false;
   const rearr = s.slice(4) + s.slice(0, 4);
@@ -35,7 +37,33 @@ const ibanMod97 = (iban) => {
   return rem === 1;
 };
 
-const ssnValid = (v) => {
+// The Verhoeff check digit (dihedral group D5), which every Aadhaar number carries (UIDAI).
+const VERHOEFF_D = [
+  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 2, 3, 4, 0, 6, 7, 8, 9, 5], [2, 3, 4, 0, 1, 7, 8, 9, 5, 6],
+  [3, 4, 0, 1, 2, 8, 9, 5, 6, 7], [4, 0, 1, 2, 3, 9, 5, 6, 7, 8], [5, 9, 8, 7, 6, 0, 4, 3, 2, 1],
+  [6, 5, 9, 8, 7, 1, 0, 4, 3, 2], [7, 6, 5, 9, 8, 2, 1, 0, 4, 3], [8, 7, 6, 5, 9, 3, 2, 1, 0, 4],
+  [9, 8, 7, 6, 5, 4, 3, 2, 1, 0],
+];
+const VERHOEFF_P = [
+  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 5, 7, 6, 2, 8, 3, 0, 9, 4], [5, 8, 0, 3, 7, 9, 6, 1, 4, 2],
+  [8, 9, 1, 6, 0, 4, 3, 5, 2, 7], [9, 4, 5, 3, 1, 2, 6, 8, 7, 0], [4, 2, 8, 6, 5, 7, 3, 9, 0, 1],
+  [2, 7, 9, 3, 8, 0, 6, 4, 1, 5], [7, 0, 4, 6, 9, 1, 3, 2, 5, 8],
+];
+export const verhoeffValid = (digits) => {
+  let c = 0;
+  const reversed = String(digits).split("").reverse();
+  for (let i = 0; i < reversed.length; i++) c = VERHOEFF_D[c][VERHOEFF_P[i % 8][+reversed[i]]];
+  return c === 0;
+};
+// Twelve digits, optionally in groups of four; never starting with 0 or 1; Verhoeff-valid.
+export const aadhaarValid = (v) => {
+  const s = String(v).trim();
+  if (!/^\d{4} ?\d{4} ?\d{4}$/.test(s)) return false;
+  const d = s.replace(/ /g, "");
+  return /^[2-9]/.test(d) && verhoeffValid(d);
+};
+
+export const ssnValid = (v) => {
   // format shape only; catches obviously invalid area/group/serial
   const m = v.match(/^(\d{3})-?(\d{2})-?(\d{4})$/);
   if (!m) return false;
@@ -44,6 +72,38 @@ const ssnValid = (v) => {
   if (g === "00") return false;
   if (s === "0000") return false;
   return true;
+};
+
+// Full and compressed IPv6 (2001:db8::1, fe80::1ff:fe23:4567:890a, ::1), without lookbehind.
+const IPV6_RE = /^(?:(?:[0-9A-Fa-f]{1,4}:){7}[0-9A-Fa-f]{1,4}|(?:[0-9A-Fa-f]{1,4}:){1,7}:|(?:[0-9A-Fa-f]{1,4}:){1,6}:[0-9A-Fa-f]{1,4}|(?:[0-9A-Fa-f]{1,4}:){1,5}(?::[0-9A-Fa-f]{1,4}){1,2}|(?:[0-9A-Fa-f]{1,4}:){1,4}(?::[0-9A-Fa-f]{1,4}){1,3}|(?:[0-9A-Fa-f]{1,4}:){1,3}(?::[0-9A-Fa-f]{1,4}){1,4}|(?:[0-9A-Fa-f]{1,4}:){1,2}(?::[0-9A-Fa-f]{1,4}){1,5}|[0-9A-Fa-f]{1,4}:(?::[0-9A-Fa-f]{1,4}){1,6}|:(?::[0-9A-Fa-f]{1,4}){1,7}|::)(?:%[0-9A-Za-z]+)?$/;
+export const isIPv6 = (v) => IPV6_RE.test(String(v)) && String(v).includes(":");
+
+// The year of a date written as 1985-12-10, 12/10/1985, 10.12.1985, "December 10, 1985" or
+// "10 December 1985"; null when the text is not one of those shapes.
+const MONTH_NAMES = "(?:jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|june?|july?|aug(?:ust)?|sep(?:t(?:ember)?)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?)";
+const DATE_SHAPES = [
+  /^(\d{4})[-/.]\d{1,2}[-/.]\d{1,2}$/,
+  /^\d{1,2}[-/.]\d{1,2}[-/.](\d{4})$/,
+  new RegExp(`^${MONTH_NAMES}\\.? \\d{1,2}(?:st|nd|rd|th)?,? (\\d{4})$`, "i"),
+  new RegExp(`^\\d{1,2}(?:st|nd|rd|th)? ${MONTH_NAMES}\\.?,? (\\d{4})$`, "i"),
+];
+export const dateYear = (v) => {
+  for (const re of DATE_SHAPES) {
+    const m = String(v).trim().match(re);
+    if (m) return +m[1];
+  }
+  return null;
+};
+
+export const nhsValid = (v) => {
+  const s = String(v).replace(/\s|-/g, "");
+  if (!/^\d{10}$/.test(s)) return false;
+  let sum = 0;
+  for (let i = 0; i < 9; i++) sum += parseInt(s[i], 10) * (10 - i);
+  let check = 11 - (sum % 11);
+  if (check === 11) check = 0;
+  if (check === 10) return false;
+  return check === parseInt(s[9], 10);
 };
 
 // ---------- detectors ----------
@@ -56,7 +116,7 @@ export const DETECTORS = [
     category: "contact",
     tier: "format",
     base: 0.95,
-    citation: "RFC 5322 (relaxed grammar) — local@domain",
+    citation: "Shaped like an email address (RFC 5322)",
     test: (v) => {
       const m = String(v).match(/^[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}$/);
       return m ? 0.97 : 0;
@@ -69,80 +129,86 @@ export const DETECTORS = [
     category: "contact",
     tier: "format",
     base: 0.75,
-    citation: "E.164 / NANP shape",
+    citation: "Shaped like a phone number (E.164, North American); digits alone count only under a phone-like header",
     test: (v) => {
       const s = String(v).trim();
+      // A date or a timestamp is not a phone number, however many digits it has.
+      if (/^\d{4}[-/.]\d{1,2}[-/.]\d{1,2}(?:[T ].*)?$|^\d{1,2}[-/.]\d{1,2}[-/.]\d{2,4}$/.test(s)) return 0;
       // strong: +NN...  or  (XXX) XXX-XXXX or XXX-XXX-XXXX
-      if (/^\+?\d[\d\s().\-]{7,17}\d$/.test(s) && s.replace(/\D/g, "").length >= 8) {
+      if (/^\+?\(?\d[\d\s().\-]{6,17}\d$/.test(s) && s.replace(/\D/g, "").length >= 8) {
         return /^\+/.test(s) || /^\(?\d{3}\)?[\s\-.]?\d{3}[\s\-.]?\d{4}$/.test(s) ? 0.9 : 0.72;
       }
       return 0;
     },
-    columnHint: /(phone|mobile|tel|cell|contact\s*number)/i,
+    columnHint: /(phone|mobile|\btel\b|\bt[ée]l\b|telefon|telephone|\bcell\b|handy|msisdn|whatsapp|\bmob\b|\bph\b|contact[\s_-]*number)/i,
+    // Digits with no +, spaces, dashes or brackets look the same as IDs and order numbers.
+    hintOnly: (v) => /^\d+$/.test(String(v).trim()),
   },
   {
     id: "ssn",
-    name: "US Social Security Number",
+    name: "US Social Security number",
     category: "government-id",
     tier: "checksum",
     base: 0.98,
-    citation: "SSA randomization rules — invalid area/group/serial exclusions",
-    test: (v) => ssnValid(String(v).trim()) ? 0.98 : 0,
-    columnHint: /(\bssn\b|social[-_ ]?security)/i,
+    citation: "Shaped like an SSN, never-issued numbers excluded (SSA rules)",
+    test: (v) => ssnValid(String(v).trim().replace(/ /g, "-")) ? 0.98 : 0,
+    columnHint: /((^|[^a-z])ssn([^a-z]|$)|social[-_ ]?security)/i,
   },
   {
     id: "credit_card",
-    name: "Payment card (PAN)",
+    name: "Payment card number",
     category: "financial",
     tier: "checksum",
     base: 0.97,
-    citation: "ISO/IEC 7812 · Luhn mod-10",
+    citation: "Passes the card check digit (ISO/IEC 7812, Luhn)",
     test: (v) => {
       const s = String(v).replace(/[\s-]/g, "");
       if (!/^\d{12,19}$/.test(s)) return 0;
       return luhnCheck(s) ? 0.97 : 0.3;
     },
     columnHint: /(card|pan|credit|payment)/i,
+    // A long number that fails the check digit is a card only in a card column (a mistyped
+    // card); anywhere else it is an order, account or customer number.
+    hintOnly: (v) => !luhnCheck(String(v).replace(/[\s-]/g, "")),
   },
   {
     id: "iban",
-    name: "IBAN (bank account)",
+    name: "Bank account number (IBAN)",
     category: "financial",
     tier: "checksum",
     base: 0.98,
-    citation: "ISO 13616 · mod-97 check",
+    citation: "Passes the account check digits (ISO 13616)",
     test: (v) => {
       const s = String(v).replace(/\s+/g, "").toUpperCase();
       if (!/^[A-Z]{2}\d{2}[A-Z0-9]{10,30}$/.test(s)) return 0;
-      return ibanMod97(s) ? 0.98 : 0.4;
+      return ibanValid(s) ? 0.98 : 0.4;
     },
     columnHint: /(iban|bank)/i,
   },
   {
     id: "ipv4",
-    name: "IPv4 address",
+    name: "IP address",
     category: "network",
     tier: "format",
     base: 0.92,
-    citation: "RFC 791 dotted-quad",
+    citation: "Four numbers joined by dots (RFC 791)",
     test: (v) => {
-      const m = String(v).match(/^(25[0-5]|2[0-4]\d|[01]?\d?\d)(\.(25[0-5]|2[0-4]\d|[01]?\d?\d)){3}$/);
+      // An optional port (10.0.0.4:8080) still makes it an address.
+      const m = String(v).trim().match(/^(25[0-5]|2[0-4]\d|[01]?\d?\d)(\.(25[0-5]|2[0-4]\d|[01]?\d?\d)){3}(:\d{1,5})?$/);
       return m ? 0.94 : 0;
     },
-    columnHint: /(\bip\b|ipv4|address)/i,
+    // "ip", "ip_address", "client ip" — but not a street or email "address" column.
+    columnHint: /((^|[^a-z])ip([^a-z]|$)|ipv4|ip[_ -]?addr)/i,
   },
   {
     id: "ipv6",
-    name: "IPv6 address",
+    name: "IP address (v6)",
     category: "network",
     tier: "format",
     base: 0.9,
-    citation: "RFC 4291",
-    test: (v) => {
-      const s = String(v).trim();
-      return /^([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$|^([0-9a-fA-F]{1,4}:){1,7}:$|^::([0-9a-fA-F]{1,4}:){0,6}[0-9a-fA-F]{1,4}$/.test(s) ? 0.9 : 0;
-    },
-    columnHint: /(ipv6)/i,
+    citation: "Groups of hex digits joined by colons (RFC 4291)",
+    test: (v) => (isIPv6(String(v).trim()) ? 0.9 : 0),
+    columnHint: /(ipv6|(^|[^a-z])ip([^a-z]|$))/i,
   },
   {
     id: "dob",
@@ -150,14 +216,11 @@ export const DETECTORS = [
     category: "demographic",
     tier: "format",
     base: 0.7,
-    citation: "ISO 8601 / common date shapes",
+    citation: "Shaped like a date, so check it (ISO 8601 and common forms)",
     test: (v) => {
       const s = String(v).trim();
-      const m = s.match(/^(\d{4})[-/.](\d{1,2})[-/.](\d{1,2})$/)
-             || s.match(/^(\d{1,2})[-/.](\d{1,2})[-/.](\d{4})$/);
-      if (!m) return 0;
-      const year = m[3] && m[3].length === 4 ? +m[3] : +m[1];
-      if (year < 1900 || year > new Date().getFullYear()) return 0;
+      const year = dateYear(s);
+      if (!year || year < 1900 || year > new Date().getFullYear()) return 0;
       return 0.65; // heuristic — could be any date
     },
     columnHint: /(dob|birth|born|birthday)/i,
@@ -169,13 +232,15 @@ export const DETECTORS = [
     category: "government-id",
     tier: "format",
     base: 0.6,
-    citation: "ICAO Doc 9303 — 9 alphanumerics",
+    citation: "Six to nine letters and digits in a passport column (ICAO 9303)",
     test: (v) => {
       const s = String(v).trim().toUpperCase();
       return /^[A-Z0-9]{6,9}$/.test(s) && /[A-Z]/.test(s) && /\d/.test(s) ? 0.6 : 0;
     },
     columnHint: /(passport)/i,
     columnHintBoost: 0.3,
+    // Customer, order and ticket IDs have the same shape, so the column name has to say passport.
+    needsHint: true,
   },
   {
     id: "us_dl",
@@ -183,13 +248,14 @@ export const DETECTORS = [
     category: "government-id",
     tier: "format",
     base: 0.55,
-    citation: "State-specific formats (letter+digits, 5-9 chars)",
+    citation: "A letter or two, then digits, in a license column (state formats)",
     test: (v) => {
       const s = String(v).trim().toUpperCase();
       return /^[A-Z]\d{5,8}$|^[A-Z]{1,2}\d{5,7}$/.test(s) ? 0.55 : 0;
     },
     columnHint: /(licen[cs]e|dl[_ -]?number|driver)/i,
     columnHintBoost: 0.3,
+    needsHint: true,
   },
   {
     id: "postal_us",
@@ -197,9 +263,10 @@ export const DETECTORS = [
     category: "address",
     tier: "format",
     base: 0.75,
-    citation: "USPS ZIP / ZIP+4",
+    citation: "Five digits after a state or a ZIP label (USPS)",
     test: (v) => /^\d{5}(-\d{4})?$/.test(String(v).trim()) ? 0.8 : 0,
     columnHint: /(zip|postal)/i,
+    needsHint: true,
   },
   {
     id: "postal_uk",
@@ -207,7 +274,7 @@ export const DETECTORS = [
     category: "address",
     tier: "format",
     base: 0.85,
-    citation: "Royal Mail postcode format",
+    citation: "Shaped like a UK postcode (Royal Mail)",
     test: (v) => /^[A-Z]{1,2}\d[A-Z\d]?\s?\d[A-Z]{2}$/i.test(String(v).trim()) ? 0.9 : 0,
     columnHint: /(post\s*code|postcode)/i,
   },
@@ -217,7 +284,7 @@ export const DETECTORS = [
     category: "address",
     tier: "heuristic",
     base: 0.55,
-    citation: "Number + street-word heuristic",
+    citation: "A number, then a street word like Street or Road",
     test: (v) => {
       const s = String(v).trim();
       return /^\d{1,6}\s+\w+.*\b(street|st|road|rd|ave|avenue|blvd|boulevard|lane|ln|drive|dr|court|ct|way|place|pl)\b/i.test(s) ? 0.6 : 0;
@@ -231,22 +298,34 @@ export const DETECTORS = [
     category: "demographic",
     tier: "heuristic",
     base: 0.4,
-    citation: "Two-plus capitalized tokens (heuristic — expect false positives)",
+    citation: "A name-like column, labeled name, short opening line or exact repeat. Check it.",
     test: (v) => {
       const s = String(v).trim();
-      if (!/^[A-Z][a-z']+(\s+[A-Z][a-z']+){1,3}$/.test(s)) return 0;
+      // Any script's letters (José Núñez, Zoë O'Brien-Smith, McKenzie), and "Last, First".
+      const word = "\\p{Lu}[\\p{L}\\p{M}'’.-]*";
+      if (!new RegExp(`^${word}(?:,? ${word}){1,3}$`, "u").test(s)) return 0;
       return 0.55;
     },
-    columnHint: /(\bname\b|full[_ ]?name|first[_ ]?name|last[_ ]?name|surname|given)/i,
+    columnHint: /((^|[^a-z])(full[_ ]?|first[_ ]?|last[_ ]?|customer[_ ]?|patient[_ ]?|employee[_ ]?|contact[_ ]?|client[_ ]?|given[_ ]?|family[_ ]?)?name([^a-z]|$)|surname|given)/i,
     columnHintBoost: 0.35,
   },
   {
+    id: "place_us",
+    name: "Place",
+    category: "address",
+    tier: "heuristic",
+    base: 0.65,
+    citation: "A capitalized city followed by a US state name or abbreviation. Check it.",
+    test: (v) => isUSPlace(v) ? 0.7 : 0,
+    columnHint: /(^|[^a-z])(city|place|location|city[_ -]?state)([^a-z]|$)/i,
+  },
+  {
     id: "company",
-    name: "Company / organization",
+    name: "Company name",
     category: "professional",
     tier: "heuristic",
     base: 0.45,
-    citation: "Legal-suffix heuristic (Inc, Ltd, GmbH, LLC, AS, AB, SA)",
+    citation: "Ends in Inc, Ltd, LLC, GmbH or a similar word",
     test: (v) => {
       const s = String(v).trim();
       return /\b(Inc\.?|LLC|Ltd\.?|GmbH|AS|AB|SA|SAS|BV|PLC|Co\.?|Corp\.?|Company|Group|Holdings)\b/i.test(s) ? 0.65 : 0;
@@ -260,7 +339,7 @@ export const DETECTORS = [
     category: "professional",
     tier: "heuristic",
     base: 0.4,
-    citation: "Common role-token dictionary",
+    citation: "Contains a job word like Manager or Engineer",
     test: (v) => {
       const s = String(v).trim();
       return /\b(Manager|Director|Engineer|Developer|Analyst|Consultant|Officer|President|Executive|Assistant|Coordinator|Specialist|Architect|Designer|Lead|Head|VP|CEO|CTO|CFO|COO|Partner|Attorney|Nurse|Doctor|Advokat|Legal|Counsel)\b/i.test(s) ? 0.55 : 0;
@@ -274,7 +353,7 @@ export const DETECTORS = [
     category: "government-id",
     tier: "checksum",
     base: 0.95,
-    citation: "NHS mod-11 check digit",
+    citation: "Passes the NHS check digit",
     test: (v) => {
       const s = String(v).replace(/\s|-/g, "");
       if (!/^\d{10}$/.test(s)) return 0;
@@ -283,38 +362,42 @@ export const DETECTORS = [
       let check = 11 - (sum % 11);
       if (check === 11) check = 0;
       if (check === 10) return 0;
-      return check === parseInt(s[9], 10) ? 0.96 : 0.2;
+      // Ten digits that fail the check digit are an order, invoice or account number, not a
+      // mistyped NHS number: scoring them at all put a code on ID columns by default.
+      return check === parseInt(s[9], 10) ? 0.96 : 0;
     },
     columnHint: /(nhs)/i,
   },
   {
     id: "aadhaar",
-    name: "India Aadhaar",
+    name: "Aadhaar number (India)",
     category: "government-id",
     tier: "checksum",
     base: 0.85,
-    citation: "12-digit Verhoeff shape (format-only here)",
-    test: (v) => /^\d{4}\s?\d{4}\s?\d{4}$/.test(String(v).trim()) ? 0.75 : 0,
+    citation: "Twelve digits with a Verhoeff check digit, in an Aadhaar column (UIDAI)",
+    test: (v) => (aadhaarValid(v) ? 0.8 : 0),
     columnHint: /(aadhaar|aadhar|uid)/i,
-    columnHintBoost: 0.2,
+    columnHintBoost: 0.15,
+    // Order numbers, barcodes and phone numbers with a country code are twelve digits too.
+    needsHint: true,
   },
   {
     id: "url",
-    name: "URL",
+    name: "Web address",
     category: "network",
     tier: "format",
     base: 0.9,
-    citation: "RFC 3986 (permissive)",
+    citation: "Starts with http:// or https:// (RFC 3986)",
     test: (v) => /^https?:\/\/[^\s/$.?#].[^\s]*$/i.test(String(v).trim()) ? 0.92 : 0,
     columnHint: /(url|website|link)/i,
   },
   {
     id: "mac",
-    name: "MAC address",
+    name: "Network card (MAC) address",
     category: "network",
     tier: "format",
     base: 0.95,
-    citation: "IEEE 802 EUI-48",
+    citation: "Six pairs of hex digits (IEEE 802)",
     test: (v) => /^([0-9A-F]{2}[:-]){5}[0-9A-F]{2}$/i.test(String(v).trim()) ? 0.97 : 0,
     columnHint: /(mac)/i,
   },

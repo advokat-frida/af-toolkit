@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-NH",
+  "label": "New Hampshire: consumer rights",
+  "citation": "RSA §507-H:4",
+  "provenance": "https://www.gc.nh.gov/rsa/html/LII/507-H/507-H-mrg.htm",
+  "note": "Editorial summary and operational implications of the cited primary provisions, not a verbatim statutory extract. Candidate checked against primary material retrieved on September 22, 2026; independent legal-panel review and practitioner review are separate.",
+  "body": [
+    "<p>Provide confirmation/access, correction, deletion, portability and the statutory opt-outs.</p>",
+    "<p>Respond within 45 days, with a reasonably necessary 45-day extension on timely notice and reasons.</p>",
+    "<p>Decide an internal appeal within 60 days and provide the Attorney General complaint route if denied.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2025-01-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

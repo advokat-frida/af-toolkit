@@ -1,0 +1,21 @@
+{
+  "kind": "case",
+  "juris": "EU",
+  "label": "CJEU C-582/14 — Breyer (dynamic IPs as personal data)",
+  "citation": "CJEU (Second Chamber), 19 October 2016, ECLI:EU:C:2016:779",
+  "provenance": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:62014CJ0582",
+  "body": [
+    "<p><b>Operative part:</b></p>",
+    "  <p><span class=\"num\">1.</span> A <b>dynamic IP address</b> registered by an online media services provider when a person accesses a publicly accessible website is <b>personal data</b> in relation to that provider where the provider has the <b>legal means reasonably likely to be used</b> to identify the subject with additional data held by the ISP.</p>",
+    "  <p><span class=\"num\">2.</span> Art. 7(f) precludes national legislation that limits the LI basis to specific-use-of-services purposes; LI may also justify processing for the general operability of services after consultation.</p>",
+    "  <p><b>Why it matters:</b> Confirms the relative/contextual test for \"personal data\" — identifiability is judged by means reasonably likely to be used, not absolute possibility.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

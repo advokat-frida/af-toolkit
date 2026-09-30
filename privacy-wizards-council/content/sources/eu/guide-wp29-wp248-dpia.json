@@ -1,0 +1,28 @@
+{
+  "kind": "guidance",
+  "juris": "EU",
+  "label": "WP29 Guidelines on DPIA (WP248 rev.01)",
+  "citation": "Article 29 Working Party WP248 rev.01 (4 October 2017), endorsed by EDPB — persuasive only in the UK post-Brexit",
+  "provenance": "https://ec.europa.eu/newsroom/article29/items/611236",
+  "body": [
+    "<p><b>Nine criteria — meeting two or more typically requires a DPIA:</b></p>",
+    "  <p><span class=\"num\">1.</span> Evaluation or scoring (profiling, predicting performance, behaviour, health).</p>",
+    "  <p><span class=\"num\">2.</span> Automated decision-making with legal or similarly significant effect.</p>",
+    "  <p><span class=\"num\">3.</span> Systematic monitoring of subjects, especially in publicly-accessible areas.</p>",
+    "  <p><span class=\"num\">4.</span> Sensitive data or data of a highly personal nature (special categories, financial, location, communications).</p>",
+    "  <p><span class=\"num\">5.</span> Data processed on a large scale.</p>",
+    "  <p><span class=\"num\">6.</span> Matching or combining datasets from different sources / contexts.</p>",
+    "  <p><span class=\"num\">7.</span> Data concerning vulnerable subjects (children, employees, mentally ill, asylum seekers).</p>",
+    "  <p><span class=\"num\">8.</span> Innovative use of new technology (IoT, AI, biometrics).</p>",
+    "  <p><span class=\"num\">9.</span> Processing that prevents data subjects from exercising a right or using a service.</p>",
+    "  <p>Where the processing meets the criteria but the controller decides a DPIA is not required, the reasoning must be documented (Art. 5(2) accountability).</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": null,
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

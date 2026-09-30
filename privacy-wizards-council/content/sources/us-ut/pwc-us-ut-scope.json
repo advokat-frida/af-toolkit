@@ -1,0 +1,22 @@
+{
+  "kind": "statute",
+  "juris": "US-UT",
+  "label": "Utah: applicability",
+  "citation": "Utah Code § 13-61-102 (May 1, 2024 version, effective until January 1, 2027)",
+  "provenance": "https://le.utah.gov/xcode/Title13/Chapter61/C13-61-S102_2024050120240501.pdf",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. The fetched PDF explicitly identifies January 1, 2027 as its supersession date. Refresh before using this assessment in 2027.",
+  "body": [
+    "<p>Does the controller or processor conduct business in Utah OR produce a product or service targeted to consumers who are Utah residents?</p>",
+    "<p>Is annual revenue at least $25 million AND does at least one limb hold: it controls or processes at least 100,000 consumers’ personal data during a calendar year; OR it controls or processes at least 25,000 consumers’ personal data AND derives strictly more than 50% of gross revenue from selling personal data?</p>",
+    "<p>Utah consumers acting individually or as a household, excluding commercial and employment roles. No payment-only deduction in the 100,000 limb.</p>",
+    "<p>Measuring period: Revenue is annual; 100,000 limb is during a calendar year. The 25,000-plus-sale limb does not separately state a lookback.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

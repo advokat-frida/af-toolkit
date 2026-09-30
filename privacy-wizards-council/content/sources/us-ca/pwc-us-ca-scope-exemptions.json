@@ -1,0 +1,20 @@
+{
+  "kind": "statute",
+  "juris": "US-CA",
+  "label": "California: entity and data exclusions",
+  "citation": "Cal. Civ. Code § 1798.145",
+  "provenance": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.145.",
+  "note": "Verified editorial summary, not a verbatim statutory extract. Primary text retrieved for the September 22, 2026 applicability candidate. Entity status and record-level exclusions are separate decisions; the listed categories must satisfy the linked law's definitions and conditions.",
+  "body": [
+    "<p>A direct business must be organized for profit or owners’ financial benefit, collect consumers’ personal information (itself or on its behalf), and determine purposes and means, alone or jointly. Related entities, qualifying joint ventures and voluntary certification are separate routes.</p>",
+    "<p>Exemptions are attached to particular data or activities under §1798.145. HIPAA/CMIA, qualifying clinical research, GLBA/CFIPA, FCRA and DPPA are not a general exemption for every record held by the organization. Employment and business-contact data are not generally excluded. Some exemptions preserve §1798.150 security-breach liability.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": null,
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}

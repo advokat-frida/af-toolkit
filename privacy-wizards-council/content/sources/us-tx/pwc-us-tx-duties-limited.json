@@ -1,0 +1,21 @@
+{
+  "kind": "statute",
+  "juris": "US-TX",
+  "label": "Texas: limited duties",
+  "citation": "Tex. Bus. & Com. Code §541.107",
+  "provenance": "https://tcss.legis.texas.gov/resources/BC/htm/BC.541.htm",
+  "note": "Editorial summary of the limited provision. This is not a conclusion that full-law duties apply.",
+  "body": [
+    "<p>An SBA small business covered by §541.107 must obtain prior consumer consent before selling sensitive data.</p>",
+    "<p>Confirm the small-business classification and applicable state/business scope.</p>",
+    "<p>Block sensitive-data sales without valid prior consent; do not infer the other full-law duties from this limited provision.</p>"
+  ],
+  "review": {
+    "status": "automated-check-only",
+    "retrievedDate": "2026-09-22",
+    "effectiveOrPublicationDate": "2024-07-01",
+    "reviewDate": null,
+    "reviewer": null,
+    "reviewerRole": null
+  }
+}
