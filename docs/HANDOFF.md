@@ -1,5 +1,21 @@
 # HANDOFF
 
+## 2026-09-29 - Redactorium article link and final redirect validation
+
+Ben requested the same top-right article link on Redactorium that SafeSeed has.
+The shell header now links to the published `https://advokatfrida.com/redactorium/`
+article, using the existing `head-action` style, label and new-tab behavior. The
+destination returns 200 with the matching canonical URL and article title.
+Ben's dated direction is recorded in the design system; all seven affected
+Redactorium proof images were refreshed and directly reviewed.
+
+The full Toolkit gate passed for the combined candidate. Focused browser checks
+at 1440, 1034, 390 and 320 pixels verified matching SafeSeed styles, the 44px target,
+no overlap or overflow, keyboard focus and opening the actual article in a new tab.
+Independent review cleared both this link and the final local redirect validation
+described below. No generated tool artifact changed for this follow-up. Private
+browser receipts are in `.local-working/maintenance/article-link-local/`.
+
 ## 2026-09-29 - Toolkit maintenance after the live release
 
 Ben confirmed that both the post and tool are live, then authorized the repo-audit
