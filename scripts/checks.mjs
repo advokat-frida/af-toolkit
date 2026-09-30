@@ -41,7 +41,7 @@ export async function runStaticChecks() {
   const manifest = JSON.parse(await readFile(join(publicRoot, "tool-sources.json"), "utf8"));
 
   // Shell structure: one view + one nav entry per route.
-  const routes = ["home", "redactorium", "safeseed", "safelist", "privacy-wizards"];
+  const routes = ["home", "redactorium", "safeseed", "safelist", "wizards"];
   for (const route of routes) {
     results.push(check(index.includes(`data-view="${route}"`), `view exists: ${route}`));
     results.push(check(index.includes(`data-route-link="${route}"`), `navigation exists: ${route}`));
@@ -152,13 +152,14 @@ export async function runStaticChecks() {
 
   // Routes are paths (Ben, 2026-09-28): the rail and the Home cards link to `/<route>`, the
   // Home carries its canonical address, and the script still adopts an old `/#<route>` link.
-  for (const route of ["safeseed", "safelist", "redactorium", "privacy-wizards"]) {
+  for (const route of ["safeseed", "safelist", "redactorium", "wizards"]) {
     results.push(check(index.includes(`href="/${route}" data-route-link="${route}"`), `rail links to the tool address: /${route}`));
   }
   results.push(check(index.includes('href="/" data-route-link="home"'), "rail links Home to /"));
-  results.push(check(!/href="#(?:home|safeseed|safelist|redactorium|privacy-wizards)"/.test(index), "no hash route links remain in the shell"));
+  results.push(check(!/href="#(?:home|safeseed|safelist|redactorium|wizards|privacy-wizards)"/.test(index), "no hash route links remain in the shell"));
   results.push(check(index.includes('<link rel="canonical" href="https://toolkit.advokatfrida.com/" />'), "Home carries its canonical address"));
   results.push(check(js.includes("adoptLegacyHash") && js.includes("replaceState") && js.includes("popstate"), "script adopts legacy hash links and handles history"));
+  results.push(check(js.includes('const formerRoutes = { "privacy-wizards": "wizards" };'), "an old #privacy-wizards link still opens the Wizards"));
   const wrangler = await readFile(join(candidateRoot, "wrangler.jsonc"), "utf8");
   results.push(check(wrangler.includes('"main": "worker.mjs"') && wrangler.includes('"binding": "ASSETS"') && wrangler.includes('"not_found_handling": "none"'), "the edge script is configured beside the assets, and a missing file still 404s"));
 

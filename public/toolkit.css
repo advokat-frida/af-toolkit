@@ -102,11 +102,11 @@ a:hover { color: var(--red); }
 body[data-route="safeseed"] .view[data-view="home"],
 body[data-route="safelist"] .view[data-view="home"],
 body[data-route="redactorium"] .view[data-view="home"],
-body[data-route="privacy-wizards"] .view[data-view="home"] { display: none; }
+body[data-route="wizards"] .view[data-view="home"] { display: none; }
 body[data-route="safeseed"] .view[data-view="safeseed"][hidden],
 body[data-route="safelist"] .view[data-view="safelist"][hidden],
 body[data-route="redactorium"] .view[data-view="redactorium"][hidden],
-body[data-route="privacy-wizards"] .view[data-view="privacy-wizards"][hidden] { display: flex; }
+body[data-route="wizards"] .view[data-view="wizards"][hidden] { display: flex; }
 
 /* ---------- Sidebar ---------- */
 

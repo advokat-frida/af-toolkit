@@ -75,7 +75,8 @@ the script adds the addresses that are not files and applies the rules in
 local run and the edge agree.
 
 - The Home is `/` and each tool has its own address: `/safeseed`, `/safelist`, `/redactorium`,
-  `/privacy-wizards` (Ben, 2026-09-28). No file exists at those paths, so the request reaches the
+  `/wizards` (Ben, 2026-09-28; the Wizards moved from `/privacy-wizards` on 2026-09-29, and the old
+  address answers with a permanent redirect). No file exists at those paths, so the request reaches the
   script, which answers with the shell named for that tool (title, description, canonical
   address) and the shell's script opens it. A trailing slash redirects to the address without it.
 - The staged artifacts stay under `/tools/` for the shell's frames (`?embed=1`) and for

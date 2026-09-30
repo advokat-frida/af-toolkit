@@ -2,8 +2,9 @@
 // local server (server.mjs) and the rendered QA, so the edge and every local run agree.
 //
 // Public addresses (Ben, 2026-09-28): the Home at `/` and one address per tool, `/safeseed`,
-// `/safelist`, `/redactorium` and `/privacy-wizards`, all served as the shell with that tool
-// open. The staged artifacts stay under `/tools/` for the shell's frames and for verification
+// `/safelist`, `/redactorium` and `/wizards`, all served as the shell with that tool open. The
+// Wizards lived at `/privacy-wizards` until 2026-09-29 (Ben: "just /wizards"); that address
+// still works and redirects for good. The staged artifacts stay under `/tools/` for the shell's frames and for verification
 // by hand; a browser that lands on one directly is sent to the tool's address instead, so the
 // only chrome a visitor ever sees is the shell's. Old links that name the tool in the hash
 // (`/#redactorium`) still work: the shell moves them onto the path on load.
@@ -26,11 +27,17 @@ export const TOOLS = {
     description: "Anonymize a spreadsheet or document: find the personal data, then remove or replace it.",
     artifact: "/tools/redactorium/"
   },
-  "privacy-wizards": {
+  wizards: {
     title: "Privacy Wizards Council",
     description: "Get quick and citable answers for commonly recurring privacy questions.",
     artifact: "/tools/privacy-wizards-council"
   }
+};
+
+// Addresses a tool had before, and where each lives now. A former address answers every
+// request with a permanent redirect, so links already out in the world keep working.
+export const FORMER_ROUTES = {
+  "privacy-wizards": "wizards"
 };
 
 export const HOME = {
@@ -71,6 +78,7 @@ function isPageVisit(headers) {
 }
 
 // Where a request goes instead, or null. Keeps the query string.
+//   /<former route>[/]              -> /<route>, permanent (301): the same for every request.
 //   /<route>/                       -> /<route>, permanent (301): the same for every request.
 //   /tools/<artifact>[.html] etc.   -> /<route>, when a browser opens it as a page and the
 //                                      shell's `?embed=1` is absent. The shell's frames, curl
@@ -83,6 +91,7 @@ function isPageVisit(headers) {
 export function redirectFor(url, headers) {
   const path = url.pathname;
   const slug = path.replace(/^\/+|\/+$/g, "");
+  if (Object.hasOwn(FORMER_ROUTES, slug)) return { location: `/${FORMER_ROUTES[slug]}${url.search}`, permanent: true };
   if (path !== `/${slug}` && Object.hasOwn(TOOLS, slug)) return { location: `/${slug}${url.search}`, permanent: true };
   const route = ARTIFACT_ROUTES.get(path);
   if (!route || url.searchParams.has("embed") || !isPageVisit(headers)) return null;

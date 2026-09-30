@@ -7,7 +7,7 @@ const audits = {
     ".gen-panel-head h2", ".gen-presets-head strong", ".gen-presets-head p", ".preset-btn",
     ".preset-status", ".field-row", ".field-name", ".field-type", ".tier-chip", ".remove-field"
   ],
-  "privacy-wizards": [
+  wizards: [
     "html", "body", "main", ".orientation", ".finder-stage", ".finder-head h2", ".step-label",
     ".search-wrap input", ".category-row button", ".legal-gate", ".legal-gate strong",
     ".legal-gate p", ".library-heading h3", ".wizard-card", ".wizard-copy strong",

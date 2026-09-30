@@ -35,7 +35,7 @@ const TOOL_ANCHORS = {
   redactorium: "[data-testid='dropzone'], [data-testid='mode-single-btn']",
   safeseed: ".gen-modes",
   safelist: "[data-pick='send']",
-  "privacy-wizards": "#finder"
+  wizards: "#finder"
 };
 
 const failures = [];
