@@ -1,21 +1,41 @@
-# Batch 1 fixes: local review, 2026-10-01
+# Batch 1 fixes and live verification, 2026-10-01
 
-Candidate based on `463cf950530917719cc091a14757eccb4080cd5d`, isolated from the
-clean main checkout and the existing worktrees. These four fixes were explicitly
-authorized after Batch 1 verification. No commit, push, merge, deployment, Ghost
-edit, or tracker mutation is part of this candidate.
+These four fixes were explicitly authorized after Batch 1 verification, followed
+by Ben's request to tuck. The isolated task worktree preserved the original clean
+main checkout and existing worktrees at their starting commits.
+
+[PR #28](https://github.com/advokat-frida/af-toolkit/pull/28) merged reviewed source
+`108facb98349b4826ae2a04f264f0337f4247885` as
+`35a519fb21f7d743652b052a2d21e58de523b651` at 04:39 UTC on October 1 after all six
+PR checks passed. Connected Cloudflare production build
+`a11827b8-e5f9-4e36-aaf5-d140591d1bab` succeeded at 04:40 UTC. The merge's Gate,
+CodeQL analysis, Redactorium build and SafeList check also passed.
+
+All **31 checked production files** match the merge, normalizing only the known
+Cloudflare hidden-link injection in HTML. Synthetic live Chromium checks passed
+at **1440, 1034, 390 and 320 pixels**: filename/record scrubbing, preserved PDF
+bullet and accent text, two collision-safe ZIP folders, complete Outlook
+recipients, keyboard scrolling, operable row decisions and zero document overflow.
+No page errors or external requests occurred. The live exported PDF, four
+SafeList views and phone Redactorium result were directly inspected.
+
+Local live receipts are retained in the task workspace's `fix-live/`,
+`fix-live.log`, and `tuck-live-assets.json`. Only synthetic inputs were used.
+Rollback reference: the preceding production main was
+`463cf950530917719cc091a14757eccb4080cd5d`.
 
 ## Changes and regressions
 
-| Defect | Candidate behavior | Evidence |
+| Defect | Released behavior | Evidence |
 | --- | --- | --- |
 | An identifying document filename survived in the download and record | Names recognized in that document or its detected name columns are scrubbed case-insensitively across spaces, hyphens, and underscores. Ordinary filename text remains. Single downloads, records, batch folders, files, and manifests use the same context. | `Maya-Penrose-resume.pdf` becomes `redacted-resume.redacted.pdf`; the record uses `redacted-resume.pdf`. Two filenames that scrub to the same base survive in separate ZIP folders. Three new filename tests failed before the fix and pass afterward. |
 | U+25CF corrupted an entire exported PDF line | A locally bundled Liberation Mono font embeds the glyphs and Unicode mapping. Both the visible PDF and extracted text preserve the bullet and its following text. | PDF.js round-trip tests for both bullet types, accented Latin text, original page boundaries, and automatic pagination. The first two regressions failed on the original Courier export. |
 | A comma in a quoted Outlook display name omitted later recipients | Tokenization respects quoted display names, escaped quotes, and angle brackets. Complete recipients are CSV-quoted before loading. | Two new parser regressions; browser paste of `"Lovelace, Ada" <ada@example.com>; Grace Hopper <grace@example.org>` produces two matching recipient rows. |
 | SafeList's review table widened the phone document | The table scrolls inside a bounded, keyboard-focusable region. The page remains at viewport width, and row decisions remain operable. | Review-state assertions added to the repository visual gate, including keyboard scrolling and selecting a row decision at all four review widths. |
 
-The filename choice uses targeted scrubbing, the recommended option in the
-pending preference question. It does not rename every file to a neutral name.
+The filename choice uses targeted scrubbing, the stated recommended assumption
+after the optional preference question received no answer. Ordinary filename
+text remains.
 
 ## Validation
 
@@ -34,9 +54,10 @@ pending preference question. It does not rename every file to a neutral name.
   readable. The SafeList review proofs at all four widths were directly inspected.
   On narrow screens the table scrolls internally; controls below it remain in view.
 - Only synthetic documents and reserved example addresses were used. The private
-  actual resume and production deployment were not retested for these changes.
+  actual resume was not retested for these changes; the production checks above
+  are synthetic and do not replace Ben's acceptance.
 
-New committed-candidate captures: `proofs/*-safelist-review.png`. Fresh unrelated
+New committed captures: `proofs/*-safelist-review.png`. Fresh unrelated
 captures were preserved in the executor's evidence folder and their tracked
 baselines restored. Direct comparison found hover/focus differences, SafeSeed's
 already-existing article link missing in two older proofs, and the randomized
@@ -69,14 +90,26 @@ the skill's scoped release sequence; the parent confirmed that interpretation.
   as a header with zero data rows. Reproduced on the unchanged main checkout;
   left for separate triage. The browser regression uses an explicit `email`
   header and one address per line for the suppression list.
-- AF-22 still needs Ben's actual-file acceptance and the separately identified
-  article coverage reconciliation. AF-2's broader comparison requirements and
-  AF-4's research disposition remain outside this fix scope. No ticket was marked done.
-- The exact local `tuck` skill has now been read. It means full reviewed closeout,
-  including applicable AF deployment and live verification, while preserving
-  narrower restrictions and required practitioner acceptance. The lookup performed
-  only safe preparation. No archive, source-control publication, or deployment
-  has been performed; independent review was arranged before any merge step.
+- AF-22 remains In Progress for Ben's actual-file verdict: the live resume must
+  show Name, Email address, Phone number and Place findings, remove those matched
+  identifiers from the clean PDF, scrub the export/record filename, and preserve
+  readable bullet lines. The separately identified published-article coverage
+  paragraph still needs reconciliation; no Ghost edit is included in this batch.
+  The [article](https://advokatfrida.com/redactorium/) was rechecked on October 1:
+  it describes names in labeled/column contexts, omits headline/repeat/Place and
+  explicit document-employer/school/resume limits, and says records retain the
+  original filename. That filename statement needs qualification after targeted
+  scrubbing; unrecognized names can still survive.
+- AF-2 remains Backlog. SafeList supplies the matching foundation, but counts-first
+  deliberate reveal, `matches.csv`, restricted-cohort column selection and the
+  empty-on-leave boundary remain separately scoped requirements.
+- AF-4 remains Idea. The September 28 research already covers the Jam inspiration;
+  Ben skipped the broad one-page-per-job direction, while AF-21 completed the
+  narrower per-tool routes. Recommend accepting the existing research as AF-4's
+  outcome, subject to Ben's decision. No new hub implementation is implied.
+- Notion records the release, evidence and remaining boundaries on AF-22/AF-2,
+  and the research disposition on AF-4. Readback confirmed all three statuses
+  stayed unchanged. No ticket was marked Done, and no later batch was started.
 
 Generated artifact SHA-256:
 
