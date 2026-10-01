@@ -1,23 +1,32 @@
 # HANDOFF
 
-## 2026-10-01 - Batch 1 fixes, local candidate only
+## 2026-10-01 - Batch 1 export and recipient fixes released
 
 The approved follow-up fixes identifying Redactorium export/record filenames,
 U+25CF PDF corruption, quoted Outlook recipient parsing, and SafeList's phone
-review overflow. Source changes and generated artifacts are isolated from main.
+review overflow. Ben explicitly requested the fixes followed by tuck.
 88 Redactorium tests, 28 SafeList tests, lint/builds, and the full Toolkit gate
 (including 22 shell tests) pass. Focused synthetic browser checks pass at all
 four review widths; exported PDF rendering and affected screens were inspected.
 
 See [scope, evidence, limits, and separate triage](review/af-batch1-fixes.md).
-No commit, push, deployment, Ghost edit, or tracker status change has occurred.
-Ben's required actual-file acceptance and release closeout remain pending.
-The local `tuck` skill was subsequently read: it means full reviewed closeout,
-including the applicable Toolkit deployment and live verification. The parent
-confirmed that Ben's original request authorizes that scoped workflow. Independent
-review cleared the exact candidate with 62 focused tests, proof inspection, and
-artifact/font hash verification. Fresh Notion readback makes Ben's actual-resume
-verdict a Done gate after release; it does not block release of these approved fixes.
+Independent review cleared the exact candidate with 62 focused tests, proof
+inspection and artifact/font hash verification. All six PR checks passed.
+[PR #28](https://github.com/advokat-frida/af-toolkit/pull/28) merged `108facb` as
+`35a519fb21f7d743652b052a2d21e58de523b651`. Connected Cloudflare production build
+`a11827b8-e5f9-4e36-aaf5-d140591d1bab` succeeded; the merge's hosted checks passed.
+All 31 checked live files match source, allowing only the known Cloudflare HTML
+injection. Synthetic production workflows passed at all four widths, including
+PDF text/rendering, names in records/downloads/ZIPs, complete Outlook recipients,
+keyboard access and contained table overflow. Live affected views were inspected.
+
+AF-22 remains In Progress for Ben's actual-resume verdict and the separately
+identified article coverage reconciliation. AF-2 remains Backlog for its residual
+exposure-comparison requirements; AF-4 remains Idea pending acceptance of the
+existing September 28 research. Notion has the release and disposition evidence;
+no status was promoted. No Ghost edit or later-batch feature is included.
+The original main checkout and other worktrees were preserved. Local live receipts
+and synthetic fixtures remain in `C:/Users/Ben/Documents/Codex/2026-09-30/task-4/`.
 
 ## 2026-09-29 - Redactorium article link and final redirect validation
 
