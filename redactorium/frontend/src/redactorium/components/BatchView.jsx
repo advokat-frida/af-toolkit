@@ -88,12 +88,12 @@ export default function BatchView({ compiledCustom, salt, seed, customRulesPanel
         const output = await buildOutput({ ...parsed, headers, rows }, edits);
         const outputHash = await bytesSha256(new Uint8Array(await output.blob.arrayBuffer()));
         const log = buildLogJSON({
-          inputFile: file, format: parsed.format, columnPlan: plan, stats, detectionResults: detection,
+          inputFile: file, parsed, format: parsed.format, columnPlan: plan, stats, detectionResults: detection,
           inputHash, outputHash, hashKey, seed, startedAt, finishedAt: new Date().toISOString(),
           meta: parsed.meta, customDetectors: custom, reused,
         });
 
-        const base = cleanBaseName(file.name, custom.filter((d) => d.find));
+        const base = cleanBaseName(file.name, custom.filter((d) => d.find), { parsed, detectionResults: detection });
         let folder = base;
         for (let n = 2; used.has(folder); n++) folder = `${base}-${n}`;
         used.add(folder);

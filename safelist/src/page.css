@@ -78,7 +78,7 @@
   .sl-steps span:last-child{font-size:14px;line-height:var(--lh-helper);color:var(--ink-soft)}
 
   /* Tables: the review table and the checked-list preview. */
-  .sl-table-wrap{margin-top:18px}
+  .sl-table-wrap{margin-top:18px;max-width:100%;overflow-x:auto}
   .sl-table{width:100%;border-collapse:collapse}
   .sl-table th{line-height:var(--lh-label);font-family:var(--font-label);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:0 12px 8px 0;border-bottom:1px solid var(--line);white-space:nowrap}
   .sl-table td{padding:10px 12px 10px 0;border-bottom:1px solid var(--hair);vertical-align:middle;font-size:15px;line-height:var(--lh-row)}

@@ -101,6 +101,30 @@ test("a send list pasted on one line becomes one contact per address; a CSV stay
   assert.equal(pastedList("email,name"), "email,name", "a lone header row is left alone");
 });
 
+test("quoted Outlook names with commas keep every pasted recipient in its own row", () => {
+  for (const separator of ["; ", ", ", "\t"]) {
+    const input = `"Lovelace, Ada" <ada@example.com>${separator}Grace Hopper <grace@example.org>${separator}mailto:alan@example.net`;
+    const send = loadList(pastedList(input));
+    const suppression = parseSuppression(loadList("email\nada@example.com\ngrace@example.org\nalan@example.net"));
+    assert.equal(send.rows.length, 3, separator);
+    assert.equal(send.header.length, 1, "a display-name comma must not become a CSV column");
+    assert.deepEqual(findMatches(send, [0], suppression).map((match) => match.normalized),
+      ["ada@example.com", "grace@example.org", "alan@example.net"]);
+  }
+});
+
+test("recipient tokenization preserves escaped display-name quotes and leaves CSV input alone", () => {
+  for (const name of ['"Lovelace, \\"Ada\\""', '"Lovelace, ""Ada"""']) {
+    const send = loadList(pastedList(`${name} <ada@example.com>; grace@example.org`));
+    assert.equal(send.rows.length, 2);
+    assert.equal(normalizeEmail(send.rows[0][0]), "ada@example.com");
+    assert.equal(normalizeEmail(send.rows[1][0]), "grace@example.org");
+  }
+  const csv = 'Email,Name\nada@example.com,"Lovelace, Ada"\n';
+  assert.equal(pastedList(csv), csv);
+  assert.equal(pastedList('"First Name","Email"'), '"First Name","Email"');
+});
+
 test("findMatches catches every variant in the samples and names the reason", () => {
   const send = loadList(sample("cadence-audience.csv"));
   const suppression = parseSuppression(loadList(sample("suppression-list.csv")));

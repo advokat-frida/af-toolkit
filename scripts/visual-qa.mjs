@@ -123,6 +123,28 @@ async function main() {
           }, null, { timeout: 3000 });
           assert(true, `${viewport.name} redactorium: notification stays in the visible outer viewport`);
         }
+        if (route === "safelist") {
+          await frame.locator("#load-samples").click();
+          await frame.locator("#check-button").click();
+          await noHorizontalScroll(toolDocument, `${viewport.name} safelist review frame`);
+          await noHorizontalScroll(page, `${viewport.name} safelist review shell`);
+          const review = frame.getByRole("region", { name: "Contacts to review" });
+          const needsScroll = await review.evaluate((el) => el.scrollWidth > el.clientWidth + 1);
+          if (needsScroll) {
+            await review.focus();
+            await review.press("ArrowRight");
+            await page.waitForTimeout(200);
+            assert(await review.evaluate((el) => el.scrollLeft > 0), `${viewport.name} safelist: keyboard scroll reaches review columns`);
+          }
+          const remove = frame.locator('[data-decision="remove"]').first();
+          await remove.click();
+          assert(await remove.getAttribute("aria-pressed") === "true", `${viewport.name} safelist: row decision remains operable`);
+          assert(await toolDocument.evaluate(() => window.scrollX === 0), `${viewport.name} safelist: row decision does not scroll the document sideways`);
+          await review.evaluate((el) => { el.scrollLeft = 0; });
+          await page.evaluate(() => window.scrollTo(0, 0));
+          await page.waitForTimeout(100);
+          await page.screenshot({ path: join(proofsRoot, `${viewport.name}-safelist-review.png`), fullPage: true });
+        }
       }
 
       if (viewport.name === "desktop-1440") {

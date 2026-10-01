@@ -183,7 +183,7 @@
   .sl-steps span:last-child{font-size:14px;line-height:var(--lh-helper);color:var(--ink-soft)}
 
   /* Tables: the review table and the checked-list preview. */
-  .sl-table-wrap{margin-top:18px}
+  .sl-table-wrap{margin-top:18px;max-width:100%;overflow-x:auto}
   .sl-table{width:100%;border-collapse:collapse}
   .sl-table th{line-height:var(--lh-label);font-family:var(--font-label);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:0 12px 8px 0;border-bottom:1px solid var(--line);white-space:nowrap}
   .sl-table td{padding:10px 12px 10px 0;border-bottom:1px solid var(--hair);vertical-align:middle;font-size:15px;line-height:var(--lh-row)}
@@ -378,7 +378,7 @@
       <div class="sl-view hidden" id="view-review">
         <h2 class="sl-task" id="review-title" tabindex="-1"></h2>
         <p class="sl-sub" id="review-sub"></p>
-        <div class="sl-table-wrap">
+        <div class="sl-table-wrap" role="region" aria-label="Contacts to review" tabindex="0">
           <table class="sl-table" id="review-table">
             <thead><tr><th scope="col">Contact</th><th scope="col">Email</th><th scope="col">Why</th><th scope="col">Decision</th></tr></thead>
             <tbody id="review-body"></tbody>
@@ -621,8 +621,27 @@ function parseSuppression(list, rules = DEFAULT_RULES) {
 function pastedList(text) {
   const value = String(text || "").trim();
   if (/[\r\n]/.test(value)) return text;
-  const parts = value.split(/[;,\t]+/).map((part) => part.trim()).filter(Boolean);
-  return parts.length > 1 && parts.every((part) => looksLikeEmail(part)) ? parts.join("\n") : text;
+  const parts = [];
+  let start = 0, quoted = false, angled = false;
+  for (let i = 0; i < value.length; i++) {
+    const char = value[i];
+    // Outlook display names can contain separators and escaped quotes. Split only
+    // between recipients, then CSV-quote each complete recipient for loadList.
+    if (quoted && char === "\\") { i++; continue; }
+    if (char === '"') {
+      if (quoted && value[i + 1] === '"') { i++; continue; }
+      quoted = !quoted;
+    } else if (!quoted && char === "<") angled = true;
+    else if (!quoted && char === ">") angled = false;
+    else if (!quoted && !angled && /[;,\t]/.test(char)) {
+      parts.push(value.slice(start, i).trim());
+      start = i + 1;
+    }
+  }
+  parts.push(value.slice(start).trim());
+  const recipients = parts.filter(Boolean);
+  return recipients.length > 1 && recipients.every((part) => looksLikeEmail(part))
+    ? recipients.map(csvCell).join("\n") : text;
 }
 
 /* ---------- matching ---------- */

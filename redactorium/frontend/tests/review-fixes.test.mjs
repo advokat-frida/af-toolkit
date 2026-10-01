@@ -136,6 +136,34 @@ test("personal data in a file name is not copied into the clean file's name or t
   assert.ok(log.parameters.detectors_run.includes("email"));
 });
 
+test("a name recognized in a document is scrubbed from its filename and record", async () => {
+  const file = new File(["Maya Penrose\nSynthetic qualification.\n"], "Maya-Penrose-resume.txt");
+  const { parsed, detection, plan, applied } = await run(file);
+  const context = { parsed, detectionResults: detection };
+  for (const filename of ["Maya-Penrose-resume.pdf", "maya_penrose-resume.docx", "MAYA PENROSE-resume.txt"]) {
+    assert.equal(cleanBaseName(filename, [], context), "redacted-resume");
+  }
+  assert.equal(cleanBaseName("resume-final.pdf", [], context), "resume-final");
+  assert.equal(cleanBaseName("Maya-Penrosex-resume.pdf", [], context), "Maya-Penrosex-resume");
+  const log = buildLogJSON({ inputFile: file, parsed, format: "txt", columnPlan: plan, stats: applied.stats, detectionResults: detection, inputHash: "", outputHash: "", hashKey: applied.hashKey, seed: "t", startedAt: "", finishedAt: "", meta: parsed.meta });
+  assert.equal(log.input.name, "redacted-resume.txt");
+  assert.ok(!JSON.stringify(log).includes("Maya"));
+});
+
+test("filename context uses every detected name-column value and stays within its own file", async () => {
+  const file = new File(["name,email\nAda Lovelace,ada@example.com\nGrace Hopper,grace@example.com\nAlan Turing,alan@example.com\nMaya Penrose,maya@example.com\n"], "maya-penrose-contacts.csv");
+  const { parsed, detection } = await run(file);
+  assert.equal(cleanBaseName(file.name, [], { parsed, detectionResults: detection }), "redacted-contacts");
+  const other = await run(new File(["Synthetic qualification.\n"], "notes.txt"));
+  assert.equal(cleanBaseName("Maya-Penrose-resume.pdf", [], { parsed: other.parsed, detectionResults: other.detection }), "Maya-Penrose-resume");
+});
+
+test("filename scrubbing keeps complete hyphenated email and custom-rule matches", () => {
+  assert.equal(cleanBaseName("export for ada-lovelace@corp.example.csv"), "export for redacted");
+  const rule = compileRule({ id: "employee", name: "Employee ID", pattern: "EMP-\\d{6}", flags: "g" });
+  assert.equal(cleanBaseName("EMP-000001-report.txt", [rule]), "redacted-report");
+});
+
 test("a workbook: the first visible sheet, dates as dates, and the other sheets named in the record", async () => {
   const wb = XLSX.utils.book_new();
   const lookup = XLSX.utils.aoa_to_sheet([["code"], ["A"]]);
