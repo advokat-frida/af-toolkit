@@ -178,8 +178,27 @@ export function parseSuppression(list, rules = DEFAULT_RULES) {
 export function pastedList(text) {
   const value = String(text || "").trim();
   if (/[\r\n]/.test(value)) return text;
-  const parts = value.split(/[;,\t]+/).map((part) => part.trim()).filter(Boolean);
-  return parts.length > 1 && parts.every((part) => looksLikeEmail(part)) ? parts.join("\n") : text;
+  const parts = [];
+  let start = 0, quoted = false, angled = false;
+  for (let i = 0; i < value.length; i++) {
+    const char = value[i];
+    // Outlook display names can contain separators and escaped quotes. Split only
+    // between recipients, then CSV-quote each complete recipient for loadList.
+    if (quoted && char === "\\") { i++; continue; }
+    if (char === '"') {
+      if (quoted && value[i + 1] === '"') { i++; continue; }
+      quoted = !quoted;
+    } else if (!quoted && char === "<") angled = true;
+    else if (!quoted && char === ">") angled = false;
+    else if (!quoted && !angled && /[;,\t]/.test(char)) {
+      parts.push(value.slice(start, i).trim());
+      start = i + 1;
+    }
+  }
+  parts.push(value.slice(start).trim());
+  const recipients = parts.filter(Boolean);
+  return recipients.length > 1 && recipients.every((part) => looksLikeEmail(part))
+    ? recipients.map(csvCell).join("\n") : text;
 }
 
 /* ---------- matching ---------- */

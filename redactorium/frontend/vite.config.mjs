@@ -37,7 +37,8 @@ function thirdPartyLicenses() {
       });
       const head = "Redactorium bundles the third-party packages below. Each is listed with its version,\n"
         + "its declared license, and the license text it ships with. Redactorium itself is MIT\n"
-        + "(see LICENSE in the source folder); its fonts are under the SIL Open Font License (fonts/OFL.txt).\n\n";
+        + "(see LICENSE in the source folder); its fonts are under the SIL Open Font License\n"
+        + "(fonts/OFL.txt and fonts/liberation-mono-LICENSE.txt).\n\n";
       this.emitFile({ type: "asset", fileName: "THIRD-PARTY-LICENSES.txt", source: head + blocks.join("\n") });
     },
   };

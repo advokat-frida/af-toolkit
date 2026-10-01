@@ -134,7 +134,7 @@ export default function Redactorium({ embedded = false }) {
       const finishedAt = new Date().toISOString();
 
       const log = buildLogJSON({
-        inputFile: file, format: parsed.format, columnPlan, stats,
+        inputFile: file, parsed, format: parsed.format, columnPlan, stats,
         detectionResults: detection, inputHash, outputHash,
         hashKey, seed, startedAt, finishedAt, meta: parsed.meta, customDetectors: detCustom, reused,
       });
@@ -162,8 +162,8 @@ export default function Redactorium({ embedded = false }) {
   const cleanFilename = useMemo(() => {
     if (!file || !applied) return "cleaned-file";
     const ext = applied.outputArtifact.ext;
-    return `${cleanBaseName(file.name, detCustom.filter((d) => d.find))}.redacted.${ext}`;
-  }, [file, applied, detCustom]);
+    return `${cleanBaseName(file.name, detCustom.filter((d) => d.find), { parsed, detectionResults: detection })}.redacted.${ext}`;
+  }, [file, applied, detCustom, parsed, detection]);
 
   const dlClean = () => saveBlob(applied.outputArtifact.blob, cleanFilename);
   const dlJson  = () => saveBlob(new Blob([JSON.stringify(applied.log, null, 2)], { type: "application/json" }), "redactorium-record.json");

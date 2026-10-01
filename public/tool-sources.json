@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "product": "The Advokat Frida Toolkit",
-  "generatedAt": "2026-09-30T00:16:02.234Z",
+  "generatedAt": "2026-10-01T04:31:27.628Z",
   "releaseBoundary": "private-source-control-only",
   "layout": "one repository; each tool is a top-level source folder and its committed build artifact is staged here",
   "tools": [
@@ -9,9 +9,9 @@
       "id": "redactorium",
       "sourceFolder": "redactorium",
       "sourceArtifact": "redactorium/frontend/build",
-      "sourceSha256": "2daf7b2d3ec22c49518fd26369fea79decb6235338d33df53fafbfce4a4d37b5",
+      "sourceSha256": "884f3ba1934aca85cf308e5162ee2daee56da9f18b3fe1a8d16fe3bd8b17030e",
       "toolkitArtifact": "tools/redactorium/",
-      "toolkitSha256": "2daf7b2d3ec22c49518fd26369fea79decb6235338d33df53fafbfce4a4d37b5",
+      "toolkitSha256": "884f3ba1934aca85cf308e5162ee2daee56da9f18b3fe1a8d16fe3bd8b17030e",
       "license": "MIT",
       "sourceArtifactGenerated": true,
       "licenseFile": "licenses/redactorium.txt",
@@ -31,9 +31,9 @@
       "id": "safelist",
       "sourceFolder": "safelist",
       "sourceArtifact": "safelist/dist/safelist-embed.html",
-      "sourceSha256": "36d5ba26e382da831af84b52bd46e5e6571bdc00eed1675e8bc22550348f7b3e",
+      "sourceSha256": "8f5386a73b06f6f839bdc6f01f70712222734ece18f76ff7042ca32c0eccd2a7",
       "toolkitArtifact": "tools/safelist.html",
-      "toolkitSha256": "36d5ba26e382da831af84b52bd46e5e6571bdc00eed1675e8bc22550348f7b3e",
+      "toolkitSha256": "8f5386a73b06f6f839bdc6f01f70712222734ece18f76ff7042ca32c0eccd2a7",
       "license": "MIT",
       "licenseFile": "licenses/safelist.txt"
     },

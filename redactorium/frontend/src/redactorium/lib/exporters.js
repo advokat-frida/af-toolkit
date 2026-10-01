@@ -9,21 +9,44 @@ import * as XLSX from "xlsx";
 import { jsPDF } from "jspdf";
 import { buildDOCX } from "./docxHandler.js";
 import { DETECTORS } from "./piiPatterns.js";
-import { scanText } from "./textScan.js";
+import { scanText, documentScanOptions } from "./textScan.js";
 
 // ---- a file name without the personal data in it ----
-// "ada-lovelace-ssn-123-45-6789.csv" would otherwise come back as
-// "ada-lovelace-ssn-123-45-6789.redacted.csv", and the record would repeat it. Dashes and
-// underscores are read as spaces for the scan so labels still work ("ssn 123 45 6789"); an unlabeled name in a
-// file name is not found, so the page says the name is kept.
-export function cleanBaseName(fileName, extra = []) {
+// Scan both the original spelling and separators read as spaces. Names recognized in this
+// file supply the context an unlabeled filename lacks; never learn names from another file.
+export function cleanBaseName(fileName, extra = [], { parsed, detectionResults = [] } = {}) {
   const dot = fileName.lastIndexOf(".");
   const base = dot > 0 ? fileName.slice(0, dot) : fileName;
-  const spans = scanText(base.replace(/[-_]/g, " "), { extra });
+  const spans = [...scanText(base, { extra }), ...scanText(base.replace(/[-_]/g, " "), { extra })];
+  const names = new Set(parsed ? documentScanOptions(parsed, extra).knownNames?.scores.keys() : []);
+  for (const finding of detectionResults) {
+    if (finding.mode !== "column" || finding.top?.detectorId !== "person_name") continue;
+    for (const row of parsed?.rows || []) {
+      const value = String(row[finding.index] ?? "").trim();
+      if (value) names.add(value);
+    }
+  }
+  for (const name of names) {
+    const pattern = name.split(/[\s_-]+/).map((part) => part.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("[\\s_-]+");
+    const re = new RegExp(`(^|[^\\p{L}\\p{M}\\p{N}])(${pattern})(?![\\p{L}\\p{M}\\p{N}])`, "giu");
+    let match;
+    while ((match = re.exec(base)) !== null) {
+      const start = match.index + match[1].length;
+      spans.push({ start, end: start + match[2].length });
+    }
+  }
   if (!spans.length) return base;
+  // Keep the union of overlapping scans: a separator-normalized partial email must not
+  // leave part of the original address in the exported name.
+  const merged = [];
+  for (const span of spans.sort((a, b) => a.start - b.start || b.end - a.end)) {
+    const previous = merged[merged.length - 1];
+    if (previous && span.start < previous.end) previous.end = Math.max(previous.end, span.end);
+    else merged.push({ start: span.start, end: span.end });
+  }
   let out = "";
   let last = 0;
-  for (const s of spans) { out += base.slice(last, s.start) + "redacted"; last = s.end; }
+  for (const s of merged) { out += base.slice(last, s.start) + "redacted"; last = s.end; }
   return out + base.slice(last);
 }
 
@@ -85,7 +108,13 @@ export async function buildOutput(parsed, edits = null) {
     const now = new Date();
     const two = (n) => String(n).padStart(2, "0");
     doc.setCreationDate(`D:${now.getUTCFullYear()}${two(now.getUTCMonth() + 1)}${two(now.getUTCDate())}${two(now.getUTCHours())}${two(now.getUTCMinutes())}${two(now.getUTCSeconds())}+00'00'`);
-    doc.setFont("courier", "normal"); doc.setFontSize(10);
+    // Standard PDF fonts cannot encode U+25CF: jsPDF then writes the whole line in an
+    // encoding Courier cannot read. Bundle a Unicode font locally, including its ToUnicode
+    // map, so both the visible PDF and copied/extracted text keep the original characters.
+    const { default: pdfFont } = await import("./pdfFont.js");
+    doc.addFileToVFS("LiberationMono-Regular.ttf", pdfFont);
+    doc.addFont("LiberationMono-Regular.ttf", "LiberationMono", "normal");
+    doc.setFont("LiberationMono", "normal"); doc.setFontSize(10);
     const margin = 54; const width = doc.internal.pageSize.getWidth() - margin * 2;
     const bottom = doc.internal.pageSize.getHeight() - margin;
     const pages = meta?.pageStarts?.length ? meta.pageStarts : [0];
@@ -111,7 +140,7 @@ export async function buildOutput(parsed, edits = null) {
 // ---- The record (JSON) ----
 // What ran, what it found, what the reader chose, and fingerprints of the file before and
 // after. It never holds the personal data itself: no matched values, no examples, no hash key.
-export function buildLogJSON({ inputFile, format, columnPlan, stats, detectionResults, inputHash, outputHash, hashKey, seed, startedAt, finishedAt, meta, customDetectors = [], reused = [] }) {
+export function buildLogJSON({ inputFile, parsed, format, columnPlan, stats, detectionResults, inputHash, outputHash, hashKey, seed, startedAt, finishedAt, meta, customDetectors = [], reused = [] }) {
   const where = (mode) => (mode === "text" ? "text" : "column");
   const log = {
     tool: "Redactorium",
@@ -123,7 +152,7 @@ export function buildLogJSON({ inputFile, format, columnPlan, stats, detectionRe
       environment: "browser (client-side only)",
     },
     input: {
-      name: cleanBaseName(inputFile.name, customDetectors.filter((d) => d.find)) + (inputFile.name.includes(".") ? inputFile.name.slice(inputFile.name.lastIndexOf(".")) : ""),
+      name: cleanBaseName(inputFile.name, customDetectors.filter((d) => d.find), { parsed, detectionResults }) + (inputFile.name.includes(".") ? inputFile.name.slice(inputFile.name.lastIndexOf(".")) : ""),
       size_bytes: inputFile.size,
       format,
       sha256: inputHash,

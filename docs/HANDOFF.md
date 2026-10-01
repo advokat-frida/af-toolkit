@@ -1,5 +1,24 @@
 # HANDOFF
 
+## 2026-10-01 - Batch 1 fixes, local candidate only
+
+The approved follow-up fixes identifying Redactorium export/record filenames,
+U+25CF PDF corruption, quoted Outlook recipient parsing, and SafeList's phone
+review overflow. Source changes and generated artifacts are isolated from main.
+88 Redactorium tests, 28 SafeList tests, lint/builds, and the full Toolkit gate
+(including 22 shell tests) pass. Focused synthetic browser checks pass at all
+four review widths; exported PDF rendering and affected screens were inspected.
+
+See [scope, evidence, limits, and separate triage](review/af-batch1-fixes.md).
+No commit, push, deployment, Ghost edit, or tracker status change has occurred.
+Ben's required actual-file acceptance and release closeout remain pending.
+The local `tuck` skill was subsequently read: it means full reviewed closeout,
+including the applicable Toolkit deployment and live verification. The parent
+confirmed that Ben's original request authorizes that scoped workflow. Independent
+review cleared the exact candidate with 62 focused tests, proof inspection, and
+artifact/font hash verification. Fresh Notion readback makes Ben's actual-resume
+verdict a Done gate after release; it does not block release of these approved fixes.
+
 ## 2026-09-29 - Redactorium article link and final redirect validation
 
 Ben requested the same top-right article link on Redactorium that SafeSeed has.

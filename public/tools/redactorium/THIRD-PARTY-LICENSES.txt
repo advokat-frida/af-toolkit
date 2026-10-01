@@ -1,6 +1,7 @@
 Redactorium bundles the third-party packages below. Each is listed with its version,
 its declared license, and the license text it ships with. Redactorium itself is MIT
-(see LICENSE in the source folder); its fonts are under the SIL Open Font License (fonts/OFL.txt).
+(see LICENSE in the source folder); its fonts are under the SIL Open Font License
+(fonts/OFL.txt and fonts/liberation-mono-LICENSE.txt).
 
 ========================================================================
 @babel/runtime 7.29.7 — MIT
