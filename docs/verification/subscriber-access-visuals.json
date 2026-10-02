@@ -1,0 +1,340 @@
+{
+  "date": "2026-09-30",
+  "status": "Local candidate; gate off; nothing deployed",
+  "evidenceDirectory": "C:/Users/Ben/.codex/worktrees/af-subscriber-access/af-toolkit/.local-working/dispatch-access",
+  "manual_visual_verification": {
+    "verdict": "PASS for local app pages and bridge body; live Ghost rendering pending",
+    "observations": "See docs/ACCESS-VERIFICATION.md. Every listed capture was opened individually; source art was unchanged. Bridge chrome is representative, not a live Ghost render.",
+    "files": [
+      {
+        "file": "ghost-bridge-1440.png",
+        "width": 1440,
+        "height": 1000,
+        "sha256": "0fe1e98e6599b912458c259f70f3b8c77f0bd59f3d4aed7bd44b98e3eaf40548",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "ghost-bridge-320.png",
+        "width": 320,
+        "height": 844,
+        "sha256": "6d8af599242c4e83567b67cc9d08b5b4d16f78d7fa82b1e3a47bb564daca5dd1",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "ghost-bridge-390.png",
+        "width": 390,
+        "height": 844,
+        "sha256": "66c78c84fccfb003dcca47882146151b59e7616400ccc325710df131f2cd3782",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "ghost-bridge-768.png",
+        "width": 768,
+        "height": 1000,
+        "sha256": "d7684eceedbf73df0ec1f1b0ed71b27832b4b10a5db6e01574986ee2c45b5664",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "ghost-subscription-1440.png",
+        "width": 1440,
+        "height": 1000,
+        "sha256": "05cd366534c1cd5839fabac1d86065f179c701c570c680a8cef0f3cd77c662d1",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "ghost-subscription-390.png",
+        "width": 390,
+        "height": 844,
+        "sha256": "df768602ad24e849093e7a095cccc4d96598b0e7810bdd3a5cc689cec5d48f06",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "guide-comics-1034.png",
+        "width": 1034,
+        "height": 1000,
+        "sha256": "54278e543908c8820671c2bce32f72a828f61ed8b0fad81631c87e9d3eab43f2",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "guide-comics-1440.png",
+        "width": 1440,
+        "height": 1000,
+        "sha256": "aea70dec389bfa8a75698f44990797d1178465c1367a18aa86206a1a5972ea52",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "guide-comics-320.png",
+        "width": 320,
+        "height": 844,
+        "sha256": "b3d97ed3a0ab347e4ceb487e36b0bc52dfeef2624619345fc6c5148248bfaf42",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "guide-comics-390.png",
+        "width": 390,
+        "height": 844,
+        "sha256": "0d842fd4cd357a6103cc3e3f30d94d49ae3cb7f92288e52bf787bbe4c4841c88",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "guide-comics-719.png",
+        "width": 719,
+        "height": 844,
+        "sha256": "eafe648696ba31c8ee2699cd626f8916d720fa14a546647893d7a47e9e0e4d8b",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "guide-comics-720.png",
+        "width": 720,
+        "height": 1000,
+        "sha256": "7cf073dac506d53ea268933b6a390a30226b3a397540e88408946507754eea87",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "guide-comics-768.png",
+        "width": 768,
+        "height": 1000,
+        "sha256": "fd9ed0cf954cb5cb4f39ff0425ffc6069d2ada8f95c9c84cfff89206bfdd27d1",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "guide-comics-959.png",
+        "width": 959,
+        "height": 1000,
+        "sha256": "936ea5e33326e642073a16baa6c07b9934577c1bde45b318ed83106eac1438a5",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "guide-comics-960.png",
+        "width": 960,
+        "height": 1000,
+        "sha256": "d844df837c40b1542b4fde31e980ed7b9e75eecaa1f6307c0a3cef21a3018cdd",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "guide-gated-1034.png",
+        "width": 1034,
+        "height": 1000,
+        "sha256": "16337fdb86ac66f700bee82ee61c7a2130cdd429cbcf3909fc906364eb239dbe",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "guide-gated-1440.png",
+        "width": 1440,
+        "height": 1000,
+        "sha256": "08a4caab7acbab9b0a4ca56c7ac6c9a89b51becfe6964e6aba8a77236fe828ff",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "guide-gated-320.png",
+        "width": 320,
+        "height": 844,
+        "sha256": "9d70621a696a35f04598e785f265b5cb75ae4f5984143b41499a08696d716ca8",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "guide-gated-390.png",
+        "width": 390,
+        "height": 844,
+        "sha256": "f514887b835375c0244cfc67894191e1aac73676b5a6ebaaf0208d4d4ea50d36",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "guide-gated-768.png",
+        "width": 768,
+        "height": 1000,
+        "sha256": "0c201aefd082ded8f9a688ed54a34b30ae558811bd0d521b4bb1071fefc69a52",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "guide-home-1440.png",
+        "width": 1440,
+        "height": 1000,
+        "sha256": "d09747ca5f7ac3b81f0a663c7708068902c1f2c3efa52d90d01845cb3f09470e",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "guide-home-390.png",
+        "width": 390,
+        "height": 844,
+        "sha256": "ada7e19cfd8f529c2e6005a30ca9a6c651bb53cd3b0f3ae18e40bfd0679029ee",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "guide-no-js-1440.png",
+        "width": 1440,
+        "height": 1000,
+        "sha256": "e6f8b71ab22be17d631ff243e9c7042a3d567041bf4bfc22a0b8a55ba64ff220",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "guide-no-js-320.png",
+        "width": 320,
+        "height": 844,
+        "sha256": "d5c2703bd8be9bea489b04b972aaa7f37437535428914649db1ddf07e8f8daef",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "guide-no-js-390.png",
+        "width": 390,
+        "height": 844,
+        "sha256": "eebb657380ec770b2a2d62f170624fc8994bf5b97603f226a75744bbf40ce008",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "guide-no-js-768.png",
+        "width": 768,
+        "height": 1000,
+        "sha256": "cec8fd1cf547ef5ced02bdf687149e205e6e1bcc54f62effe4b0ca231e428d66",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "guide-posters-1440.png",
+        "width": 1440,
+        "height": 1000,
+        "sha256": "5b4bafc04687da292505f125de7b48518554de7ac5acfc0558719cfe6ce3ce41",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "guide-posters-320.png",
+        "width": 320,
+        "height": 844,
+        "sha256": "a1be7f69961e5ae520261f9bebb7719fd70849e17d7db9d89aea839dbc44266a",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "guide-posters-390.png",
+        "width": 390,
+        "height": 844,
+        "sha256": "b8ba06546f41c10c17b00e029d57e38ff7167becb0a5f2da6b867e17c8e314a8",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "guide-posters-768.png",
+        "width": 768,
+        "height": 1000,
+        "sha256": "aa4c09107a3f69105af5a3d7507c8c30908482a53deb13482c581f42aef7ab00",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "guide-viewer-1440.png",
+        "width": 1440,
+        "height": 1000,
+        "sha256": "adaf11c9cb601b34e175d3d22b8382e3322027d4d8e7079c2d91b10fb1ae810c",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "guide-viewer-390.png",
+        "width": 390,
+        "height": 844,
+        "sha256": "c24df5f31a9a36b68f515f5d1f225cecf78f8c2497fe9df498ce4e2ee567c546",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "reference-guide-1440.png",
+        "width": 1440,
+        "height": 1000,
+        "sha256": "d09747ca5f7ac3b81f0a663c7708068902c1f2c3efa52d90d01845cb3f09470e",
+        "kind": "live read-only reference",
+        "openedIndividually": true
+      },
+      {
+        "file": "reference-guide-390.png",
+        "width": 390,
+        "height": 844,
+        "sha256": "ada7e19cfd8f529c2e6005a30ca9a6c651bb53cd3b0f3ae18e40bfd0679029ee",
+        "kind": "live read-only reference",
+        "openedIndividually": true
+      },
+      {
+        "file": "reference-members-1440.png",
+        "width": 1440,
+        "height": 1000,
+        "sha256": "5fa8eb4861fe099e2e18acf557c657cca649a3e8785ba20ab6ad33240522133a",
+        "kind": "live read-only reference",
+        "openedIndividually": true
+      },
+      {
+        "file": "reference-members-390.png",
+        "width": 390,
+        "height": 844,
+        "sha256": "6313a4445bb00fb31ed953ff5b1a066b2c3725ceacff26d3a8ebec1baf32ad62",
+        "kind": "live read-only reference",
+        "openedIndividually": true
+      },
+      {
+        "file": "toolkit-gated-1034.png",
+        "width": 1034,
+        "height": 1000,
+        "sha256": "70ea694a8cab6576a4b5d54aeda9ef8b615ae1c9fa09863d8332ed614e1e5da0",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "toolkit-gated-1440.png",
+        "width": 1440,
+        "height": 1000,
+        "sha256": "b2ab41e2086981864ac0e23987caf44bcec7d3ee27d05dd30629d23bf4bd55b4",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "toolkit-gated-320.png",
+        "width": 320,
+        "height": 844,
+        "sha256": "5dd956614d862c81842366d0cc404aa6b52d6b2b91251819dbf28b2184bf096a",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "toolkit-gated-390.png",
+        "width": 390,
+        "height": 844,
+        "sha256": "e8dc6320e7a6456321e9251e2669f4a41549ffc26df2c862df997e8fa5ed7177",
+        "kind": "local candidate",
+        "openedIndividually": true
+      },
+      {
+        "file": "toolkit-gated-768.png",
+        "width": 768,
+        "height": 1000,
+        "sha256": "05139d85e64091a605ee666aebb830753e0d2a2bf7bec742c82a44b4a8ee7650",
+        "kind": "local candidate",
+        "openedIndividually": true
+      }
+    ]
+  },
+  "artworkCatalogSha256": "6b88dc67797eeb8bbd6e1192b527ae29f68537a94a39c0eeebf49bddf5a78521"
+}

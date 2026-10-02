@@ -8,6 +8,7 @@ import { join, resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { chromium } from "playwright";
 import { createToolkitHandler } from "../server.mjs";
+import { verifyRouteMetadata } from "./metadata-qa.mjs";
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const publicRoot = join(repoRoot, "public");
@@ -195,6 +196,8 @@ async function main() {
         assert(await page.evaluate(() => !document.body.classList.contains("nav-open")), "mobile-390: Escape closes the chooser");
       }
 
+      const metadataStates = await verifyRouteMetadata(page, base);
+      assert(metadataStates > 0, `${viewport.name}: ${metadataStates} metadata states match direct-entry HTML, including history and legacy links`);
       await page.close();
     }
   } finally {

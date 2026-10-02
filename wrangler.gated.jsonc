@@ -1,0 +1,24 @@
+{
+  // Ben authorized deployment October 1, 2026. Native Ghost sign-in must pass
+  // with a 2048-bit member key before this gated configuration is activated.
+  "name": "the-toolkit",
+  "account_id": "cb1ac95c9e831d81b100a38a06ce879f",
+  "main": "access/entrypoint.mjs",
+  "compatibility_date": "2026-09-30",
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [{"pattern":"toolkit.advokatfrida.com","custom_domain":true}],
+  "assets": {"directory":"./public","binding":"ASSETS","run_worker_first":true,"not_found_handling":"none"},
+  "vars": {
+    "ACCESS_MODE":"gated",
+    "GHOST_ADMIN_ORIGIN":"https://advokat-frida.ghost.io",
+    "DISPATCH_NEWSLETTER_ID":"6a2b163946abeb0008d5380b"
+  },
+  "durable_objects":{"bindings":[
+    {"name":"DISPATCH_MEMBERS","class_name":"DispatchMember"},
+    {"name":"LOGIN_GRANTS","class_name":"LoginGrant"}
+  ]},
+  "migrations":[{"tag":"dispatch-access-v1","new_sqlite_classes":["DispatchMember","LoginGrant"]}],
+  "ratelimits":[{"name":"ACCESS_LIMITER","namespace_id":"1001","simple":{"limit":20,"period":60}}],
+  "observability":{"enabled":false}
+}
