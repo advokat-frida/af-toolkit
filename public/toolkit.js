@@ -3,12 +3,11 @@
 // paths with this shell; this script opens the tool the path names and moves between tools
 // without a reload. Old links that named the tool in the hash (`/#redactorium`) are moved onto
 // the path on load and keep working.
+import { HOME, ORIGIN, TOOLS } from "./route-meta.js";
+
 const routeMeta = {
-  home: { title: "Home", path: "/" },
-  redactorium: { title: "Redactorium", path: "/redactorium" },
-  safeseed: { title: "SafeSeed", path: "/safeseed" },
-  safelist: { title: "SafeList", path: "/safelist" },
-  "privacy-wizards": { title: "Privacy Wizards Council", path: "/privacy-wizards" }
+  home: { ...HOME, path: "/" },
+  ...Object.fromEntries(Object.entries(TOOLS).map(([route, tool]) => [route, { ...tool, path: `/${route}` }]))
 };
 
 const homeAnchors = new Set(["tool-grid", "toolkit-changelog"]);
@@ -124,6 +123,8 @@ function showRoute({ focus = true } = {}) {
   document.body.dataset.route = route;
   shownPath = window.location.pathname;
   document.title = `${routeMeta[route].title} · AF Toolkit`;
+  document.querySelector('meta[name="description"]').content = routeMeta[route].description;
+  document.querySelector('link[rel="canonical"]').href = new URL(routeMeta[route].path, ORIGIN).href;
   ensureFrame(route);
   frameLayouts.get(frames.get(route))?.schedule();
   closeMenu({ restoreFocus: false });

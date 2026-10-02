@@ -8,7 +8,9 @@ const roots = [
   join(repositoryRoot, "routes.mjs"),
   join(repositoryRoot, "server.mjs"),
   join(repositoryRoot, "worker.mjs"),
+  join(repositoryRoot, "access"),
   join(repositoryRoot, "public", "toolkit.js"),
+  join(repositoryRoot, "public", "route-meta.js"),
   join(repositoryRoot, "scripts"),
   join(repositoryRoot, "tests")
 ];
