@@ -1,5 +1,25 @@
 # AF-22: Word links and software-list detection
 
+**Released and verified.** [PR #37](https://github.com/advokat-frida/af-toolkit/pull/37)
+merged reviewed source `a6582d98316bbe8ab89a7df45a459bc58e1522a1` as
+`0f8bab0f9904ef6ebbd12b6e6366432fe0bad8ae` at 2026-10-06 01:12:52 UTC
+(October 5, Pacific). All five PR checks passed. Connected Cloudflare production
+build `bac2299e-f7ff-474e-af7b-302b5a36d41a` succeeded.
+
+All 33 checked live files match the merged commit, normalizing only the known
+Cloudflare hidden `/cdn-cgi/content` anchor in HTML. The actual-resume production
+flow passed at all four review widths: keyboard treatment selection, DOCX and
+record downloads, no horizontal overflow, page errors, or external requests.
+Desktop findings/results, mid-width findings, and mobile/narrow controls and
+results were directly inspected. All nine downloaded package parts match the
+locally verified export byte for byte, and every XML/relationships part parses.
+The original input hash is unchanged. Word visual layout remains unverified.
+
+Rollback base: `01c99d1`, preserving the already released access repair and
+Toolkit setup mode. Private live receipts: `.local-working/af22/live-assets.json`,
+`live-docx-verification.json`, and `live-browser/`. No private resume or screenshot
+is committed. This release does not change Ghost, access policy, or other tools.
+
 Ben supplied a failing resume export, approved the proposed repair with
 "proceed", then requested "tuck" on October 5, 2026 (Pacific). The existing
 [AF-22 task](https://app.notion.com/3ea0f293ed9d81d5a0f9d39af7ecacdf)
@@ -62,7 +82,8 @@ formatting checks do not replace opening the exported DOCX in Word. Regional
 descriptions, employers, schools, and other identifying context still need
 manual review. Filename scrubbing depends on recognized patterns.
 
-The separate article corrections were prepared for approval. No Ghost edit,
-newsletter send, or theme upload is part of this Toolkit patch. AF-22 must not
-be marked Done while its article reconciliation remains outstanding. The
-repository handoff and Notion task will record the actual release result.
+The separate article corrections were prepared for approval, which is still
+pending. No Ghost edit, newsletter send, or theme upload occurred. AF-22 remains
+In Progress while its article reconciliation is outstanding; automated export
+checks are not a claim that Ben inspected the final document in Word. The
+repository handoff and Notion task record the release and remaining work.

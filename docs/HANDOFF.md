@@ -1,5 +1,32 @@
 # HANDOFF
 
+## 2026-10-05 - AF-22 Word-link repair released
+
+Ben approved the supplied-resume fix, then requested tuck. [PR #37](https://github.com/advokat-frida/af-toolkit/pull/37)
+merged reviewed `a6582d9` as `0f8bab0f9904ef6ebbd12b6e6366432fe0bad8ae`.
+All five PR checks passed; connected Cloudflare production build
+`bac2299e-f7ff-474e-af7b-302b5a36d41a` succeeded. All 33 checked live files match
+the merged bytes, allowing only the known Cloudflare HTML anchor injection.
+
+Web destinations are detected and redacted Word links lose their destinations
+while keeping labels and formatting. The resume's software list remains intact;
+ordinary Mississippi office/project/access prose still matches as a place.
+94 engine tests, lint/build, and the full Toolkit gate (41 root tests) passed.
+Independent review found two defects, both repaired and rechecked with 20 extra
+Word round trips and XML parsing. The actual-resume live flow passed at 1440,
+1034, 390, and 320 pixels; screenshots and downloads were inspected. All nine
+exported package parts match the local verified result; the input is unchanged.
+
+AF-22 remains In Progress for article reconciliation; the prepared Ghost copy
+awaits Ben's content decision. Word visual layout and Ben's final personal
+document inspection remain unclaimed. No Ghost write, newsletter send, theme
+upload, or access-policy change occurred. The current access release and all
+unrelated work are preserved. See [release, review, and limits](review/af22-docx-links.md).
+
+Private receipts and the proposed article corrections remain under
+`C:/Users/Ben/Documents/ChatGPT/Advokat Frida/af-toolkit/.local-working/af22/`.
+Resume at the pending article decision; do not infer approval from this handoff.
+
 ## 2026-10-01 - Batch 1 export and recipient fixes released
 
 The approved follow-up fixes identifying Redactorium export/record filenames,
