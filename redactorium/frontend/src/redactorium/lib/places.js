@@ -21,6 +21,16 @@ export const PLACE_SOURCE = `${lead}${word}(?:[ \\t]+${word}){0,4},[ \\t]*(?:${s
 const wholePlace = new RegExp(`^${PLACE_SOURCE}$`, "u");
 
 export const isUSPlace = (value) => wholePlace.test(String(value).trim());
+// "Confluence, MS Teams" is a software list, not a city in Mississippi. Keep the
+// exclusion tied to software context: "Jackson, MS office" is still a location.
+export function validPlaceAt(value, text, start) {
+  if (!/,[ \t]*MS$/.test(value)
+    || !/^[ \t]+(?:Teams|Office|Excel|Word|Outlook|Access|PowerPoint|Project|Visio|OneNote|SharePoint|Windows|Dynamics)\b/i.test(text.slice(start + value.length))) return true;
+  const linePrefix = text.slice(0, start).split(/[\r\n]/).at(-1);
+  const softwareList = /\b(?:tools|software|technical skills|collaboration and project management)\s*:[^:]*$/i.test(linePrefix);
+  const softwareItem = /^(?:Confluence|SharePoint|Notion|Asana|Jira|Slack|Trello|GSuite),[ \t]*MS$/.test(value);
+  return !(softwareList || softwareItem);
+}
 export function placeState(value) {
   const text = String(value).trim();
   return isUSPlace(text) ? text.slice(text.lastIndexOf(",") + 1).trim() : null;

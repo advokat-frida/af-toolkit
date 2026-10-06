@@ -50,7 +50,9 @@ export function detectColumns(parsed, opts = {}) {
           name: det.name || k.detectorId,
           category: det.category || "custom",
           tier: det.tier || "heuristic",
-          citation: det.citation || "",
+          citation: k.detectorId === "url"
+            ? "Starts with http://, https:// or www. Includes Word link destinations. Check whether to keep it."
+            : det.citation || "",
           confidence: k.confidence,
           matchRate: nonEmpty ? k.texts / nonEmpty : 0,
           hits: k.matches,

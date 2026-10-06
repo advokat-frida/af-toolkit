@@ -361,7 +361,7 @@ export async function applyTransformations(parsed, columnPlan, options = {}) {
         const next = String(await treat(span.value, span.detectorId, plan, ctx));
         if (next === span.value) continue;
         stats[i].changed++;
-        replacements.push({ start: span.start, end: span.end, text: next });
+        replacements.push({ start: span.start, end: span.end, text: next, detectorId: span.detectorId, transform: plan.transform });
       }
       if (!replacements.length) continue;
       let out = "";
