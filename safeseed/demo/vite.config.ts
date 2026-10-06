@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { viteSingleFile } from "vite-plugin-singlefile";
+import { viteSingleFile } from "./scripts/singlefile.mjs";
 import { fileURLToPath } from "node:url";
 import { readFileSync } from "node:fs";
 
@@ -77,7 +77,7 @@ function markStandaloneOnBuild() {
 
 // Whatever the checkout's line endings, the emitted single-file HTML is LF-only, so a
 // Windows build and a Linux runner produce the same bytes and CI's freshness check holds.
-// Runs after vite-plugin-singlefile (both enforce post; this one is registered later).
+// Runs after the local single-file plugin (both enforce post; this one is registered later).
 function lfOnlyOnBuild() {
   return {
     name: "lf-only-on-build",
@@ -103,7 +103,7 @@ function lfOnlyOnBuild() {
 
 // Two pages now: the showcase (index.html) and the self-serve generator
 // (generator.html). The hosted build emits both as a normal multi-page site. Each
-// standalone single-file build targets ONE page, because vite-plugin-singlefile
+// standalone single-file build targets ONE page, because the single-file plugin
 // inlines per build — so there's a mode per page (`standalone` = showcase,
 // `standalone-generator` = generator), each a single rollup input.
 const indexEntry = fileURLToPath(new URL("./index.html", import.meta.url));
