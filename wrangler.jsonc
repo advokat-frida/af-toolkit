@@ -1,7 +1,6 @@
 {
-  // Safe default release: authentication endpoints remain available while tools
-  // stay public. Ordinary Workers Builds must preserve the access service and
-  // its existing state; activating gating requires a separate explicit release.
+  // Dispatch subscriber gating: every protected asset passes through the access
+  // entrypoint. Keep this as the default so ordinary Workers Builds preserve it.
   // Keep the repository root as the Workers Builds root and the build command
   // empty. The deploy command may use the normal `npx wrangler deploy`.
   "name": "the-toolkit",
@@ -13,7 +12,7 @@
   "routes": [{"pattern":"toolkit.advokatfrida.com","custom_domain":true}],
   "assets": {"directory":"./public","binding":"ASSETS","run_worker_first":true,"not_found_handling":"none"},
   "vars": {
-    "ACCESS_MODE":"setup",
+    "ACCESS_MODE":"gated",
     "GHOST_ADMIN_ORIGIN":"https://advokat-frida.ghost.io",
     "DISPATCH_NEWSLETTER_ID":"6a2b163946abeb0008d5380b"
   },

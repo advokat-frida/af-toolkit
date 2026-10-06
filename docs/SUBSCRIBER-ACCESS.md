@@ -1,14 +1,12 @@
 # Dispatch access and Guide discovery
 
-> **October 5, 2026: repair deployed; native email sign-in verified.** See
-> [ACCESS-PATCH-2026-10-05.md](ACCESS-PATCH-2026-10-05.md) for the current flow
-> contract, source and live release evidence, rollback, and remaining verification.
-> Toolkit and Guide native existing-session handoffs pass. Ben completed email
-> sign-in for the existing unsubscribed account; its subsequent handoff correctly
-> denied a member session while retaining the safe destination. Subscribed email
-> and actual new-tab email-link returns remain untested. Toolkit stays setup;
-> Guide stays public. Gating activation and subscription/key/security-setting
-> changes remain excluded. Release/key statements immediately below are historical.
+> **October 5, 2026: subscriber-gating activation in progress.** Ben has now
+> authorized enabling gating. The default configuration selects gated mode;
+> production is still Toolkit setup and Guide public while activation checks finish.
+> [ACCESS-ACTIVATION-2026-10-05.md](ACCESS-ACTIVATION-2026-10-05.md) records the
+> current candidate, verification boundaries, deployment procedure, and rollback.
+> [ACCESS-PATCH-2026-10-05.md](ACCESS-PATCH-2026-10-05.md) preserves the completed
+> repair release and flow contract. Earlier restrictions below are historical.
 
 ## Historical September 30 / October 1 status
 

@@ -15,14 +15,14 @@ test('explicit public mode serves tools without authentication or auth calls',as
     assert.equal(await response.text(),'public tool');assert.equal(response.headers.get('set-cookie'),null);
   }
 });
-test('ordinary deployment preserves setup access state without activating gating or preview hosts',()=>{
+test('ordinary deployment preserves subscriber gating and disabled preview hosts',()=>{
   const config=name=>JSON.parse(readFileSync(new URL('../'+name,import.meta.url),'utf8').replace(/^\s*\/\/.*$/gm,''));
   const current=config('wrangler.jsonc'),future=config('wrangler.gated.jsonc');
-  assert.equal(current.vars.ACCESS_MODE,'setup');
+  assert.equal(current.vars.ACCESS_MODE,'gated');
   assert.equal(current.main,'access/entrypoint.mjs');
   assert.equal(current.workers_dev,false);assert.equal(current.preview_urls,false);
   assert.equal(current.assets.run_worker_first,true);
-  assert.deepEqual(current,{...future,vars:{...future.vars,ACCESS_MODE:'setup'}},'default deploy retains every existing service binding, migration and limit');
+  assert.deepEqual(current,future,'default deploy retains the gated entrypoint, every existing service binding, migration and limit');
 });
 test('anonymous tool routes are crawlable descriptions; direct files and alternate hosts stay gated',async()=>{
   const env={ASSETS:{fetch(){throw Error('Protected bytes were fetched');}}};
