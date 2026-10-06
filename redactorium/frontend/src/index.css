@@ -894,11 +894,6 @@ html:has([data-toolkit-embedded="true"]) body {
     padding-left: 32px;
     padding-right: 32px;
 }
-/* Column cap steps with the scale above; see the note at the end of this file.
-   Breakpoints are the frame width, not the window. */
-@media (min-width: 1252px) { [data-toolkit-embedded="true"] .max-w-6xl, [data-toolkit-embedded="true"] .red-upload-stage { max-width: 1240px; } }
-@media (min-width: 1528px) { [data-toolkit-embedded="true"] .max-w-6xl, [data-toolkit-embedded="true"] .red-upload-stage { max-width: 1320px; } }
-@media (min-width: 1900px) { [data-toolkit-embedded="true"] .max-w-6xl, [data-toolkit-embedded="true"] .red-upload-stage { max-width: 1400px; } }
 
 
 /* How it works: the kit's numbered step-flow, one band on paper. */
@@ -946,11 +941,14 @@ html:has([data-toolkit-embedded="true"]) body {
 
 .btn-forest[aria-disabled="true"] { cursor: not-allowed; }
 
-/* ---- Large-display scale (Ben, 2026-09-04) -------------------------------
+/* ---- Large-display scale (Ben, 2026-09-04; AF-18, 2026-09-29) --------------
    At 2560px this surface used 44% of the width and the type read small. The fix
    is to scale the composition, not stretch it: `zoom` steps the whole surface at
    once - type, spacing, rules - so every proportion the design system defines
-   survives, and the column cap steps with it so prose keeps a sane measure.
+   survives. The column cap does NOT step with it (AF-18: stepping it to 1400px
+   spread the content and opened wide gaps between table columns). It stays at
+   1130px, which the zoom enlarges, so a wide screen shows the laptop composition
+   at a larger size, centered.
 
    These breakpoints are the width of THIS FRAME, not the window. Embedded, the
    frame is the window minus the Toolkit rail, so 1252/1528/1900 here land on the

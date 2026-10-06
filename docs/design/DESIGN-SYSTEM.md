@@ -133,8 +133,9 @@ Segments size to their labels.
 stroke 1.75 in `--forest`); title 17/700; one-line job description 14px `--soft`. Hover: border
 turns `--ink`, shadow `4px 4px 0 var(--ink)`, translate `-1px,-1px`. No numbers, no accent bars,
 no status pills, no card buttons. The grid fits as many cards as the row holds, none narrower
-than 240px (`repeat(auto-fill, minmax(240px, 1fr))`), one column on a phone: three across at a
-laptop width, five or six on a large display (Ben, 2026-09-28).
+than 240px (`repeat(auto-fill, minmax(240px, 1fr))`), one column on a phone. The 1000px Home cap
+holds three across on a laptop and a large display; large-display zoom enlarges that composition
+(Ben, AF-18 approved 2026-10-05). This preserves the minimum card width from Ben's 2026-09-28 call.
 
 **Sidebar.** 230px, `--paper`, `2px solid var(--ink)` right edge. Brand cap: 40px fox mark +
 `ADVOKAT FRIDA` (Anton 21) on its own — the `TOOLKIT` sub-line went on 2026-09-04, the rail already
@@ -317,6 +318,9 @@ count. The bound grows with the viewport, floored at 440px: a fixed height stran
 of a desktop monitor, which is the same defect as a fixed-width column stranding the sides. **A file preview is rendered as data**: header row and cells alike in mono (header 12px
 `--soft` over an inset ink rule, cells 13px, nothing wraps), because the header row is part of the
 file — SafeSeed's generated preview (4C) is the reference and SafeList's checked list follows it.
+Its columns fit their values (AF-18, 2026-09-29): every column but the last shrinks to its widest
+cell plus a 24px gutter (`--s5`), and the last column takes the remaining width, so the rules still
+run the full column while a five-column file does not open wide gaps between its columns.
 That is distinct from the **Table** above, which is interface: Archivo caps headers, body text,
 and mono only on the identifier column (Redactorium's findings, SafeList's review).
 
@@ -329,6 +333,11 @@ stroke 1.75; chooser rows 20px at stroke 2. Icons are decorative beside complete
   working column is the canvas pane: `max-width: 1130px` (1066px of content plus 32px sides),
   centered when the stage is wider. The artboards are the wide-screen composition, not a minimum;
   a stage that stretches to fill 1,700px is a defect. Home's content column caps at 1000px.
+- Large displays (Ben, 2026-09-04; AF-18, 2026-09-29): from a 1500px window the shell and every
+  tool scale the whole composition with `zoom` (1.08 / 1.18 / 1.30 at 1500 / 1800 / 2200px windows;
+  each tool keys the same steps to its own frame at 1252 / 1528 / 1900px). The column caps do not
+  step: 1130px (Home 1000px) holds at every scale, so a wide screen shows the laptop composition,
+  larger. Stepping the caps to 1400px spread the content and opened wide gaps between columns.
 - The tool header stays 56px. The first useful control is visible when a tool opens.
 - Repeated control rows share one optical size; interactive targets never drop below 44px
   (52px for wizard options; 40px for a row control, §3).
