@@ -1,6 +1,6 @@
 # Ghost access repair — October 5, 2026
 
-**Release authorized; deployment pending.** Ben first approved local inspection,
+**Deployed; native email sign-in verified.** Ben first approved local inspection,
 implementation, and testing directly in this chat after review of the earlier
 forwarded-approval rejection. After the local report, Ben explicitly requested
 **tuck** on October 5, authorizing the scoped review, source closeout, coordinated
@@ -8,12 +8,98 @@ deployment, live verification, and continuity records. Toolkit must remain `setu
 and Guide `public`. Gating activation, subscription changes, keys, and security
 settings remain excluded. This report supersedes older readiness statements.
 
+Toolkit and Guide are released with gating off, and the fresh Ghost theme overlay
+is active. Existing signed-in sessions now complete both native browser handoffs.
+Ben completed native email sign-in for the existing unsubscribed test account.
+The safe destination survived, and the subsequent handoff correctly denied a
+destination session. The subscribed email-return path and other untested cases below
+remain distinct from that result. Source-control closeout and continuity receipts
+are recorded with the related AF-25 task; search-discovery work remains open.
+
+## Released source and deployment
+
+All dates in this report are October 5, 2026, Pacific time unless marked UTC.
+
+| Surface | Reviewed source and main | Active version / verification |
+| --- | --- | --- |
+| Toolkit | [PR #32](https://github.com/advokat-frida/af-toolkit/pull/32), source `0ca02595a0692478bb854e7175e6eac61b3ce76b`, merge `feed9034c2224643a54fb36714b71d17d2e35b2d` | `af3275ac-2188-439c-a0c0-0162e552e7fd`, deployed at 2026-10-06 00:49:37 UTC, `ACCESS_MODE=setup` |
+| Guide | [PR #2](https://github.com/advokat-frida/survival-guide/pull/2), source `6242ba3b381854f8f2b67ba52c66bb73967c2f36`, merge `e8e82d197c32a14079930e7e30d00204b3851032` | `42521793-8f84-4ab6-869d-4974afe65ad1`, deployed at 2026-10-06 00:49:51 UTC, `ACCESS_MODE=public` |
+| Website | `b17a781776611a1bed09ff07ab9b3bd3712ceccc` on main | Fresh current-theme overlay uploaded and activated through native Ghost admin; rendered versioned CSS/JS match the released files |
+
+Remote main ancestry was verified for all three reviewed source commits. Toolkit's
+[main Gate](https://github.com/advokat-frida/af-toolkit/actions/runs/37395981393)
+and [CodeQL](https://github.com/advokat-frida/af-toolkit/actions/runs/37395981587),
+[Guide main Check](https://github.com/advokat-frida/survival-guide/actions/runs/37395988017),
+and [website CI](https://github.com/advokat-frida/website/actions/runs/37395810950)
+all passed. Toolkit's Workers Builds check also passed. Its automatic version
+`46841d07-62a4-475e-84d4-49574efe5233` preceded the manual version by five seconds;
+both have the same script etag and `setup` mode. The manual version above was
+verified active at release. Later documentation-only builds can assign a new
+version ID without changing the reviewed runtime. No Build settings or credentials were changed.
+
+The actual subdomain APIs confirm `enabled=false` and `previews_enabled=false`
+for both Workers. Both retain compatibility date `2026-09-30`; Toolkit retains
+the existing Durable Objects, rate limiter, and secret names. No subscription,
+key, security-setting, or gating change was made.
+
+## Production checks
+
+- Native Chrome: the bare bridge recognized an existing signed-in Ghost session
+  and hid Sign in. Toolkit SafeSeed and Guide `/comics/page/2/` each returned
+  automatically from `/_access/start` to the originating query and fragment in
+  separate tabs.
+- Isolated browser session: an existing unsubscribed test account received the
+  subscription-required result. After sign-out, the Guide transaction displayed
+  Sign in and Subscribe. Native sign-in email was sent and delivered to that
+  existing account; its address and one-time code are not part of this record.
+- Ben completed that native email sign-in. The browser returned to the bridge
+  with the safe Guide `/posters/page/2/#gallery` destination retained and signed-in
+  controls visible. That destination had already exhausted automatic recovery in
+  the same ten-minute window, so the bridge correctly presented Continue to
+  Survival Guide. Clicking it reached the real server's subscription-required
+  result, with preferences and retry controls and the safe target still retained.
+  This proves native email completion for the existing unsubscribed account;
+  it does not prove a subscribed email roundtrip or an actual new-tab email link.
+- Independent anonymous HTTP verification passed all 47 cases (42 direct and five
+  resolved after the known Cloudflare HTML transform). Website live preflight
+  passed 17/17 with no warnings. Guide checks covered 24 source files, all 102
+  artwork URLs, four exact artwork hash samples, and the unchanged fox asset.
+- Toolkit artifact comparison covered 27 files: 22 raw byte matches and five HTML
+  matches after removing only the known Cloudflare `/cdn-cgi/content` link.
+  Rendered bridge CSS and JS matched their versioned candidate assets; template
+  markers matched, backed by the uploaded ZIP's exact source boundary.
+- Native Ghost reported version `6.68.0-rc.0+4d6511b`. Public JWKS contained one RSA
+  key with a mathematical 2048-bit modulus. The active free tier's welcome page
+  remained `/about/`; its possible new-signup return override remains a limit.
+
+Independent HTTP evidence is retained privately at
+`.local-working/access-tuck-live/independent-live-summary.json` with the underlying
+source, artifact, and normalization receipts. HTTP checks did not use member data
+or mutate accounts. Native session checks above are recorded separately and do not
+prove a real consumed-ticket replay test or unsubscribe propagation. Live Guide
+Comics page 2 was directly inspected at a 390-pixel browser width (375-pixel content
+width after the scrollbar): no horizontal overflow or broken visible images.
+The bridge's desktop content width was 1424 pixels with no overflow; its screenshot
+was directly inspected. At the same mobile browser width, bridge DOM checks found
+375-pixel content width, no overflow, signed-in status, and no visible main Sign in
+control. The final stable mobile screenshot was directly inspected with signed-in
+controls visible. Native screenshots `live-bridge-mobile.jpg`,
+`live-bridge-desktop.jpg`, `live-guide-mobile.jpg`, and
+`live-email-unsubscribed.jpg` are retained under the sibling website's
+`.local-working/access-release-2026-10-05`. Local responsive proof is below.
+
+Rollback versions remain Toolkit `e1a8baff-6b00-461e-afa8-eaf63dbcc084` and Guide
+`59dec40c-0c09-4e75-b0aa-ae763a3437dd`, plus the preserved pre-release Ghost ZIP
+identified below. A rollback must restore the coordinated three-part release,
+retain Toolkit `setup` and Guide `public`, and preserve secrets, bindings, Durable
+Object classes and migration history. Do not delete state to restore a version.
+
 ## Location and preservation
 
 Actual root: `C:\Users\Ben\.codex\worktrees\af-subscriber-access` (the supplied
 `C:\Users\Ben.codex\...` path was missing the separator before `.codex`).
 
-| Worktree | Detached base | Candidate responsibility |
+| Worktree | Starting detached base | Release responsibility |
 | --- | --- | --- |
 | `af-toolkit` | `43f9890` | Shared Worker/RPC, transactions, mathematical RSA check, preview return helper, tests |
 | `af-survival-guide` | `59c6843` | Access routes in public mode, flow proof cookies, preview return helper, tests |
@@ -23,7 +109,7 @@ The existing candidate was reviewed against the backups in
 `C:\Users\Ben\Documents\Codex\2026-10-05\task\auth-patch-baseline` and the
 partial candidates beside it. The four incoming partial files were additionally
 saved in `af-toolkit\.local-working\access-finish-baseline` before editing.
-Much of the existing access candidate is untracked; `git diff` alone does not show it.
+At intake, much of the access candidate was untracked, so `git diff` alone did not show it.
 Primary checkouts, unrelated theme files, tool source/artifacts, and Guide artwork
 were not edited. Generated QA images are evidence, not product changes.
 
@@ -68,10 +154,12 @@ were not edited. Generated QA images are evidence, not product changes.
   The existing sixty-second maximum permission lifetime, signed invalidation
   webhooks, and fail-closed refresh behavior remain in place.
 
-## Verification
+## Local verification
 
-All tests use local synthetic accounts and signing keys. No live member data,
-emails, subscriptions, or production sessions were changed.
+These local suites used synthetic accounts and signing keys. Their results are
+distinct from the production checks above. Local testing did not send email or
+change live accounts; the subsequent scoped Tuck used existing native sessions
+and sent one test sign-in email without changing subscriptions.
 
 | Check | Result |
 | --- | --- |
@@ -110,14 +198,16 @@ Its destination markup is a minimal fixture after the actual Worker authorizes o
 serves the request. Bridge UI tests use a navigation adapter; the separate HTTPS
 suite proves actual redirects and cookie rules. Neither is a native Ghost email test.
 
-### Not established locally
+### Remaining verification limits
 
-- Native production Portal, actual email delivery/link rewriting/OTP, production
-  cookies, mobile Safari/Firefox, and physical devices have not been tested for
-  this candidate. No claim of a live fix or deployed version is made.
+- Native existing-session handoffs and email sign-in for the existing unsubscribed
+  account passed as recorded above. A subscribed OTP/email roundtrip, an actual
+  new-tab email link, expired real email links, new-signup completion, mobile
+  Safari/Firefox, and physical devices have not been tested for this release.
 - Tuck re-verification found exactly one public Ghost RSA key with a mathematical
   modulus length of 2048 bits. The supplied working signed-in Toolkit handoff is
-  a prior observation; native verification of this candidate remains pending.
+  a prior observation; this release now also passed native Toolkit and Guide
+  handoffs with an existing signed-in Ghost session.
 - Ghost can redirect a **new signup** to its configured free-tier welcome page,
   overriding the initiating page. A read-only Admin API check during Tuck confirmed
   the active free tier's `welcome_page_url` is `/about/`.
@@ -127,13 +217,16 @@ suite proves actual redirects and cookie rules. Neither is a native Ghost email 
 - Real edge latency/cache behavior, existing live webhooks, real unsubscribe
   propagation, and native two-tab email behavior still need production verification.
   Gating activation remains a separate decision after that verification.
+- [AF-25](https://app.notion.com/p/3eb0f293ed9d81f5b0bec4cd173d986e) remains
+  In Progress for sitemap submission and Search Console/Bing discovery checks.
+  The access repair does not finish that separate search-discovery work.
 
 Ghost source supporting the email-return limitation: [redirect selection](https://github.com/TryGhost/Ghost/blob/1c84678c360860e9466dfa785b0cfb77bb3541d3/ghost/core/core/server/services/members/members-api/controllers/router-controller.js#L46-L63),
 [Portal OTP navigation](https://github.com/TryGhost/Ghost/blob/1c84678c360860e9466dfa785b0cfb77bb3541d3/apps/portal/src/actions.js#L204-L218),
 and [signup welcome-page override](https://github.com/TryGhost/Ghost/blob/1c84678c360860e9466dfa785b0cfb77bb3541d3/ghost/core/core/server/services/members/middleware.js#L445-L495).
 These sources do not establish which exact Portal build is deployed.
 
-## Tuck preparation
+## Release review and package evidence
 
 Independent review found no blocking authentication defect. It also identified a
 stale SECURITY.md description and default-deployment drift risk; both are addressed
@@ -159,7 +252,13 @@ Backup SHA-256:
 Local packages and boundary evidence stay outside source commits, under the sibling
 website's `.local-working/access-release-2026-10-05` directory.
 
-## Exact release sequence — authorized by scoped Tuck
+## Release runbook — executed scoped release
+
+The source closeout, configuration checks, packaging, Worker deployments, and
+theme activation below were completed under Ben's scoped Tuck. Native email
+completion passed for the existing unsubscribed account; remaining verification
+limits are explicit above. Keep this runbook as the exact coordinated release and
+rollback procedure, not as permission to deploy again or activate gating.
 
 1. Confirm the current production Worker versions/configuration and save their
    rollback IDs. Verify Toolkit is still `setup`, Guide is still `public`, and the

@@ -1,18 +1,23 @@
 # Dispatch access: release readiness and pending activation
 
-> **October 5, 2026: scoped Tuck authorized; deployment pending.** The current repair and exact
-> release procedure are in [ACCESS-PATCH-2026-10-05.md](ACCESS-PATCH-2026-10-05.md).
-> Ben directly approved local implementation/testing and subsequently requested Tuck,
-> authorizing scoped source closeout, coordinated deployment, and verification.
-> Toolkit stays setup and Guide public. Key/version/live-test statements
-> below are historical; the supplied handoff reports that the public Ghost key is
-> now RSA-2048. No live settings, subscriptions, keys, or gating were changed here.
+> **October 5, 2026: repair deployed; native email sign-in verified.** Current
+> source commits, active Worker versions, CI, live browser/HTTP evidence, rollback,
+> and remaining limits are in [ACCESS-PATCH-2026-10-05.md](ACCESS-PATCH-2026-10-05.md).
+> Toolkit remains setup and Guide public. Existing signed-in handoffs to both sites
+> pass, and the live public key is mathematically RSA-2048. Ben completed email
+> sign-in for the existing unsubscribed test account; the safe target survived and
+> the subsequent handoff correctly denied a member session. Subscribed email and
+> actual new-tab email-link returns remain untested. Subscription, key,
+> security-setting changes, and gating activation remain excluded. All sections
+> below describe the earlier release and must not override the October 5 report.
+
+## Historical preparation and October 1 release record
 
 Prepared September 30, 2026. Ben subsequently authorized deployment and ended the
 OpenAI collaboration hold. **The access infrastructure and Guide URLs are deployed,
 but the subscriber gate is still off because native Ghost sign-in fails the key-strength
-check. Both applications remain public.** The live status below supersedes the
-historical preparation and account-only notes.
+check. Both applications remain public.** This was the October 1 status; the
+October 5 report above supersedes it.
 
 ## Authorized release: October 1, 2026 UTC
 
