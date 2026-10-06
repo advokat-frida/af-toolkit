@@ -2,7 +2,7 @@
 
 ## Status and authority
 
-**Prepared locally; not deployed.** Ben explicitly requested a goal to enable
+**Activation candidate; not deployed.** Ben explicitly requested a goal to enable
 gating, the tasks needed to reach it, and implementation. This supersedes the
 earlier access-repair instruction to keep Toolkit setup and Guide public.
 Keys, unrelated security settings, artwork, and unrelated work remain protected.
@@ -26,11 +26,11 @@ anonymous-preview canonical correction is included in this Guide release.
 
 ## Candidate and invariant review
 
-Both repositories use `codex/dispatch-gating`. Toolkit starts at `354af90`,
-including the subsequently shipped AF-22 Word-link fixes. Guide starts at
-`0623b5d`. AF-18 is completing a separate Toolkit release; preserve its incoming
-main and public artifacts before activation, and refresh the rollback version.
-Do not redeploy the older access-repair Toolkit snapshot.
+Both repositories use `codex/dispatch-gating`. Toolkit activation commit `f6eb166`
+was integrated with released AF-18 main `f10f8281` as `b4b9cf3d`, preserving AF-22
+and every AF-18 public artifact and tool source byte. Guide activation and the
+approved AF-25 metadata correction passed CI and merged through PR #4 as
+`fed6ee7a`, from candidate `8d161989`. Do not redeploy older access snapshots.
 
 Toolkit's ordinary `wrangler.jsonc` now selects `ACCESS_MODE=gated`. Guide's
 ordinary config selects `worker.gated.mjs`, `ACCESS_MODE=gated`, and
@@ -48,20 +48,22 @@ browser cannot be recalled.
 Independent review found no substantive blockers in the activation diff at
 Toolkit base `354af903` and Guide base `0623b5d6`. The reviewer independently
 passed seven Toolkit routing and 17 Guide access tests, and verified the Guide
-metadata/artwork boundary. Reconcile and review the resulting Toolkit candidate
-after AF-18 lands before merging activation.
+metadata/artwork boundary. A follow-up review at `b4b9cf3d` confirmed the four-file
+activation configuration/test delta is byte-identical to the reviewed `f6eb166`
+patch, while public, access, routing, Worker, and all tool source trees exactly
+match released AF-18 main. No substantive findings remain.
 
 ## Completed verification
 
 | Layer | Checked result |
 | --- | --- |
-| Toolkit complete gate | Passed: 41 tests, 38 syntax files, 137 static assertions, four-width rendered QA, state proofs, and style census. |
+| Toolkit complete gate | Passed again after AF-18 integration: 41 tests, 38 syntax files, 137 static assertions, four-width rendered QA, all 16 state proofs, and style census. Current rendered proofs were inspected and retained privately. |
 | Focused access tests | 15 passed. |
 | Shared workerd/RPC/SQLite integration | 37 passed. Synthetic local warm median 10.44 ms, p95 14.52 ms; these are not production latency measurements. |
 | Guide gate | 25 passed after AF-25 integration; all 102 original artwork hashes unchanged. The added regression covers 16 routes in four access modes. |
 | Candidate packaging | Both default Wrangler deployment dry-runs passed without upload. |
 | Local browser QA | 37 captures and eight return-link checks passed; no overflow, broken visible images, or external requests. Desktop and phone gated previews were directly inspected. |
-| Prepared guest release verifier | 182 local assertions passed, including all 96 nonpreview artwork files, direct tool files, invalid cookies, and conditional/range requests. Production run remains pending activation. |
+| Prepared guest release verifier | 182 local assertions passed again after AF-18 integration, including all 96 nonpreview artwork files, current direct tool files, invalid cookies, and conditional/range requests. Production run remains pending activation. |
 | Current live prerequisites | Toolkit setup, Guide public, alternate hostnames disabled, and public Ghost RSA modulus mathematically 2048 bits. |
 | Real unsubscribed protocol | 19 assertions passed on both destinations using the existing test member and official Admin-assisted sign-in; no membership change. Exact targets survived and neither destination issued a member session. This is not native email-delivery evidence. |
 | Real subscribed protocol and replay | Both destinations issued Secure, HttpOnly, host-only member sessions and returned to their exact targets. Reusing each consumed ticket with its original browser proof returned 400 and issued no session. |
@@ -108,7 +110,7 @@ permission lifetime. Do not claim cross-host logout from a Ghost-only sign-out.
 
 This is a prepared procedure, not evidence of execution.
 
-1. Preserve the completed prerequisite evidence and reconcile AF-18's release.
+1. Preserve the completed prerequisite and AF-18 integration evidence.
    Re-read live versions, mode, binding names, and disabled alternate-host flags.
    If another release has landed, preserve it and refresh the rollback snapshot.
 2. Review the exact source diff, retain passing gate evidence, and complete source
@@ -138,7 +140,7 @@ The current pre-activation snapshot, read October 6 UTC / October 5 Pacific, is:
 
 | Worker | Version | Mode |
 | --- | --- | --- |
-| `the-toolkit` | `2d500cf5-f079-4e1c-9c52-b2b0ef545a50` | setup, including AF-22 |
+| `the-toolkit` | `9037107a-4c75-4196-90b6-16bf39b9fd1f` | setup, including AF-18 and AF-22 |
 | `af-survival-guide` | `42521793-8f84-4ab6-869d-4974afe65ad1` | public |
 
 If activation fails, restore Guide first, then Toolkit using the verified current
@@ -150,10 +152,10 @@ replace the Ghost theme.
 Set-Location 'C:\Users\Ben\.codex\worktrees\af-subscriber-access\af-survival-guide'
 npx.cmd --no-install wrangler rollback 42521793-8f84-4ab6-869d-4974afe65ad1 --name af-survival-guide --message 'Restore public Guide after gating activation failure'
 Set-Location 'C:\Users\Ben\.codex\worktrees\af-subscriber-access\af-toolkit'
-npx.cmd --no-install wrangler rollback 2d500cf5-f079-4e1c-9c52-b2b0ef545a50 --name the-toolkit --message 'Restore Toolkit setup after gating activation failure'
+npx.cmd --no-install wrangler rollback 9037107a-4c75-4196-90b6-16bf39b9fd1f --name the-toolkit --message 'Restore Toolkit setup after gating activation failure'
 ```
 
-Verify the actual deployments, public access, AF-22 artifact identity, and service
+Verify the actual deployments, public access, AF-18/AF-22 artifact identity, and service
 bindings after rollback. Revert the activation change in source before another
 normal build; a version rollback alone does not change the repository's gated
 defaults. Restore the designated test member to its original unsubscribed state.
