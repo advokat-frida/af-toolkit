@@ -34,7 +34,7 @@ const CORE_TEXT_TAGS = ["dc:title", "dc:subject", "dc:description", "cp:keywords
 // see), or a text element whose content we read and may rewrite.
 // (An empty <w:t/> is self-closing and carries no text; the open-tag pattern refuses it so the
 // match cannot run on to the next </w:t>.)
-const TOKEN_RE = /<w:p\b[^>]*\/>|<w:p\b[^>]*>|<\/w:p>|<w:(?:tab|br|cr)\b[^>]*\/>|(<w:(t|instrText)(?:\s[^>]*[^/])?>)([\s\S]*?)<\/w:\2>/g;
+const TOKEN_RE = /<w:p\b[^>]*\/>|<w:p\b[^>]*>|<\/w:p>|<w:(?:tab|br|cr)\b[^>]*\/>|<w:fldChar\b[^>]*\/>|<w:fldChar\b[^>]*>[\s\S]*?<\/w:fldChar>|(<w:(t|instrText)(?:\s[^>]*[^/])?>)([\s\S]*?)<\/w:\2>/g;
 
 function decodeXml(s) {
   return s
@@ -175,6 +175,7 @@ async function cleanPackage(zip) {
 // attribute's value (valueStart..valueEnd).
 function segmentBody(path, xml) {
   const segments = [];
+  const fields = [];
   let current = null;
   const close = () => { if (current && current.runs.length) segments.push(current); current = null; };
   TOKEN_RE.lastIndex = 0;
@@ -182,18 +183,37 @@ function segmentBody(path, xml) {
   while ((m = TOKEN_RE.exec(xml)) !== null) {
     const tok = m[0];
     if (!m[1]) {
+      if (tok.startsWith("<w:fldChar")) {
+        const type = tok.match(/w:fldCharType="([^"]+)"/)?.[1];
+        if (type === "begin") fields.push({ path, text: "", runs: [], fieldInstruction: true, unlink: [] });
+        const field = fields.at(-1);
+        if (field) field.unlink.push({ start: m.index, end: m.index + tok.length, replacement: "" });
+        if (type === "end" && field) {
+          fields.pop();
+          if (field.runs.length) segments.push(field);
+        }
+        continue;
+      }
       if (tok.startsWith("<w:p") || tok === "</w:p>") { close(); continue; }
       // A tab or break between runs: visible to the scanner, owned by no run.
       if (current) current.text += tok.startsWith("<w:tab") ? "\t" : "\n";
       continue;
     }
-    if (!current) current = { path, text: "", runs: [] };
+    // A field's instruction is separate from its displayed result. Split instructions
+    // still join across runs; the URL must never absorb a label such as "Portfolio".
+    const field = m[2] === "instrText" ? fields.at(-1) : null;
+    if (!field && !current) current = { path, text: "", runs: [] };
+    const target = field || current;
     const text = decodeXml(m[3]);
-    const start = current.text.length;
-    current.text += text;
-    current.runs.push({ openTagStart: m.index, closeTagStart: m.index + tok.lastIndexOf("</w:"), openTag: m[1], start, end: start + text.length });
+    const start = target.text.length;
+    target.text += text;
+    target.runs.push({ openTagStart: m.index, closeTagStart: m.index + tok.lastIndexOf("</w:"), openTag: m[1], start, end: start + text.length });
+    if (field) field.unlink.push({ start: m.index, end: m.index + tok.length, replacement: "" });
   }
   close();
+  // Malformed/unclosed fields still have their text scanned, without removing a
+  // field boundary we cannot pair safely.
+  for (const field of fields) if (field.runs.length) segments.push({ ...field, unlink: [] });
   return segments;
 }
 
@@ -202,6 +222,17 @@ function segmentBody(path, xml) {
 // instruction (<w:fldSimple w:instr=" HYPERLINK &quot;mailto:...&quot; ">).
 function segmentAltText(path, xml) {
   const segments = [];
+  const simpleFields = new Map();
+  const stack = [];
+  for (const m of xml.matchAll(/<w:fldSimple\b[^>]*>|<\/w:fldSimple>/g)) {
+    if (m[0].startsWith("</")) {
+      const open = stack.pop();
+      if (open) simpleFields.set(open.index, [
+        { start: open.index, end: open.index + open[0].length, replacement: "" },
+        { start: m.index, end: m.index + m[0].length, replacement: "" },
+      ]);
+    } else if (!m[0].endsWith("/>")) stack.push(m);
+  }
   const re = /<(?:wp:docPr|pic:cNvPr|w:hyperlink|w:fldSimple)\b[^>]*>/g;
   let m;
   while ((m = re.exec(xml)) !== null) {
@@ -212,7 +243,9 @@ function segmentAltText(path, xml) {
       if (!a[2].trim()) continue;
       const valueStart = m.index + a.index + a[0].indexOf('"') + 1;
       const text = decodeXml(a[2]);
-      segments.push({ path, text, runs: [{ attr: true, valueStart, valueEnd: valueStart + a[2].length, start: 0, end: text.length }] });
+      segments.push({ path, text,
+        ...(a[1] === "w:instr" ? { fieldInstruction: true, unlink: simpleFields.get(m.index) || [] } : {}),
+        runs: [{ attr: true, valueStart, valueEnd: valueStart + a[2].length, start: 0, end: text.length }] });
     }
   }
   return segments;
@@ -229,7 +262,11 @@ function segmentRels(path, xml) {
     if (!t) continue;
     const valueStart = m.index + t.index + t[0].indexOf('"') + 1;
     const text = decodeXml(t[1]);
-    segments.push({ path, text, runs: [{ attr: true, valueStart, valueEnd: valueStart + t[1].length, start: 0, end: text.length }] });
+    const id = rel.match(/\bId="([^"]+)"/)?.[1];
+    const hyperlink = /\bType="[^"]*\/hyperlink"/.test(rel);
+    segments.push({ path, text,
+      ...(hyperlink && id ? { relationship: { id, source: path.replace(/_rels\/(.+)\.rels$/, "$1"), start: m.index, end: m.index + rel.length } } : {}),
+      runs: [{ attr: true, valueStart, valueEnd: valueStart + t[1].length, start: 0, end: text.length }] });
   }
   return segments;
 }
@@ -303,11 +340,26 @@ export function spliceRuns(segment, replacements) {
 export async function buildDOCX(parsed, newRows, edits) {
   const { zip, parts, segments } = parsed.meta;
   const byPart = new Map();
+  const unlinked = new Map();
   segments.forEach((seg, i) => {
     const reps = (edits && edits[i]) || [];
     if (!reps.length) return;
-    const texts = spliceRuns(seg, [...reps].sort((a, b) => a.start - b.start));
     if (!byPart.has(seg.path)) byPart.set(seg.path, []);
+    // A redaction/code is not a destination. Remove the link wiring, retaining its
+    // displayed runs. Synthetic URLs remain usable reserved-domain destinations.
+    const removeWebLink = reps.some((r) => r.detectorId === "url" && r.transform !== "synthetic");
+    if (removeWebLink && seg.relationship) {
+      const rel = seg.relationship;
+      byPart.get(seg.path).push({ start: rel.start, end: rel.end, replacement: "" });
+      if (!unlinked.has(rel.source)) unlinked.set(rel.source, new Set());
+      unlinked.get(rel.source).add(rel.id);
+      return;
+    }
+    if (removeWebLink && seg.unlink?.length && /^\s*HYPERLINK\b/i.test(seg.text)) {
+      byPart.get(seg.path).push(...seg.unlink);
+      return;
+    }
+    const texts = spliceRuns(seg, [...reps].sort((a, b) => a.start - b.start));
     seg.runs.forEach((run, r) => {
       const t = texts[r];
       if (t === seg.text.slice(run.start, run.end)) return;
@@ -315,7 +367,9 @@ export async function buildDOCX(parsed, newRows, edits) {
         // A hyperlink address must stay an address: a redaction mark inside "mailto:" is not one,
         // and Word would offer to repair the file.
         const original = seg.text.slice(run.start, run.end);
-        const value = /^mailto:/i.test(original) && /[\s[\]<>"]/.test(t) ? "mailto:redacted@example.invalid" : t;
+        const value = /^mailto:/i.test(original) && /[\s[\]<>"]/.test(t)
+          ? "mailto:redacted@example.invalid"
+          : removeWebLink && /^(?:https?:\/\/|www\.)/i.test(original) ? "https://redacted.invalid/" : t;
         byPart.get(seg.path).push({ start: run.valueStart, end: run.valueEnd, replacement: encodeAttr(value) });
         return;
       }
@@ -327,6 +381,25 @@ export async function buildDOCX(parsed, newRows, edits) {
   for (const [path, xml] of Object.entries(parts)) {
     let x = xml;
     for (const e of (byPart.get(path) || []).sort((a, b) => b.start - a.start)) x = x.slice(0, e.start) + e.replacement + x.slice(e.end);
+    if (unlinked.has(path)) {
+      // Unwrap only the relationships removed from this part. Internal bookmarks
+      // and Keep links retain their original attributes and formatting.
+      const linkStack = [];
+      x = x.replace(/<\/?w:hyperlink\b[^>]*>/g, (tag) => {
+        if (tag.startsWith("</")) return linkStack.pop() ? "" : tag;
+        const id = tag.match(/\br:id="([^"]+)"/)?.[1];
+        const remove = unlinked.get(path).has(id);
+        // An empty link has no closing tag. Never pair it with the next bookmark.
+        if (!tag.endsWith("/>")) linkStack.push(remove);
+        return remove ? "" : tag;
+      });
+      // Drawing hyperlinks use the same relationship IDs; remove their click/hover
+      // action without changing the picture.
+      x = x.replace(/<(a:hlinkClick|a:hlinkHover)\b([^>]*?)(?:\/>|>[\s\S]*?<\/\1>)/g, (whole, _tag, attrs) => {
+        const id = attrs.match(/\br:id="([^"]+)"/)?.[1];
+        return unlinked.get(path).has(id) ? "" : whole;
+      });
+    }
     zip.file(path, x);
   }
   const arr = await zip.generateAsync({ type: "uint8array", mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" });

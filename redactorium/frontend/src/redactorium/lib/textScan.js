@@ -18,12 +18,30 @@
  */
 
 import { luhnCheck, ssnValid, ibanValid, nhsValid, aadhaarValid } from "./piiPatterns.js";
-import { PLACE_SOURCE } from "./places.js";
+import { PLACE_SOURCE, validPlaceAt } from "./places.js";
 
 const CONTEXT_WINDOW = 32; // characters before a value that a context label may occupy
 
 const MONTHS = "(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|June?|July?|Aug(?:ust)?|Sep(?:t(?:ember)?)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)";
 const STREET_WORDS = "(?:Street|St|Road|Rd|Avenue|Ave|Boulevard|Blvd|Lane|Ln|Drive|Dr|Court|Ct|Way|Place|Pl|Terrace|Ter|Circle|Cir|Parkway|Pkwy|Highway|Hwy|Square|Sq)";
+
+// Keep balanced parentheses in URL paths, but leave surrounding prose punctuation alone.
+function trimWebAddress(value) {
+  let end = value.length;
+  const balance = { ")": 0, "]": 0, "}": 0 };
+  const closing = { "(": ")", "[": "]", "{": "}" };
+  for (const ch of value) {
+    if (closing[ch]) balance[closing[ch]]++;
+    else if (ch in balance) balance[ch]--;
+  }
+  while (end) {
+    const ch = value[end - 1];
+    if (/[.,;:!?'’]/.test(ch)) end--;
+    else if (ch in balance && balance[ch] < 0) { balance[ch]++; end--; }
+    else break;
+  }
+  return value.slice(0, end);
+}
 
 // Each entry: id (matches a DETECTORS id, which supplies the name and citation), a global
 // regex whose group 1 is the value (group 0 may include one consumed boundary character), a
@@ -33,6 +51,17 @@ export const TEXT_PATTERNS = [
     id: "place_us",
     re: new RegExp(`(^|[^\\p{L}\\p{M}\\p{N}_])(${PLACE_SOURCE})`, "gu"),
     score: 0.65,
+    validAt: validPlaceAt,
+  },
+  {
+    id: "url",
+    re: /(^|[^\p{L}\p{M}\p{N}_@])((?:https?:\/\/|www\.)[^\s<>"“”|]+)/giu,
+    score: 0.92,
+    refine: trimWebAddress,
+    valid: (value) => {
+      try { return !!new URL(/^www\./i.test(value) ? `https://${value}` : value).hostname; }
+      catch { return false; }
+    },
   },
   {
     id: "email",
@@ -264,7 +293,7 @@ export function documentScanOptions(parsed, extra = []) {
     }
     const seg = parsed.meta?.segments?.[i];
     const body = parsed.kind !== "docx-structured"
-      || (seg?.path === "word/document.xml" && !seg.runs.some((r) => r.attr));
+      || (seg?.path === "word/document.xml" && !seg.fieldInstruction && !seg.runs.some((r) => r.attr));
     if (!body || opening >= OPENING_LINES) return;
     for (const line of text.split(/\r?\n/)) {
       const name = line.trim();
@@ -289,7 +318,10 @@ export function documentScanOptions(parsed, extra = []) {
  */
 export function resolveOverlaps(found) {
   const byStart = found.slice().sort((a, b) => a.start - b.start || a.end - b.end);
-  const strongestFirst = (a, b) => b.score - a.score || (b.end - b.start) - (a.end - a.start) || a.start - b.start;
+  // A URL owns its complete destination: an email or phone in a query string must
+  // not win and leave the profile path or other identifiers behind.
+  const strongestFirst = (a, b) => Number(b.detectorId === "url") - Number(a.detectorId === "url")
+    || b.score - a.score || (b.end - b.start) - (a.end - a.start) || a.start - b.start;
   const kept = [];
   let run = [];
   let runEnd = -Infinity;
