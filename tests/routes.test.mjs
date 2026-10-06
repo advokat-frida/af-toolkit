@@ -56,15 +56,15 @@ test("the shell's frames, curl and a tool's own assets are left alone", () => {
   assert.equal(redirectFor(at("/tools/safeseed?embed=1"), browser("document")), null, "the flag wins even on a page load");
 });
 
-test("every artifact entry document is on the Worker's must-see list", async () => {
+test("every artifact entry document reaches the Worker before assets", async () => {
   assert.deepEqual([...WORKER_FIRST_PATHS].sort(), [
     "/tools/privacy-wizards-council", "/tools/privacy-wizards-council.html",
     "/tools/redactorium", "/tools/redactorium/", "/tools/redactorium/index.html",
     "/tools/safelist", "/tools/safelist.html",
     "/tools/safeseed", "/tools/safeseed.html"
   ]);
-  const wrangler = await readFile(new URL("../wrangler.jsonc", import.meta.url), "utf8");
-  for (const path of WORKER_FIRST_PATHS) assert.ok(wrangler.includes(`"${path}"`), `wrangler.jsonc runs the Worker first for ${path}`);
+  const wrangler = JSON.parse((await readFile(new URL("../wrangler.jsonc", import.meta.url), "utf8")).replace(/^\s*\/\/.*$/gm, ""));
+  assert.equal(wrangler.assets.run_worker_first, true, "the access entrypoint sees every artifact path before static delivery");
 });
 
 test("the shell is named for the tool it opens, and only there", async () => {

@@ -27,13 +27,22 @@
     "qa": "npm run gate",
     "qa:states": "node scripts/state-proofs.mjs",
     "qa:census": "node scripts/style-census.mjs --check",
-    "qa:census:report": "node scripts/style-census.mjs"
+    "qa:census:report": "node scripts/style-census.mjs",
+    "qa:access": "node scripts/access-integration.mjs",
+    "qa:access:protocol": "node --test tests/integration/access-flow.test.mjs",
+    "qa:access:browser": "node scripts/access-browser-qa.mjs",
+    "qa:access:bridge": "node scripts/access-bridge-qa.mjs",
+    "qa:access:flows": "node scripts/access-flow-browser-qa.mjs"
   },
   "engines": {
     "node": ">=22"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260930.2",
+    "esbuild": "0.28.1",
+    "miniflare": "5.20260930.0-alpha",
     "parse5": "8.0.1",
-    "playwright": "1.63.0"
+    "playwright": "1.63.0",
+    "wrangler": "^4.145.0"
   }
 }

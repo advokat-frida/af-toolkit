@@ -2,9 +2,13 @@
 
 ## Supported state
 
-`main` is the only supported state, and https://toolkit.advokatfrida.com serves exactly what `main`
-builds: a static browser application with no hosted backend, no authentication system, and no
-telemetry. Every served tool file is hash-recorded in `public/tool-sources.json`; see
+`main` is the supported source state for https://toolkit.advokatfrida.com. The tools process
+their inputs in the browser, without sending those inputs to the access service or adding
+tool telemetry. A separate Worker service verifies Ghost member identities and active
+Dispatch subscriptions, and issues host-only sessions using browser-bound, one-use tickets.
+The access repair releases in `setup` mode: tool content remains public and gating is off.
+Ghost sign-in and subscription lookups make network requests; they do not receive tool inputs.
+Every served tool file is hash-recorded in `public/tool-sources.json`; see
 `docs/VERIFYING.md` for how to check that the file you received is the file this repository built.
 
 ## Integration trust boundary
@@ -29,6 +33,7 @@ problem.
 ## Release checks
 
 Every staged artifact is hashed and recorded in `public/tool-sources.json`. GitHub secret scanning
-and push protection watch the repository for secrets. The release gate requires local-only runtime
-behavior with no unexpected external requests, and verifies the exact rendered application before
-push. Public release or deployment requires a separate review.
+and push protection watch the repository for secrets. The release gate requires local-only tool
+processing with no unexpected external requests, tests the separate authentication boundary,
+and verifies the rendered application before push. Public release or deployment requires
+a separate review; enabling subscriber gating is a separate explicit release decision.
