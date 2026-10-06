@@ -1,6 +1,44 @@
 # HANDOFF
 
-## 2026-10-05 - AF-22 Word-link repair released
+## 2026-10-05 - Dispatch subscriber gating released
+
+Both Toolkit and Guide now require an active free Dispatch subscription for
+protected content. Public tool descriptions and selected Guide previews remain
+available. Toolkit [PR #38](https://github.com/advokat-frida/af-toolkit/pull/38)
+merged as `c24cee32`; activation version `8fd0c46e-ff70-4778-941a-558d0851fa97`
+was verified at 100%. Guide PR #4 merged as `fed6ee7a` and deployed gated version
+`9a3de839-bf99-4ea8-953d-d966eec58ab2`. Later documentation builds may assign a
+new Toolkit version without changing the verified application bytes.
+
+The full Toolkit gate passed after integrating released AF-18; independent
+review confirmed all public assets and tool sources were preserved exactly.
+Live checks passed 182 guest, 102 subscriber/revocation, and 19 fresh-unsubscribed
+assertions, plus desktop and 390px browser inspection. Real consumed tickets
+rejected replay. After native unsubscribe, existing session cookies lost protected
+file access in 6,831 ms on Toolkit and 7,062 ms on Guide. The designated test
+member is restored to unsubscribed, and its isolated Ghost browser session is
+signed out. Ghost's forced free-tier welcome URL was cleared with Ben's direct
+approval. Keys, bindings, migrations, and host-only sessions are preserved.
+
+See [activation, coverage limits, and rollback](ACCESS-ACTIVATION-2026-10-05.md)
+for exact evidence. AF-32/33/34 own gating closeout. AF-25 remains separate for
+Google's actual sitemap-processing result; its existing follow-up is already
+scheduled. Do not reopen implementation or duplicate that follow-up.
+
+## 2026-10-05 - AF-18 and AF-22 acceptance status
+
+AF-18 is Done after PR #26 (`f10f8281`) and live desktop, phone, and keyboard
+checks. Its approved layout and complete public artifacts are included unchanged
+in the gated release.
+
+[AF-22](https://app.notion.com/p/3ea0f293ed9d81d5a0f9d39af7ecacdf) is Done.
+Ben accepted the exact exported DOCX and approved the five-node Ghost article
+correction; the saved correction and public rendering were verified in that task.
+The already-sent email is unchanged. Full evidence and remaining future-send
+preview/audit limits are in the existing Notion record. These completed decisions
+supersede the pending-acceptance statements in the historical sections below.
+
+## 2026-10-05 - AF-22 Word-link repair released (historical checkpoint)
 
 Ben approved the supplied-resume fix, then requested tuck. [PR #37](https://github.com/advokat-frida/af-toolkit/pull/37)
 merged reviewed `a6582d9` as `0f8bab0f9904ef6ebbd12b6e6366432fe0bad8ae`.

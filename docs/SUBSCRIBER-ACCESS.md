@@ -1,10 +1,11 @@
 # Dispatch access and Guide discovery
 
-> **October 5, 2026: subscriber-gating activation in progress.** Ben has now
-> authorized enabling gating. The default configuration selects gated mode;
-> production is still Toolkit setup and Guide public while activation checks finish.
+> **October 5, 2026: subscriber gating deployed and verified.** Both production
+> hosts require an active free Dispatch subscription for protected content. Public
+> descriptions and selected Guide previews remain available. Default deployments
+> preserve gated mode.
 > [ACCESS-ACTIVATION-2026-10-05.md](ACCESS-ACTIVATION-2026-10-05.md) records the
-> current candidate, verification boundaries, deployment procedure, and rollback.
+> source and release evidence, verification boundaries, deployment procedure, and rollback.
 > [ACCESS-PATCH-2026-10-05.md](ACCESS-PATCH-2026-10-05.md) preserves the completed
 > repair release and flow contract. Earlier restrictions below are historical.
 

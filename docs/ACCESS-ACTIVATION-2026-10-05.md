@@ -2,7 +2,7 @@
 
 ## Status and authority
 
-**Activation candidate; not deployed.** Ben explicitly requested a goal to enable
+**Deployed and verified.** Ben explicitly requested a goal to enable
 gating, the tasks needed to reach it, and implementation. This supersedes the
 earlier access-repair instruction to keep Toolkit setup and Guide public.
 Keys, unrelated security settings, artwork, and unrelated work remain protected.
@@ -26,11 +26,12 @@ anonymous-preview canonical correction is included in this Guide release.
 
 ## Candidate and invariant review
 
-Both repositories use `codex/dispatch-gating`. Toolkit activation commit `f6eb166`
+Both repositories used `codex/dispatch-gating`. Toolkit activation commit `f6eb166`
 was integrated with released AF-18 main `f10f8281` as `b4b9cf3d`, preserving AF-22
 and every AF-18 public artifact and tool source byte. Guide activation and the
 approved AF-25 metadata correction passed CI and merged through PR #4 as
-`fed6ee7a`, from candidate `8d161989`. Do not redeploy older access snapshots.
+`fed6ee7a`, from candidate `8d161989`. Toolkit PR #38 passed every check and merged
+as `c24cee32`. Do not redeploy older access snapshots.
 
 Toolkit's ordinary `wrangler.jsonc` now selects `ACCESS_MODE=gated`. Guide's
 ordinary config selects `worker.gated.mjs`, `ACCESS_MODE=gated`, and
@@ -63,8 +64,8 @@ match released AF-18 main. No substantive findings remain.
 | Guide gate | 25 passed after AF-25 integration; all 102 original artwork hashes unchanged. The added regression covers 16 routes in four access modes. |
 | Candidate packaging | Both default Wrangler deployment dry-runs passed without upload. |
 | Local browser QA | 37 captures and eight return-link checks passed; no overflow, broken visible images, or external requests. Desktop and phone gated previews were directly inspected. |
-| Prepared guest release verifier | 182 local assertions passed again after AF-18 integration, including all 96 nonpreview artwork files, current direct tool files, invalid cookies, and conditional/range requests. Production run remains pending activation. |
-| Current live prerequisites | Toolkit setup, Guide public, alternate hostnames disabled, and public Ghost RSA modulus mathematically 2048 bits. |
+| Guest release verifier | 182 assertions passed both locally and on gated production: public descriptions/previews, all 96 nonpreview artwork files, current direct tool files, invalid cookies, and conditional/range requests. |
+| Live configuration | Both active versions are gated at 100%, alternate hostnames remain disabled, bindings are preserved, and the public Ghost RSA modulus is mathematically 2048 bits. |
 | Real unsubscribed protocol | 19 assertions passed on both destinations using the existing test member and official Admin-assisted sign-in; no membership change. Exact targets survived and neither destination issued a member session. This is not native email-delivery evidence. |
 | Real subscribed protocol and replay | Both destinations issued Secure, HttpOnly, host-only member sessions and returned to their exact targets. Reusing each consumed ticket with its original browser proof returned 400 and issued no session. |
 | Real unsubscribe propagation | After the approved native Ghost unsubscribe/save, existing Toolkit and Guide sessions lost handoff authorization in 6,533 ms and 6,826 ms respectively. These are live setup/public-mode authorization checks, before protected delivery is enabled. |
@@ -77,12 +78,56 @@ Private proofs and sanitized protocol results are under
 `.local-working/access-activation/`; no credentials, identity JWTs, session
 cookies, or magic-link values are committed or included in those receipts.
 
-## Remaining release checks
+## Production release and acceptance
 
-The designated test member was restored to unsubscribed after the first
-revocation test, then temporarily subscribed again for native email and final
-post-activation checks. Restore it to unsubscribed before completion. The cleared
-welcome URL is the intended persistent setting.
+| Product | Source merge | Activation version, verified at 100% |
+| --- | --- | --- |
+| Toolkit | [PR #38](https://github.com/advokat-frida/af-toolkit/pull/38), `c24cee32f0d0c053685cb7b4a17c6ebb502b7593` | `8fd0c46e-ff70-4778-941a-558d0851fa97` |
+| Guide | [PR #4](https://github.com/advokat-frida/survival-guide/pull/4), `fed6ee7a68e450eedee9fd728a74ae2895ec11f3` | `9a3de839-bf99-4ea8-953d-d966eec58ab2` |
+
+Toolkit's connected main build activated first. Its public invitation and 401
+protected-runtime denial were verified before the Guide deployment. Guide uploaded
+exactly the 13 changed preview files; no artwork changed. Both merged-source CI
+runs passed. Later documentation-only Toolkit builds may assign a newer version
+ID while preserving these exact runtime/configuration bytes.
+
+The gated subscriber/revocation client passed **102 assertions**. All 27 staged
+tool files, current shell script/style/provenance, all 16 full Guide pages, its
+catalog, and two protected original-art samples matched local source. Five tool
+HTML files contain Cloudflare's previously documented hidden `/cdn-cgi/content`
+anchor; only that exact single anchor and known attributes were removed for
+comparison. The original mismatch was in the verifier, not a runtime change.
+
+Both real one-use tickets rejected replay with the original browser proof.
+After native Ghost unsubscribe/save, requests retaining the original application
+cookies received 401 with no protected bytes in **6,831 ms for Toolkit** and
+**7,062 ms for Guide**, measured from the start of the UI action. A fresh
+unsubscribed sign-in then passed 19 denial assertions across both destinations.
+Ghost admin and API readback confirm the designated member is restored to
+`subscribed=false` with no newsletters. Other members were not changed.
+
+Live subscriber and unsubscribed browser views passed desktop and 390px viewport
+inspection. Toolkit menu opening, Escape/focus return, and Guide section controls
+worked. The unsubscribed bridge correctly recognized the signed-in account and
+requested enabling The Dispatch, preserving the exact safe destination.
+
+Five warm protected HTTP requests per host measured median **213 ms Toolkit**
+and **210 ms Guide**, with maxima 279 ms and 257 ms. These include network and body
+delivery; they do not isolate production authorization overhead. The earlier local
+runtime measurements remain a separate result.
+
+Mode and bindings were read from the **active deployment's version resources**.
+The script-settings endpoint can describe a newly uploaded PR version that is
+not serving traffic; it alone is not production-mode evidence.
+
+## Verification limits and cleanup
+
+The test member was restored after the completed live revocation check. Its
+isolated Ghost browser session was signed out through Portal; the bare access
+page then showed guest Subscribe free and Sign in controls. This does not claim
+cross-host cookie removal. The cleared welcome URL is the intended persistent setting. Approved artwork,
+AF-18/AF-22 tool artifacts, keys, migration history, and host-only sessions remain
+intact.
 
 Ben was asked to open the email link in a new tab and confirmed sign-in. The
 observed final browser state proves the exact Guide return, but does not
@@ -92,15 +137,9 @@ Fresh-account signup, Safari/Firefox, and physical devices remain untested.
 Local suites cover expiry, concurrency, unsafe redirects, replay, bounded
 recovery, and mathematical RSA key-size boundaries.
 
-Post-activation protected delivery and revocation, plus production warm-request
-latency, remain pending. Earlier handoff timings are end-to-end network timings,
-not isolated authorization overhead.
-
-After activation, verify guest descriptions and selected previews remain visible;
-direct tool files, full catalogs, nonpreview artwork, encoded paths, and cached
-responses cannot disclose protected bytes; subscribed sessions work on both
-hosts; and the designated test membership is restored. Do not label the ordinary
-Guide `scripts/verify-live.mjs` as a gated test: it expects public full content.
+The ordinary Guide `scripts/verify-live.mjs` expects public full content and was
+not used as the gated-release verdict. The dedicated guest and subscriber checks
+above establish the production result.
 
 Ghost sign-out and application-session revocation are different operations.
 Application cookies are host-only; active membership is rechecked within the
@@ -108,7 +147,9 @@ permission lifetime. Do not claim cross-host logout from a Ghost-only sign-out.
 
 ## Exact deployment sequence
 
-This is a prepared procedure, not evidence of execution.
+The coordinated release followed this order. Toolkit used the connected main
+build; Guide used the explicit deployment command. The commands below remain
+available for an authorized manual redeployment.
 
 1. Preserve the completed prerequisite and AF-18 integration evidence.
    Re-read live versions, mode, binding names, and disabled alternate-host flags.
