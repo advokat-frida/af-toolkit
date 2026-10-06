@@ -1,17 +1,22 @@
 # Dispatch access and Guide discovery
 
-> **October 5, 2026: scoped Tuck authorized; deployment pending.** See
+> **October 5, 2026: repair deployed; native email sign-in verified.** See
 > [ACCESS-PATCH-2026-10-05.md](ACCESS-PATCH-2026-10-05.md) for the current flow
-> contract, verified local results, limitations, and coordinated release procedure.
-> The release and signing-key statements below describe the earlier deployment.
-> Ben subsequently requested scoped Tuck. Toolkit stays setup; Guide stays public;
-> gating activation and subscription/key/security-setting changes remain excluded.
+> contract, source and live release evidence, rollback, and remaining verification.
+> Toolkit and Guide native existing-session handoffs pass. Ben completed email
+> sign-in for the existing unsubscribed account; its subsequent handoff correctly
+> denied a member session while retaining the safe destination. Subscribed email
+> and actual new-tab email-link returns remain untested. Toolkit stays setup;
+> Guide stays public. Gating activation and subscription/key/security-setting
+> changes remain excluded. Release/key statements immediately below are historical.
+
+## Historical September 30 / October 1 status
 
 Ben approved preparation on September 30, 2026 and subsequently authorized deployment,
 ending the OpenAI collaboration hold. The implementation uses a 60-second maximum
 subscription-permission lifetime. The changes remain uncommitted in isolated worktrees.
 
-**Current release:** the access infrastructure and Guide collection URLs are deployed,
+**October 1 release:** the access infrastructure and Guide collection URLs were deployed,
 but both applications remain public until Ghost's pending 2048-bit member-signing key
 becomes active and the real login/revocation checks pass. Toolkit's explicit `setup` mode
 enables sign-in and signed webhooks without restricting application access. Guide runs
