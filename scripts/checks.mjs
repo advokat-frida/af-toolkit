@@ -160,7 +160,7 @@ export async function runStaticChecks() {
   results.push(check(index.includes('<link rel="canonical" href="https://toolkit.advokatfrida.com/" />'), "Home carries its canonical address"));
   results.push(check(js.includes("adoptLegacyHash") && js.includes("replaceState") && js.includes("popstate"), "script adopts legacy hash links and handles history"));
   const wrangler = JSON.parse((await readFile(join(candidateRoot, "wrangler.jsonc"), "utf8")).replace(/^\s*\/\/.*$/gm, ""));
-  results.push(check(wrangler.main === "access/entrypoint.mjs" && wrangler.vars.ACCESS_MODE === "setup" && wrangler.assets.binding === "ASSETS" && wrangler.assets.run_worker_first === true && wrangler.assets.not_found_handling === "none", "the access entrypoint stays in public setup mode, and a missing file still 404s"));
+  results.push(check(wrangler.main === "access/entrypoint.mjs" && wrangler.vars.ACCESS_MODE === "gated" && wrangler.assets.binding === "ASSETS" && wrangler.assets.run_worker_first === true && wrangler.assets.not_found_handling === "none", "the access entrypoint gates every asset before delivery, and a missing file still 404s"));
 
   // Fonts: committed in-repo, present, and recorded.
   const fontNames = [

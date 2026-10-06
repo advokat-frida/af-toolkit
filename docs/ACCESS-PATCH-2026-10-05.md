@@ -1,5 +1,10 @@
 # Ghost access repair — October 5, 2026
 
+> Historical repair receipt. Ben subsequently authorized subscriber-gating
+> activation; see [the activation record](ACCESS-ACTIVATION-2026-10-05.md) for
+> its current status, prerequisites, deployment procedure, and rollback.
+> The boundaries below apply to the earlier repair release.
+
 **Deployed; native email sign-in verified.** Ben first approved local inspection,
 implementation, and testing directly in this chat after review of the earlier
 forwarded-approval rejection. After the local report, Ben explicitly requested

@@ -1,5 +1,10 @@
 # Dispatch access: release readiness and pending activation
 
+> **Newer activation work:** Ben has now authorized enabling subscriber gating.
+> [ACCESS-ACTIVATION-2026-10-05.md](ACCESS-ACTIVATION-2026-10-05.md) is the current
+> candidate and deployment record. The repair and preparation records below
+> preserve their original scope and do not override that newer authorization.
+
 > **October 5, 2026: repair deployed; native email sign-in verified.** Current
 > source commits, active Worker versions, CI, live browser/HTTP evidence, rollback,
 > and remaining limits are in [ACCESS-PATCH-2026-10-05.md](ACCESS-PATCH-2026-10-05.md).

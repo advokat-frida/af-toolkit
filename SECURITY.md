@@ -6,7 +6,10 @@
 their inputs in the browser, without sending those inputs to the access service or adding
 tool telemetry. A separate Worker service verifies Ghost member identities and active
 Dispatch subscriptions, and issues host-only sessions using browser-bound, one-use tickets.
-The access repair releases in `setup` mode: tool content remains public and gating is off.
+The default deployment configuration requires an active free Dispatch subscription for
+protected tool files. Public descriptions remain available without a session. Source
+configuration is not a live-release receipt; see
+[the activation record](docs/ACCESS-ACTIVATION-2026-10-05.md) for verified production status.
 Ghost sign-in and subscription lookups make network requests; they do not receive tool inputs.
 Every served tool file is hash-recorded in `public/tool-sources.json`; see
 `docs/VERIFYING.md` for how to check that the file you received is the file this repository built.

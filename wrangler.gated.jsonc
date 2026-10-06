@@ -1,6 +1,5 @@
 {
-  // Future gating configuration. October 5 scoped Tuck keeps gating disabled.
-  // Use wrangler.jsonc for the setup-mode access repair; never deploy this bare.
+  // Explicit alias of the default subscriber-gated deployment configuration.
   "name": "the-toolkit",
   "account_id": "cb1ac95c9e831d81b100a38a06ce879f",
   "main": "access/entrypoint.mjs",
